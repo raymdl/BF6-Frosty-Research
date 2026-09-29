@@ -24,7 +24,7 @@ support the moving-ADS penalty on Interdictor and Mini Scout Slim Angled.
 
 Current attachment generation:
 
-- [Physical slots and equipment dependencies](frosty-attachment-compatibility.json) (14 September): 1,391 offered mount choices, 22 generated rules on four weapons, and all 285 inspected dependency entries, including 263 unsupported/unmapped secondary-sight entries. [PP-19 trace](../../docs/archive/PP19_53_ROUND_COMPATIBILITY_2026-09-14.md) and [curated asset findings](../../docs/frosty/DATA_GRAPH.md#slots-and-prerequisites) retain the source and observed-behavior boundaries.
+- [Physical slots and equipment dependencies](frosty-attachment-compatibility.json) (14 September): 1,391 offered mount choices, 22 generated rules on four weapons, and all 285 inspected dependency entries, including 263 unsupported/unmapped secondary-sight entries. [PP-19 trace](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/archive/PP19_53_ROUND_COMPATIBILITY_2026-09-14.md) and [curated asset findings](../../docs/frosty/DATA_GRAPH.md#slots-and-prerequisites) retain the source and observed-behavior boundaries.
 
 - [Barrel ADS](frosty-barrel-ads-generated.json): 233 unique selections.
 - [Grip/laser/magazine handling](frosty-attachment-handling-generated.json): 1,487 selections and 5,489 generated fields.
@@ -40,8 +40,8 @@ original snapshot status; they are not rewritten when an implementation changes.
 
 These files record source snapshots and reviews. The browser does not fetch them.
 File dates alone do not determine which values are accepted for runtime use. See
-[data sources](../../docs/DATA_SOURCES.md) for promotion policy and
-[model limitations](../../docs/MODEL_LIMITATIONS.md) for unresolved behavior.
+[data sources](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/DATA_SOURCES.md) for promotion policy and
+[model limitations](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/MODEL_LIMITATIONS.md) for unresolved behavior.
 
 | Family | Representative records and purpose |
 |---|---|
@@ -57,18 +57,18 @@ File dates alone do not determine which values are accepted for runtime use. See
 Evidence arrays contain raw rows, source hashes, identity candidates, comparisons,
 observations, and decisions for their recorded snapshot. They are excluded from
 runtime stat ladders. The complete live array inventory is in
-[data reference](../../docs/DATA_REFERENCE.md), with all finite table values in
-[stat ladders](../../docs/STAT_LADDERS.md).
+[data reference](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/DATA_REFERENCE.md), with all finite table values in
+[stat ladders](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/STAT_LADDERS.md).
 
 For local XML paths recorded before the export move, see the
-[current Frosty export location](../../docs/DATA_SOURCES.md#local-frosty-export-location).
+[current Frosty export location](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/DATA_SOURCES.md#local-frosty-export-location).
 Resolve those inputs under the new root; retain the original evidence records.
 
 Source hashes identify original inputs. Site/comparison hashes can predate the
 integration they motivated. Preserve those hashes when the current files change. The original local XML, SDK and capture directories
 are not all present in a clean checkout. Narrative context is preserved in the
-[research archive](../../docs/archive/README.md); screenshot-audit JSON/workbook and its
-separate validator live in the [attachment audit package](../attachment-audit/README.md).
+[research archive](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/archive/README.md); screenshot-audit JSON/workbook and its
+separate validator live in the [attachment audit package](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/reference-data/attachment-audit/README.md).
 
 ## Site input audit — 23 September 2026
 
@@ -105,9 +105,9 @@ were removed after commit `b3040e7`; recover them from that commit if needed.
 ## Weapon Attributes — 21 September 2026
 
 Current behavior and evidence links are maintained in the
-[Weapon Attributes model](../../docs/WEAPON_ATTRIBUTES_MODEL.md). Completed
+[Weapon Attributes model](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/WEAPON_ATTRIBUTES_MODEL.md). Completed
 research and the A/B capture plan are indexed in the
-[documentation archive](../../docs/archive/README.md#weapon-attributes--21-september-2026).
+[documentation archive](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/archive/README.md#weapon-attributes--21-september-2026).
 Versioned extraction files, capture results and hashes stay here as evidence;
 they are not active task lists. `data/weapon_attributes.json` is the runtime
 subset of the Precision tables, shotgun angles and Mobility inputs. The browser
@@ -115,5 +115,5 @@ does not fetch this provenance directory.
 
 [Corrected GRT-BC direction review](grtbc-direction-review-2026-09-21.json) retains
 measured comparisons, model hypotheses, and source-image hashes. The
-[analysis report](../../docs/working/GRTBC_RECOIL_PATTERN_REVIEW.md) explains why
+[analysis report](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/working/GRTBC_RECOIL_PATTERN_REVIEW.md) explains why
 burst gameplay activation remains unresolved.

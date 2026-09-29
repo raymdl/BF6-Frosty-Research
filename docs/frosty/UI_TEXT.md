@@ -1,6 +1,6 @@
 # UI text: names, descriptions and labels
 
-[Frosty docs](README.md) · [Field map](FIELD_MAP.md) · [Tools](TOOLS.md) · [Data sources](../DATA_SOURCES.md)
+[Frosty docs](README.md) · [Field map](FIELD_MAP.md) · [Tools](TOOLS.md) · [Data sources](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/DATA_SOURCES.md)
 
 How the site resolves English weapon names, attachment and optic names, labels and
 descriptions from BF6 game data, and what the current site mapping contains.
@@ -162,7 +162,7 @@ All 63 records in `data/weapons.json` include `description`, shown in weapon but
 comparison heading tooltips. Keep the source distinction (61 Frosty, 2 screenshot
 transcriptions) when refreshing.
 
-**Role tags.** [data/weapon-role-tags.json](../../data/weapon-role-tags.json) keeps
+**Role tags.** [data/weapon-role-tags.json](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/data/weapon-role-tags.json) keeps
 style, range and firing tags; reference data only. A record with a package image is
 primary. PW7A2's base record says Mid Range (the panel agrees); its SP Suppressed record
 says Close Range. Mini Scout: `UIWeaponAbilityMetaData` says Mid Range and `S1B1` says
@@ -342,9 +342,9 @@ choices, 350 optic categories.
 The game names this system **Weapon Attributes**. The four bars are Hipfire,
 Precision, Control and Mobility. Calculation assets use `WeaponAttributesConfig_*`;
 UI assets include `WeaponAttributes`, `WeaponAttributesCell` and
-`WeaponAttributeProgressBar`. The current [model guide](../WEAPON_ATTRIBUTES_MODEL.md)
+`WeaponAttributeProgressBar`. The current [model guide](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/WEAPON_ATTRIBUTES_MODEL.md)
 separates source facts from inferred rules. Historical research is covered in
-[composite stats findings](../archive/COMPOSITE_STATS_FINDINGS.md). The UI side:
+[composite stats findings](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/archive/COMPOSITE_STATS_FINDINGS.md). The UI side:
 
 | Asset | Content |
 |---|---|

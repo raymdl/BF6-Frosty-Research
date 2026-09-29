@@ -10,7 +10,7 @@ the latest review rows below supersede them.
 
 **This is a one-time record of the 1.4.3.0 update.** The reusable procedure, including
 the decoding problem and its solution, is in
-[docs/GAME_UPDATE_GUIDE.md](../GAME_UPDATE_GUIDE.md). Use that for the next update and
+[docs/GAME_UPDATE_GUIDE.md](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/GAME_UPDATE_GUIDE.md). Use that for the next update and
 read this one for what was specifically done, found and decided here.
 
 ## Objective and agreed scope
@@ -131,7 +131,7 @@ Completion condition: the collection has explicit inputs and destinations, and u
 - [x] Produce a change report with asset/field, old value, new value, source evidence and practical effect. Separate byte changes, decoder changes, numeric changes, additions/removals and unresolved interpretations.
 - [x] If a decoder change could explain an XML difference, compare with consistent decoding where possible. A different raw hash alone does not establish a changed weapon stat.
 - [x] Add new findings or superseding evidence without erasing old scoped conclusions. Mark affected findings for review when assets or dependencies change.
-- [ ] Recheck the [attachment bug list](../ATTACHMENT_BUGS.md). Rerun `scripts/frosty-multi-package-scan.py`; retrace the sniper and SMG Slim Angled, fast/regular magazine and M121 A2/M45A1 FMJ selector packages; confirm the three `linked-text-differs-from-panel` tooltips still match the live panels; check that the AK-205 UGL Mount branch is still unoffered; and compare magazine shifts relative to each default magazine. All assets these checks use were captured before the update.
+- [ ] Recheck the [attachment bug list](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/ATTACHMENT_BUGS.md). Rerun `scripts/frosty-multi-package-scan.py`; retrace the sniper and SMG Slim Angled, fast/regular magazine and M121 A2/M45A1 FMJ selector packages; confirm the three `linked-text-differs-from-panel` tooltips still match the live panels; check that the AK-205 UGL Mount branch is still unoffered; and compare magazine shifts relative to each default magazine. All assets these checks use were captured before the update.
 
 Relevant existing consumers include `frosty-configuration.py`, `frosty-grx-field-names.py`, `frosty-attachment-handling.py`, `frosty-barrel-ads.py`, `frosty-sniper-brakes.py`, `frosty-hit-zones.py`, `frosty-ballistics.py`, `frosty-global-operands.py`, `frosty-precision-tables.py`, `frosty-attachment-tooltips.py`, `frosty-attachment-compatibility.py` and `frosty-material-grid-inventory.py`, under `scripts/`. This list identifies work areas, not a verified command sequence. Read current arguments and dependencies before execution.
 

@@ -1,12 +1,12 @@
 # Frosty source checks and stored spread bounds — handoff
 
-> Archived record. Current work is tracked in the [active handoff](../working/BF6_RECOIL_SPREAD_RECORDING_HANDOFF.md); implemented behavior is documented in the [live guides](../README.md). Statements in this record describe their original analysis stage.
+> Archived record. Current work is tracked in the [active handoff](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/working/BF6_RECOIL_SPREAD_RECORDING_HANDOFF.md); implemented behavior is documented in the [live guides](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/README.md). Statements in this record describe their original analysis stage.
 
 Initial status recorded 10 September 2026 at `32800ef`. On 11 September 2026, the
 operator approved including these stored-spread and source-recheck changes in the
 timed-recoil release. The investigation and original validation below are retained
-as evidence. Current behavior is documented in [recoil and spread](../RECOIL_SPREAD_MODEL.md)
-and [stat ladders](../STAT_LADDERS.md).
+as evidence. Current behavior is documented in [recoil and spread](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/RECOIL_SPREAD_MODEL.md)
+and [stat ladders](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/STAT_LADDERS.md).
 
 ## Objective and decisions
 
@@ -115,7 +115,7 @@ raw selector/default configuration was unresolved. Matched standing screenshots
 now show VSSM and M4A1 at 81 px, AK4D at 103 px, and M39 EMR at 136 px. This
 supports raw index 4. The override was removed and stored minima changed to
 `1.804 / 2.255`; moving remains a source-row inference. See the
-[VSSM recording analysis](VSSM_RECORDING_ANALYSIS_2026-09-11.md). This later
+[VSSM recording analysis](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/archive/VSSM_RECORDING_ANALYSIS_2026-09-11.md). This later
 correction is separate from the completed global moving-ADS override removal.
 
 For the collaborator, the useful follow-up is source paths, object GUIDs, raw

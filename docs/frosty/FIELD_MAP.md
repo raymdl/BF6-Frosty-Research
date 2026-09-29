@@ -1,6 +1,6 @@
 # Frosty field map
 
-[Frosty docs](README.md) · [Tools](TOOLS.md) · [Game update guide](../GAME_UPDATE_GUIDE.md)
+[Frosty docs](README.md) · [Tools](TOOLS.md) · [Game update guide](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/GAME_UPDATE_GUIDE.md)
 
 BF6 EBX field and class names are hashes (`Field_xxxxxxxx`, `Class_xxxxxxxx`,
 `Struct_xxxxxxxx`). This page is the single list of hashes with a known or probable
@@ -212,7 +212,7 @@ Row fields are in the [Precision report](../../reference-data/provenance/frosty-
 ## Fields that change without a gameplay meaning
 
 These fields change between builds for reasons other than stats. Ignore them in diffs
-(from the [game update guide](../GAME_UPDATE_GUIDE.md#stage-5--diff-correctly)).
+(from the [game update guide](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/GAME_UPDATE_GUIDE.md#stage-5--diff-correctly)).
 
 | Cause | Fields |
 |---|---|

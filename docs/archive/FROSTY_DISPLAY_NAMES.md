@@ -1,6 +1,6 @@
 # Weapon and attachment UI text from Frosty
 
-[Documentation index](../README.md) · [Data sources](../DATA_SOURCES.md) · [Maintenance](../../MAINTENANCE.md)
+[Documentation index](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/README.md) · [Data sources](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/DATA_SOURCES.md) · [Maintenance](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/MAINTENANCE.md)
 
 This guide explains how to resolve English weapon display names and attachment
 labels and descriptions from game data. The 13 September 2026 results are in

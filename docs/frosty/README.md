@@ -105,7 +105,7 @@ Do not create a new document for each investigation. In the same session:
 | An unanswered question | A row in [open questions](OPEN_QUESTIONS.md); delete it when answered |
 | A conclusion about one asset | `reference-data/frosty/asset-findings.json` (append; do not delete old findings) |
 | The values and hashes behind a result | A new dated JSON file in `reference-data/provenance/` (never edit it later) |
-| A game data error | [Attachment bugs](../ATTACHMENT_BUGS.md) |
+| A game data error | [Attachment bugs](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/ATTACHMENT_BUGS.md) |
 
 Use `docs/working/` only for work that spans several sessions, and archive the file when
 the work is done. Topic pages are not dated; state the build or date next to a result
@@ -113,13 +113,13 @@ when it matters.
 
 ## Related
 
-- [Weapon Attributes model](../WEAPON_ATTRIBUTES_MODEL.md): four-bar calculations, current evidence and site-card mapping.
+- [Weapon Attributes model](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/WEAPON_ATTRIBUTES_MODEL.md): four-bar calculations, current evidence and site-card mapping.
 
-- [Game update guide](../GAME_UPDATE_GUIDE.md): the step order after a game update.
-- [Data sources](../DATA_SOURCES.md): how Frosty data becomes site data.
-- [Attachment bugs](../ATTACHMENT_BUGS.md): game data errors found with Frosty.
+- [Game update guide](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/GAME_UPDATE_GUIDE.md): the step order after a game update.
+- [Data sources](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/DATA_SOURCES.md): how Frosty data becomes site data.
+- [Attachment bugs](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/ATTACHMENT_BUGS.md): game data errors found with Frosty.
 - [`reference-data/frosty/`](../../reference-data/frosty/README.md): asset watchlist and
   per-asset findings (JSON).
 - [`reference-data/provenance/`](../../reference-data/provenance/README.md): dated
   evidence reports.
-- [Archive](../archive/README.md): the dated investigation records these pages replace.
+- [Archive](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/archive/README.md): the dated investigation records these pages replace.

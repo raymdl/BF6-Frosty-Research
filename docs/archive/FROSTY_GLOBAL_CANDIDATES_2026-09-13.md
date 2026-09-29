@@ -19,7 +19,7 @@ deferred, unimplemented and pre-publication statements are superseded by this st
 
 Light evidence: [field names](../../reference-data/provenance/frosty-light-field-names-2026-09-13.json),
 [source coverage](../../reference-data/provenance/frosty-light-implementation-2026-09-13.json),
-and [implemented equations](../RECOIL_SPREAD_MODEL.md#light-hipfire-source-factors).
+and [implemented equations](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/RECOIL_SPREAD_MODEL.md#light-hipfire-source-factors).
 
 ## Historical investigation checkpoints
 
@@ -128,7 +128,7 @@ what was completed and the specific remaining boundary.
   byte match, 327 candidate ammo results, and the unresolved M121 A2 selection.
 - [Current hit-zone trace](../../reference-data/provenance/frosty-hit-zones-2026-09-13.json)
   records the corrected 328-entry roster used by the ballistics generator.
-- [Runtime ballistics](../../data/ballistics.json) records the exact trace hash,
+- [Runtime ballistics](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/data/ballistics.json) records the exact trace hash,
   projectile XML hashes, and generated weapon/ammo selection maps.
 
 XML source root: `C:/Users/royal/Documents/BF6 Datamining/Frosty Exports/1.4.2.5`, labelled 1.4.2.5.

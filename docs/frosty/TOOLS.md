@@ -1,9 +1,9 @@
 # Frosty tools and exports
 
-[Frosty docs](README.md) · [Field map](FIELD_MAP.md) · [Game update guide](../GAME_UPDATE_GUIDE.md)
+[Frosty docs](README.md) · [Field map](FIELD_MAP.md) · [Game update guide](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/GAME_UPDATE_GUIDE.md)
 
 How to export and decode BF6 game data safely. The step order for a game update is in
-the [game update guide](../GAME_UPDATE_GUIDE.md); this page is the tool reference.
+the [game update guide](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/GAME_UPDATE_GUIDE.md); this page is the tool reference.
 
 ## Locations
 
@@ -54,7 +54,7 @@ Neither result assigns a semantic name from a matching number alone.
 
 From the Analyzer repository, pass `--root "../BF6 Datamining/builds/<build>/xml"` to
 tools that read the XML tree. Older reports keep old absolute paths; the
-[path map](../DATA_SOURCES.md#local-frosty-export-location) gives the current location.
+[path map](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/DATA_SOURCES.md#local-frosty-export-location) gives the current location.
 
 ## Build snapshots
 
@@ -110,7 +110,7 @@ Build only FrostyCmd, so the existing FrostySdk and FrostyHash builds stay uncha
 ## Procedure
 
 1. **Build check.** Run `frosty-build.py guard <open build> --game "<game>"`. If it
-   stops after a game update, follow the [game update guide](../GAME_UPDATE_GUIDE.md#stage-1--identify-the-new-build)
+   stops after a game update, follow the [game update guide](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/GAME_UPDATE_GUIDE.md#stage-1--identify-the-new-build)
    (`client-check`, then either add the hotfix client or seal and create a new build).
 2. **Cache.** After an update, rename `Caches\bf6.cache` (for example
    `bf6-1.4.2.5.cache`) before the first export. Frosty only patches a cache whose head
@@ -467,7 +467,7 @@ baseline.
 | Optic render FOV and iron-sight zoom | Method in [Attachments](ATTACHMENTS.md#optic-render-fov-and-zoom) | `frosty-optic-render-fov-2026-09-16.json` |
 | Weapon display names | [UI text](UI_TEXT.md) | `frosty-weapon-display-names-2026-09-13.json` |
 | Handling, barrel ADS, sniper brakes | `scripts/frosty-attachment-handling.py`, `scripts/frosty-barrel-ads.py`, `scripts/frosty-sniper-brakes.py` | The matching `*-generated.json` reports |
-| Slots and prerequisites | `scripts/frosty-attachment-compatibility.py` ([maintenance command](../../MAINTENANCE.md#regenerate-attachment-modifiers)) | `frosty-attachment-compatibility.json` |
+| Slots and prerequisites | `scripts/frosty-attachment-compatibility.py` ([maintenance command](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/MAINTENANCE.md#regenerate-attachment-modifiers)) | `frosty-attachment-compatibility.json` |
 | Arrays, damage, draw time, spread | `node --test scripts/source-arrays.test.mjs scripts/damage.test.mjs scripts/draw-time.test.mjs scripts/spread-distribution.test.mjs` | `frosty-array-review-2026-09-09.json`, `frosty-damage-curve-review-2026-09-13.json`, `frosty-draw-time-2026-09-09.json` |
 | Site ammo effect audit | `python scripts/frosty-site-ammo-tier-audit.py --report-dir "<external audit directory>" --out "<new receipt path>"` | `frosty-site-ammo-effects-2026-09-23.json`; research outputs only |
 | Watchlist | `python scripts/frosty-watchlist-merge.py --datamining "<datamining root>"` (dry run; add `--write`) | `reference-data/frosty/asset-watchlist.json` |

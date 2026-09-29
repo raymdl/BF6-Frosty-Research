@@ -6,7 +6,7 @@ results and open questions) is in [`docs/frosty/`](../../docs/frosty/README.md).
 
 `asset-watchlist.json` is the shared collection plan. It is an initial seed, not a completed export or proof that all listed references affect gameplay.
 
-After a game update, follow [docs/GAME_UPDATE_GUIDE.md](../../docs/GAME_UPDATE_GUIDE.md). Record per-asset results in the `record.assets` of the lead's receipt (see below) and everything else in the `docs/frosty/` pages.
+After a game update, follow [docs/GAME_UPDATE_GUIDE.md](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/GAME_UPDATE_GUIDE.md). Record per-asset results in the `record.assets` of the lead's receipt (see below) and everything else in the `docs/frosty/` pages.
 
 ## Current seed
 
@@ -56,7 +56,7 @@ Research results are in the topic pages under [`docs/frosty/`](../../docs/frosty
 - [Open questions](../../docs/frosty/OPEN_QUESTIONS.md): everything still unresolved.
 
 Anomaly scans are described in the
-[game update guide](../../docs/GAME_UPDATE_GUIDE.md#stage-6--consistency-scans).
+[game update guide](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/GAME_UPDATE_GUIDE.md#stage-6--consistency-scans).
 
 ## Scope
 

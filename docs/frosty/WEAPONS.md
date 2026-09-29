@@ -3,8 +3,8 @@
 [Frosty docs](README.md) · [Field map](FIELD_MAP.md) · [Data graph](DATA_GRAPH.md) · [Open questions](OPEN_QUESTIONS.md)
 
 What the game data says about weapon-level values, and how the site uses it. The model
-equations live in the model guides ([damage and ballistics](../DAMAGE_BALLISTICS.md),
-[recoil and spread](../RECOIL_SPREAD_MODEL.md), [stat ladders](../STAT_LADDERS.md));
+equations live in the model guides ([damage and ballistics](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/DAMAGE_BALLISTICS.md),
+[recoil and spread](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/RECOIL_SPREAD_MODEL.md), [stat ladders](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/STAT_LADDERS.md));
 this page covers the source side. The native equations are in game code, which was not
 examined; all findings use exported values and their structure.
 
@@ -450,7 +450,7 @@ still require separate runtime evidence before use.
 - `ZDA_Moving_Weapons` holds the moving ADS rows; GS `MovingZoomedMinAnglesArrayIndex`
   (`Field_d94fe6ad`) selects the row. Hip rows: `UnzoomedMinAnglesArrayIndex`
   (`Field_fe708077`). Column meanings are in the [field map](FIELD_MAP.md#weapon-stats-gs-and-wb)
-  and [stat ladders](../STAT_LADDERS.md).
+  and [stat ladders](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/STAT_LADDERS.md).
 - Distribution exponent: 0.5 in all 252 source states except Interdictor moving ADS
   (0.67). The site samples `r = spread · U^exponent`.
 
@@ -529,7 +529,7 @@ minimum, as in the site's `applySpreadRecovery`.
 - **AK4D check.** From exported values only, the time from the last shot to the minimum
   is 0.199 s with the not-firing branch, 0.425 s firing, 0.103 s idle and 1.201 s with the
   generic branch. Recordings show about 0.21 s
-  ([analysis](../archive/RECORDING_REUSE_ANALYSIS_2026-09-12.md)), which supports a
+  ([analysis](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/archive/RECORDING_REUSE_ANALYSIS_2026-09-12.md)), which supports a
   switch to not-firing recovery soon after the burst and no idle before about 0.2 s.
 
 ### No per-shot increase: semi-auto and deployed
@@ -1039,7 +1039,7 @@ on 13 September to document these without model changes.
 The Precision tables are in `GlacierGameConfiguration/settings`
 ([field map](FIELD_MAP.md#composite-stat-tables-glaciergameconfigurationsettings),
 [report](../../reference-data/provenance/frosty-precision-tables-2026-09-14.json)).
-The investigation is in [composite stats findings](../archive/COMPOSITE_STATS_FINDINGS.md).
+The investigation is in [composite stats findings](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/archive/COMPOSITE_STATS_FINDINGS.md).
 
 The [current raw comparison](../../reference-data/provenance/frosty-site-precision-2026-09-23.json)
 checks the site's 63 Precision tables against exact settings object GUIDs. All
@@ -1082,7 +1082,7 @@ python scripts/frosty-global-operands.py --root '<Frosty export root>' --out ref
 
 ### Current Weapon Attributes model
 
-Use [Weapon Attributes model](../WEAPON_ATTRIBUTES_MODEL.md) for the four menu bars:
+Use [Weapon Attributes model](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/WEAPON_ATTRIBUTES_MODEL.md) for the four menu bars:
 Hipfire uses its own dispersion ladder and an inferred increase-per-shot gate;
 Control uses unrounded ADS recoil amount and variation; Precision uses per-weapon
 1.4.3.0 lookup tables; Mobility weights deploy, ADS animation, sprint recovery,

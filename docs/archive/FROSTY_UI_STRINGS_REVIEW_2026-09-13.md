@@ -42,7 +42,7 @@ Interdictor 120m-150m (`A89AE617`).
 
 ### Role tags
 
-[data/weapon-role-tags.json](../../data/weapon-role-tags.json) keeps the three tags
+[data/weapon-role-tags.json](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/data/weapon-role-tags.json) keeps the three tags
 per weapon: style, range and firing. It is reference data only.
 
 - A record with a package image is primary.

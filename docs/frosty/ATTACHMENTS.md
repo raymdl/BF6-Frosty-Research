@@ -1,10 +1,10 @@
 # Attachment and optic data in Frosty
 
-[Frosty docs](README.md) · [Field map](FIELD_MAP.md) · [Data graph](DATA_GRAPH.md) · [Attachment bugs](../ATTACHMENT_BUGS.md) · [Open questions](OPEN_QUESTIONS.md)
+[Frosty docs](README.md) · [Field map](FIELD_MAP.md) · [Data graph](DATA_GRAPH.md) · [Attachment bugs](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/ATTACHMENT_BUGS.md) · [Open questions](OPEN_QUESTIONS.md)
 
 What the game data says about attachments and optics, and which site values are
-generated from it. The site model is in the [attachment model](../ATTACHMENT_MODEL.md);
-game data errors are in [attachment bugs](../ATTACHMENT_BUGS.md). The link path from a
+generated from it. The site model is in the [attachment model](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/ATTACHMENT_MODEL.md);
+game data errors are in [attachment bugs](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/ATTACHMENT_BUGS.md). The link path from a
 site choice to its modifiers is in the [data graph](DATA_GRAPH.md).
 
 ## Exhaustive source census (1.4.3.0)
@@ -162,7 +162,7 @@ this review; conservative descriptor-layout warnings remain.
 
 All generators accept `--root <Frosty export root>`; most accept `--check` for a
 read-only comparison. They stop when a generated field loses its source mapping or the
-input hashes change. Commands: [maintenance](../../MAINTENANCE.md#regenerate-attachment-modifiers).
+input hashes change. Commands: [maintenance](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/MAINTENANCE.md#regenerate-attachment-modifiers).
 
 ### Handling details
 
@@ -286,7 +286,7 @@ do not prove native absence. See the attachment-bug records for those observatio
 A raw byte search confirms the PP-19 result: `GS_PP19` does not contain the
 `U_WPM_MZL_FlashCompensator_W15` selector GUID, while the `GS_UMP40` control does.
 It is bound on 39 of the 40 Flash Comp weapons. This is the same kind of binding
-omission as the L115 suppressor; see [attachment bugs](../ATTACHMENT_BUGS.md) #6, which also has the operator report.
+omission as the L115 suppressor; see [attachment bugs](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/ATTACHMENT_BUGS.md) #6, which also has the operator report.
 
 ### Current grip and barrel field review (1.4.3.0, 23 September 2026)
 
@@ -759,7 +759,7 @@ composition and unresolved field meanings remain open.
 ## Weapon Attributes attachment tracing (21 September 2026)
 
 The source review covers saved builds 1.4.2.5 and 1.4.3.0. See the
-[Weapon Attributes model](../WEAPON_ATTRIBUTES_MODEL.md) for calculations and limits.
+[Weapon Attributes model](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/WEAPON_ATTRIBUTES_MODEL.md) for calculations and limits.
 
 - **Tungsten Core:** M2010 ESR, PSR and SV-98 select
   `GRM_Recoil_AMO_Bolt_M10` (−6 ADS/hip recoil amount steps). L115 and Interdictor
@@ -967,7 +967,7 @@ Mini Scout penetration −7 is the sum of `GRM_Recoil_AMO_M10` −1 and
 `GRM_Recoil_AMO_Bolt_M10` −6. `GS_MiniFix` binds each light selector to two
 identical hip modifiers (`GBM_Increase_Hip_S1` and `_A40`). A screen of all GS
 files finds same-family double bindings only there. The penetration pair stacks
-in game ([bug 13](../ATTACHMENT_BUGS.md#13-sniper-tungsten-core-recoil-penalties-are-inconsistent)),
+in game ([bug 13](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/ATTACHMENT_BUGS.md#13-sniper-tungsten-core-recoil-penalties-are-inconsistent)),
 so the light pair probably does too, giving 0.444 rather than 0.667. No displayed
 value changes: the bloom recovers in about 0.07 s against a 1.27 s shot interval,
 and the panel Hipfire factor does not depend on the size of the change.

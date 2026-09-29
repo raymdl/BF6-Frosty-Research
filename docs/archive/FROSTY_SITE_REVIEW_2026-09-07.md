@@ -1,6 +1,6 @@
 # Site data and Frosty review — 7 September 2026
 
-> Archived record. Current work is tracked in the [active handoff](../working/BF6_RECOIL_SPREAD_RECORDING_HANDOFF.md); implemented behavior is documented in the [live guides](../README.md). Statements in this record describe their original analysis stage.
+> Archived record. Current work is tracked in the [active handoff](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/working/BF6_RECOIL_SPREAD_RECORDING_HANDOFF.md); implemented behavior is documented in the [live guides](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/README.md). Statements in this record describe their original analysis stage.
 
 The current site agrees with most directly mapped Frosty data. It still has specific attachment differences and known simulation limits. The screenshot audit is a separate reference dataset; correcting it does not change the site.
 

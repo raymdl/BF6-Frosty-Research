@@ -1,6 +1,6 @@
 # Open Frosty questions
 
-[Frosty docs](README.md) · [Weapons](WEAPONS.md) · [Attachments](ATTACHMENTS.md) · [Attachment bugs](../ATTACHMENT_BUGS.md)
+[Frosty docs](README.md) · [Weapons](WEAPONS.md) · [Attachments](ATTACHMENTS.md) · [Attachment bugs](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/ATTACHMENT_BUGS.md)
 
 The single list of open questions about the game data. Add new questions here, not in
 separate files. When a question is answered, move the result to the topic page and
@@ -13,8 +13,8 @@ known.
 Active investigations with their own files:
 
 - [Ranked in-game capture plan](../working/BF6_CAPTURE_PRIORITIES.md) (current priorities and test steps)
-- [Recoil and spread recordings](../working/BF6_RECOIL_SPREAD_RECORDING_HANDOFF.md)
-- [Composite stats](../archive/COMPOSITE_STATS_FINDINGS.md) (includes which native
+- [Recoil and spread recordings](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/working/BF6_RECOIL_SPREAD_RECORDING_HANDOFF.md)
+- [Composite stats](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/archive/COMPOSITE_STATS_FINDINGS.md) (includes which native
   provider supplies Precision)
 
 ## Field meanings
@@ -62,7 +62,7 @@ Active investigations with their own files:
 | SGX CQB/Long and Mini Scout Short sway: source gates the site values on canted iron sights ([L94](../../reference-data/provenance/frosty-2026-09-26-L94-optic-accessory-and-local-sight-sway.json)); removed 26 September | Optional: SGX CQB versus no muzzle with an optic, ADS sway pair. |
 | Sway and ADS: camera versus aim motion; VSSM regular barrel has a GS +1 ADS binding but no WB effect (site 250 ms on both barrels) | [23 September source review](ATTACHMENTS.md#vssm-barrel-ads-follow-up-1430-23-september-2026) keeps the two paths separate. Measure regular/ASM barrel ADS with factory optic and fixed magazine, or decode the native GS consumer. |
 | Sniper Tungsten: intended balance across weapons remains unknown; source-specific −6/−1/−7 steps are now implemented and panel-checked | Further gameplay captures can test shot behavior; they cannot establish design intent. |
-| Slim Angled on L115, Mini Scout, Interdictor: does the second `GID_ADSTime_BTM_P10` binding stack? | Panels show one ADS tier ([bug 1a](../ATTACHMENT_BUGS.md#1a-sniper-rifles-full-angled-package-selected)). |
+| Slim Angled on L115, Mini Scout, Interdictor: does the second `GID_ADSTime_BTM_P10` binding stack? | Panels show one ADS tier ([bug 1a](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/ATTACHMENT_BUGS.md#1a-sniper-rifles-full-angled-package-selected)). |
 | Order of several modifiers on one field | No record combines two operations, so it cannot be seen in the data. |
 | BROD 3 `TreatedBarrel` (label **Cryo**): offered in game? The site has no Cryogenic option | [Source identity/default confirmed](ATTACHMENTS.md#unmatched-branch-follow-up-1430-23-september-2026); check the BROD 3 barrel menu or active availability consumer. |
 | M4A1 plain `ERG_Magwell`: player-facing purpose | Source branch selects an empty default part and is distinct from FlaredMagwell; [review](ATTACHMENTS.md#unmatched-branch-follow-up-1430-23-september-2026). A direct menu or consumer trace is still needed. |
@@ -126,7 +126,7 @@ the 16 caller assets are indexed in `asset-findings.json`.
 - Mobility uses ADS animation index, not necessarily the zoom-transition index.
   L115 bases are 2 and 1 respectively. The runtime score now preserves this distinction.
 
-Current scope and evidence: [Weapon Attributes model](../WEAPON_ATTRIBUTES_MODEL.md).
+Current scope and evidence: [Weapon Attributes model](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/WEAPON_ATTRIBUTES_MODEL.md).
 
 ### Burst recoil activation (21 September 2026)
 

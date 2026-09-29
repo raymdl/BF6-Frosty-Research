@@ -234,7 +234,7 @@ manual shared-slot assignments and adds general prerequisite enforcement.
 
 See the [compatibility evidence](../../reference-data/provenance/frosty-attachment-compatibility.json),
 [Frosty findings](../frosty/DATA_GRAPH.md#slots-and-prerequisites),
-and [maintenance command](../../MAINTENANCE.md#regenerate-attachment-modifiers).
+and [maintenance command](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/MAINTENANCE.md#regenerate-attachment-modifiers).
 The focused 45-test attachment/share suite, regeneration and data checks passed;
 browser checks covered PP-19 grip removal/restoration and KORD device replacement.
 
@@ -312,6 +312,6 @@ PSR/SV-98 Slim Angled and KS18K Slim Angled now use moving-ADS index addition -1
 On 14 September, L115, Mini Scout and Interdictor Slim Angled were added after the
 selector-package trace and HUD captures, and the AK-205 Underslung Mount was removed
 (current totals: 1,487 handling selections, 5,489 fields, 1,391 mount choices). See
-the [description mismatch list](../ATTACHMENT_BUGS.md).
+the [description mismatch list](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/ATTACHMENT_BUGS.md).
 The comparison counts above and historical comparison JSON describe the
 pre-change snapshot. They must not be used as current unresolved-field counts.

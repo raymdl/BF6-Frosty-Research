@@ -431,6 +431,8 @@ def derive_binding(ctx):
         text = p.read_text(encoding='utf-8', errors='replace')
         site.update(hashes[h] for h in set(HEX64.findall(text)) if h in hashes)
         site.update(n for n in set(re.findall(r'[A-Za-z0-9._-]+\.json', text)) if n in ctx.receipts)
+    if ctx.split:  # a receipt the site repo keeps a copy of is site-bound (covers tests that find receipts by pattern)
+        site.update(n for n in ctx.receipts if (ctx.site / 'reference-data/provenance' / n).exists())
     return {n: ('site' if n in site else 'research') for n in ctx.receipts}
 
 def flatten(o, p=''):

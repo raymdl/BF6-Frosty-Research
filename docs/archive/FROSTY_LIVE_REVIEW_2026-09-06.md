@@ -244,4 +244,4 @@ Exact section measurements, sample addresses, hash hits and limitations are in r
 
 ## Public research follow-up
 
-See [Online blocker review](BLOCKER_ONLINE_REVIEW_2026-09-06.md) for the public-source search, community experiment limits, circular-source exclusions, and the new Portal measurement lead. The inspected SDK exposes ammo, firing state, facing direction and match time; measurement precision and ballistic meaning are not yet validated. No formula was promoted.
+See [Online blocker review](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/archive/BLOCKER_ONLINE_REVIEW_2026-09-06.md) for the public-source search, community experiment limits, circular-source exclusions, and the new Portal measurement lead. The inspected SDK exposes ammo, firing state, facing direction and match time; measurement precision and ballistic meaning are not yet validated. No formula was promoted.
