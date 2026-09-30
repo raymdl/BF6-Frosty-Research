@@ -1,0 +1,430 @@
+{
+  "lead": "L131",
+  "date": "2026-09-29",
+  "status": "reviewed-source-finding",
+  "build": {
+    "release": "1.4.3.0",
+    "head": 4892017,
+    "descriptorSha256": "91c9ea7c3dd830e34a78123c8bb7485e80eefdb18fc9c7ee41117971d23565c2"
+  },
+  "question": "Do the captured TacticalWeaponMovement feature and simulation/presentation expressions expose weapon-dependent aiming or firing-readiness behavior that can support a useful movement/handling comparison?",
+  "scope": {
+    "expected": 3,
+    "examined": 3,
+    "notes": [
+      "All three scoped release roots decoded with the pinned Head 4892017 descriptor.",
+      "Six direct one-hop assets were selected; the selected-chain check passed all 19 import assertions.",
+      "The six-target cap is exhausted. No additional target was followed."
+    ]
+  },
+  "control": {
+    "description": "Known-answer m433 ADS recoil amount control: GS_HK433 raw f32 at offset 1084; descriptor path /Field_c5d1c8fe/Field_6b84de87/Field_22810b21 and L127 provenance child GS_HK433.Recoil.Zoomed.RecoilAmount.",
+    "passed": true,
+    "rawChecks": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+        "rawSha256": "66caca0e667d17fdf03f9fb4f620b9c5842aa1fd8de0221128ad4862895eed51",
+        "offset": 1084,
+        "type": "f32",
+        "bytesHex": "5a642b3f",
+        "value": 0.6694999933242798
+      }
+    ],
+    "reference": {
+      "sitePointer": "data/weapons.json:/[id=m433]/recoil/ads/amount",
+      "siteValue": 0.6695,
+      "serializedValue": 0.6694999933242798,
+      "registryChild": "GS_HK433.Recoil.Zoomed.RecoilAmount"
+    }
+  },
+  "sourceFacts": {
+    "roots": [
+      {
+        "asset": "Common/Gameplay/Soldier/FL_Soldier/TacticalWeaponMovement/DiceFeature_TacticalWeaponMovement",
+        "rawSha256": "8acd81728f220ee318eda8fe45f0824a3edfa304acd204868a88bdb4816feb95",
+        "objectCount": 2,
+        "finding": "The feature imports the exact scoped SimEx and PresEx file/object GUIDs.",
+        "imports": [
+          {
+            "objectIndex": 0,
+            "path": "Field_d2b8fc26/Field_a07bc334",
+            "fileGuid": "886ca350-91d9-4f8e-8ccb-da305d6715eb",
+            "classGuid": "0bb21b18-d2d7-4972-ad6d-3f973c4f7b54",
+            "target": "SimEx_TacticalWeaponMovement",
+            "exactJoin": true
+          },
+          {
+            "objectIndex": 1,
+            "path": "Field_6e2bdf2b",
+            "fileGuid": "6dce98c7-ad48-45a1-84ed-57f84d6eab3c",
+            "classGuid": "f77b76b5-49d1-4d06-b915-963eaff8e610",
+            "target": "PresEx_TacticalWeaponMovement",
+            "exactJoin": true
+          }
+        ],
+        "rawPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection-review-2026-09-16\\raw\\Common\\Gameplay\\Soldier\\FL_Soldier\\TacticalWeaponMovement\\DiceFeature_TacticalWeaponMovement.ebx"
+      },
+      {
+        "asset": "Common/Gameplay/Soldier/FL_Soldier/TacticalWeaponMovement/SimEx_TacticalWeaponMovement",
+        "rawSha256": "33486d1ae7f1217ffca160127e787d78a58074999217ee49c64cc92741d5394f",
+        "objectCount": 27,
+        "finding": "SimEx declares named mounted/aim state channels and imports movement settings and source channels. Its compiled operations are not semantically decoded.",
+        "declaredChannels": [
+          "IsMountedAiming: Int",
+          "MountBreakoutProgress: Float",
+          "MountAimBreakoutProgress: Float",
+          "CheckMountAfterStanceTransition: Bool",
+          "CheckMountAfterStanceTransitionDelay: Float",
+          "IsMountConnected: Bool",
+          "WasMounted: Bool",
+          "AimYaw @ Start [PACKED]: Int",
+          "WasMountSpamBlock: Bool",
+          "WasMountedSpamDelay: DiceExpressionStruct",
+          "WasMountedReset: Bool",
+          "WasMountedSpamReset: Bool",
+          "WasMounted: DiceExpressionStruct"
+        ],
+        "nodeTypeLabels": [
+          "GetWeaponBasicStateNode"
+        ],
+        "directImports": {
+          "grxSettings": [
+            "TWM.FilterAngle(up)",
+            "TWM.MountBreakoutDelay",
+            "TWM.MountAimBreakoutDelay",
+            "TWM.PhysicSphereQueryAtEdgeLoopDuration",
+            "TWM.ClearMountPathFromHead"
+          ],
+          "options": [
+            "OptionMountPreset",
+            "OptionMountBreakout",
+            "OptionMountType"
+          ],
+          "soldierChannels": [
+            "CurrentStance",
+            "TargetStance"
+          ],
+          "commonChannels": [
+            "LinearVelocity",
+            "WarpClipTarget1",
+            "RootTransform"
+          ]
+        },
+        "rawPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection-review-2026-09-16\\raw\\Common\\Gameplay\\Soldier\\FL_Soldier\\TacticalWeaponMovement\\SimEx_TacticalWeaponMovement.ebx"
+      },
+      {
+        "asset": "Common/Gameplay/Soldier/FL_Soldier/TacticalWeaponMovement/PresEx_TacticalWeaponMovement",
+        "rawSha256": "fbee4e1b3089455c520ee13cc1b81b4c00000fe2bbc35cf7f567f33f15c9c7b0",
+        "objectCount": 32,
+        "finding": "PresEx declares mounted/aim presentation channels and directly imports FilterAngle(up), ClearMountPathFromHead, OptionMountPreset, and OptionMountType. The expression graph is not executed.",
+        "directImports": [
+          "TWM.FilterAngle(up)",
+          "TWM.ClearMountPathFromHead",
+          "OptionMountPreset",
+          "OptionMountType"
+        ],
+        "rawPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection-review-2026-09-16\\raw\\Common\\Gameplay\\Soldier\\FL_Soldier\\TacticalWeaponMovement\\PresEx_TacticalWeaponMovement.ebx"
+      }
+    ],
+    "typedParameters": [
+      {
+        "name": "TWM.FilterAngle(up)",
+        "classGuid": "03fbd1ad-28d5-4728-b8aa-85fc2226b05e",
+        "objectIndex": 195,
+        "fields": [
+          {
+            "fieldHash": "3ff76ddb",
+            "type": "f32",
+            "value": 45.0,
+            "role": "unassigned",
+            "rawCheckIndexes": [
+              0
+            ]
+          },
+          {
+            "fieldHash": "42c8b257",
+            "type": "f32",
+            "value": 30.0,
+            "role": "unassigned",
+            "rawCheckIndexes": [
+              1
+            ]
+          },
+          {
+            "fieldHash": "c06d0cbb",
+            "type": "f32",
+            "value": 0.0,
+            "role": "unassigned",
+            "rawCheckIndexes": [
+              2
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TWM.MountBreakoutDelay",
+        "classGuid": "f27b51bd-2fa9-497d-86e9-9f3fcbca686f",
+        "objectIndex": 211,
+        "fields": [
+          {
+            "fieldHash": "42c8b257",
+            "type": "Struct",
+            "role": "unassigned",
+            "members": [
+              {
+                "fieldHash": "ffba60f0",
+                "type": "Array<Float32>",
+                "value": [
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "rawCheckIndexes": [
+                  11,
+                  12,
+                  13
+                ]
+              }
+            ]
+          },
+          {
+            "fieldHash": "c06d0cbb",
+            "type": "f32",
+            "value": 0.0,
+            "role": "unassigned",
+            "rawCheckIndexes": [
+              3
+            ]
+          },
+          {
+            "fieldHash": "3ff76ddb",
+            "type": "f32",
+            "value": 0.0,
+            "role": "unassigned",
+            "rawCheckIndexes": [
+              4
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TWM.MountAimBreakoutDelay",
+        "classGuid": "34df1a59-6a38-43f2-a161-7114d54a692c",
+        "objectIndex": 98,
+        "fields": [
+          {
+            "fieldHash": "3ff76ddb",
+            "type": "f32",
+            "value": 0.0,
+            "role": "unassigned",
+            "rawCheckIndexes": [
+              5
+            ]
+          },
+          {
+            "fieldHash": "42c8b257",
+            "type": "f32",
+            "value": 0.3,
+            "role": "unassigned",
+            "rawCheckIndexes": [
+              6
+            ]
+          },
+          {
+            "fieldHash": "c06d0cbb",
+            "type": "f32",
+            "value": 0.0,
+            "role": "unassigned",
+            "rawCheckIndexes": [
+              7
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TWM.PhysicSphereQueryAtEdgeLoopDuration",
+        "classGuid": "ac64edaa-0928-492e-b0ad-0274aadc8786",
+        "objectIndex": 190,
+        "fields": [
+          {
+            "fieldHash": "3ff76ddb",
+            "type": "f32",
+            "value": 0.0,
+            "role": "unassigned",
+            "rawCheckIndexes": [
+              8
+            ]
+          },
+          {
+            "fieldHash": "42c8b257",
+            "type": "f32",
+            "value": 0.5,
+            "role": "unassigned",
+            "rawCheckIndexes": [
+              9
+            ]
+          },
+          {
+            "fieldHash": "c06d0cbb",
+            "type": "f32",
+            "value": 0.0,
+            "role": "unassigned",
+            "rawCheckIndexes": [
+              10
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TWM.ClearMountPathFromHead",
+        "classGuid": "34f77928-62fc-4339-b622-520828035cf7",
+        "objectIndex": 41,
+        "fields": [
+          {
+            "fieldHash": "42c8b257",
+            "type": "bool",
+            "value": true,
+            "role": "unassigned",
+            "rawCheckIndexes": [
+              14
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "inference": [
+    "The decoded labels and direct imports establish a source-named mounted/tactical context. They do not establish expression evaluation or runtime activation.",
+    "A GetWeaponBasicStateNode label alone does not prove a weapon-specific comparison or firing-readiness condition.",
+    "The typed settings can be considered as operator-reviewed context alongside L108 mounted recoil evidence, but L131 does not define a comparison suitable for an Analyzer site proposal."
+  ],
+  "unresolved": [
+    "No validated reader establishes compiled expression operations, evaluation order, or the meaning of GetWeaponBasicStateNode in this graph.",
+    "The direct imports and labels do not establish a weapon-dependent aim or firing-readiness comparison, a firing restriction, or a link to a specific site weapon.",
+    "The generic TWM tuple field roles (including presumed value/default/bounds roles) are unassigned. Delay units and composition are unresolved; MountBreakoutDelay remains a typed nested struct payload.",
+    "Option assets list choices, but no selected preset, mount type, or breakout choice is established.",
+    "Source serialization does not establish runtime activation, composition, or native behavior.",
+    "Direct imports OptionPeekType, DQD_VehicleVelocity, and KillSwitches_CH1 were not followed; the six-target cap was reached. Their omission is not a negative finding.",
+    "Other fire/weapon-named channels present in the broad channel collection were not established as direct imports by these scoped roots.",
+    "No 63-weapon GS/WB crosswalk scan or site edits were performed."
+  ],
+  "siteImpact": "No site data or code change is justified. The source adds named mounted/tactical context alongside the separate L108 GRM_MountedPlus source modifiers, but does not identify a source-backed comparison to add to Analyzer standing/moving or sprint-recovery inputs. No capture requested.",
+  "workerEvidence": {
+    "folder": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T101403-0400-astra\\L131",
+    "resultSha256": "6e5b8be11ebcb0023ae9b41380dfeb5a2f188023bc6c0661256105938e582b82",
+    "draftReceiptSha256": "f79706e70b8bb759643cd22e0e203a6adb9449fe6b7eb5be4ebf3242078d6887",
+    "operandChecks": {
+      "file": "l131-raw-operand-check.json",
+      "sha256": "a8c95d58728451944414bbb40d6a48c26cdc10c827c7f31d8982ce0fa58c9a3a",
+      "count": 15
+    },
+    "selectedImportAssertions": 19,
+    "failedImportAssertions": 0
+  },
+  "orchestratorReview": {
+    "helperIssues": [],
+    "scope": "Three roots plus six direct targets;15 retained scalar/bool operands.",
+    "independentRawCheck": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Gameplay\\Soldier\\GRX_Glacier_Soldier.ebx",
+      "rawSha256": "9b44340483d9af272ef5f0cbda5934ad9a30ff1f055fd3fddc60fc4943e822cc",
+      "offset": 9508,
+      "type": "f32",
+      "bytesHex": "9a99993e",
+      "value": 0.30000001192092896,
+      "expect": "0.300000011920929",
+      "matches": true
+    },
+    "siteEncodingNotes": "The site sprint recovery is a millisecond ladder; ADS move tiers are dimensionless. TWM named settings have unassigned units/roles and no proven link to these inputs. L108 recoil modifiers remain a separate conditional source binding.",
+    "classification": "Source finding; no supported weapon-dependent aim/firing-readiness comparison or enhancement proposal."
+  },
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-09-29",
+    "build": "1.4.3.0-release",
+    "binding": "research",
+    "leads": [
+      {
+        "id": "L131",
+        "title": "Tactical weapon movement and handling context",
+        "status": "finding",
+        "summary": "The three 1.4.3.0 TacticalWeaponMovement roots expose named mounted/aim channels and exact imports to typed mount settings, but no weapon-dependent aiming/firing-readiness comparison is established.",
+        "reopenWhen": "Reopen if exact-build expression semantics or a runtime/consumer trace binds these settings and channels to a weapon-state, aiming, or firing-readiness comparison."
+      }
+    ],
+    "assets": [
+      {
+        "path": "Common/Gameplay/Soldier/FL_Soldier/TacticalWeaponMovement/DiceFeature_TacticalWeaponMovement",
+        "format": "raw-ebx",
+        "sha256": "8acd81728f220ee318eda8fe45f0824a3edfa304acd204868a88bdb4816feb95",
+        "question": "Does the feature import the simulation and presentation expressions?",
+        "result": "useful",
+        "conclusion": "Its two imports resolve by exact file/object GUID to the scoped SimEx and PresEx roots."
+      },
+      {
+        "path": "Common/Gameplay/Soldier/FL_Soldier/TacticalWeaponMovement/SimEx_TacticalWeaponMovement",
+        "format": "raw-ebx",
+        "sha256": "33486d1ae7f1217ffca160127e787d78a58074999217ee49c64cc92741d5394f",
+        "question": "Which named tactical movement channels, settings, and direct references are serialized?",
+        "result": "useful",
+        "conclusion": "Declares mounted/aim channels and directly imports five GRX TWM settings, three mount options, two stance channels, and three common transform/velocity channels; operation semantics remain unread."
+      },
+      {
+        "path": "Common/Gameplay/Soldier/FL_Soldier/TacticalWeaponMovement/PresEx_TacticalWeaponMovement",
+        "format": "raw-ebx",
+        "sha256": "fbee4e1b3089455c520ee13cc1b81b4c00000fe2bbc35cf7f567f33f15c9c7b0",
+        "question": "Which presentation channels and direct movement references are serialized?",
+        "result": "useful",
+        "conclusion": "Declares mounted/aim presentation channels and directly imports FilterAngle(up), ClearMountPathFromHead, MountPreset, and MountType; no execution path is established."
+      },
+      {
+        "path": "Common/Gameplay/Soldier/GRX_Glacier_Soldier",
+        "format": "raw-ebx",
+        "sha256": "9b44340483d9af272ef5f0cbda5934ad9a30ff1f055fd3fddc60fc4943e822cc",
+        "question": "What typed serialized parameters are imported by TWM?",
+        "result": "useful",
+        "conclusion": "Exact imported GRX object GUIDs join to named TWM settings with typed tuples verified at raw offsets; field roles and units are unresolved."
+      },
+      {
+        "path": "Common/GameSetup/Options/Gameplay/OptionMountPreset",
+        "format": "raw-ebx",
+        "sha256": "90dbdd182d9109f9fd1b18fb140f132a7af5b6a102a067a12e8d7eab02324cf9",
+        "question": "What mount preset choice labels are in the directly imported option asset?",
+        "result": "useful",
+        "conclusion": "Choice labels include COMBO, DOUBLE, ADS; no active selection/default is established."
+      },
+      {
+        "path": "Common/GameSetup/Options/Gameplay/OptionMountType",
+        "format": "raw-ebx",
+        "sha256": "0006c35df364f2ff5ac1584a28bfbe77f8d43216e754c51d5c0e168c6f2536cb",
+        "question": "What mount type choice labels are in the directly imported option asset?",
+        "result": "useful",
+        "conclusion": "Choice labels include ALL, SIDEONLY, UPONLY, DISABLED; no active selection/default is established."
+      },
+      {
+        "path": "Common/GameSetup/Options/Input/OptionMountBreakout",
+        "format": "raw-ebx",
+        "sha256": "286d8ba5fddc8d3b0a77e5b07472db3a1634c78004a0806bc5a9256cc25f07fc",
+        "question": "What breakout choice labels are in the directly imported option asset?",
+        "result": "useful",
+        "conclusion": "Choice labels include INSTANT, SHORT, LONG; no active selection/default is established."
+      },
+      {
+        "path": "Common/Gameplay/Soldier/Channels/ChannelCollections/SoldierOnlyPublicChannels",
+        "format": "raw-ebx",
+        "sha256": "4ee67487bd44276712813214ddd547bbb6ab1d83f3dfa952ecdbbd10fd112ed2",
+        "question": "Which soldier-only public channels do the scoped expressions directly import?",
+        "result": "useful",
+        "conclusion": "The two exact imports resolve to CurrentStance and TargetStance; other names in this collection are not shown as imported here."
+      },
+      {
+        "path": "Common/Gameplay/PublicChannels/CommonPublicChannels",
+        "format": "raw-ebx",
+        "sha256": "bcfbeb19550dffb5e24da5ec2f6ccd80c31054af93d306b2a2db12f25359e711",
+        "question": "Which common public channels do the scoped expressions directly import?",
+        "result": "useful",
+        "conclusion": "Exact imports resolve to LinearVelocity, WarpClipTarget1, and RootTransform; no fire/weapon-fired channel is among these direct imports."
+      }
+    ]
+  }
+}

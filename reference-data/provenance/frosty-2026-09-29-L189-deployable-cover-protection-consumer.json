@@ -1,0 +1,466 @@
+{
+  "lead": "L189",
+  "status": "reviewed-source-finding",
+  "build": "1.4.3.0-hotfix",
+  "question": "Trace WB deployment and typed health/protection/interaction/destruction receiver.",
+  "sourceFacts": {
+    "control": {
+      "description": "Release HK433 recoil control reproduced first.",
+      "passed": true,
+      "rawChecks": [
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+          "rawSha256": "66caca0e667d17fdf03f9fb4f620b9c5842aa1fd8de0221128ad4862895eed51",
+          "offset": 1084,
+          "type": "f32",
+          "bytesHex": "5a642b3f",
+          "value": 0.6694999933242798,
+          "expect": "0.6695",
+          "matches": true
+        }
+      ]
+    },
+    "head": 4892087,
+    "descriptorSha256": "99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640",
+    "findings": [
+      "WB configuration root Field_9e113e77 references object 10 (Class_542ac52c). Its Field_238b47d7 references object 3 (Class_e662227a). Object 3 Field_cf5efc14 contains exported object 1 GUID 5398e52b-62fa-4dd8-a223-f487da6e8ba8. Object 1 Class_c09dc255 Field_3fd3f7cc imports VEH_Gadget_DeployedCover file GUID 8e1a9766-a4b2-4f05-9136-f366fc7babcb and root child b86a036c-ccc4-4f31-be60-1459c7864e9a.",
+      "Ability remains the L141 source boundary: its imported child setup does not complete an Ability execution-to-deployed-object route.",
+      "Deployed vehicle object 19 Field_6b831b88 imports the DamageZones root; object 26 Field_174f35bc imports ChannelBindings_Vehicle_Health child da4f0457-460c-4cf9-8c4b-2de281d0d10f (name mapping reused from L141). Object 31 Field_21804573 imports FeatureEx_VEH_Stationary_DeployableCover root 75806225-e663-47ce-bd44-4dee29470f15.",
+      "DamageZones typed roots are retained from L141. Field names and units remain unresolved; no anonymous float inventory was repeated.",
+      "SimEx root Field_2094d4d6 selects local compiled-resource object 1, Class_25c12137 Field_aa4fa860 RID 00e1d9d9a66250f5. Serialized consumer labels include GetTickNode and gameplayVolumeGetObjectsInside. Labels do not prove protection or native execution.",
+      "FeatureEx root Field_2094d4d6 selects local compiled-resource object 1, RID 1a9ca97390726c13. Its object1 Field_a2734e52[0].Field_8cf424e7 imports SimEx file f0178a2f-34b9-47bc-8356-1af4304da02f and root child 7bcc579d-66ff-4d8a-b0f3-90c9c24f92f4."
+    ],
+    "proof": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L189\\selected-proof-v2.json",
+      "sha256": "8f521a0f28c6d31d666b8ec6a0d79471a0d0049323b51f6ffdf063d35db98ede"
+    },
+    "rawProof": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L189\\selected-raw-v2.json",
+      "sha256": "a6b1b4bece87f0a2c314ee97b13b57adf9400bb61a9cbf182c5697b4b30cd612",
+      "checks": 507
+    },
+    "selectedCompiledBodies": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L189\\compiled-proof-v2.json",
+      "sha256": "3e7039747b0cdffd74556bc10822baf398dc96bc47a7e5a7debe63b0c2bb5778"
+    },
+    "compiledRawChecks": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L189\\compiled-raw-v2.json",
+      "sha256": "a2ea7ce5c5875fe3ca7c52d72f787af934fa56f9f30d2f2be0a2ebf35c56061b"
+    }
+  },
+  "inference": "The WB configuration establishes a source selection path to a deployed vehicle. Health and damage-zone connections support qualitative utility research; the selected compiled consumer payloads are needed for effective protection and destruction semantics.",
+  "unresolved": [
+    "Selected compiled resources are now present and rehashed: FeatureEx RID 1a9ca97390726c13 (512 bytes) and SimEx RID 00e1d9d9a66250f5 (1376 bytes), type SerializedExpressionNodeGraph, typeId 7dd4cc89. Both contain no printable named consumers. Need a frozen graph grammar with node/opcode and channel/member identity mapping for these exact selected bodies to prove receiver semantics; byte inventory cannot substitute for that mapping.",
+    "No named typed durability/protection operand or units established. Shared Vehicle_Health channel naming alone supplies no HP number.",
+    "WB configuration selection is separate from Ability execution and native activation. Current multiplayer availability remains unproven."
+  ],
+  "siteImpact": "Source utility evidence supports a configured deployed-cover vehicle with damage-zone and shared health-channel connections. No cover HP, resistance, effective protection benefit or availability value is proposed.",
+  "evidence": {
+    "paths": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L189\\scoped-inputs.json",
+        "sha256": "2595204d9f63689412fe865877efdc781255fb550072c5a1dd3df881a9e433da"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L189\\root-decodes.json",
+        "sha256": "e6b53670fc05595d077590f554f72ad6c039ddf92b5fb4e64ef2a01b4907e155"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L189\\typed-proof.json",
+        "sha256": "9b0d8eac143fcca817bc528dd7707cf1d51d3097a987ed1fb2da9e0c16d8330d"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L189\\selected-proof-v2.json",
+        "sha256": "8f521a0f28c6d31d666b8ec6a0d79471a0d0049323b51f6ffdf063d35db98ede"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L189\\selected-raw-v2.json",
+        "sha256": "a6b1b4bece87f0a2c314ee97b13b57adf9400bb61a9cbf182c5697b4b30cd612"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L189\\control.json",
+        "sha256": "5f76caeb1046b7fe3232d00db51f0fca2a89d38e39e15bf225be8de90a6889e8"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L189\\decode-command.json",
+        "sha256": "fd21ad9d15cfe10bbc34614c3e199e035d514c2625ecb8bc955ae0868eead2b5"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-09-29-L141-cover-durability-source.json",
+        "sha256": "34bdbb54599144c077507b04668d57f4a3ab683120e37a5cd686d2ed2fdc1267"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L189\\compiled-proof-v2.json",
+        "sha256": "3e7039747b0cdffd74556bc10822baf398dc96bc47a7e5a7debe63b0c2bb5778"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L189\\compiled-raw-v2.json",
+        "sha256": "a2ea7ce5c5875fe3ca7c52d72f787af934fa56f9f30d2f2be0a2ebf35c56061b"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\utility-selected-resources.json",
+        "sha256": "c32f63f62c25a650d6e16ff5e6d5304cdb708ac4da6c5c45ab570ded7f28ec16"
+      }
+    ],
+    "commands": [
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L189\\decode-preserved.py",
+          "--descriptors",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\toolchain\\SharedTypeDescriptors-hotfix-2026-09-16.ebx",
+          "--ebx-list",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L189\\roots.txt",
+          "--out",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L189\\root-decodes.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L189",
+        "helperSha256": "6fdc0334efaee0fe6113b5c9db4973f1358f53ee65dfb94edbc22fb0bf07a727"
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L189\\raw-check-preserved.py",
+          "--manifest",
+          "selected-manifest-v2.json",
+          "--out",
+          "selected-raw-v2.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L189",
+        "helperSha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3"
+      },
+      {
+        "quotedPowerShell": "python .\\raw-check-preserved.py --path 'Common/Hardware/Weapons/AssaultRifle/HK433/GS_HK433.ebx' --offset 1084 --type f32 --expect 0.6695 --out control.json",
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L189"
+      },
+      {
+        "argv": [
+          "python",
+          ".\\trace.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L189"
+      },
+      {
+        "argv": [
+          "python",
+          ".\\inspect.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L189"
+      },
+      {
+        "argv": [
+          "python",
+          ".\\selected.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L189"
+      },
+      {
+        "argv": [
+          "python",
+          ".\\proof.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L189"
+      },
+      {
+        "argv": [
+          "python",
+          ".\\finalize.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L189"
+      },
+      {
+        "argv": [
+          "python",
+          ".\\raw-check-preserved.py",
+          "--manifest",
+          "joins-manifest.json",
+          "--out",
+          "joins-raw.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L189",
+        "helperSha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3"
+      },
+      {
+        "argv": [
+          "python",
+          ".\\records-preserved.py",
+          "schema"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L189",
+        "helperSha256": "a6b0ca77270f6abc5dc48f164762569a8cb36faf37754f04f892d0ae7e7c7f34"
+      },
+      {
+        "argv": [
+          "python",
+          ".\\records-preserved.py",
+          "check-receipt",
+          "draft-receipt.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L189",
+        "helperSha256": "a6b0ca77270f6abc5dc48f164762569a8cb36faf37754f04f892d0ae7e7c7f34"
+      },
+      {
+        "argv": [
+          "python",
+          ".\\receipt-history.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L189",
+        "helperSha256": "5cb05ef1a087754e90f3bb98a90d60a6627db0e5ba0f3a025066e8cbfe806d8b"
+      },
+      {
+        "argv": [
+          "python",
+          ".\\compiled-v2.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L189",
+        "helperSha256": "1b912161d7ea35aadc2020de34cf32845eea027b16acfdd49434fdfa5f94bb4d"
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L189\\raw-check-preserved.py",
+          "--manifest",
+          "compiled-manifest-v2.json",
+          "--out",
+          "compiled-raw-v2.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L189",
+        "helperSha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3"
+      },
+      {
+        "argv": [
+          "python",
+          ".\\receipt-v2.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L189",
+        "helperSha256": "bc82f358aabc84f990f08a101c006c052136978baa111d3934a97e712280545c"
+      },
+      {
+        "argv": [
+          "python",
+          ".\\records-preserved.py",
+          "check-receipt",
+          "draft-receipt-v2.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L189",
+        "helperSha256": "a6b0ca77270f6abc5dc48f164762569a8cb36faf37754f04f892d0ae7e7c7f34"
+      }
+    ],
+    "helperRevisions": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L189\\raw-check-preserved.py",
+        "sha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3",
+        "preservedBeforeExecution": true
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L189\\decode-preserved.py",
+        "sha256": "6fdc0334efaee0fe6113b5c9db4973f1358f53ee65dfb94edbc22fb0bf07a727",
+        "preservedBeforeExecution": true
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L189\\records-preserved.py",
+        "sha256": "a6b0ca77270f6abc5dc48f164762569a8cb36faf37754f04f892d0ae7e7c7f34",
+        "preservedBeforeExecution": true
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L189\\trace.py",
+        "sha256": "1f50e66ffb2d4e1a3d5044fa5e08b2eb818f4a225b457e54eb93a0e0ac4cee26",
+        "preservedBeforeExecution": true
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L189\\inspect.py",
+        "sha256": "2ba5c6f2eb919c16ee75b5c1ef6b075c51f3caa40c8708f558b2359dce8e7189",
+        "preservedBeforeExecution": true
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L189\\selected.py",
+        "sha256": "a3733b8c8a96c40817c2be8c8359b12a3aefa48d0f01e75b26b78a44beaf30c9",
+        "preservedBeforeExecution": true
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L189\\proof.py",
+        "sha256": "c0ed4386e776f345948f655907850572d54bec1b97a4360215aaf8e42cbcc46f",
+        "preservedBeforeExecution": true
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L189\\finalize.py",
+        "sha256": "51ffb0c8678ce5ddec44768931a24858fdcfc58a86f927c108220dd407a76040",
+        "preservedBeforeExecution": true
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L189\\receipt-history.py",
+        "sha256": "5cb05ef1a087754e90f3bb98a90d60a6627db0e5ba0f3a025066e8cbfe806d8b",
+        "preservedBeforeExecution": true
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L189\\compiled-v2.py",
+        "sha256": "1b912161d7ea35aadc2020de34cf32845eea027b16acfdd49434fdfa5f94bb4d",
+        "preservedBeforeExecution": true
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L189\\receipt-v2.py",
+        "sha256": "bc82f358aabc84f990f08a101c006c052136978baa111d3934a97e712280545c",
+        "preservedBeforeExecution": true
+      }
+    ],
+    "historyNotes": [
+      "One inspection shell read failed because its working directory was the site folder; no data finding derived from the failed read. Some console outputs were truncated; authoritative full evidence is saved locally."
+    ]
+  },
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-09-29",
+    "build": "1.4.3.0-hotfix",
+    "leads": [
+      {
+        "id": "L189",
+        "title": "Deployable Cover selected protection consumer",
+        "status": "finding",
+        "summary": "Deployable Cover selected WB configuration joins deployed vehicle, damage zones, shared Vehicle_Health and FeatureEx/SimEx resources; health/protection meanings and native behavior remain unresolved.",
+        "reopenWhen": "Obtain the frozen SerializedExpressionNodeGraph grammar and exact node/channel/member identity mapping for selected cover FeatureEx and SimEx bodies.",
+        "statusNote": "GPT-6.1 Sol, 29 Sep; source only"
+      }
+    ],
+    "assets": [
+      {
+        "path": "Common/Hardware/Gadgets/Tools/DeployableCover/DeployableCover_WB",
+        "format": "raw-ebx",
+        "sha256": "4939ba2039d04ef658fa283f1628f04e83a625da764a3f9a5b51cc9dc42f86d1",
+        "question": "Trace configured deployed-cover protection consumer.",
+        "result": "useful",
+        "conclusion": "WB configuration root Field_9e113e77 references object 10 (Class_542ac52c). Its Field_238b47d7 references object 3 (Class_e662227a). Object 3 Field_cf5efc14 contains exported object 1 GUID 5398e52b-62fa-4dd8-a223-f487da6e8ba8. Object 1 Class_c09dc255 Field_3fd3f7cc imports VEH_Gadget_DeployedCover file GUID 8e1a9766-a4b2-4f05-9136-f366fc7babcb and root child b86a036c-ccc4-4f31-be60-1459c7864e9a."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Tools/DeployableCover/DeployableCover_Ability",
+        "format": "raw-ebx",
+        "sha256": "db853e56d5ba4663dad3c5808dc17acf5d91d9ee2274bdfc5103f2d94d1dc336",
+        "question": "Trace configured deployed-cover protection consumer.",
+        "result": "inconclusive",
+        "conclusion": "Ability remains the L141 source boundary: its imported child setup does not complete an Ability execution-to-deployed-object route."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Tools/DeployableCover/VEH_Gadget_DeployedCover",
+        "format": "raw-ebx",
+        "sha256": "fd0a62e00ce0d59b1e9cb7104406a4a59e39c25e96cb3e3b6345b476adead137",
+        "question": "Trace configured deployed-cover protection consumer.",
+        "result": "useful",
+        "conclusion": "Deployed vehicle object 19 Field_6b831b88 imports the DamageZones root; object 26 Field_174f35bc imports ChannelBindings_Vehicle_Health child da4f0457-460c-4cf9-8c4b-2de281d0d10f (name mapping reused from L141). Object 31 Field_21804573 imports FeatureEx_VEH_Stationary_DeployableCover root 75806225-e663-47ce-bd44-4dee29470f15."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Tools/DeployableCover/VEH_Gadget_DeployedCover_DamageZones",
+        "format": "raw-ebx",
+        "sha256": "02acbc9c4fc8b7b90a540c99f8d792256e641b2718f56f046075cc2d8d277e52",
+        "question": "Trace configured deployed-cover protection consumer.",
+        "result": "useful",
+        "conclusion": "DamageZones typed roots are retained from L141. Field names and units remain unresolved; no anonymous float inventory was repeated."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Tools/DeployableCover/SimEx_DeployableCover",
+        "format": "raw-ebx",
+        "sha256": "4dcc1118dcd8853e841152fa667b1ba651404120f6bdf91c099d7e28d0e049d1",
+        "question": "Trace configured deployed-cover protection consumer.",
+        "result": "useful",
+        "conclusion": "SimEx root Field_2094d4d6 selects local compiled-resource object 1, Class_25c12137 Field_aa4fa860 RID 00e1d9d9a66250f5. Serialized consumer labels include GetTickNode and gameplayVolumeGetObjectsInside. Labels do not prove protection or native execution."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Tools/DeployableCover/FeatureEx_VEH_Stationary_DeployableCover",
+        "format": "raw-ebx",
+        "sha256": "ee291ab6058bbd6b8a4a8c8ee1b52fc429b2a709f184dfd0404825bdc548a88e",
+        "question": "Trace configured deployed-cover protection consumer.",
+        "result": "useful",
+        "conclusion": "FeatureEx root Field_2094d4d6 selects local compiled-resource object 1, RID 1a9ca97390726c13. Its object1 Field_a2734e52[0].Field_8cf424e7 imports SimEx file f0178a2f-34b9-47bc-8356-1af4304da02f and root child 7bcc579d-66ff-4d8a-b0f3-90c9c24f92f4."
+      },
+      {
+        "path": "common/hardware/gadgets/tools/deployablecover/featureex_veh_stationary_deployablecover",
+        "format": "raw-res",
+        "sha256": "74fc591206a1c1eadeb7780e1b4e2e91b1e3d672f453913cebb87370b0dedad6",
+        "question": "Does the selected compiled body expose named protection/interaction/destruction receiver?",
+        "result": "inconclusive",
+        "conclusion": "Exact selected payload rehashed; no named printable consumer; semantic graph grammar and member mapping unresolved."
+      },
+      {
+        "path": "common/hardware/gadgets/tools/deployablecover/simex_deployablecover",
+        "format": "raw-res",
+        "sha256": "2ef5677626bf46c88a3fc650e36cf2fcb9678a7eeaf25c7fb7a07c205218e6f0",
+        "question": "Does the selected compiled body expose named protection/interaction/destruction receiver?",
+        "result": "inconclusive",
+        "conclusion": "Exact selected payload rehashed; no named printable consumer; semantic graph grammar and member mapping unresolved."
+      }
+    ],
+    "binding": "research",
+    "run": {
+      "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets",
+      "orchestrator": "GPT-6.1 Sol",
+      "workers": [
+        {
+          "lead": "L189",
+          "model": "GPT-6.1 Sol",
+          "effort": "Low"
+        }
+      ]
+    },
+    "refs": []
+  },
+  "orchestratorCaptureReviews": [
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\armor-resource-capture\\verification.json",
+      "sha256": "15f1421c545a9e0a1f217fcc8b95638706c2b3bfa0e0f0ecbbfd7ecc15bd24e6"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\missing-gameplay-capture\\verification.json",
+      "sha256": "2743270e30d78f0dad9426589138bb79dbd35fe03ecec6ce9aab789392437b0f"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\nvg-child-capture\\verification.json",
+      "sha256": "054a23735b9b352510cb5a17f8aaa3a2f2b94a45f568f3547051561924d2de12"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\registry-capture\\verification.json",
+      "sha256": "2e6ff41233fe7bdcd2f74b5189df235ab5113f6a2789b4f3c1b1fb747b23b8f9"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\utility-function-capture\\verification.json",
+      "sha256": "9714dd0000b8c561297ed75d0edeae45b1d7d53e66f10d885816bf0f0319f2fd"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\utility-receiver-capture\\verification.json",
+      "sha256": "54c4c93de9cb5027bcdc7903b0c5840d89aeb4b5907157a8f57952c6356093ed"
+    }
+  ],
+  "orchestratorResourceReview": {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\utility-selected-resources.json",
+    "sha256": "c32f63f62c25a650d6e16ff5e6d5304cdb708ac4da6c5c45ab570ded7f28ec16",
+    "review": "Exact selected captured bodies independently rehashed with recorded Head4892087/SDK4414275. Resource bytes do not establish grammar or runtime activation."
+  },
+  "orchestratorReview": {
+    "reviewer": "GPT-6.1 Sol",
+    "workerModel": "GPT-6.1 Sol",
+    "workerEffort": "Low",
+    "date": "2026-09-29",
+    "draft": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L189\\draft-receipt-v2.json",
+      "sha256": "d458118cfe4365103ed100ff933aa8642f468fcd082149ae69a8f00666043736"
+    },
+    "helperReview": {
+      "tool": "scripts/frosty-worker.py review",
+      "issues": 0,
+      "leadDir": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L189",
+      "reportPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L189-helper-review.json"
+    },
+    "scope": {
+      "roots": 6,
+      "externalChildrenExamined": 0,
+      "externalChildrenExaminedKind": "EBX",
+      "compiledResourceBodiesExamined": 2
+    },
+    "independentRawReview": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L189-independent-raw-review.json",
+      "sha256": "befda1c2a242ede0a85d4b73aa634903cdfc3fe585d8c8ccd25bd1b0c1858368",
+      "uniqueChecksIncludingControl": 510,
+      "failures": 0
+    },
+    "pinReview": "Every recorded raw EBX asset hash matches either an indexed hotfix Head 4892087 capture or a reviewed fresh run-local capture with matching catalog Head/SDK and frozen descriptor hash. Release M433 control is separate.",
+    "semanticReview": "Selected source joins and exact member-owner meanings checked against reviewed prior mappings. No current multiplayer availability, native activation, units or effective composition claim."
+  }
+}

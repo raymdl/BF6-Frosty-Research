@@ -1,0 +1,679 @@
+{
+  "lead": "L191",
+  "status": "reviewed-source-finding",
+  "build": "1.4.3.0-hotfix",
+  "question": "Common/Hardware/Gadgets/CallIns/UAVOverwatch/UAVOverwatch_WB utility consumers",
+  "sourceFacts": [
+    {
+      "fact": "Ability Field_f86e0433 imports the scoped U_UAVOverwatch exported instance; Ability nested Field_d2b8fc26 imports the scoped DiceFeature exported instance; DiceFeature Field_a07bc334 imports SimEx_CallIns_UAVOverwatch.",
+      "proof": "raw-proofs-v2.json and typed-trace.json; import pointer words plus target GUID pairs checked."
+    },
+    {
+      "fact": "Selected CallIns function-name table contains getAbilityDetailedState/getAbilityOwner/setAbilityState/GetWeaponAmmunitionStateNode/GetWeaponEventStateNode/SetChannelNode.",
+      "proof": "raw-proofs-v2.json contains null-terminated raw string bytes."
+    },
+    {
+      "fact": "Candidate MQ9 gameplay function-name table contains GetStateNode/SetStateNode/GetChannelNode/GetGameTimeNode/GetTickNode/SetChannelNode. Candidate Spot_Trigger table contains GetStateNode/ResetStateNode/SetStateNode/GetChannelNode.",
+      "proof": "raw-proofs-v2.json; selected sources are not joined to the deployment chain."
+    },
+    {
+      "fact": "Spot_Trigger has a named SpotDuration input with boxed f32 default 2.0 at absolute offset3856 bytes00000040, and UseRootTransform boxed bool default true at3860 bytes01.",
+      "proof": "raw-proofs-v2.json; boxed header at1608 verified, field labels/raw strings checked; selected source default only, units and graph use unresolved."
+    }
+  ],
+  "rawChecks": [
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\next-utility-family-capture\\raw\\Common\\Hardware\\Gadgets\\CallIns\\UAVOverwatch\\UAVOverwatch_Ability.ebx",
+      "rawSha256": "23b36818653c305501cac0710ba33eba310080d2890e485ebc432cc1e2875ad0",
+      "offset": 264,
+      "type": "u64",
+      "bytesHex": "2100000000000000",
+      "value": 33
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\next-utility-family-capture\\raw\\Common\\Hardware\\Gadgets\\CallIns\\UAVOverwatch\\UAVOverwatch_Ability.ebx",
+      "rawSha256": "23b36818653c305501cac0710ba33eba310080d2890e485ebc432cc1e2875ad0",
+      "offset": 3594,
+      "type": "guid",
+      "bytesHex": "849a7b5296966a469e9776d53a307a22",
+      "value": "527b9a84-9696-466a-9e97-76d53a307a22"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\next-utility-family-capture\\raw\\Common\\Hardware\\Gadgets\\CallIns\\UAVOverwatch\\UAVOverwatch_Ability.ebx",
+      "rawSha256": "23b36818653c305501cac0710ba33eba310080d2890e485ebc432cc1e2875ad0",
+      "offset": 3610,
+      "type": "guid",
+      "bytesHex": "7dea4162a31e1c409c3b5d7fb7fc8581",
+      "value": "6241ea7d-1ea3-401c-9c3b-5d7fb7fc8581"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\next-utility-family-capture\\raw\\Common\\Hardware\\Gadgets\\CallIns\\UAVOverwatch\\UAVOverwatch_Ability.ebx",
+      "rawSha256": "23b36818653c305501cac0710ba33eba310080d2890e485ebc432cc1e2875ad0",
+      "offset": 144,
+      "type": "u64",
+      "bytesHex": "1d00000000000000",
+      "value": 29
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\next-utility-family-capture\\raw\\Common\\Hardware\\Gadgets\\CallIns\\UAVOverwatch\\UAVOverwatch_Ability.ebx",
+      "rawSha256": "23b36818653c305501cac0710ba33eba310080d2890e485ebc432cc1e2875ad0",
+      "offset": 3530,
+      "type": "guid",
+      "bytesHex": "7fce93e7ec470749aefa7c14b63f9917",
+      "value": "e793ce7f-47ec-4907-aefa-7c14b63f9917"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\next-utility-family-capture\\raw\\Common\\Hardware\\Gadgets\\CallIns\\UAVOverwatch\\UAVOverwatch_Ability.ebx",
+      "rawSha256": "23b36818653c305501cac0710ba33eba310080d2890e485ebc432cc1e2875ad0",
+      "offset": 3546,
+      "type": "guid",
+      "bytesHex": "9e3083986845f44a8a2fa8ccd0390c02",
+      "value": "9883309e-4568-4af4-8a2f-a8ccd0390c02"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer3-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\CallIns\\UAVOverwatch\\DiceFeature_UAVOverwatch.ebx",
+      "rawSha256": "d246c8fd95346f2ec8bb861d33898886ceefe126aac32a9493d53937b86cb7a2",
+      "offset": 112,
+      "type": "u64",
+      "bytesHex": "0500000000000000",
+      "value": 5
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer3-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\CallIns\\UAVOverwatch\\DiceFeature_UAVOverwatch.ebx",
+      "rawSha256": "d246c8fd95346f2ec8bb861d33898886ceefe126aac32a9493d53937b86cb7a2",
+      "offset": 600,
+      "type": "guid",
+      "bytesHex": "8e007dda9dbc3049827d59146384aadc",
+      "value": "da7d008e-bc9d-4930-827d-59146384aadc"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer3-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\CallIns\\UAVOverwatch\\DiceFeature_UAVOverwatch.ebx",
+      "rawSha256": "d246c8fd95346f2ec8bb861d33898886ceefe126aac32a9493d53937b86cb7a2",
+      "offset": 616,
+      "type": "guid",
+      "bytesHex": "4cf04c6caf268446bb6713890a10607e",
+      "value": "6c4cf04c-26af-4684-bb67-13890a10607e"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer4-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\CallIns\\UAVOverwatch\\SimEx_CallIns_UAVOverwatch.ebx",
+      "rawSha256": "2a490927def113741a2891009540849e8684cdd29ff72e58f630b2af14cec5c4",
+      "offset": 1273,
+      "type": "bytes:24",
+      "bytesHex": "6765744162696c69747944657461696c6564537461746500",
+      "value": "6765744162696c69747944657461696c6564537461746500"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer4-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\CallIns\\UAVOverwatch\\SimEx_CallIns_UAVOverwatch.ebx",
+      "rawSha256": "2a490927def113741a2891009540849e8684cdd29ff72e58f630b2af14cec5c4",
+      "offset": 1297,
+      "type": "bytes:16",
+      "bytesHex": "6765744162696c6974794f776e657200",
+      "value": "6765744162696c6974794f776e657200"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer4-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\CallIns\\UAVOverwatch\\SimEx_CallIns_UAVOverwatch.ebx",
+      "rawSha256": "2a490927def113741a2891009540849e8684cdd29ff72e58f630b2af14cec5c4",
+      "offset": 1313,
+      "type": "bytes:16",
+      "bytesHex": "7365744162696c697479537461746500",
+      "value": "7365744162696c697479537461746500"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer4-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\CallIns\\UAVOverwatch\\SimEx_CallIns_UAVOverwatch.ebx",
+      "rawSha256": "2a490927def113741a2891009540849e8684cdd29ff72e58f630b2af14cec5c4",
+      "offset": 1329,
+      "type": "bytes:29",
+      "bytesHex": "476574576561706f6e416d6d756e6974696f6e53746174654e6f646500",
+      "value": "476574576561706f6e416d6d756e6974696f6e53746174654e6f646500"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer4-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\CallIns\\UAVOverwatch\\SimEx_CallIns_UAVOverwatch.ebx",
+      "rawSha256": "2a490927def113741a2891009540849e8684cdd29ff72e58f630b2af14cec5c4",
+      "offset": 1358,
+      "type": "bytes:24",
+      "bytesHex": "476574576561706f6e4576656e7453746174654e6f646500",
+      "value": "476574576561706f6e4576656e7453746174654e6f646500"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer4-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\CallIns\\UAVOverwatch\\SimEx_CallIns_UAVOverwatch.ebx",
+      "rawSha256": "2a490927def113741a2891009540849e8684cdd29ff72e58f630b2af14cec5c4",
+      "offset": 1382,
+      "type": "bytes:15",
+      "bytesHex": "5365744368616e6e656c4e6f646500",
+      "value": "5365744368616e6e656c4e6f646500"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer4-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\CallIns\\UAVOverwatch\\SimEx_CallIns_UAVOverwatch.ebx",
+      "rawSha256": "2a490927def113741a2891009540849e8684cdd29ff72e58f630b2af14cec5c4",
+      "offset": 864,
+      "type": "u64",
+      "bytesHex": "752b25ffa5726c37",
+      "value": 3993693026846583669
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer4-2026-09-23\\raw\\Common\\Hardware\\Vehicles\\Airplane\\MQ9\\UAVOverwatch\\SimEx_MQ9_UAVOverwatch_Gameplay.ebx",
+      "rawSha256": "1c23d754f750e99511339619b83e64008b148921491c72bad6dd72d43cb2ff21",
+      "offset": 2625,
+      "type": "bytes:13",
+      "bytesHex": "47657453746174654e6f646500",
+      "value": "47657453746174654e6f646500"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer4-2026-09-23\\raw\\Common\\Hardware\\Vehicles\\Airplane\\MQ9\\UAVOverwatch\\SimEx_MQ9_UAVOverwatch_Gameplay.ebx",
+      "rawSha256": "1c23d754f750e99511339619b83e64008b148921491c72bad6dd72d43cb2ff21",
+      "offset": 2638,
+      "type": "bytes:13",
+      "bytesHex": "53657453746174654e6f646500",
+      "value": "53657453746174654e6f646500"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer4-2026-09-23\\raw\\Common\\Hardware\\Vehicles\\Airplane\\MQ9\\UAVOverwatch\\SimEx_MQ9_UAVOverwatch_Gameplay.ebx",
+      "rawSha256": "1c23d754f750e99511339619b83e64008b148921491c72bad6dd72d43cb2ff21",
+      "offset": 2651,
+      "type": "bytes:15",
+      "bytesHex": "4765744368616e6e656c4e6f646500",
+      "value": "4765744368616e6e656c4e6f646500"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer4-2026-09-23\\raw\\Common\\Hardware\\Vehicles\\Airplane\\MQ9\\UAVOverwatch\\SimEx_MQ9_UAVOverwatch_Gameplay.ebx",
+      "rawSha256": "1c23d754f750e99511339619b83e64008b148921491c72bad6dd72d43cb2ff21",
+      "offset": 2666,
+      "type": "bytes:16",
+      "bytesHex": "47657447616d6554696d654e6f646500",
+      "value": "47657447616d6554696d654e6f646500"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer4-2026-09-23\\raw\\Common\\Hardware\\Vehicles\\Airplane\\MQ9\\UAVOverwatch\\SimEx_MQ9_UAVOverwatch_Gameplay.ebx",
+      "rawSha256": "1c23d754f750e99511339619b83e64008b148921491c72bad6dd72d43cb2ff21",
+      "offset": 2682,
+      "type": "bytes:12",
+      "bytesHex": "4765745469636b4e6f646500",
+      "value": "4765745469636b4e6f646500"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer4-2026-09-23\\raw\\Common\\Hardware\\Vehicles\\Airplane\\MQ9\\UAVOverwatch\\SimEx_MQ9_UAVOverwatch_Gameplay.ebx",
+      "rawSha256": "1c23d754f750e99511339619b83e64008b148921491c72bad6dd72d43cb2ff21",
+      "offset": 2694,
+      "type": "bytes:15",
+      "bytesHex": "5365744368616e6e656c4e6f646500",
+      "value": "5365744368616e6e656c4e6f646500"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer4-2026-09-23\\raw\\Common\\Hardware\\Vehicles\\Airplane\\MQ9\\UAVOverwatch\\SimEx_MQ9_UAVOverwatch_Gameplay.ebx",
+      "rawSha256": "1c23d754f750e99511339619b83e64008b148921491c72bad6dd72d43cb2ff21",
+      "offset": 1192,
+      "type": "u64",
+      "bytesHex": "51dd4a8c3dd59811",
+      "value": 1267997755428232529
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer4-2026-09-23\\raw\\Common\\Hardware\\Vehicles\\Airplane\\MQ9\\UAVOverwatch\\SimEx_UAVOverwatch_Spot_Trigger.ebx",
+      "rawSha256": "0826ce3777b2ce8036a80733b85a3822232fba36f3d6e505ce4a57abe67eeca0",
+      "offset": 4026,
+      "type": "bytes:13",
+      "bytesHex": "47657453746174654e6f646500",
+      "value": "47657453746174654e6f646500"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer4-2026-09-23\\raw\\Common\\Hardware\\Vehicles\\Airplane\\MQ9\\UAVOverwatch\\SimEx_UAVOverwatch_Spot_Trigger.ebx",
+      "rawSha256": "0826ce3777b2ce8036a80733b85a3822232fba36f3d6e505ce4a57abe67eeca0",
+      "offset": 4039,
+      "type": "bytes:15",
+      "bytesHex": "526573657453746174654e6f646500",
+      "value": "526573657453746174654e6f646500"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer4-2026-09-23\\raw\\Common\\Hardware\\Vehicles\\Airplane\\MQ9\\UAVOverwatch\\SimEx_UAVOverwatch_Spot_Trigger.ebx",
+      "rawSha256": "0826ce3777b2ce8036a80733b85a3822232fba36f3d6e505ce4a57abe67eeca0",
+      "offset": 4054,
+      "type": "bytes:13",
+      "bytesHex": "53657453746174654e6f646500",
+      "value": "53657453746174654e6f646500"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer4-2026-09-23\\raw\\Common\\Hardware\\Vehicles\\Airplane\\MQ9\\UAVOverwatch\\SimEx_UAVOverwatch_Spot_Trigger.ebx",
+      "rawSha256": "0826ce3777b2ce8036a80733b85a3822232fba36f3d6e505ce4a57abe67eeca0",
+      "offset": 4067,
+      "type": "bytes:15",
+      "bytesHex": "4765744368616e6e656c4e6f646500",
+      "value": "4765744368616e6e656c4e6f646500"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer4-2026-09-23\\raw\\Common\\Hardware\\Vehicles\\Airplane\\MQ9\\UAVOverwatch\\SimEx_UAVOverwatch_Spot_Trigger.ebx",
+      "rawSha256": "0826ce3777b2ce8036a80733b85a3822232fba36f3d6e505ce4a57abe67eeca0",
+      "offset": 1184,
+      "type": "u64",
+      "bytesHex": "d78e94e1e1adaef9",
+      "value": 17991508747055566551
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer4-2026-09-23\\raw\\Common\\Hardware\\Vehicles\\Airplane\\MQ9\\UAVOverwatch\\SimEx_UAVOverwatch_Spot_Trigger.ebx",
+      "rawSha256": "0826ce3777b2ce8036a80733b85a3822232fba36f3d6e505ce4a57abe67eeca0",
+      "offset": 4672,
+      "type": "bytes:13",
+      "bytesHex": "53706f744475726174696f6e00",
+      "value": "53706f744475726174696f6e00"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer4-2026-09-23\\raw\\Common\\Hardware\\Vehicles\\Airplane\\MQ9\\UAVOverwatch\\SimEx_UAVOverwatch_Spot_Trigger.ebx",
+      "rawSha256": "0826ce3777b2ce8036a80733b85a3822232fba36f3d6e505ce4a57abe67eeca0",
+      "offset": 4696,
+      "type": "bytes:17",
+      "bytesHex": "557365526f6f745472616e73666f726d00",
+      "value": "557365526f6f745472616e73666f726d00"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer4-2026-09-23\\raw\\Common\\Hardware\\Vehicles\\Airplane\\MQ9\\UAVOverwatch\\SimEx_UAVOverwatch_Spot_Trigger.ebx",
+      "rawSha256": "0826ce3777b2ce8036a80733b85a3822232fba36f3d6e505ce4a57abe67eeca0",
+      "offset": 1608,
+      "type": "bytes:16",
+      "bytesHex": "6002008000000000c008000000000000",
+      "value": "6002008000000000c008000000000000"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer4-2026-09-23\\raw\\Common\\Hardware\\Vehicles\\Airplane\\MQ9\\UAVOverwatch\\SimEx_UAVOverwatch_Spot_Trigger.ebx",
+      "rawSha256": "0826ce3777b2ce8036a80733b85a3822232fba36f3d6e505ce4a57abe67eeca0",
+      "offset": 3856,
+      "type": "f32",
+      "bytesHex": "00000040",
+      "value": 2.0
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer4-2026-09-23\\raw\\Common\\Hardware\\Vehicles\\Airplane\\MQ9\\UAVOverwatch\\SimEx_UAVOverwatch_Spot_Trigger.ebx",
+      "rawSha256": "0826ce3777b2ce8036a80733b85a3822232fba36f3d6e505ce4a57abe67eeca0",
+      "offset": 3860,
+      "type": "bool",
+      "bytesHex": "01",
+      "value": true
+    }
+  ],
+  "inference": [
+    "Function and condition names identify intended source channels only. Related vehicle sources do not complete deployment selection."
+  ],
+  "unresolved": [
+    "Deployment to MQ9 gameplay/spot chain not established within the three-child budget; gameplay and spotting assets are selected related sources only.",
+    "Compiled SerializedExpressionNodeGraph grammar/reader gate remains unresolved; no selected operation, target-query equation, graph connection or consumer execution proven.",
+    "SpotDuration source default 2.0 has no proven units or effective duration; scan radius/coverage and current mode availability remain unresolved.",
+    "Parent catalog lookup resolves Ability Field_98d8888a import716fa696-7743-11ee-a6e9-cd41a1467fc7 to Game/GlacierGranite/Common/Gameplay/Loot/LootEntityBasic; no pinned DB capture. This is candidate loot metadata, not vehicle selection evidence."
+  ],
+  "siteImpact": "Source-only utility evidence; no current site change or comparison numbers.",
+  "evidence": [
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L191\\brief.txt",
+      "sha256": "ffad9849ad7169e2369f97c59b29185c23969a20e41119c560ea837d7a05e171"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L191\\children-decoded.json",
+      "sha256": "628612f6a773432b316511c907db59c40a579996d99eb5315fc1a0854281f01f"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L191\\children-list.txt",
+      "sha256": "2d6b6a69133774f50d83291f3e5c4b3921b47e3a637d6c7d39069db4b8b025fc"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L191\\children-pins.json",
+      "sha256": "baba34c039853f26070c360f0a14e68fed7ac6542af52ab5daaca1cac46c1b62"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L191\\children-v1.py",
+      "sha256": "97a92707e7376eb8de7ffeada66b13816f808739cd33f4d322e337c777579f28"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L191\\control.json",
+      "sha256": "ff651d54b8f84d6b5894aa023b9fd5a14a4a2532b746d3b31c90940c33b0e771"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L191\\decode-v1.py",
+      "sha256": "6fdc0334efaee0fe6113b5c9db4973f1358f53ee65dfb94edbc22fb0bf07a727"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L191\\deliver-v1.py",
+      "sha256": "c3da068a804d9553f50bab062ac69f39510332ef53b13aa63763f903b5d0df60"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L191\\inspect-v1.py",
+      "sha256": "765c189c611eb145d1a3ae0fccd7f1163b8f19515c6661ea98f5e7329315d45f"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L191\\l191-result.json",
+      "sha256": "bd536947d5ddf89d935e1f959f133358e3daaaef5c8a170875f3ee79bac845ae"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L191\\lead.txt",
+      "sha256": "8fbb95d43eee3925cde471562e7b8ed721c9f23e0c244b70f4ccabb3185c9894"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L191\\prior-work.txt",
+      "sha256": "66b294fa37ff08b97d409e624b564ca83251bc12802de2f0d5a11fbe20ff9507"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L191\\proof-manifest-v2.json",
+      "sha256": "371814d00632e796fabaae6f035be5453c9d8e65f4f3ae398e3fb20abb1ddceb"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L191\\proof-manifest.json",
+      "sha256": "b01236e7e6ec0351c29aff029ad901394a3b3442689fe746d889dc73c9ea8d23"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L191\\proofs-v1.py",
+      "sha256": "7e42e1fcf42de7f18c46719646c53434726ec26c576f47eacde5e2b6d720726c"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L191\\proofs-v2.py",
+      "sha256": "031daa4afe54f78409472a7353a4bfe402ce8dab5ab69baee321820db95c07b7"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L191\\raw-check-v1.py",
+      "sha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L191\\raw-proofs-v2.json",
+      "sha256": "1b1cdb1f944d33dd148123cdae9616953e2c5ec818e22a816345ddf8b2ef72bc"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L191\\raw-proofs.json",
+      "sha256": "8d5b1cb1c8d6627985d2f42766b26d19734df36890ff099c756b83033e1fb74b"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L191\\roots-decoded.json",
+      "sha256": "2456be4bc22e412908c6b8097bef18a20cebdaa509b8b112cee121d041409fed"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L191\\roots-list.txt",
+      "sha256": "52f8384915c218e80025a60d164ba5ef34005039b8dd6e12973e3996a1d46d72"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L191\\routes-v1.py",
+      "sha256": "00bab3aee2eb2318c4c023dacbc0e4a73e03982ff4462266376e00c1db6df2c0"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L191\\scoped-inputs.json",
+      "sha256": "53ea9beb6df88152a4131734970dcdfc6b81868b8e1e72b3e17c77389ef3e4d6"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L191\\trace-v1.py",
+      "sha256": "6acbaccaa41e1c41513e36248c60531e87d4870d1e66917cfb12a80970fc3118"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L191\\typed-trace.json",
+      "sha256": "ea2720d087a64630f0ddb7869f9396bb3095f1d6505ba578fa24972798edf467"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\candidate-expression-resources-2026-09-23\\resources\\1198d53d8c4add51.res",
+      "sha256": "0da77b661acbe34711b70298bb3f9331fb9601b19f4b93dfef24d20699d326b5",
+      "bytes": 3216,
+      "resourceId": "1198d53d8c4add51",
+      "result": "Hash checked; compiled grammar unavailable; no operand or operation decode."
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\candidate-expression-resources-2026-09-23\\resources\\f9aeade1e1948ed7.res",
+      "sha256": "996ab2a4c098e504e95ef5d68795ecff784d7592bba66c1f90b1efa41c36c9b3",
+      "bytes": 4320,
+      "resourceId": "f9aeade1e1948ed7",
+      "result": "Hash checked; compiled grammar unavailable; no operand or operation decode."
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-audit-candidate-expression-resources-2026-09-23.json",
+      "sha256": "e458aefc2112f159254ffc8158abfd112d0625bd7f573258a787331ded733838"
+    }
+  ],
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-09-29",
+    "build": "1.4.3.0-hotfix",
+    "binding": "research",
+    "leads": [
+      {
+        "id": "L191",
+        "title": "UAV Overwatch utility consumers",
+        "status": "finding",
+        "summary": "UAV Overwatch Ability joins its resource and DiceFeature, which selects CallIns SimEx; MQ9 gameplay/spotting defaults remain candidates without deployment selection or effective spotting proof.",
+        "reopenWhen": "A bounded deployment join and validated compiled graph reader permit selected consumer tracing.",
+        "statusNote": "GPT-6.1 Sol, 29 Sep; source only"
+      }
+    ],
+    "assets": [
+      {
+        "path": "Common/Hardware/Gadgets/CallIns/UAVOverwatch/UAVOverwatch_WB",
+        "format": "raw-ebx",
+        "sha256": "00b5214d93ddd5f03d685097536724e28598a4a2894f6d5d34d7c073f564c9e3",
+        "question": "UAV utility selected source route",
+        "result": "useful",
+        "conclusion": "WB source root decoded; no selected deployment-to-vehicle consumer established."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/CallIns/UAVOverwatch/U_UAVOverwatch",
+        "format": "raw-ebx",
+        "sha256": "1c4eb204a5bc58fe084f3f5d040211830ec04cbb14886d4e4a2f6a559a97a359",
+        "question": "UAV utility selected source route",
+        "result": "useful",
+        "conclusion": "U exported GUID is the exact Ability Field_f86e0433 import target."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/CallIns/UAVOverwatch/UAVOverwatch_Ability",
+        "format": "raw-ebx",
+        "sha256": "23b36818653c305501cac0710ba33eba310080d2890e485ebc432cc1e2875ad0",
+        "question": "UAV utility selected source route",
+        "result": "useful",
+        "conclusion": "Ability Field_f86e0433 and nested Field_d2b8fc26 target the scoped U and DiceFeature exported objects."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/CallIns/UAVOverwatch/DiceFeature_UAVOverwatch",
+        "format": "raw-ebx",
+        "sha256": "d246c8fd95346f2ec8bb861d33898886ceefe126aac32a9493d53937b86cb7a2",
+        "question": "UAV utility selected source route",
+        "result": "useful",
+        "conclusion": "DiceFeature nested Field_a07bc334 imports the exact CallIns SimEx exported object."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/CallIns/UAVOverwatch/SimEx_CallIns_UAVOverwatch",
+        "format": "raw-ebx",
+        "sha256": "2a490927def113741a2891009540849e8684cdd29ff72e58f630b2af14cec5c4",
+        "question": "UAV utility selected source route",
+        "result": "useful",
+        "conclusion": "CallIns function-name table contains ability owner/state and weapon ammunition/event-state/channel functions."
+      },
+      {
+        "path": "Common/Hardware/Vehicles/Airplane/MQ9/UAVOverwatch/SimEx_MQ9_UAVOverwatch_Gameplay",
+        "format": "raw-ebx",
+        "sha256": "1c23d754f750e99511339619b83e64008b148921491c72bad6dd72d43cb2ff21",
+        "question": "UAV utility selected source route",
+        "result": "useful",
+        "conclusion": "Candidate MQ9 gameplay table contains state/channel/time/tick names; no deployment selection join."
+      },
+      {
+        "path": "Common/Hardware/Vehicles/Airplane/MQ9/UAVOverwatch/SimEx_UAVOverwatch_Spot_Trigger",
+        "format": "raw-ebx",
+        "sha256": "0826ce3777b2ce8036a80733b85a3822232fba36f3d6e505ce4a57abe67eeca0",
+        "question": "UAV utility selected source route",
+        "result": "useful",
+        "conclusion": "Candidate SpotTrigger contains state/reset/channel names and boxed SpotDuration2.0/UseRootTransform true defaults; no deployment selection or effective-duration claim."
+      }
+    ],
+    "run": {
+      "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets",
+      "orchestrator": "GPT-6.1 Sol",
+      "workers": [
+        {
+          "lead": "L191",
+          "model": "GPT-6.1 Sol",
+          "effort": "Low"
+        }
+      ]
+    },
+    "refs": []
+  },
+  "history": [
+    "Initial boxed-value operand probe used offsets3848/3852 and returned zero/false; corrected to3856/3860 from decoder start+8+relative rule. Old artifacts retained.",
+    "Two shell quoting probes failed; no data changed. Help/schema commands were invoked from repo; helper copies were preserved before data decoding. Exact tool command history is in the session; commands below are reconstructed from recorded calls."
+  ],
+  "commands": [
+    {
+      "argv": [
+        "python",
+        "decode-v1.py",
+        "--descriptors",
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\toolchain\\SharedTypeDescriptors-hotfix-2026-09-16.ebx",
+        "--ebx-list",
+        "roots-list.txt",
+        "--out",
+        "roots-decoded.json"
+      ],
+      "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L191"
+    },
+    {
+      "argv": [
+        "python",
+        "decode-v1.py",
+        "--descriptors",
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\toolchain\\SharedTypeDescriptors-hotfix-2026-09-16.ebx",
+        "--ebx-list",
+        "children-list.txt",
+        "--out",
+        "children-decoded.json"
+      ],
+      "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L191"
+    },
+    {
+      "argv": [
+        "python",
+        "inspect-v1.py"
+      ],
+      "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L191",
+      "helperSha256": "765c189c611eb145d1a3ae0fccd7f1163b8f19515c6661ea98f5e7329315d45f",
+      "reconstructed": true
+    },
+    {
+      "argv": [
+        "python",
+        "routes-v1.py"
+      ],
+      "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L191",
+      "helperSha256": "00bab3aee2eb2318c4c023dacbc0e4a73e03982ff4462266376e00c1db6df2c0",
+      "reconstructed": true
+    },
+    {
+      "argv": [
+        "python",
+        "children-v1.py"
+      ],
+      "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L191",
+      "helperSha256": "97a92707e7376eb8de7ffeada66b13816f808739cd33f4d322e337c777579f28",
+      "reconstructed": true
+    },
+    {
+      "argv": [
+        "python",
+        "trace-v1.py"
+      ],
+      "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L191",
+      "helperSha256": "6acbaccaa41e1c41513e36248c60531e87d4870d1e66917cfb12a80970fc3118",
+      "reconstructed": true
+    },
+    {
+      "argv": [
+        "python",
+        "proofs-v1.py"
+      ],
+      "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L191",
+      "helperSha256": "7e42e1fcf42de7f18c46719646c53434726ec26c576f47eacde5e2b6d720726c",
+      "reconstructed": true
+    },
+    {
+      "argv": [
+        "python",
+        "proofs-v2.py"
+      ],
+      "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L191",
+      "helperSha256": "031daa4afe54f78409472a7353a4bfe402ce8dab5ab69baee321820db95c07b7",
+      "reconstructed": true
+    },
+    {
+      "argv": [
+        "python",
+        "deliver-v1.py"
+      ],
+      "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L191",
+      "helperSha256": "c3da068a804d9553f50bab062ac69f39510332ef53b13aa63763f903b5d0df60",
+      "reconstructed": true
+    },
+    {
+      "argv": [
+        "python",
+        "raw-check-v1.py",
+        "--manifest",
+        "proof-manifest-v2.json",
+        "--out",
+        "raw-proofs-v2.json"
+      ],
+      "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L191",
+      "helperSha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3",
+      "reconstructed": true
+    }
+  ],
+  "orchestratorCaptureReviews": [
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\armor-resource-capture\\verification.json",
+      "sha256": "15f1421c545a9e0a1f217fcc8b95638706c2b3bfa0e0f0ecbbfd7ecc15bd24e6"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\missing-gameplay-capture\\verification.json",
+      "sha256": "2743270e30d78f0dad9426589138bb79dbd35fe03ecec6ce9aab789392437b0f"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\next-utility-family-capture\\verification.json",
+      "sha256": "21be370a335301016614ce13a1c0ab6cbbb8f3b3589f39eb1d119e111824abf9"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\nvg-child-capture\\verification.json",
+      "sha256": "054a23735b9b352510cb5a17f8aaa3a2f2b94a45f568f3547051561924d2de12"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\registry-capture\\verification.json",
+      "sha256": "2e6ff41233fe7bdcd2f74b5189df235ab5113f6a2789b4f3c1b1fb747b23b8f9"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\utility-family-child-capture\\verification.json",
+      "sha256": "5228cffb74422a470de0a980b2602fc7fd14a976a8e77b6cc9d098d36120498f"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\utility-function-capture\\verification.json",
+      "sha256": "9714dd0000b8c561297ed75d0edeae45b1d7d53e66f10d885816bf0f0319f2fd"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\utility-receiver-capture\\verification.json",
+      "sha256": "54c4c93de9cb5027bcdc7903b0c5840d89aeb4b5907157a8f57952c6356093ed"
+    }
+  ],
+  "orchestratorReview": {
+    "reviewer": "GPT-6.1 Sol",
+    "workerModel": "GPT-6.1 Sol",
+    "workerEffort": "Low",
+    "date": "2026-09-29",
+    "draft": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L191\\draft-receipt-v2.json",
+      "sha256": "d3dd121e0b976219fa2ba1beb6750f9438db2c8f65e10f4ca8d5df0b7e0c5469"
+    },
+    "helperReview": {
+      "tool": "scripts/frosty-worker.py review",
+      "issues": 0,
+      "leadDir": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L191"
+    },
+    "scope": {
+      "roots": 4,
+      "externalChildrenExamined": 3,
+      "externalChildrenExaminedKind": "EBX",
+      "compiledResourceBodiesExamined": 2,
+      "externalChildrenSelection": "One selected CallIns child; two candidate MQ9 gameplay/spotting children without deployment selection"
+    },
+    "independentRawReview": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L191-independent-raw-review.json",
+      "sha256": "850ade2c25a860163c5ff559433d9f589227d65ea32ebd81404d103c72694881",
+      "uniqueChecksIncludingControl": 34,
+      "failures": 0
+    },
+    "pinReview": "Every recorded raw EBX asset hash matches either an indexed hotfix Head 4892087 capture or a reviewed fresh run-local capture with matching catalog Head/SDK and frozen descriptor hash. Release M433 control is separate.",
+    "semanticReview": "Selected source joins and exact member-owner meanings checked against reviewed prior mappings. No current multiplayer availability, native activation, units or effective composition claim."
+  }
+}

@@ -1,0 +1,1895 @@
+{
+  "lead": "L121",
+  "status": "partial",
+  "build": {
+    "release": "1.4.3.0",
+    "head": 4892017,
+    "descriptorSha256": "91c9ea7c3dd830e34a78123c8bb7485e80eefdb18fc9c7ee41117971d23565c2"
+  },
+  "question": "For the M4A1 and six sniper rifles, trace the 55 ADS-relevant choice routes and identify whether their ADS-time modifier steps target WB WeaponZoomTransitionIndex, AnimationZoomSettingsIndex, a GS field, or another index; trace Support trait GID_ADSTime_Trait_P10 across the ten site LMGs. Compare selected conditional arithmetic with the site ADS-in index and paired FZT rows without claiming runtime behavior.",
+  "scanScope": "Release raw tracing covered the seven weapon GS/WB roots for the 55 choice routes and the unique WPM assets linked by the reused L114 graph, plus WME_ADSTime_Anim_P10, WME_ADSTime_FOV_P10, four GID_ADSTime assets, and WPM_SupportTrait. The Support sweep covered all ten site LMG GS/WB pairs from L100 and raw-checked each GS condition GUID and priority. Raw checks cover modifier operands, ten selector/priority pairs, representative M4A1/L115A3/M240L candidate index fields, and the FZT T2/T5 values. Target associations for all scoped weapons are reused from L114; this lead did not find a serialized modifier-to-index edge.",
+  "sitePointerComparisons": [
+    {
+      "pointer": "data/attachments.json#/WEAPON_MAG/m433/defAds",
+      "value": 3,
+      "relation": "supports"
+    },
+    {
+      "pointer": "data/balance_tables.json#/ADS_SPD_TIERS/3",
+      "value": 300.0,
+      "relation": "supports"
+    },
+    {
+      "pointer": "data/balance_tables.json#/ADS_SPD_TIERS/5",
+      "value": 200.0,
+      "relation": "supports"
+    },
+    {
+      "pointer": "data/balance_tables.json#/ADS_SPD_TIERS/6",
+      "value": 166.667,
+      "relation": "supports"
+    },
+    {
+      "pointer": "data/balance_tables.json#/ADS_SPD_TIERS/2",
+      "value": 366.667,
+      "relation": "supports"
+    },
+    {
+      "pointer": "data/attachments.json#/BARRELS/1/adsTimeTierModByWeapon/m4a1",
+      "value": 1,
+      "relation": "supports"
+    },
+    {
+      "pointer": "data/attachments.json#/WEAPON_MAG/m4a1/defAds",
+      "value": 4,
+      "relation": "supports"
+    },
+    {
+      "pointer": "data/attachments.json#/BARRELS/6/adsTimeTierModByWeapon/m4a1",
+      "value": 1,
+      "relation": "supports"
+    },
+    {
+      "pointer": "data/attachments.json#/BARRELS/2/adsTimeTierModByWeapon/m4a1",
+      "value": 1,
+      "relation": "supports"
+    },
+    {
+      "pointer": "data/attachments.json#/GRIPS/13/frostyModifiers/m4a1/adsTimeTierMod",
+      "value": 1,
+      "relation": "supports"
+    },
+    {
+      "pointer": "data/attachments.json#/WEAPON_MAG/m4a1/mags/20_fast/adsTimeTierShift",
+      "value": -1,
+      "relation": "supports"
+    },
+    {
+      "pointer": "data/attachments.json#/WEAPON_MAG/m4a1/mags/20_rnd/adsTimeTierShift",
+      "value": -1,
+      "relation": "supports"
+    },
+    {
+      "pointer": "data/attachments.json#/BARRELS/1/adsTimeTierModByWeapon/l115",
+      "value": 1,
+      "relation": "supports"
+    },
+    {
+      "pointer": "data/attachments.json#/WEAPON_MAG/l115/defAds",
+      "value": 1,
+      "relation": "supports"
+    },
+    {
+      "pointer": "data/attachments.json#/WEAPON_MAG/drsiar/defAds",
+      "value": 2,
+      "relation": "context"
+    },
+    {
+      "pointer": "data/attachments.json#/WEAPON_MAG/kts100/defAds",
+      "value": 2,
+      "relation": "context"
+    },
+    {
+      "pointer": "data/attachments.json#/WEAPON_MAG/l110/defAds",
+      "value": 1,
+      "relation": "context"
+    },
+    {
+      "pointer": "data/attachments.json#/WEAPON_MAG/m60/defAds",
+      "value": 1,
+      "relation": "context"
+    },
+    {
+      "pointer": "data/attachments.json#/WEAPON_MAG/m121a2/defAds",
+      "value": 1,
+      "relation": "context"
+    },
+    {
+      "pointer": "data/attachments.json#/WEAPON_MAG/m123k/defAds",
+      "value": 1,
+      "relation": "context"
+    },
+    {
+      "pointer": "data/attachments.json#/WEAPON_MAG/m240l/defAds",
+      "value": 1,
+      "relation": "context"
+    },
+    {
+      "pointer": "data/attachments.json#/WEAPON_MAG/m250/defAds",
+      "value": 1,
+      "relation": "context"
+    },
+    {
+      "pointer": "data/attachments.json#/WEAPON_MAG/rpk74m/defAds",
+      "value": 2,
+      "relation": "context"
+    },
+    {
+      "pointer": "data/attachments.json#/WEAPON_MAG/rpkm/defAds",
+      "value": 2,
+      "relation": "context"
+    }
+  ],
+  "sourceFacts": {
+    "knownAnswerControl": {
+      "passed": true,
+      "description": "Known answer, reported first: HK433_WB.WeaponZoomTransitionIndex.Index, GRX_Weapons field hash 2b6f2936, has raw index 3; FZTT General_01 T3 is 300.0 ms and General_10 T3 is 233.334 ms. The release raw route passed.",
+      "rawChecks": [
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\HK433_WB.ebx",
+          "rawSha256": "c02751eac2b054343a2a115dff8f2000bc450548c96185445cd7c3b613030e0a",
+          "offset": 3952,
+          "type": "i32",
+          "bytesHex": "03000000",
+          "value": 3
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\ZoomTransitions\\FZTT_General_01_T3.ebx",
+          "rawSha256": "8bbe6e3b09df289cde7f002e6dca0c653815722a559f5e232cdf3ca348ac1bc0",
+          "offset": 100,
+          "type": "f32",
+          "bytesHex": "9a99993e",
+          "value": 0.30000001192092896
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\ZoomTransitions\\FZTT_General_10_T3.ebx",
+          "rawSha256": "a7dc9d3d08e69f9cbaf097c46b34df4568d972e40a67402b7870a55f7924cfaa",
+          "offset": 100,
+          "type": "f32",
+          "bytesHex": "1cef6e3e",
+          "value": 0.2333340048789978
+        }
+      ]
+    },
+    "choiceRouteCoverage": {
+      "expected": 55,
+      "traced": 55,
+      "WMEBearingRoutes": 52,
+      "GIDBindingRoutes": 53,
+      "pinCoverageSource": {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0005-0400\\L114\\l114-result.json",
+        "sha256": "839d6322b44d6d6d606a3e8921207aa0fba51c7862a83c49cf40fa25610e0580"
+      }
+    },
+    "supportTraitCoverage": {
+      "siteLmgBindings": 10,
+      "conditionGuid": "8430ed47-bd90-4c7f-9e3a-b2ba4697cd9b",
+      "priority": 1000,
+      "traitStepRawChecks": [
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\ADSTime\\WME_ADSTime_Anim_P10.ebx",
+          "rawSha256": "c574e062b8a698c4ac3057bdf99613922959d130c179d729598e565ab2adb8bd",
+          "offset": 152,
+          "type": "i32",
+          "bytesHex": "01000000",
+          "value": 1
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\ADSTime\\WME_ADSTime_FOV_P10.ebx",
+          "rawSha256": "26a2bf0f43292ab2887513215b893cf4955b54c20f31a5daeb1cdec82f83fee0",
+          "offset": 152,
+          "type": "i32",
+          "bytesHex": "01000000",
+          "value": 1
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\ADSTime\\GID_ADSTime_Trait_P10.ebx",
+          "rawSha256": "87822e24da33ac43d42d7146378f05d26efb1e6598810f27ede79fe28f0ecfb6",
+          "offset": 96,
+          "type": "i32",
+          "bytesHex": "01000000",
+          "value": 1
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\ADSTime\\GID_ADSTime_Trait_P10.ebx",
+          "rawSha256": "87822e24da33ac43d42d7146378f05d26efb1e6598810f27ede79fe28f0ecfb6",
+          "offset": 100,
+          "type": "i32",
+          "bytesHex": "01000000",
+          "value": 1
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Gameplay\\InRoundProgression\\WeaponTraits\\Support\\WPM_SupportTrait.ebx",
+          "rawSha256": "95d987268211b677244ff53accb6e2a958ad3fb6f65ab39dd7b406d8aa667308",
+          "offset": 196,
+          "type": "guid",
+          "bytesHex": "47ed308490bd7f4c9e3ab2ba4697cd9b",
+          "value": "8430ed47-bd90-4c7f-9e3a-b2ba4697cd9b"
+        }
+      ]
+    },
+    "rawChecks": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\ADSTime\\GID_ADSTime_BRL_P10.ebx",
+        "rawSha256": "f2c451ad270650a07ace48ef4bcbcc7d27ff30433e2713fefcfe513252b2ea82",
+        "offset": 96,
+        "type": "i32",
+        "bytesHex": "01000000",
+        "value": 1
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\ADSTime\\GID_ADSTime_BRL_P10.ebx",
+        "rawSha256": "f2c451ad270650a07ace48ef4bcbcc7d27ff30433e2713fefcfe513252b2ea82",
+        "offset": 100,
+        "type": "i32",
+        "bytesHex": "01000000",
+        "value": 1
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\ADSTime\\GID_ADSTime_BTM_P10.ebx",
+        "rawSha256": "e0bde0ba7479c212fec6776d208db5f54e8c9490cfeb306aa92c1b9be42d92bb",
+        "offset": 96,
+        "type": "i32",
+        "bytesHex": "01000000",
+        "value": 1
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\ADSTime\\GID_ADSTime_BTM_P10.ebx",
+        "rawSha256": "e0bde0ba7479c212fec6776d208db5f54e8c9490cfeb306aa92c1b9be42d92bb",
+        "offset": 100,
+        "type": "i32",
+        "bytesHex": "01000000",
+        "value": 1
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\ADSTime\\GID_ADSTime_MAG_P10.ebx",
+        "rawSha256": "b988250be02c0467ed71dfb4076b8938e27cd0dafae0001c6d9f6409a4d096b8",
+        "offset": 96,
+        "type": "i32",
+        "bytesHex": "01000000",
+        "value": 1
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\ADSTime\\GID_ADSTime_MAG_P10.ebx",
+        "rawSha256": "b988250be02c0467ed71dfb4076b8938e27cd0dafae0001c6d9f6409a4d096b8",
+        "offset": 100,
+        "type": "i32",
+        "bytesHex": "01000000",
+        "value": 1
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\ADSTime\\GID_ADSTime_Trait_P10.ebx",
+        "rawSha256": "87822e24da33ac43d42d7146378f05d26efb1e6598810f27ede79fe28f0ecfb6",
+        "offset": 96,
+        "type": "i32",
+        "bytesHex": "01000000",
+        "value": 1
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\ADSTime\\GID_ADSTime_Trait_P10.ebx",
+        "rawSha256": "87822e24da33ac43d42d7146378f05d26efb1e6598810f27ede79fe28f0ecfb6",
+        "offset": 100,
+        "type": "i32",
+        "bytesHex": "01000000",
+        "value": 1
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\ADSTime\\WME_ADSTime_Anim_P10.ebx",
+        "rawSha256": "c574e062b8a698c4ac3057bdf99613922959d130c179d729598e565ab2adb8bd",
+        "offset": 152,
+        "type": "i32",
+        "bytesHex": "01000000",
+        "value": 1
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\ADSTime\\WME_ADSTime_FOV_P10.ebx",
+        "rawSha256": "26a2bf0f43292ab2887513215b893cf4955b54c20f31a5daeb1cdec82f83fee0",
+        "offset": 152,
+        "type": "i32",
+        "bytesHex": "01000000",
+        "value": 1
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\M4A1\\M4A1_WB.ebx",
+        "rawSha256": "622dff6f877e798cd5d38a6bb5cf09b0b19a44dfaf81b2d43a270b1c1b7e1ac9",
+        "offset": 4912,
+        "type": "i32",
+        "bytesHex": "04000000",
+        "value": 4
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\M4A1\\M4A1_WB.ebx",
+        "rawSha256": "622dff6f877e798cd5d38a6bb5cf09b0b19a44dfaf81b2d43a270b1c1b7e1ac9",
+        "offset": 4952,
+        "type": "i32",
+        "bytesHex": "04000000",
+        "value": 4
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\BoltAction\\L115A3\\L115A3_WB.ebx",
+        "rawSha256": "0ea5ee85a866abb9ba4d6a2cb20cabc07f0fb2a59983c2bdd318160a814e9024",
+        "offset": 6928,
+        "type": "i32",
+        "bytesHex": "01000000",
+        "value": 1
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\BoltAction\\L115A3\\L115A3_WB.ebx",
+        "rawSha256": "0ea5ee85a866abb9ba4d6a2cb20cabc07f0fb2a59983c2bdd318160a814e9024",
+        "offset": 6968,
+        "type": "i32",
+        "bytesHex": "02000000",
+        "value": 2
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\M240L\\M240L_WB.ebx",
+        "rawSha256": "10ea864d75f4ab25b860c64e22afdd97b87d1de0d855a080d7141475c11e198a",
+        "offset": 4144,
+        "type": "i32",
+        "bytesHex": "01000000",
+        "value": 1
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\M240L\\M240L_WB.ebx",
+        "rawSha256": "10ea864d75f4ab25b860c64e22afdd97b87d1de0d855a080d7141475c11e198a",
+        "offset": 4184,
+        "type": "i32",
+        "bytesHex": "01000000",
+        "value": 1
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\ZoomTransitions\\FZTT_General_01_T2.ebx",
+        "rawSha256": "c850ebc71d804a504a8a8c6747b968264e7adeba322fe9aded3a1aecc34a0fe3",
+        "offset": 100,
+        "type": "f32",
+        "bytesHex": "c7bbbb3e",
+        "value": 0.3666670024394989
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\ZoomTransitions\\FZTT_General_01_T5.ebx",
+        "rawSha256": "7c225e62326c468aedb40cdf9b8e02dd5f00a3e107ba48f6a370d6ea10e2417f",
+        "offset": 100,
+        "type": "f32",
+        "bytesHex": "cdcc4c3e",
+        "value": 0.20000000298023224
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\ZoomTransitions\\FZTT_General_10_T2.ebx",
+        "rawSha256": "a63959e4a889941c0fa79ab9933946af7af6ec9529876f4773a3aae91f539a85",
+        "offset": 100,
+        "type": "f32",
+        "bytesHex": "9488883e",
+        "value": 0.2666670083999634
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\ZoomTransitions\\FZTT_General_10_T5.ebx",
+        "rawSha256": "6a8b8f5046d34cd356e418438b8622526758b0904f422b03ea3dba3fc7d5faa9",
+        "offset": 100,
+        "type": "f32",
+        "bytesHex": "c1aa2a3e",
+        "value": 0.16666699945926666
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\M27IAR\\GS_M27IAR.ebx",
+        "rawSha256": "8a1ac794fa688e02406c565aebc0b1dbb9233638a30355c75d8574af32efcf58",
+        "offset": 8152,
+        "type": "guid",
+        "bytesHex": "47ed308490bd7f4c9e3ab2ba4697cd9b",
+        "value": "8430ed47-bd90-4c7f-9e3a-b2ba4697cd9b"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\M27IAR\\GS_M27IAR.ebx",
+        "rawSha256": "8a1ac794fa688e02406c565aebc0b1dbb9233638a30355c75d8574af32efcf58",
+        "offset": 8168,
+        "type": "i32",
+        "bytesHex": "e8030000",
+        "value": 1000
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\Ultimax\\GS_Ultimax.ebx",
+        "rawSha256": "8f399c816e83e3c5c4c1840f6c0cd4874207bc49cfc4d9e4a849cae203931831",
+        "offset": 8216,
+        "type": "guid",
+        "bytesHex": "47ed308490bd7f4c9e3ab2ba4697cd9b",
+        "value": "8430ed47-bd90-4c7f-9e3a-b2ba4697cd9b"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\Ultimax\\GS_Ultimax.ebx",
+        "rawSha256": "8f399c816e83e3c5c4c1840f6c0cd4874207bc49cfc4d9e4a849cae203931831",
+        "offset": 8232,
+        "type": "i32",
+        "bytesHex": "e8030000",
+        "value": 1000
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\Minimi\\GS_Minimi.ebx",
+        "rawSha256": "895cc52d5adf6592ae91d5e2ade717ea84dc1f8f5367019e0a2d6fc826fb04bd",
+        "offset": 8024,
+        "type": "guid",
+        "bytesHex": "47ed308490bd7f4c9e3ab2ba4697cd9b",
+        "value": "8430ed47-bd90-4c7f-9e3a-b2ba4697cd9b"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\Minimi\\GS_Minimi.ebx",
+        "rawSha256": "895cc52d5adf6592ae91d5e2ade717ea84dc1f8f5367019e0a2d6fc826fb04bd",
+        "offset": 8040,
+        "type": "i32",
+        "bytesHex": "e8030000",
+        "value": 1000
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\weapons\\MG\\M60E6\\GS_M60E6.ebx",
+        "rawSha256": "b3433194e85116af150c249307b68802957e29934975a38d24bb8b6c81e522c8",
+        "offset": 8024,
+        "type": "guid",
+        "bytesHex": "47ed308490bd7f4c9e3ab2ba4697cd9b",
+        "value": "8430ed47-bd90-4c7f-9e3a-b2ba4697cd9b"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\weapons\\MG\\M60E6\\GS_M60E6.ebx",
+        "rawSha256": "b3433194e85116af150c249307b68802957e29934975a38d24bb8b6c81e522c8",
+        "offset": 8040,
+        "type": "i32",
+        "bytesHex": "e8030000",
+        "value": 1000
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\MG5\\GS_MG5.ebx",
+        "rawSha256": "c0a3effd2779553401543149ad6f4fce6ece112784e3d3fe153e6e456518e001",
+        "offset": 7992,
+        "type": "guid",
+        "bytesHex": "47ed308490bd7f4c9e3ab2ba4697cd9b",
+        "value": "8430ed47-bd90-4c7f-9e3a-b2ba4697cd9b"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\MG5\\GS_MG5.ebx",
+        "rawSha256": "c0a3effd2779553401543149ad6f4fce6ece112784e3d3fe153e6e456518e001",
+        "offset": 8008,
+        "type": "i32",
+        "bytesHex": "e8030000",
+        "value": 1000
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\weapons\\MG\\MG4K\\GS_MG4K.ebx",
+        "rawSha256": "9d54a6d1f132a66ec0c922cbf7e32fdb2b55f7882fa512cac9f50f47bdc7620b",
+        "offset": 8024,
+        "type": "guid",
+        "bytesHex": "47ed308490bd7f4c9e3ab2ba4697cd9b",
+        "value": "8430ed47-bd90-4c7f-9e3a-b2ba4697cd9b"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\weapons\\MG\\MG4K\\GS_MG4K.ebx",
+        "rawSha256": "9d54a6d1f132a66ec0c922cbf7e32fdb2b55f7882fa512cac9f50f47bdc7620b",
+        "offset": 8040,
+        "type": "i32",
+        "bytesHex": "e8030000",
+        "value": 1000
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\M240L\\GS_M240L.ebx",
+        "rawSha256": "2aaa2983e4f3edcf48158049c8ce6f0108147a4f585c3dddcdae5e87a46ad213",
+        "offset": 8024,
+        "type": "guid",
+        "bytesHex": "47ed308490bd7f4c9e3ab2ba4697cd9b",
+        "value": "8430ed47-bd90-4c7f-9e3a-b2ba4697cd9b"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\M240L\\GS_M240L.ebx",
+        "rawSha256": "2aaa2983e4f3edcf48158049c8ce6f0108147a4f585c3dddcdae5e87a46ad213",
+        "offset": 8040,
+        "type": "i32",
+        "bytesHex": "e8030000",
+        "value": 1000
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\M250\\GS_M250.ebx",
+        "rawSha256": "fadecc2e2b06cba35d1716409e168d6908e69c5aa6fde7e96e2f8b0f2b274f9e",
+        "offset": 7992,
+        "type": "guid",
+        "bytesHex": "47ed308490bd7f4c9e3ab2ba4697cd9b",
+        "value": "8430ed47-bd90-4c7f-9e3a-b2ba4697cd9b"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\M250\\GS_M250.ebx",
+        "rawSha256": "fadecc2e2b06cba35d1716409e168d6908e69c5aa6fde7e96e2f8b0f2b274f9e",
+        "offset": 8008,
+        "type": "i32",
+        "bytesHex": "e8030000",
+        "value": 1000
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\RPK74M\\GS_RPK74M.ebx",
+        "rawSha256": "21cd4cccbba45ab79b8ef7b9337e9438377a266a7f0376cca294fe14879b2041",
+        "offset": 8216,
+        "type": "guid",
+        "bytesHex": "47ed308490bd7f4c9e3ab2ba4697cd9b",
+        "value": "8430ed47-bd90-4c7f-9e3a-b2ba4697cd9b"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\RPK74M\\GS_RPK74M.ebx",
+        "rawSha256": "21cd4cccbba45ab79b8ef7b9337e9438377a266a7f0376cca294fe14879b2041",
+        "offset": 8232,
+        "type": "i32",
+        "bytesHex": "e8030000",
+        "value": 1000
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\weapons\\MG\\RPKM\\GS_RPKM.ebx",
+        "rawSha256": "ce23c6a86b1f61de01031104af6e54f9371fb57e46867770985ce536f2db3b10",
+        "offset": 8152,
+        "type": "guid",
+        "bytesHex": "47ed308490bd7f4c9e3ab2ba4697cd9b",
+        "value": "8430ed47-bd90-4c7f-9e3a-b2ba4697cd9b"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\weapons\\MG\\RPKM\\GS_RPKM.ebx",
+        "rawSha256": "ce23c6a86b1f61de01031104af6e54f9371fb57e46867770985ce536f2db3b10",
+        "offset": 8168,
+        "type": "i32",
+        "bytesHex": "e8030000",
+        "value": 1000
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Gameplay\\InRoundProgression\\WeaponTraits\\Support\\WPM_SupportTrait.ebx",
+        "rawSha256": "95d987268211b677244ff53accb6e2a958ad3fb6f65ab39dd7b406d8aa667308",
+        "offset": 196,
+        "type": "guid",
+        "bytesHex": "47ed308490bd7f4c9e3ab2ba4697cd9b",
+        "value": "8430ed47-bd90-4c7f-9e3a-b2ba4697cd9b"
+      }
+    ],
+    "wbTargetCandidates": {
+      "registry": "Common/GameSetup/Tweakables/GameRemixer/GRX_Weapons",
+      "fieldHash": "2b6f2936",
+      "channels": [
+        "WeaponZoomTransitionIndex.Index",
+        "AnimationZoomSettingsIndex.Index"
+      ],
+      "relation": "Base candidate values are serialized and named; the modifier-to-target edge is not established."
+    }
+  },
+  "inference": [
+    "The attachment route uses the U_WPM selector to reach a WPM owner and its Field_9690d604 WME entries. The GS GID route is a separate binding in Field_4d248d91. These serialized paths do not show a common output field.",
+    "Site arithmetic for each M4A1 choice equals the site ADS-in index after applying its one choice-level modifier. If the modifier changes WeaponZoomTransitionIndex, the selected FZT pair would shift to the calculated row. Arithmetic does not establish that target.",
+    "L115A3 Basic Barrel provides a discriminating numeric example: WeaponZoomTransitionIndex is 1 and AnimationZoomSettingsIndex is 2; the site projection is index 2 after one step. This favors the transition candidate arithmetically but is not a typed source link.",
+    "Prior VSSM review describes WME_ADSTime_Anim and WME_ADSTime_FOV as parallel timing channels and says not to add their equal +1 operands together. The current trace preserves their separate WPM list indices."
+  ],
+  "unresolved": [
+    "The pinned serialized chains show WME Field_9540bd8e inside WPM Field_9690d604 entries and GID Field_4692836a inside GS Field_4d248d91 bindings. They do not identify the exact GRX_Weapons child/hash that receives either step. WeaponZoomTransitionIndex and AnimationZoomSettingsIndex are candidate base-index pairs only.",
+    "The L115A3 example has transition index 1 and animation index 2. The site projection reaches index 2 after one step, which is arithmetically consistent with shifting the transition candidate, but arithmetic is not a serialized target link.",
+    "Runtime activation, priority interaction, addition order, and whether an ADS-out FZT row shifts with the modifier remain unproven. No native behavior is claimed.",
+    "L100 did not resolve a named GRX_Weapons association for GID_ADSTime_Trait_P10 Field_4692836a; its exact receiver remains unresolved."
+  ],
+  "siteImpact": "Conditional arithmetic matches the current site ADS-in model for the six M4A1 choices: base index 4 plus effective step 1 gives index 5, ADS_SPD_TIERS[5] = 200 ms. If that step modifies WeaponZoomTransitionIndex, the paired FZT rows are General_01 T5 = 200 ms and General_10 T5 = 166.667 ms. L115A3 Basic Barrel gives conditional site index 2 (366.667 ms); the M240L Support-trait projection also gives conditional index 2 (366.667 ms), but Support is not modeled in current site attachment data. These calculations do not identify the modifier target or establish runtime composition.",
+  "evidence": {
+    "paths": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121\\brief.txt",
+        "sha256": "4f9427f6fcfa2867b48c6ce445ef5c54dc8e677924944aa98c7880a22e911abe",
+        "role": "task brief"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\weapon-crosswalk.json",
+        "sha256": "9c4479057a20d0ebc6d091140a70a0227b6b9184db26e4fadee674da18df2e76",
+        "role": "run-root site weapon to source root identities"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0005-0400\\L114\\l114-result.json",
+        "sha256": "839d6322b44d6d6d606a3e8921207aa0fba51c7862a83c49cf40fa25610e0580",
+        "role": "reused 55-route and per-weapon registry targets"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0005-0400\\L114\\l114-registry-associations.json",
+        "sha256": "e8d2f522e9774c31a390f70d19fd6564a8a8b57d21f67ca06b33f4577232f622",
+        "role": "reused exact GRX child/hash association candidates"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0005-0400\\L114\\ads-modifier-graph-summary-v2.json",
+        "sha256": "614c4e2eb14cbc297a4f4637f5f23662fc8fcbaa99b35fa97cf1ddd4a50130bb",
+        "role": "reused choice selector to WPM/WME/GID route graph"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0005-0400\\L114\\l114-modifier-chain-coverage.json",
+        "sha256": "a8f3f3503536c1c8686c185eed96568e57de807f03d4102b5bd5e930a456b127",
+        "role": "reused pinned raw chain coverage counts"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-28T1435-0400\\L100\\l100-result.json",
+        "sha256": "e6888c099c3e7b62507082577622ec0ef17cd5973647301fc88fb6678e5c74c2",
+        "role": "reused ten-LMG Support trait binding and site projection evidence"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-vssm-ads-reviewed-2026-09-23.json",
+        "sha256": "e0ca64c3fbb40275d43e56eba4eeabfcf2269748d82447f97e352cb287e03954",
+        "role": "prior ADS channel distinction limit"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-attachment-handling-generated.json",
+        "sha256": "325da504f4dcdd9c24cec6ec5bd8ee8e0857f5ecde51438d0c86535f1c51e213",
+        "role": "site modifier choice mapping evidence"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\docs\\frosty\\FIELD_MAP.md",
+        "sha256": "976db6b19f6e2f4fa6ecd1784d907f1bceb055e1aad8033158412b7a65d20fcb",
+        "role": "field interpretation reference"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\docs\\frosty\\ATTACHMENTS.md",
+        "sha256": "2f0fa3707f6733652890d67df7b62a0c13b34bc1cdad7ef44dd804340f951c52",
+        "role": "L17 route reproduction method"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer\\docs\\STAT_LADDERS.md",
+        "sha256": "859f30711e7bffd8549157b5e6f7b430149323e6412f4cee6662416aa2ea1a21",
+        "role": "site ADS-in arithmetic convention"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer\\data\\attachments.json",
+        "sha256": "8ddebf944fa7e844acbc28de6f653dac6172144801c45901dd336322385274eb",
+        "role": "site choice and defAds values compared"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer\\data\\balance_tables.json",
+        "sha256": "e4b2946ab0aaea54a25a6703029994a824da6f1d49c37072a7e7205faa36a08b",
+        "role": "site ADS_SPD_TIERS values compared"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\toolchain\\SharedTypeDescriptors.ebx",
+        "sha256": "91c9ea7c3dd830e34a78123c8bb7485e80eefdb18fc9c7ee41117971d23565c2",
+        "role": "pinned decoder descriptors"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121\\control-manifest.json",
+        "sha256": "8ece3aad0010bcaff696ea38fd3616ae9b97b9dee974542339f02e48b08091fe",
+        "role": "known-answer raw check manifest"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121\\control-raw-checks.json",
+        "sha256": "70c557bb25a0b5ff9905fb06455c3a9a95947e42467c6c5990a528c325102fa4",
+        "role": "known-answer raw check output"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121\\l121-ebx-list.txt",
+        "sha256": "70aaf468d5b84c55175bf195c97791eccd4952421fd2a1072995ea81cd054cec",
+        "role": "first scoped decoder input list"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121\\l121-selected-decodes.json",
+        "sha256": "2200bf3ba54abfbbfeee2cf78acf76b09b36b6cd2b8d75978a8eb61d0cc59eac",
+        "role": "first scoped pinned raw decoder output"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121\\l121-owner-ebx-list.txt",
+        "sha256": "1cbe02e36fd9ffe02d7a9b5d3b70db4df47b5d2e94fa59dbeaeb2c9ab45c800f",
+        "role": "weapon root and unique WPM decoder input list"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121\\l121-owner-decodes.json",
+        "sha256": "37be76949c152dc0dd787e5fda0ca13846627b1fdffedb84f09a0e156a881c99",
+        "role": "weapon root and unique WPM pinned raw decoder output"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121\\l121-raw-manifest.json",
+        "sha256": "c09508730366ce6a60e04af5baaaab870daebf37c5e5ce382cd7923d5493e5ae",
+        "role": "41 scoped raw checks"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121\\l121-raw-checks.json",
+        "sha256": "dd5d80acc3dbb65bb44af6b7888130e8d609974197277237f7b647b582656872",
+        "role": "41 scoped raw check output"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121\\l121-route-map-v4.json",
+        "sha256": "cdbd48ee20c202de16c72fbc35a97877db02434fc2bb542b3b0d490b36a749c9",
+        "role": "typed WB/WPM owner and list-index join with full route membership key"
+      }
+    ],
+    "commands": [
+      {
+        "executable": "python",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-worker.py",
+          "prior-work",
+          "--terms",
+          "GID_ADSTime",
+          "WeaponZoomTransitionIndex",
+          "Field_9540bd8e"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121",
+        "purpose": "Required prior-work search",
+        "outputPaths": [],
+        "history": "reconstructed from the executed tool invocation; no rerun implied"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-worker.py",
+          "prior-work",
+          "--terms",
+          "AnimationZoomSettingsIndex",
+          "WME_ADSTime_Anim",
+          "WME_ADSTime_FOV"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121",
+        "purpose": "Target-channel prior-work search",
+        "outputPaths": [],
+        "history": "reconstructed from the executed tool invocation; no rerun implied"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+          "--raw-root",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw",
+          "--manifest",
+          "control-manifest.json",
+          "--out",
+          "control-raw-checks.json"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121",
+        "purpose": "M433 known-answer raw control",
+        "outputPaths": [
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121\\control-raw-checks.json",
+            "sha256": "70c557bb25a0b5ff9905fb06455c3a9a95947e42467c6c5990a528c325102fa4",
+            "role": "control output"
+          }
+        ],
+        "history": "reconstructed from the executed tool invocation; no rerun implied"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-ebx-decode.py",
+          "--descriptors",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\toolchain\\SharedTypeDescriptors.ebx",
+          "--ebx-list",
+          "l121-ebx-list.txt",
+          "--out",
+          "l121-selected-decodes.json",
+          "--root",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121",
+        "purpose": "Decode scoped GS/WB and modifier assets",
+        "outputPaths": [
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121\\l121-selected-decodes.json",
+            "sha256": "2200bf3ba54abfbbfeee2cf78acf76b09b36b6cd2b8d75978a8eb61d0cc59eac",
+            "role": "decoder output"
+          }
+        ],
+        "history": "reconstructed from the executed tool invocation; no rerun implied"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-ebx-decode.py",
+          "--descriptors",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\toolchain\\SharedTypeDescriptors.ebx",
+          "--ebx-list",
+          "l121-owner-ebx-list.txt",
+          "--out",
+          "l121-owner-decodes.json",
+          "--root",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121",
+        "purpose": "Decode seven scoped WB roots and unique WPM assets",
+        "outputPaths": [
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121\\l121-owner-decodes.json",
+            "sha256": "37be76949c152dc0dd787e5fda0ca13846627b1fdffedb84f09a0e156a881c99",
+            "role": "decoder output"
+          }
+        ],
+        "history": "reconstructed from the executed tool invocation; no rerun implied"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "prepare_owner_decode_list.py"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121",
+        "purpose": "Create scoped WB/WPM raw decoder input",
+        "outputPaths": [
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121\\l121-owner-ebx-list.txt",
+            "sha256": "1cbe02e36fd9ffe02d7a9b5d3b70db4df47b5d2e94fa59dbeaeb2c9ab45c800f",
+            "role": "decoder input list"
+          }
+        ],
+        "history": "reconstructed from the executed tool invocation; no rerun implied"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "make_l121_raw_manifest.py"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121",
+        "purpose": "Build 41 raw operand and candidate reads",
+        "outputPaths": [
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121\\l121-raw-manifest.json",
+            "sha256": "c09508730366ce6a60e04af5baaaab870daebf37c5e5ce382cd7923d5493e5ae",
+            "role": "raw check manifest"
+          }
+        ],
+        "history": "reconstructed from the executed tool invocation; no rerun implied"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+          "--raw-root",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw",
+          "--manifest",
+          "l121-raw-manifest.json",
+          "--out",
+          "l121-raw-checks.json"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121",
+        "purpose": "Raw-check scoped values",
+        "outputPaths": [
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121\\l121-raw-checks.json",
+            "sha256": "dd5d80acc3dbb65bb44af6b7888130e8d609974197277237f7b647b582656872",
+            "role": "raw check output"
+          }
+        ],
+        "history": "reconstructed from the executed tool invocation; no rerun implied"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "build_route_map.py"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121",
+        "purpose": "Join reused selector routes to pinned WB/WPM owner list indices using full route membership",
+        "outputPaths": [
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121\\l121-route-map-v4.json",
+            "sha256": "cdbd48ee20c202de16c72fbc35a97877db02434fc2bb542b3b0d490b36a749c9",
+            "role": "typed route map"
+          }
+        ],
+        "history": "reconstructed from the executed tool invocation; no rerun implied"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "patch_route_join.py"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121",
+        "purpose": "Patch route selection to use selector plus full modifier membership",
+        "outputPaths": [],
+        "history": "reconstructed from the executed tool invocation; no rerun implied"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "build_route_map.py"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121",
+        "purpose": "First composite-key route map generation; all 52 WME routes bound",
+        "outputPaths": [
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121\\l121-route-map-v4.json",
+            "sha256": "cdbd48ee20c202de16c72fbc35a97877db02434fc2bb542b3b0d490b36a749c9",
+            "role": "composite-key route map"
+          }
+        ],
+        "history": "reconstructed from the executed tool invocation; no rerun implied"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "patch_route_join_case.py"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121",
+        "purpose": "Make the deliverable join accept the route-map lower-case keys",
+        "outputPaths": [],
+        "history": "reconstructed from the executed tool invocation; no rerun implied"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "build_route_map.py"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121",
+        "purpose": "Retry after case fix; refused overwrite because l121-route-map-v4.json already existed",
+        "outputPaths": [],
+        "history": "reconstructed from the executed tool invocation; no rerun implied"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "build_l121_deliverables.py"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121",
+        "purpose": "Initial deliverable join attempt; KeyError on lower-case route-map row before writing outputs",
+        "outputPaths": [],
+        "history": "reconstructed from the executed tool invocation; no rerun implied"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "inspect_dup.py"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121",
+        "purpose": "Inspect reused L114 routes that share attachment GUID and progression key",
+        "outputPaths": [],
+        "history": "reconstructed from the executed tool invocation; no rerun implied"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "inspect_decoded_assets.py"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121",
+        "purpose": "Confirm scoped WME, GID, and Support WPM decode assets",
+        "outputPaths": [],
+        "history": "reconstructed from the executed tool invocation; no rerun implied"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "inspect_receipt_assets.py"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121",
+        "purpose": "Review record asset findings after the first receipt check",
+        "outputPaths": [],
+        "history": "reconstructed from the executed tool invocation; no rerun implied"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-registry-association.py",
+          "--help"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121",
+        "purpose": "Inspect registry association reproduction interface",
+        "outputPaths": [],
+        "history": "reconstructed from the executed tool invocation; no rerun implied"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+          "--help"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121",
+        "purpose": "Confirm raw-check supported types and manifest schema",
+        "outputPaths": [],
+        "history": "reconstructed from the executed tool invocation; no rerun implied"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-records.py",
+          "schema"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121",
+        "purpose": "Read required receipt record header",
+        "outputPaths": [],
+        "history": "reconstructed from the executed tool invocation; no rerun implied"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "build_l121_deliverables.py"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121",
+        "purpose": "Write corrected lead result, summary, and draft receipt under final-finished/",
+        "outputPaths": [
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121\\final-finished\\l121-result.json"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121\\final-finished\\summary.md"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121\\final-finished\\draft-receipt.json"
+          }
+        ],
+        "history": "reconstructed from the executed tool invocation; no rerun implied"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "audit_final.py"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121",
+        "purpose": "Check row counts, raw-check key shape, corrected collision joins, and final file hashes",
+        "outputPaths": [],
+        "history": "reconstructed from the executed tool invocation; no rerun implied"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-records.py",
+          "check-receipt",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121\\final\\draft-receipt.json"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121",
+        "purpose": "First receipt check; validator rejected # pointer syntax in record.site",
+        "outputPaths": [],
+        "history": "reconstructed from the executed tool invocation; no rerun implied"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-records.py",
+          "check-receipt",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121\\final-validated\\draft-receipt.json"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121",
+        "purpose": "Receipt record accepted; checker warned about repeated asset findings",
+        "outputPaths": [],
+        "history": "reconstructed from the executed tool invocation; no rerun implied"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "inspect_receipt_assets.py"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121",
+        "purpose": "Identify duplicate record asset wording in the corrected receipt",
+        "outputPaths": [],
+        "history": "reconstructed from the executed tool invocation; no rerun implied"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-records.py",
+          "check-receipt",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121\\final-reviewed\\draft-receipt.json"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121",
+        "purpose": "Second receipt check; repeated GS root wording warned",
+        "outputPaths": [],
+        "history": "reconstructed from the executed tool invocation; no rerun implied"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-records.py",
+          "check-receipt",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121\\final-deliverable\\draft-receipt.json"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121",
+        "purpose": "Third receipt check; repeated WB candidate wording warned",
+        "outputPaths": [],
+        "history": "reconstructed from the executed tool invocation; no rerun implied"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-records.py",
+          "check-receipt",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121\\final-ready\\draft-receipt.json"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121",
+        "purpose": "Fourth receipt check; repeated FZT row wording warned",
+        "outputPaths": [],
+        "history": "reconstructed from the executed tool invocation; no rerun implied"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-records.py",
+          "check-receipt",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121\\final-finished\\draft-receipt.json"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121",
+        "purpose": "Validate the final draft receipt",
+        "outputPaths": [],
+        "history": "reconstructed from the executed tool invocation; no rerun implied"
+      }
+    ],
+    "repoHelperHashes": {
+      "frosty-worker.py": "91d73d328cfe39862ec882ef02eda665580b28a6da9fa541f7b03d12d755beb2",
+      "frosty-raw-check.py": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3",
+      "frosty-ebx-decode.py": "6fdc0334efaee0fe6113b5c9db4973f1358f53ee65dfb94edbc22fb0bf07a727",
+      "frosty-registry-association.py": "043adf869d1324c828d1f5d883b8ecba8cc9ffce780ae2f39f686f9535f19222",
+      "frosty-records.py": "ffb0e7574ce66779ae5041f4fc55047d0da2f63d917682b527673a75612b734c"
+    },
+    "localHelperHashes": {
+      "audit_final.py": "e24cbbe276af16df4961e3db7d2c4da1abcb82aa5ec8cef2f2b09fe28f846534",
+      "build_l121_deliverables.py": "6733c9fd0618364c459eb9aed45efae719d983ac26a88ee2119704ed8b8059d0",
+      "build_route_map.py": "9e7ff9c8323db0ea3bf8ca8909fb923b7331304209bbde8f6d70b3934751e901",
+      "curate_receipt_assets.py": "6b36f495422c44409466354579b08583eea2131ad7dedb0ee1c97acf35e3a36a",
+      "find_descriptors.py": "acb775cdeede92fb064b2f6d938da9a9b3798da0b476d4a69e78de25c51a52f4",
+      "fix_receipt_pointers.py": "4469f8cba5b162911b1fbbcb007ef0b25ab413cda969741959a439f596237234",
+      "inspect_barrel_generated.py": "92da7a2280d7e333e6f5290676b7876140eb8913f1e802b37709accd32a8b6f6",
+      "inspect_base_indices.py": "bbb4efbbdd644be33f54cf69f9b9e3fc2c58ed71553de731afc37eca8e2c441a",
+      "inspect_byte_ledger.py": "9c3e4e987cb60f84381681084dbbb390f78859d2dd687dfab76d6235bfe3259e",
+      "inspect_decode_selected.py": "d3c0db6a6af283eb720412d6e6fc714d48273a2bc140a11b6c789c65e38effb1",
+      "inspect_decode_shapes.py": "0cdf3bb5651fad9cd813d09d133d9eac0a942774efc3d7382416236143eaecfb",
+      "inspect_decoded_assets.py": "650b395e6fe3360426ab9f014d67c2a4bb3991287bb04f222846aac4525b2564",
+      "inspect_dup.py": "47ca9a01ca719124fe79b8638e372fe2988cb2d6d8a5d95060dd542b41f1e701",
+      "inspect_duplicate_route_keys.py": "8f5c19e2b8d93130cf68272e0dcc02774e1d1d9de9887a93eae9b9cc16478d12",
+      "inspect_final_outputs.py": "191913ef7820ca6403b35a419415b8c3393abf98ce4c93cf6c47e905ffbfcf02",
+      "inspect_full_ads.py": "c4bb513b24dbe3f13f6c5b978bca52fb5849d40ff3da90fe1476371375b13137",
+      "inspect_graph.py": "8e6295e0872ec5377f61b32144815b483c6dbd0e4a508da0294b14491161ffba",
+      "inspect_import_matching.py": "1b2e624e9515d67d92dfc87ad817ac859a5e06de330a017f3f56e6fac195165b",
+      "inspect_inline_wpm.py": "68998dee1b840dbe148017458cda94325bbc6391584c95edc09a8ccb27448a59",
+      "inspect_inline_wpm_targets.py": "b2afcc1ce03b1830ac5c9962993aa5d98efebfe7f5090b292d187b0c55b5341f",
+      "inspect_inputs.py": "9cc25b74b60170183d9628733f4472d6a649459842fd9a708ca00d4509959de5",
+      "inspect_l100_all_routes.py": "88373db347e2b6199f1cbc4c294feae3f1a6cfcca9d8f81db3286735d3822c3b",
+      "inspect_l100_grx.py": "887282f3210f64dcde184ff3e8d4df7101e9fd7acbe64cceb007955275637feb",
+      "inspect_l100_keys.py": "66b67b9910dc1cc3503c01f4f75c8e7e4fbd937ce187418317f1aa44b5523064",
+      "inspect_l100_support_routes.py": "38f9bfea14e8c669f9767ab2437f028e93d4b1c4f3a1ba7ea83e963a46339c13",
+      "inspect_l114.py": "f0afa0d95c071daa8092286a94a41ccba13ef2c1b7eef8229b492364aa90b8aa",
+      "inspect_l114_details.py": "8b731a98109059783edf32ebfb81dfe79c31bc47d3d6d7eaa3a75fc2aea1538a",
+      "inspect_l121_site_pointers.py": "7a96dd943bc4f977f4ffbb88ef8c74986ffbd1be3a1746ddabb70c708c8965d5",
+      "inspect_m4_site_rows.py": "c0eba2af9c4fed91a74f7e69dd22fa3819f0b1229cb59c6275b6789520110700",
+      "inspect_missing_wpm.py": "2a0ac79311f97074c880ffab222ab5ac160bbd38ee620407a0458306253174eb",
+      "inspect_prior_l100.py": "211715fd09bc33aa91478f1e5fc38353286341716d6549d6399ca661716e8172",
+      "inspect_prior_route_tables.py": "bba30561e8e1e9204b913c136f47ed93b4d14dd600955d3988dc346b2bdde91a",
+      "inspect_receipt_asset_dupes.py": "3ffb28a0f01b4b4a0706a7e32fc4849cafbe2607df059fbb33635af3ff34a659",
+      "inspect_receipt_assets.py": "7cae770015bbadd2349d58dbfd101d2488f5d98bba576ce732a7ea83d8e2cd5f",
+      "inspect_reuse.py": "c3335dfa3568e170ac4217bb0e7e15b4511fccfbac8ca56e04a77c590bf8ff37",
+      "inspect_route_binding_coverage.py": "484ad3e44638689789678657d680165280815a635ba6ecc83b472ffd48911263",
+      "inspect_route_map_gaps.py": "a78d141ab3844c5ff4b5a60d5b93b625fb45330ec82d402808fc9166359bc3a9",
+      "inspect_route_map_v3_gaps.py": "147aa26dc2f25e5e6d20d1d9bee33510141d91abd65a1bfb85ba4a1acc8ca0e4",
+      "inspect_route_schema.py": "4ce38c0925ab8434eec24ef7e54eeda8257d6224a19a28557bc333b849ab7028",
+      "inspect_routes.py": "086b26b1d0b45933c3770f40e201ce33b953a684fa833ba58712ea965d9fe73c",
+      "inspect_selected_fields.py": "4d090ed3b39a44cad74eb86268e83f61d8c11a6d2b0887f262d415fb0d12bfb1",
+      "inspect_site_ads_choices.py": "f3ff429abe7fefe3c5eac8749b3ae5a38d7808148d6d78f681899b895be520bc",
+      "inspect_target_evidence.py": "57e9d6ca31992284d46f9441c5a85868476a50e3f32d1f556bd343325cab92c5",
+      "inspect_three_route_sources.py": "909fee4208ac562616f064b5e4771819867b74702d940af6e7b23d8b3d35ce35",
+      "inspect_vssm_receipt.py": "3bd4db37b6cc414023cef846b81e6aeb98eb8ab2e306cd0509e7ae4792ea5e3e",
+      "inspect_wme_refs_in_roots.py": "1fb51b92d48b3b8b971414853613f02b00752d9e04e54f722635c80326c68d68",
+      "make_control_manifest.py": "cc161ce19c93153f7328d3ea86cd3a793595a940a1b96f87cdba47f52244c499",
+      "make_l121_raw_manifest.py": "6065dddcc11097e407c3ab208887b69edc4b5f507c2355b488526e09351b1cbd",
+      "patch_route_join.py": "645278a0ec44cd170eb59dfb69469e1ee256377ed8b3dd4fc5944793b6c6d43a",
+      "patch_route_join_case.py": "8fde77ab0d9744f7159c20efa30df861b93559a40d66ed5fb3486157fe130b8a",
+      "prepare_control.py": "07310ab5c4953a8e3791b829e97a061ada9458c053d4d27abbc93b288cf56849",
+      "prepare_decode_list.py": "53a4edb444e78bd2c3d2a06cac2af31e3de9b5dea4851cb677d6ce5621c911cc",
+      "prepare_owner_decode_list.py": "fabf5f9ceec0b4361159c0d3b9233f2c3d3d62cf377d28c04d592097a410b57d",
+      "refine_receipt_asset_conclusions.py": "418a5e797c7049a98e0088645b9ed8e9f15e36307c8a4a4b5ac33101cea6ae11",
+      "refresh_output_hashes.py": "833177af73c6c543ed2dc95759e71abfb692a29bae44bc31e98b81cf6665215d",
+      "specific_fzt_asset_findings.py": "fbb79dee895f4ae3424fcae8aa59223d3d7e25017f51727c74ad008b9c1a9388",
+      "summarize_m4_site.py": "b0b69f587db7c8f6b29b379527a6f004c6e56ab6d7e9a6240c921d8f0bf5dece",
+      "summarize_routes.py": "f53d2036f675918fa3b6fb16823afbabce2a46d0c382514611292ea062f618b3",
+      "trim_fzt_asset_duplicates.py": "d7dca561aff1d85c1356c58408d39208384879b83d11e22bbcd4c13f3a4eaa0b",
+      "trim_generic_wb_assets.py": "f5b7c55ca0af2dd53568eb44c80dc823e8cd37bcd4ece358a2d85df9e4b0cae7"
+    },
+    "historicalHelperHashes": [
+      {
+        "path": "build_route_map.py",
+        "revision": "initial failed path selection",
+        "sha256": "85cefeb3dc7342fcb8f241369938e3b14af7c489e83eea0b3806763504bfa534"
+      },
+      {
+        "path": "build_route_map.py",
+        "revision": "intermediate direct-import-only mapping",
+        "sha256": "85729d8c1a992d91ef87d8fb220c18a0ac74dd3d441a676ced815b2c846c551e"
+      },
+      {
+        "path": "inspect_route_map_v3_gaps.py",
+        "revision": "initial syntax-error revision",
+        "sha256": "1bc76fc76942b7ffe751bd13cab7fa3b53e9ac273bb6e42d2dbe981b5eb6d3c7"
+      },
+      {
+        "path": "inspect_import_matching.py",
+        "revision": "invoked unchanged",
+        "sha256": "1b2e624e9515d67d92dfc87ad817ac859a5e06de330a017f3f56e6fac195165b"
+      },
+      {
+        "path": "build_route_map.py",
+        "revision": "successfully generated l121-route-map-v4.json before lower-case route-map consumer fix",
+        "sha256": "433071373986e07d46b79f998eea9385c06c44d54812eefcb6fb90eab2697472"
+      },
+      {
+        "path": "audit_final.py",
+        "revision": "first output audit against final/ before output directory change",
+        "sha256": "e24cbbe276af16df4961e3db7d2c4da1abcb82aa5ec8cef2f2b09fe28f846534"
+      },
+      {
+        "path": "patch_route_join.py",
+        "revision": "route signature patch helper invoked before BOM cleanup",
+        "sha256": "8755b5928717fcb64f05c7b2735f64ca4e125cbf0fe3dddc0ab4362de014f4b7"
+      },
+      {
+        "path": "patch_route_join_case.py",
+        "revision": "case-compatibility patch helper invoked before BOM cleanup",
+        "sha256": "1c546209de6d1dec8dab97c79bfc828cc858575424776c6093febaf85d07a1a2"
+      },
+      {
+        "path": "inspect_dup.py",
+        "revision": "duplicate-key inspection helper invoked before BOM cleanup",
+        "sha256": "14579b6c5a7ad6a9c0892201ae087b6654feddb405c9c75fabd040a835797676"
+      },
+      {
+        "path": "build_route_map.py",
+        "revision": "initial failed path selection",
+        "sha256": "85cefeb3dc7342fcb8f241369938e3b14af7c489e83eea0b3806763504bfa534"
+      },
+      {
+        "path": "build_route_map.py",
+        "revision": "intermediate direct-import-only mapping",
+        "sha256": "85729d8c1a992d91ef87d8fb220c18a0ac74dd3d441a676ced815b2c846c551e"
+      },
+      {
+        "path": "inspect_route_map_v3_gaps.py",
+        "revision": "initial syntax-error revision",
+        "sha256": "1bc76fc76942b7ffe751bd13cab7fa3b53e9ac273bb6e42d2dbe981b5eb6d3c7"
+      },
+      {
+        "path": "inspect_import_matching.py",
+        "revision": "invoked unchanged",
+        "sha256": "1b2e624e9515d67d92dfc87ad817ac859a5e06de330a017f3f56e6fac195165b"
+      },
+      {
+        "path": "build_route_map.py",
+        "revision": "successfully generated l121-route-map-v4.json before lower-case route-map consumer fix",
+        "sha256": "433071373986e07d46b79f998eea9385c06c44d54812eefcb6fb90eab2697472"
+      },
+      {
+        "path": "build_l121_deliverables.py",
+        "revision": "initial corrected join build attempt; exited on route key mismatch before writing outputs",
+        "sha256": "eb9521d61ed56254941b1f3f96aaf5519dd97d963cdf1fcdac84f2c3615d96d0"
+      },
+      {
+        "path": "build_l121_deliverables.py",
+        "revision": "successful corrected build to final/ before receipt pointer schema fix",
+        "sha256": "c57399741852fe44054870461b58542569bfe0684b1a7e4bb8f17417b2f042ee"
+      },
+      {
+        "path": "audit_final.py",
+        "revision": "first output audit against final/ before output directory change",
+        "sha256": "ed30f1f118fa32a3f7b9cd12dc5d6bd4acdd439a9c68774c589618b9aa6f509a"
+      },
+      {
+        "path": "patch_route_join.py",
+        "revision": "route signature patch helper invoked before BOM cleanup",
+        "sha256": "8755b5928717fcb64f05c7b2735f64ca4e125cbf0fe3dddc0ab4362de014f4b7"
+      },
+      {
+        "path": "patch_route_join_case.py",
+        "revision": "case-compatibility patch helper invoked before BOM cleanup",
+        "sha256": "1c546209de6d1dec8dab97c79bfc828cc858575424776c6093febaf85d07a1a2"
+      },
+      {
+        "path": "inspect_dup.py",
+        "revision": "duplicate-key inspection helper invoked before BOM cleanup",
+        "sha256": "14579b6c5a7ad6a9c0892201ae087b6654feddb405c9c75fabd040a835797676"
+      },
+      {
+        "path": "audit_final.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "f08792a03147122445f88a0e729d39c185ed6e935ffea738838acd800077a8b1"
+      },
+      {
+        "path": "build_l121_deliverables.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "40073fb500304e3b77fda7657ccc2f776ddc084c609d631d1ad14e648397e686"
+      },
+      {
+        "path": "build_route_map.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "9e7ff9c8323db0ea3bf8ca8909fb923b7331304209bbde8f6d70b3934751e901"
+      },
+      {
+        "path": "curate_receipt_assets.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "6b36f495422c44409466354579b08583eea2131ad7dedb0ee1c97acf35e3a36a"
+      },
+      {
+        "path": "find_descriptors.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "acb775cdeede92fb064b2f6d938da9a9b3798da0b476d4a69e78de25c51a52f4"
+      },
+      {
+        "path": "fix_receipt_pointers.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "4469f8cba5b162911b1fbbcb007ef0b25ab413cda969741959a439f596237234"
+      },
+      {
+        "path": "inspect_barrel_generated.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "92da7a2280d7e333e6f5290676b7876140eb8913f1e802b37709accd32a8b6f6"
+      },
+      {
+        "path": "inspect_base_indices.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "bbb4efbbdd644be33f54cf69f9b9e3fc2c58ed71553de731afc37eca8e2c441a"
+      },
+      {
+        "path": "inspect_byte_ledger.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "9c3e4e987cb60f84381681084dbbb390f78859d2dd687dfab76d6235bfe3259e"
+      },
+      {
+        "path": "inspect_decode_selected.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "d3c0db6a6af283eb720412d6e6fc714d48273a2bc140a11b6c789c65e38effb1"
+      },
+      {
+        "path": "inspect_decode_shapes.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "0cdf3bb5651fad9cd813d09d133d9eac0a942774efc3d7382416236143eaecfb"
+      },
+      {
+        "path": "inspect_dup.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "47ca9a01ca719124fe79b8638e372fe2988cb2d6d8a5d95060dd542b41f1e701"
+      },
+      {
+        "path": "inspect_duplicate_route_keys.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "8f5c19e2b8d93130cf68272e0dcc02774e1d1d9de9887a93eae9b9cc16478d12"
+      },
+      {
+        "path": "inspect_final_outputs.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "191913ef7820ca6403b35a419415b8c3393abf98ce4c93cf6c47e905ffbfcf02"
+      },
+      {
+        "path": "inspect_full_ads.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "c4bb513b24dbe3f13f6c5b978bca52fb5849d40ff3da90fe1476371375b13137"
+      },
+      {
+        "path": "inspect_graph.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "8e6295e0872ec5377f61b32144815b483c6dbd0e4a508da0294b14491161ffba"
+      },
+      {
+        "path": "inspect_import_matching.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "1b2e624e9515d67d92dfc87ad817ac859a5e06de330a017f3f56e6fac195165b"
+      },
+      {
+        "path": "inspect_inline_wpm.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "68998dee1b840dbe148017458cda94325bbc6391584c95edc09a8ccb27448a59"
+      },
+      {
+        "path": "inspect_inline_wpm_targets.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "b2afcc1ce03b1830ac5c9962993aa5d98efebfe7f5090b292d187b0c55b5341f"
+      },
+      {
+        "path": "inspect_inputs.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "9cc25b74b60170183d9628733f4472d6a649459842fd9a708ca00d4509959de5"
+      },
+      {
+        "path": "inspect_l100_all_routes.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "88373db347e2b6199f1cbc4c294feae3f1a6cfcca9d8f81db3286735d3822c3b"
+      },
+      {
+        "path": "inspect_l100_grx.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "887282f3210f64dcde184ff3e8d4df7101e9fd7acbe64cceb007955275637feb"
+      },
+      {
+        "path": "inspect_l100_keys.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "66b67b9910dc1cc3503c01f4f75c8e7e4fbd937ce187418317f1aa44b5523064"
+      },
+      {
+        "path": "inspect_l100_support_routes.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "38f9bfea14e8c669f9767ab2437f028e93d4b1c4f3a1ba7ea83e963a46339c13"
+      },
+      {
+        "path": "inspect_l114.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "f0afa0d95c071daa8092286a94a41ccba13ef2c1b7eef8229b492364aa90b8aa"
+      },
+      {
+        "path": "inspect_l114_details.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "8b731a98109059783edf32ebfb81dfe79c31bc47d3d6d7eaa3a75fc2aea1538a"
+      },
+      {
+        "path": "inspect_l121_site_pointers.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "7a96dd943bc4f977f4ffbb88ef8c74986ffbd1be3a1746ddabb70c708c8965d5"
+      },
+      {
+        "path": "inspect_m4_site_rows.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "c0eba2af9c4fed91a74f7e69dd22fa3819f0b1229cb59c6275b6789520110700"
+      },
+      {
+        "path": "inspect_missing_wpm.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "2a0ac79311f97074c880ffab222ab5ac160bbd38ee620407a0458306253174eb"
+      },
+      {
+        "path": "inspect_prior_l100.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "211715fd09bc33aa91478f1e5fc38353286341716d6549d6399ca661716e8172"
+      },
+      {
+        "path": "inspect_prior_route_tables.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "bba30561e8e1e9204b913c136f47ed93b4d14dd600955d3988dc346b2bdde91a"
+      },
+      {
+        "path": "inspect_receipt_asset_dupes.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "3ffb28a0f01b4b4a0706a7e32fc4849cafbe2607df059fbb33635af3ff34a659"
+      },
+      {
+        "path": "inspect_reuse.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "c3335dfa3568e170ac4217bb0e7e15b4511fccfbac8ca56e04a77c590bf8ff37"
+      },
+      {
+        "path": "inspect_route_binding_coverage.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "484ad3e44638689789678657d680165280815a635ba6ecc83b472ffd48911263"
+      },
+      {
+        "path": "inspect_route_map_gaps.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "a78d141ab3844c5ff4b5a60d5b93b625fb45330ec82d402808fc9166359bc3a9"
+      },
+      {
+        "path": "inspect_route_map_v3_gaps.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "147aa26dc2f25e5e6d20d1d9bee33510141d91abd65a1bfb85ba4a1acc8ca0e4"
+      },
+      {
+        "path": "inspect_route_schema.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "4ce38c0925ab8434eec24ef7e54eeda8257d6224a19a28557bc333b849ab7028"
+      },
+      {
+        "path": "inspect_routes.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "086b26b1d0b45933c3770f40e201ce33b953a684fa833ba58712ea965d9fe73c"
+      },
+      {
+        "path": "inspect_selected_fields.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "4d090ed3b39a44cad74eb86268e83f61d8c11a6d2b0887f262d415fb0d12bfb1"
+      },
+      {
+        "path": "inspect_site_ads_choices.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "f3ff429abe7fefe3c5eac8749b3ae5a38d7808148d6d78f681899b895be520bc"
+      },
+      {
+        "path": "inspect_target_evidence.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "57e9d6ca31992284d46f9441c5a85868476a50e3f32d1f556bd343325cab92c5"
+      },
+      {
+        "path": "inspect_three_route_sources.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "909fee4208ac562616f064b5e4771819867b74702d940af6e7b23d8b3d35ce35"
+      },
+      {
+        "path": "inspect_vssm_receipt.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "3bd4db37b6cc414023cef846b81e6aeb98eb8ab2e306cd0509e7ae4792ea5e3e"
+      },
+      {
+        "path": "inspect_wme_refs_in_roots.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "1fb51b92d48b3b8b971414853613f02b00752d9e04e54f722635c80326c68d68"
+      },
+      {
+        "path": "make_control_manifest.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "cc161ce19c93153f7328d3ea86cd3a793595a940a1b96f87cdba47f52244c499"
+      },
+      {
+        "path": "make_l121_raw_manifest.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "6065dddcc11097e407c3ab208887b69edc4b5f507c2355b488526e09351b1cbd"
+      },
+      {
+        "path": "patch_route_join.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "645278a0ec44cd170eb59dfb69469e1ee256377ed8b3dd4fc5944793b6c6d43a"
+      },
+      {
+        "path": "patch_route_join_case.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "8fde77ab0d9744f7159c20efa30df861b93559a40d66ed5fb3486157fe130b8a"
+      },
+      {
+        "path": "prepare_control.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "07310ab5c4953a8e3791b829e97a061ada9458c053d4d27abbc93b288cf56849"
+      },
+      {
+        "path": "prepare_decode_list.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "53a4edb444e78bd2c3d2a06cac2af31e3de9b5dea4851cb677d6ce5621c911cc"
+      },
+      {
+        "path": "prepare_owner_decode_list.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "fabf5f9ceec0b4361159c0d3b9233f2c3d3d62cf377d28c04d592097a410b57d"
+      },
+      {
+        "path": "refine_receipt_asset_conclusions.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "418a5e797c7049a98e0088645b9ed8e9f15e36307c8a4a4b5ac33101cea6ae11"
+      },
+      {
+        "path": "refresh_output_hashes.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "833177af73c6c543ed2dc95759e71abfb692a29bae44bc31e98b81cf6665215d"
+      },
+      {
+        "path": "specific_fzt_asset_findings.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "fbb79dee895f4ae3424fcae8aa59223d3d7e25017f51727c74ad008b9c1a9388"
+      },
+      {
+        "path": "summarize_m4_site.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "b0b69f587db7c8f6b29b379527a6f004c6e56ab6d7e9a6240c921d8f0bf5dece"
+      },
+      {
+        "path": "summarize_routes.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "f53d2036f675918fa3b6fb16823afbabce2a46d0c382514611292ea062f618b3"
+      },
+      {
+        "path": "trim_fzt_asset_duplicates.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "d7dca561aff1d85c1356c58408d39208384879b83d11e22bbcd4c13f3a4eaa0b"
+      },
+      {
+        "path": "trim_generic_wb_assets.py",
+        "revision": "helper hash recorded in the prior corrected final-validated receipt",
+        "sha256": "f5b7c55ca0af2dd53568eb44c80dc823e8cd37bcd4ece358a2d85df9e4b0cae7"
+      }
+    ],
+    "commandHistoryNote": "These PowerShell invocations ran in short-lived tool processes, so no persistent shell history is available. The listed data-acquisition, derivation, and validation argv are reconstructed from retained tool invocation records. Initial exploratory inspections were not all persisted as exact command records. The route-key correction and its final validation are recorded as helper invocations; earlier route-map revisions and current local helper hashes are listed separately.",
+    "outputs": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121\\final-finished\\l121-result.json",
+        "sha256": "8abde15ff1e6c4da09d5b009f124f7bed4586131703ea0de2c1fbf2b007630cd",
+        "role": "lead result"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400\\L121\\final-finished\\summary.md",
+        "sha256": "97e610ae8f343712017fe65dde22acfd4a333cc78ce4ef4d6f86b3babeaf003f",
+        "role": "short summary"
+      }
+    ]
+  },
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-09-29",
+    "build": "1.4.3.0-release",
+    "leads": [
+      {
+        "id": "L121",
+        "title": "ADS-time modifier targets",
+        "status": "exhausted",
+        "summary": "The release chains of all 55 M4A1 and Sniper Rifle attachment routes and the ten Support-trait LMG bindings are traced (WME step Field_9540bd8e in WPM Field_9690d604 entries; GID step Field_4692836a in GS Field_4d248d91 bindings, key 8430ed47 priority 1000), but neither serialized step names the GRX_Weapons field that receives it, so whether ADS-time attachments shift the WeaponZoomTransitionIndex that selects the ADS-out row is unresolved; if they do, the six M4A1 choices checked move index 4 to 5 (General_01 200 ms, General_10 166.667 ms).",
+        "reopenWhen": "Reopen when pinned-build source or a controlled capture names the receiving field and composition for the WME and GID paths.",
+        "statusNote": "Receiving field not named in the captured chain (29 Sep)",
+        "searched": [
+          "55 attachment routes of the M4A1 and six Sniper Rifles (L114 list): the WB Field_0cd9f20f list to the WPM Field_9690d604 effect entry for 52 WME routes; three GID-only routes; operands raw-read",
+          "Support trait: WPM_SupportTrait imported by the 10 site LMGs, matching GS binding key 8430ed47-bd90-4c7f-9e3a-b2ba4697cd9b at priority 1000",
+          "Registry child/hash associations for the WME and GID step fields (Field_9540bd8e, Field_4692836a): no exact GRX_Weapons pair names the receiver; the WB WeaponZoomTransitionIndex and AnimationZoomSettingsIndex pairs are candidates only",
+          "L100 and L62 receipts reused: GID_ADSTime_Trait_P10 has no named GRX association there either"
+        ]
+      }
+    ],
+    "assets": [
+      {
+        "path": "Common/Hardware/Weapons/Carbine/M4A1/M4A1_WB",
+        "format": "raw-ebx",
+        "sha256": "622dff6f877e798cd5d38a6bb5cf09b0b19a44dfaf81b2d43a270b1c1b7e1ac9",
+        "question": "What base index child/hash candidates are registered for this weapon?",
+        "result": "useful",
+        "conclusion": "Transition target candidate: M4A1_WB.WeaponZoomTransitionIndex.Index / 2b6f2936; modifier receiver link remains unresolved."
+      },
+      {
+        "path": "Common/Hardware/Weapons/BoltAction/L115A3/L115A3_WB",
+        "format": "raw-ebx",
+        "sha256": "0ea5ee85a866abb9ba4d6a2cb20cabc07f0fb2a59983c2bdd318160a814e9024",
+        "question": "What base index child/hash candidates are registered for this weapon?",
+        "result": "useful",
+        "conclusion": "Transition target candidate: L115A3_WB.WeaponZoomTransitionIndex.Index / 2b6f2936; modifier receiver link remains unresolved."
+      },
+      {
+        "path": "Common/Hardware/Weapons/_WeaponModifiers/_Barrel/WPM_BRL_Basic_W10",
+        "format": "raw-ebx",
+        "sha256": "265ddbec14b859227ed9e4d27bc08e14416f68a1bdd16f52696b6da0b5630a1a",
+        "question": "Which selector conditions and WME list entries does wpm_brl_basic_w10 serialize?",
+        "result": "useful",
+        "conclusion": "wpm_brl_basic_w10 Class_897c99a7 has 1 selector condition(s) and 2 WME entry/entries; its downstream target is not named here."
+      },
+      {
+        "path": "Common/Hardware/Weapons/_WeaponModifiers/_BottomRail/Foregrip/Fast/WPM_BTM_FastBOLT01_W05",
+        "format": "raw-ebx",
+        "sha256": "5f19d40967ad7682e44ffd47d2e91b906513963cfbaba912ff6d5843e89f2ac3",
+        "question": "Which selector conditions and WME list entries does wpm_btm_fastbolt01_w05 serialize?",
+        "result": "useful",
+        "conclusion": "wpm_btm_fastbolt01_w05 Class_897c99a7 has 1 selector condition(s) and 5 WME entry/entries; its downstream target is not named here."
+      },
+      {
+        "path": "Common/Gameplay/InRoundProgression/WeaponTraits/Support/WPM_SupportTrait",
+        "format": "raw-ebx",
+        "sha256": "95d987268211b677244ff53accb6e2a958ad3fb6f65ab39dd7b406d8aa667308",
+        "question": "Which selector conditions and WME list entries does wpm_supporttrait serialize?",
+        "result": "useful",
+        "conclusion": "wpm_supporttrait Class_897c99a7 has 1 selector condition(s) and 2 WME entry/entries; its downstream target is not named here."
+      },
+      {
+        "path": "Common/Hardware/Weapons/MG/M240L/GS_M240L",
+        "format": "raw-ebx",
+        "sha256": "2aaa2983e4f3edcf48158049c8ce6f0108147a4f585c3dddcdae5e87a46ad213",
+        "question": "Does this Support LMG GS route bind GID_ADSTime_Trait_P10?",
+        "result": "useful",
+        "conclusion": "Field_4d248d91[13] carries selector 8430ed47-bd90-4c7f-9e3a-b2ba4697cd9b at priority 1000."
+      },
+      {
+        "path": "Common/Hardware/Weapons/MG/M240L/M240L_WB",
+        "format": "raw-ebx",
+        "sha256": "10ea864d75f4ab25b860c64e22afdd97b87d1de0d855a080d7141475c11e198a",
+        "question": "Does this Support LMG WB route import WPM_SupportTrait?",
+        "result": "useful",
+        "conclusion": "Field_0cd9f20f[92] imports WPM_SupportTrait; no GRX target is inferred."
+      },
+      {
+        "path": "Common/Hardware/Weapons/_WeaponModifiers/ADSTime/GID_ADSTime_BRL_P10",
+        "format": "raw-ebx",
+        "sha256": "f2c451ad270650a07ace48ef4bcbcc7d27ff30433e2713fefcfe513252b2ea82",
+        "question": "What add operands does the brl_p10 GID object serialize?",
+        "result": "useful",
+        "conclusion": "gid_adstime_brl_p10 serializes two Field_4692836a add operands of 1 for the brl_p10 route; its receiving GRX_Weapons field is unresolved."
+      },
+      {
+        "path": "Common/Hardware/Weapons/_WeaponModifiers/ADSTime/GID_ADSTime_BTM_P10",
+        "format": "raw-ebx",
+        "sha256": "e0bde0ba7479c212fec6776d208db5f54e8c9490cfeb306aa92c1b9be42d92bb",
+        "question": "What add operands does the btm_p10 GID object serialize?",
+        "result": "useful",
+        "conclusion": "gid_adstime_btm_p10 serializes two Field_4692836a add operands of 1 for the btm_p10 route; its receiving GRX_Weapons field is unresolved."
+      },
+      {
+        "path": "Common/Hardware/Weapons/_WeaponModifiers/ADSTime/GID_ADSTime_MAG_P10",
+        "format": "raw-ebx",
+        "sha256": "b988250be02c0467ed71dfb4076b8938e27cd0dafae0001c6d9f6409a4d096b8",
+        "question": "What add operands does the mag_p10 GID object serialize?",
+        "result": "useful",
+        "conclusion": "gid_adstime_mag_p10 serializes two Field_4692836a add operands of 1 for the mag_p10 route; its receiving GRX_Weapons field is unresolved."
+      },
+      {
+        "path": "Common/Hardware/Weapons/_WeaponModifiers/ADSTime/GID_ADSTime_Trait_P10",
+        "format": "raw-ebx",
+        "sha256": "87822e24da33ac43d42d7146378f05d26efb1e6598810f27ede79fe28f0ecfb6",
+        "question": "What add operands does the trait_p10 GID object serialize?",
+        "result": "useful",
+        "conclusion": "gid_adstime_trait_p10 serializes two Field_4692836a add operands of 1 for the trait_p10 route; its receiving GRX_Weapons field is unresolved."
+      },
+      {
+        "path": "Common/Hardware/Weapons/_WeaponModifiers/ADSTime/WME_ADSTime_Anim_P10",
+        "format": "raw-ebx",
+        "sha256": "c574e062b8a698c4ac3057bdf99613922959d130c179d729598e565ab2adb8bd",
+        "question": "What signed ADS-time step does the anim_p10 WME object serialize?",
+        "result": "useful",
+        "conclusion": "wme_adstime_anim_p10 owner Class_016623ac stores Field_9540bd8e = 1; this trace does not name its receiving GRX_Weapons field."
+      },
+      {
+        "path": "Common/Hardware/Weapons/_WeaponModifiers/ADSTime/WME_ADSTime_FOV_P10",
+        "format": "raw-ebx",
+        "sha256": "26a2bf0f43292ab2887513215b893cf4955b54c20f31a5daeb1cdec82f83fee0",
+        "question": "What signed ADS-time step does the fov_p10 WME object serialize?",
+        "result": "useful",
+        "conclusion": "wme_adstime_fov_p10 owner Class_104c2294 stores Field_9540bd8e = 1; this trace does not name its receiving GRX_Weapons field."
+      },
+      {
+        "path": "Common/Hardware/Weapons/AssaultRifle/HK433/HK433_WB",
+        "format": "raw-ebx",
+        "sha256": "c02751eac2b054343a2a115dff8f2000bc450548c96185445cd7c3b613030e0a",
+        "question": "Does the named M433 control raw field reproduce?",
+        "result": "useful",
+        "conclusion": "The control is HK433 WeaponZoomTransitionIndex.Index = 3; the paired FZT tier values are recorded in the control section."
+      },
+      {
+        "path": "Common/Hardware/Common/Arrays/ZoomTransitions/FZTT_General_01_T3",
+        "format": "raw-ebx",
+        "sha256": "8bbe6e3b09df289cde7f002e6dca0c653815722a559f5e232cdf3ca348ac1bc0",
+        "question": "What ADS-in timing is serialized for M433 known-answer control?",
+        "result": "useful",
+        "conclusion": "For M433 known-answer control, General_01 T3 stores 0.30000001192092896 seconds (300.0 ms); selection remains conditional on the WB index."
+      },
+      {
+        "path": "Common/Hardware/Common/Arrays/ZoomTransitions/FZTT_General_10_T3",
+        "format": "raw-ebx",
+        "sha256": "a7dc9d3d08e69f9cbaf097c46b34df4568d972e40a67402b7870a55f7924cfaa",
+        "question": "What ADS-out timing is serialized for M433 known-answer control?",
+        "result": "useful",
+        "conclusion": "For M433 known-answer control, General_10 T3 stores 0.2333340048789978 seconds (233.334 ms); selection remains conditional on the WB index."
+      },
+      {
+        "path": "Common/Hardware/Common/Arrays/ZoomTransitions/FZTT_General_01_T2",
+        "format": "raw-ebx",
+        "sha256": "c850ebc71d804a504a8a8c6747b968264e7adeba322fe9aded3a1aecc34a0fe3",
+        "question": "What ADS-in timing is serialized for L115A3 barrel and M240L Support arithmetic?",
+        "result": "useful",
+        "conclusion": "For L115A3 barrel and M240L Support arithmetic, General_01 T2 stores 0.3666670024394989 seconds (366.667 ms); selection remains conditional on the WB index."
+      },
+      {
+        "path": "Common/Hardware/Common/Arrays/ZoomTransitions/FZTT_General_01_T5",
+        "format": "raw-ebx",
+        "sha256": "7c225e62326c468aedb40cdf9b8e02dd5f00a3e107ba48f6a370d6ea10e2417f",
+        "question": "What ADS-in timing is serialized for M4A1 choice arithmetic?",
+        "result": "useful",
+        "conclusion": "For M4A1 choice arithmetic, General_01 T5 stores 0.20000000298023224 seconds (200.0 ms); selection remains conditional on the WB index."
+      },
+      {
+        "path": "Common/Hardware/Common/Arrays/ZoomTransitions/FZTT_General_10_T2",
+        "format": "raw-ebx",
+        "sha256": "a63959e4a889941c0fa79ab9933946af7af6ec9529876f4773a3aae91f539a85",
+        "question": "What ADS-out timing is serialized for L115A3 barrel and M240L Support arithmetic?",
+        "result": "useful",
+        "conclusion": "For L115A3 barrel and M240L Support arithmetic, General_10 T2 stores 0.2666670083999634 seconds (266.667 ms); selection remains conditional on the WB index."
+      },
+      {
+        "path": "Common/Hardware/Common/Arrays/ZoomTransitions/FZTT_General_10_T5",
+        "format": "raw-ebx",
+        "sha256": "6a8b8f5046d34cd356e418438b8622526758b0904f422b03ea3dba3fc7d5faa9",
+        "question": "What ADS-out timing is serialized for M4A1 choice arithmetic?",
+        "result": "useful",
+        "conclusion": "For M4A1 choice arithmetic, General_10 T5 stores 0.16666699945926666 seconds (166.667 ms); selection remains conditional on the WB index."
+      }
+    ],
+    "site": [
+      {
+        "pointer": "data/attachments.json:/WEAPON_MAG/m433/defAds",
+        "value": 3,
+        "relation": "supports"
+      },
+      {
+        "pointer": "data/balance_tables.json:/ADS_SPD_TIERS/3",
+        "value": 300.0,
+        "relation": "supports"
+      },
+      {
+        "pointer": "data/balance_tables.json:/ADS_SPD_TIERS/5",
+        "value": 200.0,
+        "relation": "supports"
+      },
+      {
+        "pointer": "data/balance_tables.json:/ADS_SPD_TIERS/6",
+        "value": 166.667,
+        "relation": "supports"
+      },
+      {
+        "pointer": "data/balance_tables.json:/ADS_SPD_TIERS/2",
+        "value": 366.667,
+        "relation": "supports"
+      },
+      {
+        "pointer": "data/attachments.json:/BARRELS/1/adsTimeTierModByWeapon/m4a1",
+        "value": 1,
+        "relation": "supports"
+      },
+      {
+        "pointer": "data/attachments.json:/WEAPON_MAG/m4a1/defAds",
+        "value": 4,
+        "relation": "supports"
+      },
+      {
+        "pointer": "data/attachments.json:/BARRELS/6/adsTimeTierModByWeapon/m4a1",
+        "value": 1,
+        "relation": "supports"
+      },
+      {
+        "pointer": "data/attachments.json:/BARRELS/2/adsTimeTierModByWeapon/m4a1",
+        "value": 1,
+        "relation": "supports"
+      },
+      {
+        "pointer": "data/attachments.json:/GRIPS/13/frostyModifiers/m4a1/adsTimeTierMod",
+        "value": 1,
+        "relation": "supports"
+      },
+      {
+        "pointer": "data/attachments.json:/WEAPON_MAG/m4a1/mags/20_fast/adsTimeTierShift",
+        "value": -1,
+        "relation": "supports"
+      },
+      {
+        "pointer": "data/attachments.json:/WEAPON_MAG/m4a1/mags/20_rnd/adsTimeTierShift",
+        "value": -1,
+        "relation": "supports"
+      },
+      {
+        "pointer": "data/attachments.json:/BARRELS/1/adsTimeTierModByWeapon/l115",
+        "value": 1,
+        "relation": "supports"
+      },
+      {
+        "pointer": "data/attachments.json:/WEAPON_MAG/l115/defAds",
+        "value": 1,
+        "relation": "supports"
+      },
+      {
+        "pointer": "data/attachments.json:/WEAPON_MAG/drsiar/defAds",
+        "value": 2,
+        "relation": "context"
+      },
+      {
+        "pointer": "data/attachments.json:/WEAPON_MAG/kts100/defAds",
+        "value": 2,
+        "relation": "context"
+      },
+      {
+        "pointer": "data/attachments.json:/WEAPON_MAG/l110/defAds",
+        "value": 1,
+        "relation": "context"
+      },
+      {
+        "pointer": "data/attachments.json:/WEAPON_MAG/m60/defAds",
+        "value": 1,
+        "relation": "context"
+      },
+      {
+        "pointer": "data/attachments.json:/WEAPON_MAG/m121a2/defAds",
+        "value": 1,
+        "relation": "context"
+      },
+      {
+        "pointer": "data/attachments.json:/WEAPON_MAG/m123k/defAds",
+        "value": 1,
+        "relation": "context"
+      },
+      {
+        "pointer": "data/attachments.json:/WEAPON_MAG/m240l/defAds",
+        "value": 1,
+        "relation": "context"
+      },
+      {
+        "pointer": "data/attachments.json:/WEAPON_MAG/m250/defAds",
+        "value": 1,
+        "relation": "context"
+      },
+      {
+        "pointer": "data/attachments.json:/WEAPON_MAG/rpk74m/defAds",
+        "value": 2,
+        "relation": "context"
+      },
+      {
+        "pointer": "data/attachments.json:/WEAPON_MAG/rpkm/defAds",
+        "value": 2,
+        "relation": "context"
+      }
+    ],
+    "binding": "research",
+    "run": {
+      "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T0322-0400",
+      "orchestrator": "sonnet-5.5",
+      "workers": [
+        {
+          "lead": "L121",
+          "model": "gpt-6-luna xhigh",
+          "minutes": 107.0,
+          "tokensM": 26.02
+        }
+      ]
+    }
+  },
+  "workers": "gpt-6-luna xhigh 107.0 min 26.02M tokens"
+}

@@ -1,0 +1,606 @@
+{
+  "lead": "L142",
+  "status": "reviewed-source-finding",
+  "build": {
+    "head": 4892087,
+    "version": "1.4.3.0-hotfix",
+    "descriptorSha256": "99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640"
+  },
+  "question": "In exactly three concussion-gadget roots, what selected, typed source fields describe effect radius, duration or throw/fuse timing, and which remain unresolved?",
+  "sourceFacts": [
+    {
+      "asset": "Common/Hardware/Gadgets/Throwables/Concussion/ConcussionGrenade_Ability",
+      "path": "Common/Hardware/Gadgets/Throwables/Concussion/ConcussionGrenade_Ability",
+      "rawPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer3-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Concussion\\ConcussionGrenade_Ability.ebx",
+      "head": 4892087,
+      "descriptorSha256": "99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640",
+      "rawSha256": "60a439dcf8e6558e4a048c31b52807a2f195e1b3f29dce7a35beffea680da54e",
+      "rootClass": "Class_e515b7b8",
+      "rootTypeKey": "2b09167d686a230f25b996294f01c463",
+      "objectCount": 5,
+      "decodedStatus": "decoded-provisional",
+      "serializedFacts": [
+        "The Head 4892087 EBX decodes to a root object with local type key 2b09167d686a230f25b996294f01c463 and 5 exported objects.",
+        "The exact class hash has multiple descriptor layout entries; the asset-local type key resolves this root layout, while its numeric members remain hash-named in this pass."
+      ],
+      "inference": "No numeric duration, throw delay, fuse interval or effect radius was assigned from the hashed members.",
+      "unresolved": [
+        "No named timing or effect-envelope operand was resolved from this root."
+      ],
+      "rawChecks": []
+    },
+    {
+      "asset": "Common/Hardware/Gadgets/Throwables/Concussion/PBNS_ConcussionGrenade",
+      "path": "Common/Hardware/Gadgets/Throwables/Concussion/PBNS_ConcussionGrenade",
+      "rawPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Concussion\\PBNS_ConcussionGrenade.ebx",
+      "head": 4892087,
+      "descriptorSha256": "99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640",
+      "rawSha256": "9a62cb185c5ff23d1b17c43ff065b237e4803fee9abbe18907136ae5d0c5d551",
+      "rootClass": "Class_5b3064b4",
+      "rootTypeKey": "6bafa0f3d443fa5aedfcff8112f63c50",
+      "objectCount": 35,
+      "decodedStatus": "decoded-provisional",
+      "serializedFacts": [
+        "Object 16 Field_6e2bdf2b is a POINTER at byte offset 2840; its import entry names the SimEx_ConcussionGrenade_ApplyAffector file GUID and exported-object GUID.",
+        "The SimEx import is directly represented in this Head 4892087 projectile root. The pointer relation alone does not establish effect activation or composition."
+      ],
+      "inference": "The projectile root links to the specified SimEx affector graph; no duration, fuse or throw-time meaning was resolved from its hashed numeric fields.",
+      "unresolved": [
+        "No typed projectile timer or effect-radius value was semantically resolved."
+      ],
+      "rawChecks": [
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Concussion\\PBNS_ConcussionGrenade.ebx",
+          "rawSha256": "9a62cb185c5ff23d1b17c43ff065b237e4803fee9abbe18907136ae5d0c5d551",
+          "offset": 2840,
+          "type": "i32",
+          "bytesHex": "03000000",
+          "value": 3
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Concussion\\PBNS_ConcussionGrenade.ebx",
+          "rawSha256": "9a62cb185c5ff23d1b17c43ff065b237e4803fee9abbe18907136ae5d0c5d551",
+          "offset": 7742,
+          "type": "guid",
+          "bytesHex": "16097d9c395bd74298b1df06ef47c61e",
+          "value": "9c7d0916-5b39-42d7-98b1-df06ef47c61e"
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Concussion\\PBNS_ConcussionGrenade.ebx",
+          "rawSha256": "9a62cb185c5ff23d1b17c43ff065b237e4803fee9abbe18907136ae5d0c5d551",
+          "offset": 7758,
+          "type": "guid",
+          "bytesHex": "fe41cc4482873b428a4432a169d984fb",
+          "value": "44cc41fe-8782-423b-8a44-32a169d984fb"
+        }
+      ]
+    },
+    {
+      "asset": "Common/Hardware/Gadgets/Throwables/Concussion/SimEx_ConcussionGrenade_ApplyAffector",
+      "path": "Common/Hardware/Gadgets/Throwables/Concussion/SimEx_ConcussionGrenade_ApplyAffector",
+      "rawPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer7-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Throwables\\Concussion\\SimEx_ConcussionGrenade_ApplyAffector.ebx",
+      "head": 4892087,
+      "descriptorSha256": "99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640",
+      "rawSha256": "9f44cf46d9a63cfe88d40c07aa85b78a15c59dbce3a57384b20da8c630ef210b",
+      "rootClass": "Class_53d7404d",
+      "rootTypeKey": "68be6a6ba6ab0bcbd19fd6d9bb5f89fb",
+      "objectCount": 5,
+      "decodedStatus": "decoded",
+      "serializedFacts": [
+        "The root Field_ec30e918 array has three local object links; raw pointer checks resolve them to objects 2, 4 and 3, whose labels decode as Position, Radius and TeamId.",
+        "Object 4 Field_0c59fa06 is a CSTRING labelled Radius. Its Field_207099be.Field_3af2e007 is a TYPEREF carrying raw code 2147484256; the decoder does not resolve that code to a primitive type.",
+        "Object 4 Field_42c8b257 is a BOXEDVALUEREF whose 16-byte header is all zero; the decoder returns a null boxed value. There is no numeric radius value in this entry.",
+        "The expression graph imports Affector_ConcussionGrenade; the only matching file found in the capture tree is its release-head collection copy, so its bytes were not transferred to this hotfix trace."
+      ],
+      "inference": "Radius is a serialized input label, but its type target, numeric magnitude, units and native reach remain unresolved. No duration or throw/fuse operand was identified in the three exposed input labels.",
+      "unresolved": [
+        "The Radius TypeRef code is unresolved by the pinned decoder; no value is bound to its BoxedValueRef.",
+        "No Head 4892087 raw copy of the directly imported Affector_ConcussionGrenade child was present in the capture tree; only a release-head copy was found.",
+        "Effect duration, throw/fuse timing, units, native activation and composition remain unresolved."
+      ],
+      "rawChecks": [
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer7-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Throwables\\Concussion\\SimEx_ConcussionGrenade_ApplyAffector.ebx",
+          "rawSha256": "9f44cf46d9a63cfe88d40c07aa85b78a15c59dbce3a57384b20da8c630ef210b",
+          "offset": 1128,
+          "type": "i32",
+          "bytesHex": "dd020000",
+          "value": 733
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer7-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Throwables\\Concussion\\SimEx_ConcussionGrenade_ApplyAffector.ebx",
+          "rawSha256": "9f44cf46d9a63cfe88d40c07aa85b78a15c59dbce3a57384b20da8c630ef210b",
+          "offset": 1861,
+          "type": "bytes:7",
+          "bytesHex": "52616469757300",
+          "value": "52616469757300"
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer7-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Throwables\\Concussion\\SimEx_ConcussionGrenade_ApplyAffector.ebx",
+          "rawSha256": "9f44cf46d9a63cfe88d40c07aa85b78a15c59dbce3a57384b20da8c630ef210b",
+          "offset": 1112,
+          "type": "u32",
+          "bytesHex": "60020080",
+          "value": 2147484256
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer7-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Throwables\\Concussion\\SimEx_ConcussionGrenade_ApplyAffector.ebx",
+          "rawSha256": "9f44cf46d9a63cfe88d40c07aa85b78a15c59dbce3a57384b20da8c630ef210b",
+          "offset": 1096,
+          "type": "bytes:16",
+          "bytesHex": "00000000000000000000000000000000",
+          "value": "00000000000000000000000000000000"
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer7-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Throwables\\Concussion\\SimEx_ConcussionGrenade_ApplyAffector.ebx",
+          "rawSha256": "9f44cf46d9a63cfe88d40c07aa85b78a15c59dbce3a57384b20da8c630ef210b",
+          "offset": 136,
+          "type": "i32",
+          "bytesHex": "20040000",
+          "value": 1056
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer7-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Throwables\\Concussion\\SimEx_ConcussionGrenade_ApplyAffector.ebx",
+          "rawSha256": "9f44cf46d9a63cfe88d40c07aa85b78a15c59dbce3a57384b20da8c630ef210b",
+          "offset": 1192,
+          "type": "i32",
+          "bytesHex": "e8feffff",
+          "value": -280
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer7-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Throwables\\Concussion\\SimEx_ConcussionGrenade_ApplyAffector.ebx",
+          "rawSha256": "9f44cf46d9a63cfe88d40c07aa85b78a15c59dbce3a57384b20da8c630ef210b",
+          "offset": 1200,
+          "type": "i32",
+          "bytesHex": "80ffffff",
+          "value": -128
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer7-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Throwables\\Concussion\\SimEx_ConcussionGrenade_ApplyAffector.ebx",
+          "rawSha256": "9f44cf46d9a63cfe88d40c07aa85b78a15c59dbce3a57384b20da8c630ef210b",
+          "offset": 1208,
+          "type": "i32",
+          "bytesHex": "28ffffff",
+          "value": -216
+        }
+      ]
+    }
+  ],
+  "inference": [
+    "The direct PBNS import establishes a serialized edge to the SimEx affector graph only.",
+    "The Radius label and raw TypeRef code identify a candidate parameter entry, but the null boxed value and unresolved type target do not provide a numeric effect reach or unit.",
+    "No runtime activation, effect composition, duration, or fuse behavior is established."
+  ],
+  "unresolved": [
+    "No numeric effect radius is source-resolved: the Radius label has unresolved raw TypeRef code 2147484256 and a null boxed value.",
+    "No duration or throw/fuse timing operand is source-resolved from the scoped hotfix roots.",
+    "A hotfix raw capture of the directly imported Affector_ConcussionGrenade child is unavailable in the capture tree; release values were not used.",
+    "Native effect reach, units, activation and composition remain unresolved."
+  ],
+  "siteImpact": "No gadget data table exists on the Analyzer. The named Radius entry has no numeric boxed value, and no source-backed reach, duration or fuse time can yet be proposed.",
+  "evidence": {
+    "commandHistory": "Worker command history is reconstructed in lead-local evidence; the first basename-only raw path missed the asset, and the corrected nested release control passed. No negative conclusion uses the failed path.",
+    "assets": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer3-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Concussion\\ConcussionGrenade_Ability.ebx",
+        "sha256": "60a439dcf8e6558e4a048c31b52807a2f195e1b3f29dce7a35beffea680da54e",
+        "head": 4892087
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Concussion\\PBNS_ConcussionGrenade.ebx",
+        "sha256": "9a62cb185c5ff23d1b17c43ff065b237e4803fee9abbe18907136ae5d0c5d551",
+        "head": 4892087
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer7-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Throwables\\Concussion\\SimEx_ConcussionGrenade_ApplyAffector.ebx",
+        "sha256": "9f44cf46d9a63cfe88d40c07aa85b78a15c59dbce3a57384b20da8c630ef210b",
+        "head": 4892087
+      }
+    ],
+    "descriptor": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\toolchain\\SharedTypeDescriptors-hotfix-2026-09-16.ebx",
+      "sha256": "99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640"
+    },
+    "decoderDatabase": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\exhaustive-audit-2026-09-23\\coverage-decoder-v5.sqlite",
+      "sha256": "1fac4aa159b11741943eaf6ae94f64e63928b9fa0f866ca4a1d191897718cf10"
+    },
+    "outputs": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L142\\l142-result.json",
+        "sha256": "6072e3ac0f8e3052a798a690850caa04dd19e64d2779214e2cba037fc589e785"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L142\\summary.md",
+        "sha256": "cf9cca3f1c0a19a9c78d28d5d969cf460c8ad9c9aa8d6fa52babdaae1e446548"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L142\\control-raw-check.json",
+        "sha256": "5f76caeb1046b7fe3232d00db51f0fca2a89d38e39e15bf225be8de90a6889e8"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L142\\target-capture-db.json",
+        "sha256": "f3be028a39cc90873a902742f8d03b009390e649110378990e1bfe07d0a992d2"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L142\\target-ebx-decode.json",
+        "sha256": "a89ef369791046cdf52251e810481ab5bec7a9121dac20e8eea4e4e5d7c64625"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L142\\pbns-raw-checks-v2.json",
+        "sha256": "e247a4e85b33428f30f1796523ce63863debc183c21442a383043dea26998f1d"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L142\\simex-raw-checks-v3.json",
+        "sha256": "3cf4016797b3bb859889825ba457dee3e2b88dcf39ea6901e86e8b9c310d4356"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L142\\target-ebx-list.txt",
+        "sha256": "9d7fd92d6d63c39a68d4ce3dcae860ea010f97019e13f7e02273a0c73ada8887"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L142\\pbns-rawchecks-v2.json",
+        "sha256": "ba0c3b0d9a2f89dfcc2d938c4add35e45ef1fcb1868b416b83f3999ec4fbae05"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L142\\simex-rawchecks-v3.json",
+        "sha256": "f0b9670d9eb9e66ce0238d391a630f5e167272c19a03e29ebb566c92b4fe3d6e"
+      }
+    ],
+    "helpers": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+        "sha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-worker.py",
+        "sha256": "91d73d328cfe39862ec882ef02eda665580b28a6da9fa541f7b03d12d755beb2"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-ebx-decode.py",
+        "sha256": "6fdc0334efaee0fe6113b5c9db4973f1358f53ee65dfb94edbc22fb0bf07a727"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-selected-chain-check.py",
+        "sha256": "52648d1ba88bfa4dbf1c170f303483c5a250f463bee535223e9ec09b4e8da32e"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-audit-fields.py",
+        "sha256": "3e3ca8f9d542ee3c0346bd33078d6115b6bc32f0d2e50dc8f680a6e48d394fc7"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-records.py",
+        "sha256": "ffb0e7574ce66779ae5041f4fc55047d0da2f63d917682b527673a75612b734c"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L142\\control_locate.py",
+        "sha256": "3d054285bd80061301154f810551fc0dbf5754e7aa1ccd599dcd6f8495080874"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L142\\reuse_probe.py",
+        "sha256": "82cdb326ff4fc99e90653cd0e3cfe97c22d131fa5a0e3f4f89e6d134e4800340"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L142\\inspect_sources.py",
+        "sha256": "129a3e22f6fbbb221b28971483a4a47a0c9450a959ae81427dc778f013bb6004"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L142\\target_inspect.py",
+        "sha256": "a0dcbfc5dcb810f77c79157a4ab1b3bd973ae5391f1132ecdbf873bf9c9e36ee"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L142\\prepare_targets.py",
+        "sha256": "671a3f03290a14a3260cb023a0e951a320a11683fe0096bd952e626b299817af"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L142\\summarize_decode.py",
+        "sha256": "2a2eb858ff29accddd85e6b8efabeff229cf406cbd148525415313eeebad184a"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L142\\object_scalar_inventory.py",
+        "sha256": "a965aeb8f9cd2919f9ddd1252fc0929b89317a0b884e53a51af827a310631187"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L142\\map_imports.py",
+        "sha256": "a9a9966a49e34eadbc20656671328d5a809f9adb0a2464a4dcb1cb3bf8a19ce7"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L142\\inspect_guidance.py",
+        "sha256": "68cee017b140e835c373e88d7c700b532c3da499744026ca4e1bc6c868c30d91"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L142\\inspect_decoder_code.py",
+        "sha256": "0a932e7cc77794c1c1654575fdb1e6183871e4fc173e25fd82d029a2eb4be14a"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L142\\inspect_decoder_value_code.py",
+        "sha256": "2e7530e0df2c5660ee0e8babdfd5eb9371685d33d4baac3ddf301072c8c6c7f6"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L142\\selected_links.py",
+        "sha256": "b29193358cc39832d9aa1da77f0b61dcd38dd98a9fbfc362e9a694e4c3e16399"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L142\\layout_focus.py",
+        "sha256": "dd710d16ebde2382d73fafbd37e60c748a8837a1dfff006c59ce87b2aff9c6b2"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L142\\prepare_rawchecks.py",
+        "sha256": "67d9e6aac1e5e5f310364f3d290ea561f0b2f494338519470993f205d99c6eed"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L142\\fix_manifest_paths.py",
+        "sha256": "16fa0c410f90fe77231c90dd347eb704bb0d25456dc09f491e5a72ca79e1f65b"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L142\\bounded_final_probe.py",
+        "sha256": "03aa7145ba2ecc001a29f4029a6e2994168819605a7be490c9563aef0bd641e9"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L142\\extend_simex_checks.py",
+        "sha256": "5858f9de366d4eaf401b43224281f66f876acb75943368062773eb6d4104a2fb"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L142\\write_deliverables.py",
+        "sha256": "9100fb5b51ed4b79f7df7e0c8a3e74caed0100c75648a6252301d7689b26aeb1"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L142\\complete_evidence.py",
+        "sha256": "ff70031c9b2826129482ad10406bf99ea90a77a816c98b8ad3b8bfbf5492cf18"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L142\\verify_outputs.py",
+        "sha256": "2e297ebc2a0511fd1129d4fbf8b9fff130af78eb222ee90381e135076de6f2b8"
+      }
+    ],
+    "commands": [
+      {
+        "executable": "python",
+        "argv": [
+          "control_locate.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L142",
+        "helperSha256": "3d054285bd80061301154f810551fc0dbf5754e7aa1ccd599dcd6f8495080874"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+          "--raw-root",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw",
+          "--path",
+          "Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433",
+          "--offset",
+          "1084",
+          "--type",
+          "f32",
+          "--expect",
+          "0.6695",
+          "--out",
+          "control-raw-check.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L142",
+        "helperSha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-worker.py",
+          "prior-work",
+          "--terms",
+          "ConcussionGrenade",
+          "concussion",
+          "SimEx_ConcussionGrenade_ApplyAffector"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L142",
+        "helperSha256": "91d73d328cfe39862ec882ef02eda665580b28a6da9fa541f7b03d12d755beb2"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "prepare_targets.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L142",
+        "helperSha256": "671a3f03290a14a3260cb023a0e951a320a11683fe0096bd952e626b299817af"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-ebx-decode.py",
+          "--descriptors",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\toolchain\\SharedTypeDescriptors-hotfix-2026-09-16.ebx",
+          "--ebx-list",
+          "target-ebx-list.txt",
+          "--out",
+          "target-ebx-decode.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L142",
+        "helperSha256": "6fdc0334efaee0fe6113b5c9db4973f1358f53ee65dfb94edbc22fb0bf07a727"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "prepare_rawchecks.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L142",
+        "helperSha256": "67d9e6aac1e5e5f310364f3d290ea561f0b2f494338519470993f205d99c6eed"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "fix_manifest_paths.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L142",
+        "helperSha256": "16fa0c410f90fe77231c90dd347eb704bb0d25456dc09f491e5a72ca79e1f65b"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+          "--raw-root",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw",
+          "--manifest",
+          "pbns-rawchecks-v2.json",
+          "--out",
+          "pbns-raw-checks-v2.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L142",
+        "helperSha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "extend_simex_checks.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L142",
+        "helperSha256": "5858f9de366d4eaf401b43224281f66f876acb75943368062773eb6d4104a2fb"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+          "--raw-root",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer7-2026-09-23\\raw",
+          "--manifest",
+          "simex-rawchecks-v3.json",
+          "--out",
+          "simex-raw-checks-v3.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L142",
+        "helperSha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "bounded_final_probe.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L142",
+        "helperSha256": "03aa7145ba2ecc001a29f4029a6e2994168819605a7be490c9563aef0bd641e9"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-records.py",
+          "schema"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L142",
+        "helperSha256": "ffb0e7574ce66779ae5041f4fc55047d0da2f63d917682b527673a75612b734c"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-records.py",
+          "check-receipt",
+          "draft-receipt.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L142",
+        "helperSha256": "ffb0e7574ce66779ae5041f4fc55047d0da2f63d917682b527673a75612b734c"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "write_deliverables.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L142",
+        "helperSha256": "9100fb5b51ed4b79f7df7e0c8a3e74caed0100c75648a6252301d7689b26aeb1"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "complete_evidence.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L142",
+        "helperSha256": "8e49255aca587d4149335c6d4f11115cdd740cf44c731874867b14521ee67f93"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "verify_outputs.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L142",
+        "helperSha256": "2e297ebc2a0511fd1129d4fbf8b9fff130af78eb222ee90381e135076de6f2b8"
+      }
+    ],
+    "priorWork": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-audit-candidate-expression-resources-2026-09-23.json",
+      "sha256": "e458aefc2112f159254ffc8158abfd112d0625bd7f573258a787331ded733838",
+      "finding": "Candidate census listed SimEx_ConcussionGrenade_ApplyAffector with no reviewed effect values."
+    }
+  },
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-09-29",
+    "build": "1.4.3.0-hotfix",
+    "leads": [
+      {
+        "id": "L142",
+        "title": "Concussion grenade effect envelope",
+        "status": "finding",
+        "summary": "The hotfix projectile imports the named SimEx graph, whose Radius entry has an unresolved type reference and a null boxed value.",
+        "reopenWhen": "Reopen when a Head 4892087 capture of Affector_ConcussionGrenade and a typed link to any radius, duration or throw/fuse operand are available."
+      }
+    ],
+    "assets": [
+      {
+        "path": "Common/Hardware/Gadgets/Throwables/Concussion/ConcussionGrenade_Ability",
+        "format": "raw-ebx",
+        "sha256": "60a439dcf8e6558e4a048c31b52807a2f195e1b3f29dce7a35beffea680da54e",
+        "question": "Ability-root source fields for effect envelope or timing.",
+        "result": "inconclusive",
+        "conclusion": "Head 4892087 root decoded; hashed numeric members did not yield a named radius, duration, throw or fuse operand."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Throwables/Concussion/PBNS_ConcussionGrenade",
+        "format": "raw-ebx",
+        "sha256": "9a62cb185c5ff23d1b17c43ff065b237e4803fee9abbe18907136ae5d0c5d551",
+        "question": "Projectile-root link to its directly selected affector graph and any envelope/timing operand.",
+        "result": "useful",
+        "conclusion": "Field_6e2bdf2b raw-verifies the direct import of SimEx_ConcussionGrenade_ApplyAffector; no timer meaning was resolved."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Throwables/Concussion/SimEx_ConcussionGrenade_ApplyAffector",
+        "format": "raw-ebx",
+        "sha256": "9f44cf46d9a63cfe88d40c07aa85b78a15c59dbce3a57384b20da8c630ef210b",
+        "question": "Selected affector/effect input fields for effect radius or duration.",
+        "result": "useful",
+        "conclusion": "The Radius entry has a raw TypeRef code and null BoxedValueRef, so no numeric radius or units are resolved."
+      }
+    ],
+    "binding": "research"
+  },
+  "scope": {
+    "expected": 3,
+    "examined": 3,
+    "notes": "Only the three brief-named hotfix roots were decoded; the directly imported Affector child lacks a hotfix capture and was not decoded."
+  },
+  "control": {
+    "description": "Release-head known-answer control: data/weapons.json:/[id=m433]/recoil/ads/amount = 0.6695; validates the raw-check route only.",
+    "passed": true,
+    "rawChecks": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+        "rawSha256": "66caca0e667d17fdf03f9fb4f620b9c5842aa1fd8de0221128ad4862895eed51",
+        "offset": 1084,
+        "type": "f32",
+        "bytesHex": "5a642b3f",
+        "value": 0.6694999933242798
+      }
+    ]
+  },
+  "orchestratorReview": {
+    "helperIssues": [],
+    "scope": "Three of three named hotfix roots; the release-only Affector child was treated as an unresolved boundary, not a hotfix operand.",
+    "independentRawCheck": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer7-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Throwables\\Concussion\\SimEx_ConcussionGrenade_ApplyAffector.ebx",
+      "rawSha256": "9f44cf46d9a63cfe88d40c07aa85b78a15c59dbce3a57384b20da8c630ef210b",
+      "offset": 1096,
+      "type": "bytes:16",
+      "bytesHex": "00000000000000000000000000000000",
+      "value": "00000000000000000000000000000000",
+      "matches": true
+    },
+    "siteEncoding": "No data/*.json gadget input or gadget simulator route exists; no site numeric comparison was made.",
+    "classification": "Partial source finding; the named Radius input has a null BoxedValueRef and does not yield a numeric effect envelope."
+  }
+}

@@ -14,6 +14,8 @@ what the hashed fields mean, how the assets link to site values, and what is sti
 | [Open questions](OPEN_QUESTIONS.md) | Everything still unresolved, with the suggested test. |
 
 Research status: [active source leads, proposals and parked questions](../working/FROSTY_RESEARCH_QUEUE.md).
+Gadget research for future site additions: [gadget leads and proposals](../working/GADGET_SITE_ADDITIONS.md).
+Vehicle research for future site additions: [vehicle findings and proposals](../working/VEHICLE_SITE_ADDITIONS.md).
 
 ## What is already known, and where
 

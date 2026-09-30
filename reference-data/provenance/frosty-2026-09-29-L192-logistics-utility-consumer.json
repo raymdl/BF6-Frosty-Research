@@ -1,0 +1,880 @@
+{
+  "lead": "L192",
+  "status": "reviewed-source-finding",
+  "build": {
+    "head": 4892087,
+    "descriptorSha256": "99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640",
+    "descriptorPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\toolchain\\SharedTypeDescriptors-hotfix-2026-09-16.ebx",
+    "sdkVersion": 4414275
+  },
+  "question": "Trace selected logistics payload and deployment/respawn consumer.",
+  "sourceFacts": {
+    "statements": [
+      "SupplyDrop WB baseline firing object1 Shot Field_808dd66c selects marker exported Class_796b4d4a GUID42add2c0-b855-5453-44f6-a3aba7cd7b79; Field_2f258a51 selects PB root Class_b141ba19 GUIDcff7c4f8-97a6-0734-8f76-c5feb910fdb6.",
+      "MobileRespawn WB firing object2 Shot Field_808dd66c selects local Class_c09dc255 object1; Field_3fd3f7cc imports VEH_Tool_SpawnBeacon_BR exported Class_b057bb60 GUID49c45b22-4669-4398-94d1-d9327e21e0f6.",
+      "The selected Resupply marker has local expression component object17 Class_7a5489b0 importing SimEx_AirDrop_SpawnAirDrop exported Class_53d7404d GUID7311dfe1-fd2d-4bb6-b1cb-ce801d0cdccf; its Field_2094d4d6 points to local expression object5, whose Field_aa4fa860 is resource caafa6681a928175.",
+      "The selected MobileRespawn VEH has local component object39 Class_e4330dde importing FeatureEx_VEH_Tool_MobileRespawn exported Class_43f16226 GUID25b218fa-b909-4764-b8a8-37c8cda28352; its Field_2094d4d6 points to object1, whose Field_aa4fa860 is resource d2c2f890a61e3751.",
+      "Ability Field_f86e0433 and feature pointers join exact scoped U and DiceFeature roots; this is separate from the WB source chain.",
+      "DiceFeature roots select exact PresEx roots with presentation resource IDs 78e6524526ffe7d9/fa51f3b953bc69c5. The separately selected gameplay consumers own caafa6681a928175/d2c2f890a61e3751; they are distinct from presentation resources."
+    ],
+    "rawProof": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\raw-proof-v2.json",
+      "sha256": "b05b341e6dbd4899f65ca88327df7bbde7307beb45d33b69f734981b1b31c94f",
+      "checks": 234
+    },
+    "rootRows": "l192-result-v2.json:/rows",
+    "externalChildren": "l192-result-v2.json:/externalChildren",
+    "resources": [
+      {
+        "resourceId": "caafa6681a928175",
+        "status": "success",
+        "name": "common/hardware/gadgets/callins/airdrop/common/simex_airdrop_spawnairdrop",
+        "type": "SerializedExpressionNodeGraph",
+        "typeId": "7dd4cc89",
+        "recordSha1": "21d5e89247cb4935fc3a53c3e3e8a1aae2df8b3e",
+        "metadataHex": "00000000000000000000000000000000",
+        "file": "resources/caafa6681a928175.res",
+        "bytes": 18432,
+        "sha256": "2616800896d4769d7e69636638fefdd137defc60e6d61f95e8369c75e45ac4cf",
+        "reason": null,
+        "gameHead": 4892087,
+        "sdkVersion": 4414275,
+        "rawPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\logistics-resource-capture\\resources\\caafa6681a928175.res"
+      },
+      {
+        "resourceId": "d2c2f890a61e3751",
+        "status": "success",
+        "name": "common/hardware/gadgets/callins/mobilerespawn/logic/featureex_veh_tool_mobilerespawn",
+        "type": "SerializedExpressionNodeGraph",
+        "typeId": "7dd4cc89",
+        "recordSha1": "47c769aad03af25c281628cf8bf4eee67caf3700",
+        "metadataHex": "00000000000000000000000000000000",
+        "file": "resources/d2c2f890a61e3751.res",
+        "bytes": 1024,
+        "sha256": "b1c22834385c062a0926b14af903b4c07bfc26275c207f0b7589b3731f277c49",
+        "reason": null,
+        "gameHead": 4892087,
+        "sdkVersion": 4414275,
+        "rawPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\logistics-resource-capture\\resources\\d2c2f890a61e3751.res"
+      }
+    ],
+    "counting": {
+      "expected": 8,
+      "examined": 8,
+      "notes": "Six external EBX children authorized by root; two selected RES bodies identity/header checked; zero mechanic operands retained.",
+      "externalChildren": 6,
+      "compiledBodies": 2,
+      "mechanicOperands": 0
+    }
+  },
+  "inference": [
+    "Names and serialized layout identify the source route; they do not name anonymous values or prove runtime behavior."
+  ],
+  "unresolved": [
+    "Configuration/Ability-to-WB binding is not established by the separate serialized source chains.",
+    "Compiled operation grammar is unresolved (L190 reader-gate-v2.json); exact selected resource bytes do not establish native execution, activation/composition, deployment/respawn conditions or receiving gameplay outcomes.",
+    "Marker property/loot imports remain anonymous or conditional without a checked consumer selection; no refill amount, player count, health, cooldown, range or mode assignment follows.",
+    "Current multiplayer availability is not established."
+  ],
+  "siteImpact": "Selected source logistics chains can support provenance only. No numeric site change or runtime/availability comparison supported.",
+  "evidence": {
+    "artifacts": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\raw-proof-v2.json",
+        "sha256": "b05b341e6dbd4899f65ca88327df7bbde7307beb45d33b69f734981b1b31c94f"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\layout-proof.json",
+        "sha256": "5bef7a78ca81a8eda37a2eb9dcf5b8bb7362bfa5fed5016d9d1511cf97828dbc"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\joins.json",
+        "sha256": "a2306cf3c3d9ceaf50b325625c9feb2a34161cacf85fd2930476ad6d72f27a54"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\child-layouts.json",
+        "sha256": "c2dc279cb2ed8557e88aa460b4fdec52fb61b84ec4e86aa49a05113632c4a890"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\child-joins.json",
+        "sha256": "103abbfb7becefebcc1a35915a92c4e462a730ebaff33b3c40ee496d2f3578b1"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\consumer-layouts.json",
+        "sha256": "bdc5084379e748f1fe7497115a73034f7fa8e63fa969580237f470ce737067aa"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\consumer-joins.json",
+        "sha256": "27ad2de9c2bd986c5dbc7295733fed96b240c3eed9b01632466efe75cffed9d3"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\control.json",
+        "sha256": "ff651d54b8f84d6b5894aa023b9fd5a14a4a2532b746d3b31c90940c33b0e771"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\chain-raw.json",
+        "sha256": "13d23191d89e5d54bbe54e7bdcddbaf5c7aa03d6af3f91624d79187760c77617"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\join-raw.json",
+        "sha256": "a2c8e1a6d68326aaac87d1b70b4c5dafc4afb68dbcb71e7d6dd44fb91a8d3f3f"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\child-raw.json",
+        "sha256": "f99c35b88a1b0fa7396b4cbd30fb44b2b239cc535e93f447aeb0ff61e7e93bed"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\consumer-raw.json",
+        "sha256": "1dcc02c3c9fdb70daccfa36f48473ba781c3f05bae662eb04fb792bbe1906c22"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\res-raw.json",
+        "sha256": "5e8c5d4aa9ca432fa73601fe1f6e6d4c540fa3ba0f349787b0883bfb5b08cee6"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\utility-family-child-capture\\verification.json",
+        "sha256": "5228cffb74422a470de0a980b2602fc7fd14a976a8e77b6cc9d098d36120498f"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\logistics-consumer-child-capture\\verification.json",
+        "sha256": "48da5b978a1bcf61a9c104e9ac31d986d3730621f56af79bc6ab21006d501554"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\logistics-resource-capture\\verification.json",
+        "sha256": "59addbf0fd6fb832545b4fcaee8a0c221cbf0c4e08466d7d8ed1e2f4d5458365"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L190\\reader-gate-v2.json",
+        "sha256": "a9a728e047d2e8f110f05e2ba8d5028622bebeb794d65a3364006337d78fbf77"
+      }
+    ],
+    "commands": [
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\trace.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192",
+        "helperSha256": "e042b1098021a72879a11f3a3bdb58c65ab94b2d7bac382f34553fe2a1b361a0",
+        "history": "Exact executable resolved from sys.executable; original invocation used python and the relative helper path."
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\inspect.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192",
+        "helperSha256": "0a6a0f107ce8ac5bd97bdc26a0fee4f14d81938b901b8954936de3a424437a98",
+        "history": "Exact executable resolved from sys.executable; original invocation used python and the relative helper path."
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\resolve.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192",
+        "helperSha256": "c9637391246143aa1ddbfbd6bf79f4920c31a44ee067525b7118525231619005",
+        "history": "Exact executable resolved from sys.executable; original invocation used python and the relative helper path."
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\children.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192",
+        "helperSha256": "ef3fc94e9cc903883cb4b7f7edd131c64476d6f4c13e7a40df28df2606cc2109",
+        "history": "Exact executable resolved from sys.executable; original invocation used python and the relative helper path."
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\wb.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192",
+        "helperSha256": "013d418329b343397c574195c453648294ccb81ac78d60b057cf79f049625285",
+        "history": "Exact executable resolved from sys.executable; original invocation used python and the relative helper path."
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\proof.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192",
+        "helperSha256": "4422fdd2828d39e0b6763b128978749c737f4bf213b8c158094b8132d1fa21b0",
+        "history": "Exact executable resolved from sys.executable; original invocation used python and the relative helper path."
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\selected.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192",
+        "helperSha256": "5bd42543ed5d23ce61370db893f6ae4759a1833da309442753189b361daac461",
+        "history": "Exact executable resolved from sys.executable; original invocation used python and the relative helper path."
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\join_proof.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192",
+        "helperSha256": "96e3c04c8bc3eedece86bc8404d97fed70eb537c23437cb13f0fdd17d4c89eb0",
+        "history": "Exact executable resolved from sys.executable; original invocation used python and the relative helper path."
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\primary.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192",
+        "helperSha256": "f74079e3476372040a0cc476931d81f626dd924f48e3743d8f1709ff2eff44bc",
+        "history": "Exact executable resolved from sys.executable; original invocation used python and the relative helper path."
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\brief_chain.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192",
+        "helperSha256": "86b410a934817ee7c4d5e112fd0b16f6d7d50854d66ac2a4754a9197563e69f0",
+        "history": "Exact executable resolved from sys.executable; original invocation used python and the relative helper path."
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\site_control.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192",
+        "helperSha256": "a18b862eca829c732d61a950efe01988b0ea0965f93fbd91fccb844fc9f31f35",
+        "history": "Exact executable resolved from sys.executable; original invocation used python and the relative helper path."
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\resources.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192",
+        "helperSha256": "695fa819de570e65f338dfbae2d87d992c57ba16df92750040ded047c010fe13",
+        "history": "Exact executable resolved from sys.executable; original invocation used python and the relative helper path."
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\finish.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192",
+        "helperSha256": "5bead0858b7c943fe10f867f1577cfcdf6f1256037566e03f665b71b2276f651",
+        "history": "Exact executable resolved from sys.executable; original invocation used python and the relative helper path."
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\frosty-records.py",
+          "schema"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192",
+        "helperSha256": "a6b0ca77270f6abc5dc48f164762569a8cb36faf37754f04f892d0ae7e7c7f34"
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\command_manifest.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192",
+        "helperSha256": "24c7fd89097ac884481b8ac3cf2cc37b6a818433b438816034dde40919ad7321",
+        "history": "Invoked via python with relative helper path; helper saved before invocation."
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\continue.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192",
+        "helperSha256": "b457a9d2402caa9fd1d430d6de21b62b47a2123ddb292dc764749dbb58194a84",
+        "history": "Invoked via python with relative helper path; helper saved before invocation."
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\child_summary.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192",
+        "helperSha256": "01634d6502528fe773acf42f06b493613ff48cb7ec521bfed22df8585b815a08",
+        "history": "Invoked via python with relative helper path; helper saved before invocation."
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\child_focus.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192",
+        "helperSha256": "7403b15eb50dd554fdbad2118d1ee53c76ea0494f547ca2e96842fd654d0de95",
+        "history": "Invoked via python with relative helper path; helper saved before invocation."
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\target_receivers.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192",
+        "helperSha256": "0ff76894245163b2c909c075b6178e5bd6231ef83b2f85f1cb3a5cdb6b9e444d",
+        "history": "Invoked via python with relative helper path; helper saved before invocation."
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\payload.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192",
+        "helperSha256": "b79f3fc604473cc647e3f832955de7aba03f7df59509863f2da1aaaf66d95ae7",
+        "history": "Invoked via python with relative helper path; helper saved before invocation."
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\child_proof.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192",
+        "helperSha256": "23c2cecc1eb2defe8d8ec1ee9273e196218b37600b445414d8730aa1a27efaa2",
+        "history": "Invoked via python with relative helper path; helper saved before invocation."
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\consumer.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192",
+        "helperSha256": "57c822e4c226e85897682aed0aae15a4915492e409a78191dea4d974e6f94795",
+        "history": "Invoked via python with relative helper path; helper saved before invocation."
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\consumer_resources.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192",
+        "helperSha256": "b77ca1bf333e424867d53acd785a2ff2c08bbe86cc1d472134276e1980cf0c32",
+        "history": "Invoked via python with relative helper path; helper saved before invocation."
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\consumer_proof.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192",
+        "helperSha256": "1adc82cb5cce87b7b5594489fccf7bad52d52ffd9994439f8688f9924ba5d743",
+        "history": "Invoked via python with relative helper path; helper saved before invocation."
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\res_proof.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192",
+        "helperSha256": "40fcb86bbf7dfdf5d30cfae50d776e56fe9bebfa39229bf7a0b3ec45cda77a42",
+        "history": "Invoked via python with relative helper path; helper saved before invocation."
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\finish-v2.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192",
+        "helperSha256": "bba336ecb2b4612fa8245ce1da4bd6a19977110d2c7a910498d9ac3594ebf6e6",
+        "history": "Invoked via python with relative helper path; helper saved before invocation."
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\frosty-ebx-decode.py",
+          "--descriptors",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\toolchain\\SharedTypeDescriptors-hotfix-2026-09-16.ebx",
+          "--ebx",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\next-utility-family-capture\\raw\\Common\\Hardware\\Gadgets\\CallIns\\AirDrop\\SupplyDrop_WB.ebx",
+          "--out",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\decode-0.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192",
+        "helperSha256": "6fdc0334efaee0fe6113b5c9db4973f1358f53ee65dfb94edbc22fb0bf07a727"
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\frosty-ebx-decode.py",
+          "--descriptors",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\toolchain\\SharedTypeDescriptors-hotfix-2026-09-16.ebx",
+          "--ebx",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\next-utility-family-capture\\raw\\Common\\Hardware\\Gadgets\\CallIns\\AirDrop\\Resupply\\U_SupplyDrop.ebx",
+          "--out",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\decode-1.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192",
+        "helperSha256": "6fdc0334efaee0fe6113b5c9db4973f1358f53ee65dfb94edbc22fb0bf07a727"
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\frosty-ebx-decode.py",
+          "--descriptors",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\toolchain\\SharedTypeDescriptors-hotfix-2026-09-16.ebx",
+          "--ebx",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\next-utility-family-capture\\raw\\Common\\Hardware\\Gadgets\\CallIns\\AirDrop\\Resupply\\SupplyDrop_Ability.ebx",
+          "--out",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\decode-2.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192",
+        "helperSha256": "6fdc0334efaee0fe6113b5c9db4973f1358f53ee65dfb94edbc22fb0bf07a727"
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\frosty-ebx-decode.py",
+          "--descriptors",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\toolchain\\SharedTypeDescriptors-hotfix-2026-09-16.ebx",
+          "--ebx",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\next-utility-family-capture\\raw\\Common\\Hardware\\Gadgets\\CallIns\\AirDrop\\DiceFeature_AirDrop.ebx",
+          "--out",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\decode-3.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192",
+        "helperSha256": "6fdc0334efaee0fe6113b5c9db4973f1358f53ee65dfb94edbc22fb0bf07a727"
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\frosty-ebx-decode.py",
+          "--descriptors",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\toolchain\\SharedTypeDescriptors-hotfix-2026-09-16.ebx",
+          "--ebx",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\next-utility-family-capture\\raw\\Common\\Hardware\\Gadgets\\CallIns\\MobileRespawn\\MobileRespawn_WB.ebx",
+          "--out",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\decode-4.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192",
+        "helperSha256": "6fdc0334efaee0fe6113b5c9db4973f1358f53ee65dfb94edbc22fb0bf07a727"
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\frosty-ebx-decode.py",
+          "--descriptors",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\toolchain\\SharedTypeDescriptors-hotfix-2026-09-16.ebx",
+          "--ebx",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\next-utility-family-capture\\raw\\Common\\Hardware\\Gadgets\\CallIns\\MobileRespawn\\U_MobileRespawn.ebx",
+          "--out",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\decode-5.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192",
+        "helperSha256": "6fdc0334efaee0fe6113b5c9db4973f1358f53ee65dfb94edbc22fb0bf07a727"
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\frosty-ebx-decode.py",
+          "--descriptors",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\toolchain\\SharedTypeDescriptors-hotfix-2026-09-16.ebx",
+          "--ebx",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\next-utility-family-capture\\raw\\Common\\Hardware\\Gadgets\\CallIns\\MobileRespawn\\MobileRespawn_Ability.ebx",
+          "--out",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\decode-6.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192",
+        "helperSha256": "6fdc0334efaee0fe6113b5c9db4973f1358f53ee65dfb94edbc22fb0bf07a727"
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\frosty-ebx-decode.py",
+          "--descriptors",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\toolchain\\SharedTypeDescriptors-hotfix-2026-09-16.ebx",
+          "--ebx",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\next-utility-family-capture\\raw\\Common\\Hardware\\Gadgets\\CallIns\\MobileRespawn\\DiceFeature_MobileRespawn.ebx",
+          "--out",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\decode-7.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192",
+        "helperSha256": "6fdc0334efaee0fe6113b5c9db4973f1358f53ee65dfb94edbc22fb0bf07a727"
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\frosty-ebx-decode.py",
+          "--descriptors",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\toolchain\\SharedTypeDescriptors-hotfix-2026-09-16.ebx",
+          "--ebx",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\utility-family-child-capture\\raw\\Common\\Hardware\\Gadgets\\CallIns\\AirDrop\\PresEx_CallIns_AirDrop.ebx",
+          "--out",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\child-0.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192",
+        "helperSha256": "6fdc0334efaee0fe6113b5c9db4973f1358f53ee65dfb94edbc22fb0bf07a727"
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\frosty-ebx-decode.py",
+          "--descriptors",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\toolchain\\SharedTypeDescriptors-hotfix-2026-09-16.ebx",
+          "--ebx",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\utility-family-child-capture\\raw\\Common\\Hardware\\Gadgets\\CallIns\\MobileRespawn\\PresEx_CallIns_MobileRespawn.ebx",
+          "--out",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\child-1.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192",
+        "helperSha256": "6fdc0334efaee0fe6113b5c9db4973f1358f53ee65dfb94edbc22fb0bf07a727"
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\frosty-ebx-decode.py",
+          "--descriptors",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\toolchain\\SharedTypeDescriptors-hotfix-2026-09-16.ebx",
+          "--ebx",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\utility-family-child-capture\\raw\\Common\\Hardware\\Gadgets\\CallIns\\AirDrop\\spec\\PB_PRJ_Grenade_AirDrop_M18SmokeMarker_Resupply.ebx",
+          "--out",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\child-2.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192",
+        "helperSha256": "6fdc0334efaee0fe6113b5c9db4973f1358f53ee65dfb94edbc22fb0bf07a727"
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\frosty-ebx-decode.py",
+          "--descriptors",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\toolchain\\SharedTypeDescriptors-hotfix-2026-09-16.ebx",
+          "--ebx",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\utility-family-child-capture\\raw\\Common\\Hardware\\Gadgets\\CallIns\\MobileRespawn\\VEH_Tool_SpawnBeacon_BR.ebx",
+          "--out",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\child-3.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192",
+        "helperSha256": "6fdc0334efaee0fe6113b5c9db4973f1358f53ee65dfb94edbc22fb0bf07a727"
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\frosty-ebx-decode.py",
+          "--descriptors",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\toolchain\\SharedTypeDescriptors-hotfix-2026-09-16.ebx",
+          "--ebx",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\logistics-consumer-child-capture\\raw\\Common\\Hardware\\Gadgets\\CallIns\\AirDrop\\Common\\SimEx_AirDrop_SpawnAirDrop.ebx",
+          "--out",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\consumer-0.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192",
+        "helperSha256": "6fdc0334efaee0fe6113b5c9db4973f1358f53ee65dfb94edbc22fb0bf07a727"
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\frosty-ebx-decode.py",
+          "--descriptors",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\toolchain\\SharedTypeDescriptors-hotfix-2026-09-16.ebx",
+          "--ebx",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\logistics-consumer-child-capture\\raw\\Common\\Hardware\\Gadgets\\CallIns\\MobileRespawn\\Logic\\FeatureEx_VEH_Tool_MobileRespawn.ebx",
+          "--out",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\consumer-1.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192",
+        "helperSha256": "6fdc0334efaee0fe6113b5c9db4973f1358f53ee65dfb94edbc22fb0bf07a727"
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\frosty-raw-check.py",
+          "--manifest",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\checks.json",
+          "--out",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\chain-raw.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192",
+        "helperSha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3"
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\frosty-raw-check.py",
+          "--manifest",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\join-checks.json",
+          "--out",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\join-raw.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192",
+        "helperSha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3"
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\frosty-raw-check.py",
+          "--manifest",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\child-checks.json",
+          "--out",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\child-raw.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192",
+        "helperSha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3"
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\frosty-raw-check.py",
+          "--manifest",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\consumer-checks.json",
+          "--out",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\consumer-raw.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192",
+        "helperSha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3"
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\frosty-raw-check.py",
+          "--manifest",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\res-checks.json",
+          "--out",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\res-raw.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192",
+        "helperSha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3"
+      }
+    ],
+    "historyNote": "Direct PowerShell/help/control/prior-work inspections remain in tool history. Initial control used the repository raw-check helper before its local copy was saved; no pre-invocation local preservation is claimed. Failed initial resource-directory lookup is retained in tool history; corrected capture directory was checked. Source-only earlier files are retained unchanged."
+  },
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-09-29",
+    "build": "1.4.3.0-hotfix",
+    "binding": "research",
+    "leads": [
+      {
+        "id": "L192",
+        "title": "Supply Drop and Mobile Respawn selected logistics source",
+        "status": "finding",
+        "summary": "Supply Drop and Mobile Respawn WB source chains select exact marker/vehicle gameplay expressions and captured resources; configuration-to-WB binding, resupply/respawn conditions and native execution remain unresolved.",
+        "reopenWhen": "Establish configuration-to-WB binding and decode selected expression consumers with a passing compiled reader control.",
+        "statusNote": "GPT-6.1 Sol, 29 Sep; source only"
+      }
+    ],
+    "assets": [
+      {
+        "path": "Common/Hardware/Gadgets/CallIns/AirDrop/SupplyDrop_WB",
+        "format": "raw-ebx",
+        "sha256": "9ec932fc6a732b06996799b0ac3ec30305e567d55a89a680dda3be18367efbe5",
+        "question": "Trace selected logistics source and consumer.",
+        "result": "useful",
+        "conclusion": "SupplyDrop WB baseline firing object1 Shot Field_808dd66c selects marker exported Class_796b4d4a GUID42add2c0-b855-5453-44f6-a3aba7cd7b79; Field_2f258a51 selects PB root Class_b141ba19 GUIDcff7c4f8-97a6-0734-8f76-c5feb910fdb6."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/CallIns/AirDrop/Resupply/U_SupplyDrop",
+        "format": "raw-ebx",
+        "sha256": "0462282d83925ff6dfb7e992e9f6324afd28625c25c37888031f5c1a6ae4bcc8",
+        "question": "Trace selected logistics source and consumer.",
+        "result": "useful",
+        "conclusion": "Exact U root decoded and joined by the Ability equipment pointer; no gameplay availability claim."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/CallIns/AirDrop/Resupply/SupplyDrop_Ability",
+        "format": "raw-ebx",
+        "sha256": "a812e4f95dd55bebd997f2e0fde0f419014a4fde39a0f5054be4330f1ab90140",
+        "question": "Trace selected logistics source and consumer.",
+        "result": "useful",
+        "conclusion": "Ability Field_f86e0433 and feature pointers join exact scoped U and DiceFeature roots; this is separate from the WB source chain."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/CallIns/AirDrop/DiceFeature_AirDrop",
+        "format": "raw-ebx",
+        "sha256": "516694f2b8816129f9bb0de12ade090c17e069f13ac12e75d7df3555fcec4705",
+        "question": "Trace selected logistics source and consumer.",
+        "result": "useful",
+        "conclusion": "DiceFeature roots select exact PresEx roots with presentation resource IDs 78e6524526ffe7d9/fa51f3b953bc69c5. The separately selected gameplay consumers own caafa6681a928175/d2c2f890a61e3751; they are distinct from presentation resources."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/CallIns/MobileRespawn/MobileRespawn_WB",
+        "format": "raw-ebx",
+        "sha256": "5b751efd9198989de64e7bd21327c48edf86a767c8d0884f83dfb4f781b5de3c",
+        "question": "Trace selected logistics source and consumer.",
+        "result": "useful",
+        "conclusion": "MobileRespawn WB firing object2 Shot Field_808dd66c selects local Class_c09dc255 object1; Field_3fd3f7cc imports VEH_Tool_SpawnBeacon_BR exported Class_b057bb60 GUID49c45b22-4669-4398-94d1-d9327e21e0f6."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/CallIns/MobileRespawn/U_MobileRespawn",
+        "format": "raw-ebx",
+        "sha256": "d9b4d859e3056a21ea5d8234577140450a8b4bdc522c4a456b684d48cf8521ab",
+        "question": "Trace selected logistics source and consumer.",
+        "result": "useful",
+        "conclusion": "Exact U root decoded and joined by the Ability equipment pointer; no gameplay availability claim."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/CallIns/MobileRespawn/MobileRespawn_Ability",
+        "format": "raw-ebx",
+        "sha256": "cebaa2d8186d48201a44239305072e4e6086d4ba208ea24b443d979f3ede1bd1",
+        "question": "Trace selected logistics source and consumer.",
+        "result": "useful",
+        "conclusion": "Ability Field_f86e0433 and feature pointers join exact scoped U and DiceFeature roots; this is separate from the WB source chain."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/CallIns/MobileRespawn/DiceFeature_MobileRespawn",
+        "format": "raw-ebx",
+        "sha256": "06c54764c88bf36b2fe2fb7b18a9221743be0bd4c3cb15fcd3b2167f732eaee1",
+        "question": "Trace selected logistics source and consumer.",
+        "result": "useful",
+        "conclusion": "DiceFeature roots select exact PresEx roots with presentation resource IDs 78e6524526ffe7d9/fa51f3b953bc69c5. The separately selected gameplay consumers own caafa6681a928175/d2c2f890a61e3751; they are distinct from presentation resources."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/CallIns/AirDrop/PresEx_CallIns_AirDrop",
+        "format": "raw-ebx",
+        "sha256": "fce017a8b72071c9488b6289b6b09fa8e7b1e3f32ad64b3456dcb4a5fed6589b",
+        "question": "Trace selected logistics source and consumer.",
+        "result": "useful",
+        "conclusion": "Exact selected presentation context only."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/CallIns/MobileRespawn/PresEx_CallIns_MobileRespawn",
+        "format": "raw-ebx",
+        "sha256": "00e1e89101019e3dfea281fcd64990abf2d1f155811178cc7da07eaf18336841",
+        "question": "Trace selected logistics source and consumer.",
+        "result": "useful",
+        "conclusion": "Exact selected presentation context only."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/CallIns/AirDrop/spec/PB_PRJ_Grenade_AirDrop_M18SmokeMarker_Resupply",
+        "format": "raw-ebx",
+        "sha256": "304a8ddfccd7fe5f47dafc7abb38bb9a79bff1f43c7049433b43c58a9bf17f7c",
+        "question": "Trace selected logistics source and consumer.",
+        "result": "useful",
+        "conclusion": "The selected Resupply marker has local expression component object17 Class_7a5489b0 importing SimEx_AirDrop_SpawnAirDrop exported Class_53d7404d GUID7311dfe1-fd2d-4bb6-b1cb-ce801d0cdccf; its Field_2094d4d6 points to local expression object5, whose Field_aa4fa860 is resource caafa6681a928175."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/CallIns/MobileRespawn/VEH_Tool_SpawnBeacon_BR",
+        "format": "raw-ebx",
+        "sha256": "3c58c9d2a84eb05751845e062dab0fc736c0f1c4262e21cccc96e38aa96a6c31",
+        "question": "Trace selected logistics source and consumer.",
+        "result": "useful",
+        "conclusion": "The selected MobileRespawn VEH has local component object39 Class_e4330dde importing FeatureEx_VEH_Tool_MobileRespawn exported Class_43f16226 GUID25b218fa-b909-4764-b8a8-37c8cda28352; its Field_2094d4d6 points to object1, whose Field_aa4fa860 is resource d2c2f890a61e3751."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/CallIns/AirDrop/Common/SimEx_AirDrop_SpawnAirDrop",
+        "format": "raw-ebx",
+        "sha256": "85f611d297b379d242c6f01a6c98e5bf040be921737ae05bdf6abc80551a24a7",
+        "question": "Trace selected logistics source and consumer.",
+        "result": "useful",
+        "conclusion": "The selected Resupply marker has local expression component object17 Class_7a5489b0 importing SimEx_AirDrop_SpawnAirDrop exported Class_53d7404d GUID7311dfe1-fd2d-4bb6-b1cb-ce801d0cdccf; its Field_2094d4d6 points to local expression object5, whose Field_aa4fa860 is resource caafa6681a928175."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/CallIns/MobileRespawn/Logic/FeatureEx_VEH_Tool_MobileRespawn",
+        "format": "raw-ebx",
+        "sha256": "91a7525455c87a7b630cffdef8c82326d3793d6b66075111c84004e7591dcf89",
+        "question": "Trace selected logistics source and consumer.",
+        "result": "useful",
+        "conclusion": "The selected MobileRespawn VEH has local component object39 Class_e4330dde importing FeatureEx_VEH_Tool_MobileRespawn exported Class_43f16226 GUID25b218fa-b909-4764-b8a8-37c8cda28352; its Field_2094d4d6 points to object1, whose Field_aa4fa860 is resource d2c2f890a61e3751."
+      },
+      {
+        "path": "common/hardware/gadgets/callins/airdrop/common/simex_airdrop_spawnairdrop",
+        "format": "raw-res",
+        "sha256": "2616800896d4769d7e69636638fefdd137defc60e6d61f95e8369c75e45ac4cf",
+        "question": "Inspect selected gameplay expression body.",
+        "result": "blocked-by-decoding",
+        "conclusion": "Exact body identity/hash/size verified; compiled grammar/native execution unresolved."
+      },
+      {
+        "path": "common/hardware/gadgets/callins/mobilerespawn/logic/featureex_veh_tool_mobilerespawn",
+        "format": "raw-res",
+        "sha256": "b1c22834385c062a0926b14af903b4c07bfc26275c207f0b7589b3731f277c49",
+        "question": "Inspect selected gameplay expression body.",
+        "result": "blocked-by-decoding",
+        "conclusion": "Exact body identity/hash/size verified; compiled grammar/native execution unresolved."
+      }
+    ],
+    "run": {
+      "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets",
+      "orchestrator": "GPT-6.1 Sol",
+      "workers": [
+        {
+          "lead": "L192",
+          "model": "GPT-6.1 Sol",
+          "effort": "Low"
+        }
+      ]
+    },
+    "refs": []
+  },
+  "orchestratorCaptureReviews": [
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\armor-resource-capture\\verification.json",
+      "sha256": "15f1421c545a9e0a1f217fcc8b95638706c2b3bfa0e0f0ecbbfd7ecc15bd24e6"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\logistics-consumer-child-capture\\verification.json",
+      "sha256": "48da5b978a1bcf61a9c104e9ac31d986d3730621f56af79bc6ab21006d501554"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\missing-gameplay-capture\\verification.json",
+      "sha256": "2743270e30d78f0dad9426589138bb79dbd35fe03ecec6ce9aab789392437b0f"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\next-utility-family-capture\\verification.json",
+      "sha256": "21be370a335301016614ce13a1c0ab6cbbb8f3b3589f39eb1d119e111824abf9"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\nvg-child-capture\\verification.json",
+      "sha256": "054a23735b9b352510cb5a17f8aaa3a2f2b94a45f568f3547051561924d2de12"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\registry-capture\\verification.json",
+      "sha256": "2e6ff41233fe7bdcd2f74b5189df235ab5113f6a2789b4f3c1b1fb747b23b8f9"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\support-utility-root-capture\\verification.json",
+      "sha256": "1c0fd4c7296cafc9e023dc0faa75816ef71f3c97d8909fd42da31089cbd416a0"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\utility-family-child-capture\\verification.json",
+      "sha256": "5228cffb74422a470de0a980b2602fc7fd14a976a8e77b6cc9d098d36120498f"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\utility-function-capture\\verification.json",
+      "sha256": "9714dd0000b8c561297ed75d0edeae45b1d7d53e66f10d885816bf0f0319f2fd"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\utility-receiver-capture\\verification.json",
+      "sha256": "54c4c93de9cb5027bcdc7903b0c5840d89aeb4b5907157a8f57952c6356093ed"
+    }
+  ],
+  "orchestratorResourceReview": {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\logistics-resource-capture\\verification.json",
+    "sha256": "59addbf0fd6fb832545b4fcaee8a0c221cbf0c4e08466d7d8ed1e2f4d5458365",
+    "review": "Exact selected gameplay bodies independently rehashed with Head4892087/SDK4414275; gameplay and presentation RIDs remain distinct. Bytes do not establish operation grammar."
+  },
+  "orchestratorReview": {
+    "reviewer": "GPT-6.1 Sol",
+    "workerModel": "GPT-6.1 Sol",
+    "workerEffort": "Low",
+    "date": "2026-09-29",
+    "draft": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192\\draft-receipt-v2.json",
+      "sha256": "76f06ca8f39610c4d546238211deeb12b71546b8174945b2314bbdeae0a9773b"
+    },
+    "helperReview": {
+      "tool": "scripts/frosty-worker.py review",
+      "issues": 0,
+      "leadDir": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192"
+    },
+    "scope": {
+      "roots": 8,
+      "externalChildrenExamined": 6,
+      "externalChildrenExaminedKind": "EBX",
+      "compiledResourceBodiesExamined": 2
+    },
+    "independentRawReview": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L192-independent-raw-review.json",
+      "sha256": "549c3744dffd874c2c251eed1671efa1bf44d4f131272d8080653a9fb24336b3",
+      "uniqueChecksIncludingControl": 234,
+      "failures": 0
+    },
+    "pinReview": "Every recorded raw EBX asset hash matches either an indexed hotfix Head 4892087 capture or a reviewed fresh run-local capture with matching catalog Head/SDK and frozen descriptor hash. Release M433 control is separate.",
+    "semanticReview": "Selected source joins and exact member-owner meanings checked against reviewed prior mappings. No current multiplayer availability, native activation, units or effective composition claim."
+  }
+}

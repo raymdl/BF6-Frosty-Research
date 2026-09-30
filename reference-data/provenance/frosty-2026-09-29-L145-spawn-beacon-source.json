@@ -1,0 +1,638 @@
+{
+  "lead": "L145",
+  "status": "reviewed-source-finding",
+  "build": {
+    "name": "1.4.3.0-hotfix Head 4892087",
+    "head": 4892087,
+    "descriptorSha256": "99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640"
+  },
+  "question": "Which typed source values on the multiplayer spawn beacon describe its placed object, survival or spawn effect, and does the SpawnAdrenaline variant differ in a way that could support a gadget comparison?",
+  "sourceFacts": [
+    {
+      "scope": "fixed-root",
+      "assetPath": "Common/Hardware/Gadgets/Tools/SpawnBeacon/SpawnBeacon_Ability",
+      "build": "1.4.3.0-hotfix Head 4892087",
+      "rawSha256": "8fff28f330d076105054ba7eb4f70c1bfb6c303166a90369c1b68a24f831c7c1",
+      "decode": "decoded-provisional; root Class_e515b7b8; 2 objects; root layout is ambiguous",
+      "directImportedChildren": [
+        {
+          "pointer": "/Field_3150c257",
+          "assetPath": "Common/Hardware/Gadgets/Tools/SpawnBeacon/CUST_SpawnBeacon",
+          "objectCount": 1,
+          "decode": "decoded",
+          "sourceFact": "CUST_SpawnBeacon is a direct imported child; its Field_de6f63b3 value is raw-verified below."
+        },
+        {
+          "pointer": "/Field_6cce2f25/Field_d2b8fc26",
+          "assetPath": "Common/Hardware/Gadgets/Tools/SpawnBeacon/DiceFeature_SpawnBeacon",
+          "objectCount": 3,
+          "decode": "decoded-provisional",
+          "sourceFact": "DiceFeature_SpawnBeacon is a direct imported child; its hashed fields did not receive owner-specific semantic mappings in this pass."
+        },
+        {
+          "pointer": "/Field_f86e0433",
+          "assetPath": "Common/Hardware/Gadgets/Tools/SpawnBeacon/U_SpawnBeacon",
+          "objectCount": 2,
+          "decode": "decoded",
+          "sourceFact": "U_SpawnBeacon is a direct imported child; its Field_de6f63b3 value is raw-verified below."
+        }
+      ],
+      "operands": [
+        {
+          "fieldHash": "Field_de6f63b3",
+          "mappedNameCandidate": "generic attachment ID hash mapping; no exact owner-specific binding established for this Ability field",
+          "value": 3298958216,
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer3-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Tools\\SpawnBeacon\\SpawnBeacon_Ability.ebx",
+              "rawSha256": "8fff28f330d076105054ba7eb4f70c1bfb6c303166a90369c1b68a24f831c7c1",
+              "offset": 332,
+              "type": "u32",
+              "bytesHex": "881ba2c4",
+              "value": 3298958216
+            }
+          ]
+        }
+      ],
+      "childOperands": [
+        {
+          "assetPath": "Common/Hardware/Gadgets/Tools/SpawnBeacon/CUST_SpawnBeacon",
+          "fieldHash": "Field_de6f63b3",
+          "mappedNameCandidate": "generic attachment ID hash mapping; owner-specific meaning unresolved",
+          "value": 818218335,
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer4-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Tools\\SpawnBeacon\\CUST_SpawnBeacon.ebx",
+              "rawSha256": "baa70f723d77188d12b3bacdd36b63d990ff78efcc6325668acdf46567becce8",
+              "offset": 80,
+              "type": "u32",
+              "bytesHex": "5f05c530",
+              "value": 818218335
+            }
+          ]
+        },
+        {
+          "assetPath": "Common/Hardware/Gadgets/Tools/SpawnBeacon/U_SpawnBeacon",
+          "fieldHash": "Field_de6f63b3",
+          "mappedNameCandidate": "generic attachment ID hash mapping; owner-specific meaning unresolved",
+          "value": 4193506548,
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer3-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Tools\\SpawnBeacon\\U_SpawnBeacon.ebx",
+              "rawSha256": "f798972cc8a76e55885702e3cc086417067c93d308a10c5008be536108fe2091",
+              "offset": 96,
+              "type": "u32",
+              "bytesHex": "f4d4f3f9",
+              "value": 4193506548
+            }
+          ]
+        }
+      ],
+      "finding": "The ability directly imports three named SpawnBeacon children. The hash operands do not establish which branch is selected or gadget availability."
+    },
+    {
+      "scope": "fixed-root",
+      "assetPath": "Common/Hardware/Gadgets/Tools/SpawnBeacon/VEH_SpawnBeacon",
+      "build": "1.4.3.0-hotfix Head 4892087",
+      "rawSha256": "d87274e85a63c4ce4913c928b3870d952406c049213fe89aa788a6ac9951af25",
+      "decode": "decoded-provisional; root Class_b057bb60; 58 objects; 28 nested layouts are ambiguous",
+      "typedObject": {
+        "index": 22,
+        "classHash": "Class_9966532d",
+        "descriptorTypeKey": "a57116aedf259bd743cedc6f7d0622f5",
+        "parentClass": "Class_d11bf358",
+        "parentDescriptorKey": "cc2e2a83f3144a2460391b3d48426827",
+        "rawObjectOffset": 4928,
+        "note": "The descriptor contains a second Class_9966532d layout with a different type key. FIELD_MAP labels below are candidates for this instance, not a verified semantic binding."
+      },
+      "operands": [
+        {
+          "fieldHash": "Field_95e340fe",
+          "mappedNameCandidate": "InnerBlastRadius",
+          "value": 1.0,
+          "unit": "unresolved",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Tools\\SpawnBeacon\\VEH_SpawnBeacon.ebx",
+              "rawSha256": "d87274e85a63c4ce4913c928b3870d952406c049213fe89aa788a6ac9951af25",
+              "offset": 5176,
+              "type": "f32",
+              "bytesHex": "0000803f",
+              "value": 1.0
+            }
+          ]
+        },
+        {
+          "fieldHash": "Field_19861d8c",
+          "mappedNameCandidate": "BlastDamage",
+          "value": 0.0,
+          "unit": "unresolved",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Tools\\SpawnBeacon\\VEH_SpawnBeacon.ebx",
+              "rawSha256": "d87274e85a63c4ce4913c928b3870d952406c049213fe89aa788a6ac9951af25",
+              "offset": 5184,
+              "type": "f32",
+              "bytesHex": "00000000",
+              "value": 0.0
+            }
+          ]
+        },
+        {
+          "fieldHash": "Field_33f3a8ab",
+          "mappedNameCandidate": "BlastRadius",
+          "value": 5.0,
+          "unit": "unresolved",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Tools\\SpawnBeacon\\VEH_SpawnBeacon.ebx",
+              "rawSha256": "d87274e85a63c4ce4913c928b3870d952406c049213fe89aa788a6ac9951af25",
+              "offset": 5200,
+              "type": "f32",
+              "bytesHex": "0000a040",
+              "value": 5.0
+            }
+          ]
+        },
+        {
+          "fieldHash": "Field_3ef01f58",
+          "mappedNameCandidate": "ShockwaveDamage",
+          "value": 1.0,
+          "unit": "unresolved",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Tools\\SpawnBeacon\\VEH_SpawnBeacon.ebx",
+              "rawSha256": "d87274e85a63c4ce4913c928b3870d952406c049213fe89aa788a6ac9951af25",
+              "offset": 5216,
+              "type": "f32",
+              "bytesHex": "0000803f",
+              "value": 1.0
+            }
+          ]
+        },
+        {
+          "fieldHash": "Field_524836d3",
+          "mappedNameCandidate": "ShockwaveRadius",
+          "value": 15.0,
+          "unit": "unresolved",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Tools\\SpawnBeacon\\VEH_SpawnBeacon.ebx",
+              "rawSha256": "d87274e85a63c4ce4913c928b3870d952406c049213fe89aa788a6ac9951af25",
+              "offset": 5220,
+              "type": "f32",
+              "bytesHex": "00007041",
+              "value": 15.0
+            }
+          ]
+        }
+      ],
+      "finding": "Five mapped-name candidate f32 values were raw-verified. They match the other VEH variant at these offsets; this does not prove whole-asset equivalence, selection, units, or runtime effect."
+    },
+    {
+      "scope": "fixed-root",
+      "assetPath": "Common/Hardware/Gadgets/Tools/SpawnBeacon/VEH_SpawnBeacon_SpawnAdrenaline",
+      "build": "1.4.3.0-hotfix Head 4892087",
+      "rawSha256": "b122fcd3f2ec984f9ff103026e1130eed41b8b39b2762af610027d5634167a94",
+      "decode": "decoded-provisional; root Class_b057bb60; 58 objects; 28 nested layouts are ambiguous",
+      "typedObject": {
+        "index": 22,
+        "classHash": "Class_9966532d",
+        "descriptorTypeKey": "a57116aedf259bd743cedc6f7d0622f5",
+        "parentClass": "Class_d11bf358",
+        "parentDescriptorKey": "cc2e2a83f3144a2460391b3d48426827",
+        "rawObjectOffset": 4928,
+        "note": "The descriptor contains a second Class_9966532d layout with a different type key. FIELD_MAP labels below are candidates for this instance, not a verified semantic binding."
+      },
+      "operands": [
+        {
+          "fieldHash": "Field_95e340fe",
+          "mappedNameCandidate": "InnerBlastRadius",
+          "value": 1.0,
+          "unit": "unresolved",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Tools\\SpawnBeacon\\VEH_SpawnBeacon_SpawnAdrenaline.ebx",
+              "rawSha256": "b122fcd3f2ec984f9ff103026e1130eed41b8b39b2762af610027d5634167a94",
+              "offset": 5176,
+              "type": "f32",
+              "bytesHex": "0000803f",
+              "value": 1.0
+            }
+          ]
+        },
+        {
+          "fieldHash": "Field_19861d8c",
+          "mappedNameCandidate": "BlastDamage",
+          "value": 0.0,
+          "unit": "unresolved",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Tools\\SpawnBeacon\\VEH_SpawnBeacon_SpawnAdrenaline.ebx",
+              "rawSha256": "b122fcd3f2ec984f9ff103026e1130eed41b8b39b2762af610027d5634167a94",
+              "offset": 5184,
+              "type": "f32",
+              "bytesHex": "00000000",
+              "value": 0.0
+            }
+          ]
+        },
+        {
+          "fieldHash": "Field_33f3a8ab",
+          "mappedNameCandidate": "BlastRadius",
+          "value": 5.0,
+          "unit": "unresolved",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Tools\\SpawnBeacon\\VEH_SpawnBeacon_SpawnAdrenaline.ebx",
+              "rawSha256": "b122fcd3f2ec984f9ff103026e1130eed41b8b39b2762af610027d5634167a94",
+              "offset": 5200,
+              "type": "f32",
+              "bytesHex": "0000a040",
+              "value": 5.0
+            }
+          ]
+        },
+        {
+          "fieldHash": "Field_3ef01f58",
+          "mappedNameCandidate": "ShockwaveDamage",
+          "value": 1.0,
+          "unit": "unresolved",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Tools\\SpawnBeacon\\VEH_SpawnBeacon_SpawnAdrenaline.ebx",
+              "rawSha256": "b122fcd3f2ec984f9ff103026e1130eed41b8b39b2762af610027d5634167a94",
+              "offset": 5216,
+              "type": "f32",
+              "bytesHex": "0000803f",
+              "value": 1.0
+            }
+          ]
+        },
+        {
+          "fieldHash": "Field_524836d3",
+          "mappedNameCandidate": "ShockwaveRadius",
+          "value": 15.0,
+          "unit": "unresolved",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Tools\\SpawnBeacon\\VEH_SpawnBeacon_SpawnAdrenaline.ebx",
+              "rawSha256": "b122fcd3f2ec984f9ff103026e1130eed41b8b39b2762af610027d5634167a94",
+              "offset": 5220,
+              "type": "f32",
+              "bytesHex": "00007041",
+              "value": 15.0
+            }
+          ]
+        }
+      ],
+      "finding": "Five mapped-name candidate f32 values were raw-verified. They match the other VEH variant at these offsets; this does not prove whole-asset equivalence, selection, units, or runtime effect."
+    },
+    {
+      "scope": "fixed-root",
+      "assetPath": "common/Hardware/Gadgets/Tools/SpawnBeacon/BD_SpawnBeacon",
+      "build": "1.4.3.0-hotfix Head 4892087",
+      "rawSha256": "1482865a90f52c91008b55623e5dbfe1a4529d14c849c9ed60f48fb0fca44ed5",
+      "decode": "decoded; root Class_2b325ad4; 18 objects",
+      "structuralObservation": "Root Field_3500bc52 contains 17 named subobjects, including AITrajectory, PlacedLocation, poles, arms, Antenna, head, and strings. These are structural names only.",
+      "operands": [],
+      "finding": "This bounded structural inspection did not establish a typed health, lifetime, or availability value. No dimensions or runtime behavior are inferred from the named subobjects."
+    }
+  ],
+  "control": {
+    "result": "passed",
+    "purpose": "release known-answer control for raw-reader/site-number encoding only; not hotfix gadget evidence",
+    "sitePointer": "data/weapons.json:/[id=m433]/recoil/ads/amount",
+    "siteValue": 0.6695,
+    "head": 4892017,
+    "descriptorSha256": "91c9ea7c3dd830e34a78123c8bb7485e80eefdb18fc9c7ee41117971d23565c2",
+    "rawCheck": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+      "rawSha256": "66caca0e667d17fdf03f9fb4f620b9c5842aa1fd8de0221128ad4862895eed51",
+      "offset": 1084,
+      "type": "f32",
+      "bytesHex": "5a642b3f",
+      "value": 0.6694999933242798
+    },
+    "passed": true,
+    "description": "release known-answer control for raw-reader/site-number encoding only; not hotfix gadget evidence",
+    "rawChecks": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+        "rawSha256": "66caca0e667d17fdf03f9fb4f620b9c5842aa1fd8de0221128ad4862895eed51",
+        "offset": 1084,
+        "type": "f32",
+        "bytesHex": "5a642b3f",
+        "value": 0.6694999933242798
+      }
+    ]
+  },
+  "inference": [
+    "The five class-hash mapped-name candidate floats have equal values and offsets in the base and SpawnAdrenaline raw assets. That supports only a bounded value comparison, not complete asset equivalence or selected-variant identity.",
+    "The Analyzer currently has weapon and attachment data/sim/ui shapes but no gadget-specific data file or established gadget selector in the inspected surfaces. A reliable gadget panel needs a new contract after source semantics and selection are established."
+  ],
+  "unresolved": [
+    "The two VEH roots use the same Class_9966532d class hash, but the pinned descriptor has two layouts with different type keys. FIELD_MAP is class-hash scoped, so these five labels remain candidates until an exact descriptor-key field map is established.",
+    "Units and gameplay roles of the five candidate values are not verified by this trace.",
+    "No captured evidence here selects VEH_SpawnBeacon versus VEH_SpawnBeacon_SpawnAdrenaline for multiplayer.",
+    "No runtime activation, gadget availability, placed-object health, lifetime, spawn benefit, damage behavior, or client/server composition is established.",
+    "The Ability and VEH decoded records are provisional with ambiguous layouts; exact semantic interpretation is limited accordingly.",
+    "No gadget table or gadget-specific data contract was found in the inspected Analyzer data/sim/ui shape. A site panel needs an established selector and verified source labels first."
+  ],
+  "siteImpact": "This evidence does not support populated availability, durability, or spawn-benefit numbers in an Analyzer gadget panel. At most it identifies five raw-verified f32 label candidates shared across two hotfix VEH assets and direct named ability imports; selection, exact field semantics, units, health/lifetime values, and runtime behavior remain unresolved.",
+  "evidence": {
+    "files": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer3-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Tools\\SpawnBeacon\\SpawnBeacon_Ability.ebx",
+        "sha256": "8fff28f330d076105054ba7eb4f70c1bfb6c303166a90369c1b68a24f831c7c1",
+        "role": "hotfix fixed root"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Tools\\SpawnBeacon\\VEH_SpawnBeacon.ebx",
+        "sha256": "d87274e85a63c4ce4913c928b3870d952406c049213fe89aa788a6ac9951af25",
+        "role": "hotfix fixed root"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Tools\\SpawnBeacon\\VEH_SpawnBeacon_SpawnAdrenaline.ebx",
+        "sha256": "b122fcd3f2ec984f9ff103026e1130eed41b8b39b2762af610027d5634167a94",
+        "role": "hotfix fixed root"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer9-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Tools\\SpawnBeacon\\BD_SpawnBeacon.ebx",
+        "sha256": "1482865a90f52c91008b55623e5dbfe1a4529d14c849c9ed60f48fb0fca44ed5",
+        "role": "hotfix fixed root"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer4-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Tools\\SpawnBeacon\\CUST_SpawnBeacon.ebx",
+        "sha256": "baa70f723d77188d12b3bacdd36b63d990ff78efcc6325668acdf46567becce8",
+        "role": "direct child traced separately"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer4-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Tools\\SpawnBeacon\\DiceFeature_SpawnBeacon.ebx",
+        "sha256": "5c017ff64af0d3785cbc0d2319eafd8192cd0fd42fc87ab19bc7c3a436bf4923",
+        "role": "direct child traced separately"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer3-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Tools\\SpawnBeacon\\U_SpawnBeacon.ebx",
+        "sha256": "f798972cc8a76e55885702e3cc086417067c93d308a10c5008be536108fe2091",
+        "role": "direct child traced separately"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+        "sha256": "66caca0e667d17fdf03f9fb4f620b9c5842aa1fd8de0221128ad4862895eed51",
+        "role": "release known-answer control only"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\exhaustive-audit-2026-09-23\\coverage-decoder-v5.sqlite",
+        "sha256": "1fac4aa159b11741943eaf6ae94f64e63928b9fa0f866ca4a1d191897718cf10",
+        "role": "hotfix capture/decode index used for exact roots"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\docs\\frosty\\FIELD_MAP.md",
+        "sha256": "976db6b19f6e2f4fa6ecd1784d907f1bceb055e1aad8033158412b7a65d20fcb",
+        "role": "class-hash field-name candidates"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-ebx-decode.py",
+        "sha256": "6fdc0334efaee0fe6113b5c9db4973f1358f53ee65dfb94edbc22fb0bf07a727",
+        "role": "pinned descriptor EBX decoder"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+        "sha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3",
+        "role": "raw operand verification helper"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-records.py",
+        "sha256": "ffb0e7574ce66779ae5041f4fc55047d0da2f63d917682b527673a75612b734c",
+        "role": "draft receipt schema/checker"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\gadget-select.py",
+        "sha256": "3350f5d9a9f483e8f087707b4a9c51344a4a4678654e47715dbb0e3c18828335",
+        "role": "fixed-root selector / roster helper"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L145\\l145-ability-decoded.json",
+        "sha256": "0b3e45b3a135dbd1827c74e0a9e3b7d329daeca4cde8936a1abc99078470e617",
+        "role": "decoded hotfix root output"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L145\\l145-veh-decoded.json",
+        "sha256": "f48c9b7515dbd8f99933b14fb4d216b32ddddce2e79a6b08566356e9b9ad8a7d",
+        "role": "decoded hotfix root output"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L145\\l145-veh-adrenaline-decoded.json",
+        "sha256": "e97edc813e2e12cd388bd2e23e9978608d8c836d5c50f4acd22e658b532a5f7c",
+        "role": "decoded hotfix root output"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L145\\l145-bd-decoded.json",
+        "sha256": "74bc2cb4d57ff9137192d96bd0d161ca7f923c88f6957d83b2e6ce0bedd739ff",
+        "role": "decoded hotfix root output"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L145\\l145-cust-decoded.json",
+        "sha256": "ff6b3e0ab41da116ad6c09ad816f0dab98d521a35c5d572435457546d4c6a033",
+        "role": "decoded direct child output"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L145\\l145-dice-feature-decoded.json",
+        "sha256": "c0ed142d6b91e6769573b40e5aee42c9da7fc48a13b1a9372b3349be1f9ed897",
+        "role": "decoded direct child output"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L145\\l145-utility-decoded.json",
+        "sha256": "919346e97ef2a3dea9f39251e72d3c747e51a07399cdcd82f02333059d181954",
+        "role": "decoded direct child output"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L145\\l145-raw-checks.json",
+        "sha256": "f616d62118540dc967905503a8db6d9e57f13222f1c135e001b3c69cacf5575d",
+        "role": "raw-check output: Ability ID and eight VEH operands"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L145\\l145-extra-raw-checks.json",
+        "sha256": "f3b2886d2f8dfebb4d7d7ca83137f0e56bf2abdfd9efa1ba746ba6807a87a997",
+        "role": "raw-check output: two InnerBlastRadius operands"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L145\\l145-child-raw-checks.json",
+        "sha256": "fc12b1865c76885b535bae0fde050a715a7d184b2dda2ddd9122857d43c2b541",
+        "role": "raw-check output: two direct-child ID operands"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L145\\l145-raw-manifest.json",
+        "sha256": "5cebc2218f31371dcce54d0dbe93eda1b5eeccc4fda83b87a1fed67901834049",
+        "role": "raw-check invocation manifest"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L145\\l145-extra-raw-manifest.json",
+        "sha256": "eaae917c822477bc1560809fd4724e36d0159ce80ec9f15d40947f2681ce288b",
+        "role": "raw-check invocation manifest"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L145\\l145-child-raw-manifest.json",
+        "sha256": "85e955ec905908ee71dea817968223f808e1388ca51c30d4a3e4ad64d1df5462",
+        "role": "raw-check invocation manifest"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L145\\l145-site-inspect.py",
+        "sha256": "905d31d6871eb132f8e386fadb194e29801a4a0f59866bd6c1c681ad0f1696f7",
+        "role": "read-only site shape inspection helper"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L145\\l145-target-class-offsets.py",
+        "sha256": "aeb7cb1a25ac55d9f1ffd19acba9b701d37774caebc3f7515665d0dd2782faa9",
+        "role": "bounded typed-object offsets helper"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L145\\l145-imports.py",
+        "sha256": "a3299ce35a7aef9f468467773e76514cb87bcea468558727b7588ab37e942fa2",
+        "role": "bounded direct-import inspection helper"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L145\\l145-db-inspect.py",
+        "sha256": "74a0dbfd53adfa956b77c705fb586aff699d5a4d2e22cf5a9451e79235db8925",
+        "role": "bounded hotfix DB inspection helper"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L145\\l145-dice-inspect.py",
+        "sha256": "76684869fe3dc8cffee6f377920c8eaadf2cf5270ce46b9a3358eca8ef9e4dea",
+        "role": "bounded direct child inspection helper"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer\\data\\weapons.json",
+        "sha256": "22d2d83eb65c0f7f69cad6efff077d8b1435d08827c1a1a3633976f87266eb7f",
+        "role": "site known-answer pointer source"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer\\data\\attachments.json",
+        "sha256": "8ddebf944fa7e844acbc28de6f653dac6172144801c45901dd336322385274eb",
+        "role": "site catalog shape inspected"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer\\ui\\app.js",
+        "sha256": "c933d68052d4026f5a649c8e7452d83fd52eedffcd6959063c10b72da7e4c5b9",
+        "role": "site data loading / loadout model shape"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer\\sim\\loadout.js",
+        "sha256": "ced0986dc7773476f5d99f5dd9bcd1d83f882e4837de8f4bad057c70a3a67f5a",
+        "role": "site attachment simulation shape"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer\\ui\\loadout.js",
+        "sha256": "8ea28547a2ea40a48102763480ced648f4b9325adbfb298a06767c30e1f8f999",
+        "role": "site attachment rendering shape"
+      }
+    ],
+    "commands": [
+      "Known-answer control: python frosty-raw-check.py --raw-root \"...\\capture\\collection\\raw\" --path \"Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433\" --offset 1084 --type f32 --expect 0.6695 (release Head 4892017 only).",
+      "Hotfix raw checks: frosty-raw-check.py against the capture raw root for each listed hotfix raw file, offset, type, and expected value; full invocation manifests and JSON outputs are included in this lead folder.",
+      "Exact four roots: read-only run-root gadget-select.py and coverage-decoder-v5.sqlite inspection; the selected hotfix capture roots are listed above.",
+      "Typed decode and imports: frosty-ebx-decode.py with the pinned hotfix descriptor; bounded local inspectors for object offsets, direct imports, child fields and site JSON/sim/ui structure.",
+      "Receipt validation: python frosty-records.py check-receipt draft-receipt.json (read-only); checker SHA-256 is listed above."
+    ],
+    "limits": [
+      "Repositories were read-only; all new deliverables and helper scripts are in this L145 lead folder.",
+      "Hotfix gadget operands and the release known-answer control are explicitly separated."
+    ]
+  },
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-09-29",
+    "build": "1.4.3.0-hotfix",
+    "leads": [
+      {
+        "id": "L145",
+        "title": "Spawn beacon availability and placed-object comparison",
+        "status": "finding",
+        "summary": "Four hotfix roots and three direct imported children were traced; five VEH f32 label candidates match across the two variants, but exact meanings and multiplayer selection remain unresolved.",
+        "reopenWhen": "Reopen when an exact descriptor-key field map and the multiplayer selector/activation route establish the candidate fields’ roles, units, and selected beacon variant."
+      }
+    ],
+    "assets": [
+      {
+        "path": "Common/Hardware/Gadgets/Tools/SpawnBeacon/SpawnBeacon_Ability",
+        "format": "raw-ebx",
+        "sha256": "8fff28f330d076105054ba7eb4f70c1bfb6c303166a90369c1b68a24f831c7c1",
+        "question": "Do direct Ability fields or imports inform spawn or availability?",
+        "result": "useful",
+        "conclusion": "Three named direct child imports were identified. A generic hash candidate was raw-verified, but it does not prove branch selection or availability."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Tools/SpawnBeacon/VEH_SpawnBeacon",
+        "format": "raw-ebx",
+        "sha256": "d87274e85a63c4ce4913c928b3870d952406c049213fe89aa788a6ac9951af25",
+        "question": "Which typed source values in the base beacon vehicle could bear on its placed-object effect?",
+        "result": "useful",
+        "conclusion": "Five raw-verified f32 values have class-hash mapped-name candidates; exact descriptor layout, units and runtime roles remain unresolved."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Tools/SpawnBeacon/VEH_SpawnBeacon_SpawnAdrenaline",
+        "format": "raw-ebx",
+        "sha256": "b122fcd3f2ec984f9ff103026e1130eed41b8b39b2762af610027d5634167a94",
+        "question": "Do candidate placed-object values differ in the SpawnAdrenaline asset?",
+        "result": "useful",
+        "conclusion": "The same five raw-verified f32 candidate values occur at the compared offsets; this does not prove whole-asset equivalence or multiplayer selection."
+      },
+      {
+        "path": "common/Hardware/Gadgets/Tools/SpawnBeacon/BD_SpawnBeacon",
+        "format": "raw-ebx",
+        "sha256": "1482865a90f52c91008b55623e5dbfe1a4529d14c849c9ed60f48fb0fca44ed5",
+        "question": "Does the scoped beacon body root expose a relevant health or lifetime value?",
+        "result": "inconclusive",
+        "conclusion": "The bounded decoded root exposes named structural subobjects, but this pass did not establish a typed health, lifetime or availability value."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Tools/SpawnBeacon/CUST_SpawnBeacon",
+        "format": "raw-ebx",
+        "sha256": "baa70f723d77188d12b3bacdd36b63d990ff78efcc6325668acdf46567becce8",
+        "question": "Does the direct CUST child add a raw-verified availability-related operand?",
+        "result": "useful",
+        "conclusion": "Its Field_de6f63b3 numeric hash was raw-verified; owner-specific meaning and selection remain unresolved."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Tools/SpawnBeacon/DiceFeature_SpawnBeacon",
+        "format": "raw-ebx",
+        "sha256": "5c017ff64af0d3785cbc0d2319eafd8192cd0fd42fc87ab19bc7c3a436bf4923",
+        "question": "Does the direct DiceFeature child expose an attributable spawn or survival value?",
+        "result": "inconclusive",
+        "conclusion": "It contains three objects, but its hashed fields did not receive owner-specific semantic mappings in this bounded pass."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Tools/SpawnBeacon/U_SpawnBeacon",
+        "format": "raw-ebx",
+        "sha256": "f798972cc8a76e55885702e3cc086417067c93d308a10c5008be536108fe2091",
+        "question": "Does the direct U child add a raw-verified availability-related operand?",
+        "result": "useful",
+        "conclusion": "Its Field_de6f63b3 numeric hash was raw-verified; owner-specific meaning and selection remain unresolved."
+      }
+    ],
+    "binding": "research"
+  },
+  "scope": {
+    "expected": 4,
+    "examined": 4,
+    "notes": "Exactly four fixed hotfix roots; three direct Ability children were inspected and counted separately. The prior abbreviated release-control path failed before the full-path control passed."
+  },
+  "orchestratorReview": {
+    "helperIssues": [],
+    "reviewShapeCorrection": "The original worker result recorded a passing full-path raw control as result=passed and omitted top-level scope. A reviewed copy added passed=true and the four-of-four scope from the four fixed result rows, preserving the original result. The helper then had zero issues.",
+    "scope": "Four of four named hotfix roots; three direct Ability children counted separately. BD has no claimed numeric operand.",
+    "independentRawCheck": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Tools\\SpawnBeacon\\VEH_SpawnBeacon_SpawnAdrenaline.ebx",
+      "rawSha256": "b122fcd3f2ec984f9ff103026e1130eed41b8b39b2762af610027d5634167a94",
+      "offset": 5220,
+      "type": "f32",
+      "bytesHex": "00007041",
+      "value": 15.0,
+      "matches": true
+    },
+    "siteEncoding": "Scoped data/sim/ui search found no gadget table or beacon stat calculation.",
+    "classification": "Source finding; duplicate Class_9966532d layouts make the five candidate field labels uncertain, and multiplayer variant selection is unresolved."
+  }
+}

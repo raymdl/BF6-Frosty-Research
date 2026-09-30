@@ -1,0 +1,602 @@
+{
+  "lead": "L139",
+  "status": "reviewed-source-finding",
+  "build": "1.4.3.0-hotfix",
+  "question": "Do four direct defibrillator gadget assets give a typed, selected recharge or revive value suitable for a loadout comparison, and what modifier route does the faster-recharge perk use?",
+  "sourceFacts": [
+    {
+      "fact": "The release-only known-answer control matched the HK433 site pointer at Head 4892017, offset 1084, f32 0.6695. It does not support hotfix gadget conclusions.",
+      "rawChecks": [
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+          "rawSha256": "66caca0e667d17fdf03f9fb4f620b9c5842aa1fd8de0221128ad4862895eed51",
+          "offset": 1084,
+          "type": "f32",
+          "bytesHex": "5a642b3f",
+          "value": 0.6694999933242798
+        }
+      ]
+    },
+    {
+      "fact": "Ability_Defibrillator_Equipped Class_4918a771.Field_143f8e7a is f32 2.0; its property role and units are unresolved.",
+      "rawChecks": [
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer3-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Misc\\Defibrillator\\Ability_Defibrillator_Equipped.ebx",
+          "rawSha256": "59c2c8868227bc31c8eaf254d8b6af369144ba7e477d3e2771713fa17aec0f8a",
+          "offset": 380,
+          "type": "f32",
+          "bytesHex": "00000040",
+          "value": 2.0
+        }
+      ]
+    },
+    {
+      "fact": "AffectorRevive_Defibrillator_Ranked Field_95eed6ac contains six Class_5215b2eb.Field_0c2711f9 f32 entries 50, 60, 70, 80, 90, and 100. Their role and units are unresolved.",
+      "rawChecks": [
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Misc\\Defibrillator\\AffectorRevive_Defibrillator_Ranked.ebx",
+          "rawSha256": "bacd6c630e42cf4ad4f207a35d640f8c44a71a7651a1da0b1e80060642f74162",
+          "offset": 184,
+          "type": "f32",
+          "bytesHex": "00004842",
+          "value": 50.0
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Misc\\Defibrillator\\AffectorRevive_Defibrillator_Ranked.ebx",
+          "rawSha256": "bacd6c630e42cf4ad4f207a35d640f8c44a71a7651a1da0b1e80060642f74162",
+          "offset": 200,
+          "type": "f32",
+          "bytesHex": "00007042",
+          "value": 60.0
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Misc\\Defibrillator\\AffectorRevive_Defibrillator_Ranked.ebx",
+          "rawSha256": "bacd6c630e42cf4ad4f207a35d640f8c44a71a7651a1da0b1e80060642f74162",
+          "offset": 216,
+          "type": "f32",
+          "bytesHex": "00008c42",
+          "value": 70.0
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Misc\\Defibrillator\\AffectorRevive_Defibrillator_Ranked.ebx",
+          "rawSha256": "bacd6c630e42cf4ad4f207a35d640f8c44a71a7651a1da0b1e80060642f74162",
+          "offset": 232,
+          "type": "f32",
+          "bytesHex": "0000a042",
+          "value": 80.0
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Misc\\Defibrillator\\AffectorRevive_Defibrillator_Ranked.ebx",
+          "rawSha256": "bacd6c630e42cf4ad4f207a35d640f8c44a71a7651a1da0b1e80060642f74162",
+          "offset": 248,
+          "type": "f32",
+          "bytesHex": "0000b442",
+          "value": 90.0
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Misc\\Defibrillator\\AffectorRevive_Defibrillator_Ranked.ebx",
+          "rawSha256": "bacd6c630e42cf4ad4f207a35d640f8c44a71a7651a1da0b1e80060642f74162",
+          "offset": 264,
+          "type": "f32",
+          "bytesHex": "0000c842",
+          "value": 100.0
+        }
+      ]
+    },
+    {
+      "fact": "WM_Defib_FasterRechargePerk has a Class_897c99a7 part with selector GUID aeb43f2c-3c7b-4056-a8f6-f965da671da3 and one inline Class_735a2570 effect with Field_1c533b56=1.5 f32 and Field_348b8cd1=1.0 f32.",
+      "rawChecks": [
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Misc\\Defibrillator\\WM_Defib_FasterRechargePerk.ebx",
+          "rawSha256": "a774bbea968ce05744c68b0303f6611b90bdc79b4939d8333dab0112d20cbfe4",
+          "offset": 152,
+          "type": "f32",
+          "bytesHex": "0000c03f",
+          "value": 1.5
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Misc\\Defibrillator\\WM_Defib_FasterRechargePerk.ebx",
+          "rawSha256": "a774bbea968ce05744c68b0303f6611b90bdc79b4939d8333dab0112d20cbfe4",
+          "offset": 156,
+          "type": "f32",
+          "bytesHex": "0000803f",
+          "value": 1.0
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Misc\\Defibrillator\\WM_Defib_FasterRechargePerk.ebx",
+          "rawSha256": "a774bbea968ce05744c68b0303f6611b90bdc79b4939d8333dab0112d20cbfe4",
+          "offset": 276,
+          "type": "guid",
+          "bytesHex": "2c3fb4ae7b3c5640a8f6f965da671da3",
+          "value": "aeb43f2c-3c7b-4056-a8f6-f965da671da3"
+        }
+      ]
+    },
+    {
+      "fact": "SimEx_Defib has 13 internal EBX objects; the existing layer-13 audit records two unknown target file GUIDs associated with it, leaving runtime origin unresolved.",
+      "supportingEvidence": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-audit-unknown-targets-layer13-2026-09-23.json"
+    }
+  ],
+  "inference": "The values are serialized, typed operands, but the traces do not assign a recharge or revive meaning, establish multiplayer selection, or connect the faster-perk effect to an active consumer. No value is suitable for a loadout comparison. Do not treat 1.5 as a recharge multiplier.",
+  "unresolved": [
+    "The semantic role and units of Ability_Defibrillator_Equipped Class_4918a771.Field_143f8e7a=2.0 are unknown.",
+    "The role, units, formula, and multiplayer selection of AffectorRevive_Defibrillator_Ranked Field_0c2711f9 values 50-100 are unknown.",
+    "SimEx_Defib runtime origin and the meaning of its expression fields remain unresolved; the earlier audit found two unknown target file GUIDs.",
+    "The faster-perk selector activation, receiving consumer, and meaning of Class_735a2570 fields 1.5 and 1.0 are unresolved. Do not read 1.5 as a recharge multiplier.",
+    "No selected multiplayer gadget/loadout route or runtime composition is established by these four direct roots."
+  ],
+  "siteImpact": "No Analyzer gadget table exists. The defibrillator and faster-perk values lack a selected consumer and semantic field roles, so no revive or recharge comparison value is proposed.",
+  "evidence": {
+    "inputs": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer3-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Misc\\Defibrillator\\Ability_Defibrillator_Equipped.ebx",
+        "sha256": "59c2c8868227bc31c8eaf254d8b6af369144ba7e477d3e2771713fa17aec0f8a"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Misc\\Defibrillator\\AffectorRevive_Defibrillator_Ranked.ebx",
+        "sha256": "bacd6c630e42cf4ad4f207a35d640f8c44a71a7651a1da0b1e80060642f74162"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer5-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Misc\\Defibrillator\\SimEx_Defib.ebx",
+        "sha256": "b144475c58ce92feadf2a1d18a1347fca22e66f4dfe25d316ea504cfac2b1df5"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Misc\\Defibrillator\\WM_Defib_FasterRechargePerk.ebx",
+        "sha256": "a774bbea968ce05744c68b0303f6611b90bdc79b4939d8333dab0112d20cbfe4"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\toolchain\\SharedTypeDescriptors-hotfix-2026-09-16.ebx",
+        "sha256": "99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\xml\\xml-overlay\\Common\\Hardware\\Gadgets\\Misc\\Defibrillator\\WM_Defib_FasterRechargePerk.xml",
+        "sha256": "fbad2a7a289523be3eb04fb540b5e8620d8fa065f55855621cf7c217063399af"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\docs\\frosty\\FIELD_MAP.md",
+        "sha256": "976db6b19f6e2f4fa6ecd1784d907f1bceb055e1aad8033158412b7a65d20fcb"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-audit-unknown-targets-layer13-2026-09-23.json",
+        "sha256": "9258acce21c7ea986a5cc1f03b97ec1e683040c10688ff685a3ea84d0220fc6f"
+      }
+    ],
+    "outputs": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L139\\l139-control.json",
+        "sha256": "9926f81b3aac0e0bef8a8d6f510a3e5e3ffd86cf915afccee130fbce0217986e"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L139\\l139-raw-manifest.json",
+        "sha256": "e74d26a4bbacfb92a1b1156a98bba826811f861f2269a2985f9ca8bf6b558877"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L139\\l139-rawchecks.json",
+        "sha256": "cbcdf63a6e1b74e5efff8a0ee06764a850d203e7404d0e65dbf1b321f8b4d867"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L139\\l139-result.json",
+        "sha256": "3ef609c6ec7ec53aac5d0ffa457b370499d8cdaedeb8560e851fd560331c2827"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L139\\summary.md",
+        "sha256": "5c8028532c547951c000e046b41b1c2285678307a60cc4e0dcfdabfccd80f105"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L139\\progress.md",
+        "sha256": "ab90b02381f495d5641013029f2d583761de4739087d1c0b7914f27329c7fbd4"
+      }
+    ],
+    "helperHashes": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L139\\l139-work.py",
+        "sha256": "0e42cde026f128b8bf67c541222e89272f2bae6ef3229295ea1d1470b5fec112",
+        "role": "Control/progress file writer."
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L139\\l139-progress.py",
+        "sha256": "8db77fced49b00d51299b1876abff951d455f1da5f06045bfba725ce59ec628a",
+        "role": "Progress writer, first update."
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L139\\l139-progress-final.py",
+        "sha256": "d0b360f01862f0d9da992a74f222505a9071390a42d421663aa9762daaa0896b",
+        "role": "Progress writer, after raw checks."
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L139\\l139-probe.py",
+        "sha256": "9e9367b9c21942d48501e8bfc63a380085af5bf25a3aadfa1b8e28637ff93f58",
+        "role": "Read-only database schema and scoped filename inventory."
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L139\\l139-db.py",
+        "sha256": "5429678671396c3532d3684986da71ddd181de2d2e503b7bdcf0acb7783a5b76",
+        "role": "Read-only exact four-root capture metadata and cached decode summary."
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L139\\l139-roots.py",
+        "sha256": "c5edfc704032d86498c89b6dd409755e702e9e94b67e20b988334f58f65fb40f",
+        "role": "Read-only root body and direct reference inspection."
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L139\\l139-imports.py",
+        "sha256": "6877dd8c4eeaa14df118d257a1bb94ca201a1675fb32d22db1f93c241a168dd5",
+        "role": "Read-only scoped direct import table query."
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L139\\l139-edge.py",
+        "sha256": "3e8975899bb22b93eced14dd6a2edfee6b73fcbd64249af3c56d2f81916175fc",
+        "role": "Read-only exact reference lookup."
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L139\\l139-prior-summary.py",
+        "sha256": "50eaa01082de6f3a98b13b8e25a7cb95e3b110865eb58e1bfc75518ae2a416cc",
+        "role": "Read-only reuse audit summary."
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L139\\l139-layout.py",
+        "sha256": "6f615ee7b63a945c6b3dcbd0dca12e58f0442c53e12d95f842f0feadcad9841f6",
+        "role": "Exploratory descriptor/offset inventory; its output was not retained."
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L139\\l139-type-owners.py",
+        "sha256": "081be417d08ec8761371346663289ace4ffb61f07af489b6fa98bf71d6f8ecc4",
+        "role": "Exact descriptor owners, field offsets, and types for retained operands."
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L139\\l139-raw-manifest.py",
+        "sha256": "7c7607eb7e731d50be4381590a32963fa9fc361e68044f869a63f2e20f14b0e8",
+        "role": "Raw-check manifest writer."
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L139\\l139-report.py",
+        "sha256": "1939d351332092c5e63e8d4a98983081574d9787e80ed98e8e9104e9cc74a0da",
+        "role": "Writes the final lead result, summary, and draft receipt."
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L139\\l139-report.py (failed guard revision)",
+        "sha256": "536acf2a4ca1477c74cbb6bec869e3ac7b63b9db7a5c258325e62c74acb2ba25",
+        "role": "First report-helper revision failed before output creation because its no-overwrite guard included itself."
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L139\\l139-report.py (syntax-error revision)",
+        "sha256": "c65cd268037ea394c2eb0367b1fccbbe90ab6bef7fc7d0b86272652b6334a802",
+        "role": "Intermediate revision had a literal newline escape in a tuple and failed to parse."
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L139\\l139-report.py (key-error revision)",
+        "sha256": "bbe99b5db08c4b38518caab0681ad1f2842af986e158efb9f3ed2fe3b18d572e",
+        "role": "Intermediate revision used unquoted classinfo keys and stopped before writing outputs."
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L139\\l139-report.py (path-args revision)",
+        "sha256": "20b61dfa8fd59313a7162de4514ef57da4d90ec4a6db1b72a87b9db9a93d9fba",
+        "role": "Intermediate revision passed raw-check help args into pathlib.Path and stopped before writing outputs."
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L139\\l139-report.py (guard revision)",
+        "sha256": "8eaa11d74f992675eaf3efed75bf965d747fde011305aa8d726227abe58e636c",
+        "role": "Revision stopped at the no-overwrite guard after result and summary files already existed; no files were changed."
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+        "sha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3",
+        "role": "Raw typed reads."
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-ebx-decode.py",
+        "sha256": "6fdc0334efaee0fe6113b5c9db4973f1358f53ee65dfb94edbc22fb0bf07a727",
+        "role": "Hotfix descriptor parsing and EBX layout decode."
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-worker.py",
+        "sha256": "91d73d328cfe39862ec882ef02eda665580b28a6da9fa541f7b03d12d755beb2",
+        "role": "Prior-work search."
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-configuration.py",
+        "sha256": "ac174406e9f94809bc74532a6a48bafd590dc512dae0879428d5aaa05cffcd6a",
+        "role": "Help inspected; attachment graph not used."
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-records.py",
+        "sha256": "ffb0e7574ce66779ae5041f4fc55047d0da2f63d917682b527673a75612b734c",
+        "role": "Receipt schema and check."
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L139\\l139-progress-close.py",
+        "sha256": "13d19860a7d254ac802aaac23e0f695ca6cc62b9b45425e110a21ac17609d8ed",
+        "role": "Final progress update and output-hash register."
+      }
+    ],
+    "commands": [
+      {
+        "executable": "python",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+          "--help"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L139",
+        "note": "Read helper options."
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+          "--raw-root",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw",
+          "--path",
+          "GS_HK433.ebx",
+          "--offset",
+          "1084",
+          "--type",
+          "f32",
+          "--expect",
+          "0.6695",
+          "--out",
+          "l139-control.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L139",
+        "outcome": "Failed path lookup: basename was not at the raw-root top level; control was then resolved by exact nested path."
+      },
+      {
+        "executable": "PowerShell",
+        "command": "Get-ChildItem -LiteralPath 'C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture' -Filter 'GS_HK433.ebx' -File -Recurse | Select-Object -ExpandProperty FullName",
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L139",
+        "note": "Located the nested control asset."
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+          "--raw-root",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw",
+          "--path",
+          "Common/Hardware/Weapons/AssaultRifle/HK433/GS_HK433.ebx",
+          "--offset",
+          "1084",
+          "--type",
+          "f32",
+          "--expect",
+          "0.6695"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L139",
+        "outcome": "Control passed."
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-worker.py",
+          "prior-work",
+          "--terms",
+          "Defibrillator",
+          "WM_Defib_FasterRechargePerk",
+          "SimEx_Defib",
+          "AffectorRevive_Defibrillator_Ranked",
+          "Ability_Defibrillator_Equipped"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L139"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-records.py",
+          "schema"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L139"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          ".\\l139-probe.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L139"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          ".\\l139-db.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L139"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          ".\\l139-roots.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L139"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          ".\\l139-imports.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L139"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          ".\\l139-prior-summary.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L139"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          ".\\l139-edge.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L139"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          ".\\l139-type-owners.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L139"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          ".\\l139-layout.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L139",
+        "note": "Exploratory candidate inventory; generated JSON was removed after finding its displayed objectIndex was a path segment. Retained offsets were resolved by exact owner helper and verified raw checks."
+      },
+      {
+        "executable": "python",
+        "argv": [
+          ".\\l139-raw-manifest.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L139",
+        "outputs": [
+          "l139-raw-manifest.json"
+        ]
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+          "--manifest",
+          "l139-raw-manifest.json",
+          "--out",
+          "l139-rawchecks.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L139",
+        "outputs": [
+          "l139-rawchecks.json"
+        ],
+        "outcome": "All ten checks passed."
+      },
+      {
+        "executable": "PowerShell",
+        "command": "Select-String -Path 'C:\\Users\\royal\\Documents\\BF6 Frosty Research\\docs\\frosty\\FIELD_MAP.md' -Pattern 'Field_0b47f861|Field_44b6bf62|Field_edfc6df6|Field_3901db14|Field_42fc0f5e|Field_533f6740|Field_9e432f8f|Field_1c533b56|Field_348b8cd1|Field_143f8e7a|Field_0c2711f9' -Context 0,1",
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L139"
+      },
+      {
+        "executable": "PowerShell",
+        "command": "Get-Content -Raw -LiteralPath 'C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\xml\\xml-overlay\\Common\\Hardware\\Gadgets\\Misc\\Defibrillator\\WM_Defib_FasterRechargePerk.xml'",
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L139"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          ".\\l139-report.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L139",
+        "outputs": [
+          "l139-result.json",
+          "summary.md",
+          "draft-receipt.json"
+        ]
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-records.py",
+          "check-receipt",
+          "draft-receipt.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L139"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          ".\\l139-progress-close.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L139",
+        "outputs": [
+          "progress.md"
+        ],
+        "note": "Final progress update and receipt evidence hash register."
+      }
+    ],
+    "reuseIndex": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\exhaustive-audit-2026-09-23\\coverage-decoder-v5.sqlite",
+      "note": "Read-only index used to locate the four Head 4892087 captures; direct raw files and the hotfix descriptor were hashed and independently checked."
+    }
+  },
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-09-29",
+    "build": "1.4.3.0-hotfix",
+    "leads": [
+      {
+        "id": "L139",
+        "title": "Defibrillator recharge and revive source",
+        "status": "finding",
+        "summary": "The four hotfix roots contain raw-verified typed operands and a static faster-perk selector/effect route, but do not establish a selected revive/recharge number or its runtime meaning.",
+        "reopenWhen": "Reopen when a typed hotfix consumer links the selected defibrillator ability and faster-perk selector to named revive/recharge operands."
+      }
+    ],
+    "assets": [
+      {
+        "path": "Common/Hardware/Gadgets/Misc/Defibrillator/Ability_Defibrillator_Equipped",
+        "format": "raw-ebx",
+        "sha256": "59c2c8868227bc31c8eaf254d8b6af369144ba7e477d3e2771713fa17aec0f8a",
+        "question": "Does this direct hotfix root establish a selected revive/recharge value or the faster-perk route?",
+        "result": "inconclusive",
+        "conclusion": "A nested f32 value is confirmed, but its role, units, and selected use remain unresolved."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Misc/Defibrillator/AffectorRevive_Defibrillator_Ranked",
+        "format": "raw-ebx",
+        "sha256": "bacd6c630e42cf4ad4f207a35d640f8c44a71a7651a1da0b1e80060642f74162",
+        "question": "Does this direct hotfix root establish a selected revive/recharge value or the faster-perk route?",
+        "result": "inconclusive",
+        "conclusion": "Six nested f32 values are confirmed, but their role, units, and multiplayer selection remain unresolved."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Misc/Defibrillator/SimEx_Defib",
+        "format": "raw-ebx",
+        "sha256": "b144475c58ce92feadf2a1d18a1347fca22e66f4dfe25d316ea504cfac2b1df5",
+        "question": "Does this direct hotfix root establish a selected revive/recharge value or the faster-perk route?",
+        "result": "inconclusive",
+        "conclusion": "The expression asset is decoded; runtime origin and timing-field interpretation remain unresolved."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Misc/Defibrillator/WM_Defib_FasterRechargePerk",
+        "format": "raw-ebx",
+        "sha256": "a774bbea968ce05744c68b0303f6611b90bdc79b4939d8333dab0112d20cbfe4",
+        "question": "Does this direct hotfix root establish a selected revive/recharge value or the faster-perk route?",
+        "result": "useful",
+        "conclusion": "The static selector-to-inline-effect route and its raw operands are confirmed; field meaning and activation remain unresolved."
+      }
+    ],
+    "binding": "research"
+  },
+  "scope": {
+    "expected": 4,
+    "examined": 4,
+    "notes": "Exactly the four hotfix Head 4892087 direct roots in the brief were examined. Their decoder internal-object counts (7, 1, 13, 3) are not additional scoped assets. The WPM part and WME effect for the perk are in the same EBX root. No unrelated child assets were added to scope."
+  },
+  "control": {
+    "description": "Known-answer control: data/weapons.json:/[id=m433]/recoil/ads/amount = 0.6695; RELEASE Head 4892017 GS_HK433.ebx offset 1084 f32. Controls raw tooling and site encoding only.",
+    "passed": true,
+    "rawChecks": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+        "rawSha256": "66caca0e667d17fdf03f9fb4f620b9c5842aa1fd8de0221128ad4862895eed51",
+        "offset": 1084,
+        "type": "f32",
+        "bytesHex": "5a642b3f",
+        "value": 0.6694999933242798
+      }
+    ]
+  },
+  "orchestratorReview": {
+    "helperIssues": [],
+    "scope": "Four of four named hotfix roots; the WPM part and inline effect are inside the fourth root.",
+    "independentRawCheck": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Misc\\Defibrillator\\WM_Defib_FasterRechargePerk.ebx",
+      "rawSha256": "a774bbea968ce05744c68b0303f6611b90bdc79b4939d8333dab0112d20cbfe4",
+      "offset": 152,
+      "type": "f32",
+      "bytesHex": "0000c03f",
+      "value": 1.5,
+      "matches": true
+    },
+    "siteEncoding": "The Analyzer has no gadget data input or gadget simulator path. The 1.5 operand cannot be stored as a recharge multiplier without its receiving field and selection route.",
+    "classification": "Source finding. The serialized perk package and values are verified; recharge and revive meaning remain unresolved."
+  }
+}

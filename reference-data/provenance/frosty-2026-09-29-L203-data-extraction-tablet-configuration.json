@@ -1,0 +1,316 @@
+{
+  "lead": "L203",
+  "status": "reviewed-source-finding",
+  "build": {
+    "head": 4892087,
+    "descriptorSha256": "99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640"
+  },
+  "question": "Trace exact configuration/modifier/resource to selected intel consumer or bounded incoming owner.",
+  "sourceFacts": {
+    "roots": [
+      {
+        "route": "Common/Hardware/Gadgets/Intel/DataExtractionTablet/U_DPF_DataExtractionTablet",
+        "rawSha256": "f48a6cdec59569dcffaeb8fb5c52ea1fb7d5a6333487c3f98d826245d8a7939a",
+        "fileGuid": "834cade0-2f65-45ea-be3a-a1202fa1b9de",
+        "rootClass": "Class_bc0062dc",
+        "finding": "Configuration object decoded; no consumer semantics assigned.",
+        "proofRef": null
+      },
+      {
+        "route": "Common/Hardware/Gadgets/Intel/DataExtractionTablet/MD_DataExtractionTablet",
+        "rawSha256": "6b5055743e7d33a439e196e2430e7f04ca1ebfa557254a6940c7e5700dbe1f67",
+        "fileGuid": "191befdd-4272-4858-b109-596ed4d96ce2",
+        "rootClass": "Class_e16cbda1",
+        "finding": "Local Class_0653128c.Field_7085d5e0 imports the exact configuration file/instance GUID pair. Layout ambiguity remains explicit; no anonymous operand roles assigned.",
+        "proofRef": {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L203\\link-proof.json",
+          "sha256": "89b50951530ff51c7ea5b6f08d366510531d3882e7e29e2f67278d1272038971"
+        }
+      }
+    ],
+    "linkRawChecks": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\loadout-intel-target-capture\\raw\\Common\\Hardware\\Gadgets\\Intel\\DataExtractionTablet\\MD_DataExtractionTablet.ebx",
+        "rawSha256": "6b5055743e7d33a439e196e2430e7f04ca1ebfa557254a6940c7e5700dbe1f67",
+        "offset": 736,
+        "type": "i64",
+        "bytesHex": "0b00000000000000",
+        "value": 11
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\loadout-intel-target-capture\\raw\\Common\\Hardware\\Gadgets\\Intel\\DataExtractionTablet\\MD_DataExtractionTablet.ebx",
+        "rawSha256": "6b5055743e7d33a439e196e2430e7f04ca1ebfa557254a6940c7e5700dbe1f67",
+        "offset": 2426,
+        "type": "bytes:32",
+        "bytesHex": "e0ad4c83652fea45be3aa1202fa1b9de8294dd94a33adc418e8bfe01a2a4e195",
+        "value": "e0ad4c83652fea45be3aa1202fa1b9de8294dd94a33adc418e8bfe01a2a4e195"
+      }
+    ],
+    "captureMetadataRef": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L203\\capture-metadata.json",
+      "sha256": "5470325c760f0543acdec26829de6835eb57cf8054bcfbbfc79e4a0129732d31"
+    }
+  },
+  "inference": [
+    "The inspected source contains a tablet configuration and a modifier-owned exact configuration link. This does not establish a gameplay mechanic."
+  ],
+  "unresolved": [
+    "Selected intel consumer is not established. Filtered DB incoming rows are empty, which is a capture coverage limit.",
+    "Current multiplayer availability, equippability, mode/tool/accessory activation, extraction mechanics, detection benefit, range and timing remain unresolved.",
+    "Root MD and selected local objects report layout ambiguity; hash fields retain their names.",
+    "No selected mechanic RES body is identified by a proven consumer route."
+  ],
+  "siteImpact": "No site change or numeric gadget value supported.",
+  "evidence": [
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L203\\capture-metadata.json",
+      "sha256": "5470325c760f0543acdec26829de6835eb57cf8054bcfbbfc79e4a0129732d31"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L203\\checks.json",
+      "sha256": "31c0855948be431192b7aae6ca170f2e6fa6783cad93a67d890df9c103275239"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L203\\control.json",
+      "sha256": "ff651d54b8f84d6b5894aa023b9fd5a14a4a2532b746d3b31c90940c33b0e771"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L203\\decode-commands.json",
+      "sha256": "375a375957da089d2408bbba3959ba3d87ba2598a621f41d2058e1b1c177f2d0"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L203\\decoder-preserved.py",
+      "sha256": "6fdc0334efaee0fe6113b5c9db4973f1358f53ee65dfb94edbc22fb0bf07a727"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L203\\finish.py",
+      "sha256": "5b7b678e5a7a778598b3917eed5acad2fac7985835e2d6936f0d3a1d39242a2a"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L203\\incoming.json",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L203\\incoming.py",
+      "sha256": "ba3b77529c604df09987efb4660fb15cd5b856589609cf3670a3b26307c3b586"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L203\\inspect.py",
+      "sha256": "486441705fb67750555c9596082101c5a33f895f4768c748ff26cf88090dbccd"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L203\\l203-result.json",
+      "sha256": "a7f9a49354b088c18597442204e52447f7ba976277a1ce0ff106a86b407fd285"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L203\\link-proof.json",
+      "sha256": "89b50951530ff51c7ea5b6f08d366510531d3882e7e29e2f67278d1272038971"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L203\\links.json",
+      "sha256": "15fcb6921471f83c88de09a974c3cf3b13be1116a0ebfdf72cc5c3c118ac050a"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L203\\probe.py",
+      "sha256": "dbae3148c8eee46398b46d3301a0f46e8bb02cdc1b1860150da51f9ff7bcfc44"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L203\\probe2.py",
+      "sha256": "921c23f0303dc7e285951cdb6c4096461935501e4fe55d664e1238e85430fdcf"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L203\\probe3.py",
+      "sha256": "b5494b386f91d4e22db5b4e6334d505a91e8346900b28fceb14f23ae89253047"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L203\\raw-command.json",
+      "sha256": "6a87e61790ff310e5fad13a09f810ec657c228ce718d91a89226fca158b6861a"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L203\\resolve.py",
+      "sha256": "4cc1cc4b5d13dd437c183db27150cee3bcba975327fab96c71e36c1cdafaf0fd"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L203\\resolved.json",
+      "sha256": "7ef77cd17766ac54c8adef83594d3ed39607432446a99a06c0390ea8e5fbbc08"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L203\\root-0.json",
+      "sha256": "4d291a1fd69be0436687689d67416a14b5721e3a491ff9f88822ae88973fbca4"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L203\\root-1.json",
+      "sha256": "d798a6f218ae4c089dd2328c03eede5b9abf0cd32c8f625fea6e864302cb4b34"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L203\\scoped-inputs.json",
+      "sha256": "7417cebb64fc41b1b6ad78626c4159cee490dce2e24972b024447da824791b47"
+    }
+  ],
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-09-29",
+    "build": "1.4.3.0-hotfix",
+    "binding": "research",
+    "leads": [
+      {
+        "id": "L203",
+        "title": "Data Extraction Tablet utility configuration",
+        "status": "finding",
+        "summary": "Data Extraction Tablet modifier joins exact resource token; inspected roots establish configuration identity without selected intel consumer, mechanics or availability.",
+        "reopenWhen": "An exact selected intel consumer or bounded incoming owner with pinned hotfix bytes is supplied.",
+        "statusNote": "GPT-6.1 Sol, 29 Sep; source only"
+      }
+    ],
+    "assets": [
+      {
+        "path": "Common/Hardware/Gadgets/Intel/DataExtractionTablet/U_DPF_DataExtractionTablet",
+        "format": "raw-ebx",
+        "sha256": "f48a6cdec59569dcffaeb8fb5c52ea1fb7d5a6333487c3f98d826245d8a7939a",
+        "question": "Trace exact tablet configuration selection and intel consumer.",
+        "result": "useful",
+        "conclusion": "Configuration object decoded; no consumer semantics assigned."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Intel/DataExtractionTablet/MD_DataExtractionTablet",
+        "format": "raw-ebx",
+        "sha256": "6b5055743e7d33a439e196e2430e7f04ca1ebfa557254a6940c7e5700dbe1f67",
+        "question": "Trace exact tablet configuration selection and intel consumer.",
+        "result": "useful",
+        "conclusion": "Local Class_0653128c.Field_7085d5e0 imports the exact configuration file/instance GUID pair. Layout ambiguity remains explicit; no anonymous operand roles assigned."
+      }
+    ],
+    "run": {
+      "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets",
+      "orchestrator": "GPT-6.1 Sol",
+      "workers": [
+        {
+          "lead": "L203",
+          "model": "GPT-6.1 Sol",
+          "effort": "Low"
+        }
+      ]
+    },
+    "refs": []
+  },
+  "commandHistory": {
+    "executedLogs": [
+      "decode-commands.json",
+      "raw-command.json"
+    ],
+    "preservedHelpers": [
+      "inspect.py",
+      "probe.py",
+      "probe2.py",
+      "probe3.py",
+      "resolve.py",
+      "incoming.py",
+      "decoder-preserved.py",
+      "finish.py"
+    ],
+    "failures": [
+      "probe.py exit 1: bytes serialization; probe2.py exit 1: GUID input type. probe3.py succeeded."
+    ],
+    "limitation": "Initial control/help/schema/prior-work shell calls are recorded in session tool history; no rerun implied."
+  },
+  "orchestratorCaptureReviews": [
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\armor-resource-capture\\verification.json",
+      "sha256": "15f1421c545a9e0a1f217fcc8b95638706c2b3bfa0e0f0ecbbfd7ecc15bd24e6"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\dual-primary-registry-capture\\verification.json",
+      "sha256": "4279fff61a8ff85b989946657a9d1b87f61c37101dd750a3cd9e9ee1719f2071"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\loadout-intel-target-capture\\verification.json",
+      "sha256": "ca6a5f81aec00c5f6a7aecbbcbe25b5aa0aa163192fb093ef0561de2c2ccdeb1"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\logistics-consumer-child-capture\\verification.json",
+      "sha256": "48da5b978a1bcf61a9c104e9ac31d986d3730621f56af79bc6ab21006d501554"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\missing-gameplay-capture\\verification.json",
+      "sha256": "2743270e30d78f0dad9426589138bb79dbd35fe03ecec6ce9aab789392437b0f"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\next-utility-family-capture\\verification.json",
+      "sha256": "21be370a335301016614ce13a1c0ab6cbbb8f3b3589f39eb1d119e111824abf9"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\nvg-child-capture\\verification.json",
+      "sha256": "054a23735b9b352510cb5a17f8aaa3a2f2b94a45f568f3547051561924d2de12"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\registry-capture\\verification.json",
+      "sha256": "2e6ff41233fe7bdcd2f74b5189df235ab5113f6a2789b4f3c1b1fb747b23b8f9"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\smoke-callin-child-capture\\verification.json",
+      "sha256": "7dfa22e829ade446a24c3370440ce219f1c4a59b1324d7cb2854462531d26256"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\smoke-effect-child-capture\\verification.json",
+      "sha256": "35bedb7295782358516658892aba5bada3ddf5584a25aaf69f9e2faa3a43def7"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\smoke-marker-resource-capture\\verification.json",
+      "sha256": "04d739d86089ad31ee241566da562fad59136368bf106a6347a1d0c8dedf0f03"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\strike-payload-root-capture\\verification.json",
+      "sha256": "47be183e35aedd96e37c2d53380ed519c5e6e85ec8bbd6cae88a23ac0205b7e3"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\strike-selected-child-capture\\verification.json",
+      "sha256": "ac7b79919c9f65376a691ef4a8aaf3c5f3ef89f7ef075103492206945ffd13c8"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\support-utility-root-capture\\verification.json",
+      "sha256": "1c0fd4c7296cafc9e023dc0faa75816ef71f3c97d8909fd42da31089cbd416a0"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\utility-family-child-capture\\verification.json",
+      "sha256": "5228cffb74422a470de0a980b2602fc7fd14a976a8e77b6cc9d098d36120498f"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\utility-function-capture\\verification.json",
+      "sha256": "9714dd0000b8c561297ed75d0edeae45b1d7d53e66f10d885816bf0f0319f2fd"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\utility-receiver-capture\\verification.json",
+      "sha256": "54c4c93de9cb5027bcdc7903b0c5840d89aeb4b5907157a8f57952c6356093ed"
+    }
+  ],
+  "orchestratorReview": {
+    "reviewer": "GPT-6.1 Sol",
+    "workerModel": "GPT-6.1 Sol",
+    "workerEffort": "Low",
+    "date": "2026-09-29",
+    "draft": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L203\\draft-receipt.json",
+      "sha256": "799fca767e59feffe3e7021c71a00ee066b844fcfc5b90a613495f6fc8122faf"
+    },
+    "helperReview": {
+      "tool": "scripts/frosty-worker.py review",
+      "issues": 0,
+      "leadDir": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L203"
+    },
+    "scope": {
+      "roots": 2,
+      "externalChildrenExamined": 0,
+      "externalChildrenExaminedKind": "EBX",
+      "compiledResourceBodiesExamined": 0
+    },
+    "independentRawReview": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L203-independent-raw-review.json",
+      "sha256": "38cb9913607b53d0cc3000cda609612d48e6531b97722fa5968e4a1edc54941b",
+      "uniqueChecksIncludingControl": 3,
+      "failures": 0
+    },
+    "pinReview": "Every recorded raw EBX asset hash matches either an indexed hotfix Head 4892087 capture or a reviewed fresh run-local capture with matching catalog Head/SDK and frozen descriptor hash. Release M433 control is separate.",
+    "semanticReview": "Selected source joins and exact member-owner meanings checked against reviewed prior mappings. No current multiplayer availability, native activation, units or effective composition claim."
+  }
+}

@@ -1,0 +1,549 @@
+{
+  "lead": "L158",
+  "status": "reviewed-source-finding",
+  "build": {
+    "releaseControlHead": 4892017,
+    "releaseDescriptorSha256": "91c9ea7c3dd830e34a78123c8bb7485e80eefdb18fc9c7ee41117971d23565c2",
+    "researchHead": 4892087,
+    "researchDescriptorSha256": "99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640",
+    "decoderDatabase": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\exhaustive-audit-2026-09-23\\coverage-decoder-v5.sqlite"
+  },
+  "question": "Within the four pinned Proximity hotfix roots, is there a selected, semantically mapped typed radius/cadence/deployed-lifetime operand suitable for comparison with L140 TUGS?",
+  "sourceFacts": [
+    {
+      "fact": "WB object 1 has two distinct import pointer fields into PBNS_ProximityGrenade: Field_58d70acb/Field_808dd66c resolves to imported object GUID f4bf0768-b6e4-fe1c-6744-6b353cdbe238, and Field_58d70acb/Field_2f258a51 resolves to root GUID 3f55fea8-06b1-fed4-fd57-7b829f99e455. The serialized field names have no reviewed semantic mapping; neither pointer is identified as a primary projectile selector.",
+      "rawChecks": [
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer5-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Throwables\\Proximity\\Proximity_WB.ebx",
+          "rawSha256": "dfb528ae74b1afa824f4fda593d80fffa973b6659c043bb56b9a4e1c4083278b",
+          "offset": 544,
+          "type": "i32",
+          "bytesHex": "05000000",
+          "value": 5
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer5-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Throwables\\Proximity\\Proximity_WB.ebx",
+          "rawSha256": "dfb528ae74b1afa824f4fda593d80fffa973b6659c043bb56b9a4e1c4083278b",
+          "offset": 560,
+          "type": "i32",
+          "bytesHex": "07000000",
+          "value": 7
+        }
+      ]
+    },
+    {
+      "fact": "PBNS root Field_5a6115b2 contains an array with four elements; item 2 resolves to internal object 9 (Class_fbb07a46), whose Field_6b831b88 imports the PBNS_ProximityGrenade_Gameplay root. This is a candidate serialized route; the array item and imported object are not proven to be the selected gameplay owner.",
+      "rawChecks": [
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Proximity\\PBNS_ProximityGrenade.ebx",
+          "rawSha256": "45c00bbf7e52f4b6e5720511daa4b93ae411700668e4c42b490ff245f1b50bf3",
+          "offset": 128,
+          "type": "i32",
+          "bytesHex": "f01b0000",
+          "value": 7152
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Proximity\\PBNS_ProximityGrenade.ebx",
+          "rawSha256": "45c00bbf7e52f4b6e5720511daa4b93ae411700668e4c42b490ff245f1b50bf3",
+          "offset": 7296,
+          "type": "i32",
+          "bytesHex": "a0ebffff",
+          "value": -5216
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Proximity\\PBNS_ProximityGrenade.ebx",
+          "rawSha256": "45c00bbf7e52f4b6e5720511daa4b93ae411700668e4c42b490ff245f1b50bf3",
+          "offset": 2192,
+          "type": "i32",
+          "bytesHex": "3f000000",
+          "value": 63
+        }
+      ]
+    },
+    {
+      "fact": "Exported object 9 (Class_7a5489b0) stores a Field_6e2bdf2b import to the SimEx_Proximity root.",
+      "rawChecks": [
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer7-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Throwables\\Proximity\\PBNS_ProximityGrenade_Gameplay.ebx",
+          "rawSha256": "6b1b95eba66696d95314914c8d966c436c840ea3c27be34fa84982cc6ef855cd",
+          "offset": 896,
+          "type": "i32",
+          "bytesHex": "01000000",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "fact": "SimEx root Field_2094d4d6 points to graph object 5 (Class_25c12137). In that graph, Field_a2734e52 array item 15 points to exported object 2 (Class_b281afe1). The semantic roles of the graph array and item are unresolved. Graph object 5 also stores resourceRef c088bafa44cb72a9 in Field_aa4fa860; its referenced resource contents were not decoded. Candidate object 2 has raw-verified f32 fields Field_c326a099=75.0, Field_bb32cd2f=-1.0, and Field_87611ff9=-1.0. Their roles and units are unresolved.",
+      "rawChecks": [
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer8-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Proximity\\SimEx_Proximity.ebx",
+          "rawSha256": "73628052cd627440f1b6165a89ce49c68478b3f833f78971c47855b028ade6e0",
+          "offset": 168,
+          "type": "i32",
+          "bytesHex": "30030000",
+          "value": 816
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer8-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Proximity\\SimEx_Proximity.ebx",
+          "rawSha256": "73628052cd627440f1b6165a89ce49c68478b3f833f78971c47855b028ade6e0",
+          "offset": 1032,
+          "type": "i32",
+          "bytesHex": "b0030000",
+          "value": 944
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer8-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Proximity\\SimEx_Proximity.ebx",
+          "rawSha256": "73628052cd627440f1b6165a89ce49c68478b3f833f78971c47855b028ade6e0",
+          "offset": 2336,
+          "type": "i32",
+          "bytesHex": "30faffff",
+          "value": -1488
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer8-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Proximity\\SimEx_Proximity.ebx",
+          "rawSha256": "73628052cd627440f1b6165a89ce49c68478b3f833f78971c47855b028ade6e0",
+          "offset": 1072,
+          "type": "u64",
+          "bytesHex": "a972cb44faba88c0",
+          "value": 13873544236173587113
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer8-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Proximity\\SimEx_Proximity.ebx",
+          "rawSha256": "73628052cd627440f1b6165a89ce49c68478b3f833f78971c47855b028ade6e0",
+          "offset": 872,
+          "type": "f32",
+          "bytesHex": "00009642",
+          "value": 75.0
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer8-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Proximity\\SimEx_Proximity.ebx",
+          "rawSha256": "73628052cd627440f1b6165a89ce49c68478b3f833f78971c47855b028ade6e0",
+          "offset": 880,
+          "type": "f32",
+          "bytesHex": "000080bf",
+          "value": -1.0
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer8-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Proximity\\SimEx_Proximity.ebx",
+          "rawSha256": "73628052cd627440f1b6165a89ce49c68478b3f833f78971c47855b028ade6e0",
+          "offset": 884,
+          "type": "f32",
+          "bytesHex": "000080bf",
+          "value": -1.0
+        }
+      ]
+    }
+  ],
+  "inference": "The four roots contain a serialized candidate chain from Proximity_WB through PBNS_ProximityGrenade_Gameplay to SimEx_Proximity and a candidate graph node with f32 values 75, -1 and -1. The WB pointer meanings, PBNS/SimEx array roles, field semantics, units and referenced resource contents are unresolved. The numeric match with L140 is a separate observation and does not transfer TUGS meanings to Proximity.",
+  "unresolved": [
+    "The two WB-to-PBNS imports and the PBNS/SimEx array positions have no reviewed semantic mapping. Primary-projectile and selected-owner status are unproved.",
+    "Field_c326a099, Field_bb32cd2f and Field_87611ff9 have no reviewed roles or units; 75.0 is not established as radius, cadence or lifetime.",
+    "The resourceRef is recorded, but the referenced expression resource contents and execution are unresolved.",
+    "Serialized links do not establish runtime selection, activation, composition, detection or spotting behavior.",
+    "No supported comparison proposal is available for the site."
+  ],
+  "siteImpact": "No site gadget table or gadget pointer exists in the supplied scope. No Proximity value is suitable for a site comparison proposal while field roles, units and selected-node status remain unresolved.",
+  "evidence": {
+    "paths": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer5-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Throwables\\Proximity\\Proximity_WB.ebx",
+        "sha256": "dfb528ae74b1afa824f4fda593d80fffa973b6659c043bb56b9a4e1c4083278b",
+        "role": "inspected hotfix raw EBX"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Proximity\\PBNS_ProximityGrenade.ebx",
+        "sha256": "45c00bbf7e52f4b6e5720511daa4b93ae411700668e4c42b490ff245f1b50bf3",
+        "role": "inspected hotfix raw EBX"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer7-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Throwables\\Proximity\\PBNS_ProximityGrenade_Gameplay.ebx",
+        "sha256": "6b1b95eba66696d95314914c8d966c436c840ea3c27be34fa84982cc6ef855cd",
+        "role": "inspected hotfix raw EBX"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer8-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Proximity\\SimEx_Proximity.ebx",
+        "sha256": "73628052cd627440f1b6165a89ce49c68478b3f833f78971c47855b028ade6e0",
+        "role": "inspected hotfix raw EBX"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\toolchain\\SharedTypeDescriptors-hotfix-2026-09-16.ebx",
+        "sha256": "99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640",
+        "role": "pinned hotfix descriptor bytes"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\exhaustive-audit-2026-09-23\\coverage-decoder-v5.sqlite",
+        "sha256": "1fac4aa159b11741943eaf6ae94f64e63928b9fa0f866ca4a1d191897718cf10",
+        "bytes": 1449967616,
+        "role": "coverage decoder database; reused metadata from L140 receipt; not rehashed"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+        "sha256": "66caca0e667d17fdf03f9fb4f620b9c5842aa1fd8de0221128ad4862895eed51",
+        "role": "release known-answer raw EBX control"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L140\\draft-receipt.json",
+        "sha256": "7236d848ff47ac8aace0c5f096802bd9ecc8207be5acced127a2076c42cb8c3f",
+        "role": "existing L140 receipt used for comparison"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L140\\l140-result.json",
+        "sha256": "7a4cf137ab6cf89f57de45b4dd24ea69efae4b07d52fa8f1ffc2eff096d4141a",
+        "role": "existing L140 result used for comparison"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L140\\summary.md",
+        "sha256": "8a439a4f332163b8eeda16c6227226ea70358508a79121a087cf95a199e14c34",
+        "role": "existing L140 summary used for comparison"
+      }
+    ],
+    "commands": [
+      {
+        "kind": "process",
+        "executable": "python",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+          "--raw-root",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw",
+          "--path",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+          "--offset",
+          "1084",
+          "--type",
+          "f32",
+          "--expect",
+          "0.6695",
+          "--out",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L158\\control-m433-ads-amount.json"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L158",
+        "note": "Executed first; passed. Raw result: 5a642b3f at offset 1084."
+      },
+      {
+        "kind": "process",
+        "executable": "python",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-worker.py",
+          "prior-work",
+          "--terms",
+          "Proximity_WB",
+          "PBNS_ProximityGrenade",
+          "PBNS_ProximityGrenade_Gameplay",
+          "SimEx_Proximity",
+          "--lines",
+          "8"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L158",
+        "note": "Executed before source tracing; no prior Proximity source-value trace found."
+      },
+      {
+        "kind": "process",
+        "executable": "python",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L158\\helpers\\frosty-raw-check.py",
+          "--manifest",
+          "l158-proximity-raw-check-manifest.json",
+          "--out",
+          "l158-proximity-raw-checks.json"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L158",
+        "note": "Manifest run; all 13 checks passed. Exact argv reconstructed from preserved manifest/output; interactive shell history was not persisted."
+      },
+      {
+        "kind": "process",
+        "executable": "python",
+        "argv": [
+          "l158-final-trace.py"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L158",
+        "helperRevision": "l158-final-trace.v1.py",
+        "note": "Earlier revision failed because capture rows did not expose route_key; exact invoked source revision is preserved as .v1.py. Command argv reconstructed from preserved source; shell history unavailable."
+      },
+      {
+        "kind": "process",
+        "executable": "python",
+        "argv": [
+          "l158-final-trace.py"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L158",
+        "helperRevision": "l158-final-trace.v2.py",
+        "note": "Earlier revision failed due to an absolute/base-offset calculation; exact invoked source revision is preserved as .v2.py. Command argv reconstructed from preserved source; shell history unavailable."
+      },
+      {
+        "kind": "process",
+        "executable": "python",
+        "argv": [
+          "l158-final-trace.py"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L158",
+        "helperRevision": "l158-final-trace.py",
+        "note": "Successful final trace wrote l158-trace.json; command argv reconstructed from preserved source; shell history unavailable."
+      },
+      {
+        "kind": "process",
+        "executable": "python",
+        "argv": [
+          "l158_child_counts.py"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L158",
+        "note": "Direct Proximity-folder child counts; one hop only. Command argv reconstructed from preserved source; shell history unavailable."
+      },
+      {
+        "kind": "process",
+        "executable": "python",
+        "argv": [
+          "l158_import_counts.py"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L158",
+        "note": "Direct import-table counts for the four roots. Command argv reconstructed from preserved source; shell history unavailable."
+      },
+      {
+        "kind": "process",
+        "executable": "python",
+        "argv": [
+          "l158_pointer_offsets.py"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L158",
+        "note": "Pointer/array offset exploration; command argv reconstructed from preserved source; shell history unavailable."
+      },
+      {
+        "kind": "process",
+        "executable": "python",
+        "argv": [
+          "l158_layout_probe.py"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L158",
+        "note": "An earlier layout probe failed; a preserved reconstruction is labeled l158_layout_probe.v1.py and was not rerun. Exact initial source revision was not retained."
+      },
+      {
+        "kind": "process",
+        "executable": "python",
+        "argv": [
+          "helpers/frosty-records.py",
+          "schema"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L158",
+        "note": "Receipt schema read before draft creation."
+      },
+      {
+        "kind": "process",
+        "executable": "python",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-records.py",
+          "check-receipt",
+          "draft-receipt.json"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L158",
+        "note": "Required final read-only receipt check; passed with 'record ok'."
+      }
+    ],
+    "helperRevisions": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L158\\helpers\\frosty-raw-check.py",
+        "sha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3",
+        "revision": "frosty-raw-check.py",
+        "role": "invoked or preserved investigation helper; see l158-commands.json for command/status"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L158\\helpers\\frosty-ebx-decode.py",
+        "sha256": "6fdc0334efaee0fe6113b5c9db4973f1358f53ee65dfb94edbc22fb0bf07a727",
+        "revision": "frosty-ebx-decode.py",
+        "role": "invoked or preserved investigation helper; see l158-commands.json for command/status"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L158\\helpers\\frosty-worker.py",
+        "sha256": "91d73d328cfe39862ec882ef02eda665580b28a6da9fa541f7b03d12d755beb2",
+        "revision": "frosty-worker.py",
+        "role": "invoked or preserved investigation helper; see l158-commands.json for command/status"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L158\\helpers\\frosty-records.py",
+        "sha256": "ffb0e7574ce66779ae5041f4fc55047d0da2f63d917682b527673a75612b734c",
+        "revision": "frosty-records.py",
+        "role": "invoked or preserved investigation helper; see l158-commands.json for command/status"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L158\\inspect_l158_inputs.py",
+        "sha256": "f28992d3358e333ba57b07a26722f23fae6e40b3347736c9e22b54660a2c4c66",
+        "revision": "inspect_l158_inputs.py",
+        "role": "invoked or preserved investigation helper; see l158-commands.json for command/status"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L158\\inspect_l158_links_fast.py",
+        "sha256": "d5d2518e854bd9c1f5e1e9727d624343318f5c999f8f34eec2d70015264deab5",
+        "revision": "inspect_l158_links_fast.py",
+        "role": "invoked or preserved investigation helper; see l158-commands.json for command/status"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L158\\inspect_l158_links.py",
+        "sha256": "1f50f5af1da4b7e183e2fa14b61cdf886c1249d9f25b48be6410dfe0a507d184",
+        "revision": "inspect_l158_links.py",
+        "role": "invoked or preserved investigation helper; see l158-commands.json for command/status"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L158\\inspect_l158_roots_exact.py",
+        "sha256": "3792089aaa3deffe1ce13dc2886d612def22afb3fb3c66f56f4a5d295313a7ed",
+        "revision": "inspect_l158_roots_exact.py",
+        "role": "invoked or preserved investigation helper; see l158-commands.json for command/status"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L158\\inspect_l158_roots.py",
+        "sha256": "ae014185ff6d3736d7e5bcd0233e94dc920cf7505985c534684bf6ff86388b1a",
+        "revision": "inspect_l158_roots.py",
+        "role": "invoked or preserved investigation helper; see l158-commands.json for command/status"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L158\\l158_child_counts.py",
+        "sha256": "3884ea604cf498fc6783ca599afb2ecee98a4c5848c4692376e772725884bef7",
+        "revision": "l158_child_counts.py",
+        "role": "invoked or preserved investigation helper; see l158-commands.json for command/status"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L158\\l158_import_counts.py",
+        "sha256": "d70d020caadd09191e0658701ca94327f4662db855086eb12eded4d9e874a8c7",
+        "revision": "l158_import_counts.py",
+        "role": "invoked or preserved investigation helper; see l158-commands.json for command/status"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L158\\l158_layout_probe.py",
+        "sha256": "24f90a86e2bad5a9032621f5576d3effcb34e1bf2387abf29f446eae3f859ad4",
+        "revision": "l158_layout_probe.py",
+        "role": "invoked or preserved investigation helper; see l158-commands.json for command/status"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L158\\l158_pbns_objects.py",
+        "sha256": "43450fd2151d168547fba6ef3a68b72b8fb8bae2c2f8d7758ff02290f8193249",
+        "revision": "l158_pbns_objects.py",
+        "role": "invoked or preserved investigation helper; see l158-commands.json for command/status"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L158\\l158_pointer_offsets.py",
+        "sha256": "6afa9f2e37020dadad37d6ea8bd08cec1464f7d939a0f445bb5c701ddbaaf5d2",
+        "revision": "l158_pointer_offsets.py",
+        "role": "invoked or preserved investigation helper; see l158-commands.json for command/status"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L158\\l158_simex_objects.py",
+        "sha256": "ce58ad29e43e9f46665bcaa1b6f85cf89ef578b9e3dae1a82af3c03b9fca0514",
+        "revision": "l158_simex_objects.py",
+        "role": "invoked or preserved investigation helper; see l158-commands.json for command/status"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L158\\l158_value_probe.py",
+        "sha256": "aceb6818a7b9281dc71b4fee358d117a393ca40c66f8c777991de135cdaafb93",
+        "revision": "l158_value_probe.py",
+        "role": "invoked or preserved investigation helper; see l158-commands.json for command/status"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L158\\l158-final-trace.py",
+        "sha256": "e5e6608ee4a2d810af8eb2f2c7bb674dce76a24c15e6ad47d52f049b60324dc5",
+        "revision": "l158-final-trace.py",
+        "role": "invoked or preserved investigation helper; see l158-commands.json for command/status"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L158\\l158-final-trace.v1.py",
+        "sha256": "40732f5ea970269fe201a56037cc3334141469b25784502e4f6d7dc71b7a8573",
+        "revision": "l158-final-trace.v1.py",
+        "role": "invoked or preserved investigation helper; see l158-commands.json for command/status"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L158\\l158-final-trace.v2.py",
+        "sha256": "7a8f0ed913da28c5ec9e03934d7f9836c681e05a68cdc45e6bac57733994c05f",
+        "revision": "l158-final-trace.v2.py",
+        "role": "invoked or preserved investigation helper; see l158-commands.json for command/status"
+      }
+    ],
+    "outputs": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L158\\control-m433-ads-amount.json",
+        "sha256": "5f76caeb1046b7fe3232d00db51f0fca2a89d38e39e15bf225be8de90a6889e8"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L158\\l158-proximity-raw-check-manifest.json",
+        "sha256": "81a8fa93d3bee391e8f478bac8caace620b4cd40e9cb38c624dcbde4e1dbf604"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L158\\l158-proximity-raw-checks.json",
+        "sha256": "0653f189f9be874c84975c327e6018c7973ce79edfa64f2b17196f920979bc25"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L158\\l158-trace.json",
+        "sha256": "d348c49a1aa689dca6df0fc7a9bb306ed240ffc8730c69c4dc85d2a48370c8a9"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L158\\l158-result.json",
+        "sha256": "c9d812f2f0850ad6d0e6b21c3a228a9428ef298e58f8d0f168c423b0fea1278c"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L158\\summary.md",
+        "sha256": "543af4d2a8cc453e8afe9b2ee2e753765e964409bb2284e790d6e31b9dde0ef8"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L158\\l158-commands.json",
+        "sha256": "9c05d374d6be0b6233405036814a684bdcfb43cf2fc4a731afac3fd166cd7e25"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L158\\l158-helper-revisions.json",
+        "sha256": "f41c3f37440cf48fe3e0f0a3b3877a9d0cdd959b417320248013687e92288d78"
+      }
+    ]
+  },
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-09-29",
+    "build": "1.4.3.0-hotfix",
+    "binding": "research",
+    "leads": [
+      {
+        "id": "L158",
+        "title": "Proximity detection source values",
+        "status": "exhausted",
+        "summary": "Four hotfix Proximity roots contain a candidate SimEx node with raw-verified 75/-1/-1 floats; roles, units, and selection remain unresolved. No detection comparison follows L140, so the detection line closes for this run.",
+        "reopenWhen": "Reopen when a typed consumer maps these fields and units, or source evidence establishes the selected PBNS/SimEx route or referenced resource contents.",
+        "statusNote": "Partial source finding; no site comparison or native detection/spotting behavior is established.",
+        "searched": [
+          "Exactly four pinned Head 4892087 Proximity WB, PBNS, PBNS_Gameplay, and SimEx roots.",
+          "The two WB imports into PBNS, the PBNS graph array and gameplay import, and the gameplay-to-SimEx import; one hop only.",
+          "The candidate SimEx graph node storing 75/-1/-1 and the unresolved resourceRef.",
+          "The reviewed L140 TUGS receipt for a source comparison; TUGS roots were not rescanned."
+        ]
+      }
+    ],
+    "assets": [
+      {
+        "path": "Common/Hardware/Gadgets/Throwables/Proximity/Proximity_WB",
+        "format": "raw-ebx",
+        "sha256": "dfb528ae74b1afa824f4fda593d80fffa973b6659c043bb56b9a4e1c4083278b",
+        "question": "Does this pinned Proximity source root establish a selected, typed radius/cadence/lifetime source operand?",
+        "result": "useful",
+        "conclusion": "WB object 1 has two distinct import pointer fields into PBNS_ProximityGrenade: Field_58d70acb/Field_808dd66c resolves to imported object GUID f4bf0768-b6e4-fe1c-6744-6b353cdbe238, and Field_58d70acb/Field_2f258a51 resolves to root GUID 3f55fea8-06b1-fed4-fd57-7b829f99e455."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Throwables/Proximity/PBNS_ProximityGrenade",
+        "format": "raw-ebx",
+        "sha256": "45c00bbf7e52f4b6e5720511daa4b93ae411700668e4c42b490ff245f1b50bf3",
+        "question": "Does this pinned Proximity source root establish a selected, typed radius/cadence/lifetime source operand?",
+        "result": "useful",
+        "conclusion": "PBNS root Field_5a6115b2 contains an array with four elements; item 2 resolves to internal object 9 (Class_fbb07a46), whose Field_6b831b88 imports the PBNS_ProximityGrenade_Gameplay root."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Throwables/Proximity/PBNS_ProximityGrenade_Gameplay",
+        "format": "raw-ebx",
+        "sha256": "6b1b95eba66696d95314914c8d966c436c840ea3c27be34fa84982cc6ef855cd",
+        "question": "Does this pinned Proximity source root establish a selected, typed radius/cadence/lifetime source operand?",
+        "result": "useful",
+        "conclusion": "Exported object 9 (Class_7a5489b0) stores a Field_6e2bdf2b import to the SimEx_Proximity root."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Throwables/Proximity/SimEx_Proximity",
+        "format": "raw-ebx",
+        "sha256": "73628052cd627440f1b6165a89ce49c68478b3f833f78971c47855b028ade6e0",
+        "question": "Does this pinned Proximity source root establish a selected, typed radius/cadence/lifetime source operand?",
+        "result": "useful",
+        "conclusion": "SimEx root Field_2094d4d6 points to graph object 5 (Class_25c12137). In that graph, Field_a2734e52 array item 15 points to exported object 2 (Class_b281afe1). The semantic roles of the graph array and item are unresolved."
+      }
+    ]
+  }
+}

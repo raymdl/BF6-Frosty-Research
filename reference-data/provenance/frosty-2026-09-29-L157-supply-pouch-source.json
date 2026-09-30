@@ -1,0 +1,1851 @@
+{
+  "lead": "L157",
+  "status": "reviewed-source-finding",
+  "build": {
+    "release": "1.4.3.0",
+    "head": 4892087,
+    "descriptorSha256": "99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640"
+  },
+  "question": "Does the multiplayer Supply Pouch WB select its projectile and two named ammunition/healing affectors, and do typed quantity or cadence operands support a loadout comparison with the reviewed Supply Crate?",
+  "sourceFacts": [
+    {
+      "fact": "Ten direct import references from the three parent roots resolve against the exact hotfix target file/class GUID identities. The WB points to the supply sphere twice and to both named affectors; the sphere points to ProjectileFeature_SupplyPouch and both named affectors; Ability references U_WEP_SupplyPouch, Feature_SupplyPouch, and CUST_WEP_Grenade_SupplyPouch.",
+      "references": [
+        {
+          "sourceRoute": "Common/Hardware/Gadgets/Supply/SupplyPouch/SupplyPouch_WB",
+          "objectIndex": 1,
+          "fieldPath": "/Field_58d70acb/Field_808dd66c",
+          "targetRoute": "Common/Hardware/Gadgets/Supply/SupplyPouch/PBNS_SupplyPouch_SupplySphere",
+          "targetRawSha256": "937d36b0bcd1b8f8f337cbb1614cf8d00b5e02622d2ba786e90e1741e9a0bc7d",
+          "importFileGuid": "0f6cde11-323f-11f0-bea3-908837ef6204",
+          "importClassGuid": "df102768-a062-8714-0025-933237ef6204",
+          "resolved": true,
+          "rawCheck": {
+            "rawSha256": "2df2dcf2f70743b8f3c25ca800a302dd1986623b0256101c7aed0b1714ea2b29",
+            "offset": 544,
+            "type": "i32",
+            "bytesHex": "01000000",
+            "value": 1,
+            "fieldPath": [
+              "Field_58d70acb",
+              "Field_808dd66c"
+            ],
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer5-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\SupplyPouch_WB.ebx"
+          }
+        },
+        {
+          "sourceRoute": "Common/Hardware/Gadgets/Supply/SupplyPouch/SupplyPouch_WB",
+          "objectIndex": 1,
+          "fieldPath": "/Field_58d70acb/Field_2f258a51",
+          "targetRoute": "Common/Hardware/Gadgets/Supply/SupplyPouch/PBNS_SupplyPouch_SupplySphere",
+          "targetRawSha256": "937d36b0bcd1b8f8f337cbb1614cf8d00b5e02622d2ba786e90e1741e9a0bc7d",
+          "importFileGuid": "0f6cde11-323f-11f0-bea3-908837ef6204",
+          "importClassGuid": "af513e9b-5819-c17b-d9d3-994528158ca0",
+          "resolved": true,
+          "rawCheck": {
+            "rawSha256": "2df2dcf2f70743b8f3c25ca800a302dd1986623b0256101c7aed0b1714ea2b29",
+            "offset": 560,
+            "type": "i32",
+            "bytesHex": "03000000",
+            "value": 3,
+            "fieldPath": [
+              "Field_58d70acb",
+              "Field_2f258a51"
+            ],
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer5-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\SupplyPouch_WB.ebx"
+          }
+        },
+        {
+          "sourceRoute": "Common/Hardware/Gadgets/Supply/SupplyPouch/SupplyPouch_WB",
+          "objectIndex": 8,
+          "fieldPath": "/Field_c5fd5dd4/Field_a21a7b29/1",
+          "targetRoute": "Common/Hardware/Gadgets/Supply/SupplyPouch/Affector_Ammunition_SupplyPouch",
+          "targetRawSha256": "42c9bfa6c0f2f336accf34391d2c121be6ec7457b51713f5df69593356889b18",
+          "importFileGuid": "98dcd3f1-f866-4418-b672-5e529505fc50",
+          "importClassGuid": "626875f0-afd2-4c0e-8858-fb6ac2c7117e",
+          "resolved": true,
+          "rawCheck": {
+            "rawSha256": "2df2dcf2f70743b8f3c25ca800a302dd1986623b0256101c7aed0b1714ea2b29",
+            "offset": 4112,
+            "type": "i32",
+            "bytesHex": "43000000",
+            "value": 67,
+            "fieldPath": [
+              "Field_c5fd5dd4",
+              "Field_a21a7b29",
+              "1"
+            ],
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer5-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\SupplyPouch_WB.ebx"
+          }
+        },
+        {
+          "sourceRoute": "Common/Hardware/Gadgets/Supply/SupplyPouch/SupplyPouch_WB",
+          "objectIndex": 8,
+          "fieldPath": "/Field_c5fd5dd4/Field_a21a7b29/0",
+          "targetRoute": "Common/Hardware/Gadgets/Supply/SupplyPouch/Affector_Healing_SupplyPouch",
+          "targetRawSha256": "5bd77550a866f03adb3acb20595400703fc6055488285995b37c840881c72eda",
+          "importFileGuid": "93de87f9-b640-4b5d-9f28-4834160e64be",
+          "importClassGuid": "6b93c103-94de-4c5c-a133-b23ed4c66d82",
+          "resolved": true,
+          "rawCheck": {
+            "rawSha256": "2df2dcf2f70743b8f3c25ca800a302dd1986623b0256101c7aed0b1714ea2b29",
+            "offset": 4104,
+            "type": "i32",
+            "bytesHex": "45000000",
+            "value": 69,
+            "fieldPath": [
+              "Field_c5fd5dd4",
+              "Field_a21a7b29",
+              "0"
+            ],
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer5-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\SupplyPouch_WB.ebx"
+          }
+        },
+        {
+          "sourceRoute": "Common/Hardware/Gadgets/Supply/SupplyPouch/SupplyPouch_Ability",
+          "objectIndex": 0,
+          "fieldPath": "/Field_f86e0433",
+          "targetRoute": "Common/Hardware/Gadgets/Supply/SupplyPouch/U_WEP_SupplyPouch",
+          "targetRawSha256": "77dd6c796b8464640b422637fc7a15dd380b04a178e3082e8160336b631fb917",
+          "importFileGuid": "62f54a66-b1a4-4419-9ebd-815aec384f30",
+          "importClassGuid": "e76b8ae0-cf57-4305-9c80-eabbe67ac907",
+          "resolved": true,
+          "rawCheck": {
+            "rawSha256": "ec6a94215b284066e50c192fe92cf8b3f81b94a844d1f3dcf60eadee15c66f2b",
+            "offset": 264,
+            "type": "i32",
+            "bytesHex": "25000000",
+            "value": 37,
+            "fieldPath": [
+              "Field_f86e0433"
+            ],
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer3-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\SupplyPouch_Ability.ebx"
+          }
+        },
+        {
+          "sourceRoute": "Common/Hardware/Gadgets/Supply/SupplyPouch/SupplyPouch_Ability",
+          "objectIndex": 0,
+          "fieldPath": "/Field_6cce2f25/Field_d2b8fc26",
+          "targetRoute": "Common/Hardware/Gadgets/Supply/SupplyPouch/Feature_SupplyPouch",
+          "targetRawSha256": "09ed6e252d3f3e1a05d0fa516509576213daf71d352c479fa535b29ffe9101d1",
+          "importFileGuid": "48863471-c0a8-480a-b072-84be5f294789",
+          "importClassGuid": "8ccf4eb6-f5e6-4164-b5bc-65323d7f1da7",
+          "resolved": true,
+          "rawCheck": {
+            "rawSha256": "ec6a94215b284066e50c192fe92cf8b3f81b94a844d1f3dcf60eadee15c66f2b",
+            "offset": 144,
+            "type": "i32",
+            "bytesHex": "27000000",
+            "value": 39,
+            "fieldPath": [
+              "Field_6cce2f25",
+              "Field_d2b8fc26"
+            ],
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer3-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\SupplyPouch_Ability.ebx"
+          }
+        },
+        {
+          "sourceRoute": "Common/Hardware/Gadgets/Supply/SupplyPouch/SupplyPouch_Ability",
+          "objectIndex": 0,
+          "fieldPath": "/Field_3150c257",
+          "targetRoute": "Common/Hardware/Gadgets/Supply/SupplyPouch/CUST_WEP_Grenade_SupplyPouch",
+          "targetRawSha256": "2e50d3b1c062658a87c0505d0e416fc0ee7ce1d8a9da8d735868dd17adff0d02",
+          "importFileGuid": "000e09ad-0f68-4f7c-8828-c1bb2108d9fb",
+          "importClassGuid": "227b8d22-6d23-4083-9627-380a68a73377",
+          "resolved": true,
+          "rawCheck": {
+            "rawSha256": "ec6a94215b284066e50c192fe92cf8b3f81b94a844d1f3dcf60eadee15c66f2b",
+            "offset": 528,
+            "type": "i32",
+            "bytesHex": "29000000",
+            "value": 41,
+            "fieldPath": [
+              "Field_3150c257"
+            ],
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer3-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\SupplyPouch_Ability.ebx"
+          }
+        },
+        {
+          "sourceRoute": "Common/Hardware/Gadgets/Supply/SupplyPouch/PBNS_SupplyPouch_SupplySphere",
+          "objectIndex": 5,
+          "fieldPath": "/Field_3b86901b",
+          "targetRoute": "Common/Hardware/Gadgets/Supply/SupplyPouch/ProjectileFeature_SupplyPouch",
+          "targetRawSha256": "4663573ece81d0c43c09cc8855514874b59c7cb951a5906f8a7e89946e778d32",
+          "importFileGuid": "fb1e7225-7898-4062-b426-414e838ddbcc",
+          "importClassGuid": "3de61264-a534-4dc9-9c9b-67578c574dcc",
+          "resolved": true,
+          "rawCheck": {
+            "rawSha256": "937d36b0bcd1b8f8f337cbb1614cf8d00b5e02622d2ba786e90e1741e9a0bc7d",
+            "offset": 1472,
+            "type": "i32",
+            "bytesHex": "03000000",
+            "value": 3,
+            "fieldPath": [
+              "Field_3b86901b"
+            ],
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\PBNS_SupplyPouch_SupplySphere.ebx"
+          }
+        },
+        {
+          "sourceRoute": "Common/Hardware/Gadgets/Supply/SupplyPouch/PBNS_SupplyPouch_SupplySphere",
+          "objectIndex": 1,
+          "fieldPath": "/Field_ef092fa5/Field_a21a7b29/1",
+          "targetRoute": "Common/Hardware/Gadgets/Supply/SupplyPouch/Affector_Ammunition_SupplyPouch",
+          "targetRawSha256": "42c9bfa6c0f2f336accf34391d2c121be6ec7457b51713f5df69593356889b18",
+          "importFileGuid": "98dcd3f1-f866-4418-b672-5e529505fc50",
+          "importClassGuid": "626875f0-afd2-4c0e-8858-fb6ac2c7117e",
+          "resolved": true,
+          "rawCheck": {
+            "rawSha256": "937d36b0bcd1b8f8f337cbb1614cf8d00b5e02622d2ba786e90e1741e9a0bc7d",
+            "offset": 3896,
+            "type": "i32",
+            "bytesHex": "17000000",
+            "value": 23,
+            "fieldPath": [
+              "Field_ef092fa5",
+              "Field_a21a7b29",
+              "1"
+            ],
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\PBNS_SupplyPouch_SupplySphere.ebx"
+          }
+        },
+        {
+          "sourceRoute": "Common/Hardware/Gadgets/Supply/SupplyPouch/PBNS_SupplyPouch_SupplySphere",
+          "objectIndex": 1,
+          "fieldPath": "/Field_ef092fa5/Field_a21a7b29/0",
+          "targetRoute": "Common/Hardware/Gadgets/Supply/SupplyPouch/Affector_Healing_SupplyPouch",
+          "targetRawSha256": "5bd77550a866f03adb3acb20595400703fc6055488285995b37c840881c72eda",
+          "importFileGuid": "93de87f9-b640-4b5d-9f28-4834160e64be",
+          "importClassGuid": "6b93c103-94de-4c5c-a133-b23ed4c66d82",
+          "resolved": true,
+          "rawCheck": {
+            "rawSha256": "937d36b0bcd1b8f8f337cbb1614cf8d00b5e02622d2ba786e90e1741e9a0bc7d",
+            "offset": 3888,
+            "type": "i32",
+            "bytesHex": "1b000000",
+            "value": 27,
+            "fieldPath": [
+              "Field_ef092fa5",
+              "Field_a21a7b29",
+              "0"
+            ],
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\PBNS_SupplyPouch_SupplySphere.ebx"
+          }
+        }
+      ]
+    },
+    {
+      "fact": "The two WB-referenced affector roots contain 46 ammunition and 11 healing typed numeric/Boolean leaves. The raw values are retained below with their field paths; no quantity or cadence roles are assigned.",
+      "affectors": [
+        {
+          "route": "Common/Hardware/Gadgets/Supply/SupplyPouch/Affector_Ammunition_SupplyPouch",
+          "typedScalarCount": 46,
+          "operands": [
+            {
+              "fieldPath": "/Field_de6f63b3",
+              "type": "u32",
+              "value": 3352918824,
+              "rawCheck": {
+                "rawSha256": "42c9bfa6c0f2f336accf34391d2c121be6ec7457b51713f5df69593356889b18",
+                "offset": 88,
+                "type": "u32",
+                "bytesHex": "287bd9c7",
+                "value": 3352918824,
+                "fieldPath": [
+                  "Field_de6f63b3"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Ammunition_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_ec3c12a7",
+              "type": "u32",
+              "value": 1121608748,
+              "rawCheck": {
+                "rawSha256": "42c9bfa6c0f2f336accf34391d2c121be6ec7457b51713f5df69593356889b18",
+                "offset": 96,
+                "type": "u32",
+                "bytesHex": "2c64da42",
+                "value": 1121608748,
+                "fieldPath": [
+                  "Field_ec3c12a7"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Ammunition_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_b50e1230",
+              "type": "i32",
+              "value": 0,
+              "rawCheck": {
+                "rawSha256": "42c9bfa6c0f2f336accf34391d2c121be6ec7457b51713f5df69593356889b18",
+                "offset": 100,
+                "type": "i32",
+                "bytesHex": "00000000",
+                "value": 0,
+                "fieldPath": [
+                  "Field_b50e1230"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Ammunition_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_958dc613/0",
+              "type": "u32",
+              "value": 218936020,
+              "rawCheck": {
+                "rawSha256": "42c9bfa6c0f2f336accf34391d2c121be6ec7457b51713f5df69593356889b18",
+                "offset": 148,
+                "type": "u32",
+                "bytesHex": "d4b20c0d",
+                "value": 218936020,
+                "fieldPath": [
+                  "Field_958dc613",
+                  "0"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Ammunition_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_958dc613/1",
+              "type": "u32",
+              "value": 2696645286,
+              "rawCheck": {
+                "rawSha256": "42c9bfa6c0f2f336accf34391d2c121be6ec7457b51713f5df69593356889b18",
+                "offset": 152,
+                "type": "u32",
+                "bytesHex": "a68abba0",
+                "value": 2696645286,
+                "fieldPath": [
+                  "Field_958dc613",
+                  "1"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Ammunition_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_958dc613/2",
+              "type": "u32",
+              "value": 3476182892,
+              "rawCheck": {
+                "rawSha256": "42c9bfa6c0f2f336accf34391d2c121be6ec7457b51713f5df69593356889b18",
+                "offset": 156,
+                "type": "u32",
+                "bytesHex": "6c5732cf",
+                "value": 3476182892,
+                "fieldPath": [
+                  "Field_958dc613",
+                  "2"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Ammunition_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_003bcbca",
+              "type": "i32",
+              "value": 3,
+              "rawCheck": {
+                "rawSha256": "42c9bfa6c0f2f336accf34391d2c121be6ec7457b51713f5df69593356889b18",
+                "offset": 92,
+                "type": "i32",
+                "bytesHex": "03000000",
+                "value": 3,
+                "fieldPath": [
+                  "Field_003bcbca"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Ammunition_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_95eed6ac/0/Field_39c8c711",
+              "type": "i32",
+              "value": -1,
+              "rawCheck": {
+                "rawSha256": "42c9bfa6c0f2f336accf34391d2c121be6ec7457b51713f5df69593356889b18",
+                "offset": 312,
+                "type": "i32",
+                "bytesHex": "ffffffff",
+                "value": -1,
+                "fieldPath": [
+                  "Field_95eed6ac",
+                  "0",
+                  "Field_39c8c711"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Ammunition_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_95eed6ac/0/Field_a84c817b",
+              "type": "i32",
+              "value": -1,
+              "rawCheck": {
+                "rawSha256": "42c9bfa6c0f2f336accf34391d2c121be6ec7457b51713f5df69593356889b18",
+                "offset": 308,
+                "type": "i32",
+                "bytesHex": "ffffffff",
+                "value": -1,
+                "fieldPath": [
+                  "Field_95eed6ac",
+                  "0",
+                  "Field_a84c817b"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Ammunition_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_95eed6ac/0/Field_dc4eb723",
+              "type": "bool",
+              "value": false,
+              "rawCheck": {
+                "rawSha256": "42c9bfa6c0f2f336accf34391d2c121be6ec7457b51713f5df69593356889b18",
+                "offset": 341,
+                "type": "bool",
+                "bytesHex": "00",
+                "value": false,
+                "fieldPath": [
+                  "Field_95eed6ac",
+                  "0",
+                  "Field_dc4eb723"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Ammunition_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_95eed6ac/0/Field_2e02f8ac",
+              "type": "f32",
+              "value": 0.0,
+              "rawCheck": {
+                "rawSha256": "42c9bfa6c0f2f336accf34391d2c121be6ec7457b51713f5df69593356889b18",
+                "offset": 316,
+                "type": "f32",
+                "bytesHex": "00000000",
+                "value": 0.0,
+                "fieldPath": [
+                  "Field_95eed6ac",
+                  "0",
+                  "Field_2e02f8ac"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Ammunition_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_95eed6ac/0/Field_5b881d59/Field_043d7a08",
+              "type": "f32",
+              "value": 2.0,
+              "rawCheck": {
+                "rawSha256": "42c9bfa6c0f2f336accf34391d2c121be6ec7457b51713f5df69593356889b18",
+                "offset": 248,
+                "type": "f32",
+                "bytesHex": "00000040",
+                "value": 2.0,
+                "fieldPath": [
+                  "Field_95eed6ac",
+                  "0",
+                  "Field_5b881d59",
+                  "Field_043d7a08"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Ammunition_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_95eed6ac/0/Field_ae6c324e",
+              "type": "bool",
+              "value": true,
+              "rawCheck": {
+                "rawSha256": "42c9bfa6c0f2f336accf34391d2c121be6ec7457b51713f5df69593356889b18",
+                "offset": 342,
+                "type": "bool",
+                "bytesHex": "01",
+                "value": true,
+                "fieldPath": [
+                  "Field_95eed6ac",
+                  "0",
+                  "Field_ae6c324e"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Ammunition_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_95eed6ac/0/Field_58bd6433",
+              "type": "i32",
+              "value": 1,
+              "rawCheck": {
+                "rawSha256": "42c9bfa6c0f2f336accf34391d2c121be6ec7457b51713f5df69593356889b18",
+                "offset": 324,
+                "type": "i32",
+                "bytesHex": "01000000",
+                "value": 1,
+                "fieldPath": [
+                  "Field_95eed6ac",
+                  "0",
+                  "Field_58bd6433"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Ammunition_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_95eed6ac/0/Field_0f8a8f9d",
+              "type": "i32",
+              "value": 3,
+              "rawCheck": {
+                "rawSha256": "42c9bfa6c0f2f336accf34391d2c121be6ec7457b51713f5df69593356889b18",
+                "offset": 332,
+                "type": "i32",
+                "bytesHex": "03000000",
+                "value": 3,
+                "fieldPath": [
+                  "Field_95eed6ac",
+                  "0",
+                  "Field_0f8a8f9d"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Ammunition_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_95eed6ac/0/Field_f15f0034",
+              "type": "bool",
+              "value": true,
+              "rawCheck": {
+                "rawSha256": "42c9bfa6c0f2f336accf34391d2c121be6ec7457b51713f5df69593356889b18",
+                "offset": 340,
+                "type": "bool",
+                "bytesHex": "01",
+                "value": true,
+                "fieldPath": [
+                  "Field_95eed6ac",
+                  "0",
+                  "Field_f15f0034"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Ammunition_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_95eed6ac/0/Field_60ee1a43",
+              "type": "f32",
+              "value": 0.0,
+              "rawCheck": {
+                "rawSha256": "42c9bfa6c0f2f336accf34391d2c121be6ec7457b51713f5df69593356889b18",
+                "offset": 336,
+                "type": "f32",
+                "bytesHex": "00000000",
+                "value": 0.0,
+                "fieldPath": [
+                  "Field_95eed6ac",
+                  "0",
+                  "Field_60ee1a43"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Ammunition_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_95eed6ac/0/Field_3b620727",
+              "type": "f32",
+              "value": 0.0,
+              "rawCheck": {
+                "rawSha256": "42c9bfa6c0f2f336accf34391d2c121be6ec7457b51713f5df69593356889b18",
+                "offset": 320,
+                "type": "f32",
+                "bytesHex": "00000000",
+                "value": 0.0,
+                "fieldPath": [
+                  "Field_95eed6ac",
+                  "0",
+                  "Field_3b620727"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Ammunition_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_95eed6ac/0/Field_f502de34",
+              "type": "u32",
+              "value": 0,
+              "rawCheck": {
+                "rawSha256": "42c9bfa6c0f2f336accf34391d2c121be6ec7457b51713f5df69593356889b18",
+                "offset": 328,
+                "type": "u32",
+                "bytesHex": "00000000",
+                "value": 0,
+                "fieldPath": [
+                  "Field_95eed6ac",
+                  "0",
+                  "Field_f502de34"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Ammunition_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_95eed6ac/0/Field_89e9d098",
+              "type": "f32",
+              "value": 1.0,
+              "rawCheck": {
+                "rawSha256": "42c9bfa6c0f2f336accf34391d2c121be6ec7457b51713f5df69593356889b18",
+                "offset": 304,
+                "type": "f32",
+                "bytesHex": "0000803f",
+                "value": 1.0,
+                "fieldPath": [
+                  "Field_95eed6ac",
+                  "0",
+                  "Field_89e9d098"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Ammunition_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_95eed6ac/1/Field_39c8c711",
+              "type": "i32",
+              "value": -1,
+              "rawCheck": {
+                "rawSha256": "42c9bfa6c0f2f336accf34391d2c121be6ec7457b51713f5df69593356889b18",
+                "offset": 416,
+                "type": "i32",
+                "bytesHex": "ffffffff",
+                "value": -1,
+                "fieldPath": [
+                  "Field_95eed6ac",
+                  "1",
+                  "Field_39c8c711"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Ammunition_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_95eed6ac/1/Field_a84c817b",
+              "type": "i32",
+              "value": -1,
+              "rawCheck": {
+                "rawSha256": "42c9bfa6c0f2f336accf34391d2c121be6ec7457b51713f5df69593356889b18",
+                "offset": 412,
+                "type": "i32",
+                "bytesHex": "ffffffff",
+                "value": -1,
+                "fieldPath": [
+                  "Field_95eed6ac",
+                  "1",
+                  "Field_a84c817b"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Ammunition_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_95eed6ac/1/Field_dc4eb723",
+              "type": "bool",
+              "value": false,
+              "rawCheck": {
+                "rawSha256": "42c9bfa6c0f2f336accf34391d2c121be6ec7457b51713f5df69593356889b18",
+                "offset": 445,
+                "type": "bool",
+                "bytesHex": "00",
+                "value": false,
+                "fieldPath": [
+                  "Field_95eed6ac",
+                  "1",
+                  "Field_dc4eb723"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Ammunition_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_95eed6ac/1/Field_2e02f8ac",
+              "type": "f32",
+              "value": 0.0,
+              "rawCheck": {
+                "rawSha256": "42c9bfa6c0f2f336accf34391d2c121be6ec7457b51713f5df69593356889b18",
+                "offset": 420,
+                "type": "f32",
+                "bytesHex": "00000000",
+                "value": 0.0,
+                "fieldPath": [
+                  "Field_95eed6ac",
+                  "1",
+                  "Field_2e02f8ac"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Ammunition_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_95eed6ac/1/Field_5b881d59/Field_043d7a08",
+              "type": "f32",
+              "value": 3.0,
+              "rawCheck": {
+                "rawSha256": "42c9bfa6c0f2f336accf34391d2c121be6ec7457b51713f5df69593356889b18",
+                "offset": 352,
+                "type": "f32",
+                "bytesHex": "00004040",
+                "value": 3.0,
+                "fieldPath": [
+                  "Field_95eed6ac",
+                  "1",
+                  "Field_5b881d59",
+                  "Field_043d7a08"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Ammunition_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_95eed6ac/1/Field_ae6c324e",
+              "type": "bool",
+              "value": true,
+              "rawCheck": {
+                "rawSha256": "42c9bfa6c0f2f336accf34391d2c121be6ec7457b51713f5df69593356889b18",
+                "offset": 446,
+                "type": "bool",
+                "bytesHex": "01",
+                "value": true,
+                "fieldPath": [
+                  "Field_95eed6ac",
+                  "1",
+                  "Field_ae6c324e"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Ammunition_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_95eed6ac/1/Field_58bd6433",
+              "type": "i32",
+              "value": 1,
+              "rawCheck": {
+                "rawSha256": "42c9bfa6c0f2f336accf34391d2c121be6ec7457b51713f5df69593356889b18",
+                "offset": 428,
+                "type": "i32",
+                "bytesHex": "01000000",
+                "value": 1,
+                "fieldPath": [
+                  "Field_95eed6ac",
+                  "1",
+                  "Field_58bd6433"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Ammunition_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_95eed6ac/1/Field_0f8a8f9d",
+              "type": "i32",
+              "value": 3,
+              "rawCheck": {
+                "rawSha256": "42c9bfa6c0f2f336accf34391d2c121be6ec7457b51713f5df69593356889b18",
+                "offset": 436,
+                "type": "i32",
+                "bytesHex": "03000000",
+                "value": 3,
+                "fieldPath": [
+                  "Field_95eed6ac",
+                  "1",
+                  "Field_0f8a8f9d"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Ammunition_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_95eed6ac/1/Field_f15f0034",
+              "type": "bool",
+              "value": false,
+              "rawCheck": {
+                "rawSha256": "42c9bfa6c0f2f336accf34391d2c121be6ec7457b51713f5df69593356889b18",
+                "offset": 444,
+                "type": "bool",
+                "bytesHex": "00",
+                "value": false,
+                "fieldPath": [
+                  "Field_95eed6ac",
+                  "1",
+                  "Field_f15f0034"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Ammunition_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_95eed6ac/1/Field_60ee1a43",
+              "type": "f32",
+              "value": 0.0,
+              "rawCheck": {
+                "rawSha256": "42c9bfa6c0f2f336accf34391d2c121be6ec7457b51713f5df69593356889b18",
+                "offset": 440,
+                "type": "f32",
+                "bytesHex": "00000000",
+                "value": 0.0,
+                "fieldPath": [
+                  "Field_95eed6ac",
+                  "1",
+                  "Field_60ee1a43"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Ammunition_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_95eed6ac/1/Field_3b620727",
+              "type": "f32",
+              "value": 0.0,
+              "rawCheck": {
+                "rawSha256": "42c9bfa6c0f2f336accf34391d2c121be6ec7457b51713f5df69593356889b18",
+                "offset": 424,
+                "type": "f32",
+                "bytesHex": "00000000",
+                "value": 0.0,
+                "fieldPath": [
+                  "Field_95eed6ac",
+                  "1",
+                  "Field_3b620727"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Ammunition_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_95eed6ac/1/Field_f502de34",
+              "type": "u32",
+              "value": 0,
+              "rawCheck": {
+                "rawSha256": "42c9bfa6c0f2f336accf34391d2c121be6ec7457b51713f5df69593356889b18",
+                "offset": 432,
+                "type": "u32",
+                "bytesHex": "00000000",
+                "value": 0,
+                "fieldPath": [
+                  "Field_95eed6ac",
+                  "1",
+                  "Field_f502de34"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Ammunition_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_95eed6ac/1/Field_89e9d098",
+              "type": "f32",
+              "value": 1.0,
+              "rawCheck": {
+                "rawSha256": "42c9bfa6c0f2f336accf34391d2c121be6ec7457b51713f5df69593356889b18",
+                "offset": 408,
+                "type": "f32",
+                "bytesHex": "0000803f",
+                "value": 1.0,
+                "fieldPath": [
+                  "Field_95eed6ac",
+                  "1",
+                  "Field_89e9d098"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Ammunition_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_95eed6ac/2/Field_39c8c711",
+              "type": "i32",
+              "value": -1,
+              "rawCheck": {
+                "rawSha256": "42c9bfa6c0f2f336accf34391d2c121be6ec7457b51713f5df69593356889b18",
+                "offset": 520,
+                "type": "i32",
+                "bytesHex": "ffffffff",
+                "value": -1,
+                "fieldPath": [
+                  "Field_95eed6ac",
+                  "2",
+                  "Field_39c8c711"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Ammunition_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_95eed6ac/2/Field_a84c817b",
+              "type": "i32",
+              "value": -1,
+              "rawCheck": {
+                "rawSha256": "42c9bfa6c0f2f336accf34391d2c121be6ec7457b51713f5df69593356889b18",
+                "offset": 516,
+                "type": "i32",
+                "bytesHex": "ffffffff",
+                "value": -1,
+                "fieldPath": [
+                  "Field_95eed6ac",
+                  "2",
+                  "Field_a84c817b"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Ammunition_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_95eed6ac/2/Field_dc4eb723",
+              "type": "bool",
+              "value": false,
+              "rawCheck": {
+                "rawSha256": "42c9bfa6c0f2f336accf34391d2c121be6ec7457b51713f5df69593356889b18",
+                "offset": 549,
+                "type": "bool",
+                "bytesHex": "00",
+                "value": false,
+                "fieldPath": [
+                  "Field_95eed6ac",
+                  "2",
+                  "Field_dc4eb723"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Ammunition_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_95eed6ac/2/Field_2e02f8ac",
+              "type": "f32",
+              "value": 0.0,
+              "rawCheck": {
+                "rawSha256": "42c9bfa6c0f2f336accf34391d2c121be6ec7457b51713f5df69593356889b18",
+                "offset": 524,
+                "type": "f32",
+                "bytesHex": "00000000",
+                "value": 0.0,
+                "fieldPath": [
+                  "Field_95eed6ac",
+                  "2",
+                  "Field_2e02f8ac"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Ammunition_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_95eed6ac/2/Field_5b881d59/Field_043d7a08",
+              "type": "f32",
+              "value": 4.0,
+              "rawCheck": {
+                "rawSha256": "42c9bfa6c0f2f336accf34391d2c121be6ec7457b51713f5df69593356889b18",
+                "offset": 456,
+                "type": "f32",
+                "bytesHex": "00008040",
+                "value": 4.0,
+                "fieldPath": [
+                  "Field_95eed6ac",
+                  "2",
+                  "Field_5b881d59",
+                  "Field_043d7a08"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Ammunition_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_95eed6ac/2/Field_ae6c324e",
+              "type": "bool",
+              "value": true,
+              "rawCheck": {
+                "rawSha256": "42c9bfa6c0f2f336accf34391d2c121be6ec7457b51713f5df69593356889b18",
+                "offset": 550,
+                "type": "bool",
+                "bytesHex": "01",
+                "value": true,
+                "fieldPath": [
+                  "Field_95eed6ac",
+                  "2",
+                  "Field_ae6c324e"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Ammunition_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_95eed6ac/2/Field_58bd6433",
+              "type": "i32",
+              "value": 1,
+              "rawCheck": {
+                "rawSha256": "42c9bfa6c0f2f336accf34391d2c121be6ec7457b51713f5df69593356889b18",
+                "offset": 532,
+                "type": "i32",
+                "bytesHex": "01000000",
+                "value": 1,
+                "fieldPath": [
+                  "Field_95eed6ac",
+                  "2",
+                  "Field_58bd6433"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Ammunition_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_95eed6ac/2/Field_0f8a8f9d",
+              "type": "i32",
+              "value": 3,
+              "rawCheck": {
+                "rawSha256": "42c9bfa6c0f2f336accf34391d2c121be6ec7457b51713f5df69593356889b18",
+                "offset": 540,
+                "type": "i32",
+                "bytesHex": "03000000",
+                "value": 3,
+                "fieldPath": [
+                  "Field_95eed6ac",
+                  "2",
+                  "Field_0f8a8f9d"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Ammunition_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_95eed6ac/2/Field_f15f0034",
+              "type": "bool",
+              "value": true,
+              "rawCheck": {
+                "rawSha256": "42c9bfa6c0f2f336accf34391d2c121be6ec7457b51713f5df69593356889b18",
+                "offset": 548,
+                "type": "bool",
+                "bytesHex": "01",
+                "value": true,
+                "fieldPath": [
+                  "Field_95eed6ac",
+                  "2",
+                  "Field_f15f0034"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Ammunition_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_95eed6ac/2/Field_60ee1a43",
+              "type": "f32",
+              "value": 0.0,
+              "rawCheck": {
+                "rawSha256": "42c9bfa6c0f2f336accf34391d2c121be6ec7457b51713f5df69593356889b18",
+                "offset": 544,
+                "type": "f32",
+                "bytesHex": "00000000",
+                "value": 0.0,
+                "fieldPath": [
+                  "Field_95eed6ac",
+                  "2",
+                  "Field_60ee1a43"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Ammunition_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_95eed6ac/2/Field_3b620727",
+              "type": "f32",
+              "value": 0.0,
+              "rawCheck": {
+                "rawSha256": "42c9bfa6c0f2f336accf34391d2c121be6ec7457b51713f5df69593356889b18",
+                "offset": 528,
+                "type": "f32",
+                "bytesHex": "00000000",
+                "value": 0.0,
+                "fieldPath": [
+                  "Field_95eed6ac",
+                  "2",
+                  "Field_3b620727"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Ammunition_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_95eed6ac/2/Field_f502de34",
+              "type": "u32",
+              "value": 0,
+              "rawCheck": {
+                "rawSha256": "42c9bfa6c0f2f336accf34391d2c121be6ec7457b51713f5df69593356889b18",
+                "offset": 536,
+                "type": "u32",
+                "bytesHex": "00000000",
+                "value": 0,
+                "fieldPath": [
+                  "Field_95eed6ac",
+                  "2",
+                  "Field_f502de34"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Ammunition_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_95eed6ac/2/Field_89e9d098",
+              "type": "f32",
+              "value": 1.0,
+              "rawCheck": {
+                "rawSha256": "42c9bfa6c0f2f336accf34391d2c121be6ec7457b51713f5df69593356889b18",
+                "offset": 512,
+                "type": "f32",
+                "bytesHex": "0000803f",
+                "value": 1.0,
+                "fieldPath": [
+                  "Field_95eed6ac",
+                  "2",
+                  "Field_89e9d098"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Ammunition_SupplyPouch.ebx"
+              }
+            }
+          ]
+        },
+        {
+          "route": "Common/Hardware/Gadgets/Supply/SupplyPouch/Affector_Healing_SupplyPouch",
+          "typedScalarCount": 11,
+          "operands": [
+            {
+              "fieldPath": "/Field_de6f63b3",
+              "type": "u32",
+              "value": 2548833002,
+              "rawCheck": {
+                "rawSha256": "5bd77550a866f03adb3acb20595400703fc6055488285995b37c840881c72eda",
+                "offset": 88,
+                "type": "u32",
+                "bytesHex": "ea1aec97",
+                "value": 2548833002,
+                "fieldPath": [
+                  "Field_de6f63b3"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Healing_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_ec3c12a7",
+              "type": "u32",
+              "value": 344391295,
+              "rawCheck": {
+                "rawSha256": "5bd77550a866f03adb3acb20595400703fc6055488285995b37c840881c72eda",
+                "offset": 96,
+                "type": "u32",
+                "bytesHex": "7ffe8614",
+                "value": 344391295,
+                "fieldPath": [
+                  "Field_ec3c12a7"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Healing_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_b50e1230",
+              "type": "i32",
+              "value": 0,
+              "rawCheck": {
+                "rawSha256": "5bd77550a866f03adb3acb20595400703fc6055488285995b37c840881c72eda",
+                "offset": 100,
+                "type": "i32",
+                "bytesHex": "00000000",
+                "value": 0,
+                "fieldPath": [
+                  "Field_b50e1230"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Healing_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_958dc613/0",
+              "type": "u32",
+              "value": 575361343,
+              "rawCheck": {
+                "rawSha256": "5bd77550a866f03adb3acb20595400703fc6055488285995b37c840881c72eda",
+                "offset": 148,
+                "type": "u32",
+                "bytesHex": "3f514b22",
+                "value": 575361343,
+                "fieldPath": [
+                  "Field_958dc613",
+                  "0"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Healing_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_003bcbca",
+              "type": "i32",
+              "value": 3,
+              "rawCheck": {
+                "rawSha256": "5bd77550a866f03adb3acb20595400703fc6055488285995b37c840881c72eda",
+                "offset": 92,
+                "type": "i32",
+                "bytesHex": "03000000",
+                "value": 3,
+                "fieldPath": [
+                  "Field_003bcbca"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Healing_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_95eed6ac/0/Field_77f58095/Field_043d7a08",
+              "type": "f32",
+              "value": 0.0,
+              "rawCheck": {
+                "rawSha256": "5bd77550a866f03adb3acb20595400703fc6055488285995b37c840881c72eda",
+                "offset": 168,
+                "type": "f32",
+                "bytesHex": "00000000",
+                "value": 0.0,
+                "fieldPath": [
+                  "Field_95eed6ac",
+                  "0",
+                  "Field_77f58095",
+                  "Field_043d7a08"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Healing_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_95eed6ac/0/Field_3202ac10/Field_043d7a08",
+              "type": "f32",
+              "value": 20.0,
+              "rawCheck": {
+                "rawSha256": "5bd77550a866f03adb3acb20595400703fc6055488285995b37c840881c72eda",
+                "offset": 184,
+                "type": "f32",
+                "bytesHex": "0000a041",
+                "value": 20.0,
+                "fieldPath": [
+                  "Field_95eed6ac",
+                  "0",
+                  "Field_3202ac10",
+                  "Field_043d7a08"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Healing_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_95eed6ac/0/Field_33d6811e",
+              "type": "bool",
+              "value": true,
+              "rawCheck": {
+                "rawSha256": "5bd77550a866f03adb3acb20595400703fc6055488285995b37c840881c72eda",
+                "offset": 204,
+                "type": "bool",
+                "bytesHex": "01",
+                "value": true,
+                "fieldPath": [
+                  "Field_95eed6ac",
+                  "0",
+                  "Field_33d6811e"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Healing_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_95eed6ac/0/Field_8bba458c",
+              "type": "f32",
+              "value": 2.5,
+              "rawCheck": {
+                "rawSha256": "5bd77550a866f03adb3acb20595400703fc6055488285995b37c840881c72eda",
+                "offset": 200,
+                "type": "f32",
+                "bytesHex": "00002040",
+                "value": 2.5,
+                "fieldPath": [
+                  "Field_95eed6ac",
+                  "0",
+                  "Field_8bba458c"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Healing_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_95eed6ac/0/Field_795ffa60",
+              "type": "bool",
+              "value": false,
+              "rawCheck": {
+                "rawSha256": "5bd77550a866f03adb3acb20595400703fc6055488285995b37c840881c72eda",
+                "offset": 206,
+                "type": "bool",
+                "bytesHex": "00",
+                "value": false,
+                "fieldPath": [
+                  "Field_95eed6ac",
+                  "0",
+                  "Field_795ffa60"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Healing_SupplyPouch.ebx"
+              }
+            },
+            {
+              "fieldPath": "/Field_95eed6ac/0/Field_9a146ebc",
+              "type": "bool",
+              "value": false,
+              "rawCheck": {
+                "rawSha256": "5bd77550a866f03adb3acb20595400703fc6055488285995b37c840881c72eda",
+                "offset": 205,
+                "type": "bool",
+                "bytesHex": "00",
+                "value": false,
+                "fieldPath": [
+                  "Field_95eed6ac",
+                  "0",
+                  "Field_9a146ebc"
+                ],
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Healing_SupplyPouch.ebx"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fact": "The PRJ_SimEx_SupplyPouch capture identity was checked, but its route is not linked by the direct references above. The L143 receipt reports 52 raw-checked ammunition scalar leaves across three Supply Crate affectors, with quantity/cadence roles unresolved.",
+      "prjHeaderRawCheck": {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer8-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\PRJ_SimEx_SupplyPouch.ebx",
+        "rawSha256": "55ec6b32875294333d8503eacaf28bd2b50eaf48a9a7c11be8723a9f74dca62f",
+        "offset": 0,
+        "type": "bytes:4",
+        "bytesHex": "52494646",
+        "value": "52494646"
+      },
+      "l143Reuse": {
+        "resultPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L143\\l143-result.json",
+        "resultSha256": "66342c9add711e6e3311551929f181d82e44779909c2c3e506e4add23c26cb35",
+        "status": "partial",
+        "scope": {
+          "expected": 5,
+          "examined": 5,
+          "notes": "Exactly the five named Head 4892087 hotfix roots were examined. Four direct import children and parent imports needed for the question were followed separately; no additional supply gadgets were scanned."
+        },
+        "ammoFindings": [
+          {
+            "name": "Affector_Ammunition_AmmoCrate",
+            "conclusion": "The root contains two Field_95eed6ac records with 26 primitive numeric or Boolean leaves, each typed and raw-checked. The field hashes have no established quantity or cadence mapping. Its direct import links include DefaultCategorizationTags and U_Gadget_AmmoBox_Affector_Ammo; the imports do not establish runtime selection or reserve-round changes."
+          },
+          {
+            "name": "Affector_Ammunition_Rifle_AmmoCrate",
+            "conclusion": "The root contains 13 primitive numeric or Boolean leaves, each typed and raw-checked. No field role establishes a quantity or cadence. Direct imports include GraniteSharedAmmoSetup and U_Gadget_AmmoBox_Affector_Ammo; the GraniteSharedAmmoSetup hotfix raw was unavailable."
+          },
+          {
+            "name": "Affector_Ammunition_MG_AmmoCrate",
+            "conclusion": "The root contains 13 primitive numeric or Boolean leaves, each typed and raw-checked. No field role establishes a quantity or cadence. Direct imports include GraniteSharedAmmoSetup and U_Gadget_AmmoBox_Affector_Ammo; the GraniteSharedAmmoSetup hotfix raw was unavailable."
+          }
+        ]
+      }
+    }
+  ],
+  "inference": [
+    "The serialized WB and supply-sphere references support direct asset links to the two named affectors and to ProjectileFeature_SupplyPouch. They do not resolve the separate PRJ_SimEx_SupplyPouch route within one hop.",
+    "The 57 raw-checked typed scalar leaves remain unnamed operands. Their types and values cannot support a source-backed quantity/cadence comparison without field roles and units.",
+    "L143 reached the same quantity/cadence limit for the Supply Crate ammo affectors. With no Analyzer gadget table and no semantic operands, this second support-resupply line supports a drift stop."
+  ],
+  "unresolved": [
+    "The exact PRJ_SimEx_SupplyPouch asset is present as a scoped capture, but no verified direct import from SupplyPouch_WB, SupplyPouch_Ability, or PBNS_SupplyPouch_SupplySphere points to that route. PBNS points to ProjectileFeature_SupplyPouch; following that child's imports would exceed the one-hop limit.",
+    "The 46 ammunition and 11 healing scalar leaves have raw-verified serialized types and values, but their hashed fields have no established quantity or cadence meaning or units. They cannot be labeled as replenishment amounts or timing values.",
+    "The reviewed L143 Supply Crate receipt leaves its 52 ammunition scalar leaves without quantity/cadence meanings. There is no typed semantic comparison between the Pouch operands and Crate operands.",
+    "Serialized imports and values do not establish runtime activation, effect composition, reserve-ammunition changes, or healing outcomes.",
+    "SupplyPouch_WB, SupplyPouch_Ability, and PBNS_SupplyPouch_SupplySphere are marked decoded-provisional in the hotfix ledger. Positive reference paths listed here passed raw pointer and target-identity checks; no broader absence claim is made from those roots."
+  ],
+  "siteImpact": "No Analyzer loadout values are supported. The site has no gadget data table, the affector fields lack quantity/cadence roles and units, and the exact PRJ_SimEx_SupplyPouch route is unresolved. No Supply Pouch-versus-Supply Crate comparison is proposed; this is the second support-resupply trace and supports stopping the line under drift stop.",
+  "evidence": {
+    "paths": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157\\brief.txt",
+        "sha256": "dc41a973a83ea637c043e72ec3164b153c8c9d26203be8ba70c4dcd66007bdf9",
+        "role": "lead scope and constraints"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157\\control-hk433-ads-amount.json",
+        "sha256": "5f76caeb1046b7fe3232d00db51f0fca2a89d38e39e15bf225be8de90a6889e8",
+        "role": "passed known-answer control"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\exhaustive-audit-2026-09-23\\coverage-decoder-v5.sqlite",
+        "sha256": "1fac4aa159b11741943eaf6ae94f64e63928b9fa0f866ca4a1d191897718cf10",
+        "role": "pinned Head 4892087 decoder index"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157\\scope-db-report.json",
+        "sha256": "bdb581488e333feae6b964fa9807889eee51a490a834fe19634980c07619ecab",
+        "role": "six-root capture and direct import index"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157\\selected-import-refs.json",
+        "sha256": "f5638d662a81851ea6051b0b357d29c6a358166e66319633736da00aaac0314f",
+        "role": "field-path references for relevant direct imports"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157\\selected-chain-manifest.json",
+        "sha256": "0cf683649fffa543b7845be60c7637d2eb9784eec05f42b3316f98cd4b68e471",
+        "role": "ten declared direct import assertions"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157\\selected-chain-check-output\\comparison.json",
+        "sha256": "e97d333f2cd802b479fc989520ab519a63a575a1f6c630699b8e48849ddbdae1",
+        "role": "ten passed raw-derived import resolutions"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157\\l157-raw-manifest.json",
+        "sha256": "18b115d08d769673754beac3d1e69cf3749485a4d5259bbb83c7df51204ca17d",
+        "role": "typed pointer and affector leaf read plan"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157\\l157-raw-checks.json",
+        "sha256": "dfa928516353fc2bf25adeb524eecad4506c4cf4544ab2d88c2015921a006aec",
+        "role": "67 passing typed raw reads"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157\\prj-header-check.json",
+        "sha256": "fad90f279c1c42b328637e613943cca72ade3973e1a267488f587811db3ddfc5",
+        "role": "PRJ root raw identity check"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157\\verified-evidence.json",
+        "sha256": "dc1fb3547c134a90907873deb4f002b998be221f18d90dbc8d0a546f97c9bc17",
+        "role": "joined raw checks and prior-lead summary"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L143\\l143-result.json",
+        "sha256": "66342c9add711e6e3311551929f181d82e44779909c2c3e506e4add23c26cb35",
+        "role": "reused Supply Crate conclusion; not rescanned"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L143\\l143-affector-rawcheck-summary.json",
+        "sha256": "fb7cd70aef4804d16584f5f22f85d8a030d9e4588025d4c87e5df34f52085001",
+        "role": "reused Supply Crate typed-leaf summary"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L143\\l143-direct-child-summary.json",
+        "sha256": "4ff91ebd7e05745436384563302e2ee285eda9bd499f506a5bc1767d2eb4b25e",
+        "role": "reused Supply Crate direct-child selection limits"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\PBNS_SupplyPouch_SupplySphere.ebx",
+        "sha256": "937d36b0bcd1b8f8f337cbb1614cf8d00b5e02622d2ba786e90e1741e9a0bc7d",
+        "role": "raw capture loaded for direct import identity check"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Ammunition_SupplyPouch.ebx",
+        "sha256": "42c9bfa6c0f2f336accf34391d2c121be6ec7457b51713f5df69593356889b18",
+        "role": "raw capture loaded for direct import identity check"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Affector_Healing_SupplyPouch.ebx",
+        "sha256": "5bd77550a866f03adb3acb20595400703fc6055488285995b37c840881c72eda",
+        "role": "raw capture loaded for direct import identity check"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer3-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\U_WEP_SupplyPouch.ebx",
+        "sha256": "77dd6c796b8464640b422637fc7a15dd380b04a178e3082e8160336b631fb917",
+        "role": "raw capture loaded for direct import identity check"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer4-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\Feature_SupplyPouch.ebx",
+        "sha256": "09ed6e252d3f3e1a05d0fa516509576213daf71d352c479fa535b29ffe9101d1",
+        "role": "raw capture loaded for direct import identity check"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer4-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\CUST_WEP_Grenade_SupplyPouch.ebx",
+        "sha256": "2e50d3b1c062658a87c0505d0e416fc0ee7ce1d8a9da8d735868dd17adff0d02",
+        "role": "raw capture loaded for direct import identity check"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer7-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\ProjectileFeature_SupplyPouch.ebx",
+        "sha256": "4663573ece81d0c43c09cc8855514874b59c7cb951a5906f8a7e89946e778d32",
+        "role": "raw capture loaded for direct import identity check"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer8-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\PRJ_SimEx_SupplyPouch.ebx",
+        "sha256": "55ec6b32875294333d8503eacaf28bd2b50eaf48a9a7c11be8723a9f74dca62f",
+        "role": "scoped PRJ root raw bytes"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157\\l157-result.json",
+        "sha256": "9c0cca4a2fad71c351bec0af4cec245295c27a2840a1abd14be1c49b82b4cb86",
+        "role": "L157 machine-readable result"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157\\summary.md",
+        "sha256": "f057cef48937a0df7279fe179b8fbd4bcb5a44aef3c88b8731836d4e31f5f380",
+        "role": "L157 human-readable summary"
+      }
+    ],
+    "helpers": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+        "sha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-selected-chain-check.py",
+        "sha256": "52648d1ba88bfa4dbf1c170f303483c5a250f463bee535223e9ec09b4e8da32e"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-ebx-decode.py",
+        "sha256": "6fdc0334efaee0fe6113b5c9db4973f1358f53ee65dfb94edbc22fb0bf07a727"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-worker.py",
+        "sha256": "91d73d328cfe39862ec882ef02eda665580b28a6da9fa541f7b03d12d755beb2"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-records.py",
+        "sha256": "ffb0e7574ce66779ae5041f4fc55047d0da2f63d917682b527673a75612b734c"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157\\inspect_l143.py",
+        "sha256": "ba26e95a77e2db63196ecb086d72b781e0b09788c65c3ea4e3ba58c6ef5e5265"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157\\inspect_decoder.py",
+        "sha256": "c808158e59bdf66fbdb69b04cc831a50158b9047560603e8ee4c998970ac0bb8"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157\\query_scope.py",
+        "sha256": "1f78a29d364c068cc1ba9aad40f0c1ab88eacbd1671e8bf7fe8274a2a170a3d6"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157\\summarize_scope.py",
+        "sha256": "cfc18071943dcd1404e6f0310a7250af19c8512096dd27517df06b4859313e53"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157\\inspect_selected_refs.py",
+        "sha256": "35b43f29495cc4e0386a3c87a17cbe3bb9f81e380501f20e7f9ae95502e66942"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157\\inspect_pointer_bodies.py",
+        "sha256": "3167933b90922b0c96bf4c203bcce8a90969fd2dbf295f0ca7e43481fa6ac402"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157\\inventory_affectors.py",
+        "sha256": "a61b70c30385b24b3bf3fe344128469d3ecb8f0942d633dc06f45fa3b41c55fd"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157\\build_l157_manifests.py",
+        "sha256": "b7388f41841fb12cfb4288789df4edb31c9edfae04fbda5fdd47055297f585df"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157\\summarize_verification.py",
+        "sha256": "faeeea7edd71da1910c3bcd3aa23227af88c150adb1306e1d9ecd3be37621559"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157\\reuse_l143.py",
+        "sha256": "f7f84162e7a27ac9faaea8306fb91231ba4d233303d2b4007125da62a2e260bd"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157\\l143_evidence_index.py",
+        "sha256": "cb46e00124bd9c8dcd78f65c3e8ca8598f221c72efb30501c07cfa5175bee3b5"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157\\hash_artifacts.py",
+        "sha256": "39854bb91f366539aa7bf5bd640d5cd3cbbbb7a13fdafbec14d50585718ba3e9"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157\\build_deliverables.py",
+        "sha256": "646a7d5571023e86afab1bc863c9c5dad16c30a92de7fcecae47769138495238"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157\\build_l157_manifests.py",
+        "sha256": "bb71012918ab32b95632929daa99bc8f51399e7fd231c33e171ac8c0498abb84",
+        "revision": "first invocation, failed before outputs: unsupported leaf kind 3"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157\\l143_evidence_index.py",
+        "sha256": "e335aa12e54606bc42dfc631430ce1e38fe8dae24f5036437d2ad5046ace55f2",
+        "revision": "first invocation before output was narrowed"
+      }
+    ],
+    "commands": [
+      {
+        "executable": "python",
+        "arguments": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+          "--path",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+          "--offset",
+          "1084",
+          "--type",
+          "f32",
+          "--expect",
+          "0.6695",
+          "--out",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157\\control-hk433-ads-amount.json"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157",
+        "helperSha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3",
+        "exitCode": 0,
+        "outputs": [
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157\\control-hk433-ads-amount.json",
+            "sha256": "5f76caeb1046b7fe3232d00db51f0fca2a89d38e39e15bf225be8de90a6889e8",
+            "role": "control raw check"
+          }
+        ]
+      },
+      {
+        "executable": "python",
+        "arguments": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-worker.py",
+          "prior-work",
+          "--terms",
+          "SupplyPouch",
+          "SupplyPouch_WB",
+          "Affector_Ammunition_SupplyPouch",
+          "Affector_Healing_SupplyPouch",
+          "PRJ_SimEx_SupplyPouch",
+          "PBNS_SupplyPouch_SupplySphere"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157",
+        "helperSha256": "91d73d328cfe39862ec882ef02eda665580b28a6da9fa541f7b03d12d755beb2",
+        "exitCode": 0,
+        "stdoutFinding": "one prior candidate-expression resource inventory hit for SupplyPouch/PRJ names; no source-value trace"
+      },
+      {
+        "executable": "python",
+        "arguments": [
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157\\query_scope.py"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157",
+        "helperSha256": "1f78a29d364c068cc1ba9aad40f0c1ab88eacbd1671e8bf7fe8274a2a170a3d6",
+        "exitCode": 0,
+        "outputs": [
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157\\scope-db-report.json",
+            "sha256": "bdb581488e333feae6b964fa9807889eee51a490a834fe19634980c07619ecab",
+            "role": "six-root and direct-import query"
+          }
+        ]
+      },
+      {
+        "executable": "python",
+        "arguments": [
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157\\inspect_selected_refs.py"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157",
+        "helperSha256": "35b43f29495cc4e0386a3c87a17cbe3bb9f81e380501f20e7f9ae95502e66942",
+        "exitCode": 0,
+        "outputs": [
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157\\selected-import-refs.json",
+            "sha256": "f5638d662a81851ea6051b0b357d29c6a358166e66319633736da00aaac0314f",
+            "role": "relevant direct import field paths"
+          }
+        ]
+      },
+      {
+        "executable": "python",
+        "arguments": [
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157\\build_l157_manifests.py"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157",
+        "helperSha256": "bb71012918ab32b95632929daa99bc8f51399e7fd231c33e171ac8c0498abb84",
+        "exitCode": 1,
+        "error": "unsupported leaf kind 3; this revision wrote no files"
+      },
+      {
+        "executable": "python",
+        "arguments": [
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157\\build_l157_manifests.py"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157",
+        "helperSha256": "b7388f41841fb12cfb4288789df4edb31c9edfae04fbda5fdd47055297f585df",
+        "exitCode": 0,
+        "outputs": [
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157\\selected-chain-manifest.json",
+            "sha256": "0cf683649fffa543b7845be60c7637d2eb9784eec05f42b3316f98cd4b68e471",
+            "role": "selected import plan"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157\\l157-raw-manifest.json",
+            "sha256": "18b115d08d769673754beac3d1e69cf3749485a4d5259bbb83c7df51204ca17d",
+            "role": "67 raw-check plan"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157\\l157-raw-plan.json",
+            "sha256": "c661ff44774c8e2c02b98b7627794b28d458a43d025c4a6d427e149b2ead2dd0",
+            "role": "field and offset mapping plan"
+          }
+        ]
+      },
+      {
+        "executable": "python",
+        "arguments": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+          "--manifest",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157\\l157-raw-manifest.json",
+          "--out",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157\\l157-raw-checks.json"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157",
+        "helperSha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3",
+        "stdoutRedirect": "> $null",
+        "exitCode": 0,
+        "outputs": [
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157\\l157-raw-checks.json",
+            "sha256": "dfa928516353fc2bf25adeb524eecad4506c4cf4544ab2d88c2015921a006aec",
+            "role": "67 passing raw reads"
+          }
+        ]
+      },
+      {
+        "executable": "python",
+        "arguments": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-selected-chain-check.py",
+          "--manifest",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157\\selected-chain-manifest.json",
+          "--db",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\exhaustive-audit-2026-09-23\\coverage-decoder-v5.sqlite",
+          "--out",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157\\selected-chain-check-output"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157",
+        "helperSha256": "52648d1ba88bfa4dbf1c170f303483c5a250f463bee535223e9ec09b4e8da32e",
+        "exitCode": 0,
+        "stdout": "9 captures, 10 assertions, 0 failures",
+        "outputs": [
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157\\selected-chain-check-output\\comparison.json",
+            "sha256": "e97d333f2cd802b479fc989520ab519a63a575a1f6c630699b8e48849ddbdae1",
+            "role": "selected chain report"
+          }
+        ]
+      },
+      {
+        "executable": "python",
+        "arguments": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+          "--path",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer8-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Supply\\SupplyPouch\\PRJ_SimEx_SupplyPouch.ebx",
+          "--offset",
+          "0",
+          "--type",
+          "bytes:4",
+          "--expect",
+          "52494646",
+          "--out",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157\\prj-header-check.json"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157",
+        "helperSha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3",
+        "exitCode": 0,
+        "outputs": [
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157\\prj-header-check.json",
+            "sha256": "fad90f279c1c42b328637e613943cca72ade3973e1a267488f587811db3ddfc5",
+            "role": "PRJ raw header and digest"
+          }
+        ]
+      },
+      {
+        "executable": "python",
+        "arguments": [
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157\\summarize_verification.py"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157",
+        "helperSha256": "faeeea7edd71da1910c3bcd3aa23227af88c150adb1306e1d9ecd3be37621559",
+        "exitCode": 0,
+        "outputs": [
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157\\verified-evidence.json",
+            "sha256": "dc1fb3547c134a90907873deb4f002b998be221f18d90dbc8d0a546f97c9bc17",
+            "role": "67 check alignment and L143 result reuse"
+          }
+        ]
+      },
+      {
+        "executable": "python",
+        "arguments": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-records.py",
+          "schema"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157",
+        "helperSha256": "ffb0e7574ce66779ae5041f4fc55047d0da2f63d917682b527673a75612b734c",
+        "exitCode": 0,
+        "stdout": "record header v1 schema read before drafting"
+      },
+      {
+        "executable": "python",
+        "arguments": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-records.py",
+          "check-receipt",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157\\draft-receipt.json"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L157",
+        "helperSha256": "ffb0e7574ce66779ae5041f4fc55047d0da2f63d917682b527673a75612b734c",
+        "exitCode": 0,
+        "stdout": "draft-receipt.json: record ok",
+        "expectedOutput": "all receipt record checks pass"
+      }
+    ]
+  },
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-09-29",
+    "build": "1.4.3.0-hotfix",
+    "leads": [
+      {
+        "id": "L157",
+        "title": "Supply Pouch ammunition and healing operands",
+        "status": "exhausted",
+        "summary": "The hotfix Supply Pouch WB and supply sphere directly reference the named ammunition and healing affectors. Their 57 raw-checked typed leaves have no established quantity, cadence, or unit roles. No Pouch-versus-Crate loadout comparison is supported, closing the support-resupply line after L143.",
+        "reopenWhen": "Reopen only if a build-pinned field mapping supplies quantity/cadence units or a raw-verified direct path connects the Supply Pouch root to PRJ_SimEx_SupplyPouch.",
+        "searched": [
+          "The six named Head 4892087 SupplyPouch_WB, SupplyPouch_Ability, PBNS_SupplyPouch_SupplySphere, PRJ_SimEx_SupplyPouch, Affector_Ammunition_SupplyPouch, and Affector_Healing_SupplyPouch roots.",
+          "Ten raw-verified direct import references from WB, Ability, and PBNS to seven distinct target assets, following no child-of-child imports.",
+          "All 46 ammunition and 11 healing typed numeric/Boolean scalar leaves in the two directly referenced affector roots.",
+          "The existing L143 Supply Crate receipt and its affector/direct-child summaries; no Supply Crate raw roots were rescanned.",
+          "Prior-work search for the exact Supply Pouch WB, projectile, and affector names."
+        ]
+      }
+    ],
+    "assets": [
+      {
+        "path": "Common/Hardware/Gadgets/Supply/SupplyPouch/SupplyPouch_WB",
+        "format": "raw-ebx",
+        "sha256": "2df2dcf2f70743b8f3c25ca800a302dd1986623b0256101c7aed0b1714ea2b29",
+        "question": "Which hotfix direct import paths from the Supply Pouch WB resolve to the named supply sphere and ammunition/healing affectors?",
+        "result": "useful",
+        "conclusion": "Four checked WB references resolve to two PBNS_SupplyPouch_SupplySphere imports and the two named affector roots; their reference fields are raw-verified."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Supply/SupplyPouch/SupplyPouch_Ability",
+        "format": "raw-ebx",
+        "sha256": "ec6a94215b284066e50c192fe92cf8b3f81b94a844d1f3dcf60eadee15c66f2b",
+        "question": "Which direct Supply Pouch ability imports resolve in the bounded trace?",
+        "result": "useful",
+        "conclusion": "Three checked direct imports resolve to U_WEP_SupplyPouch, Feature_SupplyPouch, and CUST_WEP_Grenade_SupplyPouch; these do not identify the exact PRJ root."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Supply/SupplyPouch/PBNS_SupplyPouch_SupplySphere",
+        "format": "raw-ebx",
+        "sha256": "937d36b0bcd1b8f8f337cbb1614cf8d00b5e02622d2ba786e90e1741e9a0bc7d",
+        "question": "Which direct projectile-feature and affector imports are present in the supply-sphere body?",
+        "result": "useful",
+        "conclusion": "Three checked direct imports resolve to ProjectileFeature_SupplyPouch and the two named affectors."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Supply/SupplyPouch/PRJ_SimEx_SupplyPouch",
+        "format": "raw-ebx",
+        "sha256": "55ec6b32875294333d8503eacaf28bd2b50eaf48a9a7c11be8723a9f74dca62f",
+        "question": "Is the scoped PRJ root connected by a verified direct import from the WB, Ability, or supply sphere?",
+        "result": "inconclusive",
+        "conclusion": "The raw file identity is confirmed by its RIFF header read; the exact PRJ route was not a verified direct target in the bounded chain, so no PRJ values were interpreted."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Supply/SupplyPouch/Affector_Ammunition_SupplyPouch",
+        "format": "raw-ebx",
+        "sha256": "42c9bfa6c0f2f336accf34391d2c121be6ec7457b51713f5df69593356889b18",
+        "question": "Which typed scalar leaves are serialized in the WB-referenced ammunition affector, and do they establish quantity or cadence?",
+        "result": "useful",
+        "conclusion": "Forty-six numeric/Boolean leaves were typed and raw-checked; their hashed field names do not establish a replenishment quantity, cadence, or units."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Supply/SupplyPouch/Affector_Healing_SupplyPouch",
+        "format": "raw-ebx",
+        "sha256": "5bd77550a866f03adb3acb20595400703fc6055488285995b37c840881c72eda",
+        "question": "Which typed scalar leaves are serialized in the WB-referenced healing affector, and do they establish healing quantity or cadence?",
+        "result": "useful",
+        "conclusion": "Eleven numeric/Boolean leaves were typed and raw-checked; their hashed field names do not establish a healing quantity, cadence, or units."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Supply/SupplyPouch/U_WEP_SupplyPouch",
+        "format": "raw-ebx",
+        "sha256": "77dd6c796b8464640b422637fc7a15dd380b04a178e3082e8160336b631fb917",
+        "question": "Which exact hotfix child file and exported class does the direct import target?",
+        "result": "useful",
+        "conclusion": "An exact one-hop target of checked Ability and affector references; no import beyond this child was traced."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Supply/SupplyPouch/Feature_SupplyPouch",
+        "format": "raw-ebx",
+        "sha256": "09ed6e252d3f3e1a05d0fa516509576213daf71d352c479fa535b29ffe9101d1",
+        "question": "Which exact hotfix child file and exported class does the direct import target?",
+        "result": "useful",
+        "conclusion": "An exact one-hop target of a checked Ability reference; no import beyond this child was traced."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Supply/SupplyPouch/CUST_WEP_Grenade_SupplyPouch",
+        "format": "raw-ebx",
+        "sha256": "2e50d3b1c062658a87c0505d0e416fc0ee7ce1d8a9da8d735868dd17adff0d02",
+        "question": "Which exact hotfix child file and exported class does the direct import target?",
+        "result": "useful",
+        "conclusion": "An exact one-hop target of a checked Ability reference; no import beyond this child was traced."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Supply/SupplyPouch/ProjectileFeature_SupplyPouch",
+        "format": "raw-ebx",
+        "sha256": "4663573ece81d0c43c09cc8855514874b59c7cb951a5906f8a7e89946e778d32",
+        "question": "Which exact hotfix child file and exported class does the direct import target?",
+        "result": "useful",
+        "conclusion": "An exact one-hop target of a checked supply-sphere reference; it is distinct from the scoped PRJ_SimEx_SupplyPouch route."
+      }
+    ],
+    "binding": "research"
+  }
+}

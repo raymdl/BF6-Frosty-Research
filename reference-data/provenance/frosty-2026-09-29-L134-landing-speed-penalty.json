@@ -1,0 +1,257 @@
+{
+  "lead": "L134",
+  "date": "2026-09-29",
+  "status": "reviewed-source-finding",
+  "build": {
+    "release": "1.4.3.0",
+    "archiveHead": 4892017,
+    "descriptorSha256": "91c9ea7c3dd830e34a78123c8bb7485e80eefdb18fc9c7ee41117971d23565c2",
+    "descriptorPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\toolchain\\SharedTypeDescriptors.ebx"
+  },
+  "question": "What named landing-penalty settings does SimEx_OnGround consume, and does the serialized route support a useful landing movement context for weapon/loadout comparison?",
+  "scope": {
+    "expected": 2,
+    "examined": 2,
+    "notes": "Exactly the two release assets named in the brief were traced. GRX_Glacier_Soldier has 272 captured objects; only objects 10, 75, and 126 corresponding to the three exact imported child GUIDs were inspected."
+  },
+  "control": {
+    "description": "The M433 site pointer data/weapons.json:/[id=m433]/recoil/ads/amount is 0.6695. Release GS_HK433 raw f32 at 1084 matched 0.6695; the referenced pinned descriptor path is /Field_c5d1c8fe/Field_6b84de87/Field_22810b21 (RecoilAmount), and the source provenance names the exact registry association GS_HK433.Recoil.Zoomed.RecoilAmount.",
+    "passed": true,
+    "rawChecks": [
+      {
+        "label": "Known-answer control: GS_HK433 ADS recoil amount",
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+        "rawSha256": "66caca0e667d17fdf03f9fb4f620b9c5842aa1fd8de0221128ad4862895eed51",
+        "offset": 1084,
+        "type": "f32",
+        "bytesHex": "5a642b3f",
+        "value": 0.6694999933242798,
+        "expect": 0.6695,
+        "matches": true
+      }
+    ]
+  },
+  "sourceFacts": {
+    "onGroundInputAndResource": {
+      "expressionInputPath": "/Field_ea0047a8/Field_d65d1b09/1/Field_820ec965",
+      "expressionInput": "JumpLandingMovementSpeedPenalty",
+      "nestedVariablePath": "/Field_ea0047a8/Field_470a100b/1/Field_77820947",
+      "nestedVariable": "SimVars_JumpLandingMovementSpeedPenalty",
+      "nestedStateVariables": [
+        "LandingPenaltyProcessed",
+        "LandingPenaltySet"
+      ],
+      "compiledResourceField": "/Field_aa4fa860",
+      "compiledResourceRef": "cc04055a48e4ccad"
+    },
+    "directImports": [
+      {
+        "arrayIndex": 0,
+        "pointerValue": 3,
+        "importIndex": 1,
+        "fileGuid": "bc547f6c-e296-4218-ba9e-c585539862cb",
+        "classGuid": "d6baef49-56c4-45fa-a468-0a40612a18e5",
+        "tableOffset": 4918
+      },
+      {
+        "arrayIndex": 1,
+        "pointerValue": 1,
+        "importIndex": 0,
+        "fileGuid": "bc547f6c-e296-4218-ba9e-c585539862cb",
+        "classGuid": "12e8490b-e460-4237-a453-36c366a2e5f8",
+        "tableOffset": 4886
+      },
+      {
+        "arrayIndex": 2,
+        "pointerValue": 5,
+        "importIndex": 2,
+        "fileGuid": "bc547f6c-e296-4218-ba9e-c585539862cb",
+        "classGuid": "3c09eb6f-0bb9-48f2-8ffd-3e847a0d2d7a",
+        "tableOffset": 4950
+      }
+    ],
+    "registryRawPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Gameplay\\Soldier\\GRX_Glacier_Soldier.ebx",
+    "registryRawSha256": "9b44340483d9af272ef5f0cbda5934ad9a30ff1f055fd3fddc60fc4943e822cc",
+    "settings": [
+      {
+        "name": "Jump_LandingRecovery_IncreasePerSecond",
+        "objectGuid": "d6baef49-56c4-45fa-a468-0a40612a18e5",
+        "objectIndex": 75,
+        "objectByteOffset": 7208,
+        "descriptorClass": "Class_d59e68b9",
+        "localClassKey": "c03e3ff27f5cfebb73c91d2973a7dfc1",
+        "fields": [
+          {
+            "field": "Field_42c8b257",
+            "kind": "f32",
+            "descriptorOffsetWithinObject": 68,
+            "rawOffset": 7276,
+            "bytesHex": "0000003f",
+            "value": 0.5
+          },
+          {
+            "field": "Field_c06d0cbb",
+            "kind": "f32",
+            "descriptorOffsetWithinObject": 72,
+            "rawOffset": 7280,
+            "bytesHex": "00000000",
+            "value": 0.0
+          },
+          {
+            "field": "Field_3ff76ddb",
+            "kind": "f32",
+            "descriptorOffsetWithinObject": 64,
+            "rawOffset": 7272,
+            "bytesHex": "0000a040",
+            "value": 5.0
+          }
+        ]
+      },
+      {
+        "name": "Jump_LandingPenalty_Strength",
+        "objectGuid": "12e8490b-e460-4237-a453-36c366a2e5f8",
+        "objectIndex": 10,
+        "objectByteOffset": 992,
+        "descriptorClass": "Class_d59e68b9",
+        "localClassKey": "c03e3ff27f5cfebb73c91d2973a7dfc1",
+        "fields": [
+          {
+            "field": "Field_42c8b257",
+            "kind": "f32",
+            "descriptorOffsetWithinObject": 68,
+            "rawOffset": 1060,
+            "bytesHex": "00001041",
+            "value": 9.0
+          },
+          {
+            "field": "Field_c06d0cbb",
+            "kind": "f32",
+            "descriptorOffsetWithinObject": 72,
+            "rawOffset": 1064,
+            "bytesHex": "00000000",
+            "value": 0.0
+          },
+          {
+            "field": "Field_3ff76ddb",
+            "kind": "f32",
+            "descriptorOffsetWithinObject": 64,
+            "rawOffset": 1056,
+            "bytesHex": "0000c842",
+            "value": 100.0
+          }
+        ]
+      },
+      {
+        "name": "Jump_LandingPenalty_MinScaleClamp",
+        "objectGuid": "3c09eb6f-0bb9-48f2-8ffd-3e847a0d2d7a",
+        "objectIndex": 126,
+        "objectByteOffset": 12104,
+        "descriptorClass": "Class_d59e68b9",
+        "localClassKey": "c03e3ff27f5cfebb73c91d2973a7dfc1",
+        "fields": [
+          {
+            "field": "Field_42c8b257",
+            "kind": "f32",
+            "descriptorOffsetWithinObject": 68,
+            "rawOffset": 12172,
+            "bytesHex": "0000003f",
+            "value": 0.5
+          },
+          {
+            "field": "Field_c06d0cbb",
+            "kind": "f32",
+            "descriptorOffsetWithinObject": 72,
+            "rawOffset": 12176,
+            "bytesHex": "00000000",
+            "value": 0.0
+          },
+          {
+            "field": "Field_3ff76ddb",
+            "kind": "f32",
+            "descriptorOffsetWithinObject": 64,
+            "rawOffset": 12168,
+            "bytesHex": "0000803f",
+            "value": 1.0
+          }
+        ]
+      }
+    ]
+  },
+  "inference": [
+    "The names support a candidate landing-penalty/recovery/minimum-scale-clamp setting family. That is a names-based inference, not a decoded formula.",
+    "The complete tuples are preserved by field hash. A conventional assignment of Field_42c8b257 to a current setting and Field_c06d0cbb/Field_3ff76ddb to bounds remains an unproven inference.",
+    "The raw numbers do not establish percentages, seconds, speed multipliers, or another player-facing unit.",
+    "The named input and resource-ref presence do not establish formula execution, runtime activation, or a relation to weapon/loadout mobility."
+  ],
+  "unresolved": [
+    "Compiled resource ref cc04055a48e4ccad is an identity token only; the referenced expression body/operator sequence was not decoded.",
+    "Runtime activation and composition of the named input with soldier movement or a weapon/loadout are not established.",
+    "The semantic roles of Field_42c8b257, Field_c06d0cbb, and Field_3ff76ddb are not established by the pinned descriptor. Any current-value or bounds assignment remains inferred.",
+    "Units and player-facing meaning are unresolved; 9.0 is not established as 9 percent, and 0.5 is not established as half a second."
+  ],
+  "siteImpact": "The Analyzer currently compares weapon-level ADS movement speed and sprint recovery. The L134 serialized route does not establish a formula, units, or activation that can turn these soldier setting tuples into a useful numerical loadout comparison. No landing-penalty panel or source context is proposed. No capture requested. Jump/landing numeric inventory is parked after L132 and L134 produced no supported correction or enhancement proposal.",
+  "workerEvidence": {
+    "folder": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T101403-0400-astra\\L134",
+    "resultSha256": "9d9d6fc1a674cc2701d2c0561e7e3fb5a40ac9cbc53205b163b24247b66d8336",
+    "draftReceiptSha256": "25e737bc64a42f66f7e7711026615c10a458105cc508ab094c9d38ffdd46c528",
+    "rawChecks": {
+      "file": "l134-raw-checks.json",
+      "sha256": "c0e87d1a30d2ad22cf15c3fb002762ada86bd211ac44d6ea2574ab80d05dfda9",
+      "scopedCount": 44
+    }
+  },
+  "orchestratorReview": {
+    "helperIssues": [],
+    "scope": "Exactly two assets and GRX children10/75/126; nine candidate float operands, within cap30.",
+    "independentLocalTypeKeyEvidence": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T101403-0400-astra\\orchestrator-grx-offsets.json",
+    "independentRawCheck": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Gameplay\\Soldier\\GRX_Glacier_Soldier.ebx",
+      "rawSha256": "9b44340483d9af272ef5f0cbda5934ad9a30ff1f055fd3fddc60fc4943e822cc",
+      "offset": 1060,
+      "type": "f32",
+      "bytesHex": "00001041",
+      "value": 9.0,
+      "expect": "9",
+      "matches": true
+    },
+    "siteEncodingFiles": [
+      "docs/STAT_LADDERS.md",
+      "sim/applyAttachments.js"
+    ],
+    "classification": "Source finding. Opaque tuple roles and an unexecuted expression do not support a useful numeric mobility panel."
+  },
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-09-29",
+    "build": "1.4.3.0-release",
+    "leads": [
+      {
+        "id": "L134",
+        "title": "Jump-landing movement speed penalty",
+        "status": "finding",
+        "summary": "OnGround directly imports three named landing penalty, clamp and recovery GRX children; nine f32 slots are raw-verified, but roles, units and executed formula remain unresolved.",
+        "reopenWhen": "Reopen when a validated compiled-resource and activation trace establishes the formula, units, and semantic roles of the three f32 fields."
+      }
+    ],
+    "assets": [
+      {
+        "path": "Common/Gameplay/Soldier/Traversal/OnGround/SimEx_OnGround",
+        "format": "raw-ebx",
+        "sha256": "33aef71b5843d0c912491c282c63ccf6cb49bc4e6ce38e1b0ec9653e42361480",
+        "question": "What landing movement input and direct setting imports are serialized in the OnGround consumer?",
+        "result": "useful",
+        "conclusion": "Object 8 directly imports exactly the three specified GRX child GUIDs; object 0 names JumpLandingMovementSpeedPenalty and nested landing state variables, and object 8 contains resource-ref cc04055a48e4ccad. The expression and activation remain unresolved."
+      },
+      {
+        "path": "Common/Gameplay/Soldier/GRX_Glacier_Soldier",
+        "format": "raw-ebx",
+        "sha256": "9b44340483d9af272ef5f0cbda5934ad9a30ff1f055fd3fddc60fc4943e822cc",
+        "question": "What exact serialized settings are the three imported GRX children?",
+        "result": "useful",
+        "conclusion": "Only the three imported exported Class_d59e68b9 children were inspected; their names, GUIDs, and three-f32 field tuples matched raw bytes. Descriptor field roles are not named and are not promoted to semantic values or bounds."
+      }
+    ],
+    "binding": "research"
+  }
+}

@@ -1,0 +1,1502 @@
+{
+  "lead": "L150",
+  "status": "reviewed-proposal",
+  "build": "1.4.3.0-hotfix",
+  "question": "Does the multiplayer Anti-Tank Grenade WB select a projectile blast object with typed damage, radius and falloff values, and how does its selected source profile compare with the already traced Frag Grenade?",
+  "sourceFacts": [
+    {
+      "assetPath": "Common/Hardware/Gadgets/Throwables/AntiTank/AntiTankGrenade_WB",
+      "rawSha256": "0643e46dece1781bc14d80fcfbab193fc70b771622234f0889e6a32a6d8b54ff",
+      "facts": [
+        {
+          "relationship": "The WB object's projectile field imports the PBNS object identified by the matching exported object GUID.",
+          "fieldPath": "object[1].Field_58d70acb.Field_808dd66c",
+          "decodedImport": {
+            "fileGuid": "e7c22bae-9991-4781-9d0f-289b1226fc01",
+            "classGuid": "2c5c15d0-9bbc-4bfb-a86f-b3dcb8c56a5e"
+          },
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer5-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Throwables\\AntiTank\\AntiTankGrenade_WB.ebx",
+              "rawSha256": "0643e46dece1781bc14d80fcfbab193fc70b771622234f0889e6a32a6d8b54ff",
+              "offset": 544,
+              "type": "i32",
+              "bytesHex": "1d000000",
+              "value": 29
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "assetPath": "Common/Hardware/Gadgets/Throwables/AntiTank/PBNS_AntiTankGrenade",
+      "rawSha256": "cfde467bd1e2b92f29f69ec97ed39c39f162187d0a8f542f753b89f43be807fb",
+      "facts": [
+        {
+          "relationship": "PBNS object 1 links to its local object 12, whose descriptor owner is Class_9966532d.",
+          "fieldPath": "object[1].InheritedClass_6761170b.InheritedClass_f8209985.InheritedClass_a8929b61.InheritedClass_990616ac.Field_1f7b3933",
+          "decodedValue": {
+            "$ref": 12
+          },
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\AntiTank\\PBNS_AntiTankGrenade.ebx",
+              "rawSha256": "cfde467bd1e2b92f29f69ec97ed39c39f162187d0a8f542f753b89f43be807fb",
+              "offset": 400,
+              "type": "i32",
+              "bytesHex": "d0060000",
+              "value": 1744
+            }
+          ]
+        },
+        {
+          "fieldPath": "object[12].InheritedClass_d11bf358.Field_95e340fe",
+          "value": 0.75,
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\AntiTank\\PBNS_AntiTankGrenade.ebx",
+              "rawSha256": "cfde467bd1e2b92f29f69ec97ed39c39f162187d0a8f542f753b89f43be807fb",
+              "offset": 2392,
+              "type": "f32",
+              "bytesHex": "0000403f",
+              "value": 0.75
+            }
+          ],
+          "mappedLabel": "InnerBlastRadius",
+          "ownerClass": "Class_9966532d"
+        },
+        {
+          "fieldPath": "object[12].InheritedClass_d11bf358.Field_19861d8c",
+          "value": 50.0,
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\AntiTank\\PBNS_AntiTankGrenade.ebx",
+              "rawSha256": "cfde467bd1e2b92f29f69ec97ed39c39f162187d0a8f542f753b89f43be807fb",
+              "offset": 2400,
+              "type": "f32",
+              "bytesHex": "00004842",
+              "value": 50.0
+            }
+          ],
+          "mappedLabel": "BlastDamage",
+          "ownerClass": "Class_9966532d"
+        },
+        {
+          "fieldPath": "object[12].InheritedClass_d11bf358.Field_33f3a8ab",
+          "value": 1.5,
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\AntiTank\\PBNS_AntiTankGrenade.ebx",
+              "rawSha256": "cfde467bd1e2b92f29f69ec97ed39c39f162187d0a8f542f753b89f43be807fb",
+              "offset": 2416,
+              "type": "f32",
+              "bytesHex": "0000c03f",
+              "value": 1.5
+            }
+          ],
+          "mappedLabel": "BlastRadius",
+          "ownerClass": "Class_9966532d"
+        },
+        {
+          "fieldPath": "object[12].InheritedClass_d11bf358.Field_3ef01f58",
+          "value": 1.0,
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\AntiTank\\PBNS_AntiTankGrenade.ebx",
+              "rawSha256": "cfde467bd1e2b92f29f69ec97ed39c39f162187d0a8f542f753b89f43be807fb",
+              "offset": 2432,
+              "type": "f32",
+              "bytesHex": "0000803f",
+              "value": 1.0
+            }
+          ],
+          "mappedLabel": "ShockwaveDamage",
+          "ownerClass": "Class_9966532d"
+        },
+        {
+          "fieldPath": "object[12].InheritedClass_d11bf358.Field_524836d3",
+          "value": 4.0,
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\AntiTank\\PBNS_AntiTankGrenade.ebx",
+              "rawSha256": "cfde467bd1e2b92f29f69ec97ed39c39f162187d0a8f542f753b89f43be807fb",
+              "offset": 2436,
+              "type": "f32",
+              "bytesHex": "00008040",
+              "value": 4.0
+            }
+          ],
+          "mappedLabel": "ShockwaveRadius",
+          "ownerClass": "Class_9966532d"
+        },
+        {
+          "relationship": "Class_9966532d object 12 has a local link to Class_afbfd124 object 19.",
+          "fieldPath": "object[12].InheritedClass_d11bf358.Field_0df20cb3",
+          "value": {
+            "$ref": 19
+          },
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\AntiTank\\PBNS_AntiTankGrenade.ebx",
+              "rawSha256": "cfde467bd1e2b92f29f69ec97ed39c39f162187d0a8f542f753b89f43be807fb",
+              "offset": 2368,
+              "type": "i32",
+              "bytesHex": "88020000",
+              "value": 648
+            }
+          ],
+          "targetObject": 19,
+          "targetClass": "Class_afbfd124"
+        },
+        {
+          "relationship": "The other serialized link field is null in object 12.",
+          "fieldPath": "object[12].InheritedClass_d11bf358.Field_0839b22b",
+          "value": null,
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\AntiTank\\PBNS_AntiTankGrenade.ebx",
+              "rawSha256": "cfde467bd1e2b92f29f69ec97ed39c39f162187d0a8f542f753b89f43be807fb",
+              "offset": 2384,
+              "type": "i32",
+              "bytesHex": "00000000",
+              "value": 0
+            }
+          ]
+        },
+        {
+          "relationship": "Object 19 contains a four-entry typed array; field roles are not mapped.",
+          "fieldPath": "object[19].Field_edfc6df6",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\AntiTank\\PBNS_AntiTankGrenade.ebx",
+              "rawSha256": "cfde467bd1e2b92f29f69ec97ed39c39f162187d0a8f542f753b89f43be807fb",
+              "offset": 3040,
+              "type": "i32",
+              "bytesHex": "140b0000",
+              "value": 2836
+            }
+          ],
+          "ownerClass": "Class_afbfd124",
+          "entries": [
+            {
+              "index": 0,
+              "members": [
+                {
+                  "field": "Field_3901db14",
+                  "type": "f32",
+                  "value": 0.2,
+                  "rawChecks": [
+                    {
+                      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\AntiTank\\PBNS_AntiTankGrenade.ebx",
+                      "rawSha256": "cfde467bd1e2b92f29f69ec97ed39c39f162187d0a8f542f753b89f43be807fb",
+                      "offset": 5876,
+                      "type": "f32",
+                      "bytesHex": "cdcc4c3e",
+                      "value": 0.20000000298023224
+                    }
+                  ]
+                },
+                {
+                  "field": "Field_42fc0f5e",
+                  "type": "f32",
+                  "value": 1.0,
+                  "rawChecks": [
+                    {
+                      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\AntiTank\\PBNS_AntiTankGrenade.ebx",
+                      "rawSha256": "cfde467bd1e2b92f29f69ec97ed39c39f162187d0a8f542f753b89f43be807fb",
+                      "offset": 5896,
+                      "type": "f32",
+                      "bytesHex": "0000803f",
+                      "value": 1.0
+                    }
+                  ]
+                },
+                {
+                  "field": "Field_0b47f861",
+                  "type": "f32",
+                  "value": -0.1,
+                  "rawChecks": [
+                    {
+                      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\AntiTank\\PBNS_AntiTankGrenade.ebx",
+                      "rawSha256": "cfde467bd1e2b92f29f69ec97ed39c39f162187d0a8f542f753b89f43be807fb",
+                      "offset": 5884,
+                      "type": "f32",
+                      "bytesHex": "ccccccbd",
+                      "value": -0.09999999403953552
+                    }
+                  ]
+                },
+                {
+                  "field": "Field_72439608",
+                  "type": "f32",
+                  "value": 0.0,
+                  "rawChecks": [
+                    {
+                      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\AntiTank\\PBNS_AntiTankGrenade.ebx",
+                      "rawSha256": "cfde467bd1e2b92f29f69ec97ed39c39f162187d0a8f542f753b89f43be807fb",
+                      "offset": 5900,
+                      "type": "f32",
+                      "bytesHex": "00000000",
+                      "value": 0.0
+                    }
+                  ]
+                },
+                {
+                  "field": "Field_44b6bf62",
+                  "type": "f32",
+                  "value": 0.0009,
+                  "rawChecks": [
+                    {
+                      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\AntiTank\\PBNS_AntiTankGrenade.ebx",
+                      "rawSha256": "cfde467bd1e2b92f29f69ec97ed39c39f162187d0a8f542f753b89f43be807fb",
+                      "offset": 5892,
+                      "type": "f32",
+                      "bytesHex": "00ee6b3a",
+                      "value": 0.0009000003337860107
+                    }
+                  ]
+                },
+                {
+                  "field": "Field_6658277c",
+                  "type": "f32",
+                  "value": 0.0,
+                  "rawChecks": [
+                    {
+                      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\AntiTank\\PBNS_AntiTankGrenade.ebx",
+                      "rawSha256": "cfde467bd1e2b92f29f69ec97ed39c39f162187d0a8f542f753b89f43be807fb",
+                      "offset": 5888,
+                      "type": "f32",
+                      "bytesHex": "00000000",
+                      "value": 0.0
+                    }
+                  ]
+                },
+                {
+                  "field": "Field_e6fb9626",
+                  "type": "i32",
+                  "value": 3,
+                  "rawChecks": [
+                    {
+                      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\AntiTank\\PBNS_AntiTankGrenade.ebx",
+                      "rawSha256": "cfde467bd1e2b92f29f69ec97ed39c39f162187d0a8f542f753b89f43be807fb",
+                      "offset": 5880,
+                      "type": "i32",
+                      "bytesHex": "03000000",
+                      "value": 3
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "index": 1,
+              "members": [
+                {
+                  "field": "Field_3901db14",
+                  "type": "f32",
+                  "value": 0.4,
+                  "rawChecks": [
+                    {
+                      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\AntiTank\\PBNS_AntiTankGrenade.ebx",
+                      "rawSha256": "cfde467bd1e2b92f29f69ec97ed39c39f162187d0a8f542f753b89f43be807fb",
+                      "offset": 5904,
+                      "type": "f32",
+                      "bytesHex": "cdcccc3e",
+                      "value": 0.4000000059604645
+                    }
+                  ]
+                },
+                {
+                  "field": "Field_42fc0f5e",
+                  "type": "f32",
+                  "value": 0.625,
+                  "rawChecks": [
+                    {
+                      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\AntiTank\\PBNS_AntiTankGrenade.ebx",
+                      "rawSha256": "cfde467bd1e2b92f29f69ec97ed39c39f162187d0a8f542f753b89f43be807fb",
+                      "offset": 5924,
+                      "type": "f32",
+                      "bytesHex": "0000203f",
+                      "value": 0.625
+                    }
+                  ]
+                },
+                {
+                  "field": "Field_0b47f861",
+                  "type": "f32",
+                  "value": -0.0009,
+                  "rawChecks": [
+                    {
+                      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\AntiTank\\PBNS_AntiTankGrenade.ebx",
+                      "rawSha256": "cfde467bd1e2b92f29f69ec97ed39c39f162187d0a8f542f753b89f43be807fb",
+                      "offset": 5912,
+                      "type": "f32",
+                      "bytesHex": "00ec6bba",
+                      "value": -0.000899970531463623
+                    }
+                  ]
+                },
+                {
+                  "field": "Field_72439608",
+                  "type": "f32",
+                  "value": 0.0,
+                  "rawChecks": [
+                    {
+                      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\AntiTank\\PBNS_AntiTankGrenade.ebx",
+                      "rawSha256": "cfde467bd1e2b92f29f69ec97ed39c39f162187d0a8f542f753b89f43be807fb",
+                      "offset": 5928,
+                      "type": "f32",
+                      "bytesHex": "00000000",
+                      "value": 0.0
+                    }
+                  ]
+                },
+                {
+                  "field": "Field_44b6bf62",
+                  "type": "f32",
+                  "value": 0.0009,
+                  "rawChecks": [
+                    {
+                      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\AntiTank\\PBNS_AntiTankGrenade.ebx",
+                      "rawSha256": "cfde467bd1e2b92f29f69ec97ed39c39f162187d0a8f542f753b89f43be807fb",
+                      "offset": 5920,
+                      "type": "f32",
+                      "bytesHex": "00ee6b3a",
+                      "value": 0.0009000003337860107
+                    }
+                  ]
+                },
+                {
+                  "field": "Field_6658277c",
+                  "type": "f32",
+                  "value": 0.0,
+                  "rawChecks": [
+                    {
+                      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\AntiTank\\PBNS_AntiTankGrenade.ebx",
+                      "rawSha256": "cfde467bd1e2b92f29f69ec97ed39c39f162187d0a8f542f753b89f43be807fb",
+                      "offset": 5916,
+                      "type": "f32",
+                      "bytesHex": "00000000",
+                      "value": 0.0
+                    }
+                  ]
+                },
+                {
+                  "field": "Field_e6fb9626",
+                  "type": "i32",
+                  "value": 3,
+                  "rawChecks": [
+                    {
+                      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\AntiTank\\PBNS_AntiTankGrenade.ebx",
+                      "rawSha256": "cfde467bd1e2b92f29f69ec97ed39c39f162187d0a8f542f753b89f43be807fb",
+                      "offset": 5908,
+                      "type": "i32",
+                      "bytesHex": "03000000",
+                      "value": 3
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "index": 2,
+              "members": [
+                {
+                  "field": "Field_3901db14",
+                  "type": "f32",
+                  "value": 0.8,
+                  "rawChecks": [
+                    {
+                      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\AntiTank\\PBNS_AntiTankGrenade.ebx",
+                      "rawSha256": "cfde467bd1e2b92f29f69ec97ed39c39f162187d0a8f542f753b89f43be807fb",
+                      "offset": 5932,
+                      "type": "f32",
+                      "bytesHex": "cdcc4c3f",
+                      "value": 0.800000011920929
+                    }
+                  ]
+                },
+                {
+                  "field": "Field_42fc0f5e",
+                  "type": "f32",
+                  "value": 0.375,
+                  "rawChecks": [
+                    {
+                      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\AntiTank\\PBNS_AntiTankGrenade.ebx",
+                      "rawSha256": "cfde467bd1e2b92f29f69ec97ed39c39f162187d0a8f542f753b89f43be807fb",
+                      "offset": 5952,
+                      "type": "f32",
+                      "bytesHex": "0000c03e",
+                      "value": 0.375
+                    }
+                  ]
+                },
+                {
+                  "field": "Field_0b47f861",
+                  "type": "f32",
+                  "value": -0.0009,
+                  "rawChecks": [
+                    {
+                      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\AntiTank\\PBNS_AntiTankGrenade.ebx",
+                      "rawSha256": "cfde467bd1e2b92f29f69ec97ed39c39f162187d0a8f542f753b89f43be807fb",
+                      "offset": 5940,
+                      "type": "f32",
+                      "bytesHex": "00f06bba",
+                      "value": -0.0009000301361083984
+                    }
+                  ]
+                },
+                {
+                  "field": "Field_72439608",
+                  "type": "f32",
+                  "value": 0.0,
+                  "rawChecks": [
+                    {
+                      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\AntiTank\\PBNS_AntiTankGrenade.ebx",
+                      "rawSha256": "cfde467bd1e2b92f29f69ec97ed39c39f162187d0a8f542f753b89f43be807fb",
+                      "offset": 5956,
+                      "type": "f32",
+                      "bytesHex": "00000000",
+                      "value": 0.0
+                    }
+                  ]
+                },
+                {
+                  "field": "Field_44b6bf62",
+                  "type": "f32",
+                  "value": 0.0009,
+                  "rawChecks": [
+                    {
+                      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\AntiTank\\PBNS_AntiTankGrenade.ebx",
+                      "rawSha256": "cfde467bd1e2b92f29f69ec97ed39c39f162187d0a8f542f753b89f43be807fb",
+                      "offset": 5948,
+                      "type": "f32",
+                      "bytesHex": "00ec6b3a",
+                      "value": 0.000899970531463623
+                    }
+                  ]
+                },
+                {
+                  "field": "Field_6658277c",
+                  "type": "f32",
+                  "value": 0.0,
+                  "rawChecks": [
+                    {
+                      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\AntiTank\\PBNS_AntiTankGrenade.ebx",
+                      "rawSha256": "cfde467bd1e2b92f29f69ec97ed39c39f162187d0a8f542f753b89f43be807fb",
+                      "offset": 5944,
+                      "type": "f32",
+                      "bytesHex": "00000000",
+                      "value": 0.0
+                    }
+                  ]
+                },
+                {
+                  "field": "Field_e6fb9626",
+                  "type": "i32",
+                  "value": 2,
+                  "rawChecks": [
+                    {
+                      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\AntiTank\\PBNS_AntiTankGrenade.ebx",
+                      "rawSha256": "cfde467bd1e2b92f29f69ec97ed39c39f162187d0a8f542f753b89f43be807fb",
+                      "offset": 5936,
+                      "type": "i32",
+                      "bytesHex": "02000000",
+                      "value": 2
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "index": 3,
+              "members": [
+                {
+                  "field": "Field_3901db14",
+                  "type": "f32",
+                  "value": 1.0,
+                  "rawChecks": [
+                    {
+                      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\AntiTank\\PBNS_AntiTankGrenade.ebx",
+                      "rawSha256": "cfde467bd1e2b92f29f69ec97ed39c39f162187d0a8f542f753b89f43be807fb",
+                      "offset": 5960,
+                      "type": "f32",
+                      "bytesHex": "0000803f",
+                      "value": 1.0
+                    }
+                  ]
+                },
+                {
+                  "field": "Field_42fc0f5e",
+                  "type": "f32",
+                  "value": 0.375,
+                  "rawChecks": [
+                    {
+                      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\AntiTank\\PBNS_AntiTankGrenade.ebx",
+                      "rawSha256": "cfde467bd1e2b92f29f69ec97ed39c39f162187d0a8f542f753b89f43be807fb",
+                      "offset": 5980,
+                      "type": "f32",
+                      "bytesHex": "0000c03e",
+                      "value": 0.375
+                    }
+                  ]
+                },
+                {
+                  "field": "Field_0b47f861",
+                  "type": "f32",
+                  "value": -0.0009,
+                  "rawChecks": [
+                    {
+                      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\AntiTank\\PBNS_AntiTankGrenade.ebx",
+                      "rawSha256": "cfde467bd1e2b92f29f69ec97ed39c39f162187d0a8f542f753b89f43be807fb",
+                      "offset": 5968,
+                      "type": "f32",
+                      "bytesHex": "00ec6bba",
+                      "value": -0.000899970531463623
+                    }
+                  ]
+                },
+                {
+                  "field": "Field_72439608",
+                  "type": "f32",
+                  "value": 0.0,
+                  "rawChecks": [
+                    {
+                      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\AntiTank\\PBNS_AntiTankGrenade.ebx",
+                      "rawSha256": "cfde467bd1e2b92f29f69ec97ed39c39f162187d0a8f542f753b89f43be807fb",
+                      "offset": 5984,
+                      "type": "f32",
+                      "bytesHex": "00000000",
+                      "value": 0.0
+                    }
+                  ]
+                },
+                {
+                  "field": "Field_44b6bf62",
+                  "type": "f32",
+                  "value": 0.100002,
+                  "rawChecks": [
+                    {
+                      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\AntiTank\\PBNS_AntiTankGrenade.ebx",
+                      "rawSha256": "cfde467bd1e2b92f29f69ec97ed39c39f162187d0a8f542f753b89f43be807fb",
+                      "offset": 5976,
+                      "type": "f32",
+                      "bytesHex": "e0cdcc3d",
+                      "value": 0.10000205039978027
+                    }
+                  ]
+                },
+                {
+                  "field": "Field_6658277c",
+                  "type": "f32",
+                  "value": 0.0,
+                  "rawChecks": [
+                    {
+                      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\AntiTank\\PBNS_AntiTankGrenade.ebx",
+                      "rawSha256": "cfde467bd1e2b92f29f69ec97ed39c39f162187d0a8f542f753b89f43be807fb",
+                      "offset": 5972,
+                      "type": "f32",
+                      "bytesHex": "00000000",
+                      "value": 0.0
+                    }
+                  ]
+                },
+                {
+                  "field": "Field_e6fb9626",
+                  "type": "i32",
+                  "value": 0,
+                  "rawChecks": [
+                    {
+                      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\AntiTank\\PBNS_AntiTankGrenade.ebx",
+                      "rawSha256": "cfde467bd1e2b92f29f69ec97ed39c39f162187d0a8f542f753b89f43be807fb",
+                      "offset": 5964,
+                      "type": "i32",
+                      "bytesHex": "00000000",
+                      "value": 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "relationship": "Additional direct scalar fields on object 19; roles are not mapped.",
+          "ownerClass": "Class_afbfd124",
+          "fields": [
+            {
+              "fieldPath": "object[19].Field_69028f32",
+              "value": 0.0,
+              "rawChecks": [
+                {
+                  "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\AntiTank\\PBNS_AntiTankGrenade.ebx",
+                  "rawSha256": "cfde467bd1e2b92f29f69ec97ed39c39f162187d0a8f542f753b89f43be807fb",
+                  "offset": 3052,
+                  "type": "f32",
+                  "bytesHex": "00000000",
+                  "value": 0.0
+                }
+              ]
+            },
+            {
+              "fieldPath": "object[19].Field_5579bb82",
+              "value": 1.0,
+              "rawChecks": [
+                {
+                  "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\AntiTank\\PBNS_AntiTankGrenade.ebx",
+                  "rawSha256": "cfde467bd1e2b92f29f69ec97ed39c39f162187d0a8f542f753b89f43be807fb",
+                  "offset": 3048,
+                  "type": "f32",
+                  "bytesHex": "0000803f",
+                  "value": 1.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "relationship": "PBNS object 29 imports the scoped SimEx asset root by exported GUID.",
+          "fieldPath": "object[29].Field_6e2bdf2b",
+          "value": {
+            "$import": {
+              "fileGuid": "7fb0ad1f-f4bc-4069-b8f4-46b211746bcd",
+              "classGuid": "3c0cf932-240b-48d2-96e3-f90cb74ffd9a"
+            }
+          },
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\AntiTank\\PBNS_AntiTankGrenade.ebx",
+              "rawSha256": "cfde467bd1e2b92f29f69ec97ed39c39f162187d0a8f542f753b89f43be807fb",
+              "offset": 3544,
+              "type": "i32",
+              "bytesHex": "01000000",
+              "value": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "assetPath": "Common/Hardware/Gadgets/Throwables/AntiTank/SimEx_AntiTankExplosionTrigger",
+      "rawSha256": "0df49cd744e99e0b9c15250f427c6da1d99fd34d9af19a5ebc8502c9ebd7ed80",
+      "facts": [
+        {
+          "relationship": "The exported root GUID matches the GUID on PBNS object 29's import.",
+          "fieldPath": "object[0].$guid",
+          "value": "3c0cf932-240b-48d2-96e3-f90cb74ffd9a",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer7-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Throwables\\AntiTank\\SimEx_AntiTankExplosionTrigger.ebx",
+              "rawSha256": "0df49cd744e99e0b9c15250f427c6da1d99fd34d9af19a5ebc8502c9ebd7ed80",
+              "offset": 32,
+              "type": "guid",
+              "bytesHex": "32f90c3c0b24d24896e3f90cb74ffd9a",
+              "value": "3c0cf932-240b-48d2-96e3-f90cb74ffd9a"
+            }
+          ],
+          "ownerClass": "Class_53d7404d"
+        }
+      ]
+    },
+    {
+      "assetPath": "Common/Hardware/Gadgets/Throwables/Frag/PBNS_FragGrenade",
+      "rawSha256": "590cd563923cf67771e78a60287a64673bf64b6f583da3e3a92810772b3e25fb",
+      "basis": "Copied from the reviewed L148 draft receipt; no Frag rescan was performed.",
+      "facts": [
+        {
+          "mappedLabel": "InnerBlastRadius",
+          "value": 1.0,
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Frag\\PBNS_FragGrenade.ebx",
+              "rawSha256": "590cd563923cf67771e78a60287a64673bf64b6f583da3e3a92810772b3e25fb",
+              "offset": 1800,
+              "type": "f32",
+              "bytesHex": "0000803f",
+              "value": 1.0
+            }
+          ]
+        },
+        {
+          "mappedLabel": "BlastDamage",
+          "value": 100.0,
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Frag\\PBNS_FragGrenade.ebx",
+              "rawSha256": "590cd563923cf67771e78a60287a64673bf64b6f583da3e3a92810772b3e25fb",
+              "offset": 1808,
+              "type": "f32",
+              "bytesHex": "0000c842",
+              "value": 100.0
+            }
+          ]
+        },
+        {
+          "mappedLabel": "BlastRadius",
+          "value": 5.0,
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Frag\\PBNS_FragGrenade.ebx",
+              "rawSha256": "590cd563923cf67771e78a60287a64673bf64b6f583da3e3a92810772b3e25fb",
+              "offset": 1824,
+              "type": "f32",
+              "bytesHex": "0000a040",
+              "value": 5.0
+            }
+          ]
+        },
+        {
+          "mappedLabel": "ShockwaveDamage",
+          "value": 1.0,
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Frag\\PBNS_FragGrenade.ebx",
+              "rawSha256": "590cd563923cf67771e78a60287a64673bf64b6f583da3e3a92810772b3e25fb",
+              "offset": 1840,
+              "type": "f32",
+              "bytesHex": "0000803f",
+              "value": 1.0
+            }
+          ]
+        },
+        {
+          "mappedLabel": "ShockwaveRadius",
+          "value": 7.5,
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Frag\\PBNS_FragGrenade.ebx",
+              "rawSha256": "590cd563923cf67771e78a60287a64673bf64b6f583da3e3a92810772b3e25fb",
+              "offset": 1844,
+              "type": "f32",
+              "bytesHex": "0000f040",
+              "value": 7.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "assetPath": "Common/Hardware/Gadgets/Throwables/Frag/FragGrenade_BlastDamageFalloff_Curve",
+      "rawSha256": "d2984f1dae954999676dd329961f0084daab68f471592fbe34d3e01c4c301aa7",
+      "basis": "Copied from the reviewed L148 draft receipt; no Frag rescan was performed.",
+      "falloffPointScalarCount": 14,
+      "pointCount": 7,
+      "mappedMemberLabels": [
+        "CurveDamage",
+        "CurveDistance"
+      ],
+      "facts": [
+        {
+          "group": "falloffPoint",
+          "fieldPath": "object[1]/Field_edfc6df6[0]/Field_3901db14",
+          "field": "Field_3901db14",
+          "mappedLabel": "CurveDistance",
+          "value": 0.0,
+          "type": "f32",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer7-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Throwables\\Frag\\FragGrenade_BlastDamageFalloff_Curve.ebx",
+              "rawSha256": "d2984f1dae954999676dd329961f0084daab68f471592fbe34d3e01c4c301aa7",
+              "offset": 196,
+              "type": "f32",
+              "bytesHex": "00000000",
+              "value": 0.0
+            }
+          ]
+        },
+        {
+          "group": "falloffPoint",
+          "fieldPath": "object[1]/Field_edfc6df6[0]/Field_42fc0f5e",
+          "field": "Field_42fc0f5e",
+          "mappedLabel": "CurveDamage",
+          "value": 1.0,
+          "type": "f32",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer7-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Throwables\\Frag\\FragGrenade_BlastDamageFalloff_Curve.ebx",
+              "rawSha256": "d2984f1dae954999676dd329961f0084daab68f471592fbe34d3e01c4c301aa7",
+              "offset": 216,
+              "type": "f32",
+              "bytesHex": "0000803f",
+              "value": 1.0
+            }
+          ]
+        },
+        {
+          "group": "falloffPoint",
+          "fieldPath": "object[1]/Field_edfc6df6[1]/Field_3901db14",
+          "field": "Field_3901db14",
+          "mappedLabel": "CurveDistance",
+          "value": 0.20000000298023224,
+          "type": "f32",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer7-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Throwables\\Frag\\FragGrenade_BlastDamageFalloff_Curve.ebx",
+              "rawSha256": "d2984f1dae954999676dd329961f0084daab68f471592fbe34d3e01c4c301aa7",
+              "offset": 224,
+              "type": "f32",
+              "bytesHex": "cdcc4c3e",
+              "value": 0.20000000298023224
+            }
+          ]
+        },
+        {
+          "group": "falloffPoint",
+          "fieldPath": "object[1]/Field_edfc6df6[1]/Field_42fc0f5e",
+          "field": "Field_42fc0f5e",
+          "mappedLabel": "CurveDamage",
+          "value": 1.0,
+          "type": "f32",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer7-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Throwables\\Frag\\FragGrenade_BlastDamageFalloff_Curve.ebx",
+              "rawSha256": "d2984f1dae954999676dd329961f0084daab68f471592fbe34d3e01c4c301aa7",
+              "offset": 244,
+              "type": "f32",
+              "bytesHex": "0000803f",
+              "value": 1.0
+            }
+          ]
+        },
+        {
+          "group": "falloffPoint",
+          "fieldPath": "object[1]/Field_edfc6df6[2]/Field_3901db14",
+          "field": "Field_3901db14",
+          "mappedLabel": "CurveDistance",
+          "value": 0.6000000238418579,
+          "type": "f32",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer7-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Throwables\\Frag\\FragGrenade_BlastDamageFalloff_Curve.ebx",
+              "rawSha256": "d2984f1dae954999676dd329961f0084daab68f471592fbe34d3e01c4c301aa7",
+              "offset": 252,
+              "type": "f32",
+              "bytesHex": "9a99193f",
+              "value": 0.6000000238418579
+            }
+          ]
+        },
+        {
+          "group": "falloffPoint",
+          "fieldPath": "object[1]/Field_edfc6df6[2]/Field_42fc0f5e",
+          "field": "Field_42fc0f5e",
+          "mappedLabel": "CurveDamage",
+          "value": 0.800000011920929,
+          "type": "f32",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer7-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Throwables\\Frag\\FragGrenade_BlastDamageFalloff_Curve.ebx",
+              "rawSha256": "d2984f1dae954999676dd329961f0084daab68f471592fbe34d3e01c4c301aa7",
+              "offset": 272,
+              "type": "f32",
+              "bytesHex": "cdcc4c3f",
+              "value": 0.800000011920929
+            }
+          ]
+        },
+        {
+          "group": "falloffPoint",
+          "fieldPath": "object[1]/Field_edfc6df6[3]/Field_3901db14",
+          "field": "Field_3901db14",
+          "mappedLabel": "CurveDistance",
+          "value": 0.6010000109672546,
+          "type": "f32",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer7-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Throwables\\Frag\\FragGrenade_BlastDamageFalloff_Curve.ebx",
+              "rawSha256": "d2984f1dae954999676dd329961f0084daab68f471592fbe34d3e01c4c301aa7",
+              "offset": 280,
+              "type": "f32",
+              "bytesHex": "23db193f",
+              "value": 0.6010000109672546
+            }
+          ]
+        },
+        {
+          "group": "falloffPoint",
+          "fieldPath": "object[1]/Field_edfc6df6[3]/Field_42fc0f5e",
+          "field": "Field_42fc0f5e",
+          "mappedLabel": "CurveDamage",
+          "value": 0.6000000238418579,
+          "type": "f32",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer7-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Throwables\\Frag\\FragGrenade_BlastDamageFalloff_Curve.ebx",
+              "rawSha256": "d2984f1dae954999676dd329961f0084daab68f471592fbe34d3e01c4c301aa7",
+              "offset": 300,
+              "type": "f32",
+              "bytesHex": "9a99193f",
+              "value": 0.6000000238418579
+            }
+          ]
+        },
+        {
+          "group": "falloffPoint",
+          "fieldPath": "object[1]/Field_edfc6df6[4]/Field_3901db14",
+          "field": "Field_3901db14",
+          "mappedLabel": "CurveDistance",
+          "value": 0.7990000247955322,
+          "type": "f32",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer7-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Throwables\\Frag\\FragGrenade_BlastDamageFalloff_Curve.ebx",
+              "rawSha256": "d2984f1dae954999676dd329961f0084daab68f471592fbe34d3e01c4c301aa7",
+              "offset": 308,
+              "type": "f32",
+              "bytesHex": "448b4c3f",
+              "value": 0.7990000247955322
+            }
+          ]
+        },
+        {
+          "group": "falloffPoint",
+          "fieldPath": "object[1]/Field_edfc6df6[4]/Field_42fc0f5e",
+          "field": "Field_42fc0f5e",
+          "mappedLabel": "CurveDamage",
+          "value": 0.4000000059604645,
+          "type": "f32",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer7-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Throwables\\Frag\\FragGrenade_BlastDamageFalloff_Curve.ebx",
+              "rawSha256": "d2984f1dae954999676dd329961f0084daab68f471592fbe34d3e01c4c301aa7",
+              "offset": 328,
+              "type": "f32",
+              "bytesHex": "cdcccc3e",
+              "value": 0.4000000059604645
+            }
+          ]
+        },
+        {
+          "group": "falloffPoint",
+          "fieldPath": "object[1]/Field_edfc6df6[5]/Field_3901db14",
+          "field": "Field_3901db14",
+          "mappedLabel": "CurveDistance",
+          "value": 0.800000011920929,
+          "type": "f32",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer7-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Throwables\\Frag\\FragGrenade_BlastDamageFalloff_Curve.ebx",
+              "rawSha256": "d2984f1dae954999676dd329961f0084daab68f471592fbe34d3e01c4c301aa7",
+              "offset": 336,
+              "type": "f32",
+              "bytesHex": "cdcc4c3f",
+              "value": 0.800000011920929
+            }
+          ]
+        },
+        {
+          "group": "falloffPoint",
+          "fieldPath": "object[1]/Field_edfc6df6[5]/Field_42fc0f5e",
+          "field": "Field_42fc0f5e",
+          "mappedLabel": "CurveDamage",
+          "value": 0.20000000298023224,
+          "type": "f32",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer7-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Throwables\\Frag\\FragGrenade_BlastDamageFalloff_Curve.ebx",
+              "rawSha256": "d2984f1dae954999676dd329961f0084daab68f471592fbe34d3e01c4c301aa7",
+              "offset": 356,
+              "type": "f32",
+              "bytesHex": "cdcc4c3e",
+              "value": 0.20000000298023224
+            }
+          ]
+        },
+        {
+          "group": "falloffPoint",
+          "fieldPath": "object[1]/Field_edfc6df6[6]/Field_3901db14",
+          "field": "Field_3901db14",
+          "mappedLabel": "CurveDistance",
+          "value": 1.0,
+          "type": "f32",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer7-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Throwables\\Frag\\FragGrenade_BlastDamageFalloff_Curve.ebx",
+              "rawSha256": "d2984f1dae954999676dd329961f0084daab68f471592fbe34d3e01c4c301aa7",
+              "offset": 364,
+              "type": "f32",
+              "bytesHex": "0000803f",
+              "value": 1.0
+            }
+          ]
+        },
+        {
+          "group": "falloffPoint",
+          "fieldPath": "object[1]/Field_edfc6df6[6]/Field_42fc0f5e",
+          "field": "Field_42fc0f5e",
+          "mappedLabel": "CurveDamage",
+          "value": 0.20000000298023224,
+          "type": "f32",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer7-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Throwables\\Frag\\FragGrenade_BlastDamageFalloff_Curve.ebx",
+              "rawSha256": "d2984f1dae954999676dd329961f0084daab68f471592fbe34d3e01c4c301aa7",
+              "offset": 384,
+              "type": "f32",
+              "bytesHex": "cdcc4c3e",
+              "value": 0.20000000298023224
+            }
+          ]
+        },
+        {
+          "group": "curveArray",
+          "fieldPath": "object[1]/Field_edfc6df6",
+          "field": "Field_edfc6df6",
+          "mappedLabel": null,
+          "value": 68,
+          "type": "i32",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer7-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Throwables\\Frag\\FragGrenade_BlastDamageFalloff_Curve.ebx",
+              "rawSha256": "d2984f1dae954999676dd329961f0084daab68f471592fbe34d3e01c4c301aa7",
+              "offset": 128,
+              "type": "i32",
+              "bytesHex": "44000000",
+              "value": 68
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "inference": [
+    "The selected Anti-Tank source profile has five mapped Class_9966532d fields. Compared with Frag in L148, the serialized values are lower for InnerBlastRadius (0.75 vs 1), BlastDamage (50 vs 100), BlastRadius (1.5 vs 5), and ShockwaveRadius (4 vs 7.5); ShockwaveDamage is 1 for both. This is a numerical source comparison only.",
+    "Anti-Tank's Class_afbfd124 local child has four typed array entries. The L148 Frag receipt records a different curve asset with seven mapped CurveDistance/CurveDamage points; those labels cannot be transferred to the Anti-Tank owner class."
+  ],
+  "unresolved": [
+    "Class_afbfd124 and the seven Field_edfc6df6 member hashes have no applicable field mapping in the reviewed FIELD_MAP. The four typed records cannot be called falloff distance/damage values, or assigned units or interpolation, from these sources.",
+    "The linked SimEx asset is a serialized import relationship only. The scoped files do not establish trigger activation, damage composition, or runtime use.",
+    "The mapped blast names do not establish physical radius units, effective damage, or how InnerBlastRadius, BlastDamage, BlastRadius, ShockwaveDamage, and ShockwaveRadius combine at runtime.",
+    "The Analyzer site has no gadget data table. A source comparison does not establish a gameplay statistic to display."
+  ],
+  "siteImpact": "Propose an optional Anti-Tank Grenade source-profile comparison beside Frag. Its selected blast object stores mapped BlastDamage 50 and BlastRadius 1.5, compared with Frag 100 and 5. The linked four-row child has no verified distance/damage meaning; do not present falloff or effective gameplay damage until its fields, units and composition are established.",
+  "evidence": {
+    "assets": [
+      {
+        "path": "Common/Hardware/Gadgets/Throwables/AntiTank/AntiTankGrenade_WB",
+        "format": "raw-ebx",
+        "sha256": "0643e46dece1781bc14d80fcfbab193fc70b771622234f0889e6a32a6d8b54ff",
+        "head": 4892087,
+        "question": "Does this scoped Anti-Tank asset take part in the serialized projectile, blast, falloff-child, or explosion-trigger chain?",
+        "result": "useful",
+        "conclusion": "The WB projectile field imports the scoped PBNS object."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Throwables/AntiTank/PBNS_AntiTankGrenade",
+        "format": "raw-ebx",
+        "sha256": "cfde467bd1e2b92f29f69ec97ed39c39f162187d0a8f542f753b89f43be807fb",
+        "head": 4892087,
+        "question": "Does this scoped Anti-Tank asset take part in the serialized projectile, blast, falloff-child, or explosion-trigger chain?",
+        "result": "useful",
+        "conclusion": "The imported PBNS asset links to a Class_9966532d blast object and a local Class_afbfd124 child; the mapped blast values are raw-verified, while the child field roles are unresolved."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Throwables/AntiTank/SimEx_AntiTankExplosionTrigger",
+        "format": "raw-ebx",
+        "sha256": "0df49cd744e99e0b9c15250f427c6da1d99fd34d9af19a5ebc8502c9ebd7ed80",
+        "head": 4892087,
+        "question": "Does this scoped Anti-Tank asset take part in the serialized projectile, blast, falloff-child, or explosion-trigger chain?",
+        "result": "useful",
+        "conclusion": "PBNS object 29 imports this scoped exported root by GUID; activation and runtime composition are not established."
+      }
+    ],
+    "files": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L150\\brief.txt",
+        "sha256": "4f84df67baa03a84341e7bcc723db32c822e6873515e72aeea2a3f5040c426dd"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L150\\lead.txt",
+        "sha256": "cf03f5e2f08cacf7ccd419467439d085607ee46c4c79313053fd9ad5bd5b16b0"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\gadget-roster.json",
+        "sha256": "896875b5a860799e84784a452bac4ea13d3348b7c910e8d47683d9d9559d68c6"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\exhaustive-audit-2026-09-23\\coverage-decoder-v5.sqlite",
+        "sha256": "1fac4aa159b11741943eaf6ae94f64e63928b9fa0f866ca4a1d191897718cf10"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\toolchain\\SharedTypeDescriptors-hotfix-2026-09-16.ebx",
+        "sha256": "99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\docs\\frosty\\FIELD_MAP.md",
+        "sha256": "976db6b19f6e2f4fa6ecd1784d907f1bceb055e1aad8033158412b7a65d20fcb"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\docs\\frosty\\DATA_GRAPH.md",
+        "sha256": "87eee7230c7917ca4f51fc5b9fd678b1b733c07c9e9ffe4dcc5b311e20dd422c"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L148\\draft-receipt.json",
+        "sha256": "09377181bbe29d7de25765bec01c8910d5852851e3a2469874a2a420bbaafac2"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L150\\l150-control-raw.json",
+        "sha256": "5f76caeb1046b7fe3232d00db51f0fca2a89d38e39e15bf225be8de90a6889e8"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L150\\l150-ebx-list.txt",
+        "sha256": "b51c0fe911453bee220e298bb1e26a542ff289adf41b3fd74d344d8010811a58"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L150\\l150-decoded.json",
+        "sha256": "097a307a91314b48bbda6146c9e3f4e8ed27d48bbbbc63b5b31dd9d94add5ce8"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L150\\l150-offset-index.json",
+        "sha256": "0fd422d8d7d7bf763a2c2ad073e3b3613b8489c9732d0b8c5a026b5efe238d3a"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L150\\l150-rawcheck-manifest.json",
+        "sha256": "547d6e5b455aafe1fd6bd05d12c3eee1a103d5b9abbfb35e3abe89a2fec33e92"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L150\\l150-raw-checks.json",
+        "sha256": "76d7048bf8455eec2469cb40e8dd084cf24579cc5c12e7974b184eacbed7daa0"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L150\\l150-verified-fields.json",
+        "sha256": "866d0d5f58a93fc2dbd5b5e78030a39fb15f2d7fa18385490fa140f93fe21846"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-ebx-decode.py",
+        "sha256": "6fdc0334efaee0fe6113b5c9db4973f1358f53ee65dfb94edbc22fb0bf07a727"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+        "sha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-worker.py",
+        "sha256": "91d73d328cfe39862ec882ef02eda665580b28a6da9fa541f7b03d12d755beb2"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-records.py",
+        "sha256": "ffb0e7574ce66779ae5041f4fc55047d0da2f63d917682b527673a75612b734c"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L150\\l150_offsets.py",
+        "sha256": "df4934f65e5876eb33ec350452e51c14cd31541b6ccfea5648c425b599cd0b2b"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L150\\l150_probe.py",
+        "sha256": "9a65c23270438268ed144b2551411dc9fe9601ea765c5608ede3679cc6e90610"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L150\\l150_finalize.py",
+        "sha256": "e2ecdcafdcbbbc350191c906e92c2b530df51afc41491dbce200dfdb3b3892d7"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L150\\l150-result.json",
+        "sha256": "905fc06eeffd68ab0864ad1262a0ab3ad7c067c91a44da596c5151e5aadeeced"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L150\\summary.md",
+        "sha256": "06833ff830c0a333fba0c85fba2013b21183d1881b0cb69ae707e3d1fcb5ce3a"
+      }
+    ],
+    "commands": [
+      {
+        "purpose": "Known-answer control",
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+          "--raw-root",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw",
+          "--path",
+          "Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433",
+          "--offset",
+          "1084",
+          "--type",
+          "f32",
+          "--expect",
+          "0.6695",
+          "--out",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L150\\l150-control-raw.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L150",
+        "helperSha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3",
+        "outputs": [
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L150\\l150-control-raw.json",
+            "sha256": "5f76caeb1046b7fe3232d00db51f0fca2a89d38e39e15bf225be8de90a6889e8"
+          }
+        ]
+      },
+      {
+        "purpose": "Prior-work search",
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-worker.py",
+          "prior-work",
+          "--terms",
+          "AntiTankGrenade_WB",
+          "PBNS_AntiTankGrenade"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L150",
+        "helperSha256": "91d73d328cfe39862ec882ef02eda665580b28a6da9fa541f7b03d12d755beb2",
+        "outputs": [],
+        "note": "Completed before the scoped decode; stdout was empty."
+      },
+      {
+        "purpose": "Pinned capture list from coverage DB",
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "l150_probe.py",
+          "ebx-list"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L150",
+        "helperSha256": "9a65c23270438268ed144b2551411dc9fe9601ea765c5608ede3679cc6e90610",
+        "outputs": [
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L150\\l150-ebx-list.txt",
+            "sha256": "b51c0fe911453bee220e298bb1e26a542ff289adf41b3fd74d344d8010811a58"
+          }
+        ]
+      },
+      {
+        "purpose": "Fresh decode of the three scoped roots",
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-ebx-decode.py",
+          "--descriptors",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\toolchain\\SharedTypeDescriptors-hotfix-2026-09-16.ebx",
+          "--ebx-list",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L150\\l150-ebx-list.txt",
+          "--root",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture",
+          "--out",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L150\\l150-decoded.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L150",
+        "helperSha256": "6fdc0334efaee0fe6113b5c9db4973f1358f53ee65dfb94edbc22fb0bf07a727",
+        "outputs": [
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L150\\l150-decoded.json",
+            "sha256": "097a307a91314b48bbda6146c9e3f4e8ed27d48bbbbc63b5b31dd9d94add5ce8"
+          }
+        ]
+      },
+      {
+        "purpose": "Resolve selected object field offsets",
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "l150_offsets.py",
+          "--out",
+          "l150-offset-index.json",
+          "--manifest",
+          "l150-rawcheck-manifest.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L150",
+        "helperSha256": "df4934f65e5876eb33ec350452e51c14cd31541b6ccfea5648c425b599cd0b2b",
+        "outputs": [
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L150\\l150-offset-index.json",
+            "sha256": "0fd422d8d7d7bf763a2c2ad073e3b3613b8489c9732d0b8c5a026b5efe238d3a"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L150\\l150-rawcheck-manifest.json",
+            "sha256": "547d6e5b455aafe1fd6bd05d12c3eee1a103d5b9abbfb35e3abe89a2fec33e92"
+          }
+        ]
+      },
+      {
+        "purpose": "Raw-check bounded selected fields",
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+          "--manifest",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L150\\l150-rawcheck-manifest.json",
+          "--out",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L150\\l150-raw-checks.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L150",
+        "helperSha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3",
+        "outputs": [
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L150\\l150-raw-checks.json",
+            "sha256": "76d7048bf8455eec2469cb40e8dd084cf24579cc5c12e7974b184eacbed7daa0"
+          }
+        ]
+      },
+      {
+        "purpose": "Merge fresh typed decode and raw checks",
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "l150_probe.py",
+          "merge-checks",
+          "--out",
+          "l150-verified-fields.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L150",
+        "helperSha256": "9a65c23270438268ed144b2551411dc9fe9601ea765c5608ede3679cc6e90610",
+        "outputs": [
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L150\\l150-verified-fields.json",
+            "sha256": "866d0d5f58a93fc2dbd5b5e78030a39fb15f2d7fa18385490fa140f93fe21846"
+          }
+        ]
+      },
+      {
+        "purpose": "Read receipt schema",
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-records.py",
+          "schema"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L150",
+        "helperSha256": "ffb0e7574ce66779ae5041f4fc55047d0da2f63d917682b527673a75612b734c",
+        "outputs": []
+      },
+      {
+        "purpose": "Write lead-local result and summary",
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "l150_finalize.py",
+          "build"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L150",
+        "helperSha256": "cc45624b871f401f484aed6d8659ef64d485f05288a29d8ac2f3445a8132f598",
+        "outputs": [
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L150\\l150-result.json",
+            "sha256": "905fc06eeffd68ab0864ad1262a0ab3ad7c067c91a44da596c5151e5aadeeced"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L150\\summary.md",
+            "sha256": "06833ff830c0a333fba0c85fba2013b21183d1881b0cb69ae707e3d1fcb5ce3a"
+          }
+        ]
+      },
+      {
+        "purpose": "Initial receipt check (schema correction required)",
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-records.py",
+          "check-receipt",
+          "draft-receipt.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L150",
+        "helperSha256": "ffb0e7574ce66779ae5041f4fc55047d0da2f63d917682b527673a75612b734c",
+        "outputs": [],
+        "note": "Reported three unknown head keys in record.assets; those keys were removed before the final check."
+      },
+      {
+        "purpose": "Remove unsupported record asset keys and update helper evidence",
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "l150_finalize.py",
+          "fix-receipt"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L150",
+        "helperSha256": "7450e70cb89800e1db29d46780ba2fd2f813f1b2291da07cf9a31dfe36c85031",
+        "outputs": [
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L150\\draft-receipt.json",
+            "sha256": "faa05868c817f9c96c0451ce0af45884d1c12b0cf61061f0fe73dd22fabd7473"
+          }
+        ],
+        "note": "This was the first receipt correction output; the draft was subsequently checked and retained."
+      },
+      {
+        "purpose": "Check final draft receipt",
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-records.py",
+          "check-receipt",
+          "draft-receipt.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L150",
+        "helperSha256": "ffb0e7574ce66779ae5041f4fc55047d0da2f63d917682b527673a75612b734c",
+        "outputs": []
+      },
+      {
+        "purpose": "Update lead-local progress after the receipt check passed",
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "l150_finalize.py",
+          "mark-checked"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L150",
+        "helperSha256": "e2ecdcafdcbbbc350191c906e92c2b530df51afc41491dbce200dfdb3b3892d7",
+        "outputs": [
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L150\\progress.md",
+            "sha256": "45af0da2e784cba2a54eaf0ade76fd161820ee923662fe8f25e6f139ec04db06"
+          }
+        ]
+      }
+    ],
+    "rawCheckCount": 42,
+    "rawCheckFailures": 0,
+    "note": "All 42 scoped raw reads passed their type and offset extraction checks. The release known-answer control matched 0.6695. The draft receipt cannot contain its own SHA-256; report that hash outside the receipt."
+  },
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-09-29",
+    "build": "1.4.3.0-hotfix",
+    "leads": [
+      {
+        "id": "L150",
+        "title": "Anti-Tank Grenade blast profile versus Frag",
+        "status": "proposal",
+        "summary": "The selected Anti-Tank Grenade blast object stores mapped BlastDamage 50 and BlastRadius 1.5, supporting a conditional source-profile comparison with Frag; its four-row child and runtime damage remain unresolved.",
+        "reopenWhen": "Map the linked Class_afbfd124 rows and validate units and effective damage composition before implementing a full Anti-Tank Grenade comparison."
+      }
+    ],
+    "assets": [
+      {
+        "path": "Common/Hardware/Gadgets/Throwables/AntiTank/AntiTankGrenade_WB",
+        "format": "raw-ebx",
+        "sha256": "0643e46dece1781bc14d80fcfbab193fc70b771622234f0889e6a32a6d8b54ff",
+        "question": "Does this scoped Anti-Tank asset take part in the serialized projectile, blast, falloff-child, or explosion-trigger chain?",
+        "result": "useful",
+        "conclusion": "The WB projectile field imports the scoped PBNS object."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Throwables/AntiTank/PBNS_AntiTankGrenade",
+        "format": "raw-ebx",
+        "sha256": "cfde467bd1e2b92f29f69ec97ed39c39f162187d0a8f542f753b89f43be807fb",
+        "question": "Does this scoped Anti-Tank asset take part in the serialized projectile, blast, falloff-child, or explosion-trigger chain?",
+        "result": "useful",
+        "conclusion": "The imported PBNS asset links to a Class_9966532d blast object and a local Class_afbfd124 child; the mapped blast values are raw-verified, while the child field roles are unresolved."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Throwables/AntiTank/SimEx_AntiTankExplosionTrigger",
+        "format": "raw-ebx",
+        "sha256": "0df49cd744e99e0b9c15250f427c6da1d99fd34d9af19a5ebc8502c9ebd7ed80",
+        "question": "Does this scoped Anti-Tank asset take part in the serialized projectile, blast, falloff-child, or explosion-trigger chain?",
+        "result": "useful",
+        "conclusion": "PBNS object 29 imports this scoped exported root by GUID; activation and runtime composition are not established."
+      }
+    ],
+    "binding": "research"
+  },
+  "orchestratorReview": {
+    "reviewIssues": 0,
+    "scope": "3/3 fixed roots; selected blast child counted within PBNS owner",
+    "independentRawChecks": [
+      {
+        "route": "Common/Hardware/Gadgets/Throwables/AntiTank/PBNS_AntiTankGrenade",
+        "offset": 2400,
+        "type": "f32",
+        "bytesHex": "00004842",
+        "value": 50.0,
+        "rawSha256": "cfde467bd1e2b92f29f69ec97ed39c39f162187d0a8f542f753b89f43be807fb"
+      },
+      {
+        "route": "Common/Hardware/Gadgets/Throwables/AntiTank/PBNS_AntiTankGrenade",
+        "offset": 2416,
+        "type": "f32",
+        "bytesHex": "0000c03f",
+        "value": 1.5,
+        "rawSha256": "cfde467bd1e2b92f29f69ec97ed39c39f162187d0a8f542f753b89f43be807fb"
+      }
+    ],
+    "classification": "Conditional mapped scalar source-profile proposal; four-row child semantics and runtime composition unresolved."
+  }
+}

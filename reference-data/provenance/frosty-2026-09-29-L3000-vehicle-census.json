@@ -1,0 +1,300 @@
+{
+  "lead": "L3000",
+  "status": "complete",
+  "build": "mixed",
+  "question": "Complete vehicle family/root population and capture availability",
+  "sourceFacts": [
+    {
+      "finding": "6847 namespace catalog entries; 41 family/candidate rows; 46 roots; 38 blueprint families.",
+      "rawChecks": [
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\M4A1\\M4A1_WB.ebx",
+          "rawSha256": "622dff6f877e798cd5d38a6bb5cf09b0b19a44dfaf81b2d43a270b1c1b7e1ac9",
+          "offset": 1728,
+          "type": "i32",
+          "bytesHex": "1f000000",
+          "value": 31
+        }
+      ]
+    },
+    {
+      "finding": "AH64E identity confirmed from captured DB row with verified raw hash",
+      "capture": {
+        "id": 58736,
+        "route": "Common/Hardware/Vehicles/Helicopter/AH64E/VB_VEH_Helicopter_AH64E",
+        "raw_path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer2-2026-09-23\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\AH64E\\VB_VEH_Helicopter_AH64E.ebx",
+        "head": 4892087,
+        "descriptor_path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\toolchain\\SharedTypeDescriptors-hotfix-2026-09-16.ebx",
+        "descriptor_sha256": "99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640",
+        "raw_sha256": "371300af99eab2e9b4bef53cec964bdf7edbcb0ef55c6c426eb963c72c2fa555",
+        "header_status": "ok",
+        "decode_status": "decoded-provisional",
+        "error": null,
+        "object_count": 155,
+        "root_class": "Class_b057bb60",
+        "warnings_json": "{\"$layoutAmbiguous\":54}",
+        "decoder_sha256": "893e919a576fc2cb0b53b4792cdc71534ea32cba37b0833c6061e7f70dfca558"
+      }
+    },
+    {
+      "finding": "Full manifest name/root scan retains two outside-namespace non-gadget root candidates; neither is automatically excluded for mode or Art prefix.",
+      "rows": [
+        {
+          "path": "Game/GlacierGranite/Gamemodes/GM_BattleRoyale/Missions/Mission_DataUpload/VB_VEH_SignalDecryption_Antenna",
+          "catalogIdentity": {
+            "route": "Game/GlacierGranite/Gamemodes/GM_BattleRoyale/Missions/Mission_DataUpload/VB_VEH_SignalDecryption_Antenna",
+            "route_key": "game/glaciergranite/gamemodes/gm_battleroyale/missions/mission_dataupload/vb_veh_signaldecryption_antenna",
+            "file_guid": "4ada71d5-9771-4b7a-88ce-b4cdd67a8e45",
+            "catalog_sha1": "6bb5297548637c9b88e16e31ce9c28099350b7ca",
+            "catalog_type": null,
+            "original_bytes": 21250,
+            "scope": "unclassified",
+            "review_status": "pending",
+            "prior_finding_count": 0
+          },
+          "captures": [],
+          "role": "unresolved-world-objective-or-vehicle-system",
+          "disposition": "retained-candidate-no-exclusion",
+          "unsupportedGap": "No captured raw or typed owner in local decoder DB; catalog identity alone does not establish functional role."
+        },
+        {
+          "path": "Game/GlacierSP/Levels/DSUB_SP_Assault/_Art/VehicleProps/VB_VEH_Tank_Abrams_ULR_Prop",
+          "catalogIdentity": {
+            "route": "Game/GlacierSP/Levels/DSUB_SP_Assault/_Art/VehicleProps/VB_VEH_Tank_Abrams_ULR_Prop",
+            "route_key": "game/glaciersp/levels/dsub_sp_assault/_art/vehicleprops/vb_veh_tank_abrams_ulr_prop",
+            "file_guid": "49af89ce-a106-11ef-b84d-e0d879637228",
+            "catalog_sha1": "e4bd4efa02ccc20fc539d3af7a6b0ac10cf7205d",
+            "catalog_type": null,
+            "original_bytes": 1272,
+            "scope": "unclassified",
+            "review_status": "pending",
+            "prior_finding_count": 0
+          },
+          "captures": [],
+          "role": "unresolved-prop-role",
+          "disposition": "retained-candidate-no-exclusion",
+          "unsupportedGap": "No captured raw or typed owner in local decoder DB; catalog identity alone does not establish functional role."
+        }
+      ]
+    }
+  ],
+  "inference": [],
+  "unresolved": [
+    "Source captures have provisional decoder warnings; inventory is not functional interpretation or runtime proof.",
+    "C17 and MD530 have no functional VB roots in the scoped catalog; retain their artwork/model candidates. Cheetah has functional reference roots but no VB root.",
+    "Art/skin directory names are not positive cosmetic proof. No formal cosmetic exclusion is asserted; all such routes remain unreviewed candidates outside functional worker scope.",
+    "Civilian or mode-specific semantics cannot be assigned from family names alone.",
+    "Raw capture rows outside the two allowed Head/descriptor pairs are retained as unsupported evidence, not joined.",
+    "Outside namespace: signal-decryption antenna and Abrams ULR prop remain exact catalog candidates; local typed/source captures unavailable. Functional classification is unresolved."
+  ],
+  "siteImpact": "Research supports future vehicle pages. No current weapons/attachments change.",
+  "evidence": [
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T2025-0400-vehicles\\L3000R\\typed-control.json",
+      "sha256": "ff27703155cc3b80978c0d9d46a86b2e7520e4d28dc7d3c6f40ce43fb92d8da7"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T2025-0400-vehicles\\L3000R\\control-raw.json",
+      "sha256": "6c347d606753b3fe0f2997213adbf1601fcd653b7c13b8c6066759c0839f7659"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T2025-0400-vehicles\\L3000R\\ah64e-control.json",
+      "sha256": "733880c6dbcc76980bb2d37a277202903bc61e7b52a1719ad36ad151a1ef9bda"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T2025-0400-vehicles\\L3000R\\vehicle-census.json",
+      "sha256": "a875bbf4f447748be7b14cb7dab8e95c71e63355c7911f0313176224bcbb8f9d"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T2025-0400-vehicles\\L3000R\\vehicle-capture-availability.json",
+      "sha256": "cdf65627356c1ee30752cd7fc8b23561e5a5e1e2358994256571c8524a5258c3"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T2025-0400-vehicles\\L3000R\\vehicle-loadout-availability.json",
+      "sha256": "1758ce84ec0e170c94eea7d64d1d717a6058606170857863d92c2e1c0f8eee56"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\catalog\\ebx_manifest.csv",
+      "sha256": "ba698b619bb180595bdb5f28d76bf90dbdcfeb5f0435cfb94f3fbf0429097ba2"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-ebx-decode.py",
+      "sha256": "6fdc0334efaee0fe6113b5c9db4973f1358f53ee65dfb94edbc22fb0bf07a727"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+      "sha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3"
+    },
+    {
+      "commands": [
+        {
+          "argv": [
+            "python",
+            "census.py"
+          ],
+          "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T2025-0400-vehicles\\L3000R"
+        },
+        {
+          "argv": [
+            "python",
+            "roots.py"
+          ],
+          "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T2025-0400-vehicles\\L3000R"
+        },
+        {
+          "argv": [
+            "python",
+            "catalog-review.py"
+          ],
+          "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T2025-0400-vehicles\\L3000R"
+        },
+        {
+          "argv": [
+            "python",
+            "shared.py"
+          ],
+          "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T2025-0400-vehicles\\L3000R"
+        },
+        {
+          "argv": [
+            "python",
+            "outside.py"
+          ],
+          "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T2025-0400-vehicles\\L3000R"
+        },
+        {
+          "argv": [
+            "python",
+            "review-dispositions.py"
+          ],
+          "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T2025-0400-vehicles\\L3000R"
+        },
+        {
+          "argv": [
+            "python",
+            "finish-census.py"
+          ],
+          "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T2025-0400-vehicles\\L3000R"
+        },
+        {
+          "argv": [
+            "python",
+            "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+            "--path",
+            "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\M4A1\\M4A1_WB.ebx",
+            "--offset",
+            "1728",
+            "--type",
+            "i32",
+            "--expect",
+            "31",
+            "--out",
+            "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T2025-0400-vehicles\\L3000R\\control-raw.json"
+          ],
+          "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T2025-0400-vehicles\\L3000R"
+        }
+      ],
+      "helperRevisions": [
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T2025-0400-vehicles\\L3000R\\catalog-review.py",
+          "sha256": "eb0c9af0e17e84439ca7abdd813d5fa387d4cc5e4ab304a5832c9dcef93c86c4"
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T2025-0400-vehicles\\L3000R\\census.py",
+          "sha256": "e53e6d9097af9ae92b0be162d9f8158d2941f7014a55347af7d13dbe8edd6f0e"
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T2025-0400-vehicles\\L3000R\\finish-census.py",
+          "sha256": "8eae1544c800e978edaea639dc2e0db478df709a7f5895a4af036e8423e5c58e"
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T2025-0400-vehicles\\L3000R\\outside.py",
+          "sha256": "4ce3c234c771268183beaa5bf4c932a5776e870e83b0d94e6239c36eac0de746"
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T2025-0400-vehicles\\L3000R\\review-dispositions.py",
+          "sha256": "9ec766a78ded366ae2c0ddf5b7ffc3d59d9e83b3ea91a9f9923898af1b3901d3"
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T2025-0400-vehicles\\L3000R\\roots.py",
+          "sha256": "778688ec342b7522c8590be385c12e213623d07c11772e2c2803d40c6a8180bd"
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T2025-0400-vehicles\\L3000R\\shared.py",
+          "sha256": "d88e40088a5f2ae797faf148f87b919658b26560ca80113f54696a8866ea60ec"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T2025-0400-vehicles\\L3000R\\vehicle-census-v2.json",
+      "sha256": "dab88bdcdded254613ad4811327e84cae0eef34ccb5253218d4ba8632e6138b9"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T2025-0400-vehicles\\L3000R\\outside-expanded-candidates-v2.json",
+      "sha256": "fc2afd5c1bde7d983c7554ed4669d98f71e47323dfd38b4ee5c134d38ec76868"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T2025-0400-vehicles\\L3000R\\outside-blueprint-captures.json",
+      "sha256": "1ff1d5d161d402075714b607479c0ed49732cad18d93d075954020e26cf4f800"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T2025-0400-vehicles\\L3000R\\gadget-vehicle-boundary.json",
+      "sha256": "6d5a75f857c5e47ab42933034d081d224bc4b1ad59f1712f82b176fad8ab38c0"
+    },
+    {
+      "commands": [
+        {
+          "argv": [
+            "python",
+            "outside-review.py"
+          ],
+          "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T2025-0400-vehicles\\L3000R"
+        },
+        {
+          "argv": [
+            "python",
+            "amend-outside.py"
+          ],
+          "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T2025-0400-vehicles\\L3000R"
+        }
+      ],
+      "helperRevisions": [
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T2025-0400-vehicles\\L3000R\\outside-review.py",
+          "sha256": "ca7fb037e9eddf59643f2936cf5bbfe0f37b4ea1e08bc5a48ba588ff79fbe1ed"
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T2025-0400-vehicles\\L3000R\\amend-outside.py",
+          "sha256": "049a6ff6a7fb9907a25a7d116357f471ccfa4a6a3e289aaa57e08576be8781e7"
+        }
+      ],
+      "historyNote": "Earlier read-only exploratory commands were not logged to a file; tool-call transcript is the available command history. No unrecorded command is represented as a rerun."
+    }
+  ],
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-09-29",
+    "build": "mixed",
+    "binding": "research",
+    "leads": [
+      {
+        "id": "L3000",
+        "title": "Vehicle functional census and capture availability",
+        "status": "finding",
+        "summary": "Catalog census retains 41 family/candidate rows and 46 functional blueprint roots with separate capture Head identities.",
+        "reopenWhen": "Trace fixed family groups; verify cosmetic roles and unresolved mode availability separately."
+      }
+    ],
+    "assets": [
+      {
+        "path": "Common/Hardware/Vehicles/Helicopter/AH64E/VB_VEH_Helicopter_AH64E",
+        "format": "raw-ebx",
+        "sha256": "371300af99eab2e9b4bef53cec964bdf7edbcb0ef55c6c426eb963c72c2fa555",
+        "question": "Catalog identity control",
+        "result": "useful",
+        "conclusion": "Exact catalog route is captured at hotfix Head4892087; raw hash agrees."
+      }
+    ]
+  }
+}

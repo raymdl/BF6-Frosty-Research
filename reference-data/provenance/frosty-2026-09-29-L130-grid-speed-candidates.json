@@ -1,0 +1,568 @@
+{
+  "lead": "L130",
+  "status": "complete",
+  "build": "1.4.3.0-release",
+  "question": "Do the nine BelowSpeedModifier objects in the retained release MP_Abbasid material grid connect to primary projectile damage or penetration and support a velocity-conditioned comparison at range?",
+  "sourceFacts": [
+    {
+      "fact": "Corrected AK-205 raw control: packed u32, primary WB protection index, and two bounded grid f32 reads reproduce the site values.",
+      "rawChecks": [
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_545x39mm_Carbine.ebx",
+          "rawSha256": "61358f220b743e14da577792c74417acca7b18d6a1075370e9c1a62a95013fab",
+          "offset": 384,
+          "type": "u32",
+          "bytesHex": "80254011",
+          "value": 289416576
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\AK205\\AK205_WB.ebx",
+          "rawSha256": "e25be21eceb3690e45a15fa53c60724ce5d87fc5269f6c535286b101972d35af",
+          "offset": 640,
+          "type": "i32",
+          "bytesHex": "0b000000",
+          "value": 11
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\game\\glaciermp\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+          "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+          "offset": 9575464,
+          "type": "f32",
+          "bytesHex": "3333b33f",
+          "value": 1.399999976158142
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\game\\glaciermp\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+          "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+          "offset": 9629500,
+          "type": "f32",
+          "bytesHex": "3d0a573f",
+          "value": 0.8399999737739563
+        }
+      ]
+    },
+    {
+      "fact": "Exactly nine objects were selected by descriptor identity; each local classRef, opaque 24-byte prefix, and two direct f32 values were raw-checked.",
+      "rawCheckEvidence": {
+        "path": "l130-object-raw-check.json",
+        "sha256": "c2d8eb0f1979df34620a580fb44b6b43cda74b78bd51edbc7e032e1da1a576d6",
+        "count": 36
+      }
+    },
+    {
+      "fact": "Only the six fixed primary routes were followed through WB Shot, projectile payload, and packed MaterialDecl; route operands were raw-checked.",
+      "rawCheckEvidence": {
+        "path": "l130-primary-raw-check.json",
+        "sha256": "9cb21f0f33d627ac922284cea1770fc3ec1636ae613cf7ddefc176b2fafe9b67",
+        "count": 18
+      }
+    }
+  ],
+  "inference": "This bounded source trace did not establish a connection from the nine objects to any of the six permitted primary projectile MaterialDecl routes. Type name and scalar values do not establish field semantics or runtime use.",
+  "unresolved": [
+    "The frozen ClassGuids.txt needed to map field hashes 52bf99dc and d160f72c to names was not present in the mounted source, research, build/report, or toolchain paths checked.",
+    "Field names, units, threshold direction, and damage or penetration semantics are unresolved.",
+    "The inherited 24-byte prefix has no decoded field layout; no meaning is assigned to its bytes.",
+    "Runtime activation, threshold comparison, damage or penetration application, and composition are not established.",
+    "No association to the six selected primary projectiles was established within this bounded route; other weapons, ammo, maps, and routes are outside scope."
+  ],
+  "siteImpact": "No velocity-conditioned comparison at range or operator enhancement is supported. The six scoped primary projectiles resolve to MaterialDecl upper-12 IDs 276, 277, 498, 290, 784, and 279, but no direct connection from those routes to the nine objects was established. This does not establish global absence or runtime behavior.",
+  "evidence": {
+    "commandHistory": "Earlier interactive command transcript unavailable. Artifact-producing argv entries below are reconstructed from saved scripts/manifests and do not claim a rerun during finalization; secondary read-only previews are omitted.",
+    "sources": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-material-grid-inventory-1.4.3.0-2026-09-15.json",
+        "sha256": "7c36efa4d4772a539e06ae674ebe96b42546c2df31335a4c751c6b58c59e6fa8"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\toolchain\\SharedTypeDescriptors.ebx",
+        "sha256": "91c9ea7c3dd830e34a78123c8bb7485e80eefdb18fc9c7ee41117971d23565c2"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\game\\glaciermp\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+        "sha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T085343-0400-astra\\weapon-crosswalk.json",
+        "sha256": "9c4479057a20d0ebc6d091140a70a0227b6b9184db26e4fadee674da18df2e76"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-hit-zones-2026-09-15.json",
+        "sha256": "eb67585bae08c714145912ad44ba4bbc543d6c947f5ddf007b39501a86a6d3c9"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer\\data\\ballistics.json",
+        "sha256": "d149293cddf25daa0ac65db41acfe170e3d6aaa3b240c3e10979304d90658054"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer\\data\\hit_zones.json",
+        "sha256": "674faccf63d883cfac5be7c33ac194cc4bbd2ca4af1e3db1620c4885ed3a7132"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\AK205\\AK205_WB.ebx",
+        "sha256": "e25be21eceb3690e45a15fa53c60724ce5d87fc5269f6c535286b101972d35af"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_545x39mm_Carbine.ebx",
+        "sha256": "61358f220b743e14da577792c74417acca7b18d6a1075370e9c1a62a95013fab"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\HK433_WB.ebx",
+        "sha256": "c02751eac2b054343a2a115dff8f2000bc450548c96185445cd7c3b613030e0a"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_556x45mmNATO.ebx",
+        "sha256": "b95a26a37f7483d024a3b6cc12edf4e1484be4fa1ecd1792b59b7038338921ed"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\M39EMR\\M39EMR_WB.ebx",
+        "sha256": "872425191e616c7b2073a4563f0b5478b5bdcad1371dbe3f604b547920123d4e"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_762x51mmNATO_Semi.ebx",
+        "sha256": "10a09dddbd6a251b9101a8aade261c57f572626c71698f2e6a62be9821a4ac6e"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\BoltAction\\M2010ESR\\M2010ESR_WB.ebx",
+        "sha256": "39bd961b4e1462ee812d5b5ddb3722daa52e36601dce36bbf79f2c84a044f3ff"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_.300WinMag.ebx",
+        "sha256": "a654e9001d8d953286df4d749967e26258f6414b8c86d6c4c7fc4da52626ff56"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\BoltAction\\DesertTechHTI\\DesertTechHTI_WB.ebx",
+        "sha256": "f6c269d06a65c296bbc03f0accd09d314ad1987f31d0fa08c4de9b9b70b2e889"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_.416Barrett.ebx",
+        "sha256": "5d685e3cf48356429f42a0d1504146a2f1658f306a2a20427455150909bf371d"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Shotgun\\DP12\\DP12_WB.ebx",
+        "sha256": "dc00487d9baab7bbf1d52b7e6f643e953644cd305f504035663cd47db2bfdf2d"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_12gaNo01Buck275_Pump.ebx",
+        "sha256": "5f9b7a055279331e84dc6800cc9c9377aa842ec1e59107baf3ad1920685d985c"
+      }
+    ],
+    "helpers": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T085343-0400-astra\\L130\\l130_control.py",
+        "sha256": "79115cbfa3e4aa8d94d2124989f26443324e1ba91c3048bd6a6eb85eaae792f2"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T085343-0400-astra\\L130\\l130_correct_manifest.py",
+        "sha256": "d18caf8441ba5d23e09af9ca0687f154a1934e0f74c74032f70372bff4cbd8c9"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T085343-0400-astra\\L130\\l130_extract_objects.py",
+        "sha256": "b7d99df57411e1a7464a695d2e291fe5990ecbacc2cda737358feadb5225f95f"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T085343-0400-astra\\L130\\l130_primary_probe_v5.py",
+        "sha256": "337420893ee66dc49d11820189245635db005299ed0f5f91bfc0b30283893622"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-hit-zones.py",
+        "sha256": "adea0ec5f07f190e7225151894f22aee32565d14c549a4aac773b68d2a8182b9"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+        "sha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-ebx-decode.py",
+        "sha256": "6fdc0334efaee0fe6113b5c9db4973f1358f53ee65dfb94edbc22fb0bf07a727"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-worker.py",
+        "sha256": "91d73d328cfe39862ec882ef02eda665580b28a6da9fa541f7b03d12d755beb2"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-records.py",
+        "sha256": "ffb0e7574ce66779ae5041f4fc55047d0da2f63d917682b527673a75612b734c"
+      }
+    ],
+    "outputs": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T085343-0400-astra\\L130\\l130-control-manifest.json",
+        "sha256": "e3041d697cc6bde277f42961484c045b45c504d6ba696265f3ebb463948a0bd4"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T085343-0400-astra\\L130\\l130-control-raw-check.json",
+        "sha256": "37526f1b0fa7feb7dab868bfecbc839bf0a82d11cb6532cef1834ada77623ad5"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T085343-0400-astra\\L130\\l130-control-manifest-v2.json",
+        "sha256": "63207f49f5a47b4260bf3fd71be7efcd90ba537702c701387eb424e74d0ae469"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T085343-0400-astra\\L130\\l130-control-raw-check-v2.json",
+        "sha256": "a86899d21202597517da4748a72de5f0ff055f08b6bca31aa5f250012f18bec3"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T085343-0400-astra\\L130\\l130-objects-extracted.json",
+        "sha256": "f491b16ab6244f637c7132438a55a653ae6f80bc9f7b04287b826b0fc4f0607d"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T085343-0400-astra\\L130\\l130-object-raw-check-manifest.json",
+        "sha256": "1b4cdd9888c09768bd61c09c9191de15a02b1f17af6018a394bb169eef4db8b8"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T085343-0400-astra\\L130\\l130-object-raw-check.json",
+        "sha256": "c2d8eb0f1979df34620a580fb44b6b43cda74b78bd51edbc7e032e1da1a576d6"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T085343-0400-astra\\L130\\l130-primary-join-probe.json",
+        "sha256": "496ba63101680c0a24fbbd22ba1308ded5817a9dbcd42a2a930b25efa8253e20"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T085343-0400-astra\\L130\\l130-primary-raw-check-manifest.json",
+        "sha256": "91581f77d5552d1beeba8134c2a0c78cf3ee9c842cc80bc4f6bfd26be4d132fa"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T085343-0400-astra\\L130\\l130-primary-raw-check.json",
+        "sha256": "9cb21f0f33d627ac922284cea1770fc3ec1636ae613cf7ddefc176b2fafe9b67"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T085343-0400-astra\\L130\\l130-ak205-wb-decoded.json",
+        "sha256": "dd0fc047c8083e8844ce4ab50a9cd6753e8ca6f29bc9ce03975ce99d39b6c021"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T085343-0400-astra\\L130\\l130-result.json",
+        "sha256": "7917873bf46f574f4072a156855b3dbe588069f605979cc4a2386707d90db096"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T085343-0400-astra\\L130\\summary.md",
+        "sha256": "5c85fac4601d5d82e43a2153aff7401134e386aa51b99f8166831f496ae36711"
+      }
+    ],
+    "commands": [
+      {
+        "argv": [
+          "python",
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-worker.py",
+          "prior-work",
+          "--terms",
+          "BelowSpeedModifier"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T085343-0400-astra\\L130",
+        "outputs": [],
+        "reconstructed": true
+      },
+      {
+        "argv": [
+          "python",
+          "l130_control.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T085343-0400-astra\\L130",
+        "outputs": [
+          "l130-control-manifest.json"
+        ],
+        "reconstructed": true
+      },
+      {
+        "argv": [
+          "python",
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+          "--manifest",
+          "l130-control-manifest.json",
+          "--out",
+          "l130-control-raw-check.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T085343-0400-astra\\L130",
+        "outputs": [
+          "l130-control-raw-check.json"
+        ],
+        "reconstructed": true,
+        "result": "failed incorrect packed-u32 expectation"
+      },
+      {
+        "argv": [
+          "python",
+          "l130_correct_manifest.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T085343-0400-astra\\L130",
+        "outputs": [
+          "l130-control-manifest-v2.json"
+        ],
+        "reconstructed": true
+      },
+      {
+        "argv": [
+          "python",
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+          "--manifest",
+          "l130-control-manifest-v2.json",
+          "--out",
+          "l130-control-raw-check-v2.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T085343-0400-astra\\L130",
+        "outputs": [
+          "l130-control-raw-check-v2.json"
+        ],
+        "reconstructed": true,
+        "result": "4/4 passed"
+      },
+      {
+        "argv": [
+          "python",
+          "l130_extract_objects.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T085343-0400-astra\\L130",
+        "outputs": [
+          "l130-objects-extracted.json",
+          "l130-object-raw-check-manifest.json"
+        ],
+        "reconstructed": true
+      },
+      {
+        "argv": [
+          "python",
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+          "--manifest",
+          "l130-object-raw-check-manifest.json",
+          "--out",
+          "l130-object-raw-check.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T085343-0400-astra\\L130",
+        "outputs": [
+          "l130-object-raw-check.json"
+        ],
+        "reconstructed": true,
+        "result": "36/36 passed"
+      },
+      {
+        "argv": [
+          "python",
+          "l130_primary_probe_v5.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T085343-0400-astra\\L130",
+        "outputs": [
+          "l130-primary-join-probe.json",
+          "l130-primary-raw-check-manifest.json"
+        ],
+        "reconstructed": true
+      },
+      {
+        "argv": [
+          "python",
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+          "--manifest",
+          "l130-primary-raw-check-manifest.json",
+          "--out",
+          "l130-primary-raw-check.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T085343-0400-astra\\L130",
+        "outputs": [
+          "l130-primary-raw-check.json"
+        ],
+        "reconstructed": true,
+        "result": "18/18 passed"
+      },
+      {
+        "argv": [
+          "python",
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-records.py",
+          "schema"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T085343-0400-astra\\L130",
+        "outputs": [],
+        "reconstructed": false
+      },
+      {
+        "argv": [
+          "python",
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+          "--help"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T085343-0400-astra\\L130",
+        "outputs": [],
+        "reconstructed": false
+      },
+      {
+        "argv": [
+          "python",
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-ebx-decode.py",
+          "--help"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T085343-0400-astra\\L130",
+        "outputs": [],
+        "reconstructed": false
+      }
+    ]
+  },
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-09-29",
+    "build": "1.4.3.0-release",
+    "leads": [
+      {
+        "id": "L130",
+        "title": "Velocity-conditioned material modifiers",
+        "status": "finding",
+        "summary": "Nine Abbasid speed-labeled objects yield two unnamed f32 fields each; the six fixed primary routes establish no direct connection, so no range comparison follows.",
+        "reopenWhen": "Reopen for a concrete pinned-release primary-projectile association and consuming method that identify the fields and a comparison result."
+      }
+    ],
+    "assets": [
+      {
+        "path": "Game/GlacierMP/levels/mp_abbasid/mp_abbasid/materialgrid_win32",
+        "format": "raw-ebx",
+        "sha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+        "question": "Do the nine pinned BelowSpeedModifier objects and their direct fields occur in this grid?",
+        "result": "useful",
+        "conclusion": "Nine objects were selected and raw-checked; inventory records zero direct grid-cell occurrences. Effective direct fields are two unnamed f32 scalars."
+      },
+      {
+        "path": "Common/Hardware/Weapons/Carbine/AK205/AK205_WB",
+        "format": "raw-ebx",
+        "sha256": "e25be21eceb3690e45a15fa53c60724ce5d87fc5269f6c535286b101972d35af",
+        "question": "Which primary Shot projectile is selected for ak205?",
+        "result": "useful",
+        "conclusion": "The bounded Shot field points to Common/Hardware/Weapons/_Bullets/PD_545x39mm_Carbine; it does not connect this route to the nine objects."
+      },
+      {
+        "path": "Common/Hardware/Weapons/_Bullets/PD_545x39mm_Carbine",
+        "format": "raw-ebx",
+        "sha256": "61358f220b743e14da577792c74417acca7b18d6a1075370e9c1a62a95013fab",
+        "question": "What packed MaterialDecl value is on the primary projectile for ak205?",
+        "result": "useful",
+        "conclusion": "Packed value 0x11402580 has upper-12 ID 276; no direct association to the nine objects was established."
+      },
+      {
+        "path": "Common/Hardware/Weapons/AssaultRifle/HK433/HK433_WB",
+        "format": "raw-ebx",
+        "sha256": "c02751eac2b054343a2a115dff8f2000bc450548c96185445cd7c3b613030e0a",
+        "question": "Which primary Shot projectile is selected for m433?",
+        "result": "useful",
+        "conclusion": "The bounded Shot field points to Common/Hardware/Weapons/_Bullets/PD_556x45mmNATO; it does not connect this route to the nine objects."
+      },
+      {
+        "path": "Common/Hardware/Weapons/_Bullets/PD_556x45mmNATO",
+        "format": "raw-ebx",
+        "sha256": "b95a26a37f7483d024a3b6cc12edf4e1484be4fa1ecd1792b59b7038338921ed",
+        "question": "What packed MaterialDecl value is on the primary projectile for m433?",
+        "result": "useful",
+        "conclusion": "Packed value 0x11502580 has upper-12 ID 277; no direct association to the nine objects was established."
+      },
+      {
+        "path": "Common/Hardware/Weapons/DMR/M39EMR/M39EMR_WB",
+        "format": "raw-ebx",
+        "sha256": "872425191e616c7b2073a4563f0b5478b5bdcad1371dbe3f604b547920123d4e",
+        "question": "Which primary Shot projectile is selected for m39emr?",
+        "result": "useful",
+        "conclusion": "The bounded Shot field points to Common/Hardware/Weapons/_Bullets/PD_762x51mmNATO_Semi; it does not connect this route to the nine objects."
+      },
+      {
+        "path": "Common/Hardware/Weapons/_Bullets/PD_762x51mmNATO_Semi",
+        "format": "raw-ebx",
+        "sha256": "10a09dddbd6a251b9101a8aade261c57f572626c71698f2e6a62be9821a4ac6e",
+        "question": "What packed MaterialDecl value is on the primary projectile for m39emr?",
+        "result": "useful",
+        "conclusion": "Packed value 0x1f202680 has upper-12 ID 498; no direct association to the nine objects was established."
+      },
+      {
+        "path": "Common/Hardware/Weapons/BoltAction/M2010ESR/M2010ESR_WB",
+        "format": "raw-ebx",
+        "sha256": "39bd961b4e1462ee812d5b5ddb3722daa52e36601dce36bbf79f2c84a044f3ff",
+        "question": "Which primary Shot projectile is selected for m2010esr?",
+        "result": "useful",
+        "conclusion": "The bounded Shot field points to Common/Hardware/Weapons/_Bullets/PD_.300WinMag; it does not connect this route to the nine objects."
+      },
+      {
+        "path": "Common/Hardware/Weapons/_Bullets/PD_.300WinMag",
+        "format": "raw-ebx",
+        "sha256": "a654e9001d8d953286df4d749967e26258f6414b8c86d6c4c7fc4da52626ff56",
+        "question": "What packed MaterialDecl value is on the primary projectile for m2010esr?",
+        "result": "useful",
+        "conclusion": "Packed value 0x12202680 has upper-12 ID 290; no direct association to the nine objects was established."
+      },
+      {
+        "path": "Common/Hardware/Weapons/BoltAction/DesertTechHTI/DesertTechHTI_WB",
+        "format": "raw-ebx",
+        "sha256": "f6c269d06a65c296bbc03f0accd09d314ad1987f31d0fa08c4de9b9b70b2e889",
+        "question": "Which primary Shot projectile is selected for interdictor?",
+        "result": "useful",
+        "conclusion": "The bounded Shot field points to Common/Hardware/Weapons/_Bullets/PD_.416Barrett; it does not connect this route to the nine objects."
+      },
+      {
+        "path": "Common/Hardware/Weapons/_Bullets/PD_.416Barrett",
+        "format": "raw-ebx",
+        "sha256": "5d685e3cf48356429f42a0d1504146a2f1658f306a2a20427455150909bf371d",
+        "question": "What packed MaterialDecl value is on the primary projectile for interdictor?",
+        "result": "useful",
+        "conclusion": "Packed value 0x31005180 has upper-12 ID 784; no direct association to the nine objects was established."
+      },
+      {
+        "path": "Common/Hardware/Weapons/Shotgun/DP12/DP12_WB",
+        "format": "raw-ebx",
+        "sha256": "dc00487d9baab7bbf1d52b7e6f643e953644cd305f504035663cd47db2bfdf2d",
+        "question": "Which primary Shot projectile is selected for db12?",
+        "result": "useful",
+        "conclusion": "The bounded Shot field points to Common/Hardware/Weapons/_Bullets/PD_12gaNo01Buck275_Pump; it does not connect this route to the nine objects."
+      },
+      {
+        "path": "Common/Hardware/Weapons/_Bullets/PD_12gaNo01Buck275_Pump",
+        "format": "raw-ebx",
+        "sha256": "5f9b7a055279331e84dc6800cc9c9377aa842ec1e59107baf3ad1920685d985c",
+        "question": "What packed MaterialDecl value is on the primary projectile for db12?",
+        "result": "useful",
+        "conclusion": "Packed value 0x1170f380 has upper-12 ID 279; no direct association to the nine objects was established."
+      }
+    ],
+    "site": [
+      {
+        "pointer": "data/hit_zones.json:/weapons/ak205/headshot",
+        "value": 1.4,
+        "relation": "supports"
+      },
+      {
+        "pointer": "data/hit_zones.json:/weapons/ak205/limb",
+        "value": 0.84,
+        "relation": "supports"
+      },
+      {
+        "pointer": "data/ballistics.json:/weapons/ak205/base",
+        "value": "Common/Hardware/Weapons/_Bullets/PD_545x39mm_Carbine",
+        "relation": "context"
+      },
+      {
+        "pointer": "data/ballistics.json:/weapons/m433/base",
+        "value": "Common/Hardware/Weapons/_Bullets/PD_556x45mmNATO",
+        "relation": "context"
+      },
+      {
+        "pointer": "data/ballistics.json:/weapons/m39emr/base",
+        "value": "Common/Hardware/Weapons/_Bullets/PD_762x51mmNATO_Semi",
+        "relation": "context"
+      },
+      {
+        "pointer": "data/ballistics.json:/weapons/m2010esr/base",
+        "value": "Common/Hardware/Weapons/_Bullets/PD_.300WinMag",
+        "relation": "context"
+      },
+      {
+        "pointer": "data/ballistics.json:/weapons/interdictor/base",
+        "value": "Common/Hardware/Weapons/_Bullets/PD_.416Barrett",
+        "relation": "context"
+      },
+      {
+        "pointer": "data/ballistics.json:/weapons/db12/base",
+        "value": "Common/Hardware/Weapons/_Bullets/PD_12gaNo01Buck275_Pump",
+        "relation": "context"
+      }
+    ],
+    "binding": "research"
+  },
+  "orchestratorReview": {
+    "resultReview": "Review passed with no issues; 9/9 objects, 36 object checks, 18 fixed-primary route checks, corrected control 4/4. Two f32 fields per object; inherited prefix opaque.",
+    "rawCheck": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T085343-0400-astra\\L130\\orchestrator-raw-check.json",
+    "rawCheckSha256": "6f3bbbbc1a158fe2a3e72b5606696c49d8c84133e29f513003dead150867fa25",
+    "siteEncoding": "Current ballistic calculation uses projectile speed/drag/gravity and source damage/hit-zone tables; these candidate fields provide no typed primary connection or velocity-conditioned damage calculation.",
+    "decision": "Finding within fixed direct-object/material route. No global absence/inactivity claim, site correction/proposal or capture. L128/L130 close grid line under two-lead drift rule."
+  }
+}

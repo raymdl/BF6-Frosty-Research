@@ -1,0 +1,45 @@
+{
+  "date": "2026-09-29",
+  "title": "StanceChangePenalties crouch/stand leaf join",
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-09-29",
+    "build": "1.4.3.0-release",
+    "leads": [
+      {
+        "id": "L124",
+        "title": "StanceChangePenalties crouch/stand leaf join",
+        "status": "finding",
+        "summary": "The 24 StanceChangePenalties leaves are elements of a 200-slot array (Field_fc724c05, 16 bytes per element) indexed 10 x from + to for Stand=0, Crouch=1, Prone=2, plus 100 for Zoomed; the sixteen directly named leaves fix that rule, so the eight crouch/stand leaves are exact (StandToCrouch at index 1/101, CrouchToStand at 10/110) and both directions hold identical values on all 63 weapons (0.3 s; 1.0 degree unzoomed with 0.2 and 0.5 exceptions, 0.2 degree zoomed), so the L120 values stand.",
+        "reopenWhen": "Reopen if a later build changes the array length or index rule.",
+        "statusNote": "Exact index join (29 Sep)"
+      }
+    ],
+    "binding": "research",
+    "assets": [
+      {
+        "path": "Common/Hardware/Weapons/AssaultRifle/HK433/GS_HK433",
+        "format": "raw-ebx",
+        "sha256": "66caca0e667d17fdf03f9fb4f620b9c5842aa1fd8de0221128ad4862895eed51",
+        "question": "Where do the eight crouch/stand StanceChangePenalties leaves sit in the GS array?",
+        "result": "useful",
+        "conclusion": "Element size is 16 bytes: CrouchToProne (index 12) MinAngleOffset 6.0 at offset 3216; CrouchToStand (index 10) 1.0 degree / 0.3 s at 3184/3188 and StandToCrouch (index 1) 1.0 / 0.3 at 3040/3044; zoomed indices 110 and 101 hold 0.2 degree / 0.3 s at 4784/4788 and 4640/4644."
+      }
+    ]
+  },
+  "lead": "L124",
+  "question": "Are the eight crouch/stand StanceChangePenalties leaves exactly joined to their array slots, and do L120 values change?",
+  "sourceFacts": [
+    "Inventory pointers /Field_fc724c05/<index>/{Field_ed10e827 Duration, Field_7ce404e6 MinAngleOffset}: the array has 200 slots on every GS; the sixteen directly named leaves sit at 12, 21, 20, 2 (unzoomed) and 112, 121, 120, 102 (zoomed): index = 10 x from + to, Stand 0, Crouch 1, Prone 2, +100 zoomed.",
+    "Registry name pairs for the crouch/stand leaves point at /Field_fc724c05/10 (CrouchToStand) and /1 (StandToCrouch), and the zoomed +100 slots.",
+    "Raw re-reads on GS_HK433 (scripts/frosty-raw-check.py, f32): StandToCrouch MinAngleOffset 3040=1.0; StandToCrouch Duration 3044=0.3; CrouchToStand MinAngleOffset 3184=1.0; CrouchToStand Duration 3188=0.3; Zoomed StandToCrouch MinAngleOffset 4640=0.2; Zoomed StandToCrouch Duration 4644=0.3; Zoomed CrouchToStand MinAngleOffset 4784=0.2; Zoomed CrouchToStand Duration 4788=0.3; CrouchToProne MinAngleOffset 3216=6.0; CrouchToProne Duration 3220=0.9",
+    "Across the 63 site weapons, slots 1 and 10 hold identical (Duration, MinAngleOffset) pairs, as do 101 and 110; the only other nonzero slots belong to KSG (not a site weapon)."
+  ],
+  "inference": "The eight crouch/stand leaves are exactly joined by the index rule; L120 read index 1 for both directions, which is harmless because both directions are equal. The L120 control offset 4640 is Zoomed StandToCrouch (index 101), not CrouchToStand (index 110 at 4784).",
+  "unresolved": [
+    "Runtime meaning of the transitions and how they compose with the static spread minima."
+  ],
+  "siteImpact": "None; removes the \"candidate mapping\" caveat from the L120 proposal.",
+  "workers": "none (answered directly by the orchestrator)"
+}

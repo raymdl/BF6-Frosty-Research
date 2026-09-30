@@ -1,0 +1,602 @@
+{
+  "lead": "L133",
+  "date": "2026-09-29",
+  "status": "reviewed-source-finding",
+  "build": {
+    "release": "1.4.3.0",
+    "archiveHead": 4892017,
+    "descriptorSha256": "91c9ea7c3dd830e34a78123c8bb7485e80eefdb18fc9c7ee41117971d23565c2",
+    "descriptorPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\toolchain\\SharedTypeDescriptors.ebx"
+  },
+  "question": "Do four captured zoom-controller profiles plus their default/input context provide a source-backed optic-dependent aiming-input or sensitivity comparison that the Analyzer does not show?",
+  "scope": {
+    "worker": {
+      "expected": 7,
+      "examined": 7,
+      "notes": [
+        "Exactly six aiming-controller roots and the one Cam_Var_JoystickSensitivity root were examined at release Head 4892017.",
+        "Exactly six direct target assets were decoded: DefaultBase, the four Zoom_x PiP assets, and SoldierZoomSensitivity. Other root-imported option bodies were not followed.",
+        "The four per-tier OptionSoldierZoomSensitivity assets are represented only by exact pointer identities and release catalog capture metadata. Their bodies were not read by this worker.",
+        "The numeric-value cap was respected; the only reported scalar is the known-answer control. Raw import-pointer words are included as pointer evidence."
+      ]
+    },
+    "orchestratorSupplement": "Exactly four referenced second-hop option bodies, one object each, reused from the pinned decoder DB; four file hashes checked and first option Field_8cf424e7 independently raw-read."
+  },
+  "control": {
+    "description": "Known-answer control: data/weapons.json:/[id=m433]/recoil/ads/amount = 0.6695; verify the release GS_HK433 serialized source route before using the scoped decoder.",
+    "passed": true,
+    "rawChecks": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+        "rawSha256": "66caca0e667d17fdf03f9fb4f620b9c5842aa1fd8de0221128ad4862895eed51",
+        "offset": 1084,
+        "type": "f32",
+        "bytesHex": "5a642b3f",
+        "value": 0.6694999933242798,
+        "field": "GS_HK433.Recoil.Zoomed.RecoilAmount"
+      }
+    ],
+    "descriptorPath": "/Field_c5d1c8fe/Field_6b84de87/Field_22810b21",
+    "registryAssociationSource": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-09-29-L127-camera-idle-spring.json",
+    "registryAssociationSha256": "14f7c822c106e2162cc97459974bb8b5e6e88c82395897007b3f4d61a0ea465a"
+  },
+  "sourceFacts": {
+    "controllers": [
+      {
+        "asset": "Common/Gameplay/AimingControllers/WeaponsGadgets/Aim_01x00_PiP",
+        "rawPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Gameplay\\AimingControllers\\WeaponsGadgets\\Aim_01x00_PiP.ebx",
+        "rawSha256": "7a337859a9a24b4e56fb7ca1c280b52385c39671609c7f452177bf85f94849c6",
+        "serializedOwner": {
+          "objectIndex": 1,
+          "localClassRef": 1,
+          "typeKey": "b58758fc564ce2838c0af0c83417b1ff",
+          "descriptorHash": "e312e661",
+          "descriptorIndex": 2148,
+          "objectGuid": "a3b19754-275d-423a-ad63-cda6abfec451",
+          "field58InLayout": []
+        },
+        "perTierSensitivityOptionReference": {
+          "zoomAssetRoute": "Common/Hardware/Weapons/_ZoomLevels/Zoom_01x00_PiP",
+          "optionRoute": "Common/GameSetup/Options/Input/OptionSoldierZoomSensitivity1x00",
+          "fileGuid": "fe693c0e-476f-449b-9ba8-b4af9a88afc5",
+          "objectClassGuid": "1b430bc4-63ca-49c1-b0b2-1e3f7cd0e19d",
+          "releaseCaptureMetadata": {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\GameSetup\\Options\\Input\\OptionSoldierZoomSensitivity1x00.ebx",
+            "rawSha256": "3f29f76f2d6b3f55230781c0b4ed57caa33b81da6084686980890ebc76f8131b",
+            "head": 4892017,
+            "descriptorSha256": "91c9ea7c3dd830e34a78123c8bb7485e80eefdb18fc9c7ee41117971d23565c2",
+            "decodeStatusInDb": "decoded",
+            "readByThisWorker": false
+          },
+          "basis": "catalog metadata joined from the exact raw Field_58cc4905 import file GUID; no per-tier option body was read by this worker."
+        }
+      },
+      {
+        "asset": "Common/Gameplay/AimingControllers/WeaponsGadgets/Aim_02x00_PiP",
+        "rawPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Gameplay\\AimingControllers\\WeaponsGadgets\\Aim_02x00_PiP.ebx",
+        "rawSha256": "f73e90098f65fa1f032711d731adf441f2b830dbc9f36f382a779cb2b8d719fe",
+        "serializedOwner": {
+          "objectIndex": 1,
+          "localClassRef": 1,
+          "typeKey": "b58758fc564ce2838c0af0c83417b1ff",
+          "descriptorHash": "e312e661",
+          "descriptorIndex": 2148,
+          "objectGuid": "64cb3f10-852a-45de-b9de-f8087dc1b559",
+          "field58InLayout": []
+        },
+        "perTierSensitivityOptionReference": {
+          "zoomAssetRoute": "Common/Hardware/Weapons/_ZoomLevels/Zoom_02x00_PiP",
+          "optionRoute": "Common/GameSetup/Options/Input/OptionSoldierZoomSensitivity2x00",
+          "fileGuid": "357b3877-e162-49b7-8a68-5a40b254acc9",
+          "objectClassGuid": "0ac37312-4c8b-4325-95c2-58ec4bce64f8",
+          "releaseCaptureMetadata": {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\GameSetup\\Options\\Input\\OptionSoldierZoomSensitivity2x00.ebx",
+            "rawSha256": "ea733e37c716a1ad00f18dbb8aa957c6db4c30d3da518658771860a603755acf",
+            "head": 4892017,
+            "descriptorSha256": "91c9ea7c3dd830e34a78123c8bb7485e80eefdb18fc9c7ee41117971d23565c2",
+            "decodeStatusInDb": "decoded",
+            "readByThisWorker": false
+          },
+          "basis": "catalog metadata joined from the exact raw Field_58cc4905 import file GUID; no per-tier option body was read by this worker."
+        }
+      },
+      {
+        "asset": "Common/Gameplay/AimingControllers/WeaponsGadgets/Aim_04x00_PiP",
+        "rawPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Gameplay\\AimingControllers\\WeaponsGadgets\\Aim_04x00_PiP.ebx",
+        "rawSha256": "4b7b40e01fbab7f227c2c83f75a6043359e7071ba8d7410a482a0c9304ca8d73",
+        "serializedOwner": {
+          "objectIndex": 1,
+          "localClassRef": 1,
+          "typeKey": "b58758fc564ce2838c0af0c83417b1ff",
+          "descriptorHash": "e312e661",
+          "descriptorIndex": 2148,
+          "objectGuid": "28a94aec-3018-4376-87b9-c2e680540c24",
+          "field58InLayout": []
+        },
+        "perTierSensitivityOptionReference": {
+          "zoomAssetRoute": "Common/Hardware/Weapons/_ZoomLevels/Zoom_04x00_PiP",
+          "optionRoute": "Common/GameSetup/Options/Input/OptionSoldierZoomSensitivity4x00",
+          "fileGuid": "60289acf-b435-475a-a5f4-fd981fcc3e84",
+          "objectClassGuid": "ae7b50b5-3608-4c95-80dc-4c10a3576301",
+          "releaseCaptureMetadata": {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\GameSetup\\Options\\Input\\OptionSoldierZoomSensitivity4x00.ebx",
+            "rawSha256": "ded2cc03e43ac0adf222d61bc4d8ca14d96a9b4b69feb518e0792a0f2c0b0040",
+            "head": 4892017,
+            "descriptorSha256": "91c9ea7c3dd830e34a78123c8bb7485e80eefdb18fc9c7ee41117971d23565c2",
+            "decodeStatusInDb": "decoded",
+            "readByThisWorker": false
+          },
+          "basis": "catalog metadata joined from the exact raw Field_58cc4905 import file GUID; no per-tier option body was read by this worker."
+        }
+      },
+      {
+        "asset": "Common/Gameplay/AimingControllers/WeaponsGadgets/Aim_10x00_PiP",
+        "rawPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Gameplay\\AimingControllers\\WeaponsGadgets\\Aim_10x00_PiP.ebx",
+        "rawSha256": "5c7a925f62ddf00245d142868ce050c02b796753c9a778fde719973ffb116ee5",
+        "serializedOwner": {
+          "objectIndex": 1,
+          "localClassRef": 1,
+          "typeKey": "b58758fc564ce2838c0af0c83417b1ff",
+          "descriptorHash": "e312e661",
+          "descriptorIndex": 2148,
+          "objectGuid": "3300ba42-3327-4c2a-9dfb-3c1cd09073db",
+          "field58InLayout": []
+        },
+        "perTierSensitivityOptionReference": {
+          "zoomAssetRoute": "Common/Hardware/Weapons/_ZoomLevels/Zoom_10x00_PiP",
+          "optionRoute": "Common/GameSetup/Options/Input/OptionSoldierZoomSensitivity10x00",
+          "fileGuid": "37f7b1f1-c525-4cc0-85bc-01a8512251cd",
+          "objectClassGuid": "b5b302d0-b321-4865-9c6a-46ecc91876a8",
+          "releaseCaptureMetadata": {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\GameSetup\\Options\\Input\\OptionSoldierZoomSensitivity10x00.ebx",
+            "rawSha256": "f29b786df8b2b49d15c373fbaa2e253e208e978047ba909cdccc920924403325",
+            "head": 4892017,
+            "descriptorSha256": "91c9ea7c3dd830e34a78123c8bb7485e80eefdb18fc9c7ee41117971d23565c2",
+            "decodeStatusInDb": "decoded",
+            "readByThisWorker": false
+          },
+          "basis": "catalog metadata joined from the exact raw Field_58cc4905 import file GUID; no per-tier option body was read by this worker."
+        }
+      },
+      {
+        "asset": "Common/Gameplay/AimingControllers/WeaponsGadgets/Aim_Default_NoZoom",
+        "rawPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Gameplay\\AimingControllers\\WeaponsGadgets\\Aim_Default_NoZoom.ebx",
+        "rawSha256": "6ba9e310d1d934f541133422a6bb7836f6f32d65e521ae9d544566d5c261da7c",
+        "serializedOwner": {
+          "objectIndex": 1,
+          "localClassRef": 1,
+          "typeKey": "b58758fc564ce2838c0af0c83417b1ff",
+          "descriptorHash": "e312e661",
+          "descriptorIndex": 2148,
+          "objectGuid": "67ed3f83-ac6a-4ecf-a0da-5af8bfb014cc",
+          "field58InLayout": []
+        },
+        "perTierSensitivityOptionReference": null
+      },
+      {
+        "asset": "Common/Gameplay/AimingControllers/WeaponsGadgets/Aim_NoZoom",
+        "rawPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Gameplay\\AimingControllers\\WeaponsGadgets\\Aim_NoZoom.ebx",
+        "rawSha256": "f6318b13f59ef2c4f4778c25462870786ee264e5267436dbc8b99fde4cec5ff9",
+        "serializedOwner": {
+          "objectIndex": 1,
+          "localClassRef": 1,
+          "typeKey": "b58758fc564ce2838c0af0c83417b1ff",
+          "descriptorHash": "e312e661",
+          "descriptorIndex": 2148,
+          "objectGuid": "0c3b11f9-2c36-4ac1-954a-345929c2b472",
+          "field58InLayout": []
+        },
+        "perTierSensitivityOptionReference": null
+      }
+    ],
+    "sharedRootOptions": [
+      {
+        "fieldHash": "Field_3f28d4e9",
+        "fileGuid": "4abe3f18-64ad-4055-b4e7-6bd82046610a",
+        "classGuid": "84a03042-b4a5-424f-b557-9d8d4e5bd9fb",
+        "catalogRoute": "Common/GameSetup/Options/Input/SoldierZoomSensitivity",
+        "targetCaptureFollowed": true,
+        "note": "Serialized import reference; target catalog route identifies the asset path, not its effective setting rule."
+      },
+      {
+        "fieldHash": "Field_992f675e",
+        "fileGuid": "2ed7895d-b448-4d18-82f0-3db0e8f8f1f8",
+        "classGuid": "330cea98-a03a-4665-a461-132a9d07850c",
+        "catalogRoute": "Common/GameSetup/Options/Input/OptionUniformSoldierAimingCoefficient",
+        "targetCaptureFollowed": false,
+        "note": "Serialized import reference; target catalog route identifies the asset path, not its effective setting rule."
+      },
+      {
+        "fieldHash": "Field_0305cca6",
+        "fileGuid": "730b7de0-d069-48bc-b59b-0b71e2b3f3f8",
+        "classGuid": "d0b0bc9f-76d4-4254-aa88-f4b593c3cbbc",
+        "catalogRoute": "Common/GameSetup/Options/Input/OptionUniformSoldierAiming",
+        "targetCaptureFollowed": false,
+        "note": "Serialized import reference; target catalog route identifies the asset path, not its effective setting rule."
+      },
+      {
+        "fieldHash": "Field_ddcbd5d9",
+        "fileGuid": "2bce2a52-3eff-49ff-b618-695a4615c860",
+        "classGuid": "f8cdaaf7-c061-41aa-89fc-c4b2909cb677",
+        "catalogRoute": "Common/GameSetup/Options/Input/OptionSmoothZoomInputSensitivity",
+        "targetCaptureFollowed": false,
+        "note": "Serialized import reference; target catalog route identifies the asset path, not its effective setting rule."
+      },
+      {
+        "fieldHash": "Field_ac1da19b",
+        "fileGuid": "a2a54fdd-2a73-4982-8e90-2f854a93bfcd",
+        "classGuid": "d375d829-6c1a-4605-9955-85632bc1a632",
+        "catalogRoute": "Common/GameSetup/Options/Render/OptionFieldOfViewScaleADS",
+        "targetCaptureFollowed": false,
+        "note": "Serialized import reference; target catalog route identifies the asset path, not its effective setting rule."
+      }
+    ],
+    "zoomTargets": [
+      {
+        "route": "Common/Hardware/Weapons/_ZoomLevels/DefaultBase",
+        "fileGuid": "fdaaac18-0ac9-4e17-a723-4ec293fb0813",
+        "objectClassGuid": "b2d0dc9f-b2a0-4b50-8ba5-a56b7af1e44b",
+        "objectGuid": "b2d0dc9f-b2a0-4b50-8ba5-a56b7af1e44b",
+        "classHash": "Class_86ce0d70",
+        "localTypeKey": "8fe88916864920c9d0a1d6809a0c66d6",
+        "capturePath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_ZoomLevels\\DefaultBase.ebx",
+        "rawSha256": "fd38a897e87d9a3484a913cf300f96c87a42b230212d587e64e96a25ffb10b87",
+        "head": 4892017,
+        "descriptorSha256": "91c9ea7c3dd830e34a78123c8bb7485e80eefdb18fc9c7ee41117971d23565c2",
+        "decodeStatus": "decoded-provisional",
+        "classDescriptorIndex": 1814,
+        "localClassRef": 1,
+        "field58Offset": 24,
+        "field58ImportFileGuid": null,
+        "field58ImportObjectClassGuid": null
+      },
+      {
+        "route": "Common/Hardware/Weapons/_ZoomLevels/Zoom_01x00_PiP",
+        "fileGuid": "058096d6-df51-466b-a373-c6166696d76a",
+        "objectClassGuid": "b06f4dfc-5140-4bb6-8705-16a623996beb",
+        "objectGuid": "b06f4dfc-5140-4bb6-8705-16a623996beb",
+        "classHash": "Class_86ce0d70",
+        "localTypeKey": "8fe88916864920c9d0a1d6809a0c66d6",
+        "capturePath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_ZoomLevels\\Zoom_01x00_PiP.ebx",
+        "rawSha256": "0f89eb491df91e653f9d1366b448dc976cd7be01e325e68113147733f01bb2b5",
+        "head": 4892017,
+        "descriptorSha256": "91c9ea7c3dd830e34a78123c8bb7485e80eefdb18fc9c7ee41117971d23565c2",
+        "decodeStatus": "decoded-provisional",
+        "classDescriptorIndex": 1814,
+        "localClassRef": 1,
+        "field58Offset": 24,
+        "field58ImportFileGuid": "fe693c0e-476f-449b-9ba8-b4af9a88afc5",
+        "field58ImportObjectClassGuid": "1b430bc4-63ca-49c1-b0b2-1e3f7cd0e19d"
+      },
+      {
+        "route": "Common/Hardware/Weapons/_ZoomLevels/Zoom_02x00_PiP",
+        "fileGuid": "f8844669-b5c4-4e21-a8e7-7c2e5979e66d",
+        "objectClassGuid": "c50a91a5-448e-423a-a702-a26651d85815",
+        "objectGuid": "c50a91a5-448e-423a-a702-a26651d85815",
+        "classHash": "Class_86ce0d70",
+        "localTypeKey": "8fe88916864920c9d0a1d6809a0c66d6",
+        "capturePath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_ZoomLevels\\Zoom_02x00_PiP.ebx",
+        "rawSha256": "c9a709e0379a470d266abc0f547e21be8ffc2456d33308d0fa41ac05e4424a00",
+        "head": 4892017,
+        "descriptorSha256": "91c9ea7c3dd830e34a78123c8bb7485e80eefdb18fc9c7ee41117971d23565c2",
+        "decodeStatus": "decoded-provisional",
+        "classDescriptorIndex": 1814,
+        "localClassRef": 1,
+        "field58Offset": 24,
+        "field58ImportFileGuid": "357b3877-e162-49b7-8a68-5a40b254acc9",
+        "field58ImportObjectClassGuid": "0ac37312-4c8b-4325-95c2-58ec4bce64f8"
+      },
+      {
+        "route": "Common/Hardware/Weapons/_ZoomLevels/Zoom_04x00_PiP",
+        "fileGuid": "67a24e55-4d5e-446b-beb2-cf091b2efef0",
+        "objectClassGuid": "0ee6e278-4568-4bf2-9dcf-2d9c3a48c36e",
+        "objectGuid": "0ee6e278-4568-4bf2-9dcf-2d9c3a48c36e",
+        "classHash": "Class_86ce0d70",
+        "localTypeKey": "8fe88916864920c9d0a1d6809a0c66d6",
+        "capturePath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_ZoomLevels\\Zoom_04x00_PiP.ebx",
+        "rawSha256": "e3ca38ce5e7a3f277802ed72885916f84be5247c8e325597e073449ea07f2d26",
+        "head": 4892017,
+        "descriptorSha256": "91c9ea7c3dd830e34a78123c8bb7485e80eefdb18fc9c7ee41117971d23565c2",
+        "decodeStatus": "decoded-provisional",
+        "classDescriptorIndex": 1814,
+        "localClassRef": 1,
+        "field58Offset": 24,
+        "field58ImportFileGuid": "60289acf-b435-475a-a5f4-fd981fcc3e84",
+        "field58ImportObjectClassGuid": "ae7b50b5-3608-4c95-80dc-4c10a3576301"
+      },
+      {
+        "route": "Common/Hardware/Weapons/_ZoomLevels/Zoom_10x00_PiP",
+        "fileGuid": "d9c2dcb3-5e9d-4df7-b173-4c9cbcbfd2ea",
+        "objectClassGuid": "5f37ec66-0f78-4988-b53b-ed02cd3c7478",
+        "objectGuid": "5f37ec66-0f78-4988-b53b-ed02cd3c7478",
+        "classHash": "Class_86ce0d70",
+        "localTypeKey": "8fe88916864920c9d0a1d6809a0c66d6",
+        "capturePath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_ZoomLevels\\Zoom_10x00_PiP.ebx",
+        "rawSha256": "8e33e4db1f65d671030335640374973f3609173dc6f15570fb1ee81329d995fd",
+        "head": 4892017,
+        "descriptorSha256": "91c9ea7c3dd830e34a78123c8bb7485e80eefdb18fc9c7ee41117971d23565c2",
+        "decodeStatus": "decoded-provisional",
+        "classDescriptorIndex": 1814,
+        "localClassRef": 1,
+        "field58Offset": 24,
+        "field58ImportFileGuid": "37f7b1f1-c525-4cc0-85bc-01a8512251cd",
+        "field58ImportObjectClassGuid": "b5b302d0-b321-4865-9c6a-46ecc91876a8"
+      },
+      {
+        "route": "Common/GameSetup/Options/Input/SoldierZoomSensitivity",
+        "fileGuid": "4abe3f18-64ad-4055-b4e7-6bd82046610a",
+        "objectClassGuid": "84a03042-b4a5-424f-b557-9d8d4e5bd9fb",
+        "capturePath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\GameSetup\\Options\\Input\\SoldierZoomSensitivity.ebx",
+        "rawSha256": "d8ae6f57dcd76a55282f1456c4e75007725ea09e270733b8df0461adc53d1d57",
+        "head": 4892017,
+        "descriptorSha256": "91c9ea7c3dd830e34a78123c8bb7485e80eefdb18fc9c7ee41117971d23565c2",
+        "decodeStatus": "decoded",
+        "note": "The raw capture is within the six direct-target budget and was decoded; its setting fields were not analyzed as an effective rule."
+      }
+    ],
+    "joystickLimit": "The seventh root has no established semantic mapping for its hash-named fields.",
+    "perTierOptionBodies": [
+      {
+        "route": "Common/GameSetup/Options/Input/OptionSoldierZoomSensitivity1x00",
+        "fileGuid": "fe693c0e-476f-449b-9ba8-b4af9a88afc5",
+        "objectGuid": "1b430bc4-63ca-49c1-b0b2-1e3f7cd0e19d",
+        "class": "Class_921071e8",
+        "rawPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\GameSetup\\Options\\Input\\OptionSoldierZoomSensitivity1x00.ebx",
+        "rawSha256": "3f29f76f2d6b3f55230781c0b4ed57caa33b81da6084686980890ebc76f8131b",
+        "decoderSha256": "a414e4d460736d1f0361df85cb3c5450222f4e0b232e65623ac5c8ee693d46b4",
+        "fields": {
+          "Field_8ee32a15": 0.1,
+          "Field_e2253f2b": 2.0,
+          "Field_8cf424e7": 1.0,
+          "Field_4276044b": 0.01
+        }
+      },
+      {
+        "route": "Common/GameSetup/Options/Input/OptionSoldierZoomSensitivity2x00",
+        "fileGuid": "357b3877-e162-49b7-8a68-5a40b254acc9",
+        "objectGuid": "0ac37312-4c8b-4325-95c2-58ec4bce64f8",
+        "class": "Class_921071e8",
+        "rawPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\GameSetup\\Options\\Input\\OptionSoldierZoomSensitivity2x00.ebx",
+        "rawSha256": "ea733e37c716a1ad00f18dbb8aa957c6db4c30d3da518658771860a603755acf",
+        "decoderSha256": "a414e4d460736d1f0361df85cb3c5450222f4e0b232e65623ac5c8ee693d46b4",
+        "fields": {
+          "Field_8ee32a15": 0.1,
+          "Field_e2253f2b": 2.0,
+          "Field_8cf424e7": 1.0,
+          "Field_4276044b": 0.01
+        }
+      },
+      {
+        "route": "Common/GameSetup/Options/Input/OptionSoldierZoomSensitivity4x00",
+        "fileGuid": "60289acf-b435-475a-a5f4-fd981fcc3e84",
+        "objectGuid": "ae7b50b5-3608-4c95-80dc-4c10a3576301",
+        "class": "Class_921071e8",
+        "rawPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\GameSetup\\Options\\Input\\OptionSoldierZoomSensitivity4x00.ebx",
+        "rawSha256": "ded2cc03e43ac0adf222d61bc4d8ca14d96a9b4b69feb518e0792a0f2c0b0040",
+        "decoderSha256": "a414e4d460736d1f0361df85cb3c5450222f4e0b232e65623ac5c8ee693d46b4",
+        "fields": {
+          "Field_8ee32a15": 0.1,
+          "Field_e2253f2b": 2.0,
+          "Field_8cf424e7": 1.0,
+          "Field_4276044b": 0.01
+        }
+      },
+      {
+        "route": "Common/GameSetup/Options/Input/OptionSoldierZoomSensitivity10x00",
+        "fileGuid": "37f7b1f1-c525-4cc0-85bc-01a8512251cd",
+        "objectGuid": "b5b302d0-b321-4865-9c6a-46ecc91876a8",
+        "class": "Class_921071e8",
+        "rawPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\GameSetup\\Options\\Input\\OptionSoldierZoomSensitivity10x00.ebx",
+        "rawSha256": "f29b786df8b2b49d15c373fbaa2e253e208e978047ba909cdccc920924403325",
+        "decoderSha256": "a414e4d460736d1f0361df85cb3c5450222f4e0b232e65623ac5c8ee693d46b4",
+        "fields": {
+          "Field_8ee32a15": 0.1,
+          "Field_e2253f2b": 2.0,
+          "Field_8cf424e7": 1.0,
+          "Field_4276044b": 0.01
+        }
+      }
+    ]
+  },
+  "inference": "The source references vary by zoom tier at the Zoom_x_PiP Field_58cc4905 import while the six controller roots share the same direct option-reference set. This establishes a serialized per-profile option-reference comparison only. It does not establish effective sensitivity values, defaults, input composition, or runtime use.",
+  "unresolved": [
+    "The four per-tier option numeric fields are decoded, but their default/range/step roles and effective sensitivity formula are not established.",
+    "The meanings and combination of the shared input-option references are not established. Compiled expressions are not executed by the current decoder.",
+    "DefaultBase.Field_58cc4905 is raw null. This pointer fact does not establish the final no-zoom input behavior.",
+    "The joystick root contains hash-named structure fields with no semantic mapping established here.",
+    "Runtime activation and composition remain unproven.",
+    "No attachment Field_4f917af5 optic-to-controller join or site comparison was performed."
+  ],
+  "siteImpact": "This trace supports a source-level map of per-tier sensitivity option references plus shared input-option references. It does not establish an effective sensitivity multiplier or equation, so it does not support a numeric optic handling comparison or a feature proposal. Keep the FieldOfViewScaleADS Render option separate from Input options and from render magnification/FOV. No capture requested.",
+  "workerEvidence": {
+    "folder": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T101403-0400-astra\\L133",
+    "resultSha256": "5a051c5d647db25357667b16030c90180cc3a4b39f7265293f79f086e26c9204",
+    "draftReceiptSha256": "b3582331eac9917aab5b47c2f13af1ae0622d5fedb1934c39602e85af6298640",
+    "pointerChecks": {
+      "file": "l133-raw-pointer-checks.json",
+      "sha256": "39e403130aa170ae1863c6384bcc3f83134d8c5e0be1339b88648f7fa124b059",
+      "count": 45
+    }
+  },
+  "orchestratorReview": {
+    "helperIssues": [],
+    "scope": "Seven worker roots and six direct targets; four separate one-object option reads by root, total17 assets.",
+    "independentPointerRead": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_ZoomLevels\\Zoom_01x00_PiP.ebx",
+      "rawSha256": "0f89eb491df91e653f9d1366b448dc976cd7be01e325e68113147733f01bb2b5",
+      "offset": 128,
+      "type": "u32",
+      "bytesHex": "01000000",
+      "value": 1,
+      "expect": "1",
+      "matches": true
+    },
+    "independentOptionRead": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\GameSetup\\Options\\Input\\OptionSoldierZoomSensitivity1x00.ebx",
+      "rawSha256": "3f29f76f2d6b3f55230781c0b4ed57caa33b81da6084686980890ebc76f8131b",
+      "offset": 112,
+      "type": "f32",
+      "bytesHex": "0000803f",
+      "value": 1.0,
+      "expect": "1",
+      "matches": true
+    },
+    "optionLayoutEvidence": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T101403-0400-astra\\L133\\orchestrator-option-offsets.json",
+    "siteEncodingNotes": "sim/applyAttachments.js weaponSwayMult is a relative weapon-sway multiplier. Input option references are not that multiplier, ADS movement tiers, sprint recovery milliseconds, or optic magnification.",
+    "classification": "Source finding; no supported numeric optic comparison or enhancement proposal."
+  },
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-09-29",
+    "build": "1.4.3.0-release",
+    "binding": "research",
+    "leads": [
+      {
+        "id": "L133",
+        "title": "Optic input sensitivity references",
+        "status": "finding",
+        "summary": "Four PiP zoom profiles reference distinct per-tier sensitivity options with identical four-field numeric blocks; six controllers share five option imports. No effective input equation is established.",
+        "reopenWhen": "Trace the per-tier and shared option fields to named channels and a serialized input-scale rule, then establish activation/composition before proposing a user-facing comparison."
+      }
+    ],
+    "assets": [
+      {
+        "path": "Common/Gameplay/AimingControllers/WeaponsGadgets/Aim_01x00_PiP",
+        "format": "raw-ebx",
+        "sha256": "7a337859a9a24b4e56fb7ca1c280b52385c39671609c7f452177bf85f94849c6",
+        "question": "Which zoom-controller assets and option references are serialized on this scoped root?",
+        "result": "useful",
+        "conclusion": "This PiP controller imports DefaultBase and Zoom_01x00_PiP plus the shared five root option refs; the source import pointer words were raw-verified."
+      },
+      {
+        "path": "Common/Gameplay/AimingControllers/WeaponsGadgets/Aim_02x00_PiP",
+        "format": "raw-ebx",
+        "sha256": "f73e90098f65fa1f032711d731adf441f2b830dbc9f36f382a779cb2b8d719fe",
+        "question": "Which zoom-controller assets and option references are serialized on this scoped root?",
+        "result": "useful",
+        "conclusion": "This PiP controller imports DefaultBase and Zoom_02x00_PiP plus the shared five root option refs; the source import pointer words were raw-verified."
+      },
+      {
+        "path": "Common/Gameplay/AimingControllers/WeaponsGadgets/Aim_04x00_PiP",
+        "format": "raw-ebx",
+        "sha256": "4b7b40e01fbab7f227c2c83f75a6043359e7071ba8d7410a482a0c9304ca8d73",
+        "question": "Which zoom-controller assets and option references are serialized on this scoped root?",
+        "result": "useful",
+        "conclusion": "This PiP controller imports DefaultBase and Zoom_04x00_PiP plus the shared five root option refs; the source import pointer words were raw-verified."
+      },
+      {
+        "path": "Common/Gameplay/AimingControllers/WeaponsGadgets/Aim_10x00_PiP",
+        "format": "raw-ebx",
+        "sha256": "5c7a925f62ddf00245d142868ce050c02b796753c9a778fde719973ffb116ee5",
+        "question": "Which zoom-controller assets and option references are serialized on this scoped root?",
+        "result": "useful",
+        "conclusion": "This PiP controller imports DefaultBase and Zoom_10x00_PiP plus the shared five root option refs; the source import pointer words were raw-verified."
+      },
+      {
+        "path": "Common/Gameplay/AimingControllers/WeaponsGadgets/Aim_Default_NoZoom",
+        "format": "raw-ebx",
+        "sha256": "6ba9e310d1d934f541133422a6bb7836f6f32d65e521ae9d544566d5c261da7c",
+        "question": "Which zoom-controller assets and option references are serialized on this scoped root?",
+        "result": "useful",
+        "conclusion": "This controller imports shared DefaultBase only in Field_d96e9943 and carries the same five direct root option refs as the PiP controllers; the array pointer words were raw-verified."
+      },
+      {
+        "path": "Common/Gameplay/AimingControllers/WeaponsGadgets/Aim_NoZoom",
+        "format": "raw-ebx",
+        "sha256": "f6318b13f59ef2c4f4778c25462870786ee264e5267436dbc8b99fde4cec5ff9",
+        "question": "Which zoom-controller assets and option references are serialized on this scoped root?",
+        "result": "useful",
+        "conclusion": "This controller imports shared DefaultBase only in Field_d96e9943 and carries the same five direct root option refs as the PiP controllers; the array pointer words were raw-verified."
+      },
+      {
+        "path": "Common/Gameplay/Camera/Soldier/Cam_Var_JoystickSensitivity",
+        "format": "raw-ebx",
+        "sha256": "51fbf3eda07d0cee640c9c075c52c8561377c430a831d74b1c6afd70f6a68cb6",
+        "question": "What exact release object owns the scoped joystick-sensitivity variable root?",
+        "result": "inconclusive",
+        "conclusion": "One release root resolves to Class_b9aedcc6 with local type key 17da40e3b25948935e22ec6435dd6adc; the remaining field hashes are unmapped here."
+      },
+      {
+        "path": "Common/Hardware/Weapons/_ZoomLevels/DefaultBase",
+        "format": "raw-ebx",
+        "sha256": "fd38a897e87d9a3484a913cf300f96c87a42b230212d587e64e96a25ffb10b87",
+        "question": "Does this exact zoom-level asset carry a per-tier sensitivity option reference?",
+        "result": "useful",
+        "conclusion": "Class_86ce0d70.Field_58cc4905 is null at raw offset 128; the raw pointer check passed."
+      },
+      {
+        "path": "Common/Hardware/Weapons/_ZoomLevels/Zoom_01x00_PiP",
+        "format": "raw-ebx",
+        "sha256": "0f89eb491df91e653f9d1366b448dc976cd7be01e325e68113147733f01bb2b5",
+        "question": "Does this exact zoom-level asset carry a per-tier sensitivity option reference?",
+        "result": "useful",
+        "conclusion": "Class_86ce0d70.Field_58cc4905 imports Common/GameSetup/Options/Input/OptionSoldierZoomSensitivity1x00 via file GUID fe693c0e-476f-449b-9ba8-b4af9a88afc5 and object class GUID 1b430bc4-63ca-49c1-b0b2-1e3f7cd0e19d; the raw pointer word was verified."
+      },
+      {
+        "path": "Common/Hardware/Weapons/_ZoomLevels/Zoom_02x00_PiP",
+        "format": "raw-ebx",
+        "sha256": "c9a709e0379a470d266abc0f547e21be8ffc2456d33308d0fa41ac05e4424a00",
+        "question": "Does this exact zoom-level asset carry a per-tier sensitivity option reference?",
+        "result": "useful",
+        "conclusion": "Class_86ce0d70.Field_58cc4905 imports Common/GameSetup/Options/Input/OptionSoldierZoomSensitivity2x00 via file GUID 357b3877-e162-49b7-8a68-5a40b254acc9 and object class GUID 0ac37312-4c8b-4325-95c2-58ec4bce64f8; the raw pointer word was verified."
+      },
+      {
+        "path": "Common/Hardware/Weapons/_ZoomLevels/Zoom_04x00_PiP",
+        "format": "raw-ebx",
+        "sha256": "e3ca38ce5e7a3f277802ed72885916f84be5247c8e325597e073449ea07f2d26",
+        "question": "Does this exact zoom-level asset carry a per-tier sensitivity option reference?",
+        "result": "useful",
+        "conclusion": "Class_86ce0d70.Field_58cc4905 imports Common/GameSetup/Options/Input/OptionSoldierZoomSensitivity4x00 via file GUID 60289acf-b435-475a-a5f4-fd981fcc3e84 and object class GUID ae7b50b5-3608-4c95-80dc-4c10a3576301; the raw pointer word was verified."
+      },
+      {
+        "path": "Common/Hardware/Weapons/_ZoomLevels/Zoom_10x00_PiP",
+        "format": "raw-ebx",
+        "sha256": "8e33e4db1f65d671030335640374973f3609173dc6f15570fb1ee81329d995fd",
+        "question": "Does this exact zoom-level asset carry a per-tier sensitivity option reference?",
+        "result": "useful",
+        "conclusion": "Class_86ce0d70.Field_58cc4905 imports Common/GameSetup/Options/Input/OptionSoldierZoomSensitivity10x00 via file GUID 37f7b1f1-c525-4cc0-85bc-01a8512251cd and object class GUID b5b302d0-b321-4865-9c6a-46ecc91876a8; the raw pointer word was verified."
+      },
+      {
+        "path": "Common/GameSetup/Options/Input/SoldierZoomSensitivity",
+        "format": "raw-ebx",
+        "sha256": "d8ae6f57dcd76a55282f1456c4e75007725ea09e270733b8df0461adc53d1d57",
+        "question": "Is the shared SoldierZoomSensitivity option target present at release for the direct controller import?",
+        "result": "useful",
+        "conclusion": "The release capture is present and decodes cleanly; all six controller roots import its exact file/class GUID pair, while its option body was not analyzed as an effective input rule."
+      },
+      {
+        "path": "Common/GameSetup/Options/Input/OptionSoldierZoomSensitivity1x00",
+        "format": "raw-ebx",
+        "sha256": "3f29f76f2d6b3f55230781c0b4ed57caa33b81da6084686980890ebc76f8131b",
+        "question": "What serialized fields occur in the exactly referenced per-tier sensitivity option?",
+        "result": "useful",
+        "conclusion": "One pinned-release Class_921071e8 object carries the same four numeric fields 0.1/2/1/0.01; their roles and the effective input-scale equation are unresolved."
+      },
+      {
+        "path": "Common/GameSetup/Options/Input/OptionSoldierZoomSensitivity2x00",
+        "format": "raw-ebx",
+        "sha256": "ea733e37c716a1ad00f18dbb8aa957c6db4c30d3da518658771860a603755acf",
+        "question": "What serialized fields occur in the exactly referenced per-tier sensitivity option?",
+        "result": "useful",
+        "conclusion": "One pinned-release Class_921071e8 object carries the same four numeric fields 0.1/2/1/0.01; their roles and the effective input-scale equation are unresolved."
+      },
+      {
+        "path": "Common/GameSetup/Options/Input/OptionSoldierZoomSensitivity4x00",
+        "format": "raw-ebx",
+        "sha256": "ded2cc03e43ac0adf222d61bc4d8ca14d96a9b4b69feb518e0792a0f2c0b0040",
+        "question": "What serialized fields occur in the exactly referenced per-tier sensitivity option?",
+        "result": "useful",
+        "conclusion": "One pinned-release Class_921071e8 object carries the same four numeric fields 0.1/2/1/0.01; their roles and the effective input-scale equation are unresolved."
+      },
+      {
+        "path": "Common/GameSetup/Options/Input/OptionSoldierZoomSensitivity10x00",
+        "format": "raw-ebx",
+        "sha256": "f29b786df8b2b49d15c373fbaa2e253e208e978047ba909cdccc920924403325",
+        "question": "What serialized fields occur in the exactly referenced per-tier sensitivity option?",
+        "result": "useful",
+        "conclusion": "One pinned-release Class_921071e8 object carries the same four numeric fields 0.1/2/1/0.01; their roles and the effective input-scale equation are unresolved."
+      }
+    ]
+  }
+}

@@ -28,9 +28,9 @@ The existing 350 generic optic choices already cover 1,927 primary sight records
 
 ## Important identified cases
 
-- **BROD 3 / BREN3 â€” TreatedBarrel:** the AAM points to `AD_BREN3_BRL_Treated`, whose English label is **Cryo**. This is a known attachment type. BROD 3 has no Cryogenic option in the current site menu; its live availability needs confirmation.
-- **SOR-300SC / SCARSC â€” Extended3Fast:** the AAM and descriptor identify **45rnd Fast Mag / 45 FAST**. The known site **40 Fast** maps separately to `Extended2Fast`.
-- **DB-12 / DP12 â€” RGT ANPEQ16B:** this is a separate hardware record from the mapped TOP ANPEQ16B. The RGT AAM name can refer to this record; it must not automatically be treated as a typo for TOP.
+- **BROD 3 / BREN3 — TreatedBarrel:** the AAM points to `AD_BREN3_BRL_Treated`, whose English label is **Cryo**. This is a known attachment type. BROD 3 has no Cryogenic option in the current site menu; its live availability needs confirmation.
+- **SOR-300SC / SCARSC — Extended3Fast:** the AAM and descriptor identify **45rnd Fast Mag / 45 FAST**. The known site **40 Fast** maps separately to `Extended2Fast`.
+- **DB-12 / DP12 — RGT ANPEQ16B:** this is a separate hardware record from the mapped TOP ANPEQ16B. The RGT AAM name can refer to this record; it must not automatically be treated as a typo for TOP.
 - **LA-23IRSP on M39EMR and HK417A2:** the existing review excludes these IR/SP variants from the normal 5 MW Green selection.
 - Missing English descriptions on already mapped attachments are a separate issue. They do not put those mapped attachments in this inventory.
 
@@ -743,7 +743,7 @@ These names describe default or empty slot states. They are not additional unkno
 
 ## Input evidence
 
-- [ebx_manifest.csv](<C:/Users/royal/Documents/BF6 Datamining/ebx_manifest.csv>) â€” SHA-256 `d391353210a3306c9c7ab8193621eb459a7752e281f0d0b282abc8cbd7d75497`.
-- [frosty-site-attachment-mapping-2026-09-13.json](<C:/Users/royal/Documents/BF6 Weapon Analyzer/reference-data/provenance/frosty-site-attachment-mapping-2026-09-13.json>) â€” SHA-256 `de494140ef6ff1b97dbcfb40560f8df4655c53ccd28a9c7faf8bfaf25a474fbf`.
-- [frosty-optic-category-mapping-2026-09-13.json](<C:/Users/royal/Documents/BF6 Weapon Analyzer/reference-data/provenance/frosty-optic-category-mapping-2026-09-13.json>) â€” SHA-256 `f82a971f48935840db07c5571f7381216fc31b54c2a597933d1c94b73cf995be`.
-- [frosty-weapon-identities.json](<C:/Users/royal/Documents/BF6 Weapon Analyzer/reference-data/provenance/frosty-weapon-identities.json>) â€” SHA-256 `eb08a671dff2756dc8d65ae9b15927e30a46c983e6c55d51cf02f0d9be7a7711`.
+- [ebx_manifest.csv](<C:/Users/royal/Documents/BF6 Datamining/ebx_manifest.csv>) — SHA-256 `d391353210a3306c9c7ab8193621eb459a7752e281f0d0b282abc8cbd7d75497`.
+- [frosty-site-attachment-mapping-2026-09-13.json](<C:/Users/royal/Documents/BF6 Weapon Analyzer/reference-data/provenance/frosty-site-attachment-mapping-2026-09-13.json>) — SHA-256 `de494140ef6ff1b97dbcfb40560f8df4655c53ccd28a9c7faf8bfaf25a474fbf`.
+- [frosty-optic-category-mapping-2026-09-13.json](<C:/Users/royal/Documents/BF6 Weapon Analyzer/reference-data/provenance/frosty-optic-category-mapping-2026-09-13.json>) — SHA-256 `f82a971f48935840db07c5571f7381216fc31b54c2a597933d1c94b73cf995be`.
+- [frosty-weapon-identities.json](<C:/Users/royal/Documents/BF6 Weapon Analyzer/reference-data/provenance/frosty-weapon-identities.json>) — SHA-256 `eb08a671dff2756dc8d65ae9b15927e30a46c983e6c55d51cf02f0d9be7a7711`.

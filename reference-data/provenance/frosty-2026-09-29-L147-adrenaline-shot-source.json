@@ -1,0 +1,627 @@
+{
+  "lead": "L147",
+  "status": "reviewed-source-finding",
+  "build": {
+    "primary": "1.4.3.0-hotfix",
+    "head": 4892087,
+    "descriptorSha256": "99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640",
+    "control": {
+      "build": "1.4.3.0-release",
+      "head": 4892017
+    }
+  },
+  "question": "Which selected hotfix affector or trigger operands describe the Adrenaline Shot suppression, flak or debuff effects, and is there a typed duration or magnitude that could support a gadget utility comparison?",
+  "sourceFacts": [
+    {
+      "fact": "Known-answer release control passed: raw HK433 ADS recoil amount equals the supplied site value within the raw checker expected-value comparison.",
+      "rawChecks": [
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+          "rawSha256": "66caca0e667d17fdf03f9fb4f620b9c5842aa1fd8de0221128ad4862895eed51",
+          "offset": 1084,
+          "type": "f32",
+          "bytesHex": "5a642b3f",
+          "value": 0.6694999933242798
+        }
+      ]
+    },
+    {
+      "fact": "All five scoped roots use hotfix Head 4892087 and descriptor SHA-256 99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640. Local object classRef values resolve through each asset local class-key table to the exact descriptor key; object counts are reported by root.",
+      "rawChecks": []
+    },
+    {
+      "fact": "Ability_AdrenalineShot has a raw-checked direct import pointer to U_AdrenalineShot. The direct import tables contain 17 Ability entries and 7 U entries; neither table targets SimEx_TriggerAdrenalineShot.",
+      "rawChecks": [
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer3-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Misc\\AdrenalineShot\\Ability_AdrenalineShot.ebx",
+          "rawSha256": "5693e7e2b66f552ed20448218f92f085d1591318c0239c05fedbdf67e3a4e473",
+          "offset": 264,
+          "type": "i32",
+          "bytesHex": "21000000",
+          "value": 33
+        }
+      ]
+    },
+    {
+      "fact": "SimEx_TriggerAdrenalineShot has raw-checked import pointer words at Field_a2734e52 indices 4, 5 and 6. The pinned selected-chain report resolves these to Suppression, Flak and RemoveDebuffs exported root objects, respectively.",
+      "rawChecks": [
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer5-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Misc\\AdrenalineShot\\SimEx_TriggerAdrenalineShot.ebx",
+          "rawSha256": "9b58a5b1d46e5755f1e8beaceed906addcc71efc4b749aa7152b873797b92f5e",
+          "offset": 1552,
+          "type": "i32",
+          "bytesHex": "05000000",
+          "value": 5
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer5-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Misc\\AdrenalineShot\\SimEx_TriggerAdrenalineShot.ebx",
+          "rawSha256": "9b58a5b1d46e5755f1e8beaceed906addcc71efc4b749aa7152b873797b92f5e",
+          "offset": 1576,
+          "type": "i32",
+          "bytesHex": "0b000000",
+          "value": 11
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer5-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Misc\\AdrenalineShot\\SimEx_TriggerAdrenalineShot.ebx",
+          "rawSha256": "9b58a5b1d46e5755f1e8beaceed906addcc71efc4b749aa7152b873797b92f5e",
+          "offset": 1600,
+          "type": "i32",
+          "bytesHex": "09000000",
+          "value": 9
+        }
+      ]
+    },
+    {
+      "fact": "The three directly referenced affector payloads contain typed scalars at the paths stated in result rows. The bytes and decoded values pass raw checks.",
+      "rawChecks": [
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer5-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Misc\\AdrenalineShot\\Affector_Flak_AdrenalineShot.ebx",
+          "rawSha256": "15b90d5dcff364219ad056b14fdf00e9aad4f3cb28c04dd5d26d88f5f5e2160b",
+          "offset": 208,
+          "type": "f32",
+          "bytesHex": "cdcc4c3f",
+          "value": 0.800000011920929
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer5-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Misc\\AdrenalineShot\\Affector_Suppression_AdrenalineShot.ebx",
+          "rawSha256": "08d27a6b70e94b33be4bab1ec721eeb86c7227ce90a825c2d2871ce6623fbca3",
+          "offset": 164,
+          "type": "i32",
+          "bytesHex": "9cffffff",
+          "value": -100
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer5-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Misc\\AdrenalineShot\\RemoveAffector_Debuffs_AdrenalineShot.ebx",
+          "rawSha256": "8b063679069f3210514f66bd74db4d100c59b91bb9ba83ef31b714b67d54995d",
+          "offset": 180,
+          "type": "u32",
+          "bytesHex": "9b0abb0e",
+          "value": 247138971
+        }
+      ]
+    }
+  ],
+  "inference": [
+    "The SimEx trigger points to the three named affector assets in serialized import references, but the scoped Ability and its directly imported U asset do not establish that this trigger is selected by the Ability. Treat the affector values as trigger-linked source candidates, not proven applied effects.",
+    "The three values have typed representations but remain hash-named payload members. Without owner-specific field meaning and units, none is a source-backed magnitude or duration for a utility comparison."
+  ],
+  "unresolved": [
+    "A direct Ability_AdrenalineShot or U_AdrenalineShot import path to SimEx_TriggerAdrenalineShot was not established in the complete import tables examined; the trigger-to-affector references do not prove the trigger is selected for the Ability.",
+    "Field_043d7a08, Field_02f21ce6 and Field_a4ae3bb0 remain hash-named payload members. Their roles and units are unresolved, so the raw f32/i32/u32 values cannot be labeled as magnitude, percentage, seconds, or duration.",
+    "No field with an established duration name and seconds unit was identified in the three directly imported affector payloads. Trigger activation, composition and native use remain unresolved.",
+    "The site has no gadget data table in the supplied inventory; no site value or gadget utility formula was compared."
+  ],
+  "siteImpact": "No site gadget table is available per the supplied brief. The trigger-to-affector imports and raw typed scalars do not establish Ability selection, field roles, units, or duration, so no source-backed gadget utility comparison is ready. Do not treat 0.8 as a buff percentage or seconds, -100 as a percentage, or the u32 token as a magnitude.",
+  "evidence": {
+    "paths": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L147\\brief.txt",
+        "sha256": "5ed1df45ff45ccf7e55b130a129607831d89769ebdc736230f59c68b725f3b81",
+        "role": "lead instructions and fixed scope"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L147\\lead.txt",
+        "sha256": "dcb8bb180625e24f88a0c57361ae8bbc155d3df4ad3a88ceb20289cafa6a3ac6",
+        "role": "lead-specific question and deliverable names"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L147\\control-raw-check.json",
+        "sha256": "5f76caeb1046b7fe3232d00db51f0fca2a89d38e39e15bf225be8de90a6889e8",
+        "role": "passed release known-answer raw check"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L147\\all-raw-checks.json",
+        "sha256": "7e9faa904f907e1f39af5b7c6d94682f1111eb8ea05690061a8e8edfe84c1e4f",
+        "role": "seven passed hotfix operand and pointer raw checks"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L147\\import-chain-check\\comparison.json",
+        "sha256": "ce9610dfabf6b7222a24e7408e5481c1fbae45f714ea809d6f59546f16798c27",
+        "role": "four passed pinned hotfix import-resolution assertions"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L147\\typed-offsets.json",
+        "sha256": "8977076da49872970d2e825aeb1ae40a719e2373261bc5b8c63a22a1d3f4cd87",
+        "role": "descriptor-key and physical offset/type trace"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L147\\db-route-inventory.json",
+        "sha256": "51d8a7f55cc076766a0955791b49cdd53fbf6a7a23b3cc7f3376b0fb556337a6",
+        "role": "exact scoped hotfix capture/object/import inventory"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L147\\direct-import-map.json",
+        "sha256": "0215b10a6f10928fb12aa1bebd94633e04e999764334106e1e57d534e89b2760",
+        "role": "complete direct import table map for five roots and U support"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L147\\u-adhotfix-query.json",
+        "sha256": "1d3c77b318e6f922b26d550f6a5ee0d3be15e5525d624215c01fba0090fecf4f",
+        "role": "directly imported U_AdrenalineShot body/imports"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L147\\prior-work-output.txt",
+        "sha256": "ed03afa26791dac6effdd5289bb033980c4432c42613a1ec0375610aea814f3f",
+        "role": "bounded prior-work lookup"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L147\\raw-check-manifest-v3.json",
+        "sha256": "b45dbfe9bff053e2e090efc5be06d31ad6d58466034e8293422a71d2505a4a82",
+        "role": "seven raw checks expected values"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L147\\chain-manifest.json",
+        "sha256": "2b56aa50049c50941bacbf146cbceea8afd3cba20da9aa238561b40074b8fdc0",
+        "role": "four selected-chain assertions"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\gadget-roster.json",
+        "sha256": "896875b5a860799e84784a452bac4ea13d3348b7c910e8d47683d9d9559d68c6",
+        "role": "run-root release/hotfix gadget capture roster"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\exhaustive-audit-2026-09-23\\coverage-decoder-v5.sqlite",
+        "sha256": "1fac4aa159b11741943eaf6ae94f64e63928b9fa0f866ca4a1d191897718cf10",
+        "role": "decoder ledger"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\toolchain\\SharedTypeDescriptors-hotfix-2026-09-16.ebx",
+        "sha256": "99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640",
+        "role": "hotfix SharedTypeDescriptors used for type-key and layout resolution"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+        "sha256": "66caca0e667d17fdf03f9fb4f620b9c5842aa1fd8de0221128ad4862895eed51",
+        "role": "release known-answer control source"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer3-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Misc\\AdrenalineShot\\Ability_AdrenalineShot.ebx",
+        "sha256": "5693e7e2b66f552ed20448218f92f085d1591318c0239c05fedbdf67e3a4e473",
+        "role": "scoped hotfix raw EBX"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer5-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Misc\\AdrenalineShot\\SimEx_TriggerAdrenalineShot.ebx",
+        "sha256": "9b58a5b1d46e5755f1e8beaceed906addcc71efc4b749aa7152b873797b92f5e",
+        "role": "scoped hotfix raw EBX"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer5-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Misc\\AdrenalineShot\\Affector_Flak_AdrenalineShot.ebx",
+        "sha256": "15b90d5dcff364219ad056b14fdf00e9aad4f3cb28c04dd5d26d88f5f5e2160b",
+        "role": "scoped hotfix raw EBX"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer5-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Misc\\AdrenalineShot\\Affector_Suppression_AdrenalineShot.ebx",
+        "sha256": "08d27a6b70e94b33be4bab1ec721eeb86c7227ce90a825c2d2871ce6623fbca3",
+        "role": "scoped hotfix raw EBX"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer5-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Misc\\AdrenalineShot\\RemoveAffector_Debuffs_AdrenalineShot.ebx",
+        "sha256": "8b063679069f3210514f66bd74db4d100c59b91bb9ba83ef31b714b67d54995d",
+        "role": "scoped hotfix raw EBX"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer3-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Misc\\AdrenalineShot\\U_AdrenalineShot.ebx",
+        "sha256": "fa38748de37c1a3b178c4299a52e908d0bbb329b4f53149b4660426059d225f5",
+        "role": "direct Ability import support raw EBX"
+      }
+    ],
+    "commands": [
+      {
+        "executable": "python",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+          "--raw-root",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw",
+          "--path",
+          "collection/GS_HK433.ebx",
+          "--offset",
+          "1084",
+          "--type",
+          "f32",
+          "--expect",
+          "0.6695",
+          "--out",
+          "control-raw-check.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L147",
+        "outcome": "failed: asset-relative path was too deep; no output file",
+        "helperPath": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+        "helperSha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+          "--raw-root",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw",
+          "--path",
+          "GS_HK433.ebx",
+          "--offset",
+          "1084",
+          "--type",
+          "f32",
+          "--expect",
+          "0.6695",
+          "--out",
+          "control-raw-check.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L147",
+        "outcome": "failed: asset is nested under Common/Hardware/Weapons/AssaultRifle/HK433; no output file",
+        "helperPath": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+        "helperSha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+          "--raw-root",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw",
+          "--path",
+          "Common/Hardware/Weapons/AssaultRifle/HK433/GS_HK433.ebx",
+          "--offset",
+          "1084",
+          "--type",
+          "f32",
+          "--expect",
+          "0.6695",
+          "--out",
+          "control-raw-check.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L147",
+        "outcome": "passed; control-raw-check.json SHA-256 5f76caeb1046b7fe323d00db51f0fca2a89d38e39e15bf225be8de90a6889e8",
+        "output": "control-raw-check.json",
+        "helperPath": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+        "helperSha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-worker.py",
+          "prior-work",
+          "--terms",
+          "AdrenalineShot",
+          "Adrenaline Shot",
+          "SimEx_TriggerAdrenalineShot",
+          "Affector_Flak_AdrenalineShot",
+          "Affector_Suppression_AdrenalineShot",
+          "RemoveAffector_Debuffs_AdrenalineShot"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L147",
+        "outcome": "prior-work output saved to prior-work-output.txt; candidate-expression-resource inventory only",
+        "output": "prior-work-output.txt",
+        "helperPath": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-worker.py",
+        "helperSha256": "91d73d328cfe39862ec882ef02eda665580b28a6da9fa541f7b03d12d755beb2"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "query_roots.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L147",
+        "outcome": "queried five named root routes; db-route-inventory.json SHA-256 51d8a7f55cc076766a0955791b49cdd53fbf6a7a23b3cc7f3376b0fb556337a6",
+        "output": "db-route-inventory.json",
+        "helperPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L147\\query_roots.py",
+        "helperSha256": "4ccc1b3fcec4d6d6840d7ce36260b8a2c91e6bab7d1fe3a3efefe3c0a7856d2b"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "trace_offsets.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L147",
+        "outcome": "resolved five root local class keys and selected typed offsets; typed-offsets.json SHA-256 8977076da49872970d2e825aeb1ae40a719e2373261bc5b8c63a22a1d3f4cd87",
+        "output": "typed-offsets.json",
+        "helperPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L147\\trace_offsets.py",
+        "helperSha256": "34315ff794f37d93f95ca0b9696abc13dda42e3eeec097cf14f142f6f7dd71f4"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "query_u_support.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L147",
+        "outcome": "inspected only the Ability direct U_AdrenalineShot import; u-adhotfix-query.json SHA-256 1d3c77b318e6f922b26d550f6a5ee0d3be15e5525d624215c01fba0090fecf4f",
+        "output": "u-adhotfix-query.json",
+        "helperPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L147\\query_u_support.py",
+        "helperSha256": "dc13c3221739ae8364975d57f985c4f9e94dc938c6f01d2b59ae2717258524c8"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "map_direct_imports.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L147",
+        "outcome": "mapped complete direct import tables for five roots and the single U support asset; direct-import-map.json SHA-256 0215b10a6f10928fb12aa1bebd94633e04e999764334106e1e57d534e89b2760",
+        "output": "direct-import-map.json",
+        "helperPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L147\\map_direct_imports.py",
+        "helperSha256": "0a4ac9bdd6cd201080b848f63c9fd2747a4b9860abf0e80f38567543efcdb75c"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-selected-chain-check.py",
+          "--db",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\exhaustive-audit-2026-09-23\\coverage-decoder-v5.sqlite",
+          "--manifest",
+          "chain-manifest.json",
+          "--out",
+          "import-chain-check"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L147",
+        "outcome": "passed: 4 assertions, 6 captures, 0 failures; comparison.json SHA-256 ce9610dfabf6b7222a24e7408e5481c1fbae45f714ea809d6f59546f16798c27",
+        "output": "import-chain-check/comparison.json",
+        "helperPath": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-selected-chain-check.py",
+        "helperSha256": "52648d1ba88bfa4dbf1c170f303483c5a250f463bee535223e9ec09b4e8da32e"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+          "--manifest",
+          "raw-check-manifest-v3.json",
+          "--out",
+          "all-raw-checks.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L147",
+        "outcome": "passed: all 7 checks; all-raw-checks.json SHA-256 7e9faa904f907e1f39af5b7c6d94682f1111eb8ea05690061a8e8edfe84c1e4f",
+        "output": "all-raw-checks.json",
+        "helperPath": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+        "helperSha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-records.py",
+          "schema"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L147",
+        "outcome": "record schema printed; schema v1",
+        "helperPath": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-records.py",
+        "helperSha256": "ffb0e7574ce66779ae5041f4fc55047d0da2f63d917682b527673a75612b734c"
+      }
+    ],
+    "helperRevisions": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L147\\find_control_asset.py",
+        "sha256": "da9f933b054129a703b5ecf21e4474d12f2e1798c6019d90d6688f3ca0f4c9ff",
+        "usedFor": "locate the named release control asset"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L147\\inspect_inputs.py",
+        "sha256": "f46c767f1584d96aec95fa734d236f84a6bcf164e75aeddaff19873325c18e6e",
+        "usedFor": "inspect provided roster and decoder DB schema"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L147\\inspect_schema.py",
+        "sha256": "8dc1523af15840f6563a52c29099b965526ca4d134afc534cdc47843a44a96e7",
+        "usedFor": "inspect roster keys and decoder table schemas"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L147\\query_roots.py",
+        "sha256": "4ccc1b3fcec4d6d6840d7ce36260b8a2c91e6bab7d1fe3a3efefe3c0a7856d2b",
+        "usedFor": "query exact five root routes from decoder DB"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L147\\inspect_hotfix_objects.py",
+        "sha256": "d1fdd4d5db4e9f1099111340001a692df95bb45886329dcbb836bf792e35beac",
+        "usedFor": "print root bodies and import routes; successful corrected revision"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L147\\inspect_l17.py",
+        "sha256": "c9b2acd88c4ee07c25fb42249ca86a1676bab1b645f19100be78e87fbc4503ab",
+        "usedFor": "read L17 reproduction section"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L147\\trace_offsets.py",
+        "sha256": "34315ff794f37d93f95ca0b9696abc13dda42e3eeec097cf14f142f6f7dd71f4",
+        "usedFor": "resolve local class keys and typed physical offsets"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L147\\query_u_support.py",
+        "sha256": "dc13c3221739ae8364975d57f985c4f9e94dc938c6f01d2b59ae2717258524c8",
+        "usedFor": "inspect only the direct U_AdrenalineShot import"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L147\\trace_ability_pointer.py",
+        "sha256": "2ce6bb361449c3283970cb2dec4a58f000cd711a82204ec2ab51742a3c9580d6",
+        "usedFor": "failed first attempt; inherited field not found"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L147\\trace_ability_pointer_v2.py",
+        "sha256": "e4217daabcbc84c493ebb706a98978499c10c6581e343b6f33cebad1885d19c0",
+        "usedFor": "trace inherited Ability pointer"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L147\\make_chain_manifest.py",
+        "sha256": "81cf0ebcb1c00e7a46298af44f2d113935fb4e32e49e22014dd9c767aff2d5cd",
+        "usedFor": "create exact hotfix import assertions"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L147\\make_raw_manifest.py",
+        "sha256": "a89222c6b7f0305cde1f91efaf8d3c417d2317fa75981eb1e699c0c242686f7c",
+        "usedFor": "failed first manifest shape; raw checker requires list"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L147\\make_raw_manifest_v2.py",
+        "sha256": "37c12765af7661429955f35ed2d3a9b63bb162cf9698a3aebb8d52e480894a63",
+        "usedFor": "second manifest shape; emitted unused v2 checks"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L147\\make_raw_manifest_v3.py",
+        "sha256": "1c2a5be7432c90d7e69999e8441dbba06093c45b8a101e4f60ff047b547c5c54",
+        "usedFor": "emit seven raw checks including Ability pointer"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L147\\map_direct_imports.py",
+        "sha256": "0a4ac9bdd6cd201080b848f63c9fd2747a4b9860abf0e80f38567543efcdb75c",
+        "usedFor": "map exact direct import tables"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L147\\build_deliverables.py",
+        "sha256": "90547ebbd15b6287bf996776e7e1709672228f2c99d0b4f2623b03f614d125b2",
+        "usedFor": "assemble L147 deliverables"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L147\\inspect_hotfix_objects.py",
+        "sha256": "26a08115988e9f6cc88ba50521751fa032ffc7d970a2c058b711a0f23f02537c",
+        "usedFor": "first invoked version failed with IndentationError; superseded, no result"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L147\\build_deliverables.py",
+        "sha256": "fb80f41ea2e942f8c04a8f6e1661fd77718c9e04e2d43eebc52db98ce5b3149d",
+        "usedFor": "initial invoked assembler revision before row rawChecks were promoted to row-level arrays"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+        "sha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3",
+        "usedFor": "control and seven hotfix raw reads"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-selected-chain-check.py",
+        "sha256": "52648d1ba88bfa4dbf1c170f303483c5a250f463bee535223e9ec09b4e8da32e",
+        "usedFor": "head-pinned Ability/U and trigger/affector import resolution"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-ebx-decode.py",
+        "sha256": "6fdc0334efaee0fe6113b5c9db4973f1358f53ee65dfb94edbc22fb0bf07a727",
+        "usedFor": "exact descriptor parsing and field layout"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-worker.py",
+        "sha256": "91d73d328cfe39862ec882ef02eda665580b28a6da9fa541f7b03d12d755beb2",
+        "usedFor": "prior-work search"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-configuration.py",
+        "sha256": "ac174406e9f94809bc74532a6a48bafd590dc512dae0879428d5aaa05cffcd6a",
+        "usedFor": "CLI/help inspection only"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-records.py",
+        "sha256": "ffb0e7574ce66779ae5041f4fc55047d0da2f63d917682b527673a75612b734c",
+        "usedFor": "record schema and receipt validation"
+      }
+    ]
+  },
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-09-29",
+    "build": "1.4.3.0-hotfix",
+    "leads": [
+      {
+        "id": "L147",
+        "title": "Adrenaline Shot effect and duration",
+        "status": "finding",
+        "summary": "Head 4892087 SimEx_TriggerAdrenalineShot directly imports the three named affector assets, but the scoped Ability/U chain does not establish trigger selection and the raw payload operands have no resolved roles or units.",
+        "reopenWhen": "Reopen when pinned source evidence links the Ability or its direct U asset to the trigger, or owner-specific schema evidence assigns roles and units to the affector payload members.",
+        "statusNote": "This is a source-only finding; activation, composition, and native use remain unresolved."
+      }
+    ],
+    "assets": [
+      {
+        "path": "Common/Hardware/Gadgets/Misc/AdrenalineShot/Ability_AdrenalineShot",
+        "format": "raw-ebx",
+        "sha256": "5693e7e2b66f552ed20448218f92f085d1591318c0239c05fedbdf67e3a4e473",
+        "question": "Does the named Ability root connect to a selected trigger within the bounded direct-import route?",
+        "result": "useful",
+        "conclusion": "Its raw-checked direct import points to U_AdrenalineShot. Its complete 17-entry import table contains no SimEx target; decoder ledger marks the root decoded-provisional."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Misc/AdrenalineShot/SimEx_TriggerAdrenalineShot",
+        "format": "raw-ebx",
+        "sha256": "9b58a5b1d46e5755f1e8beaceed906addcc71efc4b749aa7152b873797b92f5e",
+        "question": "Which scoped effect assets are imported by the trigger?",
+        "result": "useful",
+        "conclusion": "Its event object directly imports the scoped Suppression, Flak and RemoveDebuffs affector objects at array indices 4, 5 and 6; activation is unresolved."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Misc/AdrenalineShot/Affector_Flak_AdrenalineShot",
+        "format": "raw-ebx",
+        "sha256": "15b90d5dcff364219ad056b14fdf00e9aad4f3cb28c04dd5d26d88f5f5e2160b",
+        "question": "Which typed raw value is in the scoped Flak affector payload?",
+        "result": "useful",
+        "conclusion": "Field_95eed6ac[0].Field_658381bd.Field_043d7a08 is f32 0.800000011920929; role and units unresolved."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Misc/AdrenalineShot/Affector_Suppression_AdrenalineShot",
+        "format": "raw-ebx",
+        "sha256": "08d27a6b70e94b33be4bab1ec721eeb86c7227ce90a825c2d2871ce6623fbca3",
+        "question": "Which typed raw value is in the scoped Suppression affector payload?",
+        "result": "useful",
+        "conclusion": "Field_95eed6ac[0].Field_02f21ce6 is i32 -100; role and units unresolved."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Misc/AdrenalineShot/RemoveAffector_Debuffs_AdrenalineShot",
+        "format": "raw-ebx",
+        "sha256": "8b063679069f3210514f66bd74db4d100c59b91bb9ba83ef31b714b67d54995d",
+        "question": "Which typed raw value is in the scoped RemoveDebuffs affector payload?",
+        "result": "useful",
+        "conclusion": "Field_95eed6ac[0].Field_a4ae3bb0 is u32 247138971; role unresolved."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Misc/AdrenalineShot/U_AdrenalineShot",
+        "format": "raw-ebx",
+        "sha256": "fa38748de37c1a3b178c4299a52e908d0bbb329b4f53149b4660426059d225f5",
+        "question": "Does the direct Ability import select the scoped trigger?",
+        "result": "useful",
+        "conclusion": "This directly imported support asset has seven import entries; none targets SimEx_TriggerAdrenalineShot. This does not establish runtime non-use."
+      }
+    ],
+    "binding": "research"
+  },
+  "scope": {
+    "expected": 5,
+    "examined": 5,
+    "notes": "All five specified Head 4892087 root assets were inspected. Their captured object counts are Ability=5 (4 child objects), Trigger=3 (2 child objects), and one object each for the three affectors (0 children), for 11 object records total. U_AdrenalineShot was inspected only as the direct Ability import and is not counted as a sixth root. The matching UI icon route returned by the substring inventory query was excluded."
+  },
+  "control": {
+    "description": "Known-answer control supplied in the lead brief: release Head 4892017 raw HK433 ADS recoil amount must match the site pointer value 0.6695. This validates the raw-check route and float encoding only.",
+    "passed": true,
+    "rawChecks": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+        "rawSha256": "66caca0e667d17fdf03f9fb4f620b9c5842aa1fd8de0221128ad4862895eed51",
+        "offset": 1084,
+        "type": "f32",
+        "bytesHex": "5a642b3f",
+        "value": 0.6694999933242798
+      }
+    ]
+  },
+  "orchestratorReview": {
+    "helperIssues": [],
+    "scope": "Five of five named hotfix roots; U_AdrenalineShot followed only as a direct Ability child.",
+    "independentRawCheck": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer5-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Misc\\AdrenalineShot\\Affector_Flak_AdrenalineShot.ebx",
+      "rawSha256": "15b90d5dcff364219ad056b14fdf00e9aad4f3cb28c04dd5d26d88f5f5e2160b",
+      "offset": 208,
+      "type": "f32",
+      "bytesHex": "cdcc4c3f",
+      "value": 0.800000011920929,
+      "matches": true
+    },
+    "siteEncoding": "Scoped data/sim/ui search found no gadget data table or Adrenaline Shot effect calculation.",
+    "classification": "Source finding; Trigger-to-affector imports are established but Ability-to-trigger selection, roles, units and duration remain unresolved."
+  }
+}

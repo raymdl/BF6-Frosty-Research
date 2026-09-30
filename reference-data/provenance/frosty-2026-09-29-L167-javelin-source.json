@@ -1,0 +1,3674 @@
+{
+  "lead": "L167",
+  "status": "reviewed-source-proposal",
+  "build": {
+    "version": "1.4.3.0",
+    "head": 4892087,
+    "descriptorSha256": "99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640"
+  },
+  "question": "Trace WB primary/configuration selection and mapped ammo/reload/blast values; retain laser-guided as candidate unless exact selection proves it.",
+  "control": {
+    "description": "Separate release M433 site/raw control; does not prove hotfix gadget semantics.",
+    "passed": true,
+    "rawChecks": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+        "rawSha256": "66caca0e667d17fdf03f9fb4f620b9c5842aa1fd8de0221128ad4862895eed51",
+        "offset": 1084,
+        "type": "f32",
+        "bytesHex": "5a642b3f",
+        "value": 0.6694999933242798,
+        "expect": "0.66949999332428",
+        "matches": true
+      }
+    ],
+    "sitePointer": "data/weapons.json:/[id=m433]/recoil/ads/amount",
+    "siteValue": 0.6695,
+    "siteSha256": "22d2d83eb65c0f7f69cad6efff077d8b1435d08827c1a1a3633976f87266eb7f"
+  },
+  "scope": {
+    "expected": 4,
+    "examined": 4,
+    "externalChildren": 0,
+    "numericMechanicOperands": 38,
+    "notes": "Four fixed roots; internal selected configuration objects only. Zero external children."
+  },
+  "sourceFacts": [
+    {
+      "route": "Common/Hardware/Gadgets/Launchers/Javelin/WB_Javelin",
+      "captureMetadata": {
+        "id": 54902,
+        "route": "Common/Hardware/Gadgets/Launchers/Javelin/WB_Javelin",
+        "raw_path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+        "head": 4892087,
+        "descriptor_path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\toolchain\\SharedTypeDescriptors-hotfix-2026-09-16.ebx",
+        "descriptor_sha256": "99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640",
+        "raw_sha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+        "header_status": "ok",
+        "decode_status": "decoded-provisional",
+        "error": null,
+        "object_count": 35,
+        "root_class": "Class_a6e2adec",
+        "warnings_json": "{\"$layoutAmbiguous\":25}",
+        "decoder_sha256": "893e919a576fc2cb0b53b4792cdc71534ea32cba37b0833c6061e7f70dfca558"
+      },
+      "rawPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+      "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+      "fileGuid": "9a3fc543-2fd0-4318-ab12-0974c24cfa43",
+      "identities": [
+        {
+          "objectIndex": 0,
+          "classRefLocal": 0,
+          "classKey": "0c3ff6d6bfac6c48d02bc88191c707e4",
+          "class": {
+            "type": "Struct_a6e2adec",
+            "hash": "a6e2adec",
+            "descriptorIndex": 760,
+            "descriptorKey": "0c3ff6d6bfac6c48d02bc88191c707e4",
+            "descriptorGuid": "d6f63f0c-acbf-486c-d02b-c88191c707e4",
+            "size": 112,
+            "alignment": 8
+          },
+          "exported": true
+        },
+        {
+          "objectIndex": 1,
+          "classRefLocal": 1,
+          "classKey": "503dde81ed5cf4d154423f8a5b58e439",
+          "class": {
+            "type": "Struct_35259f6b",
+            "hash": "35259f6b",
+            "descriptorIndex": 515,
+            "descriptorKey": "503dde81ed5cf4d154423f8a5b58e439",
+            "descriptorGuid": "81de3d50-5ced-d1f4-5442-3f8a5b58e439",
+            "size": 1248,
+            "alignment": 16
+          },
+          "exported": false
+        },
+        {
+          "objectIndex": 9,
+          "classRefLocal": 7,
+          "classKey": "f99a6e0b04d7e0c7c562a3932646e303",
+          "class": {
+            "type": "Struct_542ac52c",
+            "hash": "542ac52c",
+            "descriptorIndex": 771,
+            "descriptorKey": "f99a6e0b04d7e0c7c562a3932646e303",
+            "descriptorGuid": "0b6e9af9-d704-c7e0-c562-a3932646e303",
+            "size": 688,
+            "alignment": 16
+          },
+          "exported": false
+        },
+        {
+          "objectIndex": 15,
+          "classRefLocal": 11,
+          "classKey": "605b523facc7db31cf87c0aacfad38de",
+          "class": {
+            "type": "Struct_01419c76",
+            "hash": "01419c76",
+            "descriptorIndex": 517,
+            "descriptorKey": "605b523facc7db31cf87c0aacfad38de",
+            "descriptorGuid": "3f525b60-c7ac-31db-cf87-c0aacfad38de",
+            "size": 176,
+            "alignment": 8
+          },
+          "exported": false
+        }
+      ],
+      "fields": [
+        {
+          "name": "MagazineCapacity",
+          "objectIndex": 1,
+          "fieldPath": [
+            "Field_4cc9e2ed",
+            "Field_7f22bfb4"
+          ],
+          "value": 1,
+          "owner": {
+            "type": "Struct_598cc52c",
+            "hash": "598cc52c",
+            "descriptorIndex": 547,
+            "descriptorKey": "6415a3ca14830b579b4ca38912db5a01",
+            "descriptorGuid": "caa31564-8314-570b-9b4c-a38912db5a01",
+            "size": 128,
+            "alignment": 8
+          },
+          "rawOffset": 960,
+          "rawType": "i32",
+          "mappingBasis": [
+            "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-09-29-L137-launcher-handling-ammunition.json",
+            "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-09-29-L162-stinger-igla-source.json"
+          ],
+          "mappingStatus": "established prior owner identity",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+              "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+              "offset": 960,
+              "type": "i32",
+              "bytesHex": "01000000",
+              "value": 1,
+              "expect": 1,
+              "matches": true
+            }
+          ],
+          "decodedRoundedValue": 1
+        },
+        {
+          "name": "NumberOfMagazines",
+          "objectIndex": 1,
+          "fieldPath": [
+            "Field_4cc9e2ed",
+            "Field_4614adfe"
+          ],
+          "value": 3,
+          "owner": {
+            "type": "Struct_598cc52c",
+            "hash": "598cc52c",
+            "descriptorIndex": 547,
+            "descriptorKey": "6415a3ca14830b579b4ca38912db5a01",
+            "descriptorGuid": "caa31564-8314-570b-9b4c-a38912db5a01",
+            "size": 128,
+            "alignment": 8
+          },
+          "rawOffset": 964,
+          "rawType": "i32",
+          "mappingBasis": [
+            "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-09-29-L137-launcher-handling-ammunition.json",
+            "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-09-29-L162-stinger-igla-source.json"
+          ],
+          "mappingStatus": "established prior owner identity",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+              "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+              "offset": 964,
+              "type": "i32",
+              "bytesHex": "03000000",
+              "value": 3,
+              "expect": 3,
+              "matches": true
+            }
+          ],
+          "decodedRoundedValue": 3
+        },
+        {
+          "name": "InitialAmmo",
+          "objectIndex": 1,
+          "fieldPath": [
+            "Field_4cc9e2ed",
+            "Field_80a58418"
+          ],
+          "value": -1,
+          "owner": {
+            "type": "Struct_598cc52c",
+            "hash": "598cc52c",
+            "descriptorIndex": 547,
+            "descriptorKey": "6415a3ca14830b579b4ca38912db5a01",
+            "descriptorGuid": "caa31564-8314-570b-9b4c-a38912db5a01",
+            "size": 128,
+            "alignment": 8
+          },
+          "rawOffset": 972,
+          "rawType": "i32",
+          "mappingBasis": [
+            "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-09-29-L137-launcher-handling-ammunition.json",
+            "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-09-29-L162-stinger-igla-source.json"
+          ],
+          "mappingStatus": "established prior owner identity",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+              "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+              "offset": 972,
+              "type": "i32",
+              "bytesHex": "ffffffff",
+              "value": -1,
+              "expect": -1,
+              "matches": true
+            }
+          ],
+          "decodedRoundedValue": -1
+        },
+        {
+          "name": "ReloadThreshold",
+          "objectIndex": 1,
+          "fieldPath": [
+            "Field_f8822efa",
+            "Field_d15a0c1c",
+            0,
+            "Field_9c1e1476"
+          ],
+          "value": 0.75,
+          "owner": {
+            "type": "Struct_b50f190f",
+            "hash": "b50f190f",
+            "descriptorIndex": 544,
+            "descriptorKey": "f772f46b705664a5cadd2fc69f25df37",
+            "descriptorGuid": "6bf472f7-5670-a564-cadd-2fc69f25df37",
+            "size": 56,
+            "alignment": 8
+          },
+          "rawOffset": 9172,
+          "rawType": "f32",
+          "mappingBasis": [
+            "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-09-29-L137-launcher-handling-ammunition.json",
+            "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-09-29-L162-stinger-igla-source.json"
+          ],
+          "mappingStatus": "established prior owner identity",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+              "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+              "offset": 9172,
+              "type": "f32",
+              "bytesHex": "0000403f",
+              "value": 0.75,
+              "expect": 0.75,
+              "matches": true
+            }
+          ],
+          "decodedRoundedValue": 0.75
+        },
+        {
+          "name": "ReloadDelay",
+          "objectIndex": 1,
+          "fieldPath": [
+            "Field_f8822efa",
+            "Field_d15a0c1c",
+            0,
+            "Field_c0c7c72f"
+          ],
+          "value": 0.0,
+          "owner": {
+            "type": "Struct_b50f190f",
+            "hash": "b50f190f",
+            "descriptorIndex": 544,
+            "descriptorKey": "f772f46b705664a5cadd2fc69f25df37",
+            "descriptorGuid": "6bf472f7-5670-a564-cadd-2fc69f25df37",
+            "size": 56,
+            "alignment": 8
+          },
+          "rawOffset": 9180,
+          "rawType": "f32",
+          "mappingBasis": [
+            "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-09-29-L137-launcher-handling-ammunition.json",
+            "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-09-29-L162-stinger-igla-source.json"
+          ],
+          "mappingStatus": "established prior owner identity",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+              "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+              "offset": 9180,
+              "type": "f32",
+              "bytesHex": "00000000",
+              "value": 0.0,
+              "expect": 0.0,
+              "matches": true
+            }
+          ],
+          "decodedRoundedValue": 0.0
+        },
+        {
+          "name": "ReloadTime",
+          "objectIndex": 1,
+          "fieldPath": [
+            "Field_f8822efa",
+            "Field_d15a0c1c",
+            0,
+            "Field_85ff24a0"
+          ],
+          "value": -1.0,
+          "owner": {
+            "type": "Struct_b50f190f",
+            "hash": "b50f190f",
+            "descriptorIndex": 544,
+            "descriptorKey": "f772f46b705664a5cadd2fc69f25df37",
+            "descriptorGuid": "6bf472f7-5670-a564-cadd-2fc69f25df37",
+            "size": 56,
+            "alignment": 8
+          },
+          "rawOffset": 9188,
+          "rawType": "f32",
+          "mappingBasis": [
+            "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-09-29-L137-launcher-handling-ammunition.json",
+            "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-09-29-L162-stinger-igla-source.json"
+          ],
+          "mappingStatus": "established prior owner identity",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+              "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+              "offset": 9188,
+              "type": "f32",
+              "bytesHex": "000080bf",
+              "value": -1.0,
+              "expect": -1.0,
+              "matches": true
+            }
+          ],
+          "decodedRoundedValue": -1.0
+        },
+        {
+          "name": "ReloadTimeBulletsLeft",
+          "objectIndex": 1,
+          "fieldPath": [
+            "Field_f8822efa",
+            "Field_d15a0c1c",
+            0,
+            "Field_fc66e75e"
+          ],
+          "value": -1.0,
+          "owner": {
+            "type": "Struct_b50f190f",
+            "hash": "b50f190f",
+            "descriptorIndex": 544,
+            "descriptorKey": "f772f46b705664a5cadd2fc69f25df37",
+            "descriptorGuid": "6bf472f7-5670-a564-cadd-2fc69f25df37",
+            "size": 56,
+            "alignment": 8
+          },
+          "rawOffset": 9192,
+          "rawType": "f32",
+          "mappingBasis": [
+            "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-09-29-L137-launcher-handling-ammunition.json",
+            "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-09-29-L162-stinger-igla-source.json"
+          ],
+          "mappingStatus": "established prior owner identity",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+              "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+              "offset": 9192,
+              "type": "f32",
+              "bytesHex": "000080bf",
+              "value": -1.0,
+              "expect": -1.0,
+              "matches": true
+            }
+          ],
+          "decodedRoundedValue": -1.0
+        },
+        {
+          "name": "PostReloadDelay",
+          "objectIndex": 1,
+          "fieldPath": [
+            "Field_f8822efa",
+            "Field_d15a0c1c",
+            0,
+            "Field_b480c17a"
+          ],
+          "value": 0.0,
+          "owner": {
+            "type": "Struct_b50f190f",
+            "hash": "b50f190f",
+            "descriptorIndex": 544,
+            "descriptorKey": "f772f46b705664a5cadd2fc69f25df37",
+            "descriptorGuid": "6bf472f7-5670-a564-cadd-2fc69f25df37",
+            "size": 56,
+            "alignment": 8
+          },
+          "rawOffset": 9196,
+          "rawType": "f32",
+          "mappingBasis": [
+            "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-09-29-L137-launcher-handling-ammunition.json",
+            "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-09-29-L162-stinger-igla-source.json"
+          ],
+          "mappingStatus": "established prior owner identity",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+              "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+              "offset": 9196,
+              "type": "f32",
+              "bytesHex": "00000000",
+              "value": 0.0,
+              "expect": 0.0,
+              "matches": true
+            }
+          ],
+          "decodedRoundedValue": 0.0
+        },
+        {
+          "name": "ReloadInfoArray hash-only phase element",
+          "objectIndex": 1,
+          "fieldPath": [
+            "Field_f8822efa",
+            "Field_d15a0c1c",
+            0,
+            "Field_dc244b57",
+            0
+          ],
+          "value": 1.3600000143051147,
+          "owner": {
+            "type": "Struct_b50f190f",
+            "hash": "b50f190f",
+            "descriptorIndex": 544,
+            "descriptorKey": "503dde81ed5cf4d154423f8a5b58e439",
+            "descriptorGuid": "81de3d50-5ced-d1f4-5442-3f8a5b58e439",
+            "size": 56,
+            "alignment": 8
+          },
+          "rawOffset": 9132,
+          "rawType": "f32",
+          "mappingBasis": [
+            "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-09-29-L137-launcher-handling-ammunition.json",
+            "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-09-29-L162-stinger-igla-source.json"
+          ],
+          "mappingStatus": "hash-only or structural selection",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+              "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+              "offset": 9132,
+              "type": "f32",
+              "bytesHex": "7b14ae3f",
+              "value": 1.3600000143051147,
+              "expect": 1.36,
+              "matches": true
+            }
+          ],
+          "decodedRoundedValue": 1.36
+        },
+        {
+          "name": "ReloadInfoArray hash-only phase element",
+          "objectIndex": 1,
+          "fieldPath": [
+            "Field_f8822efa",
+            "Field_d15a0c1c",
+            0,
+            "Field_dc244b57",
+            1
+          ],
+          "value": 2.7300000190734863,
+          "owner": {
+            "type": "Struct_b50f190f",
+            "hash": "b50f190f",
+            "descriptorIndex": 544,
+            "descriptorKey": "503dde81ed5cf4d154423f8a5b58e439",
+            "descriptorGuid": "81de3d50-5ced-d1f4-5442-3f8a5b58e439",
+            "size": 56,
+            "alignment": 8
+          },
+          "rawOffset": 9136,
+          "rawType": "f32",
+          "mappingBasis": [
+            "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-09-29-L137-launcher-handling-ammunition.json",
+            "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-09-29-L162-stinger-igla-source.json"
+          ],
+          "mappingStatus": "hash-only or structural selection",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+              "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+              "offset": 9136,
+              "type": "f32",
+              "bytesHex": "52b82e40",
+              "value": 2.7300000190734863,
+              "expect": 2.73,
+              "matches": true
+            }
+          ],
+          "decodedRoundedValue": 2.73
+        },
+        {
+          "name": "ReloadInfoArray hash-only phase element",
+          "objectIndex": 1,
+          "fieldPath": [
+            "Field_f8822efa",
+            "Field_d15a0c1c",
+            0,
+            "Field_dc244b57",
+            2
+          ],
+          "value": 4.0,
+          "owner": {
+            "type": "Struct_b50f190f",
+            "hash": "b50f190f",
+            "descriptorIndex": 544,
+            "descriptorKey": "503dde81ed5cf4d154423f8a5b58e439",
+            "descriptorGuid": "81de3d50-5ced-d1f4-5442-3f8a5b58e439",
+            "size": 56,
+            "alignment": 8
+          },
+          "rawOffset": 9140,
+          "rawType": "f32",
+          "mappingBasis": [
+            "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-09-29-L137-launcher-handling-ammunition.json",
+            "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-09-29-L162-stinger-igla-source.json"
+          ],
+          "mappingStatus": "hash-only or structural selection",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+              "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+              "offset": 9140,
+              "type": "f32",
+              "bytesHex": "00008040",
+              "value": 4.0,
+              "expect": 4.0,
+              "matches": true
+            }
+          ],
+          "decodedRoundedValue": 4.0
+        },
+        {
+          "name": "ReloadInfoArray hash-only phase element",
+          "objectIndex": 1,
+          "fieldPath": [
+            "Field_f8822efa",
+            "Field_d15a0c1c",
+            0,
+            "Field_dc244b57",
+            3
+          ],
+          "value": 4.199999809265137,
+          "owner": {
+            "type": "Struct_b50f190f",
+            "hash": "b50f190f",
+            "descriptorIndex": 544,
+            "descriptorKey": "503dde81ed5cf4d154423f8a5b58e439",
+            "descriptorGuid": "81de3d50-5ced-d1f4-5442-3f8a5b58e439",
+            "size": 56,
+            "alignment": 8
+          },
+          "rawOffset": 9144,
+          "rawType": "f32",
+          "mappingBasis": [
+            "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-09-29-L137-launcher-handling-ammunition.json",
+            "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-09-29-L162-stinger-igla-source.json"
+          ],
+          "mappingStatus": "hash-only or structural selection",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+              "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+              "offset": 9144,
+              "type": "f32",
+              "bytesHex": "66668640",
+              "value": 4.199999809265137,
+              "expect": 4.2,
+              "matches": true
+            }
+          ],
+          "decodedRoundedValue": 4.2
+        }
+      ],
+      "links": [
+        {
+          "name": "configuration to object 9",
+          "objectIndex": 0,
+          "fieldPath": [
+            "Field_9e113e77"
+          ],
+          "value": {
+            "$ref": 9
+          },
+          "owner": {
+            "type": "Struct_e6b24ea9",
+            "hash": "e6b24ea9",
+            "descriptorIndex": 478,
+            "descriptorKey": "1fdd27373f1752f05b965a8439dfe98c",
+            "descriptorGuid": "3727dd1f-173f-f052-5b96-5a8439dfe98c",
+            "size": 112,
+            "alignment": 8
+          },
+          "rawOffset": 152,
+          "rawType": "bytes:4",
+          "mappingBasis": [],
+          "mappingStatus": "hash-only or structural selection",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+              "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+              "offset": 152,
+              "type": "bytes:4",
+              "bytesHex": "380e0000",
+              "value": "380e0000"
+            }
+          ]
+        },
+        {
+          "name": "configuration object 9 to object 15",
+          "objectIndex": 9,
+          "fieldPath": [
+            "Field_2b04cd3b"
+          ],
+          "value": {
+            "$ref": 15
+          },
+          "owner": {
+            "type": "Struct_61220f74",
+            "hash": "61220f74",
+            "descriptorIndex": 795,
+            "descriptorKey": "45f9bda359b1fd5dc68f99791470a161",
+            "descriptorGuid": "a3bdf945-b159-5dfd-c68f-99791470a161",
+            "size": 192,
+            "alignment": 16
+          },
+          "rawOffset": 3952,
+          "rawType": "bytes:4",
+          "mappingBasis": [],
+          "mappingStatus": "hash-only or structural selection",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+              "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+              "offset": 3952,
+              "type": "bytes:4",
+              "bytesHex": "f8020000",
+              "value": "f8020000"
+            }
+          ]
+        },
+        {
+          "name": "weapon component to WB body 1",
+          "objectIndex": 15,
+          "fieldPath": [
+            "Field_e29fe7dd"
+          ],
+          "value": {
+            "$ref": 1
+          },
+          "owner": {
+            "type": "Struct_01419c76",
+            "hash": "01419c76",
+            "descriptorIndex": 517,
+            "descriptorKey": "605b523facc7db31cf87c0aacfad38de",
+            "descriptorGuid": "3f525b60-c7ac-31db-cf87-c0aacfad38de",
+            "size": 176,
+            "alignment": 8
+          },
+          "rawOffset": 4736,
+          "rawType": "bytes:4",
+          "mappingBasis": [],
+          "mappingStatus": "hash-only or structural selection",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+              "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+              "offset": 4736,
+              "type": "bytes:4",
+              "bytesHex": "20eeffff",
+              "value": "20eeffff"
+            }
+          ]
+        },
+        {
+          "name": "PrimaryFire.Shot",
+          "objectIndex": 1,
+          "fieldPath": [
+            "Field_58d70acb",
+            "Field_808dd66c"
+          ],
+          "value": {
+            "$import": {
+              "fileGuid": "5e46403f-68bf-11eb-9a89-df3b6e81b667",
+              "classGuid": "25051f60-927c-fcde-3339-e0ba6e81b667"
+            }
+          },
+          "owner": {
+            "type": "Struct_29ea5d2b",
+            "hash": "29ea5d2b",
+            "descriptorIndex": 531,
+            "descriptorKey": "5b15b659cc5c6b1a34f0e2a3f0c58edc",
+            "descriptorGuid": "59b6155b-5ccc-1a6b-34f0-e2a3f0c58edc",
+            "size": 320,
+            "alignment": 16
+          },
+          "rawOffset": 544,
+          "rawType": "bytes:4",
+          "mappingBasis": [
+            "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-09-29-L162-stinger-igla-source.json"
+          ],
+          "mappingStatus": "hash-only or structural selection",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+              "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+              "offset": 544,
+              "type": "bytes:4",
+              "bytesHex": "27000000",
+              "value": "27000000"
+            },
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+              "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+              "offset": 12546,
+              "type": "guid",
+              "bytesHex": "3f40465ebf68eb119a89df3b6e81b667",
+              "value": "5e46403f-68bf-11eb-9a89-df3b6e81b667",
+              "expect": "5e46403f-68bf-11eb-9a89-df3b6e81b667",
+              "matches": true
+            },
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+              "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+              "offset": 12578,
+              "type": "guid",
+              "bytesHex": "3f40465ebf68eb119a89df3b6e81b667",
+              "value": "5e46403f-68bf-11eb-9a89-df3b6e81b667",
+              "expect": "5e46403f-68bf-11eb-9a89-df3b6e81b667",
+              "matches": true
+            },
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+              "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+              "offset": 12594,
+              "type": "guid",
+              "bytesHex": "601f05257c92defc3339e0ba6e81b667",
+              "value": "25051f60-927c-fcde-3339-e0ba6e81b667",
+              "expect": "25051f60-927c-fcde-3339-e0ba6e81b667",
+              "matches": true
+            }
+          ]
+        },
+        {
+          "name": "Field_8590b01e",
+          "objectIndex": 1,
+          "fieldPath": [
+            "Field_58d70acb",
+            "Field_8590b01e"
+          ],
+          "value": {
+            "$import": {
+              "fileGuid": "5e46403f-68bf-11eb-9a89-df3b6e81b667",
+              "classGuid": "25051f60-927c-fcde-3339-e0ba6e81b667"
+            }
+          },
+          "owner": {
+            "type": "Struct_29ea5d2b",
+            "hash": "29ea5d2b",
+            "descriptorIndex": 531,
+            "descriptorKey": "5b15b659cc5c6b1a34f0e2a3f0c58edc",
+            "descriptorGuid": "59b6155b-5ccc-1a6b-34f0-e2a3f0c58edc",
+            "size": 320,
+            "alignment": 16
+          },
+          "rawOffset": 552,
+          "rawType": "bytes:4",
+          "mappingBasis": [
+            "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-09-29-L162-stinger-igla-source.json"
+          ],
+          "mappingStatus": "hash-only or structural selection",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+              "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+              "offset": 552,
+              "type": "bytes:4",
+              "bytesHex": "27000000",
+              "value": "27000000"
+            },
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+              "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+              "offset": 12546,
+              "type": "guid",
+              "bytesHex": "3f40465ebf68eb119a89df3b6e81b667",
+              "value": "5e46403f-68bf-11eb-9a89-df3b6e81b667",
+              "expect": "5e46403f-68bf-11eb-9a89-df3b6e81b667",
+              "matches": true
+            },
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+              "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+              "offset": 12578,
+              "type": "guid",
+              "bytesHex": "3f40465ebf68eb119a89df3b6e81b667",
+              "value": "5e46403f-68bf-11eb-9a89-df3b6e81b667",
+              "expect": "5e46403f-68bf-11eb-9a89-df3b6e81b667",
+              "matches": true
+            },
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+              "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+              "offset": 12594,
+              "type": "guid",
+              "bytesHex": "601f05257c92defc3339e0ba6e81b667",
+              "value": "25051f60-927c-fcde-3339-e0ba6e81b667",
+              "expect": "25051f60-927c-fcde-3339-e0ba6e81b667",
+              "matches": true
+            }
+          ]
+        },
+        {
+          "name": "Field_2f258a51",
+          "objectIndex": 1,
+          "fieldPath": [
+            "Field_58d70acb",
+            "Field_2f258a51"
+          ],
+          "value": {
+            "$import": {
+              "fileGuid": "5e46403f-68bf-11eb-9a89-df3b6e81b667",
+              "classGuid": "8d397c2d-f128-6421-265c-480eea8c6f01"
+            }
+          },
+          "owner": {
+            "type": "Struct_29ea5d2b",
+            "hash": "29ea5d2b",
+            "descriptorIndex": 531,
+            "descriptorKey": "5b15b659cc5c6b1a34f0e2a3f0c58edc",
+            "descriptorGuid": "59b6155b-5ccc-1a6b-34f0-e2a3f0c58edc",
+            "size": 320,
+            "alignment": 16
+          },
+          "rawOffset": 560,
+          "rawType": "bytes:4",
+          "mappingBasis": [
+            "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-09-29-L162-stinger-igla-source.json"
+          ],
+          "mappingStatus": "hash-only or structural selection",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+              "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+              "offset": 560,
+              "type": "bytes:4",
+              "bytesHex": "25000000",
+              "value": "25000000"
+            },
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+              "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+              "offset": 12546,
+              "type": "guid",
+              "bytesHex": "3f40465ebf68eb119a89df3b6e81b667",
+              "value": "5e46403f-68bf-11eb-9a89-df3b6e81b667",
+              "expect": "5e46403f-68bf-11eb-9a89-df3b6e81b667",
+              "matches": true
+            },
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+              "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+              "offset": 12578,
+              "type": "guid",
+              "bytesHex": "3f40465ebf68eb119a89df3b6e81b667",
+              "value": "5e46403f-68bf-11eb-9a89-df3b6e81b667",
+              "expect": "5e46403f-68bf-11eb-9a89-df3b6e81b667",
+              "matches": true
+            },
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+              "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+              "offset": 12562,
+              "type": "guid",
+              "bytesHex": "2d7c398d28f12164265c480eea8c6f01",
+              "value": "8d397c2d-f128-6421-265c-480eea8c6f01",
+              "expect": "8d397c2d-f128-6421-265c-480eea8c6f01",
+              "matches": true
+            }
+          ]
+        },
+        {
+          "name": "Field_351e5be0",
+          "objectIndex": 1,
+          "fieldPath": [
+            "Field_58d70acb",
+            "Field_351e5be0"
+          ],
+          "value": {
+            "$import": {
+              "fileGuid": "5e46403f-68bf-11eb-9a89-df3b6e81b667",
+              "classGuid": "8d397c2d-f128-6421-265c-480eea8c6f01"
+            }
+          },
+          "owner": {
+            "type": "Struct_29ea5d2b",
+            "hash": "29ea5d2b",
+            "descriptorIndex": 531,
+            "descriptorKey": "5b15b659cc5c6b1a34f0e2a3f0c58edc",
+            "descriptorGuid": "59b6155b-5ccc-1a6b-34f0-e2a3f0c58edc",
+            "size": 320,
+            "alignment": 16
+          },
+          "rawOffset": 568,
+          "rawType": "bytes:4",
+          "mappingBasis": [
+            "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-09-29-L162-stinger-igla-source.json"
+          ],
+          "mappingStatus": "hash-only or structural selection",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+              "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+              "offset": 568,
+              "type": "bytes:4",
+              "bytesHex": "25000000",
+              "value": "25000000"
+            },
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+              "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+              "offset": 12546,
+              "type": "guid",
+              "bytesHex": "3f40465ebf68eb119a89df3b6e81b667",
+              "value": "5e46403f-68bf-11eb-9a89-df3b6e81b667",
+              "expect": "5e46403f-68bf-11eb-9a89-df3b6e81b667",
+              "matches": true
+            },
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+              "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+              "offset": 12578,
+              "type": "guid",
+              "bytesHex": "3f40465ebf68eb119a89df3b6e81b667",
+              "value": "5e46403f-68bf-11eb-9a89-df3b6e81b667",
+              "expect": "5e46403f-68bf-11eb-9a89-df3b6e81b667",
+              "matches": true
+            },
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+              "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+              "offset": 12562,
+              "type": "guid",
+              "bytesHex": "2d7c398d28f12164265c480eea8c6f01",
+              "value": "8d397c2d-f128-6421-265c-480eea8c6f01",
+              "expect": "8d397c2d-f128-6421-265c-480eea8c6f01",
+              "matches": true
+            }
+          ]
+        }
+      ],
+      "identityChecks": [
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+          "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+          "offset": 10418,
+          "type": "guid",
+          "bytesHex": "43c53f9ad02f1843ab120974c24cfa43",
+          "value": "9a3fc543-2fd0-4318-ab12-0974c24cfa43",
+          "expect": "9a3fc543-2fd0-4318-ab12-0974c24cfa43",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+          "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+          "offset": 32,
+          "type": "guid",
+          "bytesHex": "0741decdbd2ec6449230cd00ca13b6c1",
+          "value": "cdde4107-2ebd-44c6-9230-cd00ca13b6c1",
+          "expect": "cdde4107-2ebd-44c6-9230-cd00ca13b6c1",
+          "matches": true
+        }
+      ],
+      "rawChecks": [
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+          "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+          "offset": 10418,
+          "type": "guid",
+          "bytesHex": "43c53f9ad02f1843ab120974c24cfa43",
+          "value": "9a3fc543-2fd0-4318-ab12-0974c24cfa43",
+          "expect": "9a3fc543-2fd0-4318-ab12-0974c24cfa43",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+          "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+          "offset": 32,
+          "type": "guid",
+          "bytesHex": "0741decdbd2ec6449230cd00ca13b6c1",
+          "value": "cdde4107-2ebd-44c6-9230-cd00ca13b6c1",
+          "expect": "cdde4107-2ebd-44c6-9230-cd00ca13b6c1",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+          "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+          "offset": 152,
+          "type": "bytes:4",
+          "bytesHex": "380e0000",
+          "value": "380e0000"
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+          "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+          "offset": 3952,
+          "type": "bytes:4",
+          "bytesHex": "f8020000",
+          "value": "f8020000"
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+          "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+          "offset": 4736,
+          "type": "bytes:4",
+          "bytesHex": "20eeffff",
+          "value": "20eeffff"
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+          "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+          "offset": 544,
+          "type": "bytes:4",
+          "bytesHex": "27000000",
+          "value": "27000000"
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+          "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+          "offset": 12546,
+          "type": "guid",
+          "bytesHex": "3f40465ebf68eb119a89df3b6e81b667",
+          "value": "5e46403f-68bf-11eb-9a89-df3b6e81b667",
+          "expect": "5e46403f-68bf-11eb-9a89-df3b6e81b667",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+          "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+          "offset": 12578,
+          "type": "guid",
+          "bytesHex": "3f40465ebf68eb119a89df3b6e81b667",
+          "value": "5e46403f-68bf-11eb-9a89-df3b6e81b667",
+          "expect": "5e46403f-68bf-11eb-9a89-df3b6e81b667",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+          "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+          "offset": 12594,
+          "type": "guid",
+          "bytesHex": "601f05257c92defc3339e0ba6e81b667",
+          "value": "25051f60-927c-fcde-3339-e0ba6e81b667",
+          "expect": "25051f60-927c-fcde-3339-e0ba6e81b667",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+          "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+          "offset": 552,
+          "type": "bytes:4",
+          "bytesHex": "27000000",
+          "value": "27000000"
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+          "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+          "offset": 12546,
+          "type": "guid",
+          "bytesHex": "3f40465ebf68eb119a89df3b6e81b667",
+          "value": "5e46403f-68bf-11eb-9a89-df3b6e81b667",
+          "expect": "5e46403f-68bf-11eb-9a89-df3b6e81b667",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+          "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+          "offset": 12578,
+          "type": "guid",
+          "bytesHex": "3f40465ebf68eb119a89df3b6e81b667",
+          "value": "5e46403f-68bf-11eb-9a89-df3b6e81b667",
+          "expect": "5e46403f-68bf-11eb-9a89-df3b6e81b667",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+          "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+          "offset": 12594,
+          "type": "guid",
+          "bytesHex": "601f05257c92defc3339e0ba6e81b667",
+          "value": "25051f60-927c-fcde-3339-e0ba6e81b667",
+          "expect": "25051f60-927c-fcde-3339-e0ba6e81b667",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+          "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+          "offset": 560,
+          "type": "bytes:4",
+          "bytesHex": "25000000",
+          "value": "25000000"
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+          "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+          "offset": 12546,
+          "type": "guid",
+          "bytesHex": "3f40465ebf68eb119a89df3b6e81b667",
+          "value": "5e46403f-68bf-11eb-9a89-df3b6e81b667",
+          "expect": "5e46403f-68bf-11eb-9a89-df3b6e81b667",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+          "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+          "offset": 12578,
+          "type": "guid",
+          "bytesHex": "3f40465ebf68eb119a89df3b6e81b667",
+          "value": "5e46403f-68bf-11eb-9a89-df3b6e81b667",
+          "expect": "5e46403f-68bf-11eb-9a89-df3b6e81b667",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+          "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+          "offset": 12562,
+          "type": "guid",
+          "bytesHex": "2d7c398d28f12164265c480eea8c6f01",
+          "value": "8d397c2d-f128-6421-265c-480eea8c6f01",
+          "expect": "8d397c2d-f128-6421-265c-480eea8c6f01",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+          "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+          "offset": 568,
+          "type": "bytes:4",
+          "bytesHex": "25000000",
+          "value": "25000000"
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+          "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+          "offset": 12546,
+          "type": "guid",
+          "bytesHex": "3f40465ebf68eb119a89df3b6e81b667",
+          "value": "5e46403f-68bf-11eb-9a89-df3b6e81b667",
+          "expect": "5e46403f-68bf-11eb-9a89-df3b6e81b667",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+          "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+          "offset": 12578,
+          "type": "guid",
+          "bytesHex": "3f40465ebf68eb119a89df3b6e81b667",
+          "value": "5e46403f-68bf-11eb-9a89-df3b6e81b667",
+          "expect": "5e46403f-68bf-11eb-9a89-df3b6e81b667",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+          "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+          "offset": 12562,
+          "type": "guid",
+          "bytesHex": "2d7c398d28f12164265c480eea8c6f01",
+          "value": "8d397c2d-f128-6421-265c-480eea8c6f01",
+          "expect": "8d397c2d-f128-6421-265c-480eea8c6f01",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+          "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+          "offset": 960,
+          "type": "i32",
+          "bytesHex": "01000000",
+          "value": 1,
+          "expect": 1,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+          "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+          "offset": 964,
+          "type": "i32",
+          "bytesHex": "03000000",
+          "value": 3,
+          "expect": 3,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+          "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+          "offset": 972,
+          "type": "i32",
+          "bytesHex": "ffffffff",
+          "value": -1,
+          "expect": -1,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+          "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+          "offset": 9172,
+          "type": "f32",
+          "bytesHex": "0000403f",
+          "value": 0.75,
+          "expect": 0.75,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+          "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+          "offset": 9180,
+          "type": "f32",
+          "bytesHex": "00000000",
+          "value": 0.0,
+          "expect": 0.0,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+          "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+          "offset": 9188,
+          "type": "f32",
+          "bytesHex": "000080bf",
+          "value": -1.0,
+          "expect": -1.0,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+          "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+          "offset": 9192,
+          "type": "f32",
+          "bytesHex": "000080bf",
+          "value": -1.0,
+          "expect": -1.0,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+          "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+          "offset": 9196,
+          "type": "f32",
+          "bytesHex": "00000000",
+          "value": 0.0,
+          "expect": 0.0,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+          "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+          "offset": 9132,
+          "type": "f32",
+          "bytesHex": "7b14ae3f",
+          "value": 1.3600000143051147,
+          "expect": 1.36,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+          "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+          "offset": 9136,
+          "type": "f32",
+          "bytesHex": "52b82e40",
+          "value": 2.7300000190734863,
+          "expect": 2.73,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+          "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+          "offset": 9140,
+          "type": "f32",
+          "bytesHex": "00008040",
+          "value": 4.0,
+          "expect": 4.0,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\WB_Javelin.ebx",
+          "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+          "offset": 9144,
+          "type": "f32",
+          "bytesHex": "66668640",
+          "value": 4.199999809265137,
+          "expect": 4.2,
+          "matches": true
+        }
+      ],
+      "selectionStatus": "WB configuration chain verified"
+    },
+    {
+      "route": "Common/Hardware/Gadgets/Launchers/Javelin/PB_Javelin",
+      "captureMetadata": {
+        "id": 54888,
+        "route": "Common/Hardware/Gadgets/Launchers/Javelin/PB_Javelin",
+        "raw_path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin.ebx",
+        "head": 4892087,
+        "descriptor_path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\toolchain\\SharedTypeDescriptors-hotfix-2026-09-16.ebx",
+        "descriptor_sha256": "99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640",
+        "raw_sha256": "26ded649660436b43b24a0339a475685b6ae3d9d8127599f4eebeb4b8fc8d6cd",
+        "header_status": "ok",
+        "decode_status": "decoded-provisional",
+        "error": null,
+        "object_count": 20,
+        "root_class": "Class_b141ba19",
+        "warnings_json": "{\"$layoutAmbiguous\":3}",
+        "decoder_sha256": "a414e4d460736d1f0361df85cb3c5450222f4e0b232e65623ac5c8ee693d46b4"
+      },
+      "rawPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin.ebx",
+      "rawSha256": "26ded649660436b43b24a0339a475685b6ae3d9d8127599f4eebeb4b8fc8d6cd",
+      "fileGuid": "5e46403f-68bf-11eb-9a89-df3b6e81b667",
+      "identities": [
+        {
+          "objectIndex": 0,
+          "classRefLocal": 0,
+          "classKey": "d8c84192d6c433f27b1a1e5b9102441a",
+          "class": {
+            "type": "Struct_b141ba19",
+            "hash": "b141ba19",
+            "descriptorIndex": 1965,
+            "descriptorKey": "d8c84192d6c433f27b1a1e5b9102441a",
+            "descriptorGuid": "9241c8d8-c4d6-f233-7b1a-1e5b9102441a",
+            "size": 120,
+            "alignment": 8
+          },
+          "exported": true
+        },
+        {
+          "objectIndex": 1,
+          "classRefLocal": 1,
+          "classKey": "31120380fad6ee70d05903053f9316b6",
+          "class": {
+            "type": "Struct_6a25e89d",
+            "hash": "6a25e89d",
+            "descriptorIndex": 629,
+            "descriptorKey": "31120380fad6ee70d05903053f9316b6",
+            "descriptorGuid": "80031231-d6fa-70ee-d059-03053f9316b6",
+            "size": 896,
+            "alignment": 16
+          },
+          "exported": true
+        },
+        {
+          "objectIndex": 9,
+          "classRefLocal": 6,
+          "classKey": "a57116aedf259bd743cedc6f7d0622f5",
+          "class": {
+            "type": "Struct_9966532d",
+            "hash": "9966532d",
+            "descriptorIndex": 511,
+            "descriptorKey": "a57116aedf259bd743cedc6f7d0622f5",
+            "descriptorGuid": "ae1671a5-25df-d79b-43ce-dc6f7d0622f5",
+            "size": 496,
+            "alignment": 16
+          },
+          "exported": false
+        }
+      ],
+      "fields": [
+        {
+          "name": "Field_0bf4f62b",
+          "objectIndex": 1,
+          "fieldPath": [
+            "Field_0bf4f62b"
+          ],
+          "value": 350.0,
+          "owner": {
+            "type": "Struct_990616ac",
+            "hash": "990616ac",
+            "descriptorIndex": 640,
+            "descriptorKey": "2d4898813df1638f89a026d45a64c3be",
+            "descriptorGuid": "8198482d-f13d-8f63-89a0-26d45a64c3be",
+            "size": 256,
+            "alignment": 16
+          },
+          "rawOffset": 336,
+          "rawType": "f32",
+          "mappingBasis": [
+            "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-09-29-L162-stinger-igla-source.json"
+          ],
+          "mappingStatus": "hash-only or structural selection",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin.ebx",
+              "rawSha256": "26ded649660436b43b24a0339a475685b6ae3d9d8127599f4eebeb4b8fc8d6cd",
+              "offset": 336,
+              "type": "f32",
+              "bytesHex": "0000af43",
+              "value": 350.0,
+              "expect": 350.0,
+              "matches": true
+            }
+          ],
+          "decodedRoundedValue": 350.0
+        },
+        {
+          "name": "Field_5ef7b9a1",
+          "objectIndex": 1,
+          "fieldPath": [
+            "Field_5ef7b9a1"
+          ],
+          "value": 15.0,
+          "owner": {
+            "type": "Struct_990616ac",
+            "hash": "990616ac",
+            "descriptorIndex": 640,
+            "descriptorKey": "2d4898813df1638f89a026d45a64c3be",
+            "descriptorGuid": "8198482d-f13d-8f63-89a0-26d45a64c3be",
+            "size": 256,
+            "alignment": 16
+          },
+          "rawOffset": 340,
+          "rawType": "f32",
+          "mappingBasis": [
+            "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-09-29-L162-stinger-igla-source.json"
+          ],
+          "mappingStatus": "hash-only or structural selection",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin.ebx",
+              "rawSha256": "26ded649660436b43b24a0339a475685b6ae3d9d8127599f4eebeb4b8fc8d6cd",
+              "offset": 340,
+              "type": "f32",
+              "bytesHex": "00007041",
+              "value": 15.0,
+              "expect": 15.0,
+              "matches": true
+            }
+          ],
+          "decodedRoundedValue": 15.0
+        },
+        {
+          "name": "BlastDamage",
+          "objectIndex": 9,
+          "fieldPath": [
+            "Field_19861d8c"
+          ],
+          "value": 125.0,
+          "owner": {
+            "type": "Struct_d11bf358",
+            "hash": "d11bf358",
+            "descriptorIndex": 521,
+            "descriptorKey": "cc2e2a83f3144a2460391b3d48426827",
+            "descriptorGuid": "832a2ecc-14f3-244a-6039-1b3d48426827",
+            "size": 368,
+            "alignment": 16
+          },
+          "rawOffset": 2336,
+          "rawType": "f32",
+          "mappingBasis": [
+            "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-09-29-L162-stinger-igla-source.json"
+          ],
+          "mappingStatus": "established prior owner identity",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin.ebx",
+              "rawSha256": "26ded649660436b43b24a0339a475685b6ae3d9d8127599f4eebeb4b8fc8d6cd",
+              "offset": 2336,
+              "type": "f32",
+              "bytesHex": "0000fa42",
+              "value": 125.0,
+              "expect": 125.0,
+              "matches": true
+            }
+          ],
+          "decodedRoundedValue": 125.0
+        },
+        {
+          "name": "BlastRadius",
+          "objectIndex": 9,
+          "fieldPath": [
+            "Field_33f3a8ab"
+          ],
+          "value": 4.0,
+          "owner": {
+            "type": "Struct_d11bf358",
+            "hash": "d11bf358",
+            "descriptorIndex": 521,
+            "descriptorKey": "cc2e2a83f3144a2460391b3d48426827",
+            "descriptorGuid": "832a2ecc-14f3-244a-6039-1b3d48426827",
+            "size": 368,
+            "alignment": 16
+          },
+          "rawOffset": 2352,
+          "rawType": "f32",
+          "mappingBasis": [
+            "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-09-29-L162-stinger-igla-source.json"
+          ],
+          "mappingStatus": "established prior owner identity",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin.ebx",
+              "rawSha256": "26ded649660436b43b24a0339a475685b6ae3d9d8127599f4eebeb4b8fc8d6cd",
+              "offset": 2352,
+              "type": "f32",
+              "bytesHex": "00008040",
+              "value": 4.0,
+              "expect": 4.0,
+              "matches": true
+            }
+          ],
+          "decodedRoundedValue": 4.0
+        },
+        {
+          "name": "InnerBlastRadius",
+          "objectIndex": 9,
+          "fieldPath": [
+            "Field_95e340fe"
+          ],
+          "value": 1.0,
+          "owner": {
+            "type": "Struct_d11bf358",
+            "hash": "d11bf358",
+            "descriptorIndex": 521,
+            "descriptorKey": "cc2e2a83f3144a2460391b3d48426827",
+            "descriptorGuid": "832a2ecc-14f3-244a-6039-1b3d48426827",
+            "size": 368,
+            "alignment": 16
+          },
+          "rawOffset": 2328,
+          "rawType": "f32",
+          "mappingBasis": [
+            "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-09-29-L162-stinger-igla-source.json"
+          ],
+          "mappingStatus": "established prior owner identity",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin.ebx",
+              "rawSha256": "26ded649660436b43b24a0339a475685b6ae3d9d8127599f4eebeb4b8fc8d6cd",
+              "offset": 2328,
+              "type": "f32",
+              "bytesHex": "0000803f",
+              "value": 1.0,
+              "expect": 1.0,
+              "matches": true
+            }
+          ],
+          "decodedRoundedValue": 1.0
+        },
+        {
+          "name": "ShockwaveDamage",
+          "objectIndex": 9,
+          "fieldPath": [
+            "Field_3ef01f58"
+          ],
+          "value": 1.0,
+          "owner": {
+            "type": "Struct_d11bf358",
+            "hash": "d11bf358",
+            "descriptorIndex": 521,
+            "descriptorKey": "cc2e2a83f3144a2460391b3d48426827",
+            "descriptorGuid": "832a2ecc-14f3-244a-6039-1b3d48426827",
+            "size": 368,
+            "alignment": 16
+          },
+          "rawOffset": 2368,
+          "rawType": "f32",
+          "mappingBasis": [
+            "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-09-29-L162-stinger-igla-source.json"
+          ],
+          "mappingStatus": "established prior owner identity",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin.ebx",
+              "rawSha256": "26ded649660436b43b24a0339a475685b6ae3d9d8127599f4eebeb4b8fc8d6cd",
+              "offset": 2368,
+              "type": "f32",
+              "bytesHex": "0000803f",
+              "value": 1.0,
+              "expect": 1.0,
+              "matches": true
+            }
+          ],
+          "decodedRoundedValue": 1.0
+        },
+        {
+          "name": "ShockwaveRadius",
+          "objectIndex": 9,
+          "fieldPath": [
+            "Field_524836d3"
+          ],
+          "value": 6.5,
+          "owner": {
+            "type": "Struct_d11bf358",
+            "hash": "d11bf358",
+            "descriptorIndex": 521,
+            "descriptorKey": "cc2e2a83f3144a2460391b3d48426827",
+            "descriptorGuid": "832a2ecc-14f3-244a-6039-1b3d48426827",
+            "size": 368,
+            "alignment": 16
+          },
+          "rawOffset": 2372,
+          "rawType": "f32",
+          "mappingBasis": [
+            "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-09-29-L162-stinger-igla-source.json"
+          ],
+          "mappingStatus": "established prior owner identity",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin.ebx",
+              "rawSha256": "26ded649660436b43b24a0339a475685b6ae3d9d8127599f4eebeb4b8fc8d6cd",
+              "offset": 2372,
+              "type": "f32",
+              "bytesHex": "0000d040",
+              "value": 6.5,
+              "expect": 6.5,
+              "matches": true
+            }
+          ],
+          "decodedRoundedValue": 6.5
+        }
+      ],
+      "links": [
+        {
+          "name": "configuration projectile",
+          "objectIndex": 0,
+          "fieldPath": [
+            "Field_9e113e77"
+          ],
+          "value": {
+            "$ref": 1
+          },
+          "owner": {
+            "type": "Struct_e6b24ea9",
+            "hash": "e6b24ea9",
+            "descriptorIndex": 478,
+            "descriptorKey": "1fdd27373f1752f05b965a8439dfe98c",
+            "descriptorGuid": "3727dd1f-173f-f052-5b96-5a8439dfe98c",
+            "size": 112,
+            "alignment": 8
+          },
+          "rawOffset": 152,
+          "rawType": "bytes:4",
+          "mappingBasis": [],
+          "mappingStatus": "hash-only or structural selection",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin.ebx",
+              "rawSha256": "26ded649660436b43b24a0339a475685b6ae3d9d8127599f4eebeb4b8fc8d6cd",
+              "offset": 152,
+              "type": "bytes:4",
+              "bytesHex": "28000000",
+              "value": "28000000"
+            }
+          ]
+        },
+        {
+          "name": "direct blast",
+          "objectIndex": 1,
+          "fieldPath": [
+            "Field_1f7b3933"
+          ],
+          "value": {
+            "$ref": 9
+          },
+          "owner": {
+            "type": "Struct_990616ac",
+            "hash": "990616ac",
+            "descriptorIndex": 640,
+            "descriptorKey": "2d4898813df1638f89a026d45a64c3be",
+            "descriptorGuid": "8198482d-f13d-8f63-89a0-26d45a64c3be",
+            "size": 256,
+            "alignment": 16
+          },
+          "rawOffset": 400,
+          "rawType": "bytes:4",
+          "mappingBasis": [
+            "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-09-29-L162-stinger-igla-source.json"
+          ],
+          "mappingStatus": "hash-only or structural selection",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin.ebx",
+              "rawSha256": "26ded649660436b43b24a0339a475685b6ae3d9d8127599f4eebeb4b8fc8d6cd",
+              "offset": 400,
+              "type": "bytes:4",
+              "bytesHex": "90060000",
+              "value": "90060000"
+            }
+          ]
+        },
+        {
+          "name": "blast curve configuration",
+          "objectIndex": 9,
+          "fieldPath": [
+            "Field_0839b22b"
+          ],
+          "value": {
+            "$import": {
+              "fileGuid": "974846a8-8737-4cce-8680-3551c1eaae7e",
+              "classGuid": "c86935fd-20af-42f5-a9e2-ca3995202580"
+            }
+          },
+          "owner": {
+            "type": "Struct_d11bf358",
+            "hash": "d11bf358",
+            "descriptorIndex": 521,
+            "descriptorKey": "cc2e2a83f3144a2460391b3d48426827",
+            "descriptorGuid": "832a2ecc-14f3-244a-6039-1b3d48426827",
+            "size": 368,
+            "alignment": 16
+          },
+          "rawOffset": 2320,
+          "rawType": "bytes:4",
+          "mappingBasis": [
+            "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-09-29-L162-stinger-igla-source.json"
+          ],
+          "mappingStatus": "hash-only or structural selection",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin.ebx",
+              "rawSha256": "26ded649660436b43b24a0339a475685b6ae3d9d8127599f4eebeb4b8fc8d6cd",
+              "offset": 2320,
+              "type": "bytes:4",
+              "bytesHex": "0f000000",
+              "value": "0f000000"
+            },
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin.ebx",
+              "rawSha256": "26ded649660436b43b24a0339a475685b6ae3d9d8127599f4eebeb4b8fc8d6cd",
+              "offset": 5158,
+              "type": "guid",
+              "bytesHex": "a84648973787ce4c86803551c1eaae7e",
+              "value": "974846a8-8737-4cce-8680-3551c1eaae7e",
+              "expect": "974846a8-8737-4cce-8680-3551c1eaae7e",
+              "matches": true
+            },
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin.ebx",
+              "rawSha256": "26ded649660436b43b24a0339a475685b6ae3d9d8127599f4eebeb4b8fc8d6cd",
+              "offset": 5174,
+              "type": "guid",
+              "bytesHex": "fd3569c8af20f542a9e2ca3995202580",
+              "value": "c86935fd-20af-42f5-a9e2-ca3995202580",
+              "expect": "c86935fd-20af-42f5-a9e2-ca3995202580",
+              "matches": true
+            }
+          ]
+        }
+      ],
+      "identityChecks": [
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin.ebx",
+          "rawSha256": "26ded649660436b43b24a0339a475685b6ae3d9d8127599f4eebeb4b8fc8d6cd",
+          "offset": 4206,
+          "type": "guid",
+          "bytesHex": "3f40465ebf68eb119a89df3b6e81b667",
+          "value": "5e46403f-68bf-11eb-9a89-df3b6e81b667",
+          "expect": "5e46403f-68bf-11eb-9a89-df3b6e81b667",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin.ebx",
+          "rawSha256": "26ded649660436b43b24a0339a475685b6ae3d9d8127599f4eebeb4b8fc8d6cd",
+          "offset": 32,
+          "type": "guid",
+          "bytesHex": "2d7c398d28f12164265c480eea8c6f01",
+          "value": "8d397c2d-f128-6421-265c-480eea8c6f01",
+          "expect": "8d397c2d-f128-6421-265c-480eea8c6f01",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin.ebx",
+          "rawSha256": "26ded649660436b43b24a0339a475685b6ae3d9d8127599f4eebeb4b8fc8d6cd",
+          "offset": 176,
+          "type": "guid",
+          "bytesHex": "601f05257c92defc3339e0ba6e81b667",
+          "value": "25051f60-927c-fcde-3339-e0ba6e81b667",
+          "expect": "25051f60-927c-fcde-3339-e0ba6e81b667",
+          "matches": true
+        }
+      ],
+      "rawChecks": [
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin.ebx",
+          "rawSha256": "26ded649660436b43b24a0339a475685b6ae3d9d8127599f4eebeb4b8fc8d6cd",
+          "offset": 4206,
+          "type": "guid",
+          "bytesHex": "3f40465ebf68eb119a89df3b6e81b667",
+          "value": "5e46403f-68bf-11eb-9a89-df3b6e81b667",
+          "expect": "5e46403f-68bf-11eb-9a89-df3b6e81b667",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin.ebx",
+          "rawSha256": "26ded649660436b43b24a0339a475685b6ae3d9d8127599f4eebeb4b8fc8d6cd",
+          "offset": 32,
+          "type": "guid",
+          "bytesHex": "2d7c398d28f12164265c480eea8c6f01",
+          "value": "8d397c2d-f128-6421-265c-480eea8c6f01",
+          "expect": "8d397c2d-f128-6421-265c-480eea8c6f01",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin.ebx",
+          "rawSha256": "26ded649660436b43b24a0339a475685b6ae3d9d8127599f4eebeb4b8fc8d6cd",
+          "offset": 176,
+          "type": "guid",
+          "bytesHex": "601f05257c92defc3339e0ba6e81b667",
+          "value": "25051f60-927c-fcde-3339-e0ba6e81b667",
+          "expect": "25051f60-927c-fcde-3339-e0ba6e81b667",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin.ebx",
+          "rawSha256": "26ded649660436b43b24a0339a475685b6ae3d9d8127599f4eebeb4b8fc8d6cd",
+          "offset": 152,
+          "type": "bytes:4",
+          "bytesHex": "28000000",
+          "value": "28000000"
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin.ebx",
+          "rawSha256": "26ded649660436b43b24a0339a475685b6ae3d9d8127599f4eebeb4b8fc8d6cd",
+          "offset": 336,
+          "type": "f32",
+          "bytesHex": "0000af43",
+          "value": 350.0,
+          "expect": 350.0,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin.ebx",
+          "rawSha256": "26ded649660436b43b24a0339a475685b6ae3d9d8127599f4eebeb4b8fc8d6cd",
+          "offset": 340,
+          "type": "f32",
+          "bytesHex": "00007041",
+          "value": 15.0,
+          "expect": 15.0,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin.ebx",
+          "rawSha256": "26ded649660436b43b24a0339a475685b6ae3d9d8127599f4eebeb4b8fc8d6cd",
+          "offset": 400,
+          "type": "bytes:4",
+          "bytesHex": "90060000",
+          "value": "90060000"
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin.ebx",
+          "rawSha256": "26ded649660436b43b24a0339a475685b6ae3d9d8127599f4eebeb4b8fc8d6cd",
+          "offset": 2336,
+          "type": "f32",
+          "bytesHex": "0000fa42",
+          "value": 125.0,
+          "expect": 125.0,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin.ebx",
+          "rawSha256": "26ded649660436b43b24a0339a475685b6ae3d9d8127599f4eebeb4b8fc8d6cd",
+          "offset": 2352,
+          "type": "f32",
+          "bytesHex": "00008040",
+          "value": 4.0,
+          "expect": 4.0,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin.ebx",
+          "rawSha256": "26ded649660436b43b24a0339a475685b6ae3d9d8127599f4eebeb4b8fc8d6cd",
+          "offset": 2328,
+          "type": "f32",
+          "bytesHex": "0000803f",
+          "value": 1.0,
+          "expect": 1.0,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin.ebx",
+          "rawSha256": "26ded649660436b43b24a0339a475685b6ae3d9d8127599f4eebeb4b8fc8d6cd",
+          "offset": 2368,
+          "type": "f32",
+          "bytesHex": "0000803f",
+          "value": 1.0,
+          "expect": 1.0,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin.ebx",
+          "rawSha256": "26ded649660436b43b24a0339a475685b6ae3d9d8127599f4eebeb4b8fc8d6cd",
+          "offset": 2372,
+          "type": "f32",
+          "bytesHex": "0000d040",
+          "value": 6.5,
+          "expect": 6.5,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin.ebx",
+          "rawSha256": "26ded649660436b43b24a0339a475685b6ae3d9d8127599f4eebeb4b8fc8d6cd",
+          "offset": 2320,
+          "type": "bytes:4",
+          "bytesHex": "0f000000",
+          "value": "0f000000"
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin.ebx",
+          "rawSha256": "26ded649660436b43b24a0339a475685b6ae3d9d8127599f4eebeb4b8fc8d6cd",
+          "offset": 5158,
+          "type": "guid",
+          "bytesHex": "a84648973787ce4c86803551c1eaae7e",
+          "value": "974846a8-8737-4cce-8680-3551c1eaae7e",
+          "expect": "974846a8-8737-4cce-8680-3551c1eaae7e",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin.ebx",
+          "rawSha256": "26ded649660436b43b24a0339a475685b6ae3d9d8127599f4eebeb4b8fc8d6cd",
+          "offset": 5174,
+          "type": "guid",
+          "bytesHex": "fd3569c8af20f542a9e2ca3995202580",
+          "value": "c86935fd-20af-42f5-a9e2-ca3995202580",
+          "expect": "c86935fd-20af-42f5-a9e2-ca3995202580",
+          "matches": true
+        }
+      ],
+      "selectionStatus": "selected primary source"
+    },
+    {
+      "route": "Common/Hardware/Gadgets/Launchers/Javelin/PB_Javelin_LaserGuided",
+      "captureMetadata": {
+        "id": 54890,
+        "route": "Common/Hardware/Gadgets/Launchers/Javelin/PB_Javelin_LaserGuided",
+        "raw_path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin_LaserGuided.ebx",
+        "head": 4892087,
+        "descriptor_path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\toolchain\\SharedTypeDescriptors-hotfix-2026-09-16.ebx",
+        "descriptor_sha256": "99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640",
+        "raw_sha256": "b75d03de85c852ba16968b5f2c0d15068fe939f50f2e501e16f7222875c55cc0",
+        "header_status": "ok",
+        "decode_status": "decoded-provisional",
+        "error": null,
+        "object_count": 23,
+        "root_class": "Class_b141ba19",
+        "warnings_json": "{\"$layoutAmbiguous\":5}",
+        "decoder_sha256": "a414e4d460736d1f0361df85cb3c5450222f4e0b232e65623ac5c8ee693d46b4"
+      },
+      "rawPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin_LaserGuided.ebx",
+      "rawSha256": "b75d03de85c852ba16968b5f2c0d15068fe939f50f2e501e16f7222875c55cc0",
+      "fileGuid": "ed748fd0-df9e-45e5-b057-5d2d610fda44",
+      "identities": [
+        {
+          "objectIndex": 0,
+          "classRefLocal": 0,
+          "classKey": "d8c84192d6c433f27b1a1e5b9102441a",
+          "class": {
+            "type": "Struct_b141ba19",
+            "hash": "b141ba19",
+            "descriptorIndex": 1965,
+            "descriptorKey": "d8c84192d6c433f27b1a1e5b9102441a",
+            "descriptorGuid": "9241c8d8-c4d6-f233-7b1a-1e5b9102441a",
+            "size": 120,
+            "alignment": 8
+          },
+          "exported": true
+        },
+        {
+          "objectIndex": 1,
+          "classRefLocal": 1,
+          "classKey": "31120380fad6ee70d05903054e910518",
+          "class": {
+            "type": "Struct_6a25e89d",
+            "hash": "6a25e89d",
+            "descriptorIndex": 8472,
+            "descriptorKey": "31120380fad6ee70d05903054e910518",
+            "descriptorGuid": "80031231-d6fa-70ee-d059-03054e910518",
+            "size": 832,
+            "alignment": 16
+          },
+          "exported": true
+        },
+        {
+          "objectIndex": 9,
+          "classRefLocal": 6,
+          "classKey": "a57116aedf259bd743cedc6f65badfd3",
+          "class": {
+            "type": "Struct_9966532d",
+            "hash": "9966532d",
+            "descriptorIndex": 8075,
+            "descriptorKey": "a57116aedf259bd743cedc6f65badfd3",
+            "descriptorGuid": "ae1671a5-25df-d79b-43ce-dc6f65badfd3",
+            "size": 464,
+            "alignment": 16
+          },
+          "exported": false
+        }
+      ],
+      "fields": [
+        {
+          "name": "Field_0bf4f62b",
+          "objectIndex": 1,
+          "fieldPath": [
+            "Field_0bf4f62b"
+          ],
+          "value": 350.0,
+          "owner": {
+            "type": "Struct_990616ac",
+            "hash": "990616ac",
+            "descriptorIndex": 8305,
+            "descriptorKey": "2d4898813df1638f89a026d42cdefdd4",
+            "descriptorGuid": "8198482d-f13d-8f63-89a0-26d42cdefdd4",
+            "size": 256,
+            "alignment": 16
+          },
+          "rawOffset": 336,
+          "rawType": "f32",
+          "mappingBasis": [],
+          "mappingStatus": "hash-only or structural selection",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin_LaserGuided.ebx",
+              "rawSha256": "b75d03de85c852ba16968b5f2c0d15068fe939f50f2e501e16f7222875c55cc0",
+              "offset": 336,
+              "type": "f32",
+              "bytesHex": "0000af43",
+              "value": 350.0,
+              "expect": 350.0,
+              "matches": true
+            }
+          ],
+          "decodedRoundedValue": 350.0
+        },
+        {
+          "name": "Field_5ef7b9a1",
+          "objectIndex": 1,
+          "fieldPath": [
+            "Field_5ef7b9a1"
+          ],
+          "value": 15.0,
+          "owner": {
+            "type": "Struct_990616ac",
+            "hash": "990616ac",
+            "descriptorIndex": 8305,
+            "descriptorKey": "2d4898813df1638f89a026d42cdefdd4",
+            "descriptorGuid": "8198482d-f13d-8f63-89a0-26d42cdefdd4",
+            "size": 256,
+            "alignment": 16
+          },
+          "rawOffset": 340,
+          "rawType": "f32",
+          "mappingBasis": [],
+          "mappingStatus": "hash-only or structural selection",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin_LaserGuided.ebx",
+              "rawSha256": "b75d03de85c852ba16968b5f2c0d15068fe939f50f2e501e16f7222875c55cc0",
+              "offset": 340,
+              "type": "f32",
+              "bytesHex": "00007041",
+              "value": 15.0,
+              "expect": 15.0,
+              "matches": true
+            }
+          ],
+          "decodedRoundedValue": 15.0
+        },
+        {
+          "name": "Field_19861d8c",
+          "objectIndex": 9,
+          "fieldPath": [
+            "Field_19861d8c"
+          ],
+          "value": 125.0,
+          "owner": {
+            "type": "Struct_d11bf358",
+            "hash": "d11bf358",
+            "descriptorIndex": 8076,
+            "descriptorKey": "cc2e2a83f3144a2460391b3deb149abf",
+            "descriptorGuid": "832a2ecc-14f3-244a-6039-1b3deb149abf",
+            "size": 352,
+            "alignment": 16
+          },
+          "rawOffset": 2260,
+          "rawType": "f32",
+          "mappingBasis": [],
+          "mappingStatus": "different exact owner descriptor; label retained as candidate only",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin_LaserGuided.ebx",
+              "rawSha256": "b75d03de85c852ba16968b5f2c0d15068fe939f50f2e501e16f7222875c55cc0",
+              "offset": 2260,
+              "type": "f32",
+              "bytesHex": "0000fa42",
+              "value": 125.0,
+              "expect": 125.0,
+              "matches": true
+            }
+          ],
+          "candidateSemanticName": "BlastDamage",
+          "decodedRoundedValue": 125.0
+        },
+        {
+          "name": "Field_33f3a8ab",
+          "objectIndex": 9,
+          "fieldPath": [
+            "Field_33f3a8ab"
+          ],
+          "value": 4.0,
+          "owner": {
+            "type": "Struct_d11bf358",
+            "hash": "d11bf358",
+            "descriptorIndex": 8076,
+            "descriptorKey": "cc2e2a83f3144a2460391b3deb149abf",
+            "descriptorGuid": "832a2ecc-14f3-244a-6039-1b3deb149abf",
+            "size": 352,
+            "alignment": 16
+          },
+          "rawOffset": 2272,
+          "rawType": "f32",
+          "mappingBasis": [],
+          "mappingStatus": "different exact owner descriptor; label retained as candidate only",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin_LaserGuided.ebx",
+              "rawSha256": "b75d03de85c852ba16968b5f2c0d15068fe939f50f2e501e16f7222875c55cc0",
+              "offset": 2272,
+              "type": "f32",
+              "bytesHex": "00008040",
+              "value": 4.0,
+              "expect": 4.0,
+              "matches": true
+            }
+          ],
+          "candidateSemanticName": "BlastRadius",
+          "decodedRoundedValue": 4.0
+        },
+        {
+          "name": "Field_95e340fe",
+          "objectIndex": 9,
+          "fieldPath": [
+            "Field_95e340fe"
+          ],
+          "value": 1.0,
+          "owner": {
+            "type": "Struct_d11bf358",
+            "hash": "d11bf358",
+            "descriptorIndex": 8076,
+            "descriptorKey": "cc2e2a83f3144a2460391b3deb149abf",
+            "descriptorGuid": "832a2ecc-14f3-244a-6039-1b3deb149abf",
+            "size": 352,
+            "alignment": 16
+          },
+          "rawOffset": 2256,
+          "rawType": "f32",
+          "mappingBasis": [],
+          "mappingStatus": "different exact owner descriptor; label retained as candidate only",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin_LaserGuided.ebx",
+              "rawSha256": "b75d03de85c852ba16968b5f2c0d15068fe939f50f2e501e16f7222875c55cc0",
+              "offset": 2256,
+              "type": "f32",
+              "bytesHex": "0000803f",
+              "value": 1.0,
+              "expect": 1.0,
+              "matches": true
+            }
+          ],
+          "candidateSemanticName": "InnerBlastRadius",
+          "decodedRoundedValue": 1.0
+        },
+        {
+          "name": "Field_3ef01f58",
+          "objectIndex": 9,
+          "fieldPath": [
+            "Field_3ef01f58"
+          ],
+          "value": 1.0,
+          "owner": {
+            "type": "Struct_d11bf358",
+            "hash": "d11bf358",
+            "descriptorIndex": 8076,
+            "descriptorKey": "cc2e2a83f3144a2460391b3deb149abf",
+            "descriptorGuid": "832a2ecc-14f3-244a-6039-1b3deb149abf",
+            "size": 352,
+            "alignment": 16
+          },
+          "rawOffset": 2288,
+          "rawType": "f32",
+          "mappingBasis": [],
+          "mappingStatus": "different exact owner descriptor; label retained as candidate only",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin_LaserGuided.ebx",
+              "rawSha256": "b75d03de85c852ba16968b5f2c0d15068fe939f50f2e501e16f7222875c55cc0",
+              "offset": 2288,
+              "type": "f32",
+              "bytesHex": "0000803f",
+              "value": 1.0,
+              "expect": 1.0,
+              "matches": true
+            }
+          ],
+          "candidateSemanticName": "ShockwaveDamage",
+          "decodedRoundedValue": 1.0
+        },
+        {
+          "name": "Field_524836d3",
+          "objectIndex": 9,
+          "fieldPath": [
+            "Field_524836d3"
+          ],
+          "value": 6.5,
+          "owner": {
+            "type": "Struct_d11bf358",
+            "hash": "d11bf358",
+            "descriptorIndex": 8076,
+            "descriptorKey": "cc2e2a83f3144a2460391b3deb149abf",
+            "descriptorGuid": "832a2ecc-14f3-244a-6039-1b3deb149abf",
+            "size": 352,
+            "alignment": 16
+          },
+          "rawOffset": 2292,
+          "rawType": "f32",
+          "mappingBasis": [],
+          "mappingStatus": "different exact owner descriptor; label retained as candidate only",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin_LaserGuided.ebx",
+              "rawSha256": "b75d03de85c852ba16968b5f2c0d15068fe939f50f2e501e16f7222875c55cc0",
+              "offset": 2292,
+              "type": "f32",
+              "bytesHex": "0000d040",
+              "value": 6.5,
+              "expect": 6.5,
+              "matches": true
+            }
+          ],
+          "candidateSemanticName": "ShockwaveRadius",
+          "decodedRoundedValue": 6.5
+        }
+      ],
+      "links": [
+        {
+          "name": "configuration projectile",
+          "objectIndex": 0,
+          "fieldPath": [
+            "Field_9e113e77"
+          ],
+          "value": {
+            "$ref": 1
+          },
+          "owner": {
+            "type": "Struct_e6b24ea9",
+            "hash": "e6b24ea9",
+            "descriptorIndex": 478,
+            "descriptorKey": "1fdd27373f1752f05b965a8439dfe98c",
+            "descriptorGuid": "3727dd1f-173f-f052-5b96-5a8439dfe98c",
+            "size": 112,
+            "alignment": 8
+          },
+          "rawOffset": 152,
+          "rawType": "bytes:4",
+          "mappingBasis": [],
+          "mappingStatus": "hash-only or structural selection",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin_LaserGuided.ebx",
+              "rawSha256": "b75d03de85c852ba16968b5f2c0d15068fe939f50f2e501e16f7222875c55cc0",
+              "offset": 152,
+              "type": "bytes:4",
+              "bytesHex": "28000000",
+              "value": "28000000"
+            }
+          ]
+        },
+        {
+          "name": "direct blast",
+          "objectIndex": 1,
+          "fieldPath": [
+            "Field_1f7b3933"
+          ],
+          "value": {
+            "$ref": 9
+          },
+          "owner": {
+            "type": "Struct_990616ac",
+            "hash": "990616ac",
+            "descriptorIndex": 8305,
+            "descriptorKey": "2d4898813df1638f89a026d42cdefdd4",
+            "descriptorGuid": "8198482d-f13d-8f63-89a0-26d42cdefdd4",
+            "size": 256,
+            "alignment": 16
+          },
+          "rawOffset": 392,
+          "rawType": "bytes:4",
+          "mappingBasis": [],
+          "mappingStatus": "hash-only or structural selection",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin_LaserGuided.ebx",
+              "rawSha256": "b75d03de85c852ba16968b5f2c0d15068fe939f50f2e501e16f7222875c55cc0",
+              "offset": 392,
+              "type": "bytes:4",
+              "bytesHex": "58060000",
+              "value": "58060000"
+            }
+          ]
+        },
+        {
+          "name": "blast curve configuration",
+          "objectIndex": 9,
+          "fieldPath": [
+            "Field_0839b22b"
+          ],
+          "value": null,
+          "owner": {
+            "type": "Struct_d11bf358",
+            "hash": "d11bf358",
+            "descriptorIndex": 8076,
+            "descriptorKey": "cc2e2a83f3144a2460391b3deb149abf",
+            "descriptorGuid": "832a2ecc-14f3-244a-6039-1b3deb149abf",
+            "size": 352,
+            "alignment": 16
+          },
+          "rawOffset": 2248,
+          "rawType": "bytes:4",
+          "mappingBasis": [],
+          "mappingStatus": "hash-only or structural selection",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin_LaserGuided.ebx",
+              "rawSha256": "b75d03de85c852ba16968b5f2c0d15068fe939f50f2e501e16f7222875c55cc0",
+              "offset": 2248,
+              "type": "bytes:4",
+              "bytesHex": "00000000",
+              "value": "00000000"
+            }
+          ]
+        }
+      ],
+      "identityChecks": [
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin_LaserGuided.ebx",
+          "rawSha256": "b75d03de85c852ba16968b5f2c0d15068fe939f50f2e501e16f7222875c55cc0",
+          "offset": 4586,
+          "type": "guid",
+          "bytesHex": "d08f74ed9edfe545b0575d2d610fda44",
+          "value": "ed748fd0-df9e-45e5-b057-5d2d610fda44",
+          "expect": "ed748fd0-df9e-45e5-b057-5d2d610fda44",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin_LaserGuided.ebx",
+          "rawSha256": "b75d03de85c852ba16968b5f2c0d15068fe939f50f2e501e16f7222875c55cc0",
+          "offset": 32,
+          "type": "guid",
+          "bytesHex": "d23ab70f9f4a68418cf38c2869d82f36",
+          "value": "0fb73ad2-4a9f-4168-8cf3-8c2869d82f36",
+          "expect": "0fb73ad2-4a9f-4168-8cf3-8c2869d82f36",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin_LaserGuided.ebx",
+          "rawSha256": "b75d03de85c852ba16968b5f2c0d15068fe939f50f2e501e16f7222875c55cc0",
+          "offset": 176,
+          "type": "guid",
+          "bytesHex": "fa84015dd199f0409eec874b23ab7c59",
+          "value": "5d0184fa-99d1-40f0-9eec-874b23ab7c59",
+          "expect": "5d0184fa-99d1-40f0-9eec-874b23ab7c59",
+          "matches": true
+        }
+      ],
+      "rawChecks": [
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin_LaserGuided.ebx",
+          "rawSha256": "b75d03de85c852ba16968b5f2c0d15068fe939f50f2e501e16f7222875c55cc0",
+          "offset": 4586,
+          "type": "guid",
+          "bytesHex": "d08f74ed9edfe545b0575d2d610fda44",
+          "value": "ed748fd0-df9e-45e5-b057-5d2d610fda44",
+          "expect": "ed748fd0-df9e-45e5-b057-5d2d610fda44",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin_LaserGuided.ebx",
+          "rawSha256": "b75d03de85c852ba16968b5f2c0d15068fe939f50f2e501e16f7222875c55cc0",
+          "offset": 32,
+          "type": "guid",
+          "bytesHex": "d23ab70f9f4a68418cf38c2869d82f36",
+          "value": "0fb73ad2-4a9f-4168-8cf3-8c2869d82f36",
+          "expect": "0fb73ad2-4a9f-4168-8cf3-8c2869d82f36",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin_LaserGuided.ebx",
+          "rawSha256": "b75d03de85c852ba16968b5f2c0d15068fe939f50f2e501e16f7222875c55cc0",
+          "offset": 176,
+          "type": "guid",
+          "bytesHex": "fa84015dd199f0409eec874b23ab7c59",
+          "value": "5d0184fa-99d1-40f0-9eec-874b23ab7c59",
+          "expect": "5d0184fa-99d1-40f0-9eec-874b23ab7c59",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin_LaserGuided.ebx",
+          "rawSha256": "b75d03de85c852ba16968b5f2c0d15068fe939f50f2e501e16f7222875c55cc0",
+          "offset": 152,
+          "type": "bytes:4",
+          "bytesHex": "28000000",
+          "value": "28000000"
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin_LaserGuided.ebx",
+          "rawSha256": "b75d03de85c852ba16968b5f2c0d15068fe939f50f2e501e16f7222875c55cc0",
+          "offset": 336,
+          "type": "f32",
+          "bytesHex": "0000af43",
+          "value": 350.0,
+          "expect": 350.0,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin_LaserGuided.ebx",
+          "rawSha256": "b75d03de85c852ba16968b5f2c0d15068fe939f50f2e501e16f7222875c55cc0",
+          "offset": 340,
+          "type": "f32",
+          "bytesHex": "00007041",
+          "value": 15.0,
+          "expect": 15.0,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin_LaserGuided.ebx",
+          "rawSha256": "b75d03de85c852ba16968b5f2c0d15068fe939f50f2e501e16f7222875c55cc0",
+          "offset": 392,
+          "type": "bytes:4",
+          "bytesHex": "58060000",
+          "value": "58060000"
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin_LaserGuided.ebx",
+          "rawSha256": "b75d03de85c852ba16968b5f2c0d15068fe939f50f2e501e16f7222875c55cc0",
+          "offset": 2260,
+          "type": "f32",
+          "bytesHex": "0000fa42",
+          "value": 125.0,
+          "expect": 125.0,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin_LaserGuided.ebx",
+          "rawSha256": "b75d03de85c852ba16968b5f2c0d15068fe939f50f2e501e16f7222875c55cc0",
+          "offset": 2272,
+          "type": "f32",
+          "bytesHex": "00008040",
+          "value": 4.0,
+          "expect": 4.0,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin_LaserGuided.ebx",
+          "rawSha256": "b75d03de85c852ba16968b5f2c0d15068fe939f50f2e501e16f7222875c55cc0",
+          "offset": 2256,
+          "type": "f32",
+          "bytesHex": "0000803f",
+          "value": 1.0,
+          "expect": 1.0,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin_LaserGuided.ebx",
+          "rawSha256": "b75d03de85c852ba16968b5f2c0d15068fe939f50f2e501e16f7222875c55cc0",
+          "offset": 2288,
+          "type": "f32",
+          "bytesHex": "0000803f",
+          "value": 1.0,
+          "expect": 1.0,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin_LaserGuided.ebx",
+          "rawSha256": "b75d03de85c852ba16968b5f2c0d15068fe939f50f2e501e16f7222875c55cc0",
+          "offset": 2292,
+          "type": "f32",
+          "bytesHex": "0000d040",
+          "value": 6.5,
+          "expect": 6.5,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\PB_Javelin_LaserGuided.ebx",
+          "rawSha256": "b75d03de85c852ba16968b5f2c0d15068fe939f50f2e501e16f7222875c55cc0",
+          "offset": 2248,
+          "type": "bytes:4",
+          "bytesHex": "00000000",
+          "value": "00000000"
+        }
+      ],
+      "selectionStatus": "candidate variant; no scoped exact primary selection"
+    },
+    {
+      "route": "Common/Hardware/Gadgets/Launchers/Javelin/Javelin_BlastDamageFallOffCurve",
+      "captureMetadata": {
+        "id": 54885,
+        "route": "Common/Hardware/Gadgets/Launchers/Javelin/Javelin_BlastDamageFallOffCurve",
+        "raw_path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\Javelin_BlastDamageFallOffCurve.ebx",
+        "head": 4892087,
+        "descriptor_path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\toolchain\\SharedTypeDescriptors-hotfix-2026-09-16.ebx",
+        "descriptor_sha256": "99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640",
+        "raw_sha256": "b8a229f27265df4c7ccc0f69656bca9313960cd105adc29342cfeaacb934501b",
+        "header_status": "ok",
+        "decode_status": "decoded",
+        "error": null,
+        "object_count": 2,
+        "root_class": "Class_8f135cd6",
+        "warnings_json": "{}",
+        "decoder_sha256": "a414e4d460736d1f0361df85cb3c5450222f4e0b232e65623ac5c8ee693d46b4"
+      },
+      "rawPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\Javelin_BlastDamageFallOffCurve.ebx",
+      "rawSha256": "b8a229f27265df4c7ccc0f69656bca9313960cd105adc29342cfeaacb934501b",
+      "fileGuid": "974846a8-8737-4cce-8680-3551c1eaae7e",
+      "identities": [
+        {
+          "objectIndex": 0,
+          "classRefLocal": 0,
+          "classKey": "bdc4b91ee3bc8f4ea2e341c98c8dd2b3",
+          "class": {
+            "type": "Struct_8f135cd6",
+            "hash": "8f135cd6",
+            "descriptorIndex": 2009,
+            "descriptorKey": "bdc4b91ee3bc8f4ea2e341c98c8dd2b3",
+            "descriptorGuid": "1eb9c4bd-bce3-4e8f-a2e3-41c98c8dd2b3",
+            "size": 40,
+            "alignment": 8
+          },
+          "exported": true
+        },
+        {
+          "objectIndex": 1,
+          "classRefLocal": 1,
+          "classKey": "dfa24ed7807b19103d97b179c514ee7c",
+          "class": {
+            "type": "Struct_afbfd124",
+            "hash": "afbfd124",
+            "descriptorIndex": 281,
+            "descriptorKey": "dfa24ed7807b19103d97b179c514ee7c",
+            "descriptorGuid": "d74ea2df-7b80-1019-3d97-b179c514ee7c",
+            "size": 40,
+            "alignment": 8
+          },
+          "exported": true
+        }
+      ],
+      "fields": [
+        {
+          "name": "curve knot Field_3901db14",
+          "objectIndex": 1,
+          "fieldPath": [
+            "Field_edfc6df6",
+            0,
+            "Field_3901db14"
+          ],
+          "value": 0.0,
+          "owner": {
+            "type": "Struct_c45202f2",
+            "hash": "c45202f2",
+            "descriptorIndex": 283,
+            "descriptorKey": "3bac499b990ec0474bb878242a3288c6",
+            "descriptorGuid": "9b49ac3b-0e99-47c0-4bb8-78242a3288c6",
+            "size": 28,
+            "alignment": 4
+          },
+          "rawOffset": 196,
+          "rawType": "f32",
+          "mappingBasis": [],
+          "mappingStatus": "hash-only or structural selection",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\Javelin_BlastDamageFallOffCurve.ebx",
+              "rawSha256": "b8a229f27265df4c7ccc0f69656bca9313960cd105adc29342cfeaacb934501b",
+              "offset": 196,
+              "type": "f32",
+              "bytesHex": "00000000",
+              "value": 0.0,
+              "expect": 0.0,
+              "matches": true
+            }
+          ],
+          "decodedRoundedValue": 0.0
+        },
+        {
+          "name": "curve knot Field_42fc0f5e",
+          "objectIndex": 1,
+          "fieldPath": [
+            "Field_edfc6df6",
+            0,
+            "Field_42fc0f5e"
+          ],
+          "value": 1.0,
+          "owner": {
+            "type": "Struct_c45202f2",
+            "hash": "c45202f2",
+            "descriptorIndex": 283,
+            "descriptorKey": "3bac499b990ec0474bb878242a3288c6",
+            "descriptorGuid": "9b49ac3b-0e99-47c0-4bb8-78242a3288c6",
+            "size": 28,
+            "alignment": 4
+          },
+          "rawOffset": 216,
+          "rawType": "f32",
+          "mappingBasis": [],
+          "mappingStatus": "hash-only or structural selection",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\Javelin_BlastDamageFallOffCurve.ebx",
+              "rawSha256": "b8a229f27265df4c7ccc0f69656bca9313960cd105adc29342cfeaacb934501b",
+              "offset": 216,
+              "type": "f32",
+              "bytesHex": "0000803f",
+              "value": 1.0,
+              "expect": 1.0,
+              "matches": true
+            }
+          ],
+          "decodedRoundedValue": 1.0
+        },
+        {
+          "name": "curve knot Field_3901db14",
+          "objectIndex": 1,
+          "fieldPath": [
+            "Field_edfc6df6",
+            1,
+            "Field_3901db14"
+          ],
+          "value": 0.125,
+          "owner": {
+            "type": "Struct_c45202f2",
+            "hash": "c45202f2",
+            "descriptorIndex": 283,
+            "descriptorKey": "3bac499b990ec0474bb878242a3288c6",
+            "descriptorGuid": "9b49ac3b-0e99-47c0-4bb8-78242a3288c6",
+            "size": 28,
+            "alignment": 4
+          },
+          "rawOffset": 224,
+          "rawType": "f32",
+          "mappingBasis": [],
+          "mappingStatus": "hash-only or structural selection",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\Javelin_BlastDamageFallOffCurve.ebx",
+              "rawSha256": "b8a229f27265df4c7ccc0f69656bca9313960cd105adc29342cfeaacb934501b",
+              "offset": 224,
+              "type": "f32",
+              "bytesHex": "0000003e",
+              "value": 0.125,
+              "expect": 0.125,
+              "matches": true
+            }
+          ],
+          "decodedRoundedValue": 0.125
+        },
+        {
+          "name": "curve knot Field_42fc0f5e",
+          "objectIndex": 1,
+          "fieldPath": [
+            "Field_edfc6df6",
+            1,
+            "Field_42fc0f5e"
+          ],
+          "value": 1.0,
+          "owner": {
+            "type": "Struct_c45202f2",
+            "hash": "c45202f2",
+            "descriptorIndex": 283,
+            "descriptorKey": "3bac499b990ec0474bb878242a3288c6",
+            "descriptorGuid": "9b49ac3b-0e99-47c0-4bb8-78242a3288c6",
+            "size": 28,
+            "alignment": 4
+          },
+          "rawOffset": 244,
+          "rawType": "f32",
+          "mappingBasis": [],
+          "mappingStatus": "hash-only or structural selection",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\Javelin_BlastDamageFallOffCurve.ebx",
+              "rawSha256": "b8a229f27265df4c7ccc0f69656bca9313960cd105adc29342cfeaacb934501b",
+              "offset": 244,
+              "type": "f32",
+              "bytesHex": "0000803f",
+              "value": 1.0,
+              "expect": 1.0,
+              "matches": true
+            }
+          ],
+          "decodedRoundedValue": 1.0
+        },
+        {
+          "name": "curve knot Field_3901db14",
+          "objectIndex": 1,
+          "fieldPath": [
+            "Field_edfc6df6",
+            2,
+            "Field_3901db14"
+          ],
+          "value": 0.125,
+          "owner": {
+            "type": "Struct_c45202f2",
+            "hash": "c45202f2",
+            "descriptorIndex": 283,
+            "descriptorKey": "3bac499b990ec0474bb878242a3288c6",
+            "descriptorGuid": "9b49ac3b-0e99-47c0-4bb8-78242a3288c6",
+            "size": 28,
+            "alignment": 4
+          },
+          "rawOffset": 252,
+          "rawType": "f32",
+          "mappingBasis": [],
+          "mappingStatus": "hash-only or structural selection",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\Javelin_BlastDamageFallOffCurve.ebx",
+              "rawSha256": "b8a229f27265df4c7ccc0f69656bca9313960cd105adc29342cfeaacb934501b",
+              "offset": 252,
+              "type": "f32",
+              "bytesHex": "0000003e",
+              "value": 0.125,
+              "expect": 0.125,
+              "matches": true
+            }
+          ],
+          "decodedRoundedValue": 0.125
+        },
+        {
+          "name": "curve knot Field_42fc0f5e",
+          "objectIndex": 1,
+          "fieldPath": [
+            "Field_edfc6df6",
+            2,
+            "Field_42fc0f5e"
+          ],
+          "value": 0.6700000166893005,
+          "owner": {
+            "type": "Struct_c45202f2",
+            "hash": "c45202f2",
+            "descriptorIndex": 283,
+            "descriptorKey": "3bac499b990ec0474bb878242a3288c6",
+            "descriptorGuid": "9b49ac3b-0e99-47c0-4bb8-78242a3288c6",
+            "size": 28,
+            "alignment": 4
+          },
+          "rawOffset": 272,
+          "rawType": "f32",
+          "mappingBasis": [],
+          "mappingStatus": "hash-only or structural selection",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\Javelin_BlastDamageFallOffCurve.ebx",
+              "rawSha256": "b8a229f27265df4c7ccc0f69656bca9313960cd105adc29342cfeaacb934501b",
+              "offset": 272,
+              "type": "f32",
+              "bytesHex": "1f852b3f",
+              "value": 0.6700000166893005,
+              "expect": 0.67,
+              "matches": true
+            }
+          ],
+          "decodedRoundedValue": 0.67
+        },
+        {
+          "name": "curve knot Field_3901db14",
+          "objectIndex": 1,
+          "fieldPath": [
+            "Field_edfc6df6",
+            3,
+            "Field_3901db14"
+          ],
+          "value": 0.33000001311302185,
+          "owner": {
+            "type": "Struct_c45202f2",
+            "hash": "c45202f2",
+            "descriptorIndex": 283,
+            "descriptorKey": "3bac499b990ec0474bb878242a3288c6",
+            "descriptorGuid": "9b49ac3b-0e99-47c0-4bb8-78242a3288c6",
+            "size": 28,
+            "alignment": 4
+          },
+          "rawOffset": 280,
+          "rawType": "f32",
+          "mappingBasis": [],
+          "mappingStatus": "hash-only or structural selection",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\Javelin_BlastDamageFallOffCurve.ebx",
+              "rawSha256": "b8a229f27265df4c7ccc0f69656bca9313960cd105adc29342cfeaacb934501b",
+              "offset": 280,
+              "type": "f32",
+              "bytesHex": "c3f5a83e",
+              "value": 0.33000001311302185,
+              "expect": 0.33,
+              "matches": true
+            }
+          ],
+          "decodedRoundedValue": 0.33
+        },
+        {
+          "name": "curve knot Field_42fc0f5e",
+          "objectIndex": 1,
+          "fieldPath": [
+            "Field_edfc6df6",
+            3,
+            "Field_42fc0f5e"
+          ],
+          "value": 0.6700000166893005,
+          "owner": {
+            "type": "Struct_c45202f2",
+            "hash": "c45202f2",
+            "descriptorIndex": 283,
+            "descriptorKey": "3bac499b990ec0474bb878242a3288c6",
+            "descriptorGuid": "9b49ac3b-0e99-47c0-4bb8-78242a3288c6",
+            "size": 28,
+            "alignment": 4
+          },
+          "rawOffset": 300,
+          "rawType": "f32",
+          "mappingBasis": [],
+          "mappingStatus": "hash-only or structural selection",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\Javelin_BlastDamageFallOffCurve.ebx",
+              "rawSha256": "b8a229f27265df4c7ccc0f69656bca9313960cd105adc29342cfeaacb934501b",
+              "offset": 300,
+              "type": "f32",
+              "bytesHex": "1f852b3f",
+              "value": 0.6700000166893005,
+              "expect": 0.67,
+              "matches": true
+            }
+          ],
+          "decodedRoundedValue": 0.67
+        },
+        {
+          "name": "curve knot Field_3901db14",
+          "objectIndex": 1,
+          "fieldPath": [
+            "Field_edfc6df6",
+            4,
+            "Field_3901db14"
+          ],
+          "value": 0.33000001311302185,
+          "owner": {
+            "type": "Struct_c45202f2",
+            "hash": "c45202f2",
+            "descriptorIndex": 283,
+            "descriptorKey": "3bac499b990ec0474bb878242a3288c6",
+            "descriptorGuid": "9b49ac3b-0e99-47c0-4bb8-78242a3288c6",
+            "size": 28,
+            "alignment": 4
+          },
+          "rawOffset": 308,
+          "rawType": "f32",
+          "mappingBasis": [],
+          "mappingStatus": "hash-only or structural selection",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\Javelin_BlastDamageFallOffCurve.ebx",
+              "rawSha256": "b8a229f27265df4c7ccc0f69656bca9313960cd105adc29342cfeaacb934501b",
+              "offset": 308,
+              "type": "f32",
+              "bytesHex": "c3f5a83e",
+              "value": 0.33000001311302185,
+              "expect": 0.33,
+              "matches": true
+            }
+          ],
+          "decodedRoundedValue": 0.33
+        },
+        {
+          "name": "curve knot Field_42fc0f5e",
+          "objectIndex": 1,
+          "fieldPath": [
+            "Field_edfc6df6",
+            4,
+            "Field_42fc0f5e"
+          ],
+          "value": 0.33000001311302185,
+          "owner": {
+            "type": "Struct_c45202f2",
+            "hash": "c45202f2",
+            "descriptorIndex": 283,
+            "descriptorKey": "3bac499b990ec0474bb878242a3288c6",
+            "descriptorGuid": "9b49ac3b-0e99-47c0-4bb8-78242a3288c6",
+            "size": 28,
+            "alignment": 4
+          },
+          "rawOffset": 328,
+          "rawType": "f32",
+          "mappingBasis": [],
+          "mappingStatus": "hash-only or structural selection",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\Javelin_BlastDamageFallOffCurve.ebx",
+              "rawSha256": "b8a229f27265df4c7ccc0f69656bca9313960cd105adc29342cfeaacb934501b",
+              "offset": 328,
+              "type": "f32",
+              "bytesHex": "c3f5a83e",
+              "value": 0.33000001311302185,
+              "expect": 0.33,
+              "matches": true
+            }
+          ],
+          "decodedRoundedValue": 0.33
+        },
+        {
+          "name": "Field_69028f32",
+          "objectIndex": 1,
+          "fieldPath": [
+            "Field_69028f32"
+          ],
+          "value": 0.0,
+          "owner": {
+            "type": "Struct_afbfd124",
+            "hash": "afbfd124",
+            "descriptorIndex": 281,
+            "descriptorKey": "dfa24ed7807b19103d97b179c514ee7c",
+            "descriptorGuid": "d74ea2df-7b80-1019-3d97-b179c514ee7c",
+            "size": 40,
+            "alignment": 8
+          },
+          "rawOffset": 140,
+          "rawType": "f32",
+          "mappingBasis": [],
+          "mappingStatus": "hash-only or structural selection",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\Javelin_BlastDamageFallOffCurve.ebx",
+              "rawSha256": "b8a229f27265df4c7ccc0f69656bca9313960cd105adc29342cfeaacb934501b",
+              "offset": 140,
+              "type": "f32",
+              "bytesHex": "00000000",
+              "value": 0.0,
+              "expect": 0.0,
+              "matches": true
+            }
+          ],
+          "decodedRoundedValue": 0.0
+        },
+        {
+          "name": "Field_5579bb82",
+          "objectIndex": 1,
+          "fieldPath": [
+            "Field_5579bb82"
+          ],
+          "value": 1.0,
+          "owner": {
+            "type": "Struct_afbfd124",
+            "hash": "afbfd124",
+            "descriptorIndex": 281,
+            "descriptorKey": "dfa24ed7807b19103d97b179c514ee7c",
+            "descriptorGuid": "d74ea2df-7b80-1019-3d97-b179c514ee7c",
+            "size": 40,
+            "alignment": 8
+          },
+          "rawOffset": 136,
+          "rawType": "f32",
+          "mappingBasis": [],
+          "mappingStatus": "hash-only or structural selection",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\Javelin_BlastDamageFallOffCurve.ebx",
+              "rawSha256": "b8a229f27265df4c7ccc0f69656bca9313960cd105adc29342cfeaacb934501b",
+              "offset": 136,
+              "type": "f32",
+              "bytesHex": "0000803f",
+              "value": 1.0,
+              "expect": 1.0,
+              "matches": true
+            }
+          ],
+          "decodedRoundedValue": 1.0
+        }
+      ],
+      "links": [
+        {
+          "name": "curve wrapper to body",
+          "value": [
+            {
+              "$ref": 1
+            }
+          ],
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\Javelin_BlastDamageFallOffCurve.ebx",
+              "rawSha256": "b8a229f27265df4c7ccc0f69656bca9313960cd105adc29342cfeaacb934501b",
+              "offset": 80,
+              "type": "bytes:4",
+              "bytesHex": "68000000",
+              "value": "68000000"
+            },
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\Javelin_BlastDamageFallOffCurve.ebx",
+              "rawSha256": "b8a229f27265df4c7ccc0f69656bca9313960cd105adc29342cfeaacb934501b",
+              "offset": 184,
+              "type": "bytes:4",
+              "bytesHex": "b0ffffff",
+              "value": "b0ffffff"
+            }
+          ]
+        }
+      ],
+      "identityChecks": [
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\Javelin_BlastDamageFallOffCurve.ebx",
+          "rawSha256": "b8a229f27265df4c7ccc0f69656bca9313960cd105adc29342cfeaacb934501b",
+          "offset": 418,
+          "type": "guid",
+          "bytesHex": "a84648973787ce4c86803551c1eaae7e",
+          "value": "974846a8-8737-4cce-8680-3551c1eaae7e",
+          "expect": "974846a8-8737-4cce-8680-3551c1eaae7e",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\Javelin_BlastDamageFallOffCurve.ebx",
+          "rawSha256": "b8a229f27265df4c7ccc0f69656bca9313960cd105adc29342cfeaacb934501b",
+          "offset": 32,
+          "type": "guid",
+          "bytesHex": "fd3569c8af20f542a9e2ca3995202580",
+          "value": "c86935fd-20af-42f5-a9e2-ca3995202580",
+          "expect": "c86935fd-20af-42f5-a9e2-ca3995202580",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\Javelin_BlastDamageFallOffCurve.ebx",
+          "rawSha256": "b8a229f27265df4c7ccc0f69656bca9313960cd105adc29342cfeaacb934501b",
+          "offset": 88,
+          "type": "guid",
+          "bytesHex": "5c5cfd150172cd4ab1769f41c536084b",
+          "value": "15fd5c5c-7201-4acd-b176-9f41c536084b",
+          "expect": "15fd5c5c-7201-4acd-b176-9f41c536084b",
+          "matches": true
+        }
+      ],
+      "rawChecks": [
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\Javelin_BlastDamageFallOffCurve.ebx",
+          "rawSha256": "b8a229f27265df4c7ccc0f69656bca9313960cd105adc29342cfeaacb934501b",
+          "offset": 418,
+          "type": "guid",
+          "bytesHex": "a84648973787ce4c86803551c1eaae7e",
+          "value": "974846a8-8737-4cce-8680-3551c1eaae7e",
+          "expect": "974846a8-8737-4cce-8680-3551c1eaae7e",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\Javelin_BlastDamageFallOffCurve.ebx",
+          "rawSha256": "b8a229f27265df4c7ccc0f69656bca9313960cd105adc29342cfeaacb934501b",
+          "offset": 32,
+          "type": "guid",
+          "bytesHex": "fd3569c8af20f542a9e2ca3995202580",
+          "value": "c86935fd-20af-42f5-a9e2-ca3995202580",
+          "expect": "c86935fd-20af-42f5-a9e2-ca3995202580",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\Javelin_BlastDamageFallOffCurve.ebx",
+          "rawSha256": "b8a229f27265df4c7ccc0f69656bca9313960cd105adc29342cfeaacb934501b",
+          "offset": 88,
+          "type": "guid",
+          "bytesHex": "5c5cfd150172cd4ab1769f41c536084b",
+          "value": "15fd5c5c-7201-4acd-b176-9f41c536084b",
+          "expect": "15fd5c5c-7201-4acd-b176-9f41c536084b",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\Javelin_BlastDamageFallOffCurve.ebx",
+          "rawSha256": "b8a229f27265df4c7ccc0f69656bca9313960cd105adc29342cfeaacb934501b",
+          "offset": 80,
+          "type": "bytes:4",
+          "bytesHex": "68000000",
+          "value": "68000000"
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\Javelin_BlastDamageFallOffCurve.ebx",
+          "rawSha256": "b8a229f27265df4c7ccc0f69656bca9313960cd105adc29342cfeaacb934501b",
+          "offset": 184,
+          "type": "bytes:4",
+          "bytesHex": "b0ffffff",
+          "value": "b0ffffff"
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\Javelin_BlastDamageFallOffCurve.ebx",
+          "rawSha256": "b8a229f27265df4c7ccc0f69656bca9313960cd105adc29342cfeaacb934501b",
+          "offset": 196,
+          "type": "f32",
+          "bytesHex": "00000000",
+          "value": 0.0,
+          "expect": 0.0,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\Javelin_BlastDamageFallOffCurve.ebx",
+          "rawSha256": "b8a229f27265df4c7ccc0f69656bca9313960cd105adc29342cfeaacb934501b",
+          "offset": 216,
+          "type": "f32",
+          "bytesHex": "0000803f",
+          "value": 1.0,
+          "expect": 1.0,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\Javelin_BlastDamageFallOffCurve.ebx",
+          "rawSha256": "b8a229f27265df4c7ccc0f69656bca9313960cd105adc29342cfeaacb934501b",
+          "offset": 224,
+          "type": "f32",
+          "bytesHex": "0000003e",
+          "value": 0.125,
+          "expect": 0.125,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\Javelin_BlastDamageFallOffCurve.ebx",
+          "rawSha256": "b8a229f27265df4c7ccc0f69656bca9313960cd105adc29342cfeaacb934501b",
+          "offset": 244,
+          "type": "f32",
+          "bytesHex": "0000803f",
+          "value": 1.0,
+          "expect": 1.0,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\Javelin_BlastDamageFallOffCurve.ebx",
+          "rawSha256": "b8a229f27265df4c7ccc0f69656bca9313960cd105adc29342cfeaacb934501b",
+          "offset": 252,
+          "type": "f32",
+          "bytesHex": "0000003e",
+          "value": 0.125,
+          "expect": 0.125,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\Javelin_BlastDamageFallOffCurve.ebx",
+          "rawSha256": "b8a229f27265df4c7ccc0f69656bca9313960cd105adc29342cfeaacb934501b",
+          "offset": 272,
+          "type": "f32",
+          "bytesHex": "1f852b3f",
+          "value": 0.6700000166893005,
+          "expect": 0.67,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\Javelin_BlastDamageFallOffCurve.ebx",
+          "rawSha256": "b8a229f27265df4c7ccc0f69656bca9313960cd105adc29342cfeaacb934501b",
+          "offset": 280,
+          "type": "f32",
+          "bytesHex": "c3f5a83e",
+          "value": 0.33000001311302185,
+          "expect": 0.33,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\Javelin_BlastDamageFallOffCurve.ebx",
+          "rawSha256": "b8a229f27265df4c7ccc0f69656bca9313960cd105adc29342cfeaacb934501b",
+          "offset": 300,
+          "type": "f32",
+          "bytesHex": "1f852b3f",
+          "value": 0.6700000166893005,
+          "expect": 0.67,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\Javelin_BlastDamageFallOffCurve.ebx",
+          "rawSha256": "b8a229f27265df4c7ccc0f69656bca9313960cd105adc29342cfeaacb934501b",
+          "offset": 308,
+          "type": "f32",
+          "bytesHex": "c3f5a83e",
+          "value": 0.33000001311302185,
+          "expect": 0.33,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\Javelin_BlastDamageFallOffCurve.ebx",
+          "rawSha256": "b8a229f27265df4c7ccc0f69656bca9313960cd105adc29342cfeaacb934501b",
+          "offset": 328,
+          "type": "f32",
+          "bytesHex": "c3f5a83e",
+          "value": 0.33000001311302185,
+          "expect": 0.33,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\Javelin_BlastDamageFallOffCurve.ebx",
+          "rawSha256": "b8a229f27265df4c7ccc0f69656bca9313960cd105adc29342cfeaacb934501b",
+          "offset": 140,
+          "type": "f32",
+          "bytesHex": "00000000",
+          "value": 0.0,
+          "expect": 0.0,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\Javelin\\Javelin_BlastDamageFallOffCurve.ebx",
+          "rawSha256": "b8a229f27265df4c7ccc0f69656bca9313960cd105adc29342cfeaacb934501b",
+          "offset": 136,
+          "type": "f32",
+          "bytesHex": "0000803f",
+          "value": 1.0,
+          "expect": 1.0,
+          "matches": true
+        }
+      ],
+      "selectionStatus": "selected curve configuration"
+    }
+  ],
+  "inference": [
+    "Exact file/exported GUID equality selects PB_Javelin for WB PrimaryFire.Shot. Exact curve file/wrapper GUID equality links its blast owner to the scoped curve configuration.",
+    "Reviewed exact member-owner descriptor identities support selected PB_Javelin blast and WB ammo/reload labels. Different laser-guided owner signatures do not transfer names."
+  ],
+  "unresolved": [
+    "Current multiplayer availability and equipment selection are not established by these catalog/configuration assets.",
+    "Locking logic is outside this lead.",
+    "Owner 990616ac Field_0bf4f62b and Field_5ef7b9a1 remain unnamed; both profiles store 350 and 15.",
+    "Laser-guided blast declared-owner descriptor differs from the reviewed blast owner; its five scalar field names remain hash-only with candidate semantic names.",
+    "ReloadTime and ReloadTimeBulletsLeft store -1. No effective reload duration or phase execution formula follows.",
+    "Curve slots remain hash-only. No interpolation, units, normalized-distance formula or native blast calculation is established.",
+    "WB Shot also has internal Field_dc585340 to object 8; composition with the selected projectile blast was not investigated."
+  ],
+  "siteImpact": "Source-only proposed launcher comparison: selected PB_Javelin BlastDamage 125, BlastRadius 4, InnerBlastRadius 1, ShockwaveDamage 1, ShockwaveRadius 6.5; WB MagazineCapacity 1, NumberOfMagazines 3, InitialAmmo -1. No site data change. Reload phase slots are retained as raw source values only.",
+  "evidence": {
+    "files": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L167\\brief.txt",
+        "sha256": "03456a42638aed9272c36fded5603f6237607d55a599a3a3387c13fc5f9754c2"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L167\\control-raw.json",
+        "sha256": "ff651d54b8f84d6b5894aa023b9fd5a14a4a2532b746d3b31c90940c33b0e771"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L167\\deliver.py",
+        "sha256": "08498dd441a2dc0f56b4d18fcf79305573fd0906ea7015297a5667117bdb54c1"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L167\\extract.py",
+        "sha256": "7ccee51feaf3f9aaeb5224ade02b007f56749c5d15e07775ff2a48d45670f806"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L167\\inspect.py",
+        "sha256": "c10b34b49ad11b17ba69b28e84607c0ce587a9af28b45bc7987c6caf95cc95fe"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L167\\Javelin_BlastDamageFallOffCurve-decoded.json",
+        "sha256": "19a73e075614a78dad4b59aa0db0fe707cc659af79352f7f0bd9236f57eaa073"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L167\\lead.txt",
+        "sha256": "4af1a0ea38237fee726ed5f3c1564ac2415f753f62310c1287ba1f3261234858"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L167\\located-v2.json",
+        "sha256": "218205830b3e5b7d0e48c4dde46deb586dab0b05b3a9049324572ca21f1c3f00"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L167\\located.json",
+        "sha256": "442a3dab42eab6893a3fa78390a3bc0124e1a0559d66fdf13b1c7ee6a32f0a4e"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L167\\owners.py",
+        "sha256": "9f35a28666dc4643dbd39c200ba03583c8dc7ba21458808132393f664650baa6"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L167\\PB_Javelin-decoded.json",
+        "sha256": "1d74c56e2180e621efc3a21cd3a64493f5cdd73d6e121768b3e64aec26f9f516"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L167\\PB_Javelin_LaserGuided-decoded.json",
+        "sha256": "cb658b4d48dbf4a8ec6d7637e947af0b57a65c1f7a2db37115c267a8f5a77f11"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L167\\raw-checks-v2.json",
+        "sha256": "99890ccc3120f1d5f338d7881e1fa22c46dd7b70528fa68c8a251662f497e46d"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L167\\raw-checks.json",
+        "sha256": "42b8c1c4bef884e0a59ad549e823be528bf1864a3d25eeb464aa2795d943a693"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L167\\raw-manifest-v2.json",
+        "sha256": "d75343d0aed6d0b51fe73d302455ee1af57995f142bece8a5e2fb5c97b7899c7"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L167\\raw-manifest.json",
+        "sha256": "0e49a259bed168020199f6065d746bbf1bf208f308017a7a304dae2e757b4206"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L167\\scoped-inputs.json",
+        "sha256": "41e17eaac275a06e621c568f5099a89864bce3f04eb7120c60160d5916d16cbc"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L167\\trace.py",
+        "sha256": "67599c628f0ca4158993e4db545c6372ecbc9637ea8ecfc16d36516a02e09cf5"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L167\\WB_Javelin-decoded.json",
+        "sha256": "cd4ec8a319e9c7b3bc99621b5ef4617ef902dcf8b94cab2f5f720212abb953c2"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L167\\wrapper.py",
+        "sha256": "11f8e3e15290ff559a5e16a106c7ed5aa13d21a06d104e8a78727a3790613196"
+      }
+    ],
+    "helpers": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L167\\deliver.py",
+        "sha256": "08498dd441a2dc0f56b4d18fcf79305573fd0906ea7015297a5667117bdb54c1",
+        "revision": "current invoked revision"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L167\\extract.py",
+        "sha256": "7ccee51feaf3f9aaeb5224ade02b007f56749c5d15e07775ff2a48d45670f806",
+        "revision": "current invoked revision"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L167\\inspect.py",
+        "sha256": "c10b34b49ad11b17ba69b28e84607c0ce587a9af28b45bc7987c6caf95cc95fe",
+        "revision": "current invoked revision"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L167\\owners.py",
+        "sha256": "9f35a28666dc4643dbd39c200ba03583c8dc7ba21458808132393f664650baa6",
+        "revision": "current invoked revision"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L167\\trace.py",
+        "sha256": "67599c628f0ca4158993e4db545c6372ecbc9637ea8ecfc16d36516a02e09cf5",
+        "revision": "current invoked revision"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L167\\wrapper.py",
+        "sha256": "11f8e3e15290ff559a5e16a106c7ed5aa13d21a06d104e8a78727a3790613196",
+        "revision": "current invoked revision"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+        "sha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3",
+        "revision": "read-only reused helper"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-worker.py",
+        "sha256": "91d73d328cfe39862ec882ef02eda665580b28a6da9fa541f7b03d12d755beb2",
+        "revision": "read-only reused helper"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-records.py",
+        "sha256": "a6b0ca77270f6abc5dc48f164762569a8cb36faf37754f04f892d0ae7e7c7f34",
+        "revision": "read-only reused helper"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-ebx-decode.py",
+        "sha256": "6fdc0334efaee0fe6113b5c9db4973f1358f53ee65dfb94edbc22fb0bf07a727",
+        "revision": "read-only reused helper"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L152\\l152_extract_values.py",
+        "sha256": "96fdd73c595dfa4f2b4310e06d46f20bcfbd3a8d21681993e37c75659a93fefc",
+        "revision": "read-only reused helper"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L167\\inspect.py",
+        "sha256": "73b1075023ede94d979cde2884e3d47103f0816d1dcd13c6e9e783d47a42ede9",
+        "revision": "initial failed revision; reconstructed from exact edit"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L167\\extract.py",
+        "sha256": "04f0053a5b930828c1790e876f138d4ebfcbddc1dc90d99aadaf8f6f40badae6",
+        "revision": "first executed revision; reconstructed from exact edit"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L167\\wrapper.py",
+        "sha256": "8e2c2fc74653452dc65eaa0f177244a8660c9858ab1e20c3711be21c602d15ac",
+        "revision": "prior executed revision 1; reconstructed from exact edits"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L167\\wrapper.py",
+        "sha256": "a9dcb385936acd1dd559bd2cfc879f477a578363af49438bc23cc7bd4994a425",
+        "revision": "prior executed revision 2; reconstructed from exact edits"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L167\\wrapper.py",
+        "sha256": "b5bc62bde409e08507787b517920d9fdec891798539e18f172a46b822d78d812",
+        "revision": "prior executed revision 3; reconstructed from exact edits"
+      }
+    ],
+    "commands": [
+      {
+        "executable": "python",
+        "arguments": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+          "--help"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L167",
+        "status": "executed successfully"
+      },
+      {
+        "executable": "python",
+        "arguments": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-records.py",
+          "schema"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L167",
+        "status": "executed successfully"
+      },
+      {
+        "executable": "python",
+        "arguments": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+          "--path",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+          "--offset",
+          "1084",
+          "--type",
+          "f32",
+          "--expect",
+          "0.6694999933242798",
+          "--out",
+          "control-raw.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L167",
+        "status": "executed successfully"
+      },
+      {
+        "executable": "python",
+        "arguments": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-worker.py",
+          "prior-work",
+          "--terms",
+          "Javelin",
+          "L137",
+          "L153",
+          "L162"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L167",
+        "status": "executed successfully"
+      },
+      {
+        "executable": "python",
+        "arguments": [
+          "trace.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L167",
+        "status": "executed; four bounded decodes"
+      },
+      {
+        "executable": "python",
+        "arguments": [
+          "inspect.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L167",
+        "status": "first revision failed: Path undefined"
+      },
+      {
+        "executable": "python",
+        "arguments": [
+          "inspect.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L167",
+        "status": "corrected revision executed"
+      },
+      {
+        "executable": "python",
+        "arguments": [
+          "owners.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L167",
+        "status": "executed"
+      },
+      {
+        "executable": "python",
+        "arguments": [
+          "extract.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L167",
+        "status": "first revision executed: located.json and raw-manifest.json"
+      },
+      {
+        "executable": "python",
+        "arguments": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+          "--manifest",
+          "raw-manifest.json",
+          "--out",
+          "raw-checks.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L167",
+        "status": "executed successfully"
+      },
+      {
+        "executable": "python",
+        "arguments": [
+          "wrapper.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L167",
+        "status": "revision 1 executed; last revision identifies object 15 Field_e29fe7dd to body 1"
+      },
+      {
+        "executable": "python",
+        "arguments": [
+          "wrapper.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L167",
+        "status": "revision 2 executed; last revision identifies object 15 Field_e29fe7dd to body 1"
+      },
+      {
+        "executable": "python",
+        "arguments": [
+          "wrapper.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L167",
+        "status": "revision 3 executed; last revision identifies object 15 Field_e29fe7dd to body 1"
+      },
+      {
+        "executable": "python",
+        "arguments": [
+          "extract.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L167",
+        "status": "second revision executed: located-v2.json and raw-manifest-v2.json"
+      },
+      {
+        "executable": "python",
+        "arguments": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+          "--manifest",
+          "raw-manifest-v2.json",
+          "--out",
+          "raw-checks-v2.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L167",
+        "status": "executed successfully; stdout suppressed with PowerShell Out-Null"
+      },
+      {
+        "executable": "python",
+        "arguments": [
+          "deliver.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L167",
+        "status": "executed successfully"
+      },
+      {
+        "executable": "python",
+        "arguments": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-records.py",
+          "check-receipt",
+          "draft-receipt.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L167",
+        "status": "planned required check immediately after creation"
+      }
+    ],
+    "commandHistoryNote": "Python argument vectors are preserved. Read-only exploratory Get-Content, Select-String and directory listing calls are not reconstructed as successful evidence reruns. Prior helper source prefix executed by trace/extract is hashed here. Earlier raw manifests and decodes are preserved."
+  },
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-09-29",
+    "build": "1.4.3.0-hotfix",
+    "leads": [
+      {
+        "id": "L167",
+        "title": "Javelin launcher source profile",
+        "status": "proposal",
+        "summary": "Javelin WB selects PB_Javelin: MagazineCapacity 1, NumberOfMagazines 3, both reload fields -1, BlastDamage 125 and BlastRadius 4; laser-guided and runtime behavior remain unresolved.",
+        "reopenWhen": "Exact consumer evidence is needed for laser-guided selection, effective reload phases, curve use or multiplayer availability.",
+        "statusNote": "GPT-6.1 Sol, 29 Sep; source only"
+      }
+    ],
+    "assets": [
+      {
+        "path": "Common/Hardware/Gadgets/Launchers/Javelin/WB_Javelin",
+        "format": "raw-ebx",
+        "sha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+        "question": "Exact configuration selection and mapped launcher source operands",
+        "result": "useful",
+        "conclusion": "WB configuration chain verified"
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Launchers/Javelin/PB_Javelin",
+        "format": "raw-ebx",
+        "sha256": "26ded649660436b43b24a0339a475685b6ae3d9d8127599f4eebeb4b8fc8d6cd",
+        "question": "Exact configuration selection and mapped launcher source operands",
+        "result": "useful",
+        "conclusion": "selected primary source"
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Launchers/Javelin/PB_Javelin_LaserGuided",
+        "format": "raw-ebx",
+        "sha256": "b75d03de85c852ba16968b5f2c0d15068fe939f50f2e501e16f7222875c55cc0",
+        "question": "Exact configuration selection and mapped launcher source operands",
+        "result": "useful",
+        "conclusion": "candidate variant; no scoped exact primary selection"
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Launchers/Javelin/Javelin_BlastDamageFallOffCurve",
+        "format": "raw-ebx",
+        "sha256": "b8a229f27265df4c7ccc0f69656bca9313960cd105adc29342cfeaacb934501b",
+        "question": "Exact configuration selection and mapped launcher source operands",
+        "result": "useful",
+        "conclusion": "selected curve configuration"
+      }
+    ],
+    "binding": "research",
+    "run": {
+      "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets",
+      "orchestrator": "GPT-6.1 Sol",
+      "workers": [
+        {
+          "lead": "L167",
+          "model": "GPT-6.1 Sol",
+          "effort": "Low"
+        }
+      ]
+    },
+    "refs": [
+      "queue-proposals"
+    ]
+  },
+  "orchestratorReview": {
+    "reviewer": "GPT-6.1 Sol",
+    "workerModel": "GPT-6.1 Sol",
+    "workerEffort": "Low",
+    "date": "2026-09-29",
+    "draft": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L167\\draft-receipt.json",
+      "sha256": "0dd98f5e97718a672f67a796081efe6ca79f1ce53e789ae1b3409787cb8f2a97"
+    },
+    "helperReview": {
+      "tool": "scripts/frosty-worker.py review",
+      "issues": 0,
+      "leadDir": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L167"
+    },
+    "scope": {
+      "roots": 4,
+      "externalChildrenExamined": 0
+    },
+    "independentRawReview": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L167-independent-raw-review.json",
+      "sha256": "d156287651a6124efce3d22140e6850ba2524f9a37e8821665aba671df210961",
+      "uniqueChecksIncludingControl": 71,
+      "failures": 0
+    },
+    "pinReview": "Every recorded raw EBX asset hash matches its hotfix Head 4892087 capture with the frozen descriptor hash. Release M433 control is separate.",
+    "semanticReview": "Selected source joins and exact member-owner meanings checked against reviewed prior mappings. No current multiplayer availability, native activation, units or effective composition claim."
+  }
+}

@@ -1,0 +1,445 @@
+{
+  "lead": "L187",
+  "status": "reviewed-source-finding",
+  "build": "1.4.3.0-hotfix",
+  "question": "Trace selected revive function/condition and receiving health/charge channels.",
+  "sourceFacts": [
+    {
+      "fact": "The selected Ability arrays reference a true IsReviving channel-set object and a true Deathflow.CanReviveTeam channel-set object. Exact imported child GUIDs join the freshly captured SoldierOnlyPublicChannels. The separate false IsReviving object is not selected by those arrays.",
+      "proof": "typed-proof.json / raw-proof.json"
+    },
+    {
+      "fact": "Two selected Ability channel-set objects assign true to Defibrillator_ManuallyEquipped. Exact file/child GUIDs join PublicChannels_Revive typed boolean Class_f7ca88c8.",
+      "proof": "typed-proof.json / raw-proof.json / receiver-proof.json / receiver-raw.json"
+    },
+    {
+      "fact": "SimEx_Defib selects internal Class_25c12137 object10 with compiled RID af379644109d7d8d. SimVars_Defib has typed named IsHeal, IsDamage, Target, IsFullyCharged, isDefibUsed, CurrentChargeProgression, ActualHoldTime, IsCharging and ChargeRank ports. Port names do not establish equations or wiring execution.",
+      "proof": "typed-proof.json / raw-proof.json / ports-proof.json / ports-raw.json"
+    },
+    {
+      "fact": "The Ranked affector retains L139 six unnamed f32 entries 50,60,70,80,90,100. The new Revive root decodes the same six-entry shape but no typed health receiver has been established.",
+      "rawChecks": [
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Misc\\Defibrillator\\AffectorRevive_Defibrillator_Ranked.ebx",
+          "rawSha256": "bacd6c630e42cf4ad4f207a35d640f8c44a71a7651a1da0b1e80060642f74162",
+          "offset": 184,
+          "type": "f32",
+          "bytesHex": "00004842",
+          "value": 50.0
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Misc\\Defibrillator\\AffectorRevive_Defibrillator_Ranked.ebx",
+          "rawSha256": "bacd6c630e42cf4ad4f207a35d640f8c44a71a7651a1da0b1e80060642f74162",
+          "offset": 200,
+          "type": "f32",
+          "bytesHex": "00007042",
+          "value": 60.0
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Misc\\Defibrillator\\AffectorRevive_Defibrillator_Ranked.ebx",
+          "rawSha256": "bacd6c630e42cf4ad4f207a35d640f8c44a71a7651a1da0b1e80060642f74162",
+          "offset": 216,
+          "type": "f32",
+          "bytesHex": "00008c42",
+          "value": 70.0
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Misc\\Defibrillator\\AffectorRevive_Defibrillator_Ranked.ebx",
+          "rawSha256": "bacd6c630e42cf4ad4f207a35d640f8c44a71a7651a1da0b1e80060642f74162",
+          "offset": 232,
+          "type": "f32",
+          "bytesHex": "0000a042",
+          "value": 80.0
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Misc\\Defibrillator\\AffectorRevive_Defibrillator_Ranked.ebx",
+          "rawSha256": "bacd6c630e42cf4ad4f207a35d640f8c44a71a7651a1da0b1e80060642f74162",
+          "offset": 248,
+          "type": "f32",
+          "bytesHex": "0000b442",
+          "value": 90.0
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Misc\\Defibrillator\\AffectorRevive_Defibrillator_Ranked.ebx",
+          "rawSha256": "bacd6c630e42cf4ad4f207a35d640f8c44a71a7651a1da0b1e80060642f74162",
+          "offset": 264,
+          "type": "f32",
+          "bytesHex": "0000c842",
+          "value": 100.0
+        }
+      ]
+    },
+    {
+      "fact": "SimEx compiled binding44 imports exact SoldierOnlyPublicChannels child8fe947ef-7b37-4507-ab4b-9bc47a49801f, named ReviverPlayerId. Its Class_de66f14c is distinct from the boolean revive flags. Direction and execution of this binding remain unresolved.",
+      "proof": "reviver-proof.json / reviver-raw.json"
+    },
+    {
+      "fact": "Selected SimEx compiled resource af379644109d7d8d exists at hotfix Head4892087 as SerializedExpressionNodeGraph; its exact 36736-byte body hash was reproduced. No validated graph grammar establishes charge/rank/revive equations.",
+      "proof": "resource-proof.json"
+    }
+  ],
+  "inference": [
+    "True IsReviving and Deathflow.CanReviveTeam assignments are relevant to revive state; named charge ports indicate a source charge/rank interface. Effective rank mapping and revive results cannot be inferred from names alone."
+  ],
+  "unresolved": [
+    "The selected compiled body is captured, but no validated SerializedExpressionNodeGraph grammar/consumer establishes charge progression, rank selection, affector application, conditions, units or native execution.",
+    "The six affector f32 entries remain unnamed. No typed restored-health receiver or restored-health formula is established.",
+    "WB GraniteSquad/Trio/Duo/Solo condition is serialized configuration only; multiplayer availability and execution are unproved."
+  ],
+  "siteImpact": "No site change. Source channel-state and charge-port findings can support a future revive profile after selected consumer equations are proved.",
+  "evidence": {
+    "files": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\brief.txt",
+        "sha256": "f7cc30ffb9eed21c5487e69d893d6773ae084f5b7cee59ddbe056a0402bf8724"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\channels-v1.py",
+        "sha256": "55651c63e8cfb4d83463da6afe785af7e6a5975fadc58787a5ebd0828686fedd"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\checks-v1.json",
+        "sha256": "6bd7e5ed59eacb08efbec6d04fed19da0c247d4c64ea38cd90de60514e4968f0"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\commands-v1.json",
+        "sha256": "065e2ac23075135f30c9ea1b76d02396089b60c73db645f2a0b94cc2d558b5de"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\compiled-channel-candidates.json",
+        "sha256": "ec5f2bfb8aa02bc2ca00b506e5c77b249d5ca2fb6991a03faff0043d2432b5c6"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\control.json",
+        "sha256": "ff651d54b8f84d6b5894aa023b9fd5a14a4a2532b746d3b31c90940c33b0e771"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\decode-v1.py",
+        "sha256": "6fdc0334efaee0fe6113b5c9db4973f1358f53ee65dfb94edbc22fb0bf07a727"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\decoded.json",
+        "sha256": "fb266b954347f45a374685de170205de5eaaed7e3f6e610ed529aeb3459320cb"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\draft-receipt.json",
+        "sha256": "0ae9f96dfff88b6990a207ece143675de01750c367a5cb31d28b91759004425c"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\final-v2.py",
+        "sha256": "3edf0d51c61c716dad811d88381fef289a410cb84df42aaa2a894be2799837fb"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\finish-v1.py",
+        "sha256": "f8482028a674ec2d156aa022f8d1a440ce59b523df7eea460764fbb61951909f"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\inputs.txt",
+        "sha256": "4ef7be6613ba7fcd02cba650f209776b61561b2f5dac9bd1af81e94e0dc33193"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\inspect-v1.py",
+        "sha256": "219354d2da09a9b8b5e00dc27329b38f816e13f02bf45c4bf9f134277d6535c2"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\l187-result.json",
+        "sha256": "6b4416384e16e05d6fe5efce678cdf32bb7563362400326c2ab14d41818c8f96"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\lead.txt",
+        "sha256": "84e18f5582af5461990954d9ecfedaf7c7fa623baa93ae93d1c26b1d818a1894"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\lookup-v1.py",
+        "sha256": "5e47e87f8ec9dac69d1792753e94922dc7173e1143725835d1078ea81ee48237"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\ports-checks.json",
+        "sha256": "7cd454a3529397eaa05e477f6cf53429cd411bbebe245bebdde136e66b3f2429"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\ports-command.json",
+        "sha256": "90841d0dc99cbb147c74bf0b3c069a769f805eb0ec243fcf8294b05c2c31dabd"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\ports-proof.json",
+        "sha256": "3ff2c0d3fdf8f2557c374b2cee08d9533368c7f6e9957782f148010ec51cf95f"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\ports-raw.json",
+        "sha256": "b2be26f6b2fbaef4d7d0f67d8bcef8a20edf24247e82e4550c02812ae07c2e30"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\ports-v1.py",
+        "sha256": "7ed8a9e3b5d09537f26a90d23c44fc9df7c89ed476201713564599de53a7d968"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\prior-work.txt",
+        "sha256": "0cb0d50c06a5ab18179d2519226bc49a7268d9c30a4b491a540f3b1419b4883f"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\proof-command.json",
+        "sha256": "e3936491ec0968429535aa2c8b50d4e5a8eaf1204dbf1d837e5366b847eb0476"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\proof-v1.py",
+        "sha256": "388937576cfd72dc1bb39a0c433698e26bdca659dac1db4447a3e37eb10b30ea"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\rank-checks.json",
+        "sha256": "8adc848ff5e07d27c250d97f2ae02f203c0a1705885015135fd4de23beb8cdcc"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\rank-command.json",
+        "sha256": "964050d582fa51c137f9d7b98c50a938399b84a8f4a67402b82af482c4f35e57"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\rank-raw.json",
+        "sha256": "731e48e90bda0a6f535bf2bb9a54a4af105effe4bb2d22ed25806626194a74ea"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\raw-check-v1.py",
+        "sha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\raw-proof.json",
+        "sha256": "28022e99785c37e82de3e5accb362ad500e85d605d13c9bbbb6f831d05e50e27"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\receiver-checks.json",
+        "sha256": "53a339b1d3efa60a0988a9cca528869d9e30dc9ab5c9debc8350fb295ce77697"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\receiver-command.json",
+        "sha256": "fb0cd24e74a41e0b140d740e997f1c14fe410d523c61befcebbf1ad4c06f9428"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\receiver-proof.json",
+        "sha256": "70321ddad60b2a5ace546da81a026e61e51a20b2da7c0547d59c4cc038f6351a"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\receiver-raw.json",
+        "sha256": "9e1d961a5cd363c994f7277155166efbdc10e2d3d1d12a2b1244e52f5bfa1ff9"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\receiver-v1.py",
+        "sha256": "f67ebdaca11e9f32ce11870bb456c774ff32bdb1f42b1e63d31a8fdbbc8f2208"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\records-v1.py",
+        "sha256": "a6b0ca77270f6abc5dc48f164762569a8cb36faf37754f04f892d0ae7e7c7f34"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\resource-proof.json",
+        "sha256": "60caa83eb0d460befaa13e8c05e6834052eb564b42a101d2bd74831c7b9b3e8b"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\resource-v1.py",
+        "sha256": "3577e771c4f3ae17620b5a87b2ab80cc2d6ffb1d6b4cf18250c85e73bd07afe4"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\reviver-checks.json",
+        "sha256": "a9705e010deed54d4e3f329bdab7e38bd5527f44ab4781792106439fef233de1"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\reviver-command.json",
+        "sha256": "ed386b512b72cb35783b1f0091ec94431ebc28267affaf938bb1569709f45c04"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\reviver-proof-v1.py",
+        "sha256": "c1f28e354aa0d34feabc3ff644c6621ca5667a2c1b7eae0c9d35e0076dc6526a"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\reviver-proof.json",
+        "sha256": "71de6eed57b0f4cf3c10ea9d48cb7ac8ba9f9f51d5c5d0629e984fe99da47a49"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\reviver-raw.json",
+        "sha256": "3a9240e653570ebc595f5ce35c56f4b0d79fcb8a27d943dd1b87ab48da848fe5"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\scoped-inputs.json",
+        "sha256": "05f280bca7f1d5dec5e83e45fc8a34f155fc57ac18b177f371132edd0a2ccc8a"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\select-v1.py",
+        "sha256": "2b4ca70262ea3824cc18a354c37479922e44dab1ea76f19e9a1e95a518a1ac8f"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\trace-v1.py",
+        "sha256": "95efdeaebfff89b5b1cf4cea25bcd18f593dd6fadd5d61fd9be122826157c373"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\typed-proof.json",
+        "sha256": "acfcd3d2c93b37abb64068029be705df54945add73f510e655da05c69d18e598"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\validation-command.json",
+        "sha256": "7c87a7bff7ea202fc3f274bd624ebbb510bce29a34c8ecd89eecd3dbf06ef6fe"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\wb-v1.py",
+        "sha256": "a91a80f9f74c691a6a1905837528e16e964b98fef4630f79c56c0b4d8e321c31"
+      }
+    ],
+    "commands": [
+      "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\commands-v1.json",
+      "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\proof-command.json",
+      "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\ports-command.json",
+      "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\rank-command.json",
+      "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\resource-proof.json",
+      "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\reviver-command.json",
+      "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\receiver-command.json",
+      "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\validation-command.json"
+    ],
+    "historyNote": "Initial read-only help/schema commands are in tool history. Helper hashes were printed before driver invocation. Exact decoder and raw-check argument vectors are preserved. Resource inspection is a saved read-only helper; source-finding does not infer formulas from byte patterns. Driver invocations used PowerShell Get-FileHash then python with lead cwd; helper revisions are preserved."
+  },
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-09-29",
+    "build": "1.4.3.0-hotfix",
+    "binding": "research",
+    "leads": [
+      {
+        "id": "L187",
+        "title": "Defibrillator revive function consumers",
+        "status": "finding",
+        "summary": "Defibrillator selected Ability arrays assign named IsReviving, CanReviveTeam and ManuallyEquipped channels; charge/rank ports and ReviverPlayerId join verified, restored-health formula unresolved.",
+        "reopenWhen": "Obtain a validated reader for the selected compiled expression graph and a typed affector receiver.",
+        "statusNote": "GPT-6.1 Sol, 29 Sep; source only"
+      }
+    ],
+    "assets": [
+      {
+        "path": "Common/Hardware/Gadgets/Misc/Defibrillator/Defibrillators_Equipped_WB",
+        "format": "raw-ebx",
+        "sha256": "d63061efa7250e9187c1619a1be9db86cd706c6e8d5884d83ffc7b21b87cf083",
+        "question": "Trace selected revive function, conditions and receiving channels.",
+        "result": "useful",
+        "conclusion": "WB selected default internal object6 and condition object11; external utility function wiring remains unresolved."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Misc/Defibrillator/Ability_Defibrillator_Equipped",
+        "format": "raw-ebx",
+        "sha256": "59c2c8868227bc31c8eaf254d8b6af369144ba7e477d3e2771713fa17aec0f8a",
+        "question": "Trace selected revive function, conditions and receiving channels.",
+        "result": "useful",
+        "conclusion": "Exact selected revive channel sets joined; one exact external channel child is missing."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Misc/Defibrillator/SimEx_Defib",
+        "format": "raw-ebx",
+        "sha256": "b144475c58ce92feadf2a1d18a1347fca22e66f4dfe25d316ea504cfac2b1df5",
+        "question": "Trace selected revive function, conditions and receiving channels.",
+        "result": "useful",
+        "conclusion": "Selected compiled RID and nine named typed ports established; expression execution pending."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Misc/Defibrillator/AffectorRevive_Defibrillator_Revive",
+        "format": "raw-ebx",
+        "sha256": "1fa76b593a6d59f0e2af4a19f40b341994a499fb8f8cd929a52219280947af19",
+        "question": "Trace selected revive function, conditions and receiving channels.",
+        "result": "useful",
+        "conclusion": "New same-layout six-entry affector captured; receiver semantics unresolved."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Misc/Defibrillator/AffectorRevive_Defibrillator_Ranked",
+        "format": "raw-ebx",
+        "sha256": "bacd6c630e42cf4ad4f207a35d640f8c44a71a7651a1da0b1e80060642f74162",
+        "question": "Trace selected revive function, conditions and receiving channels.",
+        "result": "useful",
+        "conclusion": "Prior six unnamed affector entries reproduced; no health assignment established."
+      },
+      {
+        "path": "Common/Gameplay/Soldier/DeathFlow/Revive/PublicChannels_Revive",
+        "format": "raw-ebx",
+        "sha256": "3c7f0db011a8ee365c3d87cc142385ccddd5fddca975792abb020bb122bbddc5",
+        "question": "Resolve the selected revive-channel child.",
+        "result": "useful",
+        "conclusion": "Exact selected child is Defibrillator_ManuallyEquipped, a typed boolean channel."
+      },
+      {
+        "path": "common/hardware/gadgets/misc/defibrillator/simex_defib",
+        "format": "raw-res",
+        "sha256": "512ee0523dc16fcf9e15a4f57b1065bc63aa1314e1f88456e486683558856e68",
+        "question": "Resolve selected charge/rank/revive expression.",
+        "result": "inconclusive",
+        "conclusion": "Exact selected body is captured; expression grammar and operation meanings remain unresolved."
+      }
+    ],
+    "run": {
+      "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets",
+      "orchestrator": "GPT-6.1 Sol",
+      "workers": [
+        {
+          "lead": "L187",
+          "model": "GPT-6.1 Sol",
+          "effort": "Low"
+        }
+      ]
+    },
+    "refs": []
+  },
+  "orchestratorCaptureReviews": [
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\armor-resource-capture\\verification.json",
+      "sha256": "15f1421c545a9e0a1f217fcc8b95638706c2b3bfa0e0f0ecbbfd7ecc15bd24e6"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\missing-gameplay-capture\\verification.json",
+      "sha256": "2743270e30d78f0dad9426589138bb79dbd35fe03ecec6ce9aab789392437b0f"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\nvg-child-capture\\verification.json",
+      "sha256": "054a23735b9b352510cb5a17f8aaa3a2f2b94a45f568f3547051561924d2de12"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\registry-capture\\verification.json",
+      "sha256": "2e6ff41233fe7bdcd2f74b5189df235ab5113f6a2789b4f3c1b1fb747b23b8f9"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\utility-function-capture\\verification.json",
+      "sha256": "9714dd0000b8c561297ed75d0edeae45b1d7d53e66f10d885816bf0f0319f2fd"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\utility-receiver-capture\\verification.json",
+      "sha256": "54c4c93de9cb5027bcdc7903b0c5840d89aeb4b5907157a8f57952c6356093ed"
+    }
+  ],
+  "orchestratorResourceReview": {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\utility-selected-resources.json",
+    "sha256": "c32f63f62c25a650d6e16ff5e6d5304cdb708ac4da6c5c45ab570ded7f28ec16",
+    "review": "Exact selected captured bodies independently rehashed with recorded Head4892087/SDK4414275. Resource bytes do not establish grammar or runtime activation."
+  },
+  "orchestratorReview": {
+    "reviewer": "GPT-6.1 Sol",
+    "workerModel": "GPT-6.1 Sol",
+    "workerEffort": "Low",
+    "date": "2026-09-29",
+    "draft": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187\\draft-receipt-v2.json",
+      "sha256": "c4697a51bb6dd29328bafdd7d9f896fbbf157417671abc34547936d462c63437"
+    },
+    "helperReview": {
+      "tool": "scripts/frosty-worker.py review",
+      "issues": 0,
+      "leadDir": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187",
+      "reportPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187-helper-review.json"
+    },
+    "scope": {
+      "roots": 5,
+      "externalChildrenExamined": 2,
+      "externalChildrenExaminedKind": "EBX",
+      "compiledResourceBodiesExamined": 1
+    },
+    "independentRawReview": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L187-independent-raw-review.json",
+      "sha256": "a8b91069823be8503dbae93f8058acf24dca1a5027238bce733e3e4d21cac5d3",
+      "uniqueChecksIncludingControl": 111,
+      "failures": 0
+    },
+    "pinReview": "Every recorded raw EBX asset hash matches either an indexed hotfix Head 4892087 capture or a reviewed fresh run-local capture with matching catalog Head/SDK and frozen descriptor hash. Release M433 control is separate.",
+    "semanticReview": "Selected source joins and exact member-owner meanings checked against reviewed prior mappings. No current multiplayer availability, native activation, units or effective composition claim."
+  }
+}

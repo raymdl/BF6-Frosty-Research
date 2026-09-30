@@ -1,0 +1,258 @@
+{
+  "lead": "L3004",
+  "status": "partial",
+  "build": {
+    "releaseControl": {
+      "head": 4892017,
+      "descriptorSha256": "91c9ea7c3dd830e34a78123c8bb7485e80eefdb18fc9c7ee41117971d23565c2"
+    },
+    "vehicleSources": {
+      "head": 4892087,
+      "descriptorSha256": "99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640"
+    }
+  },
+  "question": "What selected functional source routes and typed operands support future profiles for the16 fixed ground vehicle families?",
+  "inference": [
+    "Labels describe serialized source alternatives; they do not establish default loadouts.",
+    "Health/mobility field meanings remain unresolved. Hotfix ammo-struct word names are candidate-only from the release control."
+  ],
+  "unresolved": [
+    "Current stage is partial. Two base roots and two functional variants were not captured in the DB used by this stage. Parent has since captured these at run-root capture-missing-roots-winps/raw; inspection belongs to the next stage.",
+    "Conservative profile budget exhausted at400 unique reads. 50 labelled selected weapon-owner alternatives and34 entry-owner instances are source facts, not defaults or usable-seat counts.",
+    "56 entity configuration f32 words are hash-only; no named health, speed, acceleration, damage-zone or repair formula is claimed.",
+    "Sixteen of20 unique selected WB owners have typed Struct_598cc52c.Field_7f22bfb4 i32 checks. Release MagazineCapacity naming is candidate-only across Head/descriptor; other WB ammo/cadence/projectile operands are not checked in this stage.",
+    "34 selected entry input imports need three exact same-build targets: InputConcepts_Car, InputConcepts_Tank, InputConcepts_VehicleGunner. Exact routes/GUIDs are in missing-selected-targets-v2.json.",
+    "Fresh shared-health source and L3001 v3 exact GRX child/owner method are next-stage inputs; generic semantic limits are not an absence conclusion.",
+    "Cosmetic assets were not inspected and no role was positively excluded by naming alone. CWS/CROWS is outside this fixed ground-family scope."
+  ],
+  "siteImpact": "Future source-backed ground-vehicle comparison proposal only. No current weapon/attachment site change. Retain functional alternatives and source availability limits.",
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-09-29",
+    "build": "mixed",
+    "leads": [
+      {
+        "id": "L3004",
+        "title": "Ground vehicle selected source routes",
+        "status": "finding",
+        "summary": "Fourteen captured base families select50 labelled weapon-owner alternatives and34 entry-owner instances with400 checked profile operands;16-family profiles remain partial.",
+        "reopenWhen": "Continue as L3010 with fresh AAV7A1/TheBeast/SP/CarChase roots, exact shared-health GRX owner method and three input targets under a new bounded budget."
+      }
+    ],
+    "assets": [
+      {
+        "path": "Common/Hardware/Vehicles/Tank/Abrams/VB_VEH_Tank_Abrams",
+        "format": "raw-ebx",
+        "sha256": "e65f368eb95aebd9ec21cbc6728830acaac54589324582dd9516d3f7a70ed672",
+        "question": "Exact selected ground vehicle owners",
+        "result": "useful",
+        "conclusion": "Selected local paths establish 6 labelled weapon alternatives ['Coax LMG', 'Coax HMG', 'AGL', 'LMG', 'HMG', 'Main Cannon (MPAT)'] and 2 entry-owner instances; no default or usable seat-count conclusion. Entity configuration remains hash-only."
+      },
+      {
+        "path": "Common/Hardware/Vehicles/Tank/Bradley/VB_VEH_Tank_Bradley",
+        "format": "raw-ebx",
+        "sha256": "7d42a906aebe89d73fa0bb3ed1ab38df5c1dc5bbf8770fa230c88adf1a5a9d64",
+        "question": "Exact selected ground vehicle owners",
+        "result": "useful",
+        "conclusion": "Selected local paths establish 10 labelled weapon alternatives ['ATGM Homing', '25mm Cannon (Canister)', 'HMG', 'Light Rockets', 'LMG', '25mm Cannon (APFSDST)', 'Target Designator', 'TOW Missile', 'AGL', '25mm Cannon (HEAB)'] and 6 entry-owner instances; no default or usable seat-count conclusion. Entity configuration remains hash-only."
+      },
+      {
+        "path": "Common/Hardware/Vehicles/Tank/CV90/VB_VEH_Tank_CV90",
+        "format": "raw-ebx",
+        "sha256": "a39ff8309493fb4e625c098809891a8f8fbfd950c329afa7b7079211e3e514a4",
+        "question": "Exact selected ground vehicle owners",
+        "result": "useful",
+        "conclusion": "Selected local paths establish 10 labelled weapon alternatives ['ATGM Homing', '30mm Cannon (Canister)', 'Light Rockets', 'TOW Missile', 'Target Designator', '30mm Cannon (APFSDST)', '30mm Cannon (HEAB)', 'LMG', 'HMG', 'AGL'] and 6 entry-owner instances; no default or usable seat-count conclusion. Entity configuration remains hash-only."
+      },
+      {
+        "path": "Common/Hardware/Vehicles/Tank/Gepard/VB_VEH_Tank_Gepard",
+        "format": "raw-ebx",
+        "sha256": "8cb03f795a1518a6a92a70a348e777b1e10eaca2603c99fd04d50552ec0c7f39",
+        "question": "Exact selected ground vehicle owners",
+        "result": "useful",
+        "conclusion": "Selected local paths establish 6 labelled weapon alternatives ['Dual Autocannon', 'AAAP', 'Aim Guided Missiles', 'AAHV', 'High Velocity Missile', 'Anti-Air Missiles'] and 1 entry-owner instances; no default or usable seat-count conclusion. Entity configuration remains hash-only."
+      },
+      {
+        "path": "Common/Hardware/Vehicles/Car/Flyer60/VB_VEH_Car_Flyer60",
+        "format": "raw-ebx",
+        "sha256": "afea4a935d8310ae3ee8abf907c7789b57690f7c898c936bcc3e100e6631edb2",
+        "question": "Exact selected ground vehicle owners",
+        "result": "useful",
+        "conclusion": "Selected local paths establish 1 labelled weapon alternatives ['Primary HMG'] and 2 entry-owner instances; no default or usable seat-count conclusion. Entity configuration remains hash-only."
+      },
+      {
+        "path": "Common/Hardware/Vehicles/Car/JLTV/VB_VEH_Car_JLTV",
+        "format": "raw-ebx",
+        "sha256": "13f64f0252f34050910d1aedca17cf9a45c8ff1d621c878e6188dca7867ee729",
+        "question": "Exact selected ground vehicle owners",
+        "result": "useful",
+        "conclusion": "Selected local paths establish 5 labelled weapon alternatives ['LMG', 'RightLMG', 'HMG', 'LeftLMG', 'AGL'] and 4 entry-owner instances; no default or usable seat-count conclusion. Entity configuration remains hash-only."
+      },
+      {
+        "path": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/MBT/WF_Vehicles_MBT_SecondaryWeapon_CoaxLMG",
+        "format": "raw-ebx",
+        "sha256": "611b7853c6d26e58855b3bada87290c903982c840ad2e24c8a3143d6e13d4cb0",
+        "question": "Selected WB nested ammo-struct i32",
+        "result": "useful",
+        "conclusion": "Exact selected exported WB object3 local key503dde81ed5cf4d154423f8a5b58e439 selects Struct_598cc52c.Field_7f22bfb4 at1728 with bytesfa000000 decoded250; MagazineCapacity is only a cross-build naming candidate here."
+      },
+      {
+        "path": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/MBT/WF_Vehicles_MBT_SecondaryWeapon_CoaxHMG",
+        "format": "raw-ebx",
+        "sha256": "a3d2cdd806a902e02aaa559a066be6b468ad8c1c2e90f621bdf1afa61e48c642",
+        "question": "Selected WB nested ammo-struct i32",
+        "result": "useful",
+        "conclusion": "Exact selected exported WB object3 local key503dde81ed5cf4d154423f8a5b58e439 selects Struct_598cc52c.Field_7f22bfb4 at1168 with bytesfa000000 decoded250; MagazineCapacity is only a cross-build naming candidate here."
+      },
+      {
+        "path": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/RWS/WF_Vehicles_RWS_AGL",
+        "format": "raw-ebx",
+        "sha256": "abad41ab7ae0f91e64f3a40d0c27add94f6a34d618a2c0350b09e1c454004471",
+        "question": "Selected WB nested ammo-struct i32",
+        "result": "useful",
+        "conclusion": "Exact selected exported WB object1 local key503dde81ed5cf4d154423f8a5b58e439 selects Struct_598cc52c.Field_7f22bfb4 at912 with bytes05000000 decoded5; MagazineCapacity is only a cross-build naming candidate here."
+      },
+      {
+        "path": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/RWS/WF_Vehicles_RWS_LMG",
+        "format": "raw-ebx",
+        "sha256": "1aa019ea7aee0341346d26fb54417cccae583f32a77c1c51e5ffcb08ca443416",
+        "question": "Selected WB nested ammo-struct i32",
+        "result": "useful",
+        "conclusion": "Exact selected exported WB object5 local key503dde81ed5cf4d154423f8a5b58e439 selects Struct_598cc52c.Field_7f22bfb4 at1328 with bytesfa000000 decoded250; MagazineCapacity is only a cross-build naming candidate here."
+      },
+      {
+        "path": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/RWS/WF_Vehicles_RWS_HMG",
+        "format": "raw-ebx",
+        "sha256": "7d14e7e408ccd497c1c21dff0836520ae9a880b11f2835482c4d8f1157df063c",
+        "question": "Selected WB nested ammo-struct i32",
+        "result": "useful",
+        "conclusion": "Exact selected exported WB object3 local key503dde81ed5cf4d154423f8a5b58e439 selects Struct_598cc52c.Field_7f22bfb4 at1008 with bytesfa000000 decoded250; MagazineCapacity is only a cross-build naming candidate here."
+      },
+      {
+        "path": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/MBT/WF_Vehicles_MBT_PrimaryWeapon_120mm",
+        "format": "raw-ebx",
+        "sha256": "6279b00148f693b96b9a39591476ce16ad1e98a21994fa101f6661f5741c0f0c",
+        "question": "Selected WB nested ammo-struct i32",
+        "result": "useful",
+        "conclusion": "Exact selected exported WB object4 local key503dde81ed5cf4d154423f8a5b58e439 selects Struct_598cc52c.Field_7f22bfb4 at1232 with bytes01000000 decoded1; MagazineCapacity is only a cross-build naming candidate here."
+      },
+      {
+        "path": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/IFV/WF_Vehicles_IFV_SecondaryWeapon_HomingATGM",
+        "format": "raw-ebx",
+        "sha256": "5caa6e2be112cb229225ab7930175970b82816de6b6e699b2243c1044835c937",
+        "question": "Selected WB nested ammo-struct i32",
+        "result": "useful",
+        "conclusion": "Exact selected exported WB object4 local key503dde81ed5cf4d154423f8a5b58e439 selects Struct_598cc52c.Field_7f22bfb4 at1216 with bytes01000000 decoded1; MagazineCapacity is only a cross-build naming candidate here."
+      },
+      {
+        "path": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/IFV/WF_Vehicles_IFV_PrimaryWeapon_Canister",
+        "format": "raw-ebx",
+        "sha256": "2648195bf5eb81bb066996ff8a3d4a74567a037eea7bf41eb46f71badfe4554d",
+        "question": "Selected WB nested ammo-struct i32",
+        "result": "useful",
+        "conclusion": "Exact selected exported WB object9 local key503dde81ed5cf4d154423f8a5b58e439 selects Struct_598cc52c.Field_7f22bfb4 at2016 with bytes0c000000 decoded12; MagazineCapacity is only a cross-build naming candidate here."
+      },
+      {
+        "path": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/IFV/WF_Vehicles_IFV_SecondaryWeapon_LightRockets",
+        "format": "raw-ebx",
+        "sha256": "9f6d39fd5664b5142da8249c2ae014fdd8d35888d2c91b71234c05fca097dc0e",
+        "question": "Selected WB nested ammo-struct i32",
+        "result": "useful",
+        "conclusion": "Exact selected exported WB object6 local key503dde81ed5cf4d154423f8a5b58e439 selects Struct_598cc52c.Field_7f22bfb4 at1376 with bytes02000000 decoded2; MagazineCapacity is only a cross-build naming candidate here."
+      },
+      {
+        "path": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/IFV/WF_Vehicles_IFV_PrimaryWeapon_APFSDST",
+        "format": "raw-ebx",
+        "sha256": "b67d73af08d8f35c3c321c112191f2e34f4283fc41601c721ae9e2ad379b68e3",
+        "question": "Selected WB nested ammo-struct i32",
+        "result": "useful",
+        "conclusion": "Exact selected exported WB object6 local key503dde81ed5cf4d154423f8a5b58e439 selects Struct_598cc52c.Field_7f22bfb4 at2096 with bytes0c000000 decoded12; MagazineCapacity is only a cross-build naming candidate here."
+      },
+      {
+        "path": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/RWS/WF_Vehicles_RWS_TargetDesignator",
+        "format": "raw-ebx",
+        "sha256": "1a054842b865c2c954261addfe5a39c97c55d80d6ce0c8afb41633394956d6b3",
+        "question": "Selected WB nested ammo-struct i32",
+        "result": "useful",
+        "conclusion": "Exact selected exported WB object1 local key503dde81ed5cf4d154423f8a5b58e439 selects Struct_598cc52c.Field_7f22bfb4 at912 with bytesffffffff decoded-1; MagazineCapacity is only a cross-build naming candidate here."
+      },
+      {
+        "path": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/IFV/WF_Vehicles_IFV_SecondaryWeapon_TOW",
+        "format": "raw-ebx",
+        "sha256": "28f3e8605394bcc3a3d952e3588372d23e8303a41214fd87cea40b637e51d2c9",
+        "question": "Selected WB nested ammo-struct i32",
+        "result": "useful",
+        "conclusion": "Exact selected exported WB object2 local key503dde81ed5cf4d154423f8a5b58e439 selects Struct_598cc52c.Field_7f22bfb4 at976 with bytes01000000 decoded1; MagazineCapacity is only a cross-build naming candidate here."
+      },
+      {
+        "path": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/IFV/WF_Vehicles_IFV_PrimaryWeapon_HEAB",
+        "format": "raw-ebx",
+        "sha256": "3acadbd4dc5f83c622f884e5e6a5582313225f2c6646d1ed1f4702dc8d78b8c8",
+        "question": "Selected WB nested ammo-struct i32",
+        "result": "useful",
+        "conclusion": "Exact selected exported WB object2 local key503dde81ed5cf4d154423f8a5b58e439 selects Struct_598cc52c.Field_7f22bfb4 at1424 with bytes0c000000 decoded12; MagazineCapacity is only a cross-build naming candidate here."
+      },
+      {
+        "path": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/AA/WF_Vehicles_AA_PrimaryWeapon_AAGP",
+        "format": "raw-ebx",
+        "sha256": "95f606a9430ba8887f8a1608ff6e02d4b71f7bc07e1e590b50e46916c39d9c9e",
+        "question": "Selected WB nested ammo-struct i32",
+        "result": "useful",
+        "conclusion": "Exact selected exported WB object2 local key503dde81ed5cf4d154423f8a5b58e439 selects Struct_598cc52c.Field_7f22bfb4 at960 with bytes06000000 decoded6; MagazineCapacity is only a cross-build naming candidate here."
+      },
+      {
+        "path": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/AA/WF_Vehicles_AA_PrimaryWeapon_AAAP",
+        "format": "raw-ebx",
+        "sha256": "cecc862677d031bbcccd9884efc56215c49e232e1d945d3205c011bd7aafd7b3",
+        "question": "Selected WB nested ammo-struct i32",
+        "result": "useful",
+        "conclusion": "Exact selected exported WB object6 local key503dde81ed5cf4d154423f8a5b58e439 selects Struct_598cc52c.Field_7f22bfb4 at1952 with bytes08000000 decoded8; MagazineCapacity is only a cross-build naming candidate here."
+      },
+      {
+        "path": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/AA/WF_Vehicles_AA_SecondaryWeapon_AimGuidedMissile",
+        "format": "raw-ebx",
+        "sha256": "1338510d0d2800e70ebb0a51d471e68cc91a6b42e245f2ae9869bd96a0434c57",
+        "question": "Selected WB nested ammo-struct i32",
+        "result": "useful",
+        "conclusion": "Exact selected exported WB object1 local key503dde81ed5cf4d154423f8a5b58e439 selects Struct_598cc52c.Field_7f22bfb4 at912 with bytes02000000 decoded2; MagazineCapacity is only a cross-build naming candidate here."
+      }
+    ],
+    "binding": "research"
+  },
+  "sourceFacts": {
+    "reviewedLeadSummary": "Fourteen captured base families select50 labelled weapon-owner alternatives and34 entry-owner instances with400 checked profile operands;16-family profiles remain partial.",
+    "scope": {
+      "expected": 16,
+      "examined": 16,
+      "notes": "16 catalog families;14 captured base families traced. At most21 selected armament assets/family plus root; exact entry target attempts are included in actual inspected-asset evidence. No export or repository edits. 400 profile raw reads plus separate known-answer control."
+    },
+    "sourceFactsArtifact": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T2025-0400-vehicles\\L3004\\draft-receipt-v3.json",
+      "sha256": "8398c6c5c482637127117cdbed0ea5486b43effd27a3670e738f6e5ef6a6447e",
+      "pointer": "/sourceFacts"
+    },
+    "resultArtifact": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T2025-0400-vehicles\\L3004\\l3004-result.json",
+      "sha256": "927fdd9644d06966996e78e7349198b9617acd65d9b21406871133bc064f0dbe",
+      "pointer": "/rows"
+    },
+    "limits": "Partial source profiles. Native behavior, effective values and availability remain unresolved; cosmetic descendants are excluded by operator scope."
+  },
+  "evidence": {
+    "workerEvidence": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T2025-0400-vehicles\\L3004\\draft-receipt-v3.json",
+      "sha256": "8398c6c5c482637127117cdbed0ea5486b43effd27a3670e738f6e5ef6a6447e",
+      "pointer": "/evidence"
+    },
+    "result": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T2025-0400-vehicles\\L3004\\l3004-result.json",
+      "sha256": "927fdd9644d06966996e78e7349198b9617acd65d9b21406871133bc064f0dbe"
+    },
+    "promotionHelper": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T2025-0400-vehicles\\promote-reviewed-stage1.py",
+      "sha256": "cd1422dae7b08cf2871ac054cb6ccb12c790bccec32d3046ca88111c5eba52d9"
+    },
+    "review": "Parent ran frosty-worker.py review with exact result path; controls, schema and sampled raw hashes/bytes passed. Exact worker commands remain in the linked evidence."
+  }
+}

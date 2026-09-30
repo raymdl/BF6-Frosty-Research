@@ -388,6 +388,23 @@ sway is not. `WME_DynamicPivot` uses
 `Field_f235e44f`/`Field_a4f104cc` multipliers; canted iron sights set only
 `Field_f235e44f` (2.5 or 3).
 
+[L129](../../reference-data/provenance/frosty-2026-09-29-L129-absolute-sway.json)
+screened the WB/GS roots of six sniper rifles and six DMRs for an absolute sway
+baseline. The direct WB candidates are selector-owned `Class_2fea847d` records:
+one `Field_90fd0310` operand and an iron selector were raw-checked per weapon.
+The six sniper operands range from 1.008332 to 1.072083. Cached parent references
+establish the candidate ownership; their pointer bytes were not independently
+checked. L115 and SV-98 have two selector tokens beside one child reference, so
+their ordering and activation are unresolved.
+
+These candidates extend the sight-state context already recorded by L94 below;
+they do not establish an absolute amplitude, an operation, or missing sniper
+iron-sight factors. The site multiplies relative attachment factors, and the
+existing L94 captures do not support applying local sight values as general ADS
+multipliers. This bounded pass omitted external imports and broader target walks;
+the provisional GS screen is not an absence claim. Reopen for a concrete absolute
+baseline/consumer route rather than repeating these operands.
+
 The [23 September optic discovery](../../reference-data/provenance/frosty-optic-discovery-2026-09-23.json)
 captured `Affector_HoldBreath` and `PresEx_HoldBreath` from the registered hotfix
 (Head 4892087). The expression's external pointer resolves to the existing
@@ -567,6 +584,25 @@ and [setting context](../../reference-data/provenance/frosty-pip-setting-context
 Compare `opticRenderFovByPart`, `riserFamilyLinksByWeapon` and `ironSights` in a new
 dated report with this one. All 1,810 optic parts with their own aim zoom to the
 magnification in their UI label.
+
+### Optic input option references (1.4.3.0)
+
+The [L133 source receipt](../../reference-data/provenance/frosty-2026-09-29-L133-optic-input.json)
+traces six aiming controllers and the joystick-sensitivity camera root. The six
+controllers share five references: SoldierZoomSensitivity, UniformSoldierAiming,
+its coefficient, SmoothZoomInputSensitivity, and the separate Render option
+FieldOfViewScaleADS. Four PiP zoom definitions (1×, 2×, 4× and 10×) reference
+distinct per-tier sensitivity options through `Class_86ce0d70/Field_58cc4905`.
+That field belongs to the zoom definition, not the controller. DefaultBase has
+a raw null pointer there; this does not establish final no-zoom input behavior.
+
+The four exactly referenced option bodies each have one `Class_921071e8` object
+and the same numeric block: `Field_8ee32a15` 0.1, `Field_e2253f2b` 2,
+`Field_8cf424e7` 1 and `Field_4276044b` 0.01. The first option's third field is
+independently raw-verified. Default, range and step roles remain unresolved, as
+do the effective sensitivity equation and activation. No attachment-to-controller
+join is established here. These input references do not supply an optic sway,
+movement or magnification multiplier, or support a numeric comparison proposal.
 
 ### Visibility and zeroing research
 

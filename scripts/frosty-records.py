@@ -39,6 +39,7 @@ BUILDS = {  # build id -> Head and descriptor; the receipts' `build` shapes all 
 REF_FILES = {'queue-proposals': 'docs/working/FROSTY_RESEARCH_QUEUE.md', 'capture-plan': 'docs/working/BF6_CAPTURE_PRIORITIES.md',
              'open-questions': 'docs/frosty/OPEN_QUESTIONS.md', 'conventions-known-cases': 'docs/working/frosty-worker-conventions.txt'}
 QUEUE = 'docs/working/FROSTY_RESEARCH_QUEUE.md'
+GADGET_QUEUE = 'docs/working/GADGET_SITE_ADDITIONS.md'
 ARCHIVE = 'docs/archive/FROSTY_QUEUE_CLOSED.md'
 GEN_START, GEN_END = '<!-- generated -->', '<!-- /generated -->'
 LEAD_ID = re.compile(r'L\d+[A-Z]?')
@@ -294,7 +295,7 @@ def table_rows(body):
     return [[c.strip() for c in l.strip().strip('|').split(' | ')] for l in body.split('\n') if l.startswith('| L')]
 
 def active_leads(ctx):
-    return {c[0]: c for c in table_rows(section(ctx.text(QUEUE), 'Active source leads')) if LEAD_ID.fullmatch(c[0])}
+    return {c[0]: c for path in (QUEUE, GADGET_QUEUE) for c in table_rows(section(ctx.text(path), 'Active source leads')) if LEAD_ID.fullmatch(c[0])}
 
 def mentions(text, lead_id):
     """The lead id appears in the text, alone or inside a range such as L100-L104."""
@@ -509,7 +510,7 @@ def run_checks(ctx, external=False):
         for old in rec.get('supersedes', []):
             if old not in ctx.receipts: ctx.warn('supersedes', f'{name}: supersedes unknown receipt {old}')
         for ref in rec.get('refs', []):
-            doc = ctx.text(REF_FILES[ref]) + (ctx.text(ARCHIVE) if ref == 'queue-proposals' else '')  # applied proposals live in the archive
+            doc = ctx.text(REF_FILES[ref]) + (ctx.text(GADGET_QUEUE) + ctx.text(ARCHIVE) if ref == 'queue-proposals' else '')  # applied proposals live in the archive
             if rec.get('leads') and not any(mentions(doc, l['id']) for l in rec['leads']):
                 ctx.warn('refs', f'{name}: none of {[l["id"] for l in rec["leads"]]} found in {REF_FILES[ref]}')
         for s in rec.get('site', []):
@@ -538,7 +539,7 @@ def run_checks(ctx, external=False):
         for tok in set(re.findall(r'(?<![A-Za-z])L(\d+)', name)):
             if f'L{tok}' not in ids and not any(i.startswith(f'L{tok}') for i in ids) and name not in ('records-legacy.json',):
                 ctx.warn('lead-record', f'{name}: names L{tok} but no record carries that lead')
-    props = section(ctx.text(QUEUE), 'Proposed Analyzer changes') + section(ctx.text(ARCHIVE), 'Applied proposals')
+    props = section(ctx.text(QUEUE), 'Proposed Analyzer changes') + section(ctx.text(GADGET_QUEUE), 'Proposed Analyzer changes') + section(ctx.text(ARCHIVE), 'Applied proposals')
     capture = ctx.text(REF_FILES['capture-plan'])
     for lid, st in sorted(latest_status.items(), key=lambda x: lead_sort(x[0])):
         if st == 'proposal' and not mentions(props, lid): ctx.warn('proposal', f'{lid}: proposal lead is not in the queue proposal table or the applied proposals')
@@ -604,6 +605,8 @@ def cmd_check_receipt(a, ctx):
     if not errs:
         r = obj['record']
         if generic_assets(r): print(f'WARNING {generic_assets(r)}')
+        if r.get('binding') == 'site' and not (ctx.site / 'reference-data/provenance' / p.name).exists():
+            print('WARNING binding is site, but the site repo holds no copy of this receipt; use research unless site data or tests will pin it')
         for s in r.get('site', []):
             try: ctx.resolve_all(s['pointer'])
             except (KeyError, IndexError, ValueError, OSError) as e: print(f'WARNING site pointer: {e}')
@@ -639,7 +642,7 @@ def cmd_status(a, ctx):
     lines = [f'Frosty records: {len(ctx.receipts)} receipts, {len(recs)} records, {len(index)} leads; check {e} errors, {w} warnings']
     if e:
         lines += [f'  ERROR [{c}] {m}'[:150] for s, c, m in ctx.problems if s == 'error'][:5]
-    lines.append(f'Live leads (queue Active table, {len(active)}):')
+    lines.append(f'Live leads (site and gadget Active tables, {len(active)}):')
     for lid, c in active.items():
         st = index[lid]['status'] if lid in index else 'no record'
         title = re.sub(r'\*\*|\s+-\s+.*', '', c[1])[:70]
@@ -649,7 +652,7 @@ def cmd_status(a, ctx):
     items = re.findall(r'^- (.*(?:\n  .*)*)', aw, re.M)
     lines.append(f'Awaiting the operator ({len(items)}):')
     for it in items: lines.append('  - ' + re.sub(r'\s+', ' ', re.sub(r'\[([^\]]*)\]\([^)]*\)', r'\1', it))[:135])
-    props = section(q, 'Proposed Analyzer changes')
+    props = section(q, 'Proposed Analyzer changes') + section(ctx.text(GADGET_QUEUE), 'Proposed Analyzer changes')
     pending = [re.sub(r'\*\*|\s+\(L\d.*', '', r[0]).strip()[:60] for r in (l.strip().strip('|').split(' | ') for l in props.split('\n') if l.startswith('| **'))]
     lines.append(f'Proposal rows flagged for the operator ({len(pending)}):')
     for p in pending[:8]: lines.append('  - ' + p)

@@ -1,0 +1,669 @@
+{
+  "lead": "L205",
+  "status": "reviewed-source-finding",
+  "build": "1.4.3.0-hotfix",
+  "question": "Shared drone utility consumers",
+  "control": {
+    "description": "Release M433 ADS recoil amount control, separate from gadget semantics.",
+    "passed": true,
+    "rawChecks": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+        "rawSha256": "66caca0e667d17fdf03f9fb4f620b9c5842aa1fd8de0221128ad4862895eed51",
+        "offset": 1084,
+        "type": "f32",
+        "bytesHex": "5a642b3f",
+        "value": 0.6694999933242798,
+        "expect": "0.6695",
+        "matches": true
+      }
+    ]
+  },
+  "sourceFacts": {
+    "resultPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L205\\l205-result.json",
+    "resultSha256": "023a4a3fa177cd82473e23759a13200dd0d0f1f1f191de40a978fc0bb2490b28",
+    "rawProofs": {
+      "selection": {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L205\\proof-raw-v2.json",
+        "sha256": "5c98e27f03484b1432d1a72b5613af080d08ec16ea396fa0ea6951a10ff2832e"
+      },
+      "names": {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L205\\name-raw.json",
+        "sha256": "ae471044c240ec4819cc359f99061a44a225a96f6845367d23a4996047379e9a"
+      }
+    },
+    "selectionCount": 81,
+    "namedLabels": [
+      {
+        "route": "Common/Hardware/Gadgets/RemoteControllable/Shared/Feature_AimSpotting/SimEx_Drone_AimSpotting",
+        "objectIndex": 0,
+        "fieldPath": "/Field_ea0047a8/Field_d65d1b09/0/Field_820ec965",
+        "label": "Spotting Audio",
+        "rawCheckIndices": [
+          0
+        ]
+      },
+      {
+        "route": "Common/Hardware/Gadgets/RemoteControllable/Shared/Feature_TimeToLive/SimEx_Drone_TimeToLive",
+        "objectIndex": 0,
+        "fieldPath": "/Field_ea0047a8/Field_d65d1b09/0/Field_820ec965",
+        "label": "LifetimeVariables",
+        "rawCheckIndices": [
+          1
+        ]
+      },
+      {
+        "route": "Common/Hardware/Gadgets/RemoteControllable/Shared/Feature_TimeToLive/SimEx_Drone_TimeToLive",
+        "objectIndex": 0,
+        "fieldPath": "/Field_ea0047a8/Field_470a100b/0/Field_d65d1b09/0/Field_820ec965",
+        "label": "Remaining Lifetime",
+        "rawCheckIndices": [
+          2
+        ]
+      },
+      {
+        "route": "Common/Hardware/Gadgets/RemoteControllable/Shared/Feature_TimeToLive/SimEx_Drone_TimeToLive",
+        "objectIndex": 0,
+        "fieldPath": "/Field_ea0047a8/Field_470a100b/0/Field_d65d1b09/1/Field_820ec965",
+        "label": "Has Set Max Lifetime",
+        "rawCheckIndices": [
+          3
+        ]
+      },
+      {
+        "route": "Common/Hardware/Gadgets/RemoteControllable/Shared/Feature_OutOfRange/SimEx_Drone_OutOfRange",
+        "objectIndex": 0,
+        "fieldPath": "/Field_ea0047a8/Field_d65d1b09/1/Field_820ec965",
+        "label": "Max Allowed Distance",
+        "rawCheckIndices": [
+          4
+        ]
+      },
+      {
+        "route": "Common/Hardware/Gadgets/RemoteControllable/Shared/Feature_OutOfRange/SimEx_Drone_OutOfRange",
+        "objectIndex": 0,
+        "fieldPath": "/Field_ea0047a8/Field_d65d1b09/2/Field_820ec965",
+        "label": "Out Of Range Feedback Start Distance",
+        "rawCheckIndices": [
+          5
+        ]
+      },
+      {
+        "route": "Common/Hardware/Gadgets/RemoteControllable/Shared/Feature_OutOfRange/SimEx_Drone_OutOfRange",
+        "objectIndex": 0,
+        "fieldPath": "/Field_ea0047a8/Field_d65d1b09/3/Field_820ec965",
+        "label": "SoldierOwner",
+        "rawCheckIndices": [
+          6
+        ]
+      },
+      {
+        "route": "Common/Hardware/Gadgets/RemoteControllable/Shared/Feature_OutOfRange/SimEx_Drone_OutOfRange",
+        "objectIndex": 0,
+        "fieldPath": "/Field_ea0047a8/Field_d65d1b09/4/Field_820ec965",
+        "label": "HasSetOwner",
+        "rawCheckIndices": [
+          7
+        ]
+      },
+      {
+        "route": "Common/Hardware/Gadgets/RemoteControllable/Shared/Feature_Thermal/SimEx_Drone_Thermal",
+        "objectIndex": 0,
+        "fieldPath": "/Field_ea0047a8/Field_d65d1b09/0/Field_820ec965",
+        "label": "Should Thermal Be Enabled",
+        "rawCheckIndices": [
+          8
+        ]
+      }
+    ]
+  },
+  "inference": "Names identify source utility context only; selected SimEx dependencies do not establish compiled execution.",
+  "unresolved": [
+    "Compiled expression grammar, equations, units, branch activation and runtime behavior require an independent known-answer compiled-resource control.",
+    "AimSpotting, CheckOwnerStates and OutOfRange incoming selection was not proved in this bounded route; these remain candidate source context.",
+    "Selected OutOfBounds SimEx was not followed: six external EBX limit reached; exact imported child was raw verified through generated list.",
+    "No current multiplayer availability is established."
+  ],
+  "siteImpact": "Source-only utility dependencies; no site numeric values or edits.",
+  "evidence": {
+    "files": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L205\\proof-raw-v2.json",
+        "sha256": "5c98e27f03484b1432d1a72b5613af080d08ec16ea396fa0ea6951a10ff2832e"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L205\\name-raw.json",
+        "sha256": "ae471044c240ec4819cc359f99061a44a225a96f6845367d23a4996047379e9a"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L205\\selections205-v2.json",
+        "sha256": "edfc64bc053fa110e967cde2c461c33bff98a79393fda68cd92e107cdd11dd9b"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L205\\names205.json",
+        "sha256": "c9e2532ba0c3e12d095cd851057dc352223ad993b7c18738610ad4fec7b23b21"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L205\\children205.json",
+        "sha256": "8beb113005196af2d9ed11b0984781790ad7e5ffa42c9450ddb00c40eacbe92c"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L205\\source205.json",
+        "sha256": "46d25ae2b55c319ebbd6a8eda8c6321b4e84f3f3cdd9cf047723e7bb9649a873"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L205\\control-raw.json",
+        "sha256": "5f76caeb1046b7fe3232d00db51f0fca2a89d38e39e15bf225be8de90a6889e8"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L205\\proof-manifest-v2.json",
+        "sha256": "73a5d9039474780431a5f6a69500fcbd87a1359f8f1477f3c606e335c3b7720b"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L205\\name-manifest.json",
+        "sha256": "0e9317543f7659e54a4de8bb91f324b36c7d6aedb22780763d5c0592326c6be6"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L205\\decode-commands.json",
+        "sha256": "92457ed4ca912dfceb771f4b60b37c29d2c3c510d529f8b9ac7f54d68ab9bfd0"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L205\\prior-work.txt",
+        "sha256": "fcaa8e7bf9389e4d4d926138c904e201ad364c1990c3ea775db6c8029e9422ee"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L205-selected-resource-inputs.json",
+        "sha256": "4fb9b4dca93dbc8a7a54716c06c507fc4558f69fc8942a56c5b81a655ef47bfe"
+      }
+    ],
+    "commands": [
+      {
+        "executable": "python",
+        "argv": [
+          ".\\inspect205.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L205",
+        "helperSha256": "3f550018d60b9675036b1cb623e80227f1e67ed4a5ed576feb0a3a31369547b8",
+        "status": 0,
+        "history": "Executed commands; argv normalized from tool history. Shell stdout redirections are retained in tool history, not part of Python argv."
+      },
+      {
+        "executable": "python",
+        "argv": [
+          ".\\children205.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L205",
+        "helperSha256": "2802a6aaafc7dc3009464b073baa864e27a1080c36d0201a176303706f28c8c2",
+        "status": 1,
+        "history": "Executed commands; argv normalized from tool history. Shell stdout redirections are retained in tool history, not part of Python argv."
+      },
+      {
+        "executable": "python",
+        "argv": [
+          ".\\children205-v2.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L205",
+        "helperSha256": "d812c60fb7869e96bbcd2b942e716babf8e52b617f03834e98937593df51a90f",
+        "status": 0,
+        "history": "Executed commands; argv normalized from tool history. Shell stdout redirections are retained in tool history, not part of Python argv."
+      },
+      {
+        "executable": "python",
+        "argv": [
+          ".\\view205.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L205",
+        "helperSha256": "9bb396f3e32139b4b3d0df69fe7383d6f075d5fd542649dfb0457efa8bba60e4",
+        "status": 0,
+        "history": "Executed commands; argv normalized from tool history. Shell stdout redirections are retained in tool history, not part of Python argv."
+      },
+      {
+        "executable": "python",
+        "argv": [
+          ".\\compact205.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L205",
+        "helperSha256": "1f9d6787158850add1c34a0db46dcc248c78d7809651e87db7d187fe0ce122d0",
+        "status": 0,
+        "history": "Executed commands; argv normalized from tool history. Shell stdout redirections are retained in tool history, not part of Python argv."
+      },
+      {
+        "executable": "python",
+        "argv": [
+          ".\\incoming205.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L205",
+        "helperSha256": "6006b8e1be60f38c016c21ade9ba9920172dc3cae16aaf701436956363f3e58a",
+        "status": 0,
+        "history": "Executed commands; argv normalized from tool history. Shell stdout redirections are retained in tool history, not part of Python argv."
+      },
+      {
+        "executable": "python",
+        "argv": [
+          ".\\proof205.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L205",
+        "helperSha256": "6666b5657bf0b6eee675cf31318585bd57031f8433f15c7291ad7b0727255de7",
+        "status": 0,
+        "history": "Executed commands; argv normalized from tool history. Shell stdout redirections are retained in tool history, not part of Python argv."
+      },
+      {
+        "executable": "python",
+        "argv": [
+          ".\\proof205-v2.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L205",
+        "helperSha256": "823c28d16343926bdbe05caa805935ddef078e58e6bdb1c111da1f8531cd2279",
+        "status": 0,
+        "history": "Executed commands; argv normalized from tool history. Shell stdout redirections are retained in tool history, not part of Python argv."
+      },
+      {
+        "executable": "python",
+        "argv": [
+          ".\\names205.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L205",
+        "helperSha256": "914b1d29e182e1957fa70b79d4e982761ce700f74d6837f372ac0dff86351cf6",
+        "status": 0,
+        "history": "Executed commands; argv normalized from tool history. Shell stdout redirections are retained in tool history, not part of Python argv."
+      },
+      {
+        "executable": "python",
+        "argv": [
+          ".\\raw-check205.py",
+          "--manifest",
+          ".\\proof-manifest-v2.json",
+          "--out",
+          ".\\proof-raw-v2.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L205",
+        "helperSha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3",
+        "status": 0,
+        "history": "Executed commands; argv normalized from tool history. Shell stdout redirections are retained in tool history, not part of Python argv."
+      },
+      {
+        "executable": "python",
+        "argv": [
+          ".\\raw-check205.py",
+          "--manifest",
+          ".\\name-manifest.json",
+          "--out",
+          ".\\name-raw.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L205",
+        "helperSha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3",
+        "status": 0,
+        "history": "Executed commands; argv normalized from tool history. Shell stdout redirections are retained in tool history, not part of Python argv."
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L205\\decode205.py",
+          "--descriptors",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\toolchain\\SharedTypeDescriptors-hotfix-2026-09-16.ebx",
+          "--ebx",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\drone-naval-root-capture\\raw\\Common\\Hardware\\Gadgets\\RemoteControllable\\Shared\\Feature_AimSpotting\\DiceFeature_Drone_AimSpotting.ebx",
+          "--out",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L205\\decoded-1.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L205",
+        "helperSha256": "6fdc0334efaee0fe6113b5c9db4973f1358f53ee65dfb94edbc22fb0bf07a727",
+        "status": 0,
+        "stdout": "{\"decoded\": 1, \"failed\": 0}\n",
+        "stderr": ""
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L205\\decode205.py",
+          "--descriptors",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\toolchain\\SharedTypeDescriptors-hotfix-2026-09-16.ebx",
+          "--ebx",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\drone-naval-root-capture\\raw\\Common\\Hardware\\Gadgets\\RemoteControllable\\Shared\\Feature_CheckOwnerStates\\Feature_Gadget_RemoteControllable_CheckOwnerStates_Default.ebx",
+          "--out",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L205\\decoded-4.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L205",
+        "helperSha256": "6fdc0334efaee0fe6113b5c9db4973f1358f53ee65dfb94edbc22fb0bf07a727",
+        "status": 0,
+        "stdout": "{\"decoded\": 1, \"failed\": 0}\n",
+        "stderr": ""
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L205\\decode205.py",
+          "--descriptors",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\toolchain\\SharedTypeDescriptors-hotfix-2026-09-16.ebx",
+          "--ebx",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\drone-naval-root-capture\\raw\\Common\\Hardware\\Gadgets\\RemoteControllable\\Shared\\Feature_TimeToLive\\Feature_Drone_TimeToLive.ebx",
+          "--out",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L205\\decoded-5.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L205",
+        "helperSha256": "6fdc0334efaee0fe6113b5c9db4973f1358f53ee65dfb94edbc22fb0bf07a727",
+        "status": 0,
+        "stdout": "{\"decoded\": 1, \"failed\": 0}\n",
+        "stderr": ""
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L205\\raw-check205.py",
+          "--path",
+          "Common/Hardware/Weapons/AssaultRifle/HK433/GS_HK433.ebx",
+          "--offset",
+          "1084",
+          "--type",
+          "f32",
+          "--expect",
+          "0.6695",
+          "--out",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L205\\control-raw.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer",
+        "helperSha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3",
+        "status": 0
+      },
+      {
+        "executable": "python",
+        "argv": [
+          ".\\build205.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L205",
+        "helperSha256": "a949b83154b5df2d569845fcfdb03de5bb7cc6bcb26c8e7f24a2439e250171c6",
+        "status": 0
+      },
+      {
+        "executable": "python",
+        "argv": [
+          ".\\finalize205.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L205",
+        "helperSha256": "8ba0efe3c0015ba62dcfd7ff71254148002ee819582ba4defb4e453a21e426db",
+        "status": 0
+      }
+    ],
+    "failures": [
+      "children205.py failed once: no such column c.asset_id; preserved helper revision; route-based pinned query succeeded in children205-v2.py."
+    ],
+    "reused": [
+      "L170 summary and selected-pointer reproduction helper read; indexed hotfix captures reused."
+    ]
+  },
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-09-29",
+    "build": "1.4.3.0-hotfix",
+    "binding": "research",
+    "leads": [
+      {
+        "id": "L205",
+        "title": "Shared drone utility consumers",
+        "status": "finding",
+        "summary": "Drone vehicle selects generated lifetime, thermal and boundary expression exports; spotting, owner-state and range sources remain candidates without incoming selection.",
+        "reopenWhen": "An independent compiled-reader control or exact incoming selection for candidate utilities is available.",
+        "statusNote": "GPT-6.1 Sol, 29 Sep; source only"
+      }
+    ],
+    "assets": [
+      {
+        "path": "Common/Hardware/Gadgets/Misc/Drone/VEH_Drone",
+        "format": "raw-ebx",
+        "sha256": "1e00792d54713beaee16e706112b9b25bae6e94acc695a839b332747216b49be",
+        "question": "Selected drone utility source?",
+        "result": "useful",
+        "conclusion": "selected vehicle owner"
+      },
+      {
+        "path": "Common/Hardware/Gadgets/RemoteControllable/Shared/Feature_AimSpotting/DiceFeature_Drone_AimSpotting",
+        "format": "raw-ebx",
+        "sha256": "5950a453f96d42c7ce51d58ee8bbc1741e3d54511d3fdf5912fb88f0332a5112",
+        "question": "Selected drone utility source?",
+        "result": "inconclusive",
+        "conclusion": "candidate source context"
+      },
+      {
+        "path": "Common/Hardware/Gadgets/RemoteControllable/Shared/Feature_OutOfRange/DiceFeature_Drone_OutOfRange",
+        "format": "raw-ebx",
+        "sha256": "6ab5c327c45c00c2c950468a99448baac0b82ab2a7803653becbcff582b17cc3",
+        "question": "Selected drone utility source?",
+        "result": "inconclusive",
+        "conclusion": "candidate source context"
+      },
+      {
+        "path": "Common/Hardware/Gadgets/RemoteControllable/Shared/Feature_Thermal/Feature_Drone_Thermal",
+        "format": "raw-ebx",
+        "sha256": "9c5e3f9cd679f7a4b6da5c96fa1398fdb4e28646c1bcb066613d99375f1a9b65",
+        "question": "Selected drone utility source?",
+        "result": "useful",
+        "conclusion": "selected SimEx via generated list"
+      },
+      {
+        "path": "Common/Hardware/Gadgets/RemoteControllable/Shared/Feature_CheckOwnerStates/Feature_Gadget_RemoteControllable_CheckOwnerStates_Default",
+        "format": "raw-ebx",
+        "sha256": "6f6db1f94b434fce097ba4711a67cf620219ac1876f8a27f2ce9ccf1059759ed",
+        "question": "Selected drone utility source?",
+        "result": "inconclusive",
+        "conclusion": "candidate source context"
+      },
+      {
+        "path": "Common/Hardware/Gadgets/RemoteControllable/Shared/Feature_TimeToLive/Feature_Drone_TimeToLive",
+        "format": "raw-ebx",
+        "sha256": "7c963d000c5bae91b40bed315f27a2a131ad198c5e539020e0edcfe59076b2fd",
+        "question": "Selected drone utility source?",
+        "result": "useful",
+        "conclusion": "selected SimEx via generated list"
+      },
+      {
+        "path": "Common/Hardware/Gadgets/RemoteControllable/Shared/Feature_OutOfBounds/Feature_Drone_OutOfBounds",
+        "format": "raw-ebx",
+        "sha256": "4503c97c59bbad6b473e0008ac6fb2c0c17ac39075da181db2de6fdfba6f1421",
+        "question": "Selected drone utility source?",
+        "result": "useful",
+        "conclusion": "selected SimEx via generated list"
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Misc/Drone/FL_Drone_GeneratedFeatureList",
+        "format": "raw-ebx",
+        "sha256": "80544bcc3df52af0c107a6dbb3db1e0e49480ad3e8a1bd9dfe84845e0f861946",
+        "question": "Exact utility consumer dependency?",
+        "result": "useful",
+        "conclusion": "FL_Drone_GeneratedFeatureList: 3 exact selected dependency proofs. Labels: no label assignment retained. Field_06627f78[0,1,2] selects TimeToLive, Thermal and OutOfBounds exports."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/RemoteControllable/Shared/Feature_AimSpotting/SimEx_Drone_AimSpotting",
+        "format": "raw-ebx",
+        "sha256": "88a948f4a675b6baa769186656de4be1ba412fa20c0e9ab3c10cce4fdb97eec8",
+        "question": "Exact utility consumer dependency?",
+        "result": "useful",
+        "conclusion": "SimEx_Drone_AimSpotting: 35 exact selected dependency proofs. Labels: Spotting Audio. Compiled execution remains unresolved."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/RemoteControllable/Shared/Feature_CheckOwnerStates/SimEx_Gadget_RemoteControllable_CheckOwnerStates_Default",
+        "format": "raw-ebx",
+        "sha256": "3dead0655bdec0dea35e828d7c3954b36bbb074e4771dc54808f490a14315f20",
+        "question": "Exact utility consumer dependency?",
+        "result": "useful",
+        "conclusion": "SimEx_Gadget_RemoteControllable_CheckOwnerStates_Default: 5 exact selected dependency proofs. Labels: no label assignment retained. Selected constant table imports DQD_RemoteControllableSoldierOwner; incoming drone selection remains candidate."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/RemoteControllable/Shared/Feature_TimeToLive/SimEx_Drone_TimeToLive",
+        "format": "raw-ebx",
+        "sha256": "58c4c5e448d701528dd00b18a81135933ccb557dd34176ec66c627424cedb5aa",
+        "question": "Exact utility consumer dependency?",
+        "result": "useful",
+        "conclusion": "SimEx_Drone_TimeToLive: 14 exact selected dependency proofs. Labels: LifetimeVariables, Remaining Lifetime, Has Set Max Lifetime. Compiled execution remains unresolved."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/RemoteControllable/Shared/Feature_OutOfRange/SimEx_Drone_OutOfRange",
+        "format": "raw-ebx",
+        "sha256": "f9dbb8288de7fe827a918b9515198e80c04fc3759521de71839886d903fcb5ed",
+        "question": "Exact utility consumer dependency?",
+        "result": "useful",
+        "conclusion": "SimEx_Drone_OutOfRange: 7 exact selected dependency proofs. Labels: Max Allowed Distance, Out Of Range Feedback Start Distance, SoldierOwner, HasSetOwner. Compiled execution remains unresolved."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/RemoteControllable/Shared/Feature_Thermal/SimEx_Drone_Thermal",
+        "format": "raw-ebx",
+        "sha256": "aa863f74e88f2a279c1b614b3db0fcdcce10b56601adb94484d0ee0592275bd7",
+        "question": "Exact utility consumer dependency?",
+        "result": "useful",
+        "conclusion": "SimEx_Drone_Thermal: 7 exact selected dependency proofs. Labels: Should Thermal Be Enabled. Compiled execution remains unresolved."
+      },
+      {
+        "path": "common/hardware/gadgets/remotecontrollable/shared/feature_timetolive/simex_drone_timetolive",
+        "format": "raw-res",
+        "sha256": "ffed3c029c89c85ac027655f687ea2a209cb3e6955ec78db07c12901acc9e998",
+        "question": "Selected compiled resource body?",
+        "result": "inconclusive",
+        "conclusion": "Selected RID joined to pinned raw body; grammar not interpreted."
+      },
+      {
+        "path": "common/hardware/gadgets/remotecontrollable/shared/feature_thermal/simex_drone_thermal",
+        "format": "raw-res",
+        "sha256": "491f8871fb7130adc36dd8b43d320eb0c6f217218bf9975b2a5cef62cfa96545",
+        "question": "Selected compiled resource body?",
+        "result": "inconclusive",
+        "conclusion": "Selected RID joined to pinned raw body; grammar not interpreted."
+      }
+    ],
+    "run": {
+      "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets",
+      "orchestrator": "GPT-6.1 Sol",
+      "workers": [
+        {
+          "lead": "L205",
+          "model": "GPT-6.1 Sol",
+          "effort": "Low"
+        }
+      ]
+    },
+    "refs": []
+  },
+  "orchestratorCaptureReviews": [
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\armor-resource-capture\\verification.json",
+      "sha256": "15f1421c545a9e0a1f217fcc8b95638706c2b3bfa0e0f0ecbbfd7ecc15bd24e6"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\corpse-ammo-consumer-capture\\verification.json",
+      "sha256": "f549db4400286d32ba29229da6a9eebd0c77062c35c6bf667b0b573a83006748"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\drone-naval-root-capture\\verification.json",
+      "sha256": "8bfdfb48ba30c1a99e8ff6b279f6f589396ca3228ce9b58cfd32316165dc7c5e"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\dual-primary-registry-capture\\verification.json",
+      "sha256": "4279fff61a8ff85b989946657a9d1b87f61c37101dd750a3cd9e9ee1719f2071"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\loadout-intel-target-capture\\verification.json",
+      "sha256": "ca6a5f81aec00c5f6a7aecbbcbe25b5aa0aa163192fb093ef0561de2c2ccdeb1"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\logistics-consumer-child-capture\\verification.json",
+      "sha256": "48da5b978a1bcf61a9c104e9ac31d986d3730621f56af79bc6ab21006d501554"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\mask-ammo-root-capture\\verification.json",
+      "sha256": "169c4f7d809690e8b5d28989d6f66b38778ab09a66ed8de4dc44eed04334ea95"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\mask-channel-child-capture\\verification.json",
+      "sha256": "dec2aa2292b544743c0b6aa526cf87aee69164057cf419b04822fb3b8fac3d5e"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\missing-gameplay-capture\\verification.json",
+      "sha256": "2743270e30d78f0dad9426589138bb79dbd35fe03ecec6ce9aab789392437b0f"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\next-utility-family-capture\\verification.json",
+      "sha256": "21be370a335301016614ce13a1c0ab6cbbb8f3b3589f39eb1d119e111824abf9"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\nvg-child-capture\\verification.json",
+      "sha256": "054a23735b9b352510cb5a17f8aaa3a2f2b94a45f568f3547051561924d2de12"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\registry-capture\\verification.json",
+      "sha256": "2e6ff41233fe7bdcd2f74b5189df235ab5113f6a2789b4f3c1b1fb747b23b8f9"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\smoke-callin-child-capture\\verification.json",
+      "sha256": "7dfa22e829ade446a24c3370440ce219f1c4a59b1324d7cb2854462531d26256"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\smoke-effect-child-capture\\verification.json",
+      "sha256": "35bedb7295782358516658892aba5bada3ddf5584a25aaf69f9e2faa3a43def7"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\smoke-marker-resource-capture\\verification.json",
+      "sha256": "04d739d86089ad31ee241566da562fad59136368bf106a6347a1d0c8dedf0f03"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\strike-payload-root-capture\\verification.json",
+      "sha256": "47be183e35aedd96e37c2d53380ed519c5e6e85ec8bbd6cae88a23ac0205b7e3"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\strike-selected-child-capture\\verification.json",
+      "sha256": "ac7b79919c9f65376a691ef4a8aaf3c5f3ef89f7ef075103492206945ffd13c8"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\support-utility-root-capture\\verification.json",
+      "sha256": "1c0fd4c7296cafc9e023dc0faa75816ef71f3c97d8909fd42da31089cbd416a0"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\utility-family-child-capture\\verification.json",
+      "sha256": "5228cffb74422a470de0a980b2602fc7fd14a976a8e77b6cc9d098d36120498f"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\utility-function-capture\\verification.json",
+      "sha256": "9714dd0000b8c561297ed75d0edeae45b1d7d53e66f10d885816bf0f0319f2fd"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\utility-receiver-capture\\verification.json",
+      "sha256": "54c4c93de9cb5027bcdc7903b0c5840d89aeb4b5907157a8f57952c6356093ed"
+    }
+  ],
+  "orchestratorResourceReview": {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L205-selected-resource-inputs.json",
+    "sha256": "4fb9b4dca93dbc8a7a54716c06c507fc4558f69fc8942a56c5b81a655ef47bfe",
+    "selectedResourceIds": [
+      "54fa9ceda81d9c57",
+      "adbe0702a5d11b27"
+    ],
+    "review": "Exact selected simulation resource bytes rehashed; no compiled operation or native behavior claim."
+  },
+  "orchestratorReview": {
+    "reviewer": "GPT-6.1 Sol",
+    "workerModel": "GPT-6.1 Sol",
+    "workerEffort": "Low",
+    "date": "2026-09-29",
+    "draft": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L205\\draft-receipt-v2.json",
+      "sha256": "887cd427e5e64beb758e08d3921d3d2d37d4580d5896e4469838d4b457c92277"
+    },
+    "helperReview": {
+      "tool": "scripts/frosty-worker.py review",
+      "issues": 0,
+      "leadDir": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L205"
+    },
+    "scope": {
+      "roots": 7,
+      "externalChildrenExamined": 6,
+      "externalChildrenExaminedKind": "EBX",
+      "compiledResourceBodiesExamined": 2
+    },
+    "independentRawReview": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L205-independent-raw-review.json",
+      "sha256": "9e4b049adf65cc76e6eee52b88cf6314c3e6629898ea8f389f80bd724eab0977",
+      "uniqueChecksIncludingControl": 225,
+      "failures": 0
+    },
+    "pinReview": "Every recorded raw EBX asset hash matches either an indexed hotfix Head 4892087 capture or a reviewed fresh run-local capture with matching catalog Head/SDK and frozen descriptor hash. Release M433 control is separate.",
+    "semanticReview": "Selected source joins and exact member-owner meanings checked against reviewed prior mappings. No current multiplayer availability, native activation, units or effective composition claim."
+  }
+}

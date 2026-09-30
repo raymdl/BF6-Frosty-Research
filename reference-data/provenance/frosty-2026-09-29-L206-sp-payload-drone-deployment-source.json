@@ -1,0 +1,822 @@
+{
+  "lead": "L206",
+  "status": "reviewed-source-finding",
+  "build": {
+    "head": 4892087,
+    "descriptorSha256": "99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640"
+  },
+  "question": "Trace SP selected payload/deployment configuration and incoming owner",
+  "control": {
+    "description": "Release GS_HK433 ADS amount matches existing m433 site value 0.6695",
+    "passed": true,
+    "rawChecks": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+        "rawSha256": "66caca0e667d17fdf03f9fb4f620b9c5842aa1fd8de0221128ad4862895eed51",
+        "offset": 1084,
+        "type": "f32",
+        "bytesHex": "5a642b3f",
+        "value": 0.6694999933242798,
+        "expect": "0.6695",
+        "matches": true
+      }
+    ]
+  },
+  "sourceFacts": {
+    "facts": [
+      "Pinned PayloadDrone/VB_VEH_Drone_Payload object 8 Class_3add1cc5 Field_f6be6e28 imports the exact U_SP_Drone_PayloadGrenade export; Field_2b04cd3b points to internal object 60.",
+      "Incoming owner objects 59 and 60 Class_01419c76 Field_5b9b2235 import the exact VB_VEH_SP_Drone_Payload_WeaponDeployTimeArray export. The route name is a deployment label; no field-role or time-unit mapping is established.",
+      "VehicleAbility_PayloadDroneGrenade Field_f86e0433 imports exact U_SP_Drone_PayloadGrenade; its Field_6cce2f25/Field_d2b8fc26 imports exact Feature_Ability_PayloadDrone_MortarDrop.",
+      "The owner object 65 Field_21943083 element 14 boxed pointer imports exact VehicleAbility_PayloadDroneGrenade. Payload_Drone_DefaultPlayerAbilityCollection object 1 Field_ba52a009 element 0 imports the same Ability export.",
+      "VB_VEH_Drone_Payload_Gameplay object 17 Class_7339a117 Field_ef857f66 imports exact SC_SP_PayloadDrone.",
+      "No EFIX resource-reference entries occur in the four roots and three incoming owners inspected. No selected RES body is proven by this route; zero RES bodies were inspected."
+    ],
+    "rawProof": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L206\\selected-rawproof.json",
+      "sha256": "d87a2f661f7a0d8c40bd9a3ec942671d5b897610461b6c7cfdc9722a47c0f0db"
+    },
+    "rawChecks": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\RemoteControllable\\SP_PayloadDrone\\VB_VEH_SP_Drone_Payload_WeaponDeployTimeArray.ebx",
+        "rawSha256": "9f1ee50cf6bbe4cccb4ae7026c8a1494a1274bd7fd64b02129922c3835889c6e",
+        "offset": 48,
+        "type": "u16",
+        "bytesHex": "0000",
+        "value": 0,
+        "expect": 0,
+        "matches": true
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\RemoteControllable\\SP_PayloadDrone\\VB_VEH_SP_Drone_Payload_WeaponDeployTimeArray.ebx",
+        "rawSha256": "9f1ee50cf6bbe4cccb4ae7026c8a1494a1274bd7fd64b02129922c3835889c6e",
+        "offset": 32,
+        "type": "guid",
+        "bytesHex": "838e3480814e88499487b9d6dc72d7e9",
+        "value": "80348e83-4e81-4988-9487-b9d6dc72d7e9",
+        "expect": "80348e83-4e81-4988-9487-b9d6dc72d7e9",
+        "matches": true
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\RemoteControllable\\SP_PayloadDrone\\U_SP_Drone_PayloadGrenade.ebx",
+        "rawSha256": "43d94ec4e362fe76c64649cb63deef3503de8656c5cd5dcc89caf56d7e57142e",
+        "offset": 48,
+        "type": "u16",
+        "bytesHex": "0000",
+        "value": 0,
+        "expect": 0,
+        "matches": true
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\RemoteControllable\\SP_PayloadDrone\\U_SP_Drone_PayloadGrenade.ebx",
+        "rawSha256": "43d94ec4e362fe76c64649cb63deef3503de8656c5cd5dcc89caf56d7e57142e",
+        "offset": 32,
+        "type": "guid",
+        "bytesHex": "cdb8c8a0b4a0c24191f709094be5cd79",
+        "value": "a0c8b8cd-a0b4-41c2-91f7-09094be5cd79",
+        "expect": "a0c8b8cd-a0b4-41c2-91f7-09094be5cd79",
+        "matches": true
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\RemoteControllable\\SP_PayloadDrone\\VehicleAbility_PayloadDroneGrenade.ebx",
+        "rawSha256": "0ff648ce22c37a494e96cc23429107251ae2104aeb91df5bebbcd58e1a153605",
+        "offset": 48,
+        "type": "u16",
+        "bytesHex": "0000",
+        "value": 0,
+        "expect": 0,
+        "matches": true
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\RemoteControllable\\SP_PayloadDrone\\VehicleAbility_PayloadDroneGrenade.ebx",
+        "rawSha256": "0ff648ce22c37a494e96cc23429107251ae2104aeb91df5bebbcd58e1a153605",
+        "offset": 32,
+        "type": "guid",
+        "bytesHex": "5d0830659c10144b8af65c506eef0c65",
+        "value": "6530085d-109c-4b14-8af6-5c506eef0c65",
+        "expect": "6530085d-109c-4b14-8af6-5c506eef0c65",
+        "matches": true
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\RemoteControllable\\SP_PayloadDrone\\VehicleAbility_PayloadDroneGrenade.ebx",
+        "rawSha256": "0ff648ce22c37a494e96cc23429107251ae2104aeb91df5bebbcd58e1a153605",
+        "offset": 1126,
+        "type": "bytes:32",
+        "bytesHex": "306765fb58f72c478e50abc17bbfcabcba9cae84b14b074ab4a38fc120449108",
+        "value": "306765fb58f72c478e50abc17bbfcabcba9cae84b14b074ab4a38fc120449108",
+        "expect": "306765fb58f72c478e50abc17bbfcabcba9cae84b14b074ab4a38fc120449108",
+        "matches": true
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\RemoteControllable\\SP_PayloadDrone\\VehicleAbility_PayloadDroneGrenade.ebx",
+        "rawSha256": "0ff648ce22c37a494e96cc23429107251ae2104aeb91df5bebbcd58e1a153605",
+        "offset": 1254,
+        "type": "bytes:32",
+        "bytesHex": "d0ca5476ac77c041841abe4acd4be66dcdb8c8a0b4a0c24191f709094be5cd79",
+        "value": "d0ca5476ac77c041841abe4acd4be66dcdb8c8a0b4a0c24191f709094be5cd79",
+        "expect": "d0ca5476ac77c041841abe4acd4be66dcdb8c8a0b4a0c24191f709094be5cd79",
+        "matches": true
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer7-2026-09-23\\raw\\common\\Hardware\\Gadgets\\RemoteControllable\\SP_PayloadDrone\\SC_SP_PayloadDrone.ebx",
+        "rawSha256": "f446cbc6b035510eb621e4eb09a34e5fdeb477e931f51c755ec1fad69ae8d9b6",
+        "offset": 48,
+        "type": "u16",
+        "bytesHex": "0000",
+        "value": 0,
+        "expect": 0,
+        "matches": true
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer7-2026-09-23\\raw\\common\\Hardware\\Gadgets\\RemoteControllable\\SP_PayloadDrone\\SC_SP_PayloadDrone.ebx",
+        "rawSha256": "f446cbc6b035510eb621e4eb09a34e5fdeb477e931f51c755ec1fad69ae8d9b6",
+        "offset": 32,
+        "type": "guid",
+        "bytesHex": "80214d3cff365444b58ca7f7a7684195",
+        "value": "3c4d2180-36ff-4454-b58c-a7f7a7684195",
+        "expect": "3c4d2180-36ff-4454-b58c-a7f7a7684195",
+        "matches": true
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer5-2026-09-23\\raw\\common\\Hardware\\Gadgets\\RemoteControllable\\PayloadDrone\\VB_VEH_Drone_Payload.ebx",
+        "rawSha256": "6763c36fd7b1e5a320b39deb16629fab8f0bf05adaf2c196d32d3eef6a332c16",
+        "offset": 4592,
+        "type": "u16",
+        "bytesHex": "0700",
+        "value": 7,
+        "expect": 7,
+        "matches": true
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer5-2026-09-23\\raw\\common\\Hardware\\Gadgets\\RemoteControllable\\PayloadDrone\\VB_VEH_Drone_Payload.ebx",
+        "rawSha256": "6763c36fd7b1e5a320b39deb16629fab8f0bf05adaf2c196d32d3eef6a332c16",
+        "offset": 14112,
+        "type": "u16",
+        "bytesHex": "2900",
+        "value": 41,
+        "expect": 41,
+        "matches": true
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer5-2026-09-23\\raw\\common\\Hardware\\Gadgets\\RemoteControllable\\PayloadDrone\\VB_VEH_Drone_Payload.ebx",
+        "rawSha256": "6763c36fd7b1e5a320b39deb16629fab8f0bf05adaf2c196d32d3eef6a332c16",
+        "offset": 14288,
+        "type": "u16",
+        "bytesHex": "2900",
+        "value": 41,
+        "expect": 41,
+        "matches": true
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer5-2026-09-23\\raw\\common\\Hardware\\Gadgets\\RemoteControllable\\PayloadDrone\\VB_VEH_Drone_Payload.ebx",
+        "rawSha256": "6763c36fd7b1e5a320b39deb16629fab8f0bf05adaf2c196d32d3eef6a332c16",
+        "offset": 16528,
+        "type": "u16",
+        "bytesHex": "2e00",
+        "value": 46,
+        "expect": 46,
+        "matches": true
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer5-2026-09-23\\raw\\common\\Hardware\\Gadgets\\RemoteControllable\\PayloadDrone\\VB_VEH_Drone_Payload.ebx",
+        "rawSha256": "6763c36fd7b1e5a320b39deb16629fab8f0bf05adaf2c196d32d3eef6a332c16",
+        "offset": 37792,
+        "type": "bytes:32",
+        "bytesHex": "17614dcc406f3247b5dce99552fc993c838e3480814e88499487b9d6dc72d7e9",
+        "value": "17614dcc406f3247b5dce99552fc993c838e3480814e88499487b9d6dc72d7e9",
+        "expect": "17614dcc406f3247b5dce99552fc993c838e3480814e88499487b9d6dc72d7e9",
+        "matches": true
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer5-2026-09-23\\raw\\common\\Hardware\\Gadgets\\RemoteControllable\\PayloadDrone\\VB_VEH_Drone_Payload.ebx",
+        "rawSha256": "6763c36fd7b1e5a320b39deb16629fab8f0bf05adaf2c196d32d3eef6a332c16",
+        "offset": 42816,
+        "type": "bytes:32",
+        "bytesHex": "c8f448a155adee4f9a06bd828bb6626a5d0830659c10144b8af65c506eef0c65",
+        "value": "c8f448a155adee4f9a06bd828bb6626a5d0830659c10144b8af65c506eef0c65",
+        "expect": "c8f448a155adee4f9a06bd828bb6626a5d0830659c10144b8af65c506eef0c65",
+        "matches": true
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer5-2026-09-23\\raw\\common\\Hardware\\Gadgets\\RemoteControllable\\PayloadDrone\\VB_VEH_Drone_Payload.ebx",
+        "rawSha256": "6763c36fd7b1e5a320b39deb16629fab8f0bf05adaf2c196d32d3eef6a332c16",
+        "offset": 42880,
+        "type": "bytes:32",
+        "bytesHex": "d0ca5476ac77c041841abe4acd4be66dcdb8c8a0b4a0c24191f709094be5cd79",
+        "value": "d0ca5476ac77c041841abe4acd4be66dcdb8c8a0b4a0c24191f709094be5cd79",
+        "expect": "d0ca5476ac77c041841abe4acd4be66dcdb8c8a0b4a0c24191f709094be5cd79",
+        "matches": true
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\RemoteControllable\\PayloadDrone\\VB_VEH_Drone_Payload_Gameplay.ebx",
+        "rawSha256": "643d3284e399975297dc93db9f2a1b59b9a5341de8bf25e6eaac0ed1b38a5979",
+        "offset": 48,
+        "type": "u16",
+        "bytesHex": "0000",
+        "value": 0,
+        "expect": 0,
+        "matches": true
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\RemoteControllable\\PayloadDrone\\VB_VEH_Drone_Payload_Gameplay.ebx",
+        "rawSha256": "643d3284e399975297dc93db9f2a1b59b9a5341de8bf25e6eaac0ed1b38a5979",
+        "offset": 32,
+        "type": "guid",
+        "bytesHex": "20a56c0699ba754e9bcb5e7961c02bce",
+        "value": "066ca520-ba99-4e75-9bcb-5e7961c02bce",
+        "expect": "066ca520-ba99-4e75-9bcb-5e7961c02bce",
+        "matches": true
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\RemoteControllable\\PayloadDrone\\VB_VEH_Drone_Payload_Gameplay.ebx",
+        "rawSha256": "643d3284e399975297dc93db9f2a1b59b9a5341de8bf25e6eaac0ed1b38a5979",
+        "offset": 1544,
+        "type": "u16",
+        "bytesHex": "0c00",
+        "value": 12,
+        "expect": 12,
+        "matches": true
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\RemoteControllable\\PayloadDrone\\VB_VEH_Drone_Payload_Gameplay.ebx",
+        "rawSha256": "643d3284e399975297dc93db9f2a1b59b9a5341de8bf25e6eaac0ed1b38a5979",
+        "offset": 1528,
+        "type": "guid",
+        "bytesHex": "d453f3ab12dbc44eaacd4a6a0b737d70",
+        "value": "abf353d4-db12-4ec4-aacd-4a6a0b737d70",
+        "expect": "abf353d4-db12-4ec4-aacd-4a6a0b737d70",
+        "matches": true
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\RemoteControllable\\PayloadDrone\\VB_VEH_Drone_Payload_Gameplay.ebx",
+        "rawSha256": "643d3284e399975297dc93db9f2a1b59b9a5341de8bf25e6eaac0ed1b38a5979",
+        "offset": 3310,
+        "type": "bytes:32",
+        "bytesHex": "fb15b5199fa655448d3eaf2d522bf5cc80214d3cff365444b58ca7f7a7684195",
+        "value": "fb15b5199fa655448d3eaf2d522bf5cc80214d3cff365444b58ca7f7a7684195",
+        "expect": "fb15b5199fa655448d3eaf2d522bf5cc80214d3cff365444b58ca7f7a7684195",
+        "matches": true
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\RemoteControllable\\PayloadDrone\\Payload_Drone_DefaultPlayerAbilityCollection.ebx",
+        "rawSha256": "4ca39ed5a2c52c96defd51c0defb7400305dd869126b2d45daa2fc369ef72d8e",
+        "offset": 48,
+        "type": "u16",
+        "bytesHex": "0000",
+        "value": 0,
+        "expect": 0,
+        "matches": true
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\RemoteControllable\\PayloadDrone\\Payload_Drone_DefaultPlayerAbilityCollection.ebx",
+        "rawSha256": "4ca39ed5a2c52c96defd51c0defb7400305dd869126b2d45daa2fc369ef72d8e",
+        "offset": 32,
+        "type": "guid",
+        "bytesHex": "0af8784838a19447b5158fc3eccc0db3",
+        "value": "4878f80a-a138-4794-b515-8fc3eccc0db3",
+        "expect": "4878f80a-a138-4794-b515-8fc3eccc0db3",
+        "matches": true
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\RemoteControllable\\PayloadDrone\\Payload_Drone_DefaultPlayerAbilityCollection.ebx",
+        "rawSha256": "4ca39ed5a2c52c96defd51c0defb7400305dd869126b2d45daa2fc369ef72d8e",
+        "offset": 104,
+        "type": "u16",
+        "bytesHex": "0100",
+        "value": 1,
+        "expect": 1,
+        "matches": true
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\RemoteControllable\\PayloadDrone\\Payload_Drone_DefaultPlayerAbilityCollection.ebx",
+        "rawSha256": "4ca39ed5a2c52c96defd51c0defb7400305dd869126b2d45daa2fc369ef72d8e",
+        "offset": 88,
+        "type": "guid",
+        "bytesHex": "7e8c65f3b22e9b46822b5fbbddb7692d",
+        "value": "f3658c7e-2eb2-469b-822b-5fbbddb7692d",
+        "expect": "f3658c7e-2eb2-469b-822b-5fbbddb7692d",
+        "matches": true
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\RemoteControllable\\PayloadDrone\\Payload_Drone_DefaultPlayerAbilityCollection.ebx",
+        "rawSha256": "4ca39ed5a2c52c96defd51c0defb7400305dd869126b2d45daa2fc369ef72d8e",
+        "offset": 454,
+        "type": "bytes:32",
+        "bytesHex": "c8f448a155adee4f9a06bd828bb6626a5d0830659c10144b8af65c506eef0c65",
+        "value": "c8f448a155adee4f9a06bd828bb6626a5d0830659c10144b8af65c506eef0c65",
+        "expect": "c8f448a155adee4f9a06bd828bb6626a5d0830659c10144b8af65c506eef0c65",
+        "matches": true
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer7-2026-09-23\\raw\\common\\Hardware\\Gadgets\\RemoteControllable\\PayloadDrone\\Feature_Ability_PayloadDrone_MortarDrop.ebx",
+        "rawSha256": "79dc934fe5c7f4bd89f18e1367a497ebf34e15c00df25a5cedca70fec3586acb",
+        "offset": 48,
+        "type": "u16",
+        "bytesHex": "0000",
+        "value": 0,
+        "expect": 0,
+        "matches": true
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer7-2026-09-23\\raw\\common\\Hardware\\Gadgets\\RemoteControllable\\PayloadDrone\\Feature_Ability_PayloadDrone_MortarDrop.ebx",
+        "rawSha256": "79dc934fe5c7f4bd89f18e1367a497ebf34e15c00df25a5cedca70fec3586acb",
+        "offset": 32,
+        "type": "guid",
+        "bytesHex": "ba9cae84b14b074ab4a38fc120449108",
+        "value": "84ae9cba-4bb1-4a07-b4a3-8fc120449108",
+        "expect": "84ae9cba-4bb1-4a07-b4a3-8fc120449108",
+        "matches": true
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\RemoteControllable\\SP_PayloadDrone\\VehicleAbility_PayloadDroneGrenade.ebx",
+        "rawSha256": "0ff648ce22c37a494e96cc23429107251ae2104aeb91df5bebbcd58e1a153605",
+        "offset": 264,
+        "type": "u32",
+        "bytesHex": "1b000000",
+        "value": 27
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\RemoteControllable\\SP_PayloadDrone\\VehicleAbility_PayloadDroneGrenade.ebx",
+        "rawSha256": "0ff648ce22c37a494e96cc23429107251ae2104aeb91df5bebbcd58e1a153605",
+        "offset": 144,
+        "type": "u32",
+        "bytesHex": "13000000",
+        "value": 19
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer5-2026-09-23\\raw\\common\\Hardware\\Gadgets\\RemoteControllable\\PayloadDrone\\VB_VEH_Drone_Payload.ebx",
+        "rawSha256": "6763c36fd7b1e5a320b39deb16629fab8f0bf05adaf2c196d32d3eef6a332c16",
+        "offset": 4744,
+        "type": "i32",
+        "bytesHex": "48250000",
+        "value": 9544
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer5-2026-09-23\\raw\\common\\Hardware\\Gadgets\\RemoteControllable\\PayloadDrone\\VB_VEH_Drone_Payload.ebx",
+        "rawSha256": "6763c36fd7b1e5a320b39deb16629fab8f0bf05adaf2c196d32d3eef6a332c16",
+        "offset": 4752,
+        "type": "u32",
+        "bytesHex": "53010000",
+        "value": 339
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer5-2026-09-23\\raw\\common\\Hardware\\Gadgets\\RemoteControllable\\PayloadDrone\\VB_VEH_Drone_Payload.ebx",
+        "rawSha256": "6763c36fd7b1e5a320b39deb16629fab8f0bf05adaf2c196d32d3eef6a332c16",
+        "offset": 14160,
+        "type": "u32",
+        "bytesHex": "15000000",
+        "value": 21
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer5-2026-09-23\\raw\\common\\Hardware\\Gadgets\\RemoteControllable\\PayloadDrone\\VB_VEH_Drone_Payload.ebx",
+        "rawSha256": "6763c36fd7b1e5a320b39deb16629fab8f0bf05adaf2c196d32d3eef6a332c16",
+        "offset": 14336,
+        "type": "u32",
+        "bytesHex": "15000000",
+        "value": 21
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer5-2026-09-23\\raw\\common\\Hardware\\Gadgets\\RemoteControllable\\PayloadDrone\\VB_VEH_Drone_Payload.ebx",
+        "rawSha256": "6763c36fd7b1e5a320b39deb16629fab8f0bf05adaf2c196d32d3eef6a332c16",
+        "offset": 32864,
+        "type": "u32",
+        "bytesHex": "4f010000",
+        "value": 335
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\RemoteControllable\\PayloadDrone\\VB_VEH_Drone_Payload_Gameplay.ebx",
+        "rawSha256": "643d3284e399975297dc93db9f2a1b59b9a5341de8bf25e6eaac0ed1b38a5979",
+        "offset": 1576,
+        "type": "u32",
+        "bytesHex": "11000000",
+        "value": 17
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\RemoteControllable\\PayloadDrone\\Payload_Drone_DefaultPlayerAbilityCollection.ebx",
+        "rawSha256": "4ca39ed5a2c52c96defd51c0defb7400305dd869126b2d45daa2fc369ef72d8e",
+        "offset": 128,
+        "type": "i32",
+        "bytesHex": "38000000",
+        "value": 56
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\RemoteControllable\\PayloadDrone\\Payload_Drone_DefaultPlayerAbilityCollection.ebx",
+        "rawSha256": "4ca39ed5a2c52c96defd51c0defb7400305dd869126b2d45daa2fc369ef72d8e",
+        "offset": 184,
+        "type": "u32",
+        "bytesHex": "03000000",
+        "value": 3
+      }
+    ]
+  },
+  "inference": [
+    "The SP unit and deployment table are connected by serialized owner configuration references. Execution and current availability remain unresolved."
+  ],
+  "unresolved": [
+    "Ability and incoming owner layouts are marked provisional/ambiguous; typed offset reads verify bytes and exact imports, not historical semantic mappings.",
+    "Selected SP source configuration does not establish active payload, native deployment behavior, timing units, current multiplayer availability, or an alias with another drone route.",
+    "No compiled-resource consumer or proven selected RID was found in the bounded typed route. L190 compiled-reader/control limit remains.",
+    "Feature_Ability_PayloadDrone_MortarDrop imports file e94cd506-417b-4ae8-b418-db7cdcd14825 object 3c04c8f1-1920-4ce5-a321-27c8197275c8; this fifth external EBX was not followed. Feature graph operation is unresolved."
+  ],
+  "siteImpact": "Source utility classification only. No site stat change is supported.",
+  "evidence": {
+    "files": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L206\\control-rawproof.json",
+        "sha256": "5f76caeb1046b7fe3232d00db51f0fca2a89d38e39e15bf225be8de90a6889e8"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L206\\selected-rawproof.json",
+        "sha256": "d87a2f661f7a0d8c40bd9a3ec942671d5b897610461b6c7cfdc9722a47c0f0db"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L206\\identity-and-joins.json",
+        "sha256": "0dda0212f852755607874b114a36e312e12293fa2199066fd8cd830b8b2df9b7"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L206\\trace-v1.json",
+        "sha256": "ca8c0d1ee44b0772470669e033a366bfa272f77833389fd18b9cc6b53eca3084"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L206\\external-v1.json",
+        "sha256": "cf9ec7332437070e69017905d0d67d9bd83c8dd0c30c5fa6db1ae1875eea4ee2"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L206\\feature-v1.json",
+        "sha256": "b8d83758f2fef13e8f486e4b2cf45f171fde2871d51167940fb8b95d3585beed"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L206\\resource-v1.json",
+        "sha256": "28bbe05e447aa7dc0095e599d070934c8c285736ca2538ae79ddbc768fd88138"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L206\\proof-manifest.json",
+        "sha256": "62fbf23e362f89cd9602f9d118e2613c1d7d5929ecc3da480cd1150d334c89c6"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L206\\decoder-v1.py",
+        "sha256": "6fdc0334efaee0fe6113b5c9db4973f1358f53ee65dfb94edbc22fb0bf07a727"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L206\\decoder-res-v1.py",
+        "sha256": "b10a8b0e4a536d976792709c99a603da7bbb304a6ab82badfc7287020aacb13b"
+      }
+    ],
+    "commands": [
+      {
+        "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          ".\\inspect-db.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L206",
+        "helperSha256": "5b0e9234f9bc41d56029553ad6813b2a510f9259c64cdd45906a81d99ff09c28",
+        "exitCode": 0
+      },
+      {
+        "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          ".\\trace-v1.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L206",
+        "helperSha256": "b0f612f933b465d70f866e17f08137a1a8ef835e6be787eb225d12ae6f516ef6",
+        "exitCode": 0
+      },
+      {
+        "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          ".\\external-v1.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L206",
+        "helperSha256": "dde3edd25e3a1ba7214be96ac8c6f5d25bbb233a319e22f338c13a3ea73d8fc4",
+        "exitCode": 0
+      },
+      {
+        "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          ".\\offsets-v1.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L206",
+        "helperSha256": "ee5d07a0b5f640cb23a8d708161ead41bb86f662500a5aec91b8754252c08f91",
+        "exitCode": 0
+      },
+      {
+        "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          ".\\resource-v1.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L206",
+        "helperSha256": "91bf40b7f2a27cf9f78a169767589f9772d197e68ded7c365f9066a8271cd6bd",
+        "exitCode": 0
+      },
+      {
+        "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          ".\\selected-v1.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L206",
+        "helperSha256": "34154a95e339d5a0b0aa7903f0e2ddd4f0f6884d088bc97d78effc4d20979771",
+        "exitCode": 0
+      },
+      {
+        "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          ".\\proof-v1.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L206",
+        "helperSha256": "f0a4e0fb51c59d30e756cf918cef16568c5af6ee9ba9532a251b9fd64a199ae7",
+        "exitCode": 0
+      },
+      {
+        "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          ".\\finish-v1.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L206",
+        "helperSha256": "03569d2c1c49c448e298750d70dd47c0cf1d27815f3b5d5546139bd4accd2922",
+        "exitCode": 0
+      },
+      {
+        "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L206\\raw-check.py",
+          "--manifest",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L206\\proof-manifest.json",
+          "--out",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L206\\selected-rawproof.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L206",
+        "helperSha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3",
+        "exitCode": 0,
+        "stdoutSha256": "b64018e8b44669ae12d61fafbdd42b142062a0caa611b87eebbb0fe580da4142"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "python",
+          ".\\raw-check.py",
+          "--path",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+          "--offset",
+          "1084",
+          "--type",
+          "f32",
+          "--expect",
+          "0.6695",
+          "--out",
+          "control-rawproof.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L206",
+        "helperSha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3",
+        "exitCode": 0
+      },
+      {
+        "exactPowerShellCommand": "python -c \"import sqlite3; c=sqlite3.connect('file:C:/Users/royal/Documents/BF6 Datamining/builds/1.4.3.0/reports/exhaustive-audit-2026-09-23/coverage-decoder-v5.sqlite?mode=ro',uri=True); print(c.execute('select name,sql from sqlite_master where type=\\\"table\\\"').fetchall())\"",
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer",
+        "exitCode": 1,
+        "error": "SyntaxError: unterminated string literal; no query executed"
+      },
+      {
+        "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-records.py",
+          "check-receipt",
+          ".\\draft-receipt.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L206",
+        "helperSha256": "a6b0ca77270f6abc5dc48f164762569a8cb36faf37754f04f892d0ae7e7c7f34",
+        "exitCode": 0,
+        "output": "draft-receipt.json: record ok"
+      },
+      {
+        "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          ".\\finalize-v1.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L206",
+        "helperSha256": "a7b969a244697fe54c1a03136681cb42f23820a90bbbe6d87706460f162689e3",
+        "exitCode": 0
+      }
+    ],
+    "historyNote": "The records schema read ran before its helper was preserved; it was read-only. Exact commands above retain failed investigation. Imported decoder revisions were saved before execution."
+  },
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-09-29",
+    "build": "1.4.3.0-hotfix",
+    "binding": "research",
+    "leads": [
+      {
+        "id": "L206",
+        "title": "SP Payload Drone deployment utility",
+        "status": "finding",
+        "summary": "Exact SP drone owner, Ability collection and gameplay imports select unit, deployment array, Ability and state configuration; member semantics and native deployment remain unresolved.",
+        "reopenWhen": "A validated typed consumer or compiled reader can establish deployment and feature field roles.",
+        "statusNote": "GPT-6.1 Sol, 29 Sep; source only"
+      }
+    ],
+    "assets": [
+      {
+        "path": "Common/Hardware/Gadgets/RemoteControllable/SP_PayloadDrone/VB_VEH_SP_Drone_Payload_WeaponDeployTimeArray",
+        "format": "raw-ebx",
+        "sha256": "9f1ee50cf6bbe4cccb4ae7026c8a1494a1274bd7fd64b02129922c3835889c6e",
+        "question": "Exact incoming SP deployment/source utility selection",
+        "result": "useful",
+        "conclusion": "Incoming owner objects 59 and 60 Class_01419c76 Field_5b9b2235 import the exact VB_VEH_SP_Drone_Payload_WeaponDeployTimeArray export. The route name is a deployment label; no field-role or time-unit mapping is established."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/RemoteControllable/SP_PayloadDrone/U_SP_Drone_PayloadGrenade",
+        "format": "raw-ebx",
+        "sha256": "43d94ec4e362fe76c64649cb63deef3503de8656c5cd5dcc89caf56d7e57142e",
+        "question": "Exact incoming SP deployment/source utility selection",
+        "result": "useful",
+        "conclusion": "Pinned PayloadDrone/VB_VEH_Drone_Payload object 8 Class_3add1cc5 Field_f6be6e28 imports the exact U_SP_Drone_PayloadGrenade export; Field_2b04cd3b points to internal object 60."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/RemoteControllable/SP_PayloadDrone/VehicleAbility_PayloadDroneGrenade",
+        "format": "raw-ebx",
+        "sha256": "0ff648ce22c37a494e96cc23429107251ae2104aeb91df5bebbcd58e1a153605",
+        "question": "Exact incoming SP deployment/source utility selection",
+        "result": "useful",
+        "conclusion": "VehicleAbility_PayloadDroneGrenade Field_f86e0433 imports exact U_SP_Drone_PayloadGrenade; its Field_6cce2f25/Field_d2b8fc26 imports exact Feature_Ability_PayloadDrone_MortarDrop."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/RemoteControllable/SP_PayloadDrone/SC_SP_PayloadDrone",
+        "format": "raw-ebx",
+        "sha256": "f446cbc6b035510eb621e4eb09a34e5fdeb477e931f51c755ec1fad69ae8d9b6",
+        "question": "Exact incoming SP deployment/source utility selection",
+        "result": "useful",
+        "conclusion": "VB_VEH_Drone_Payload_Gameplay object 17 Class_7339a117 Field_ef857f66 imports exact SC_SP_PayloadDrone."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/RemoteControllable/PayloadDrone/VB_VEH_Drone_Payload",
+        "format": "raw-ebx",
+        "sha256": "6763c36fd7b1e5a320b39deb16629fab8f0bf05adaf2c196d32d3eef6a332c16",
+        "question": "Exact incoming SP deployment/source utility selection",
+        "result": "useful",
+        "conclusion": "Pinned PayloadDrone/VB_VEH_Drone_Payload object 8 Class_3add1cc5 Field_f6be6e28 imports the exact U_SP_Drone_PayloadGrenade export; Field_2b04cd3b points to internal object 60. Incoming owner objects 59 and 60 Class_01419c76 Field_5b9b2235 import the exact VB_VEH_SP_Drone_Payload_WeaponDeployTimeArray export. The route name is a deployment label; no field-role or time-unit mapping is established."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/RemoteControllable/PayloadDrone/VB_VEH_Drone_Payload_Gameplay",
+        "format": "raw-ebx",
+        "sha256": "643d3284e399975297dc93db9f2a1b59b9a5341de8bf25e6eaac0ed1b38a5979",
+        "question": "Exact incoming SP deployment/source utility selection",
+        "result": "useful",
+        "conclusion": "VB_VEH_Drone_Payload_Gameplay object 17 Class_7339a117 Field_ef857f66 imports exact SC_SP_PayloadDrone."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/RemoteControllable/PayloadDrone/Payload_Drone_DefaultPlayerAbilityCollection",
+        "format": "raw-ebx",
+        "sha256": "4ca39ed5a2c52c96defd51c0defb7400305dd869126b2d45daa2fc369ef72d8e",
+        "question": "Exact incoming SP deployment/source utility selection",
+        "result": "useful",
+        "conclusion": "The owner object 65 Field_21943083 element 14 boxed pointer imports exact VehicleAbility_PayloadDroneGrenade. Payload_Drone_DefaultPlayerAbilityCollection object 1 Field_ba52a009 element 0 imports the same Ability export."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/RemoteControllable/PayloadDrone/Feature_Ability_PayloadDrone_MortarDrop",
+        "format": "raw-ebx",
+        "sha256": "79dc934fe5c7f4bd89f18e1367a497ebf34e15c00df25a5cedca70fec3586acb",
+        "question": "Exact incoming SP deployment/source utility selection",
+        "result": "useful",
+        "conclusion": "The SP Ability imports this exact feature export; feature graph operation remains unresolved."
+      }
+    ],
+    "run": {
+      "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets",
+      "orchestrator": "GPT-6.1 Sol",
+      "workers": [
+        {
+          "lead": "L206",
+          "model": "GPT-6.1 Sol",
+          "effort": "Low"
+        }
+      ]
+    },
+    "refs": []
+  },
+  "orchestratorCaptureReviews": [
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\armor-resource-capture\\verification.json",
+      "sha256": "15f1421c545a9e0a1f217fcc8b95638706c2b3bfa0e0f0ecbbfd7ecc15bd24e6"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\corpse-ammo-consumer-capture\\verification.json",
+      "sha256": "f549db4400286d32ba29229da6a9eebd0c77062c35c6bf667b0b573a83006748"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\drone-naval-root-capture\\verification.json",
+      "sha256": "8bfdfb48ba30c1a99e8ff6b279f6f589396ca3228ce9b58cfd32316165dc7c5e"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\dual-primary-registry-capture\\verification.json",
+      "sha256": "4279fff61a8ff85b989946657a9d1b87f61c37101dd750a3cd9e9ee1719f2071"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\loadout-intel-target-capture\\verification.json",
+      "sha256": "ca6a5f81aec00c5f6a7aecbbcbe25b5aa0aa163192fb093ef0561de2c2ccdeb1"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\logistics-consumer-child-capture\\verification.json",
+      "sha256": "48da5b978a1bcf61a9c104e9ac31d986d3730621f56af79bc6ab21006d501554"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\mask-ammo-root-capture\\verification.json",
+      "sha256": "169c4f7d809690e8b5d28989d6f66b38778ab09a66ed8de4dc44eed04334ea95"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\mask-channel-child-capture\\verification.json",
+      "sha256": "dec2aa2292b544743c0b6aa526cf87aee69164057cf419b04822fb3b8fac3d5e"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\missing-gameplay-capture\\verification.json",
+      "sha256": "2743270e30d78f0dad9426589138bb79dbd35fe03ecec6ce9aab789392437b0f"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\next-utility-family-capture\\verification.json",
+      "sha256": "21be370a335301016614ce13a1c0ab6cbbb8f3b3589f39eb1d119e111824abf9"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\nvg-child-capture\\verification.json",
+      "sha256": "054a23735b9b352510cb5a17f8aaa3a2f2b94a45f568f3547051561924d2de12"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\registry-capture\\verification.json",
+      "sha256": "2e6ff41233fe7bdcd2f74b5189df235ab5113f6a2789b4f3c1b1fb747b23b8f9"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\smoke-callin-child-capture\\verification.json",
+      "sha256": "7dfa22e829ade446a24c3370440ce219f1c4a59b1324d7cb2854462531d26256"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\smoke-effect-child-capture\\verification.json",
+      "sha256": "35bedb7295782358516658892aba5bada3ddf5584a25aaf69f9e2faa3a43def7"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\smoke-marker-resource-capture\\verification.json",
+      "sha256": "04d739d86089ad31ee241566da562fad59136368bf106a6347a1d0c8dedf0f03"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\strike-payload-root-capture\\verification.json",
+      "sha256": "47be183e35aedd96e37c2d53380ed519c5e6e85ec8bbd6cae88a23ac0205b7e3"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\strike-selected-child-capture\\verification.json",
+      "sha256": "ac7b79919c9f65376a691ef4a8aaf3c5f3ef89f7ef075103492206945ffd13c8"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\support-utility-root-capture\\verification.json",
+      "sha256": "1c0fd4c7296cafc9e023dc0faa75816ef71f3c97d8909fd42da31089cbd416a0"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\utility-family-child-capture\\verification.json",
+      "sha256": "5228cffb74422a470de0a980b2602fc7fd14a976a8e77b6cc9d098d36120498f"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\utility-function-capture\\verification.json",
+      "sha256": "9714dd0000b8c561297ed75d0edeae45b1d7d53e66f10d885816bf0f0319f2fd"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\utility-receiver-capture\\verification.json",
+      "sha256": "54c4c93de9cb5027bcdc7903b0c5840d89aeb4b5907157a8f57952c6356093ed"
+    }
+  ],
+  "orchestratorReview": {
+    "reviewer": "GPT-6.1 Sol",
+    "workerModel": "GPT-6.1 Sol",
+    "workerEffort": "Low",
+    "date": "2026-09-29",
+    "draft": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L206\\draft-receipt.json",
+      "sha256": "512c1de957fdcd7c0a833da6b2e81266241c8f2fb0a8c6c783ea6f9bc1d46738"
+    },
+    "helperReview": {
+      "tool": "scripts/frosty-worker.py review",
+      "issues": 0,
+      "leadDir": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L206"
+    },
+    "scope": {
+      "roots": 4,
+      "externalChildrenExamined": 4,
+      "externalChildrenExaminedKind": "EBX",
+      "compiledResourceBodiesExamined": 0
+    },
+    "independentRawReview": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L206-independent-raw-review.json",
+      "sha256": "3a17abbdca3141fd8ecae1a430796093095246fccc6e4f67e3d708076ceece88",
+      "uniqueChecksIncludingControl": 40,
+      "failures": 0
+    },
+    "pinReview": "Every recorded raw EBX asset hash matches either an indexed hotfix Head 4892087 capture or a reviewed fresh run-local capture with matching catalog Head/SDK and frozen descriptor hash. Release M433 control is separate.",
+    "semanticReview": "Selected source joins and exact member-owner meanings checked against reviewed prior mappings. No current multiplayer availability, native activation, units or effective composition claim."
+  }
+}

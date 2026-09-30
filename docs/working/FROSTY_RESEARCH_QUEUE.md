@@ -4,6 +4,8 @@
 
 ## Objective
 
+Vehicle research runs separately in [Vehicle research and potential Analyzer additions](VEHICLE_SITE_ADDITIONS.md). The operator authorized all-vehicle tracing on 29 September 2026; vehicle lead IDs start at L3000.
+
 Keep tracing Frosty source to find information that changes or explains Analyzer
 values. Priority order:
 
@@ -17,6 +19,8 @@ values. Priority order:
 Scope is multiplayer weapons, attachments, optics and soldier mechanics. Check maps
 and modes only for overrides of those mechanics. Exclude only supported cosmetic,
 single-player-only and battle-royale-only content.
+Gadget research and proposals for future site functionality are maintained in
+[potential gadget additions](GADGET_SITE_ADDITIONS.md).
 
 **This queue has no completion condition.** Classifying an item as "blocked" does
 not end its tracing. After each lead, record the result in the owning topic page,
@@ -52,27 +56,7 @@ callers. "Needs a native consumer" is a reason to look for one, not a stopping p
   descriptor `99b49cfd…`) evidence separate. Use hashes, not file versions. The
   `builds/1.4.3.0` folder name is the retained identifier for both.
 
-## Current run: 28 September 2026
-
-Evidence: `C:\Users\royal\Documents\BF6 Datamining\reports\weapon-analyzer-research\2026-09-28T1435-0400`
-(one folder per lead). Six Luna xhigh workers in parallel (operator allowance, 28 Sep).
-New line: class weapon traits (L100–L104). The site does not model them; they
-would change displayed ADS time, hip spread, deploy/sprint recovery and sway for
-whole weapon classes. The 13 September trait table was never raw-verified in
-1.4.3.0 or joined to site IDs. L105 checks the nonzero reload delays.
-
-Results: L100–L105 closed. Class traits for Assault, Support and Engineer are
-sourced and match the EA class guide (enhancement proposal below); L103 is confirmed by
-the operator. Next leads: L106 (per-weapon sprint speed), then the
-other InRoundProgression modifiers (Killshot, MountedPlus, WeaponSwap).
-
-L107 (site data precision audit, evidence `…\2026-09-28T2130-L107`) is complete:
-50,529 numeric leaves; 43,428 joined at full precision, 43,236 exact and 192
-violations (127 proposed, 55 recoilV held, 10 `tacRldOverrideMs` blocked by the
-integer contract). Under the amended float32-equivalence rule 38 beyond-f32 values
-were fixed on 28 September (commit `88bc25d`); the sub-f32 groups are passes.
-
-### Awaiting operator (28 Sep)
+### Awaiting operator
 
 - Captures ([capture plan](BF6_CAPTURE_PRIORITIES.md)): Match Trigger semi vs auto
   (L17) and the optional L99 hit-capsule boundary. Burst cadence closed without a
@@ -109,8 +93,8 @@ operator approval; none is implemented unless stated.
 |---|---|---|
 | **Operator review: burst rate precision** | `data/weapons.json` grtbc/sl9 `burstRpm` | Store source 830.769 (GRT-BC) and 771.428 (SL9) instead of menu-rounded 830/771. Gap after a burst 105.289 → 105.557 ms and 99.957 → 100.000 ms; sustained burst RPM unchanged; TTK under 1 ms. [Receipt](../../reference-data/provenance/frosty-2026-09-28-burst-cadence.json). |
 | **Operator review: class weapon traits (L100–L104)** | New "class trait" toggle (off by default); `data/` trait table; `sim/applyAttachments.js` ADS, hip-spread and draw/sprint indices | Sourced for Assault/Support/Engineer on exactly the site weapons of each class; matches EA's class guide. Conditional values in the [receipt](../../reference-data/provenance/frosty-2026-09-28-L100-L104-class-traits.json): AR deploy 633 → 533 ms and sprint recovery 200 → 167 ms; LMG ADS one step faster; SMG hip minimum 1.804° → 1.352°. Recon: sniper sway ×2.25 without the trait, ×1.0 with it (the site's current value; operator confirms non-Recon sway is higher), plus the Recon rechamber block (e.g. Mini Scout 47.1 → 51.4 RPM; [timing receipt](../../reference-data/provenance/frosty-site-timing-2026-09-23.json)). Activation is class + signature weapon per EA; native composition unverified. |
-| **Operator review: ADS-out time per weapon (L114)** | New per-weapon ADS-out time in `data/` (with a UI stat); the sustained fully-ADS sniper cadence model | Sourced conditionally: all 63 weapon bodies select an `FZT_Weapons` `General_10` tier through the same `WeaponZoomTransitionIndex` as the site ADS-in index (`defAds` matches 63/63), giving 400/333.334/266.667/233.334/200/166.667/133.334/100 ms by index (e.g. 233.334 ms at index 3, the M4A1's 4 gives 200 ms). The ADS-out ladder differs from the ADS-in ladder at every index. Whether the selector drives ADS-out, and whether ADS-time attachments shift it (no traced modifier references FZT directly), is unresolved; do not apply ADS-in shifts to ADS-out. [Receipt](../../reference-data/provenance/frosty-2026-09-29-L114-ads-out-transition.json). |
-| **Operator review: stance-change spread penalty (L120)** | Optional per-weapon stance-change context beside the static spread minima in `data/`, `sim/core.js` spread and the stance control (see the crouch/prone posture row) | Sourced, activation unresolved: every weapon body stores `StanceChangePenalties` (Zoomed/Unzoomed x six stance transitions x `MinAngleOffset` degrees and `Duration` seconds; 1,512 raw reads over 63 weapons): prone transitions are 6 degrees over 0.9 s on 54 weapons, with class outliers, and the crouch/stand leaves are 0.2-1 degree over 0.3 s under a candidate slot join. No site choice or verified modifier targets them. If a capture confirms a transient spread floor after changing stance, show angle and duration beside the static minima; do not add them to spread until composition is known. [Receipt](../../reference-data/provenance/frosty-2026-09-29-L120-stance-change-penalties.json). |
+| **Operator review: ADS-out time per weapon (L114)** | New per-weapon ADS-out time in `data/` (with a UI stat); the sustained fully-ADS sniper cadence model | Sourced conditionally: all 63 weapon bodies select an `FZT_Weapons` `General_10` tier through the same `WeaponZoomTransitionIndex` as the site ADS-in index (`defAds` matches 63/63), giving 400/333.334/266.667/233.334/200/166.667/133.334/100 ms by index (e.g. 233.334 ms at index 3, the M4A1's 4 gives 200 ms). General_10 differs from General_01 at every index; the paired General_01 values match the site's ADS-in ladder within 1.2e-5 ms, supporting candidate transition roles ([L125](../../reference-data/provenance/frosty-2026-09-29-L125-fzt-general01-ads-in.json)). Whether the selector drives ADS-out, and whether ADS-time attachments shift it (no traced modifier references FZT directly and the receiving field of their steps is unnamed, [L121](../../reference-data/provenance/frosty-2026-09-29-L121-ads-time-modifier-targets.json)), is unresolved; do not apply ADS-in shifts to ADS-out. [Receipt](../../reference-data/provenance/frosty-2026-09-29-L114-ads-out-transition.json). |
+| **Operator review: stance-change spread penalty (L120)** | Optional per-weapon stance-change context beside the static spread minima in `data/`, `sim/core.js` spread and the stance control (see the crouch/prone posture row) | Sourced, activation unresolved: every weapon body stores `StanceChangePenalties` (Zoomed/Unzoomed x six stance transitions x `MinAngleOffset` degrees and `Duration` seconds; 1,512 raw reads over 63 weapons): prone transitions are 6 degrees over 0.9 s on 54 weapons, with class outliers, and the crouch/stand leaves are 0.2-1 degree over 0.3 s (all 24 slot joins exact, L124). No site choice or verified modifier targets them. If a capture confirms a transient spread floor after changing stance, show angle and duration beside the static minima; do not add them to spread until composition is known. [Receipt](../../reference-data/provenance/frosty-2026-09-29-L120-stance-change-penalties.json). |
 | **Deferred (operator, 28 Sep): mounted-state recoil (L108)** | New "mounted / MountedPlus" state toggle (off by default); `data/` state table; `sim/applyAttachments.js` recoil tiers | Source adds exponent +3/-2 for MountedPlus on all 63 weapons (amount x0.800-0.855, variation x1.161-1.223, conditional), and +10/-4 (amount x0.475-0.594) or +30/-5 (Bolt bipod, amount x0.107-0.209) when a bipod is deployed. The operator decided on 13 September to document mounted/bipod recoil without model changes; the MountedPlus operands were not known then. Activation, composition and the Vertical/Horizontal flags are unresolved. [Receipt](../../reference-data/provenance/frosty-2026-09-28-L106-L111-orchestrator-trial.json). |
 | **Deferred (operator, 28 Sep): reserve rounds and chambered round (L110)** | `data/attachments.json` WEAPON_MAG, `data/weapons.json`; loadout stat row; `sim/core.js` mag-dump length | (1) Show carried rounds per magazine choice (capacity x `NumberOfMagazines`, e.g. M4A1 20 Rnd 210, 36 Rnd 222, 40 Rnd 246). (2) Treat the source +1 as a chambered round on tactical reloads for closed-bolt weapons (nominal for belt LMGs and revolvers). Runtime meaning of both is unresolved; the operator can confirm from the in-game HUD without a capture. [Receipt](../../reference-data/provenance/frosty-2026-09-28-L106-L111-orchestrator-trial.json). |
 | **Operator review: RPK-74M empty reload (L105)** | `data/weapons.json` rpk74m `emptyRld` | 3.100 → 3.184 s if PostReloadDelay counts as the shotgun formula counts it. [Receipt](../../reference-data/provenance/frosty-2026-09-28-L105-reload-delays.json). Low value; a reload capture would settle it. |
@@ -153,6 +137,8 @@ runtime question is not evidence that the source asset is unused.
 | W4 | Reload threshold/delays and WB frame duration (`Field_440ed7fa`) | 63 raw WB extracts. Need a timing consumer or commit/next-shot capture (rank 6). |
 | W6 | Burst recoil, controller activation, lights, modifier order, unused recoil bounds, class traits, Slim Angled double ADS | Need native execution or controlled gameplay. Do not repeat exhausted operands. |
 | W7 | Weapon Attributes native provider, sine/conditional rules, `Field_b30a73ed`; [model](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/WEAPON_ATTRIBUTES_MODEL.md) | No native provider evidence. |
+| W8 | Grid surface and velocity candidates (L128/L130) | Two bounded leads yielded no site correction or useful comparison proposal; close the grid-inventory line. Six primary-material joins, 132 pair/map cells and nine speed-labeled objects are recorded. Reopen only for an authoritative field association and concrete primary-projectile consumer route; do not repeat numeric-ID or neutral-field scans. |
+| W9 | Jump and landing numeric inventory (L132/L134) | Two bounded leads yielded no correction or useful enhancement proposal. Exact imports and seven named GRX tuples are recorded. Reopen for independent field-role/unit evidence and a validated consumer equation/activation route; do not repeat tuple or channel-name scans. |
 | O1 | Ambiguous PiP layouts; [decoder limits](../frosty/TOOLS.md#sdk-and-decoding) | One pair reproduced; added import targets OptionEnablePiPZoom. Need independent field/consumer evidence. |
 | O2 | Riser fields, inline/shared model precedence, render FOV | M2010 inline 55/59 and shared 34/20 are distinct paths. RMR riser 1.3 versus 1.0 needs a consumer or view comparison. |
 | O3 | Optic glint and breath control; [discovery](../../reference-data/provenance/frosty-optic-discovery-2026-09-23.json) | Source links documented; visibility and duration need native or controlled evidence. |

@@ -1,0 +1,409 @@
+{
+  "lead": "L199",
+  "status": "reviewed-source-finding",
+  "build": "1.4.3.0-hotfix",
+  "question": "Trace AirStrike/JAGM configuration to exact selected gameplay/payload consumer.",
+  "sourceFacts": {
+    "summary": [
+      "Both CUST root Field_6b831b88 references resolve to exported LTLMII_WB Class_a6e2adec object737fe997-eb5d-471e-b980-3658e6f90ad2.",
+      "Both CUST root Field_ff2bbdd1 references resolve to exported MD_LTLMII Class_e16cbda1 object06e3cfd3-54df-4282-9492-3b002ff375fe.",
+      "AirStrike Ability Field_98aaa29d[1] resolves to U_DPF_GAD_Tool_LaserDesignator; JAGM Ability Field_98aaa29d[0] resolves to U_ATT_GAD_Tool_LaserDesignator_Artillery. Both are Class_bc0062dc selector objects, not gameplay payload owners.",
+      "Shared Ability Field_18d8777e resolves to PlayerAbilityCategoriesAsset object9 labeled Callin / Ultimate; it is metadata context.",
+      "WB object65 Field_21943083[14].Field_47f25917.value imports U_AirStrike; entry20 imports U_JAGMStrike. This establishes serialized entries, not active selection.",
+      "WB object65 property entries29/30 include exact ce9ec61b-7248-4819-92e7-74c6d52cdc04 imports. No payload role is assigned."
+    ],
+    "result": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L199\\l199-result-v4.json",
+      "sha256": "b34c4eb4b43f84f2178c83f92e8ecae92c7a157f495c6593aba3b57254252b18"
+    },
+    "proofs": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L199\\import-proof.json",
+        "sha256": "7f5d723e628c31efd134c3c8c07eaa031639f083e1fdb8cacf8e71b6a784af7e",
+        "checks": 72
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L199\\join-proof-v1.json",
+        "sha256": "4dc8c91fd1ed004ce45cf50ff48c95b95382688a57453f249fd83c3c79a38450",
+        "checks": 42
+      }
+    ],
+    "joins": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L199\\joins-v1.json",
+      "sha256": "9d680a86c2214ff5f47bb36253933814c4cfeda2c5c8e7aa20e3d5a4e1341f5f"
+    },
+    "routeContext": [
+      {
+        "fileGuid": "a4d041bd-d7b6-4481-a3e6-eb1b3077828e",
+        "route": "Common/Hardware/Gadgets/CallIns/_Shared/Weapon/LTLMII_WB_UI",
+        "basis": "Orchestrator exact route mapping; no additional capture examined"
+      },
+      {
+        "fileGuid": "ce9ec61b-7248-4819-92e7-74c6d52cdc04",
+        "route": "Common/UI/HUD/Assets/Granite_CallInTypeEnum",
+        "basis": "Orchestrator exact route mapping; no additional capture examined"
+      }
+    ]
+  },
+  "inference": "CUST selects the exact shared WB and model source. WB selector entries and Ability metadata do not establish runtime selected payload.",
+  "unresolved": [
+    "Exact selected gameplay marker/payload receiver and compiled execution remain unresolved. Offered selector entries do not prove active call-in selection.",
+    "Mapped a4d041bd LTLMII_WB_UI and ce9ec61b Granite_CallInTypeEnum are UI context; their imports cannot establish vehicle/payload selection.",
+    "Inspected LTLMII_WB owner/objects do not supply a validated Class_35259f6b PrimaryFire.Shot route from the FIELD_MAP/L137 context. Do not transfer those field meanings to a different owner. This is a bounded decoder-source limitation, not global absence.",
+    "L190 compiled reader gate remains unresolved. No selected RES examined.",
+    "Targeting conditions, current availability, execution timing, damage/composition and float meanings remain unresolved. No F16 selection proved."
+  ],
+  "siteImpact": "No site change. Catalog links alone do not support current availability or payload statistics.",
+  "evidence": [
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L199\\control-proof.json",
+      "sha256": "ff651d54b8f84d6b5894aa023b9fd5a14a4a2532b746d3b31c90940c33b0e771"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L199\\import-proof.json",
+      "sha256": "7f5d723e628c31efd134c3c8c07eaa031639f083e1fdb8cacf8e71b6a784af7e"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L199\\l199-result.json",
+      "sha256": "784e37bd1e3f4adb6cab99a09062d1c389e5a8d914114436ed9ce1ebbfaf2003"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L199\\decode-commands.json",
+      "sha256": "2582e25a331482a5ef0d95b74ee71b6d2004c5d43087fc8c2e533ee4a9175ee7"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L199\\raw-check-v1.py",
+      "sha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L199\\decode-v1.py",
+      "sha256": "6fdc0334efaee0fe6113b5c9db4973f1358f53ee65dfb94edbc22fb0bf07a727"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L199\\trace-v1.py",
+      "sha256": "2301370afd996e26a9820ac66f848d9c88009cf1d7639e5848eceaf04050fbb8"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L199\\inspect-v1.py",
+      "sha256": "b34214283dcaeea92681ad9462a1b50396097c6bbf28eab80a3b928c96649cc1"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L199\\finalize-v1.py",
+      "sha256": "f69acb9ac38e4ee179543e871ea984a0712eb19438d5a48610d4a03e67f7783f"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L199\\receipt-v2.py",
+      "sha256": "5d599b82bb755e928038efcd4fb6e110c4c1e6a5d103667be81804d154ae2756"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L199\\l199-result-v3.json",
+      "sha256": "24f11ea00497f14bb70434e814521f181e72fcea0398ece7cc130aaef78db6cf"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L199\\join-proof-v1.json",
+      "sha256": "4dc8c91fd1ed004ce45cf50ff48c95b95382688a57453f249fd83c3c79a38450"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L199\\joins-v1.json",
+      "sha256": "9d680a86c2214ff5f47bb36253933814c4cfeda2c5c8e7aa20e3d5a4e1341f5f"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L199\\join-proof-v1.py",
+      "sha256": "75c55f2ce6d651413314100774477014ae4b9aa5ade490524d90c3bf2e62146e"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L199\\children-v1.py",
+      "sha256": "4fe17204f02cbae9d33351de9eb541c6f4cfe31c4a7f6a5c3e99aae33ff72340"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L199\\child-commands.json",
+      "sha256": "ca2ddbb960e0a93576928f346e16531d73a0499bbbeb6be26f0fca22002e4361"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L199\\selected-v1.py",
+      "sha256": "140baf08e18e200ff4058c17b8c5b1e01e0d5df1d4c4a149d87e5c21d5daf372"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L199\\finalize-v3.py",
+      "sha256": "95071fc74e7abff877b2d4639cc9e8138e9d7f7254b2d95729ac1c034e1865dd"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L199\\l199-result-v4.json",
+      "sha256": "b34c4eb4b43f84f2178c83f92e8ecae92c7a157f495c6593aba3b57254252b18"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L199\\wb-boundary-v1.py",
+      "sha256": "c085e063c4e62ac9ba00b7843374404d0d1910c068811ffcdeb42e838361785d"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L199\\wb-boundary-v1.txt",
+      "sha256": "3d02b0c263050c3e9e9093be1360f8e7fb2081295a0495291e31733019620d69"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L199\\finalize-v4.py",
+      "sha256": "9a81ab5a4774b4afedab41c45f34c871d8717cad09f241ab388d99b0c9609932"
+    }
+  ],
+  "commands": {
+    "decode": "decode-commands.json",
+    "rawProof": [
+      "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "raw-check-v1.py",
+      "--manifest",
+      "import-checks.json",
+      "--out",
+      "import-proof.json"
+    ],
+    "control": [
+      "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "raw-check-v1.py",
+      "--path",
+      "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+      "--offset",
+      "1084",
+      "--type",
+      "f32",
+      "--expect",
+      "0.6694999933242798",
+      "--out",
+      "control-proof.json"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L199",
+    "history": "Help/schema invocations used repository scripts read-only; command history is available in the task transcript. Helpers preserved before execution.",
+    "continuation": [
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "children-v1.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L199",
+        "helperSha256": "4fe17204f02cbae9d33351de9eb541c6f4cfe31c4a7f6a5c3e99aae33ff72340",
+        "status": 0
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "selected-v1.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L199",
+        "helperSha256": "140baf08e18e200ff4058c17b8c5b1e01e0d5df1d4c4a149d87e5c21d5daf372",
+        "status": 0
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "join-proof-v1.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L199",
+        "helperSha256": "75c55f2ce6d651413314100774477014ae4b9aa5ade490524d90c3bf2e62146e",
+        "status": 0
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "finalize-v3.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L199",
+        "helperSha256": "95071fc74e7abff877b2d4639cc9e8138e9d7f7254b2d95729ac1c034e1865dd",
+        "status": 0
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "wb-boundary-v1.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L199",
+        "helperSha256": "c085e063c4e62ac9ba00b7843374404d0d1910c068811ffcdeb42e838361785d",
+        "status": 0
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "finalize-v4.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L199",
+        "helperSha256": "9a81ab5a4774b4afedab41c45f34c871d8717cad09f241ab388d99b0c9609932",
+        "status": 0
+      }
+    ],
+    "joinRawProof": {
+      "argv": [
+        "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "raw-check-v1.py",
+        "--manifest",
+        "join-checks-v1.json",
+        "--out",
+        "join-proof-v1.json"
+      ],
+      "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L199",
+      "helperSha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3",
+      "status": 0
+    }
+  },
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-09-29",
+    "build": "1.4.3.0-hotfix",
+    "binding": "research",
+    "leads": [
+      {
+        "id": "L199",
+        "title": "Air Strike and JAGM source selection",
+        "status": "finding",
+        "summary": "Air Strike and JAGM CUST select shared LTLMII WB/MD, whose offered selector entries include both U roots; category/UI references are metadata, without active deployment or payload selection.",
+        "reopenWhen": "Supply an exact selected gameplay marker/payload consumer and validated compiled execution route.",
+        "statusNote": "GPT-6.1 Sol, 29 Sep; source only"
+      }
+    ],
+    "assets": [
+      {
+        "path": "Common/Hardware/Gadgets/CallIns/AirStrike/Equipment_AirStrike",
+        "format": "raw-ebx",
+        "sha256": "5d98449e42c2ab84f83f52e293aa6dbb4643a742e2460bc16985a0c764ac9ebb",
+        "question": "Which selected consumer does this root reference?",
+        "result": "inconclusive",
+        "conclusion": "Equipment import table includes the exact U_AirStrike and AirStrike_Ability identities; ambiguous field layout prevents deployment conclusions."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/CallIns/AirStrike/AirStrike_Ability",
+        "format": "raw-ebx",
+        "sha256": "11029645ce3dd469a95e0478ebcba0a6e38d66b3948e58332588574a09ed7af0",
+        "question": "Which selected consumer does this root reference?",
+        "result": "inconclusive",
+        "conclusion": "AirStrike Ability decoded Field_3150c257 and Field_6cce2f25 reference the scoped CUST and DiceFeature identities; selected payload consumer remains unresolved."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/CallIns/AirStrike/CUST_AirStrike",
+        "format": "raw-ebx",
+        "sha256": "00561950d757bc7fa275e8491e6219ecc25eda9996d63446fade6bfd7eeffbab",
+        "question": "Which selected consumer does this root reference?",
+        "result": "inconclusive",
+        "conclusion": "CUST_AirStrike contains two exact external import pairs shared with CUST_JAGMStrike; both consumer roles remain unresolved."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/CallIns/JAGMStrike/JAGMStrike_Ability",
+        "format": "raw-ebx",
+        "sha256": "40604dc3a1c922647a19f2aac96804f626c9e7781cb38fa7bbef0afdbe085588",
+        "question": "Which selected consumer does this root reference?",
+        "result": "inconclusive",
+        "conclusion": "JAGM Ability contains exact scoped U/CUST/DiceFeature import identities and a distinct Field_98aaa29d external pair; no marker/WB consumer was established."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/CallIns/_Shared/Weapon/LTLMII_WB",
+        "format": "raw-ebx",
+        "sha256": "0380ce6c6cc8fd875e65b0f41deae120206e29cd085ba3707be9b7c80915dfc0",
+        "question": "Does CUST select this WB and which gadget entries does it contain?",
+        "result": "useful",
+        "conclusion": "CUST exact import pairs select exported WB root737fe997; internal object65 contains both AirStrike and JAGM selector entries. Consumer execution is unresolved."
+      }
+    ],
+    "run": {
+      "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets",
+      "orchestrator": "GPT-6.1 Sol",
+      "workers": [
+        {
+          "lead": "L199",
+          "model": "GPT-6.1 Sol",
+          "effort": "Low"
+        }
+      ]
+    },
+    "refs": []
+  },
+  "orchestratorCaptureReviews": [
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\armor-resource-capture\\verification.json",
+      "sha256": "15f1421c545a9e0a1f217fcc8b95638706c2b3bfa0e0f0ecbbfd7ecc15bd24e6"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\loadout-intel-target-capture\\verification.json",
+      "sha256": "ca6a5f81aec00c5f6a7aecbbcbe25b5aa0aa163192fb093ef0561de2c2ccdeb1"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\logistics-consumer-child-capture\\verification.json",
+      "sha256": "48da5b978a1bcf61a9c104e9ac31d986d3730621f56af79bc6ab21006d501554"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\missing-gameplay-capture\\verification.json",
+      "sha256": "2743270e30d78f0dad9426589138bb79dbd35fe03ecec6ce9aab789392437b0f"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\next-utility-family-capture\\verification.json",
+      "sha256": "21be370a335301016614ce13a1c0ab6cbbb8f3b3589f39eb1d119e111824abf9"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\nvg-child-capture\\verification.json",
+      "sha256": "054a23735b9b352510cb5a17f8aaa3a2f2b94a45f568f3547051561924d2de12"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\registry-capture\\verification.json",
+      "sha256": "2e6ff41233fe7bdcd2f74b5189df235ab5113f6a2789b4f3c1b1fb747b23b8f9"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\smoke-callin-child-capture\\verification.json",
+      "sha256": "7dfa22e829ade446a24c3370440ce219f1c4a59b1324d7cb2854462531d26256"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\smoke-effect-child-capture\\verification.json",
+      "sha256": "35bedb7295782358516658892aba5bada3ddf5584a25aaf69f9e2faa3a43def7"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\smoke-marker-resource-capture\\verification.json",
+      "sha256": "04d739d86089ad31ee241566da562fad59136368bf106a6347a1d0c8dedf0f03"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\strike-payload-root-capture\\verification.json",
+      "sha256": "47be183e35aedd96e37c2d53380ed519c5e6e85ec8bbd6cae88a23ac0205b7e3"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\strike-selected-child-capture\\verification.json",
+      "sha256": "ac7b79919c9f65376a691ef4a8aaf3c5f3ef89f7ef075103492206945ffd13c8"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\support-utility-root-capture\\verification.json",
+      "sha256": "1c0fd4c7296cafc9e023dc0faa75816ef71f3c97d8909fd42da31089cbd416a0"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\utility-family-child-capture\\verification.json",
+      "sha256": "5228cffb74422a470de0a980b2602fc7fd14a976a8e77b6cc9d098d36120498f"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\utility-function-capture\\verification.json",
+      "sha256": "9714dd0000b8c561297ed75d0edeae45b1d7d53e66f10d885816bf0f0319f2fd"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\utility-receiver-capture\\verification.json",
+      "sha256": "54c4c93de9cb5027bcdc7903b0c5840d89aeb4b5907157a8f57952c6356093ed"
+    }
+  ],
+  "orchestratorReview": {
+    "reviewer": "GPT-6.1 Sol",
+    "workerModel": "GPT-6.1 Sol",
+    "workerEffort": "Low",
+    "date": "2026-09-29",
+    "draft": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L199\\draft-receipt-v4.json",
+      "sha256": "d854aad74182c8e3175701ae6a5e667120934505f2f413568a514df59a42c3ce"
+    },
+    "helperReview": {
+      "tool": "scripts/frosty-worker.py review",
+      "issues": 0,
+      "leadDir": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L199"
+    },
+    "scope": {
+      "roots": 9,
+      "externalChildrenExamined": 5,
+      "externalChildrenExaminedKind": "EBX",
+      "compiledResourceBodiesExamined": 0
+    },
+    "independentRawReview": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L199-independent-raw-review.json",
+      "sha256": "1cc1e455434f105effa4cd5f616a7803c7b9a438f7906c557ea347c6a8931627",
+      "uniqueChecksIncludingControl": 101,
+      "failures": 0
+    },
+    "pinReview": "Every recorded raw EBX asset hash matches either an indexed hotfix Head 4892087 capture or a reviewed fresh run-local capture with matching catalog Head/SDK and frozen descriptor hash. Release M433 control is separate.",
+    "semanticReview": "Selected source joins and exact member-owner meanings checked against reviewed prior mappings. No current multiplayer availability, native activation, units or effective composition claim."
+  }
+}

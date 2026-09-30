@@ -1,0 +1,1026 @@
+{
+  "lead": "L152",
+  "status": "reviewed-proposal",
+  "build": {
+    "label": "1.4.3.0-hotfix",
+    "head": 4892087,
+    "descriptorSha256": "99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640"
+  },
+  "question": "Which primary projectile route is selected by each of the three multiplayer launcher WB roots, and which typed projectile/blast fields can support a conditional gadget comparison?",
+  "sourceFacts": {
+    "control": {
+      "description": "The required release Head 4892017 GS_HK433 raw control reproduces site data/weapons.json:/[id=m433]/recoil/ads/amount = 0.6695; it validates the raw-check tool/site encoding only and establishes no hotfix gadget value.",
+      "passed": true,
+      "rawChecks": [
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+          "rawSha256": "66caca0e667d17fdf03f9fb4f620b9c5842aa1fd8de0221128ad4862895eed51",
+          "offset": 1084,
+          "type": "f32",
+          "bytesHex": "5a642b3f",
+          "value": 0.6694999933242798
+        }
+      ]
+    },
+    "scope": {
+      "expected": 7,
+      "examined": 7,
+      "notes": [
+        "Exactly the seven named launcher roots were captured at hotfix Head 4892087 under the pinned descriptor hash.",
+        "The three WB Field_808dd66c imports resolve by file GUID and class GUID to PB_NS_RPG, PB_MBTLAW and PB_AT4; the chain report has 3 assertions and 0 failures.",
+        "The four scoped PB roots contain 33 raw-verified scalar f32 values and 8 raw-checked pointer byte ranges (41 checks total); all 33 scalar checks matched their expected values.",
+        "Direct local Class_9966532d child links are counted per PB root: PB_RPG7V2 has 2; PB_NS_RPG, PB_MBTLAW and PB_AT4 have 1 each. Blast values were inspected only on those direct links.",
+        "L137 WB ammo/handling values are reused from its reviewed receipt and were not re-extracted here."
+      ],
+      "rawScalarChecks": 33,
+      "rawScalarChecksPassed": 33,
+      "pointerByteChecks": 8,
+      "rawChecksTotal": 41
+    },
+    "primaryRoutes": [
+      {
+        "weapon": "RPG-7",
+        "wb": "WB_RPG7V2",
+        "selectedProjectile": "PB_NS_RPG",
+        "chainVerified": true
+      },
+      {
+        "weapon": "MBT-LAW",
+        "wb": "WB_MBTLAW",
+        "selectedProjectile": "PB_MBTLAW",
+        "chainVerified": true
+      },
+      {
+        "weapon": "M136 AT4",
+        "wb": "WB_AT4",
+        "selectedProjectile": "PB_AT4",
+        "chainVerified": true
+      }
+    ],
+    "serializedProjectileValues": [
+      {
+        "root": "Common/Hardware/Gadgets/Launchers/RPG7/PB_RPG7V2",
+        "values": [
+          {
+            "field": "Field_0bf4f62b",
+            "type": "f32",
+            "value": 350.0,
+            "ownerType": {
+              "type": "Struct_990616ac",
+              "hash": "990616ac",
+              "descriptorIndex": 8305,
+              "descriptorKey": "2d4898813df1638f89a026d42cdefdd4",
+              "descriptorGuid": "8198482d-f13d-8f63-89a0-26d42cdefdd4",
+              "size": 256,
+              "alignment": 16
+            },
+            "semanticLabel": null,
+            "meaningLimit": "Serialized value only. FIELD_MAP's InitialSpeed/TimeToLive owners are Class_23637dce; this operand owner is Struct_990616ac with a different descriptor identity.",
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Launchers\\RPG7\\PB_RPG7V2.ebx",
+                "rawSha256": "934e0fa41ba0bd750973c83c94825e95053d4bae11dbe17a56bfbc709d1af578",
+                "offset": 336,
+                "type": "f32",
+                "bytesHex": "0000af43",
+                "value": 350.0
+              }
+            ]
+          },
+          {
+            "field": "Field_5ef7b9a1",
+            "type": "f32",
+            "value": 3.9,
+            "ownerType": {
+              "type": "Struct_990616ac",
+              "hash": "990616ac",
+              "descriptorIndex": 8305,
+              "descriptorKey": "2d4898813df1638f89a026d42cdefdd4",
+              "descriptorGuid": "8198482d-f13d-8f63-89a0-26d42cdefdd4",
+              "size": 256,
+              "alignment": 16
+            },
+            "semanticLabel": null,
+            "meaningLimit": "Serialized value only. FIELD_MAP's InitialSpeed/TimeToLive owners are Class_23637dce; this operand owner is Struct_990616ac with a different descriptor identity.",
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Launchers\\RPG7\\PB_RPG7V2.ebx",
+                "rawSha256": "934e0fa41ba0bd750973c83c94825e95053d4bae11dbe17a56bfbc709d1af578",
+                "offset": 340,
+                "type": "f32",
+                "bytesHex": "9a997940",
+                "value": 3.9000000953674316
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "root": "Common/Hardware/Gadgets/Launchers/RPG7/PB_NS_RPG",
+        "values": [
+          {
+            "field": "Field_0bf4f62b",
+            "type": "f32",
+            "value": 350.0,
+            "ownerType": {
+              "type": "Struct_990616ac",
+              "hash": "990616ac",
+              "descriptorIndex": 640,
+              "descriptorKey": "2d4898813df1638f89a026d45a64c3be",
+              "descriptorGuid": "8198482d-f13d-8f63-89a0-26d45a64c3be",
+              "size": 256,
+              "alignment": 16
+            },
+            "semanticLabel": null,
+            "meaningLimit": "Serialized value only. FIELD_MAP's InitialSpeed/TimeToLive owners are Class_23637dce; this operand owner is Struct_990616ac with a different descriptor identity.",
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Launchers\\RPG7\\PB_NS_RPG.ebx",
+                "rawSha256": "571920dca13809eccf5f9567442d9144b0bc1b96a63a10265dffb2874b6f0581",
+                "offset": 336,
+                "type": "f32",
+                "bytesHex": "0000af43",
+                "value": 350.0
+              }
+            ]
+          },
+          {
+            "field": "Field_5ef7b9a1",
+            "type": "f32",
+            "value": 3.9,
+            "ownerType": {
+              "type": "Struct_990616ac",
+              "hash": "990616ac",
+              "descriptorIndex": 640,
+              "descriptorKey": "2d4898813df1638f89a026d45a64c3be",
+              "descriptorGuid": "8198482d-f13d-8f63-89a0-26d45a64c3be",
+              "size": 256,
+              "alignment": 16
+            },
+            "semanticLabel": null,
+            "meaningLimit": "Serialized value only. FIELD_MAP's InitialSpeed/TimeToLive owners are Class_23637dce; this operand owner is Struct_990616ac with a different descriptor identity.",
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Launchers\\RPG7\\PB_NS_RPG.ebx",
+                "rawSha256": "571920dca13809eccf5f9567442d9144b0bc1b96a63a10265dffb2874b6f0581",
+                "offset": 340,
+                "type": "f32",
+                "bytesHex": "9a997940",
+                "value": 3.9000000953674316
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "root": "Common/Hardware/Gadgets/Launchers/MBTLAW/PB_MBTLAW",
+        "values": [
+          {
+            "field": "Field_0bf4f62b",
+            "type": "f32",
+            "value": 350.0,
+            "ownerType": {
+              "type": "Struct_990616ac",
+              "hash": "990616ac",
+              "descriptorIndex": 640,
+              "descriptorKey": "2d4898813df1638f89a026d45a64c3be",
+              "descriptorGuid": "8198482d-f13d-8f63-89a0-26d45a64c3be",
+              "size": 256,
+              "alignment": 16
+            },
+            "semanticLabel": null,
+            "meaningLimit": "Serialized value only. FIELD_MAP's InitialSpeed/TimeToLive owners are Class_23637dce; this operand owner is Struct_990616ac with a different descriptor identity.",
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Launchers\\MBTLAW\\PB_MBTLAW.ebx",
+                "rawSha256": "31bbb108ea03a6433a70fc96b9b0c2ca2fe743cda4bb2cbb9f3bcecb102828ba",
+                "offset": 336,
+                "type": "f32",
+                "bytesHex": "0000af43",
+                "value": 350.0
+              }
+            ]
+          },
+          {
+            "field": "Field_5ef7b9a1",
+            "type": "f32",
+            "value": 5.25,
+            "ownerType": {
+              "type": "Struct_990616ac",
+              "hash": "990616ac",
+              "descriptorIndex": 640,
+              "descriptorKey": "2d4898813df1638f89a026d45a64c3be",
+              "descriptorGuid": "8198482d-f13d-8f63-89a0-26d45a64c3be",
+              "size": 256,
+              "alignment": 16
+            },
+            "semanticLabel": null,
+            "meaningLimit": "Serialized value only. FIELD_MAP's InitialSpeed/TimeToLive owners are Class_23637dce; this operand owner is Struct_990616ac with a different descriptor identity.",
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Launchers\\MBTLAW\\PB_MBTLAW.ebx",
+                "rawSha256": "31bbb108ea03a6433a70fc96b9b0c2ca2fe743cda4bb2cbb9f3bcecb102828ba",
+                "offset": 340,
+                "type": "f32",
+                "bytesHex": "0000a840",
+                "value": 5.25
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "root": "Common/Hardware/Gadgets/Launchers/M136AT4/PB_AT4",
+        "values": [
+          {
+            "field": "Field_0bf4f62b",
+            "type": "f32",
+            "value": 350.0,
+            "ownerType": {
+              "type": "Struct_990616ac",
+              "hash": "990616ac",
+              "descriptorIndex": 640,
+              "descriptorKey": "2d4898813df1638f89a026d45a64c3be",
+              "descriptorGuid": "8198482d-f13d-8f63-89a0-26d45a64c3be",
+              "size": 256,
+              "alignment": 16
+            },
+            "semanticLabel": null,
+            "meaningLimit": "Serialized value only. FIELD_MAP's InitialSpeed/TimeToLive owners are Class_23637dce; this operand owner is Struct_990616ac with a different descriptor identity.",
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Launchers\\M136AT4\\PB_AT4.ebx",
+                "rawSha256": "775c391d7f2448ea02ff7674c7bf8c136fdcdb321814a761ccb3d9337fe70e15",
+                "offset": 336,
+                "type": "f32",
+                "bytesHex": "0000af43",
+                "value": 350.0
+              }
+            ]
+          },
+          {
+            "field": "Field_5ef7b9a1",
+            "type": "f32",
+            "value": 12.0,
+            "ownerType": {
+              "type": "Struct_990616ac",
+              "hash": "990616ac",
+              "descriptorIndex": 640,
+              "descriptorKey": "2d4898813df1638f89a026d45a64c3be",
+              "descriptorGuid": "8198482d-f13d-8f63-89a0-26d45a64c3be",
+              "size": 256,
+              "alignment": 16
+            },
+            "semanticLabel": null,
+            "meaningLimit": "Serialized value only. FIELD_MAP's InitialSpeed/TimeToLive owners are Class_23637dce; this operand owner is Struct_990616ac with a different descriptor identity.",
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Launchers\\M136AT4\\PB_AT4.ebx",
+                "rawSha256": "775c391d7f2448ea02ff7674c7bf8c136fdcdb321814a761ccb3d9337fe70e15",
+                "offset": 340,
+                "type": "f32",
+                "bytesHex": "00004041",
+                "value": 12.0
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "directBlastLinks": [
+      {
+        "root": "Common/Hardware/Gadgets/Launchers/RPG7/PB_RPG7V2",
+        "count": 2,
+        "links": [
+          {
+            "field": "Field_1f7b3933",
+            "targetObjectIndex": 10,
+            "targetClass": "Class_9966532d",
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Launchers\\RPG7\\PB_RPG7V2.ebx",
+                "rawSha256": "934e0fa41ba0bd750973c83c94825e95053d4bae11dbe17a56bfbc709d1af578",
+                "offset": 392,
+                "type": "bytes:8",
+                "bytesHex": "e806000000000000",
+                "value": "e806000000000000"
+              }
+            ]
+          },
+          {
+            "field": "Field_7976b9be",
+            "targetObjectIndex": 11,
+            "targetClass": "Class_9966532d",
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Launchers\\RPG7\\PB_RPG7V2.ebx",
+                "rawSha256": "934e0fa41ba0bd750973c83c94825e95053d4bae11dbe17a56bfbc709d1af578",
+                "offset": 664,
+                "type": "bytes:8",
+                "bytesHex": "a807000000000000",
+                "value": "a807000000000000"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "root": "Common/Hardware/Gadgets/Launchers/RPG7/PB_NS_RPG",
+        "count": 1,
+        "links": [
+          {
+            "field": "Field_1f7b3933",
+            "targetObjectIndex": 5,
+            "targetClass": "Class_9966532d",
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Launchers\\RPG7\\PB_NS_RPG.ebx",
+                "rawSha256": "571920dca13809eccf5f9567442d9144b0bc1b96a63a10265dffb2874b6f0581",
+                "offset": 400,
+                "type": "bytes:8",
+                "bytesHex": "5004000000000000",
+                "value": "5004000000000000"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "root": "Common/Hardware/Gadgets/Launchers/MBTLAW/PB_MBTLAW",
+        "count": 1,
+        "links": [
+          {
+            "field": "Field_1f7b3933",
+            "targetObjectIndex": 10,
+            "targetClass": "Class_9966532d",
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Launchers\\MBTLAW\\PB_MBTLAW.ebx",
+                "rawSha256": "31bbb108ea03a6433a70fc96b9b0c2ca2fe743cda4bb2cbb9f3bcecb102828ba",
+                "offset": 400,
+                "type": "bytes:8",
+                "bytesHex": "2007000000000000",
+                "value": "2007000000000000"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "root": "Common/Hardware/Gadgets/Launchers/M136AT4/PB_AT4",
+        "count": 1,
+        "links": [
+          {
+            "field": "Field_1f7b3933",
+            "targetObjectIndex": 12,
+            "targetClass": "Class_9966532d",
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Launchers\\M136AT4\\PB_AT4.ebx",
+                "rawSha256": "775c391d7f2448ea02ff7674c7bf8c136fdcdb321814a761ccb3d9337fe70e15",
+                "offset": 400,
+                "type": "bytes:8",
+                "bytesHex": "4008000000000000",
+                "value": "4008000000000000"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "blastValues": [
+      {
+        "root": "Common/Hardware/Gadgets/Launchers/RPG7/PB_NS_RPG",
+        "selectedFor": "RPG-7",
+        "fields": [
+          {
+            "targetObjectIndex": 5,
+            "field": "Field_19861d8c",
+            "type": "f32",
+            "value": 70.0,
+            "ownerType": {
+              "type": "Struct_d11bf358",
+              "hash": "d11bf358",
+              "descriptorIndex": 521,
+              "descriptorKey": "cc2e2a83f3144a2460391b3d48426827",
+              "descriptorGuid": "832a2ecc-14f3-244a-6039-1b3d48426827",
+              "size": 368,
+              "alignment": 16
+            },
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Launchers\\RPG7\\PB_NS_RPG.ebx",
+                "rawSha256": "571920dca13809eccf5f9567442d9144b0bc1b96a63a10265dffb2874b6f0581",
+                "offset": 1760,
+                "type": "f32",
+                "bytesHex": "00008c42",
+                "value": 70.0
+              }
+            ],
+            "name": "BlastDamage",
+            "nameBasis": "L148 selected blast-field identity: matching Class_9966532d classKey and inherited Struct_d11bf358 descriptorKey"
+          },
+          {
+            "targetObjectIndex": 5,
+            "field": "Field_33f3a8ab",
+            "type": "f32",
+            "value": 6.0,
+            "ownerType": {
+              "type": "Struct_d11bf358",
+              "hash": "d11bf358",
+              "descriptorIndex": 521,
+              "descriptorKey": "cc2e2a83f3144a2460391b3d48426827",
+              "descriptorGuid": "832a2ecc-14f3-244a-6039-1b3d48426827",
+              "size": 368,
+              "alignment": 16
+            },
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Launchers\\RPG7\\PB_NS_RPG.ebx",
+                "rawSha256": "571920dca13809eccf5f9567442d9144b0bc1b96a63a10265dffb2874b6f0581",
+                "offset": 1776,
+                "type": "f32",
+                "bytesHex": "0000c040",
+                "value": 6.0
+              }
+            ],
+            "name": "BlastRadius",
+            "nameBasis": "L148 selected blast-field identity: matching Class_9966532d classKey and inherited Struct_d11bf358 descriptorKey"
+          },
+          {
+            "targetObjectIndex": 5,
+            "field": "Field_95e340fe",
+            "type": "f32",
+            "value": 2.0,
+            "ownerType": {
+              "type": "Struct_d11bf358",
+              "hash": "d11bf358",
+              "descriptorIndex": 521,
+              "descriptorKey": "cc2e2a83f3144a2460391b3d48426827",
+              "descriptorGuid": "832a2ecc-14f3-244a-6039-1b3d48426827",
+              "size": 368,
+              "alignment": 16
+            },
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Launchers\\RPG7\\PB_NS_RPG.ebx",
+                "rawSha256": "571920dca13809eccf5f9567442d9144b0bc1b96a63a10265dffb2874b6f0581",
+                "offset": 1752,
+                "type": "f32",
+                "bytesHex": "00000040",
+                "value": 2.0
+              }
+            ],
+            "name": "InnerBlastRadius",
+            "nameBasis": "L148 selected blast-field identity: matching Class_9966532d classKey and inherited Struct_d11bf358 descriptorKey"
+          },
+          {
+            "targetObjectIndex": 5,
+            "field": "Field_3ef01f58",
+            "type": "f32",
+            "value": 1.0,
+            "ownerType": {
+              "type": "Struct_d11bf358",
+              "hash": "d11bf358",
+              "descriptorIndex": 521,
+              "descriptorKey": "cc2e2a83f3144a2460391b3d48426827",
+              "descriptorGuid": "832a2ecc-14f3-244a-6039-1b3d48426827",
+              "size": 368,
+              "alignment": 16
+            },
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Launchers\\RPG7\\PB_NS_RPG.ebx",
+                "rawSha256": "571920dca13809eccf5f9567442d9144b0bc1b96a63a10265dffb2874b6f0581",
+                "offset": 1792,
+                "type": "f32",
+                "bytesHex": "0000803f",
+                "value": 1.0
+              }
+            ],
+            "name": "ShockwaveDamage",
+            "nameBasis": "L148 selected blast-field identity: matching Class_9966532d classKey and inherited Struct_d11bf358 descriptorKey"
+          },
+          {
+            "targetObjectIndex": 5,
+            "field": "Field_524836d3",
+            "type": "f32",
+            "value": 8.5,
+            "ownerType": {
+              "type": "Struct_d11bf358",
+              "hash": "d11bf358",
+              "descriptorIndex": 521,
+              "descriptorKey": "cc2e2a83f3144a2460391b3d48426827",
+              "descriptorGuid": "832a2ecc-14f3-244a-6039-1b3d48426827",
+              "size": 368,
+              "alignment": 16
+            },
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Launchers\\RPG7\\PB_NS_RPG.ebx",
+                "rawSha256": "571920dca13809eccf5f9567442d9144b0bc1b96a63a10265dffb2874b6f0581",
+                "offset": 1796,
+                "type": "f32",
+                "bytesHex": "00000841",
+                "value": 8.5
+              }
+            ],
+            "name": "ShockwaveRadius",
+            "nameBasis": "L148 selected blast-field identity: matching Class_9966532d classKey and inherited Struct_d11bf358 descriptorKey"
+          }
+        ]
+      },
+      {
+        "root": "Common/Hardware/Gadgets/Launchers/MBTLAW/PB_MBTLAW",
+        "selectedFor": "MBT-LAW",
+        "fields": [
+          {
+            "targetObjectIndex": 10,
+            "field": "Field_19861d8c",
+            "type": "f32",
+            "value": 80.0,
+            "ownerType": {
+              "type": "Struct_d11bf358",
+              "hash": "d11bf358",
+              "descriptorIndex": 521,
+              "descriptorKey": "cc2e2a83f3144a2460391b3d48426827",
+              "descriptorGuid": "832a2ecc-14f3-244a-6039-1b3d48426827",
+              "size": 368,
+              "alignment": 16
+            },
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Launchers\\MBTLAW\\PB_MBTLAW.ebx",
+                "rawSha256": "31bbb108ea03a6433a70fc96b9b0c2ca2fe743cda4bb2cbb9f3bcecb102828ba",
+                "offset": 2480,
+                "type": "f32",
+                "bytesHex": "0000a042",
+                "value": 80.0
+              }
+            ],
+            "name": "BlastDamage",
+            "nameBasis": "L148 selected blast-field identity: matching Class_9966532d classKey and inherited Struct_d11bf358 descriptorKey"
+          },
+          {
+            "targetObjectIndex": 10,
+            "field": "Field_33f3a8ab",
+            "type": "f32",
+            "value": 4.0,
+            "ownerType": {
+              "type": "Struct_d11bf358",
+              "hash": "d11bf358",
+              "descriptorIndex": 521,
+              "descriptorKey": "cc2e2a83f3144a2460391b3d48426827",
+              "descriptorGuid": "832a2ecc-14f3-244a-6039-1b3d48426827",
+              "size": 368,
+              "alignment": 16
+            },
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Launchers\\MBTLAW\\PB_MBTLAW.ebx",
+                "rawSha256": "31bbb108ea03a6433a70fc96b9b0c2ca2fe743cda4bb2cbb9f3bcecb102828ba",
+                "offset": 2496,
+                "type": "f32",
+                "bytesHex": "00008040",
+                "value": 4.0
+              }
+            ],
+            "name": "BlastRadius",
+            "nameBasis": "L148 selected blast-field identity: matching Class_9966532d classKey and inherited Struct_d11bf358 descriptorKey"
+          },
+          {
+            "targetObjectIndex": 10,
+            "field": "Field_95e340fe",
+            "type": "f32",
+            "value": 1.0,
+            "ownerType": {
+              "type": "Struct_d11bf358",
+              "hash": "d11bf358",
+              "descriptorIndex": 521,
+              "descriptorKey": "cc2e2a83f3144a2460391b3d48426827",
+              "descriptorGuid": "832a2ecc-14f3-244a-6039-1b3d48426827",
+              "size": 368,
+              "alignment": 16
+            },
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Launchers\\MBTLAW\\PB_MBTLAW.ebx",
+                "rawSha256": "31bbb108ea03a6433a70fc96b9b0c2ca2fe743cda4bb2cbb9f3bcecb102828ba",
+                "offset": 2472,
+                "type": "f32",
+                "bytesHex": "0000803f",
+                "value": 1.0
+              }
+            ],
+            "name": "InnerBlastRadius",
+            "nameBasis": "L148 selected blast-field identity: matching Class_9966532d classKey and inherited Struct_d11bf358 descriptorKey"
+          },
+          {
+            "targetObjectIndex": 10,
+            "field": "Field_3ef01f58",
+            "type": "f32",
+            "value": 1.0,
+            "ownerType": {
+              "type": "Struct_d11bf358",
+              "hash": "d11bf358",
+              "descriptorIndex": 521,
+              "descriptorKey": "cc2e2a83f3144a2460391b3d48426827",
+              "descriptorGuid": "832a2ecc-14f3-244a-6039-1b3d48426827",
+              "size": 368,
+              "alignment": 16
+            },
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Launchers\\MBTLAW\\PB_MBTLAW.ebx",
+                "rawSha256": "31bbb108ea03a6433a70fc96b9b0c2ca2fe743cda4bb2cbb9f3bcecb102828ba",
+                "offset": 2512,
+                "type": "f32",
+                "bytesHex": "0000803f",
+                "value": 1.0
+              }
+            ],
+            "name": "ShockwaveDamage",
+            "nameBasis": "L148 selected blast-field identity: matching Class_9966532d classKey and inherited Struct_d11bf358 descriptorKey"
+          },
+          {
+            "targetObjectIndex": 10,
+            "field": "Field_524836d3",
+            "type": "f32",
+            "value": 6.5,
+            "ownerType": {
+              "type": "Struct_d11bf358",
+              "hash": "d11bf358",
+              "descriptorIndex": 521,
+              "descriptorKey": "cc2e2a83f3144a2460391b3d48426827",
+              "descriptorGuid": "832a2ecc-14f3-244a-6039-1b3d48426827",
+              "size": 368,
+              "alignment": 16
+            },
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Launchers\\MBTLAW\\PB_MBTLAW.ebx",
+                "rawSha256": "31bbb108ea03a6433a70fc96b9b0c2ca2fe743cda4bb2cbb9f3bcecb102828ba",
+                "offset": 2516,
+                "type": "f32",
+                "bytesHex": "0000d040",
+                "value": 6.5
+              }
+            ],
+            "name": "ShockwaveRadius",
+            "nameBasis": "L148 selected blast-field identity: matching Class_9966532d classKey and inherited Struct_d11bf358 descriptorKey"
+          }
+        ]
+      },
+      {
+        "root": "Common/Hardware/Gadgets/Launchers/M136AT4/PB_AT4",
+        "selectedFor": "M136 AT4",
+        "fields": [
+          {
+            "targetObjectIndex": 12,
+            "field": "Field_19861d8c",
+            "type": "f32",
+            "value": 70.0,
+            "ownerType": {
+              "type": "Struct_d11bf358",
+              "hash": "d11bf358",
+              "descriptorIndex": 521,
+              "descriptorKey": "cc2e2a83f3144a2460391b3d48426827",
+              "descriptorGuid": "832a2ecc-14f3-244a-6039-1b3d48426827",
+              "size": 368,
+              "alignment": 16
+            },
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Launchers\\M136AT4\\PB_AT4.ebx",
+                "rawSha256": "775c391d7f2448ea02ff7674c7bf8c136fdcdb321814a761ccb3d9337fe70e15",
+                "offset": 2768,
+                "type": "f32",
+                "bytesHex": "00008c42",
+                "value": 70.0
+              }
+            ],
+            "name": "BlastDamage",
+            "nameBasis": "L148 selected blast-field identity: matching Class_9966532d classKey and inherited Struct_d11bf358 descriptorKey"
+          },
+          {
+            "targetObjectIndex": 12,
+            "field": "Field_33f3a8ab",
+            "type": "f32",
+            "value": 5.0,
+            "ownerType": {
+              "type": "Struct_d11bf358",
+              "hash": "d11bf358",
+              "descriptorIndex": 521,
+              "descriptorKey": "cc2e2a83f3144a2460391b3d48426827",
+              "descriptorGuid": "832a2ecc-14f3-244a-6039-1b3d48426827",
+              "size": 368,
+              "alignment": 16
+            },
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Launchers\\M136AT4\\PB_AT4.ebx",
+                "rawSha256": "775c391d7f2448ea02ff7674c7bf8c136fdcdb321814a761ccb3d9337fe70e15",
+                "offset": 2784,
+                "type": "f32",
+                "bytesHex": "0000a040",
+                "value": 5.0
+              }
+            ],
+            "name": "BlastRadius",
+            "nameBasis": "L148 selected blast-field identity: matching Class_9966532d classKey and inherited Struct_d11bf358 descriptorKey"
+          },
+          {
+            "targetObjectIndex": 12,
+            "field": "Field_95e340fe",
+            "type": "f32",
+            "value": 2.0,
+            "ownerType": {
+              "type": "Struct_d11bf358",
+              "hash": "d11bf358",
+              "descriptorIndex": 521,
+              "descriptorKey": "cc2e2a83f3144a2460391b3d48426827",
+              "descriptorGuid": "832a2ecc-14f3-244a-6039-1b3d48426827",
+              "size": 368,
+              "alignment": 16
+            },
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Launchers\\M136AT4\\PB_AT4.ebx",
+                "rawSha256": "775c391d7f2448ea02ff7674c7bf8c136fdcdb321814a761ccb3d9337fe70e15",
+                "offset": 2760,
+                "type": "f32",
+                "bytesHex": "00000040",
+                "value": 2.0
+              }
+            ],
+            "name": "InnerBlastRadius",
+            "nameBasis": "L148 selected blast-field identity: matching Class_9966532d classKey and inherited Struct_d11bf358 descriptorKey"
+          },
+          {
+            "targetObjectIndex": 12,
+            "field": "Field_3ef01f58",
+            "type": "f32",
+            "value": 1.0,
+            "ownerType": {
+              "type": "Struct_d11bf358",
+              "hash": "d11bf358",
+              "descriptorIndex": 521,
+              "descriptorKey": "cc2e2a83f3144a2460391b3d48426827",
+              "descriptorGuid": "832a2ecc-14f3-244a-6039-1b3d48426827",
+              "size": 368,
+              "alignment": 16
+            },
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Launchers\\M136AT4\\PB_AT4.ebx",
+                "rawSha256": "775c391d7f2448ea02ff7674c7bf8c136fdcdb321814a761ccb3d9337fe70e15",
+                "offset": 2800,
+                "type": "f32",
+                "bytesHex": "0000803f",
+                "value": 1.0
+              }
+            ],
+            "name": "ShockwaveDamage",
+            "nameBasis": "L148 selected blast-field identity: matching Class_9966532d classKey and inherited Struct_d11bf358 descriptorKey"
+          },
+          {
+            "targetObjectIndex": 12,
+            "field": "Field_524836d3",
+            "type": "f32",
+            "value": 7.5,
+            "ownerType": {
+              "type": "Struct_d11bf358",
+              "hash": "d11bf358",
+              "descriptorIndex": 521,
+              "descriptorKey": "cc2e2a83f3144a2460391b3d48426827",
+              "descriptorGuid": "832a2ecc-14f3-244a-6039-1b3d48426827",
+              "size": 368,
+              "alignment": 16
+            },
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Launchers\\M136AT4\\PB_AT4.ebx",
+                "rawSha256": "775c391d7f2448ea02ff7674c7bf8c136fdcdb321814a761ccb3d9337fe70e15",
+                "offset": 2804,
+                "type": "f32",
+                "bytesHex": "0000f040",
+                "value": 7.5
+              }
+            ],
+            "name": "ShockwaveRadius",
+            "nameBasis": "L148 selected blast-field identity: matching Class_9966532d classKey and inherited Struct_d11bf358 descriptorKey"
+          }
+        ]
+      }
+    ],
+    "reusedEvidence": {
+      "lead": "L137",
+      "receiptPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L137\\l137-result.json",
+      "receiptSha256": "4f67609f3d6ea2486f8aad286d50fc17d2b5804daacef680bc635cb46a0d1cfa",
+      "note": "Reviewed WB handling/ammo facts were reused; no such extraction was repeated."
+    }
+  },
+  "inference": [
+    "The WB-to-PB file GUID and class GUID joins establish the serialized primary selection route encoded at Field_808dd66c for each scoped launcher WB.",
+    "The matching selected PB blast-field owner identities allow a conditional comparison of the five named serialized f32 values across the three selected projectile roots; they do not establish units, effective damage, or runtime use."
+  ],
+  "unresolved": [
+    "The pinned Head 4892087 coverage database has no GRX_Weapons capture. A release-collection GRX_Weapons raw file exists, but the brief's registry-route limits make its child/hash association unsafe; no hotfix GRX child/hash join is claimed.",
+    "Field_0bf4f62b and Field_5ef7b9a1 are raw f32 values under Struct_990616ac. FIELD_MAP labels with InitialSpeed or TimeToLive belong to Class_23637dce owner identities, which do not match; projectile meanings remain unresolved.",
+    "No source reviewed here proves which imported projectile the game activates or executes at runtime, or how these serialized blast fields affect native damage.",
+    "PB_RPG7V2 is in fixed scope but is not the target of any scoped WB Field_808dd66c selection. Its Class_9966532d/inherited Struct_d11bf358 identities also differ from L148, so its five field hashes remain unlabeled."
+  ],
+  "siteImpact": "Extend the optional L137 launcher source-profile comparison with selected mapped blast fields: RPG-7, MBT-LAW and AT4 store BlastDamage 70/80/70 and BlastRadius 6/4/5. These are serialized values. Do not label the two hash-only projectile scalars as speed or lifetime, or present effective gameplay damage or physical radius without units and composition evidence.",
+  "evidence": {
+    "files": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L152\\control-raw.json",
+        "sha256": "5f76caeb1046b7fe3232d00db51f0fca2a89d38e39e15bf225be8de90a6889e8"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L152\\l152-primary-chain-manifest.json",
+        "sha256": "b8df501d29cc3ba07f112321d770f59c698ffdd313fb867cc8382afb99daabb8"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L152\\l152-primary-chain-report.json\\comparison.json",
+        "sha256": "581f869c931a5af448c2a04ff11a96c7f0a494c07a5faaacc8e3d90051f5469d"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L152\\l152-raw-manifest-v4.json",
+        "sha256": "979fc37d216742580f20e721b6d523e18a90fbe6c8e3c49244649412c06a25e3"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L152\\l152-raw-checks-v4.json",
+        "sha256": "2b0da0c8878254f01de453a4e36a9b267adf3c5e8864f4a44e10ab97a9fdde30"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L152\\l152-located-values-v4.json",
+        "sha256": "7ebfdcbcfb713c5c33fa6449cd8c1090056576f29fdcf1d2337f0c55d17e14f7"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L152\\l152_extract_values.py",
+        "sha256": "96fdd73c595dfa4f2b4310e06d46f20bcfbd3a8d21681993e37c75659a93fefc"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L152\\l152_decode_refs.py",
+        "sha256": "8003b7f937abecf75ec62def55c35a141c6bff91861aa90fb3717d71fc036399"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L152\\l152_count_children.py",
+        "sha256": "5c22b61f2160929f18f8288234206e1eb152d43a9709a6598b5397aacc880910"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L152\\l152_registry_probe.py",
+        "sha256": "397939d4510fa114af09b7afeac84c7f1caca7c36a6aeccc2416d945e218f242"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L152\\l152_type_comparison.py",
+        "sha256": "5f2b6b23fe0396ea334c80cf989b3a9e302d03ca83a5127775cfcbef6e7728df"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L137\\l137-result.json",
+        "sha256": "4f67609f3d6ea2486f8aad286d50fc17d2b5804daacef680bc635cb46a0d1cfa"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L148\\l148-result.json",
+        "sha256": "051ceb2d5ee016e5dd8e42f8778f62820ef8f5654590a546d285130e630fde27"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\exhaustive-audit-2026-09-23\\coverage-decoder-v5.sqlite",
+        "sha256": "1fac4aa159b11741943eaf6ae94f64e63928b9fa0f866ca4a1d191897718cf10"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\docs\\frosty\\FIELD_MAP.md",
+        "sha256": "976db6b19f6e2f4fa6ecd1784d907f1bceb055e1aad8033158412b7a65d20fcb"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+        "sha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-selected-chain-check.py",
+        "sha256": "52648d1ba88bfa4dbf1c170f303483c5a250f463bee535223e9ec09b4e8da32e"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-ebx-decode.py",
+        "sha256": "6fdc0334efaee0fe6113b5c9db4973f1358f53ee65dfb94edbc22fb0bf07a727"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-records.py",
+        "sha256": "ffb0e7574ce66779ae5041f4fc55047d0da2f63d917682b527673a75612b734c"
+      }
+    ],
+    "commands": [
+      "python \"C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py\" --path \"C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx\" --offset 1084 --type f32 --expect 0.6695 --out control-raw.json",
+      "python l152_extract_values.py (uses the pinned descriptor to decode the seven scoped roots and writes l152-raw-manifest-v4.json and l152-located-values-v4.json)",
+      "python \"C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py\" --manifest l152-raw-manifest-v4.json --out l152-raw-checks-v4.json",
+      "python \"C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-selected-chain-check.py\" --manifest l152-primary-chain-manifest.json --db \"C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\exhaustive-audit-2026-09-23\\coverage-decoder-v5.sqlite\" --out l152-primary-chain-report.json",
+      "python \"C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-records.py\" check-receipt draft-receipt.json"
+    ]
+  },
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-09-29",
+    "build": "1.4.3.0-hotfix",
+    "leads": [
+      {
+        "id": "L152",
+        "title": "RPG-7, MBT-LAW and M136 AT4 projectile source",
+        "status": "proposal",
+        "summary": "Three launcher WBs select exact primary projectiles whose matching blast owners store mapped BlastDamage 70/80/70 and BlastRadius 6/4/5, supporting a conditional extension of the L137 source-profile comparison.",
+        "reopenWhen": "Resolve projectile scalar names, blast units and effective damage composition before implementing launcher projectile gameplay stats."
+      }
+    ],
+    "assets": [
+      {
+        "path": "Common/Hardware/Gadgets/Launchers/RPG7/WB_RPG7V2",
+        "format": "raw-ebx",
+        "sha256": "e0a8bb946ee5226019190c87df6a0c5dc2548c6d00c9f92681d18c70e207d856",
+        "question": "What primary import, projectile scalar, or direct blast-object facts does this fixed-scope hotfix launcher asset support?",
+        "result": "useful",
+        "conclusion": "Field_808dd66c import resolves by exact file and class GUID to Common/Hardware/Gadgets/Launchers/RPG7/PB_NS_RPG (raw SHA-256 571920dca13809eccf5f9567442d9144b0bc1b96a63a10265dffb2874b6f0581)."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Launchers/RPG7/PB_RPG7V2",
+        "format": "raw-ebx",
+        "sha256": "934e0fa41ba0bd750973c83c94825e95053d4bae11dbe17a56bfbc709d1af578",
+        "question": "What primary import, projectile scalar, or direct blast-object facts does this fixed-scope hotfix launcher asset support?",
+        "result": "useful",
+        "conclusion": "It is not selected by a scoped WB Field_808dd66c chain. The root has 2 direct local Class_9966532d blast reference(s); only matching L148 typed identities are named in the result."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Launchers/RPG7/PB_NS_RPG",
+        "format": "raw-ebx",
+        "sha256": "571920dca13809eccf5f9567442d9144b0bc1b96a63a10265dffb2874b6f0581",
+        "question": "What primary import, projectile scalar, or direct blast-object facts does this fixed-scope hotfix launcher asset support?",
+        "result": "useful",
+        "conclusion": "It is selected by the scoped WB chain. The root has 1 direct local Class_9966532d blast reference(s); only matching L148 typed identities are named in the result."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Launchers/MBTLAW/WB_MBTLAW",
+        "format": "raw-ebx",
+        "sha256": "8b7b51c84034c96cbb51acbe843321ea4b9679e21ab3d21fe60885f9ca35f839",
+        "question": "What primary import, projectile scalar, or direct blast-object facts does this fixed-scope hotfix launcher asset support?",
+        "result": "useful",
+        "conclusion": "Field_808dd66c import resolves by exact file and class GUID to Common/Hardware/Gadgets/Launchers/MBTLAW/PB_MBTLAW (raw SHA-256 31bbb108ea03a6433a70fc96b9b0c2ca2fe743cda4bb2cbb9f3bcecb102828ba)."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Launchers/MBTLAW/PB_MBTLAW",
+        "format": "raw-ebx",
+        "sha256": "31bbb108ea03a6433a70fc96b9b0c2ca2fe743cda4bb2cbb9f3bcecb102828ba",
+        "question": "What primary import, projectile scalar, or direct blast-object facts does this fixed-scope hotfix launcher asset support?",
+        "result": "useful",
+        "conclusion": "It is selected by the scoped WB chain. The root has 1 direct local Class_9966532d blast reference(s); only matching L148 typed identities are named in the result."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Launchers/M136AT4/WB_AT4",
+        "format": "raw-ebx",
+        "sha256": "3b541679266e2742d043c8c6b32b4415563d04484102e176e73cc656fa061bac",
+        "question": "What primary import, projectile scalar, or direct blast-object facts does this fixed-scope hotfix launcher asset support?",
+        "result": "useful",
+        "conclusion": "Field_808dd66c import resolves by exact file and class GUID to Common/Hardware/Gadgets/Launchers/M136AT4/PB_AT4 (raw SHA-256 775c391d7f2448ea02ff7674c7bf8c136fdcdb321814a761ccb3d9337fe70e15)."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Launchers/M136AT4/PB_AT4",
+        "format": "raw-ebx",
+        "sha256": "775c391d7f2448ea02ff7674c7bf8c136fdcdb321814a761ccb3d9337fe70e15",
+        "question": "What primary import, projectile scalar, or direct blast-object facts does this fixed-scope hotfix launcher asset support?",
+        "result": "useful",
+        "conclusion": "It is selected by the scoped WB chain. The root has 1 direct local Class_9966532d blast reference(s); only matching L148 typed identities are named in the result."
+      }
+    ],
+    "binding": "research"
+  },
+  "orchestratorReview": {
+    "reviewIssues": 0,
+    "scope": "7/7 fixed roots; three WB primary selections passed and unselected RPG body kept separate",
+    "independentRawChecks": [
+      {
+        "route": "Common/Hardware/Gadgets/Launchers/RPG7/PB_NS_RPG",
+        "offset": 1760,
+        "type": "f32",
+        "bytesHex": "00008c42",
+        "value": 70.0,
+        "rawSha256": "571920dca13809eccf5f9567442d9144b0bc1b96a63a10265dffb2874b6f0581"
+      },
+      {
+        "route": "Common/Hardware/Gadgets/Launchers/MBTLAW/PB_MBTLAW",
+        "offset": 2480,
+        "type": "f32",
+        "bytesHex": "0000a042",
+        "value": 80.0,
+        "rawSha256": "31bbb108ea03a6433a70fc96b9b0c2ca2fe743cda4bb2cbb9f3bcecb102828ba"
+      },
+      {
+        "route": "Common/Hardware/Gadgets/Launchers/M136AT4/PB_AT4",
+        "offset": 2768,
+        "type": "f32",
+        "bytesHex": "00008c42",
+        "value": 70.0,
+        "rawSha256": "775c391d7f2448ea02ff7674c7bf8c136fdcdb321814a761ccb3d9337fe70e15"
+      }
+    ],
+    "classification": "Conditional selected blast source-profile proposal; projectile speed/time names and native behavior unresolved."
+  }
+}

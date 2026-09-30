@@ -1,0 +1,1017 @@
+{
+  "lead": "L190",
+  "status": "reviewed-source-finding",
+  "build": "1.4.3.0-hotfix",
+  "question": "Does the existing local SDK/plugin source establish a selected utility graph semantic reader?",
+  "sourceFacts": {
+    "control": {
+      "passed": true,
+      "rawChecks": [
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+          "rawSha256": "66caca0e667d17fdf03f9fb4f620b9c5842aa1fd8de0221128ad4862895eed51",
+          "offset": 1084,
+          "type": "f32",
+          "bytesHex": "5a642b3f",
+          "value": 0.6694999933242798
+        }
+      ],
+      "siteValue": 0.6695
+    },
+    "resourcePins": [
+      {
+        "resourceId": "0c613cb9571f9ab1",
+        "status": "success",
+        "name": "common/hardware/gadgets/tools/repair/logic/simex_ability_gad_soldier_repairtool",
+        "type": "SerializedExpressionNodeGraph",
+        "typeId": "7dd4cc89",
+        "recordSha1": "ffe72c3a6023690e3498ada7ca615b6616eb5166",
+        "metadataHex": "00000000000000000000000000000000",
+        "file": "resources/0c613cb9571f9ab1.res",
+        "bytes": 14944,
+        "sha256": "b99dd7cbdbcde2222fd4301259db3b849c2482fc4a71264e4dd36a7b0b10d3c3",
+        "reason": null,
+        "gameHead": 4892087,
+        "sdkVersion": 4414275,
+        "rawPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\candidate-expression-resources-2026-09-23\\resources\\0c613cb9571f9ab1.res",
+        "pinPassed": true
+      },
+      {
+        "resourceId": "af379644109d7d8d",
+        "status": "success",
+        "name": "common/hardware/gadgets/misc/defibrillator/simex_defib",
+        "type": "SerializedExpressionNodeGraph",
+        "typeId": "7dd4cc89",
+        "recordSha1": "379da36b367be5e3e6a176954129cb668a32cac2",
+        "metadataHex": "00000000000000000000000000000000",
+        "file": "resources/af379644109d7d8d.res",
+        "bytes": 36736,
+        "sha256": "512ee0523dc16fcf9e15a4f57b1065bc63aa1314e1f88456e486683558856e68",
+        "reason": null,
+        "gameHead": 4892087,
+        "sdkVersion": 4414275,
+        "rawPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\candidate-expression-resources-2026-09-23\\resources\\af379644109d7d8d.res",
+        "pinPassed": true
+      },
+      {
+        "resourceId": "2fccf1c1ece25719",
+        "status": "success",
+        "name": "common/hardware/gadgets/throwables/supplycrate/prj_simex_supplycrate",
+        "type": "SerializedExpressionNodeGraph",
+        "typeId": "7dd4cc89",
+        "recordSha1": "d2ef49154a44fbc4d59aaef3f3ced40b7bd3e2d9",
+        "metadataHex": "00000000000000000000000000000000",
+        "file": "resources/2fccf1c1ece25719.res",
+        "bytes": 128,
+        "sha256": "80167d9e98a2ce952c962affa80a56aed3648a5691e23cdec435b00cab7b232b",
+        "reason": null,
+        "gameHead": 4892087,
+        "sdkVersion": 4414275,
+        "rawPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\candidate-expression-resources-2026-09-23\\resources\\2fccf1c1ece25719.res",
+        "pinPassed": true
+      }
+    ],
+    "sourceProof": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\FrostySdk\\Managers\\Entries\\ResAssetEntry.cs",
+        "sha256": "c8323d8e415d4652f938d2866cefe4b5d5d9e7c1ca873ca7c8dcb3a054d0ce39",
+        "excerpts": [
+          {
+            "start": 96,
+            "end": 99,
+            "lines": [
+              "        ScenarioDefRuntimeResource = 0x2EEC1D7A,",
+              "        SerializedAudioPatch = 0x5297A88F,",
+              "        SerializedExpressionNodeGraph = 0x7DD4CC89,",
+              "        ShaderBlockDepot = 0xD8F5DAAF,"
+            ]
+          }
+        ]
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\FrostySdk\\Managers\\AssetManager.cs",
+        "sha256": "e2aab7a264747fa3f3d0949b523313bb55a58f96760cb46d3e0da4ce6e503a56",
+        "excerpts": [
+          {
+            "start": 1299,
+            "end": 1323,
+            "lines": [
+              "        public Stream GetRes(ResAssetEntry entry) => GetAsset(entry);",
+              "",
+              "        public T GetResAs<T>(ResAssetEntry entry, ModifiedResource modifiedData = null) where T : Resource, new()",
+              "        {",
+              "            Stream stream = GetAsset(entry);",
+              "            if (stream == null)",
+              "            {",
+              "                return default;",
+              "            }",
+              "",
+              "            using (NativeReader reader = new NativeReader(stream))",
+              "            {",
+              "                if (modifiedData == null)",
+              "                {",
+              "                    if (entry.ModifiedEntry?.DataObject != null)",
+              "                    {",
+              "                        modifiedData = entry.ModifiedEntry.DataObject as ModifiedResource;",
+              "                    }",
+              "                }",
+              "",
+              "                T retVal = new T();",
+              "                retVal.Read(reader, this, entry, modifiedData);",
+              "                return retVal;",
+              "            }",
+              "        }"
+            ]
+          }
+        ]
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\FrostySdk\\Resources\\Resource.cs",
+        "sha256": "ce1f946dd6913e2525276e9cfdaae2da2994bc89543609bdd4075496eacd7424",
+        "excerpts": [
+          {
+            "start": 21,
+            "end": 27,
+            "lines": [
+              "        public virtual void Read(NativeReader reader, AssetManager am, ResAssetEntry entry, ModifiedResource modifiedData)",
+              "        {",
+              "            resMeta = entry.ResMeta;",
+              "            resRid = entry.ResRid;",
+              "",
+              "        }",
+              ""
+            ]
+          }
+        ]
+      }
+    ],
+    "continuation": {
+      "control": "Reused passing v1 raw/site control and three resource pins; resource bodies unchanged.",
+      "sourceSearch": {
+        "folders": [
+          "FrostySdk",
+          "FrostyPlugin",
+          "Plugins",
+          "FrostyEditor"
+        ],
+        "counts": {
+          "FrostySdk": 71,
+          "FrostyPlugin": 163,
+          "Plugins": 188,
+          "FrostyEditor": 27
+        },
+        "total": 449,
+        "excluded": [
+          "bin",
+          "obj",
+          "packages",
+          ".git"
+        ],
+        "exactTypeHits": [
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\FrostySdk\\Managers\\Entries\\ResAssetEntry.cs",
+            "line": 98,
+            "text": "SerializedExpressionNodeGraph = 0x7DD4CC89,",
+            "sha256": "c8323d8e415d4652f938d2866cefe4b5d5d9e7c1ca873ca7c8dcb3a054d0ce39"
+          }
+        ],
+        "resourceSubclassDeclarations": [
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\FrostySdk\\Resources\\Texture.cs",
+            "line": 38,
+            "text": "public class Texture : Resource, IDisposable",
+            "sha256": "4ea2dc2db9b57a683114a6925e21aa422d4e0811973ccce5b9ded378bc0a0f5f"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\Plugins\\AtlasTexturePlugin\\AtlasTexture.cs",
+            "line": 20,
+            "text": "public class AtlasTexture : Resource",
+            "sha256": "1b5a34660d2dfd3165461aac4047be13de842579bdbae628dcb6af248f7e50ce"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\Plugins\\BiowareLocalizationPlugin\\LocalizedResources\\LocalizedStringResource.cs",
+            "line": 16,
+            "text": "public partial class LocalizedStringResource : Resource",
+            "sha256": "e1f47c4bf101dde0fd5408ab324a5407da75a684071595b87945f920d2b84258"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\Plugins\\DelayLoadBundlePlugin\\DelayLoadBundleResource.cs",
+            "line": 64,
+            "text": "public class DelayLoadBundleResource : Resource",
+            "sha256": "9d99c86b22b85f3f8ef1fce7de644cae52a64ce04e0938ffd31d3698f65d71f8"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\Plugins\\IesResourcePlugin\\IesResource.cs",
+            "line": 9,
+            "text": "public class IesResource : Resource",
+            "sha256": "9ba8ab9c1edd1d21ca23ac044087e1455bd5b9e79a14d86cc145f77af8231919"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\Plugins\\LuaPlugin\\CompiledLuaResource.cs",
+            "line": 12,
+            "text": "public class CompiledLuaResource : Resource",
+            "sha256": "40a7e4b169eb8ef96435276e7c10eb59063c66b6960642d6d0dd06e391eefb0a"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\Plugins\\MeshSetPlugin\\Resources\\MeshSet.cs",
+            "line": 1796,
+            "text": "public class MeshSet : Resource",
+            "sha256": "4d77bfb02f862bb4cae758a585690a578c22e97c62e97ba7c68dbd99dce99d62"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\Plugins\\MeshSetPlugin\\Resources\\ShaderBlockDepot.cs",
+            "line": 706,
+            "text": "public class ShaderBlockDepot : Resource",
+            "sha256": "f4a9ec16b7067272fd90a6e8bb1be62210dd2cbac58105eb73511a9db3ccaf10"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\Plugins\\SoundEditorPlugin\\Resources\\NewWaveResource.cs",
+            "line": 224,
+            "text": "public class NewWaveResource : Resource",
+            "sha256": "214b926b6fb340d69bcec7577f79b573ebbd0d005dbff5cd7791d11b91f61525"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\Plugins\\SvgImagePlugin\\SvgImage.cs",
+            "line": 202,
+            "text": "public class SvgImage : Resource",
+            "sha256": "5fac830a37bca919a1b6dcea9dfa845300cbeb2646caac22d5357fd80317a776"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\Plugins\\TestPlugin\\Resources\\SvgImage.cs",
+            "line": 14,
+            "text": "public class SvgImageResource : Resource",
+            "sha256": "bf62c14c4ca45bd5ab30822d3147d9872e956a042ab8821b728b36588fb5be83"
+          }
+        ],
+        "registrationCandidates": [
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\FrostyPlugin\\AssetDefinition.cs",
+            "line": 84,
+            "text": "/// <see cref=\"RegisterAssetDefinitionAttribute\"/> class to register asset types to specific <see cref=\"AssetDefinition\"/> derivatives.",
+            "sha256": "fd786c23f646593a0ff839542a5fd16a07a4bd4d61f74f9e15a529dcfbf9770c"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\FrostyPlugin\\Attributes\\RegisterAssetDefinitionAttribute.cs",
+            "line": 9,
+            "text": "public class RegisterAssetDefinitionAttribute : Attribute",
+            "sha256": "499a1d22a1ea9d72f7efb2fb259833e3c54b60512ec08386406a67d07b3e7874"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\FrostyPlugin\\Attributes\\RegisterAssetDefinitionAttribute.cs",
+            "line": 24,
+            "text": "/// Initializes a new instance of the <see cref=\"RegisterAssetDefinitionAttribute\"/> class with the lookup name and derived asset definition class type.",
+            "sha256": "499a1d22a1ea9d72f7efb2fb259833e3c54b60512ec08386406a67d07b3e7874"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\FrostyPlugin\\Attributes\\RegisterAssetDefinitionAttribute.cs",
+            "line": 28,
+            "text": "public RegisterAssetDefinitionAttribute(string lookupType, Type type)",
+            "sha256": "499a1d22a1ea9d72f7efb2fb259833e3c54b60512ec08386406a67d07b3e7874"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\FrostyPlugin\\Attributes\\RegisterCustomHandlerAttribute.cs",
+            "line": 15,
+            "text": "public class RegisterCustomHandlerAttribute : Attribute",
+            "sha256": "dbd702d2f38fa522d013148150dab31fecf2a42e036e6a86dc8a8d468aca5440"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\FrostyPlugin\\Attributes\\RegisterCustomHandlerAttribute.cs",
+            "line": 29,
+            "text": "public RegisterCustomHandlerAttribute(CustomHandlerType inType, Type inClassType, ResourceType resType = ResourceType.Invalid, string ebxType = \"\", string customType = \"\")",
+            "sha256": "dbd702d2f38fa522d013148150dab31fecf2a42e036e6a86dc8a8d468aca5440"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\FrostyPlugin\\Managers\\PluginManager.cs",
+            "line": 511,
+            "text": "&& !(tmpAttr is RegisterCustomHandlerAttribute)",
+            "sha256": "ecf4f5b0d824fac871fed961679516e9c2829b2cb9002d15ba6d2222d2cf4b63"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\FrostyPlugin\\Managers\\PluginManager.cs",
+            "line": 540,
+            "text": "if (tmpAttr is RegisterAssetDefinitionAttribute attr1)",
+            "sha256": "ecf4f5b0d824fac871fed961679516e9c2829b2cb9002d15ba6d2222d2cf4b63"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\FrostyPlugin\\Managers\\PluginManager.cs",
+            "line": 634,
+            "text": "else if (tmpAttr is RegisterCustomHandlerAttribute attr)",
+            "sha256": "ecf4f5b0d824fac871fed961679516e9c2829b2cb9002d15ba6d2222d2cf4b63"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\Plugins\\AtlasTexturePlugin\\Properties\\AssemblyInfo.cs",
+            "line": 28,
+            "text": "[assembly: RegisterAssetDefinition(\"AtlasTextureAsset\", typeof(AtlasTextureAssetDefinition))]",
+            "sha256": "9cddd408d15f232a211b5b13167976b7873cfa904810deeb2f2387482459874d"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\Plugins\\BiowareLocalizationPlugin\\Properties\\AssemblyInfo.cs",
+            "line": 38,
+            "text": "[assembly: RegisterCustomHandler(CustomHandlerType.Res, typeof(BiowareLocalizationCustomActionHandler), resType: ResourceType.LocalizedStringResource, ebxType: \"\")]",
+            "sha256": "661acf907baa8ed42580fb5435c91a97446ad5409e675c6f928400f2fd59f3ab"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\Plugins\\ConversationPlugin\\Properties\\AssemblyInfo.cs",
+            "line": 33,
+            "text": "[assembly: RegisterAssetDefinition(\"Conversation\", typeof(ConversationAssetDefinition))]",
+            "sha256": "3cfe0e4ad6cb5af6c2b01571337a2bd6c7233b4ac404286b8a2001ad888c55cc"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\Plugins\\Fifa\\LegacyBigFilePlugin\\Properties\\AssemblyInfo.cs",
+            "line": 39,
+            "text": "[assembly: RegisterAssetDefinition(\"BIG\", typeof(BigFileAssetDefinition))]",
+            "sha256": "3a06583e30a8436567670eeb39419087bbd1ea4354dd2ab88210a3a99b73045b"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\Plugins\\Fifa\\LegacyBigFilePlugin\\Properties\\AssemblyInfo.cs",
+            "line": 40,
+            "text": "[assembly: RegisterAssetDefinition(\"AST\", typeof(BigFileAssetDefinition))]",
+            "sha256": "3a06583e30a8436567670eeb39419087bbd1ea4354dd2ab88210a3a99b73045b"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\Plugins\\Fifa\\LegacyDatabasePlugin\\Properties\\AssemblyInfo.cs",
+            "line": 39,
+            "text": "[assembly: RegisterAssetDefinition(\"DB\", typeof(DatabaseAssetDefinition))]",
+            "sha256": "ad14f92cfdab29690dca65988a7f3db8225d7eab23ddefa6045cc37621cd96d5"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\Plugins\\Fifa\\LegacyDdsPlugin\\Properties\\AssemblyInfo.cs",
+            "line": 39,
+            "text": "[assembly: RegisterAssetDefinition(\"DDS\", typeof(DdsAssetDefinition))]",
+            "sha256": "479d1ba798d2599f46fd5a577590dbcd623820b21faa4f9316f8d8a40e8ead02"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\Plugins\\Fifa\\LegacyTextPlugin\\Properties\\AssemblyInfo.cs",
+            "line": 39,
+            "text": "[assembly: RegisterAssetDefinition(\"XML\", typeof(TextAssetDefinition))]",
+            "sha256": "60332626a37b143e19e7489d7d5d4755a41299d93125692c7cb4521a97e8871e"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\Plugins\\Fifa\\LegacyTextPlugin\\Properties\\AssemblyInfo.cs",
+            "line": 40,
+            "text": "[assembly: RegisterAssetDefinition(\"TXT\", typeof(TextAssetDefinition))]",
+            "sha256": "60332626a37b143e19e7489d7d5d4755a41299d93125692c7cb4521a97e8871e"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\Plugins\\Fifa\\LegacyTextPlugin\\Properties\\AssemblyInfo.cs",
+            "line": 41,
+            "text": "[assembly: RegisterAssetDefinition(\"LUA\", typeof(TextAssetDefinition))]",
+            "sha256": "60332626a37b143e19e7489d7d5d4755a41299d93125692c7cb4521a97e8871e"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\Plugins\\Fifa\\LegacyTextPlugin\\Properties\\AssemblyInfo.cs",
+            "line": 42,
+            "text": "[assembly: RegisterAssetDefinition(\"CSV\", typeof(TextAssetDefinition))]",
+            "sha256": "60332626a37b143e19e7489d7d5d4755a41299d93125692c7cb4521a97e8871e"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\Plugins\\Fifa\\LegacyTextPlugin\\Properties\\AssemblyInfo.cs",
+            "line": 43,
+            "text": "[assembly: RegisterAssetDefinition(\"INI\", typeof(TextAssetDefinition))]",
+            "sha256": "60332626a37b143e19e7489d7d5d4755a41299d93125692c7cb4521a97e8871e"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\Plugins\\Fifa\\LegacyTextPlugin\\Properties\\AssemblyInfo.cs",
+            "line": 44,
+            "text": "[assembly: RegisterAssetDefinition(\"H\", typeof(TextAssetDefinition))]",
+            "sha256": "60332626a37b143e19e7489d7d5d4755a41299d93125692c7cb4521a97e8871e"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\Plugins\\Fifa\\LegacyTextPlugin\\Properties\\AssemblyInfo.cs",
+            "line": 45,
+            "text": "[assembly: RegisterAssetDefinition(\"JSON\", typeof(TextAssetDefinition))]",
+            "sha256": "60332626a37b143e19e7489d7d5d4755a41299d93125692c7cb4521a97e8871e"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\Plugins\\Fifa\\LegacyTextPlugin\\Properties\\AssemblyInfo.cs",
+            "line": 46,
+            "text": "[assembly: RegisterAssetDefinition(\"HTML\", typeof(TextAssetDefinition))]",
+            "sha256": "60332626a37b143e19e7489d7d5d4755a41299d93125692c7cb4521a97e8871e"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\Plugins\\Fifa\\LegacyTextPlugin\\Properties\\AssemblyInfo.cs",
+            "line": 47,
+            "text": "[assembly: RegisterAssetDefinition(\"PRE\", typeof(TextAssetDefinition))]",
+            "sha256": "60332626a37b143e19e7489d7d5d4755a41299d93125692c7cb4521a97e8871e"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\Plugins\\FsLocalizationPlugin\\Properties\\AssemblyInfo.cs",
+            "line": 40,
+            "text": "[assembly: RegisterCustomHandler(CustomHandlerType.Ebx, typeof(FsLocalizationCustomActionHandler), ebxType: \"UITextDatabase\")]",
+            "sha256": "05ea1fc73dd9b0f0c315f06dfc6092a55d665914e3fc1b5b097a67b675551cf2"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\Plugins\\IesResourcePlugin\\Properties\\AssemblyInfo.cs",
+            "line": 28,
+            "text": "[assembly: RegisterAssetDefinition(\"IesProfileAsset\", typeof(IesResourceAssetDefinition))]",
+            "sha256": "1274349379177d3d4885b0d61663dacdc361273b160418b1ea72d8db0711efc1"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\Plugins\\LuaPlugin\\Properties\\AssemblyInfo.cs",
+            "line": 28,
+            "text": "[assembly: RegisterAssetDefinition(\"LuaRunnerCompiledLua\", typeof(LuaRunnerCompiledAssetDefinition))]",
+            "sha256": "504b3c9f9fba1f1ff4c073e4e834ae7a24ad3daac9035a211d14493d63a13991"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\Plugins\\LuaPlugin\\Properties\\AssemblyInfo.cs",
+            "line": 29,
+            "text": "[assembly: RegisterAssetDefinition(\"LuaScriptAsset\", typeof(LuaScriptAssetDefinition))]",
+            "sha256": "504b3c9f9fba1f1ff4c073e4e834ae7a24ad3daac9035a211d14493d63a13991"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\Plugins\\MeshSetPlugin\\Properties\\AssemblyInfo.cs",
+            "line": 37,
+            "text": "[assembly: RegisterAssetDefinition(\"RigidMeshAsset\", typeof(RigidMeshAssetDefinition))]",
+            "sha256": "82f7fed9c5f0a0e85a3cad5fec1cb0364db8abac66d195a08733a3878e16d8b6"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\Plugins\\MeshSetPlugin\\Properties\\AssemblyInfo.cs",
+            "line": 38,
+            "text": "[assembly: RegisterAssetDefinition(\"SkinnedMeshAsset\", typeof(SkinnedMeshAssetDefinition))]",
+            "sha256": "82f7fed9c5f0a0e85a3cad5fec1cb0364db8abac66d195a08733a3878e16d8b6"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\Plugins\\MeshSetPlugin\\Properties\\AssemblyInfo.cs",
+            "line": 39,
+            "text": "[assembly: RegisterAssetDefinition(\"CompositeMeshAsset\", typeof(CompositeMeshAssetDefinition))]",
+            "sha256": "82f7fed9c5f0a0e85a3cad5fec1cb0364db8abac66d195a08733a3878e16d8b6"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\Plugins\\MeshSetPlugin\\Properties\\AssemblyInfo.cs",
+            "line": 41,
+            "text": "[assembly: RegisterCustomHandler(CustomHandlerType.Res, typeof(ShaderBlockDepotCustomActionHandler), resType: ResourceType.ShaderBlockDepot)]",
+            "sha256": "82f7fed9c5f0a0e85a3cad5fec1cb0364db8abac66d195a08733a3878e16d8b6"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\Plugins\\ObjectVariationPlugin\\Properties\\AssemblyInfo.cs",
+            "line": 31,
+            "text": "[assembly: RegisterAssetDefinition(\"ObjectVariation\", typeof(ObjectVariationAssetDefinition))]",
+            "sha256": "cfe5576d2026c161231ed21234384de094df635c3bfb91dfb5af86f78f733395"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\Plugins\\SoundEditorPlugin\\Properties\\AssemblyInfo.cs",
+            "line": 34,
+            "text": "[assembly: RegisterAssetDefinition(\"SoundWaveAsset\", typeof(SoundWaveAssetDefinition))]",
+            "sha256": "7cbf77d6ff6c1767c98cead4c389f7fccdbd1055185e1de77df6ce9c9e24c301"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\Plugins\\SoundEditorPlugin\\Properties\\AssemblyInfo.cs",
+            "line": 35,
+            "text": "[assembly: RegisterAssetDefinition(\"NewWaveAsset\", typeof(NewWaveAssetDefinition))]",
+            "sha256": "7cbf77d6ff6c1767c98cead4c389f7fccdbd1055185e1de77df6ce9c9e24c301"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\Plugins\\SoundEditorPlugin\\Properties\\AssemblyInfo.cs",
+            "line": 36,
+            "text": "[assembly: RegisterAssetDefinition(\"HarmonySampleBankAsset\", typeof(HarmonySampleBankAssetDefinition))]",
+            "sha256": "7cbf77d6ff6c1767c98cead4c389f7fccdbd1055185e1de77df6ce9c9e24c301"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\Plugins\\SoundEditorPlugin\\Properties\\AssemblyInfo.cs",
+            "line": 37,
+            "text": "[assembly: RegisterAssetDefinition(\"OctaneAsset\", typeof(OctaneAssetDefinition))]",
+            "sha256": "7cbf77d6ff6c1767c98cead4c389f7fccdbd1055185e1de77df6ce9c9e24c301"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\Plugins\\SoundEditorPlugin\\Properties\\AssemblyInfo.cs",
+            "line": 38,
+            "text": "[assembly: RegisterAssetDefinition(\"ImpulseResponseAsset\", typeof(ImpulseResponseAssetDefinition))]",
+            "sha256": "7cbf77d6ff6c1767c98cead4c389f7fccdbd1055185e1de77df6ce9c9e24c301"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\Plugins\\SvgImagePlugin\\Properties\\AssemblyInfo.cs",
+            "line": 28,
+            "text": "[assembly: RegisterAssetDefinition(\"SvgImage\", typeof(SvgImageAssetDefinition))]",
+            "sha256": "28b32fd832a92506a15432c0801e12ec9ca49446f86541cad1e31abf7f6ce298"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\Plugins\\TestPlugin\\Properties\\AssemblyInfo.cs",
+            "line": 85,
+            "text": "//[assembly: RegisterAssetDefinition(\"SvgImage\", typeof(SvgImageAssetDefinition))]",
+            "sha256": "9ee8c399c5716f752f7fe6d40e6e8d41d5e329ba47c8789f52a50466d6112eee"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\Plugins\\TestPlugin\\Properties\\AssemblyInfo.cs",
+            "line": 86,
+            "text": "[assembly: RegisterAssetDefinition(\"DifficultyWeaponTableData\", typeof(DifficultyWeaponTableDataAssetDefinition))]",
+            "sha256": "9ee8c399c5716f752f7fe6d40e6e8d41d5e329ba47c8789f52a50466d6112eee"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\Plugins\\TestPlugin\\Properties\\AssemblyInfo.cs",
+            "line": 93,
+            "text": "//[assembly: RegisterCustomHandler(CustomHandlerType.Ebx, typeof(SvgImageCustomActionHandler), ebxType: \"SvgImage\")]",
+            "sha256": "9ee8c399c5716f752f7fe6d40e6e8d41d5e329ba47c8789f52a50466d6112eee"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\Plugins\\TestPlugin\\Properties\\AssemblyInfo.cs",
+            "line": 94,
+            "text": "[assembly: RegisterCustomHandler(CustomHandlerType.Ebx, typeof(DifficultyWeaponTableActionHandler), ebxType: \"DifficultyWeaponTableData\")]",
+            "sha256": "9ee8c399c5716f752f7fe6d40e6e8d41d5e329ba47c8789f52a50466d6112eee"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\Plugins\\TestPlugin\\Properties\\AssemblyInfo.cs",
+            "line": 95,
+            "text": "//[assembly: RegisterCustomHandler(CustomHandlerType.Ebx, typeof(NetworkRegistryActionHandler), ebxType: \"NetworkRegistryAsset\")]",
+            "sha256": "9ee8c399c5716f752f7fe6d40e6e8d41d5e329ba47c8789f52a50466d6112eee"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\Plugins\\TestPlugin\\Properties\\AssemblyInfo.cs",
+            "line": 103,
+            "text": "[assembly: RegisterCustomHandler(CustomHandlerType.CustomAsset, typeof(InitFsCustomActionHandler), customType: \"fs\")]",
+            "sha256": "9ee8c399c5716f752f7fe6d40e6e8d41d5e329ba47c8789f52a50466d6112eee"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\Plugins\\TexturePlugin\\Properties\\AssemblyInfo.cs",
+            "line": 28,
+            "text": "[assembly: RegisterAssetDefinition(\"TextureAsset\", typeof(TextureAssetDefinition))]",
+            "sha256": "75c9bdbe0c2b9e3d62fdf0cbf61734273a6f069fdd6eb7846e9f1e2242695fcb"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\Plugins\\VersionDataPlugin\\Properties\\AssemblyInfo.cs",
+            "line": 30,
+            "text": "[assembly: RegisterAssetDefinition(\"VersionData\", typeof(VersionDataAssetDefinition))]",
+            "sha256": "61d58b3713609a4583917785d2111c63c201fce95498d02486857c123248ebd7"
+          }
+        ],
+        "limits": "Text/source search only; no compilation, installed assembly inspection or native execution."
+      },
+      "registrationProof": [
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\FrostyPlugin\\Managers\\PluginManager.cs",
+          "sha256": "ecf4f5b0d824fac871fed961679516e9c2829b2cb9002d15ba6d2222d2cf4b63",
+          "start": 634,
+          "end": 661,
+          "lines": [
+            "                    else if (tmpAttr is RegisterCustomHandlerAttribute attr)",
+            "                    {",
+            "                        if (attr.HandlerType == CustomHandlerType.Ebx)",
+            "                        {",
+            "                            var assetType = TypeLibrary.GetType(attr.EbxType);",
+            "                            if (assetType != null)",
+            "                            {",
+            "                                foreach (var subType in TypeLibrary.GetDerivedTypes(assetType))",
+            "                                {",
+            "                                    if (!m_customHandlers.ContainsKey((uint)Fnv1.HashString(subType.Name.ToLower())))",
+            "                                    {",
+            "                                        m_customHandlers.Add((uint)Fnv1.HashString(subType.Name.ToLower()), attr.HandlerClassType);",
+            "                                    }",
+            "                                }",
+            "                                if (!m_customHandlers.ContainsKey((uint)Fnv1.HashString(assetType.Name.ToLower())))",
+            "                                {",
+            "                                    m_customHandlers.Add((uint)Fnv1.HashString(assetType.Name.ToLower()), attr.HandlerClassType);",
+            "                                }",
+            "                            }",
+            "                        }",
+            "                        else if (attr.HandlerType == CustomHandlerType.Res)",
+            "                        {",
+            "                            if (!m_resCustomHandlers.ContainsKey(attr.ResType))",
+            "                            {",
+            "                                m_resCustomHandlers.Add(attr.ResType, attr.HandlerClassType);",
+            "                            }",
+            "                        }",
+            "                        else if (attr.HandlerType == CustomHandlerType.CustomAsset)"
+          ]
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\FrostyPlugin\\Attributes\\RegisterCustomHandlerAttribute.cs",
+          "sha256": "dbd702d2f38fa522d013148150dab31fecf2a42e036e6a86dc8a8d468aca5440",
+          "start": 15,
+          "end": 38,
+          "lines": [
+            "    public class RegisterCustomHandlerAttribute : Attribute",
+            "    {",
+            "        public CustomHandlerType HandlerType { get; set; }",
+            "        public Type HandlerClassType { get; set; }",
+            "",
+            "        // Ebx",
+            "        public string EbxType { get; set; }",
+            "",
+            "        // Res",
+            "        public ResourceType ResType { get; set; }",
+            "",
+            "        // Custom",
+            "        public string CustomAssetType { get; set; }",
+            "",
+            "        public RegisterCustomHandlerAttribute(CustomHandlerType inType, Type inClassType, ResourceType resType = ResourceType.Invalid, string ebxType = \"\", string customType = \"\")",
+            "        {",
+            "            HandlerType = inType;",
+            "            HandlerClassType = inClassType;",
+            "            ResType = resType;",
+            "            EbxType = ebxType;",
+            "            CustomAssetType = customType;",
+            "        }",
+            "    }",
+            "}"
+          ]
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\Plugins\\MeshSetPlugin\\Properties\\AssemblyInfo.cs",
+          "sha256": "82f7fed9c5f0a0e85a3cad5fec1cb0364db8abac66d195a08733a3878e16d8b6",
+          "start": 37,
+          "end": 41,
+          "lines": [
+            "[assembly: RegisterAssetDefinition(\"RigidMeshAsset\", typeof(RigidMeshAssetDefinition))]",
+            "[assembly: RegisterAssetDefinition(\"SkinnedMeshAsset\", typeof(SkinnedMeshAssetDefinition))]",
+            "[assembly: RegisterAssetDefinition(\"CompositeMeshAsset\", typeof(CompositeMeshAssetDefinition))]",
+            "",
+            "[assembly: RegisterCustomHandler(CustomHandlerType.Res, typeof(ShaderBlockDepotCustomActionHandler), resType: ResourceType.ShaderBlockDepot)]"
+          ]
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\Plugins\\BiowareLocalizationPlugin\\Properties\\AssemblyInfo.cs",
+          "sha256": "661acf907baa8ed42580fb5435c91a97446ad5409e675c6f928400f2fd59f3ab",
+          "start": 38,
+          "end": 38,
+          "lines": [
+            "[assembly: RegisterCustomHandler(CustomHandlerType.Res, typeof(BiowareLocalizationCustomActionHandler), resType: ResourceType.LocalizedStringResource, ebxType: \"\")]"
+          ]
+        }
+      ],
+      "editorRelevantLines": [
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\FrostyEditor\\App.xaml.cs",
+          "sha256": "ec83a910946376f49babc8f50311f3b40fbb2a73d44251516adbd6d71871625a",
+          "line": 29,
+          "text": "public static ResourceManager ResourceManager { get => Frosty.Core.App.ResourceManager; set => Frosty.Core.App.ResourceManager = value; }"
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\FrostyEditor\\Extensions\\TextExtension.cs",
+          "sha256": "6cf5442eef99d7f1209eacff4ac3ea075f076ab0b2c8395f41d9a8b04c14d1c4",
+          "line": 19,
+          "text": "using (Stream stream = Application.GetResourceStream(uri).Stream)"
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\FrostyEditor\\Properties\\AssemblyInfo.cs",
+          "sha256": "d9e9a3bc25ab822af7021c0c5613c01bca6887023466ce664cd7975c8cded749",
+          "line": 27,
+          "text": "//the NeutralResourceLanguage attribute below.  Update the \"en-US\" in"
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\FrostyEditor\\Properties\\AssemblyInfo.cs",
+          "sha256": "d9e9a3bc25ab822af7021c0c5613c01bca6887023466ce664cd7975c8cded749",
+          "line": 30,
+          "text": "//[assembly: NeutralResourcesLanguage(\"en-US\", UltimateResourceFallbackLocation.Satellite)]"
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\FrostyEditor\\Properties\\AssemblyInfo.cs",
+          "sha256": "d9e9a3bc25ab822af7021c0c5613c01bca6887023466ce664cd7975c8cded749",
+          "line": 34,
+          "text": "ResourceDictionaryLocation.None, //where theme specific resource dictionaries are located"
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\FrostyEditor\\Properties\\AssemblyInfo.cs",
+          "sha256": "d9e9a3bc25ab822af7021c0c5613c01bca6887023466ce664cd7975c8cded749",
+          "line": 37,
+          "text": "ResourceDictionaryLocation.SourceAssembly //where the generic resource dictionary is located"
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\FrostyEditor\\Properties\\Resources.Designer.cs",
+          "sha256": "91e523f7a877bf9b2067f6747a629a11357ad577867a1eebcf484ab252324541",
+          "line": 18,
+          "text": "// This class was auto-generated by the StronglyTypedResourceBuilder"
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\FrostyEditor\\Properties\\Resources.Designer.cs",
+          "sha256": "91e523f7a877bf9b2067f6747a629a11357ad577867a1eebcf484ab252324541",
+          "line": 22,
+          "text": "[global::System.CodeDom.Compiler.GeneratedCodeAttribute(\"System.Resources.Tools.StronglyTypedResourceBuilder\", \"17.0.0.0\")]"
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\FrostyEditor\\Properties\\Resources.Designer.cs",
+          "sha256": "91e523f7a877bf9b2067f6747a629a11357ad577867a1eebcf484ab252324541",
+          "line": 25,
+          "text": "internal class Resources {"
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\FrostyEditor\\Properties\\Resources.Designer.cs",
+          "sha256": "91e523f7a877bf9b2067f6747a629a11357ad577867a1eebcf484ab252324541",
+          "line": 27,
+          "text": "private static global::System.Resources.ResourceManager resourceMan;"
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\FrostyEditor\\Properties\\Resources.Designer.cs",
+          "sha256": "91e523f7a877bf9b2067f6747a629a11357ad577867a1eebcf484ab252324541",
+          "line": 32,
+          "text": "internal Resources() {"
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\FrostyEditor\\Properties\\Resources.Designer.cs",
+          "sha256": "91e523f7a877bf9b2067f6747a629a11357ad577867a1eebcf484ab252324541",
+          "line": 36,
+          "text": "///   Returns the cached ResourceManager instance used by this class."
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\FrostyEditor\\Properties\\Resources.Designer.cs",
+          "sha256": "91e523f7a877bf9b2067f6747a629a11357ad577867a1eebcf484ab252324541",
+          "line": 39,
+          "text": "internal static global::System.Resources.ResourceManager ResourceManager {"
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\FrostyEditor\\Properties\\Resources.Designer.cs",
+          "sha256": "91e523f7a877bf9b2067f6747a629a11357ad577867a1eebcf484ab252324541",
+          "line": 42,
+          "text": "global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager(\"FrostyEditor.Properties.Resources\", typeof(Resources).Assembly);"
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\FrostyEditor\\Windows\\MainWindow.xaml.cs",
+          "sha256": "c94d8d7b542229fb3f683a73dadafd2b1ae184e4e7b359b26b1cecbc8d39bccc",
+          "line": 790,
+          "text": "AssetDefinition definition = App.PluginManager.GetAssetDefinition(asset.Type);"
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\FrostyEditor\\Windows\\MainWindow.xaml.cs",
+          "sha256": "c94d8d7b542229fb3f683a73dadafd2b1ae184e4e7b359b26b1cecbc8d39bccc",
+          "line": 1102,
+          "text": "AssetDefinition assetDefinition = App.PluginManager.GetAssetDefinition(entry.Type) ?? new AssetDefinition();"
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\FrostyEditor\\Windows\\MainWindow.xaml.cs",
+          "sha256": "c94d8d7b542229fb3f683a73dadafd2b1ae184e4e7b359b26b1cecbc8d39bccc",
+          "line": 1128,
+          "text": "AssetDefinition assetDefinition = App.PluginManager.GetAssetDefinition(entry.Type) ?? new AssetDefinition();"
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\FrostyEditor\\Windows\\SplashWindow.xaml.cs",
+          "sha256": "c8cace2f2aead328abf396814776b5d933811d670c2e6a5b8a400253f154646d",
+          "line": 250,
+          "text": "await LoadLocalizedStringResourceTables(logger);"
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\FrostyEditor\\Windows\\SplashWindow.xaml.cs",
+          "sha256": "c8cace2f2aead328abf396814776b5d933811d670c2e6a5b8a400253f154646d",
+          "line": 317,
+          "text": "App.ResourceManager = new ResourceManager(App.FileSystem);"
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\FrostyEditor\\Windows\\SplashWindow.xaml.cs",
+          "sha256": "c8cace2f2aead328abf396814776b5d933811d670c2e6a5b8a400253f154646d",
+          "line": 318,
+          "text": "App.ResourceManager.SetLogger(logger);"
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\FrostyEditor\\Windows\\SplashWindow.xaml.cs",
+          "sha256": "c8cace2f2aead328abf396814776b5d933811d670c2e6a5b8a400253f154646d",
+          "line": 319,
+          "text": "App.ResourceManager.Initialize();"
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\FrostyEditor\\Windows\\SplashWindow.xaml.cs",
+          "sha256": "c8cace2f2aead328abf396814776b5d933811d670c2e6a5b8a400253f154646d",
+          "line": 321,
+          "text": "App.AssetManager = new AssetManager(App.FileSystem, App.ResourceManager);"
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\FrostyToolsuite-battlefield6\\FrostyEditor\\Windows\\SplashWindow.xaml.cs",
+          "sha256": "c8cace2f2aead328abf396814776b5d933811d670c2e6a5b8a400253f154646d",
+          "line": 368,
+          "text": "private async Task<int> LoadLocalizedStringResourceTables(ILogger logger)"
+        }
+      ],
+      "conclusion": "Across 449 scoped source/config files, the only exact expression-graph type match is the SDK enum. Eleven direct Resource subclass declarations are captured; none is named for this graph. Resource custom handler registration dispatches by attr.ResType. The inspected plugin registrations do not establish a handler for SerializedExpressionNodeGraph. No selected graph reader or independently known operation control is established.",
+      "limits": [
+        "This is a scoped source-route result, not global reader absence.",
+        "The resource receipt pins head/sdk/type/hash, but contains no descriptor metadata; no descriptor-dependent EBX layout or meaning is asserted.",
+        "No graph grammar, receiver formula, native execution, activation, current availability or effective utility mechanic is established."
+      ],
+      "historyNote": "A supplementary PowerShell editor search traversed obj generated files and produced truncated path-only output; those results were discarded. Authoritative saved searches exclude bin/obj/packages/.git."
+    }
+  },
+  "inference": "The available scoped route supports raw resource retrieval; it does not establish utility operation semantics.",
+  "unresolved": [
+    "This is a scoped source-route result, not global reader absence.",
+    "The resource receipt pins head/sdk/type/hash, but contains no descriptor metadata; no descriptor-dependent EBX layout or meaning is asserted.",
+    "No graph grammar, receiver formula, native execution, activation, current availability or effective utility mechanic is established.",
+    "Repair, supply and revive graph operation/receiver semantics require an existing verifiable reader and independently known operation control."
+  ],
+  "siteImpact": "No site change or utility comparison formula supported.",
+  "evidence": {
+    "paths": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L190\\probe-evidence.json",
+        "sha256": "2febbb916efe9d2a663a738544d6bf28a8e3f81204ee8dfae16ac605df344f39"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L190\\control-raw.json",
+        "sha256": "5f76caeb1046b7fe3232d00db51f0fca2a89d38e39e15bf225be8de90a6889e8"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L190\\reader-gate.json",
+        "sha256": "8354975cd5fee356c3d6ae8192ea359e4aa2a83b2448e6f99240c0400e035e27"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L190\\l190-result.json",
+        "sha256": "b707a63b5905bd05be321c40b2ec16e4c17ba40ae91499f41e3165f8492fe7a8"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L190\\continuation-source-proof.json",
+        "sha256": "3de713ec83a922b74a3d9024499659d55db73efec192cfbff8dedaad2296843c"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L190\\continuation.json",
+        "sha256": "31b9d18863dc9d195687ed917dabc88ad82518f6d8db5fe377c454daa7477186"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L190\\reader-gate-v2.json",
+        "sha256": "a9a728e047d2e8f110f05e2ba8d5028622bebeb794d65a3364006337d78fbf77"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L190\\l190-result-v2.json",
+        "sha256": "d0e36f447258246c922f1b76595d3821cb90866f52cb865687ba4ecc13c9f287"
+      }
+    ],
+    "sourceReceipt": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-audit-candidate-expression-resources-2026-09-23.json",
+      "sha256": "e458aefc2112f159254ffc8158abfd112d0625bd7f573258a787331ded733838"
+    },
+    "commands": [
+      {
+        "executable": "python",
+        "args": [
+          ".\\gate_probe.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L190",
+        "helperSha256": "705a6180c098063ae6b4a1feedc86257b7536c015613bbc0c34ccf7941a3bcc3"
+      },
+      {
+        "executable": "python",
+        "args": [
+          ".\\frosty-raw-check.saved.py",
+          "--path",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+          "--offset",
+          "1084",
+          "--type",
+          "f32",
+          "--expect",
+          "0.6695",
+          "--out",
+          ".\\control-raw.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L190",
+        "helperSha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3"
+      },
+      {
+        "executable": "python",
+        "args": [
+          ".\\finish_gate.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L190",
+        "helperSha256": "5eed8ec8c2f66ca085a5282b0d3febc95b75ba53221715d1f8bea8ee6bdd0342"
+      },
+      {
+        "executable": "python",
+        "args": [
+          ".\\frosty-records.saved.py",
+          "check-receipt",
+          ".\\draft-receipt.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L190",
+        "helperSha256": "a6b0ca77270f6abc5dc48f164762569a8cb36faf37754f04f892d0ae7e7c7f34"
+      },
+      {
+        "executable": "python",
+        "args": [
+          ".\\continue_gate.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L190",
+        "helperSha256": "48d28946d4454ca8a711d2814027d3242ebc651c028eb6eba92b8ba01c57aeca"
+      },
+      {
+        "executable": "python",
+        "args": [
+          ".\\finish_continuation.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L190",
+        "helperSha256": "562fa090758063168b659948fa8b7291d7a416b23c08f23e2cd0da182a90226b"
+      },
+      {
+        "executable": "python",
+        "args": [
+          ".\\frosty-records.saved.py",
+          "check-receipt",
+          ".\\draft-receipt-v2.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L190",
+        "helperSha256": "a6b0ca77270f6abc5dc48f164762569a8cb36faf37754f04f892d0ae7e7c7f34"
+      }
+    ],
+    "historyNote": "Original repository frosty-records.py schema invocation occurred before its hash was recorded. It was read-only; saved identical revision hash is retained. Source excerpt and folder reads were read-only PowerShell calls; exact tool history remains in chat."
+  },
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-09-29",
+    "build": "1.4.3.0-hotfix",
+    "leads": [
+      {
+        "id": "L190",
+        "title": "Utility compiled graph reader gate",
+        "status": "finding",
+        "summary": "Three selected utility compiled resource pins pass; scoped SDK/plugin/editor source route exposes raw retrieval, without an established graph reader, matching registration or operation control.",
+        "reopenWhen": "An existing graph reader plus an independently verifiable operation control becomes available.",
+        "statusNote": "GPT-6.1 Sol, 29 Sep; source only"
+      }
+    ],
+    "assets": [
+      {
+        "path": "common/hardware/gadgets/tools/repair/logic/simex_ability_gad_soldier_repairtool",
+        "format": "raw-res",
+        "sha256": "b99dd7cbdbcde2222fd4301259db3b849c2482fc4a71264e4dd36a7b0b10d3c3",
+        "question": "Can an existing scoped SDK/plugin reader decode this selected utility consumer?",
+        "result": "blocked-by-decoding",
+        "conclusion": "Body identity verified; grammar and operation/receiver semantics remain unresolved."
+      },
+      {
+        "path": "common/hardware/gadgets/misc/defibrillator/simex_defib",
+        "format": "raw-res",
+        "sha256": "512ee0523dc16fcf9e15a4f57b1065bc63aa1314e1f88456e486683558856e68",
+        "question": "Can an existing scoped SDK/plugin reader decode this selected utility consumer?",
+        "result": "blocked-by-decoding",
+        "conclusion": "Body identity verified; grammar and operation/receiver semantics remain unresolved."
+      },
+      {
+        "path": "common/hardware/gadgets/throwables/supplycrate/prj_simex_supplycrate",
+        "format": "raw-res",
+        "sha256": "80167d9e98a2ce952c962affa80a56aed3648a5691e23cdec435b00cab7b232b",
+        "question": "Can an existing scoped SDK/plugin reader decode this selected utility consumer?",
+        "result": "blocked-by-decoding",
+        "conclusion": "Body identity verified; grammar and operation/receiver semantics remain unresolved."
+      }
+    ],
+    "binding": "research",
+    "run": {
+      "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets",
+      "orchestrator": "GPT-6.1 Sol",
+      "workers": [
+        {
+          "lead": "L190",
+          "model": "GPT-6.1 Sol",
+          "effort": "Low"
+        }
+      ]
+    },
+    "refs": []
+  },
+  "orchestratorCaptureReviews": [
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\armor-resource-capture\\verification.json",
+      "sha256": "15f1421c545a9e0a1f217fcc8b95638706c2b3bfa0e0f0ecbbfd7ecc15bd24e6"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\missing-gameplay-capture\\verification.json",
+      "sha256": "2743270e30d78f0dad9426589138bb79dbd35fe03ecec6ce9aab789392437b0f"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\next-utility-family-capture\\verification.json",
+      "sha256": "21be370a335301016614ce13a1c0ab6cbbb8f3b3589f39eb1d119e111824abf9"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\nvg-child-capture\\verification.json",
+      "sha256": "054a23735b9b352510cb5a17f8aaa3a2f2b94a45f568f3547051561924d2de12"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\registry-capture\\verification.json",
+      "sha256": "2e6ff41233fe7bdcd2f74b5189df235ab5113f6a2789b4f3c1b1fb747b23b8f9"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\utility-function-capture\\verification.json",
+      "sha256": "9714dd0000b8c561297ed75d0edeae45b1d7d53e66f10d885816bf0f0319f2fd"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\utility-receiver-capture\\verification.json",
+      "sha256": "54c4c93de9cb5027bcdc7903b0c5840d89aeb4b5907157a8f57952c6356093ed"
+    }
+  ],
+  "orchestratorResourceReview": {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\utility-selected-resources.json",
+    "sha256": "c32f63f62c25a650d6e16ff5e6d5304cdb708ac4da6c5c45ab570ded7f28ec16",
+    "review": "Exact selected captured bodies independently rehashed with recorded Head4892087/SDK4414275. Resource bytes do not establish grammar or runtime activation."
+  },
+  "orchestratorReview": {
+    "reviewer": "GPT-6.1 Sol",
+    "workerModel": "GPT-6.1 Sol",
+    "workerEffort": "Low",
+    "date": "2026-09-29",
+    "draft": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L190\\draft-receipt-v2.json",
+      "sha256": "4fb9118c4b91b9a2414e526c861ce5c89c59ebc28fe2b25024cc90784281e8a5"
+    },
+    "helperReview": {
+      "tool": "scripts/frosty-worker.py review",
+      "issues": 0,
+      "leadDir": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L190"
+    },
+    "scope": {
+      "roots": 3,
+      "externalChildrenExamined": 0
+    },
+    "independentRawReview": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L190-independent-raw-review-v2.json",
+      "sha256": "dd2ff4878404695ae3ec4ececf32e993ca62d531bb0d4d68fedcce51d6d0fbda",
+      "uniqueChecksIncludingControl": 1,
+      "failures": 0
+    },
+    "pinReview": "Every recorded raw EBX asset hash matches either an indexed hotfix Head 4892087 capture or a reviewed fresh run-local capture with matching catalog Head/SDK and frozen descriptor hash. Release M433 control is separate.",
+    "semanticReview": "Selected source joins and exact member-owner meanings checked against reviewed prior mappings. No current multiplayer availability, native activation, units or effective composition claim."
+  }
+}

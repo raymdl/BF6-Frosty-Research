@@ -1,0 +1,307 @@
+{
+  "lead": "L132",
+  "date": "2026-09-29",
+  "status": "reviewed-source-finding",
+  "build": {
+    "release": "1.4.3.0",
+    "head": 4892017,
+    "descriptorSha256": "91c9ea7c3dd830e34a78123c8bb7485e80eefdb18fc9c7ee41117971d23565c2"
+  },
+  "question": "Do the captured jump/combat-dive feature-expression routes identify movement speed/acceleration or firing-readiness delays useful as soldier movement contexts for loadout comparisons?",
+  "scope": {
+    "expected": 4,
+    "examined": 4,
+    "notes": "Exactly the four brief-named release roots were examined. The two feature imports resolve to the two listed SimEx roots. Their direct imports resolve to one shared GRX_Glacier_Soldier asset and exactly four named objects; twelve f32 candidate operands were raw-checked. No additional assets were followed."
+  },
+  "control": {
+    "description": "Site pointer data/weapons.json:/[id=m433]/recoil/ads/amount equals the named pinned GS_HK433 recoil scalar; rerun of the raw f32 check passed before target work.",
+    "passed": true,
+    "sitePointer": "data/weapons.json:/[id=m433]/recoil/ads/amount",
+    "siteValue": 0.6695,
+    "descriptor": {
+      "path": "/Field_c5d1c8fe/Field_6b84de87/Field_22810b21",
+      "ownerObjectIndex": 2,
+      "ownerClass": "Class_539cff9b",
+      "fieldHash": "Field_22810b21",
+      "fieldName": "RecoilAmount"
+    },
+    "registryAssociation": {
+      "route": "Common/Hardware/Weapons/AssaultRifle/HK433/GS_HK433",
+      "descriptorPath": "/Field_c5d1c8fe/Field_6b84de87/Field_22810b21",
+      "ownerObjectIndex": 2,
+      "ownerClass": "Class_539cff9b",
+      "registryPointer": "/Field_c5d1c8fe/Field_6b84de87",
+      "wrapper": "Field_2a325077",
+      "anchorName": "GS_HK433.Recoil.Zoomed",
+      "anchorGuid": "ce3bc794-ed59-480d-8862-d5ebb151dce2",
+      "arrayIndex": 6,
+      "fieldHash": "Field_22810b21",
+      "fieldName": "GS_HK433.Recoil.Zoomed.RecoilAmount",
+      "childGuid": "7d50f6f7-a711-4ebb-adc3-cf1df6be4f5b",
+      "relation": "equal-scalar",
+      "sourceValue": 0.6695,
+      "registryValue": 0.6695,
+      "registryLayoutProvisional": true
+    },
+    "rawChecks": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+        "rawSha256": "66caca0e667d17fdf03f9fb4f620b9c5842aa1fd8de0221128ad4862895eed51",
+        "offset": 1084,
+        "type": "f32",
+        "bytesHex": "5a642b3f",
+        "value": 0.6694999933242798,
+        "expect": 0.6695,
+        "matches": true
+      }
+    ]
+  },
+  "sourceFacts": {
+    "route": "Exact feature file/object GUIDs resolve to the two listed SimEx roots; their direct imports resolve to these exact four GRX children.",
+    "registryRawPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Gameplay\\Soldier\\GRX_Glacier_Soldier.ebx",
+    "registryRawSha256": "9b44340483d9af272ef5f0cbda5934ad9a30ff1f055fd3fddc60fc4943e822cc",
+    "parameters": [
+      {
+        "name": "Jump_HorizontalVelocityCap",
+        "guid": "fc30811e-a974-4b9c-b674-00d9448916f9",
+        "class": "Class_d59e68b9",
+        "localTypeKey": "c03e3ff27f5cfebb73c91d2973a7dfc1",
+        "importedBy": "Common/Gameplay/Soldier/Traversal/InAir/SimEx_JumpAcceleration",
+        "fields": [
+          {
+            "field": "Field_42c8b257",
+            "type": "f32",
+            "descriptorOffset": 68,
+            "rawOffset": 2788,
+            "bytes": "00000041",
+            "value": 8.0
+          },
+          {
+            "field": "Field_c06d0cbb",
+            "type": "f32",
+            "descriptorOffset": 72,
+            "rawOffset": 2792,
+            "bytes": "00004040",
+            "value": 3.0
+          },
+          {
+            "field": "Field_3ff76ddb",
+            "type": "f32",
+            "descriptorOffset": 64,
+            "rawOffset": 2784,
+            "bytes": "00004041",
+            "value": 12.0
+          }
+        ]
+      },
+      {
+        "name": "Jump_MinSpeedForHorizontalImpulse",
+        "guid": "892cab67-327c-4be5-afe6-f03bc9f12c61",
+        "class": "Class_d59e68b9",
+        "localTypeKey": "c03e3ff27f5cfebb73c91d2973a7dfc1",
+        "importedBy": "Common/Gameplay/Soldier/Traversal/InAir/SimEx_JumpAcceleration",
+        "fields": [
+          {
+            "field": "Field_42c8b257",
+            "type": "f32",
+            "descriptorOffset": 68,
+            "rawOffset": 11036,
+            "bytes": "66666640",
+            "value": 3.5999999046325684
+          },
+          {
+            "field": "Field_c06d0cbb",
+            "type": "f32",
+            "descriptorOffset": 72,
+            "rawOffset": 11040,
+            "bytes": "00000000",
+            "value": 0.0
+          },
+          {
+            "field": "Field_3ff76ddb",
+            "type": "f32",
+            "descriptorOffset": 64,
+            "rawOffset": 11032,
+            "bytes": "00002041",
+            "value": 10.0
+          }
+        ]
+      },
+      {
+        "name": "Jump_StrafeSpeed",
+        "guid": "5a6f907b-28a2-4d40-a69b-d5c918d99ed7",
+        "class": "Class_d59e68b9",
+        "localTypeKey": "c03e3ff27f5cfebb73c91d2973a7dfc1",
+        "importedBy": "Common/Gameplay/Soldier/Traversal/InAir/SimEx_JumpAcceleration",
+        "fields": [
+          {
+            "field": "Field_42c8b257",
+            "type": "f32",
+            "descriptorOffset": 68,
+            "rawOffset": 13220,
+            "bytes": "0000003e",
+            "value": 0.125
+          },
+          {
+            "field": "Field_c06d0cbb",
+            "type": "f32",
+            "descriptorOffset": 72,
+            "rawOffset": 13224,
+            "bytes": "00000000",
+            "value": 0.0
+          },
+          {
+            "field": "Field_3ff76ddb",
+            "type": "f32",
+            "descriptorOffset": 64,
+            "rawOffset": 13216,
+            "bytes": "00002041",
+            "value": 10.0
+          }
+        ]
+      },
+      {
+        "name": "CombatDiveDuration",
+        "guid": "63b593b9-4da6-4aaa-bfd5-afd5dd0115f4",
+        "class": "Class_d59e68b9",
+        "localTypeKey": "c03e3ff27f5cfebb73c91d2973a7dfc1",
+        "importedBy": "Common/Gameplay/Soldier/Traversal/OnGround/CombatDive/SimEx_CombatDiveAcceleration",
+        "fields": [
+          {
+            "field": "Field_42c8b257",
+            "type": "f32",
+            "descriptorOffset": 68,
+            "rawOffset": 19764,
+            "bytes": "cdcccc3d",
+            "value": 0.10000000149011612
+          },
+          {
+            "field": "Field_c06d0cbb",
+            "type": "f32",
+            "descriptorOffset": 72,
+            "rawOffset": 19768,
+            "bytes": "00000000",
+            "value": 0.0
+          },
+          {
+            "field": "Field_3ff76ddb",
+            "type": "f32",
+            "descriptorOffset": 64,
+            "rawOffset": 19760,
+            "bytes": "00000040",
+            "value": 2.0
+          }
+        ]
+      }
+    ]
+  },
+  "inference": [
+    "The exact object names Jump_HorizontalVelocityCap, Jump_MinSpeedForHorizontalImpulse and Jump_StrafeSpeed indicate potential jump movement parameters; CombatDiveDuration indicates a potential dive-duration parameter.",
+    "A prior Class_d59e68b9 source receipt treats Field_42c8b257 as the candidate value and the other two f32 fields as candidate bounds, while explicitly stating that this field-role/order mapping is presumed, not proven. Its application here is an inference only.",
+    "The source names and raw values could inform a future soldier movement context if field roles, units and expression activation are established."
+  ],
+  "unresolved": [
+    "For Class_d59e68b9, Field_42c8b257 is a candidate value and Field_c06d0cbb / Field_3ff76ddb are candidate bounds by analogy with L106; this role/order remains presumed, not proven, for these four objects.",
+    "The three f32 values on each imported soldier parameter have no established units or field-specific runtime meanings in this trace.",
+    "No validated compiled-expression grammar or consumer execution route establishes the equations, operation semantics, output mapping, activation or composition for SimEx_JumpAcceleration or SimEx_CombatDiveAcceleration.",
+    "The exact four imported GRX parameters are not named as weapon-use or firing-readiness delays. TimeSincePreviousJump is a serialized channel label only; it does not establish a weapon-ready condition.",
+    "No native runtime behavior or site loadout-specific projection was established."
+  ],
+  "siteImpact": "No supported site correction or numeric enhancement proposal. ADS_MOVE_TIERS are dimensionless ratios and sprint recovery tables are milliseconds; neither encoding establishes units or a mapping for these registry slots. No capture requested.",
+  "workerEvidence": {
+    "folder": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T101403-0400-astra\\L132",
+    "resultSha256": "f18faa17f958b15b5bd17cf3c99ed37e6a896cd40fe6637341fac795d1ae5709",
+    "draftReceiptSha256": "85f0f310b9d6a6b0d9d677c19c3b641bb88640b7a0ea52d558ae65863ee7f2e3",
+    "rawChecks": [
+      {
+        "file": "control-raw-check.json",
+        "sha256": "1901178e8b6937ba4a40469fd75c9e3c27e55b091ccc9f09c8b66e6526f9833d"
+      },
+      {
+        "file": "l132-direct-raw-checks.json",
+        "sha256": "a9fe9792aec4c8915f05e19fba81d84c77da3a79f5cf7ce57c4316fa7838eb16"
+      },
+      {
+        "file": "l132-target-raw-checks.json",
+        "sha256": "3c0597af8a4d7e1d2f0bbe4e3edc37994ad8ee9d74f141c926f1b150ccba0a07"
+      }
+    ]
+  },
+  "orchestratorReview": {
+    "helperIssues": [],
+    "scope": "Four requested roots, one permitted shared target asset, exactly four children, twelve candidate numeric operands; structural layout metadata is excluded from the extraction cap.",
+    "independentRawCheck": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Gameplay\\Soldier\\GRX_Glacier_Soldier.ebx",
+      "rawSha256": "9b44340483d9af272ef5f0cbda5934ad9a30ff1f055fd3fddc60fc4943e822cc",
+      "offset": 19764,
+      "type": "f32",
+      "bytesHex": "cdcccc3d",
+      "value": 0.10000000149011612,
+      "expect": "0.1",
+      "matches": true
+    },
+    "siteEncodingFiles": [
+      "docs/STAT_LADDERS.md",
+      "sim/applyAttachments.js"
+    ],
+    "roleCaution": "L106 explicitly labels the value/bounds interpretation presumed, not proven. Physical descriptor offsets are established."
+  },
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-09-29",
+    "build": "1.4.3.0-release",
+    "leads": [
+      {
+        "id": "L132",
+        "title": "Jump and combat-dive source context",
+        "status": "finding",
+        "summary": "Four release feature/expression roots resolve to three named jump parameters and CombatDiveDuration; twelve f32 slots are raw-verified, while roles, units and execution remain unresolved.",
+        "reopenWhen": "Reopen when a validated expression reader or engine-side source establishes field roles, units, equations and activation for these exact imports."
+      }
+    ],
+    "assets": [
+      {
+        "path": "Common/Gameplay/Soldier/Traversal/Vault/Feature_JumpAcceleration",
+        "format": "raw-ebx",
+        "sha256": "93d8d50a391f9f7f95ab57c1bc5bcd874981648c321ac4c0ead2eaf37d085995",
+        "question": "Which exact simulation object does the jump feature import?",
+        "result": "useful",
+        "conclusion": "Raw GUID checks and the release DB imports row link this feature to the exact SimEx_JumpAcceleration object."
+      },
+      {
+        "path": "Common/Gameplay/Soldier/Traversal/InAir/SimEx_JumpAcceleration",
+        "format": "raw-ebx",
+        "sha256": "b33d407a87a075b3ec72961ddef714f707cb296a9a99c9b959add1426f73c417",
+        "question": "Which named channels and direct soldier parameters are referenced by the jump expression root?",
+        "result": "useful",
+        "conclusion": "The asset contains raw-verified movement-channel labels and imports three named soldier parameters; expression execution remains unresolved."
+      },
+      {
+        "path": "Common/Gameplay/Soldier/Traversal/OnGround/CombatDive/Feature_CombatDiveAcceleration",
+        "format": "raw-ebx",
+        "sha256": "e824db2a22a4994f6148b5d6b82c9e4036de58ff13707289391e989b01bb9285",
+        "question": "Which exact simulation object does the combat-dive feature import?",
+        "result": "useful",
+        "conclusion": "Raw GUID checks and the release DB imports row link this feature to the exact SimEx_CombatDiveAcceleration object."
+      },
+      {
+        "path": "Common/Gameplay/Soldier/Traversal/OnGround/CombatDive/SimEx_CombatDiveAcceleration",
+        "format": "raw-ebx",
+        "sha256": "2e342145de1fe06108c18a54fb9ae78ff34dc6992bfe0b529bf63614ed15afaa",
+        "question": "Which named channels and direct soldier parameters are referenced by the combat-dive expression root?",
+        "result": "useful",
+        "conclusion": "The asset contains raw-verified movement-channel labels and imports CombatDiveDuration; expression execution remains unresolved."
+      },
+      {
+        "path": "Common/Gameplay/Soldier/GRX_Glacier_Soldier",
+        "format": "raw-ebx",
+        "sha256": "9b44340483d9af272ef5f0cbda5934ad9a30ff1f055fd3fddc60fc4943e822cc",
+        "question": "What typed values belong to the exact four direct object imports?",
+        "result": "useful",
+        "conclusion": "Four named Class_d59e68b9 records expose twelve raw-verified f32 fields; their three-field roles and units are not established here."
+      }
+    ],
+    "binding": "research"
+  }
+}

@@ -1,0 +1,1227 @@
+{
+  "lead": "L138",
+  "status": "reviewed-source-finding",
+  "build": "1.4.3.0-hotfix",
+  "question": "In exactly three selected multiplayer mine projectile bodies, what typed source fields and direct references describe activation distance, trigger conditions, deployability or lifetime, and which can be compared without assuming native behavior?",
+  "sourceFacts": {
+    "control": {
+      "description": "Release Head 4892017 site pipeline control: data/weapons.json:/[id=m433]/recoil/ads/amount = 0.6695; not gadget evidence.",
+      "passed": true,
+      "rawChecks": [
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+          "rawSha256": "66caca0e667d17fdf03f9fb4f620b9c5842aa1fd8de0221128ad4862895eed51",
+          "offset": 1084,
+          "type": "f32",
+          "bytesHex": "5a642b3f",
+          "value": 0.6694999933242798
+        }
+      ]
+    },
+    "scope": {
+      "expected": 3,
+      "examined": 3,
+      "notes": "Exactly the three brief-named projectile roots were examined at hotfix Head 4892087. Seven unique captured child assets were decoded separately. The shared Razer trigger target is referenced by ATMine and M4SLAM but has no Head 4892087 capture row in the pinned decoder database."
+    },
+    "rows": [
+      {
+        "item": "M18Claymore",
+        "projectileRoot": {
+          "path": "Common/Hardware/Gadgets/PlacedExplosives/M18Claymore/M18Claymore_Projectile",
+          "head": 4892087,
+          "descriptorSha256": "99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640",
+          "fileGuid": "22ea6c6d-d9ec-4791-8e91-c67aea43398f",
+          "rootObjectGuid": "a54e5df2-50dc-46d0-9fb4-8dc68d5d0392",
+          "rootClass": "Class_b141ba19",
+          "rootLocalClassRef": 0,
+          "rootLocalClassKey": "d8c84192d6c433f27b1a1e5b9102441a",
+          "rootDescriptorIndex": 1965,
+          "rawSha256": "8e4cf92b1999983c1e8852a22db7042c4e106a5d53e09c16276427556ed6c193",
+          "decodeObjectCount": 59
+        },
+        "sourceChain": [
+          "Common/Hardware/Gadgets/PlacedExplosives/M18Claymore/M18Claymore_Projectile",
+          "Common/Hardware/Gadgets/PlacedExplosives/M18Claymore/ProjectileFeature_M18Claymore",
+          "Common/Hardware/Gadgets/PlacedExplosives/M18Claymore/PRJ_SimEx_M18Claymore"
+        ],
+        "references": [
+          {
+            "sourceRoute": "Common/Hardware/Gadgets/PlacedExplosives/M18Claymore/M18Claymore_Projectile",
+            "sourceObjectIndex": 7,
+            "sourcePointer": "/Field_3b86901b",
+            "targetRoute": "Common/Hardware/Gadgets/PlacedExplosives/M18Claymore/ProjectileFeature_M18Claymore",
+            "targetFileGuid": "47be7452-7796-4a57-b375-076a8482f396",
+            "targetObjectGuid": "9e4cfad0-6e49-4fce-91bb-4c08ba8323cc",
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\PlacedExplosives\\M18Claymore\\M18Claymore_Projectile.ebx",
+                "rawSha256": "8e4cf92b1999983c1e8852a22db7042c4e106a5d53e09c16276427556ed6c193",
+                "offset": 15662,
+                "type": "guid",
+                "bytesHex": "5274be479677574ab375076a8482f396",
+                "value": "47be7452-7796-4a57-b375-076a8482f396"
+              },
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\PlacedExplosives\\M18Claymore\\M18Claymore_Projectile.ebx",
+                "rawSha256": "8e4cf92b1999983c1e8852a22db7042c4e106a5d53e09c16276427556ed6c193",
+                "offset": 15678,
+                "type": "guid",
+                "bytesHex": "d0fa4c9e496ece4f91bb4c08ba8323cc",
+                "value": "9e4cfad0-6e49-4fce-91bb-4c08ba8323cc"
+              }
+            ]
+          },
+          {
+            "sourceRoute": "Common/Hardware/Gadgets/PlacedExplosives/M18Claymore/M18Claymore_Projectile",
+            "sourceObjectIndex": 31,
+            "sourcePointer": "/Field_6e2bdf2b",
+            "targetRoute": "Common/Hardware/Gadgets/PlacedExplosives/M18Claymore/SimEx_ClaymoreFrag",
+            "targetFileGuid": "55a98c25-5de6-4c6d-8527-9879c8e750eb",
+            "targetObjectGuid": "16271575-92cd-41a6-9ace-8e5a85fe9c4d",
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\PlacedExplosives\\M18Claymore\\M18Claymore_Projectile.ebx",
+                "rawSha256": "8e4cf92b1999983c1e8852a22db7042c4e106a5d53e09c16276427556ed6c193",
+                "offset": 15470,
+                "type": "guid",
+                "bytesHex": "258ca955e65d6d4c85279879c8e750eb",
+                "value": "55a98c25-5de6-4c6d-8527-9879c8e750eb"
+              },
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\PlacedExplosives\\M18Claymore\\M18Claymore_Projectile.ebx",
+                "rawSha256": "8e4cf92b1999983c1e8852a22db7042c4e106a5d53e09c16276427556ed6c193",
+                "offset": 15486,
+                "type": "guid",
+                "bytesHex": "75152716cd92a6419ace8e5a85fe9c4d",
+                "value": "16271575-92cd-41a6-9ace-8e5a85fe9c4d"
+              }
+            ]
+          },
+          {
+            "sourceRoute": "Common/Hardware/Gadgets/PlacedExplosives/M18Claymore/ProjectileFeature_M18Claymore",
+            "sourceObjectIndex": 0,
+            "sourcePointer": "/Field_a07bc334",
+            "targetRoute": "Common/Hardware/Gadgets/PlacedExplosives/M18Claymore/PRJ_SimEx_M18Claymore",
+            "targetFileGuid": "45623213-97f7-4a04-8c92-d3cdca556f71",
+            "targetObjectGuid": "c2c0535d-b0a7-418a-b40f-225bb8c77b43",
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer7-2026-09-23\\raw\\common\\Hardware\\Gadgets\\PlacedExplosives\\M18Claymore\\ProjectileFeature_M18Claymore.ebx",
+                "rawSha256": "170a6c0bfaca4b1c3725dc32bb490b592edd6207ed6f4749f1b0d5bac323a449",
+                "offset": 292,
+                "type": "guid",
+                "bytesHex": "13326245f797044a8c92d3cdca556f71",
+                "value": "45623213-97f7-4a04-8c92-d3cdca556f71"
+              },
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer7-2026-09-23\\raw\\common\\Hardware\\Gadgets\\PlacedExplosives\\M18Claymore\\ProjectileFeature_M18Claymore.ebx",
+                "rawSha256": "170a6c0bfaca4b1c3725dc32bb490b592edd6207ed6f4749f1b0d5bac323a449",
+                "offset": 308,
+                "type": "guid",
+                "bytesHex": "5d53c0c2a7b08a41b40f225bb8c77b43",
+                "value": "c2c0535d-b0a7-418a-b40f-225bb8c77b43"
+              }
+            ]
+          }
+        ],
+        "selectedSimulation": {
+          "path": "Common/Hardware/Gadgets/PlacedExplosives/M18Claymore/PRJ_SimEx_M18Claymore",
+          "head": 4892087,
+          "fileGuid": "45623213-97f7-4a04-8c92-d3cdca556f71",
+          "rootClass": "Class_584cc5bd",
+          "rootLocalClassKey": "50ab0c4a8ec0b5377197daa970b3f3fd",
+          "rootDescriptorIndex": 1452,
+          "rootObjectGuid": "c2c0535d-b0a7-418a-b40f-225bb8c77b43",
+          "rawSha256": "5789d521e1f411fe332c044a35527ec28f6985f5d88b92da45613422f168d68a",
+          "decodeObjectCount": 2,
+          "float32FieldCountIdentified": 0,
+          "comparedTypedFields": [
+            {
+              "field": "Field_6f96388d",
+              "declaringClass": "Class_d284f890",
+              "descriptorIndex": 826,
+              "type": "bool",
+              "value": false,
+              "semanticRole": "unresolved",
+              "rawChecks": [
+                {
+                  "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer8-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\PlacedExplosives\\M18Claymore\\PRJ_SimEx_M18Claymore.ebx",
+                  "rawSha256": "5789d521e1f411fe332c044a35527ec28f6985f5d88b92da45613422f168d68a",
+                  "offset": 768,
+                  "type": "bool",
+                  "bytesHex": "00",
+                  "value": false
+                }
+              ]
+            },
+            {
+              "field": "Field_06fb7d40",
+              "declaringClass": "Class_0975a06f",
+              "descriptorIndex": 166,
+              "type": "bool",
+              "value": false,
+              "semanticRole": "unresolved",
+              "rawChecks": [
+                {
+                  "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer8-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\PlacedExplosives\\M18Claymore\\PRJ_SimEx_M18Claymore.ebx",
+                  "rawSha256": "5789d521e1f411fe332c044a35527ec28f6985f5d88b92da45613422f168d68a",
+                  "offset": 280,
+                  "type": "bool",
+                  "bytesHex": "00",
+                  "value": false
+                }
+              ]
+            },
+            {
+              "field": "Field_ebdd5457",
+              "declaringClass": "Class_0c3c66f7",
+              "descriptorIndex": 71,
+              "type": "bool",
+              "value": false,
+              "semanticRole": "unresolved",
+              "rawChecks": [
+                {
+                  "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer8-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\PlacedExplosives\\M18Claymore\\PRJ_SimEx_M18Claymore.ebx",
+                  "rawSha256": "5789d521e1f411fe332c044a35527ec28f6985f5d88b92da45613422f168d68a",
+                  "offset": 113,
+                  "type": "bool",
+                  "bytesHex": "00",
+                  "value": false
+                }
+              ]
+            },
+            {
+              "field": "Field_fc6bec62",
+              "declaringClass": "Class_0c3c66f7",
+              "descriptorIndex": 71,
+              "type": "bool",
+              "value": false,
+              "semanticRole": "unresolved",
+              "rawChecks": [
+                {
+                  "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer8-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\PlacedExplosives\\M18Claymore\\PRJ_SimEx_M18Claymore.ebx",
+                  "rawSha256": "5789d521e1f411fe332c044a35527ec28f6985f5d88b92da45613422f168d68a",
+                  "offset": 112,
+                  "type": "bool",
+                  "bytesHex": "00",
+                  "value": false
+                }
+              ]
+            },
+            {
+              "field": "Field_bd72a639",
+              "declaringClass": "Class_0c3c66f7",
+              "descriptorIndex": 71,
+              "type": "bool",
+              "value": false,
+              "semanticRole": "unresolved",
+              "rawChecks": [
+                {
+                  "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer8-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\PlacedExplosives\\M18Claymore\\PRJ_SimEx_M18Claymore.ebx",
+                  "rawSha256": "5789d521e1f411fe332c044a35527ec28f6985f5d88b92da45613422f168d68a",
+                  "offset": 114,
+                  "type": "bool",
+                  "bytesHex": "00",
+                  "value": false
+                }
+              ]
+            }
+          ],
+          "comparisonNote": "Five fields share the same exact descriptor owner/hash and bool type across all three selected simulation assets; all raw values are false. Their meanings are unresolved."
+        },
+        "notes": "The root also has a distinct direct SimEx_ClaymoreFrag reference; its payload role was not investigated."
+      },
+      {
+        "item": "ATMine",
+        "projectileRoot": {
+          "path": "Common/Hardware/Gadgets/Mines/ATMine/PBNS_ATMine",
+          "head": 4892087,
+          "descriptorSha256": "99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640",
+          "fileGuid": "0a97f1ec-8713-11f0-8133-a76cc268a8f8",
+          "rootObjectGuid": "398091b7-c1f8-d857-6fb0-2497c4857713",
+          "rootClass": "Class_5b3064b4",
+          "rootLocalClassRef": 0,
+          "rootLocalClassKey": "6bafa0f3d443fa5aedfcff8112f63c50",
+          "rootDescriptorIndex": 628,
+          "rawSha256": "a41318ef04b07cc68543bbffd2862b9b29674c0ea53bf871c543e055294c7c4f",
+          "decodeObjectCount": 35
+        },
+        "sourceChain": [
+          "Common/Hardware/Gadgets/Mines/ATMine/PBNS_ATMine",
+          "Common/Hardware/Gadgets/Mines/ATMine/ProjFeature_M15ATMine",
+          "Common/Hardware/Gadgets/Mines/ATMine/ProjSimEx_M15ATMine"
+        ],
+        "references": [
+          {
+            "sourceRoute": "Common/Hardware/Gadgets/Mines/ATMine/PBNS_ATMine",
+            "sourceObjectIndex": 6,
+            "sourcePointer": "/Field_3b86901b",
+            "targetRoute": "Common/Hardware/Gadgets/Mines/ATMine/ProjFeature_M15ATMine",
+            "targetFileGuid": "754a8ab4-ba68-4faf-b8cc-4e7d265e7127",
+            "targetObjectGuid": "a5a0f879-1d20-409a-8cbb-c7514583538a",
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Mines\\ATMine\\PBNS_ATMine.ebx",
+                "rawSha256": "a41318ef04b07cc68543bbffd2862b9b29674c0ea53bf871c543e055294c7c4f",
+                "offset": 13040,
+                "type": "guid",
+                "bytesHex": "b48a4a7568baaf4fb8cc4e7d265e7127",
+                "value": "754a8ab4-ba68-4faf-b8cc-4e7d265e7127"
+              },
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Mines\\ATMine\\PBNS_ATMine.ebx",
+                "rawSha256": "a41318ef04b07cc68543bbffd2862b9b29674c0ea53bf871c543e055294c7c4f",
+                "offset": 13056,
+                "type": "guid",
+                "bytesHex": "79f8a0a5201d9a408cbbc7514583538a",
+                "value": "a5a0f879-1d20-409a-8cbb-c7514583538a"
+              }
+            ]
+          },
+          {
+            "sourceRoute": "Common/Hardware/Gadgets/Mines/ATMine/PBNS_ATMine",
+            "sourceObjectIndex": 20,
+            "sourcePointer": "/Field_6e2bdf2b",
+            "targetRoute": "Common/Gameplay/Shared/Razer/DiceEx_Razer_GrenadeProximityTriggers",
+            "targetFileGuid": "9224cbfb-d9c8-4237-b733-37180fb289b5",
+            "targetObjectGuid": "b4ddae38-3fb5-493e-a49c-940bb792742e",
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Mines\\ATMine\\PBNS_ATMine.ebx",
+                "rawSha256": "a41318ef04b07cc68543bbffd2862b9b29674c0ea53bf871c543e055294c7c4f",
+                "offset": 13424,
+                "type": "guid",
+                "bytesHex": "fbcb2492c8d93742b73337180fb289b5",
+                "value": "9224cbfb-d9c8-4237-b733-37180fb289b5"
+              },
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Mines\\ATMine\\PBNS_ATMine.ebx",
+                "rawSha256": "a41318ef04b07cc68543bbffd2862b9b29674c0ea53bf871c543e055294c7c4f",
+                "offset": 13440,
+                "type": "guid",
+                "bytesHex": "38aeddb4b53f3e49a49c940bb792742e",
+                "value": "b4ddae38-3fb5-493e-a49c-940bb792742e"
+              }
+            ]
+          },
+          {
+            "sourceRoute": "Common/Hardware/Gadgets/Mines/ATMine/ProjFeature_M15ATMine",
+            "sourceObjectIndex": 0,
+            "sourcePointer": "/Field_a07bc334",
+            "targetRoute": "Common/Hardware/Gadgets/Mines/ATMine/ProjSimEx_M15ATMine",
+            "targetFileGuid": "cf4b0a5a-34cf-4976-ae82-7a85e6188788",
+            "targetObjectGuid": "5de02d65-5ebd-40f8-9ffc-e8ee0b2a1d92",
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer7-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\ATMine\\ProjFeature_M15ATMine.ebx",
+                "rawSha256": "e576dc117518fe3a8306347d4aae0d41b0358b3169ca05b1707a33ef22cfcc56",
+                "offset": 268,
+                "type": "guid",
+                "bytesHex": "5a0a4bcfcf347649ae827a85e6188788",
+                "value": "cf4b0a5a-34cf-4976-ae82-7a85e6188788"
+              },
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer7-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\ATMine\\ProjFeature_M15ATMine.ebx",
+                "rawSha256": "e576dc117518fe3a8306347d4aae0d41b0358b3169ca05b1707a33ef22cfcc56",
+                "offset": 284,
+                "type": "guid",
+                "bytesHex": "652de05dbd5ef8409ffce8ee0b2a1d92",
+                "value": "5de02d65-5ebd-40f8-9ffc-e8ee0b2a1d92"
+              }
+            ]
+          }
+        ],
+        "selectedSimulation": {
+          "path": "Common/Hardware/Gadgets/Mines/ATMine/ProjSimEx_M15ATMine",
+          "head": 4892087,
+          "fileGuid": "cf4b0a5a-34cf-4976-ae82-7a85e6188788",
+          "rootClass": "Class_584cc5bd",
+          "rootLocalClassKey": "50ab0c4a8ec0b5377197daa970b3f3fd",
+          "rootDescriptorIndex": 1452,
+          "rootObjectGuid": "5de02d65-5ebd-40f8-9ffc-e8ee0b2a1d92",
+          "rawSha256": "9ad4c08077628347319a95179a7831cc88e3a49f250380d1cea9b8b1d72bdfb2",
+          "decodeObjectCount": 2,
+          "float32FieldCountIdentified": 0,
+          "comparedTypedFields": [
+            {
+              "field": "Field_6f96388d",
+              "declaringClass": "Class_d284f890",
+              "descriptorIndex": 826,
+              "type": "bool",
+              "value": false,
+              "semanticRole": "unresolved",
+              "rawChecks": [
+                {
+                  "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer8-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Mines\\ATMine\\ProjSimEx_M15ATMine.ebx",
+                  "rawSha256": "9ad4c08077628347319a95179a7831cc88e3a49f250380d1cea9b8b1d72bdfb2",
+                  "offset": 768,
+                  "type": "bool",
+                  "bytesHex": "00",
+                  "value": false
+                }
+              ]
+            },
+            {
+              "field": "Field_06fb7d40",
+              "declaringClass": "Class_0975a06f",
+              "descriptorIndex": 166,
+              "type": "bool",
+              "value": false,
+              "semanticRole": "unresolved",
+              "rawChecks": [
+                {
+                  "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer8-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Mines\\ATMine\\ProjSimEx_M15ATMine.ebx",
+                  "rawSha256": "9ad4c08077628347319a95179a7831cc88e3a49f250380d1cea9b8b1d72bdfb2",
+                  "offset": 280,
+                  "type": "bool",
+                  "bytesHex": "00",
+                  "value": false
+                }
+              ]
+            },
+            {
+              "field": "Field_ebdd5457",
+              "declaringClass": "Class_0c3c66f7",
+              "descriptorIndex": 71,
+              "type": "bool",
+              "value": false,
+              "semanticRole": "unresolved",
+              "rawChecks": [
+                {
+                  "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer8-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Mines\\ATMine\\ProjSimEx_M15ATMine.ebx",
+                  "rawSha256": "9ad4c08077628347319a95179a7831cc88e3a49f250380d1cea9b8b1d72bdfb2",
+                  "offset": 113,
+                  "type": "bool",
+                  "bytesHex": "00",
+                  "value": false
+                }
+              ]
+            },
+            {
+              "field": "Field_fc6bec62",
+              "declaringClass": "Class_0c3c66f7",
+              "descriptorIndex": 71,
+              "type": "bool",
+              "value": false,
+              "semanticRole": "unresolved",
+              "rawChecks": [
+                {
+                  "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer8-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Mines\\ATMine\\ProjSimEx_M15ATMine.ebx",
+                  "rawSha256": "9ad4c08077628347319a95179a7831cc88e3a49f250380d1cea9b8b1d72bdfb2",
+                  "offset": 112,
+                  "type": "bool",
+                  "bytesHex": "00",
+                  "value": false
+                }
+              ]
+            },
+            {
+              "field": "Field_bd72a639",
+              "declaringClass": "Class_0c3c66f7",
+              "descriptorIndex": 71,
+              "type": "bool",
+              "value": false,
+              "semanticRole": "unresolved",
+              "rawChecks": [
+                {
+                  "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer8-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Mines\\ATMine\\ProjSimEx_M15ATMine.ebx",
+                  "rawSha256": "9ad4c08077628347319a95179a7831cc88e3a49f250380d1cea9b8b1d72bdfb2",
+                  "offset": 114,
+                  "type": "bool",
+                  "bytesHex": "00",
+                  "value": false
+                }
+              ]
+            }
+          ],
+          "comparisonNote": "Five fields share the same exact descriptor owner/hash and bool type across all three selected simulation assets; all raw values are false. Their meanings are unresolved."
+        },
+        "notes": "The root directly imports DiceEx_Razer_GrenadeProximityTriggers; its target body was not captured at Head 4892087."
+      },
+      {
+        "item": "M4SLAM",
+        "projectileRoot": {
+          "path": "Common/Hardware/Gadgets/Mines/M4SLAM/PB_M4SLAM",
+          "head": 4892087,
+          "descriptorSha256": "99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640",
+          "fileGuid": "de9fddbb-ebbb-493f-b8c9-5191ed4213c8",
+          "rootObjectGuid": "be046985-de1c-4ce5-b522-bacca9233b60",
+          "rootClass": "Class_b141ba19",
+          "rootLocalClassRef": 0,
+          "rootLocalClassKey": "d8c84192d6c433f27b1a1e5b9102441a",
+          "rootDescriptorIndex": 1965,
+          "rawSha256": "2a2f2279d357278c7e901b6c2b483742e5881d71c0ba1bb1b7b5cb45fa44a6c4",
+          "decodeObjectCount": 44
+        },
+        "sourceChain": [
+          "Common/Hardware/Gadgets/Mines/M4SLAM/PB_M4SLAM",
+          "Common/Hardware/Gadgets/Mines/M4SLAM/ProjFeature_M4SLAM",
+          "Common/Hardware/Gadgets/Mines/M4SLAM/ProjSimEx_M4SLAM"
+        ],
+        "references": [
+          {
+            "sourceRoute": "Common/Hardware/Gadgets/Mines/M4SLAM/PB_M4SLAM",
+            "sourceObjectIndex": 7,
+            "sourcePointer": "/Field_3b86901b",
+            "targetRoute": "Common/Hardware/Gadgets/Mines/M4SLAM/ProjFeature_M4SLAM",
+            "targetFileGuid": "504abf69-19cb-4b35-b959-e5e478edaeb1",
+            "targetObjectGuid": "48ed8ded-3d7f-4e54-9890-e3e394eb2401",
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Mines\\M4SLAM\\PB_M4SLAM.ebx",
+                "rawSha256": "2a2f2279d357278c7e901b6c2b483742e5881d71c0ba1bb1b7b5cb45fa44a6c4",
+                "offset": 13868,
+                "type": "guid",
+                "bytesHex": "69bf4a50cb19354bb959e5e478edaeb1",
+                "value": "504abf69-19cb-4b35-b959-e5e478edaeb1"
+              },
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Mines\\M4SLAM\\PB_M4SLAM.ebx",
+                "rawSha256": "2a2f2279d357278c7e901b6c2b483742e5881d71c0ba1bb1b7b5cb45fa44a6c4",
+                "offset": 13884,
+                "type": "guid",
+                "bytesHex": "ed8ded487f3d544e9890e3e394eb2401",
+                "value": "48ed8ded-3d7f-4e54-9890-e3e394eb2401"
+              }
+            ]
+          },
+          {
+            "sourceRoute": "Common/Hardware/Gadgets/Mines/M4SLAM/PB_M4SLAM",
+            "sourceObjectIndex": 27,
+            "sourcePointer": "/Field_6e2bdf2b",
+            "targetRoute": "Common/Gameplay/Shared/Razer/DiceEx_Razer_GrenadeProximityTriggers",
+            "targetFileGuid": "9224cbfb-d9c8-4237-b733-37180fb289b5",
+            "targetObjectGuid": "b4ddae38-3fb5-493e-a49c-940bb792742e",
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Mines\\M4SLAM\\PB_M4SLAM.ebx",
+                "rawSha256": "2a2f2279d357278c7e901b6c2b483742e5881d71c0ba1bb1b7b5cb45fa44a6c4",
+                "offset": 15052,
+                "type": "guid",
+                "bytesHex": "fbcb2492c8d93742b73337180fb289b5",
+                "value": "9224cbfb-d9c8-4237-b733-37180fb289b5"
+              },
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Mines\\M4SLAM\\PB_M4SLAM.ebx",
+                "rawSha256": "2a2f2279d357278c7e901b6c2b483742e5881d71c0ba1bb1b7b5cb45fa44a6c4",
+                "offset": 15068,
+                "type": "guid",
+                "bytesHex": "38aeddb4b53f3e49a49c940bb792742e",
+                "value": "b4ddae38-3fb5-493e-a49c-940bb792742e"
+              }
+            ]
+          },
+          {
+            "sourceRoute": "Common/Hardware/Gadgets/Mines/M4SLAM/ProjFeature_M4SLAM",
+            "sourceObjectIndex": 0,
+            "sourcePointer": "/Field_a07bc334",
+            "targetRoute": "Common/Hardware/Gadgets/Mines/M4SLAM/ProjSimEx_M4SLAM",
+            "targetFileGuid": "12932b7c-5f9b-456a-bf17-e6673a1f5a76",
+            "targetObjectGuid": "f2c6a3e4-2218-4ab5-98b7-afe065c6c224",
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer7-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\M4SLAM\\ProjFeature_M4SLAM.ebx",
+                "rawSha256": "21d8b01a7e47c04c7c96ecd1697b71e15822960d8a1810274a34168ccffa7509",
+                "offset": 296,
+                "type": "guid",
+                "bytesHex": "7c2b93129b5f6a45bf17e6673a1f5a76",
+                "value": "12932b7c-5f9b-456a-bf17-e6673a1f5a76"
+              },
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer7-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\M4SLAM\\ProjFeature_M4SLAM.ebx",
+                "rawSha256": "21d8b01a7e47c04c7c96ecd1697b71e15822960d8a1810274a34168ccffa7509",
+                "offset": 312,
+                "type": "guid",
+                "bytesHex": "e4a3c6f21822b54a98b7afe065c6c224",
+                "value": "f2c6a3e4-2218-4ab5-98b7-afe065c6c224"
+              }
+            ]
+          }
+        ],
+        "selectedSimulation": {
+          "path": "Common/Hardware/Gadgets/Mines/M4SLAM/ProjSimEx_M4SLAM",
+          "head": 4892087,
+          "fileGuid": "12932b7c-5f9b-456a-bf17-e6673a1f5a76",
+          "rootClass": "Class_584cc5bd",
+          "rootLocalClassKey": "50ab0c4a8ec0b5377197daa970b3f3fd",
+          "rootDescriptorIndex": 1452,
+          "rootObjectGuid": "f2c6a3e4-2218-4ab5-98b7-afe065c6c224",
+          "rawSha256": "b90dfd024c65600a4186f9e6e6df55df26edcd4136d87762ee5d3dab913e625c",
+          "decodeObjectCount": 2,
+          "float32FieldCountIdentified": 0,
+          "comparedTypedFields": [
+            {
+              "field": "Field_6f96388d",
+              "declaringClass": "Class_d284f890",
+              "descriptorIndex": 826,
+              "type": "bool",
+              "value": false,
+              "semanticRole": "unresolved",
+              "rawChecks": [
+                {
+                  "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer8-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Mines\\M4SLAM\\ProjSimEx_M4SLAM.ebx",
+                  "rawSha256": "b90dfd024c65600a4186f9e6e6df55df26edcd4136d87762ee5d3dab913e625c",
+                  "offset": 768,
+                  "type": "bool",
+                  "bytesHex": "00",
+                  "value": false
+                }
+              ]
+            },
+            {
+              "field": "Field_06fb7d40",
+              "declaringClass": "Class_0975a06f",
+              "descriptorIndex": 166,
+              "type": "bool",
+              "value": false,
+              "semanticRole": "unresolved",
+              "rawChecks": [
+                {
+                  "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer8-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Mines\\M4SLAM\\ProjSimEx_M4SLAM.ebx",
+                  "rawSha256": "b90dfd024c65600a4186f9e6e6df55df26edcd4136d87762ee5d3dab913e625c",
+                  "offset": 280,
+                  "type": "bool",
+                  "bytesHex": "00",
+                  "value": false
+                }
+              ]
+            },
+            {
+              "field": "Field_ebdd5457",
+              "declaringClass": "Class_0c3c66f7",
+              "descriptorIndex": 71,
+              "type": "bool",
+              "value": false,
+              "semanticRole": "unresolved",
+              "rawChecks": [
+                {
+                  "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer8-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Mines\\M4SLAM\\ProjSimEx_M4SLAM.ebx",
+                  "rawSha256": "b90dfd024c65600a4186f9e6e6df55df26edcd4136d87762ee5d3dab913e625c",
+                  "offset": 113,
+                  "type": "bool",
+                  "bytesHex": "00",
+                  "value": false
+                }
+              ]
+            },
+            {
+              "field": "Field_fc6bec62",
+              "declaringClass": "Class_0c3c66f7",
+              "descriptorIndex": 71,
+              "type": "bool",
+              "value": false,
+              "semanticRole": "unresolved",
+              "rawChecks": [
+                {
+                  "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer8-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Mines\\M4SLAM\\ProjSimEx_M4SLAM.ebx",
+                  "rawSha256": "b90dfd024c65600a4186f9e6e6df55df26edcd4136d87762ee5d3dab913e625c",
+                  "offset": 112,
+                  "type": "bool",
+                  "bytesHex": "00",
+                  "value": false
+                }
+              ]
+            },
+            {
+              "field": "Field_bd72a639",
+              "declaringClass": "Class_0c3c66f7",
+              "descriptorIndex": 71,
+              "type": "bool",
+              "value": false,
+              "semanticRole": "unresolved",
+              "rawChecks": [
+                {
+                  "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer8-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Mines\\M4SLAM\\ProjSimEx_M4SLAM.ebx",
+                  "rawSha256": "b90dfd024c65600a4186f9e6e6df55df26edcd4136d87762ee5d3dab913e625c",
+                  "offset": 114,
+                  "type": "bool",
+                  "bytesHex": "00",
+                  "value": false
+                }
+              ]
+            }
+          ],
+          "comparisonNote": "Five fields share the same exact descriptor owner/hash and bool type across all three selected simulation assets; all raw values are false. Their meanings are unresolved."
+        },
+        "notes": "The direct feature import resolves ProjSimEx_M4SLAM in this root chain; the cached ProjectileSimEx_M4SLAM name remains an unselected candidate. The root also imports the shared Razer trigger asset."
+      }
+    ],
+    "rawCheckCount": 33,
+    "allRawChecksMatched": true,
+    "decodeVerification": {
+      "assetCount": 10,
+      "failures": 0,
+      "allHashesMatched": true,
+      "descriptorSha256": "99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640"
+    }
+  },
+  "inference": [
+    "The exact source import chains identify the simulation asset linked from each fixed projectile feature asset. This establishes the serialized route and does not prove runtime activation.",
+    "The five common Boolean fields can be compared as serialized values because all three selected simulation assets use the same local class key and the same nested descriptor field identities. Their semantic roles remain unresolved.",
+    "No source-backed activation-distance or active-lifetime comparison is established by these captures."
+  ],
+  "unresolved": [
+    "The shared DiceEx_Razer_GrenadeProximityTriggers import target has no Head 4892087 raw capture in coverage-decoder-v5.sqlite, so its typed trigger fields and any activation distance could not be extracted or raw-verified.",
+    "Selected simulation assets contain only the five common bool fields reported above (and one M4SLAM-specific local bool occurrence pair); no f32 operand was identified in those three assets. The hashed field names do not establish trigger, deployability, activation-distance or lifetime roles.",
+    "The root projectile decodes include many additional component fields, but no named field-to-consumer mapping establishes which value is an activation distance, deployability switch or active lifetime.",
+    "Serialized import chains and matching bytes do not prove native runtime activation, composition or behavior."
+  ],
+  "siteImpact": "The Analyzer has no gadget table. These three selected source chains do not name a trigger radius, activation distance or lifetime, so no mine comparison value is proposed.",
+  "evidence": {
+    "commandHistoryNote": "Commands below are reconstructed from exact tool-call command strings retained in this session; no shell transcript was saved. The receipt does not imply a rerun.",
+    "commands": [
+      {
+        "step": "known-answer control",
+        "reconstructed": true,
+        "executable": "python",
+        "args": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+          "--raw-root",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw",
+          "--path",
+          "Common/Hardware/Weapons/AssaultRifle/HK433/GS_HK433.ebx",
+          "--offset",
+          "1084",
+          "--type",
+          "f32",
+          "--expect",
+          "0.6695",
+          "--out",
+          "l138-control.json"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138",
+        "outputFiles": [
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138\\l138-control.json",
+            "sha256": "5f76caeb1046b7fe3232d00db51f0fca2a89d38e39e15bf225be8de90a6889e8"
+          }
+        ],
+        "helperSha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3"
+      },
+      {
+        "step": "prior-work search",
+        "reconstructed": true,
+        "executable": "python",
+        "args": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-worker.py",
+          "prior-work",
+          "--terms",
+          "M18Claymore",
+          "ATMine",
+          "M4SLAM",
+          "PlacedExplosives",
+          "Mines"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138",
+        "outputSummary": "Prior-work returned the cache-variant candidate and candidate-expression provenance reports, each listed in sourceArtifacts. Stdout was not saved as a file.",
+        "helperSha256": "91d73d328cfe39862ec882ef02eda665580b28a6da9fa541f7b03d12d755beb2"
+      },
+      {
+        "step": "decoder inventory and pinned capture query",
+        "reconstructed": true,
+        "executable": "python",
+        "args": [
+          "l138_db_scan.py"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138",
+        "outputFiles": [
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138\\l138-db-scan.json",
+            "sha256": "4974ebf507834a6f081bc9656f4e28d5fc6e1ee1b116bfef2d2993aec16b7f0e"
+          }
+        ],
+        "helperSha256": "f07a306aa395371c0e95cb577cbeaeda0cdb930bdca4314c9d32cde7f14e5ad4"
+      },
+      {
+        "step": "M18 root decode",
+        "reconstructed": true,
+        "executable": "python",
+        "args": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-ebx-decode.py",
+          "--descriptors",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\toolchain\\SharedTypeDescriptors-hotfix-2026-09-16.ebx",
+          "--ebx",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\PlacedExplosives\\M18Claymore\\M18Claymore_Projectile.ebx",
+          "--out",
+          "l138-m18-decode.json"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138",
+        "outputFiles": [
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138\\l138-m18-decode.json",
+            "sha256": "2df0056ac85bf49f10262fd74c7931f078d932e19e4a89efb662a25d7d9dbb18"
+          }
+        ],
+        "helperSha256": "6fdc0334efaee0fe6113b5c9db4973f1358f53ee65dfb94edbc22fb0bf07a727"
+      },
+      {
+        "step": "remaining roots and captured direct children decode",
+        "reconstructed": true,
+        "executable": "python",
+        "args": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-ebx-decode.py",
+          "--descriptors",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\toolchain\\SharedTypeDescriptors-hotfix-2026-09-16.ebx",
+          "--ebx-list",
+          "l138-ebx-list.txt",
+          "--out",
+          "l138-other-decode.json"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138",
+        "inputFiles": [
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138\\l138-ebx-list.txt",
+            "sha256": "43b66baf0830af2a7e79e2f25c5e528e1f9f8e7324949419a0625fd882be065d"
+          }
+        ],
+        "outputFiles": [
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138\\l138-other-decode.json",
+            "sha256": "f8f06cc20b1e5e2f71c64f89f428fc38109577a71089ceb4fe6790089d4e4ee4"
+          }
+        ],
+        "helperSha256": "6fdc0334efaee0fe6113b5c9db4973f1358f53ee65dfb94edbc22fb0bf07a727"
+      },
+      {
+        "step": "typed bool and f32 field scan",
+        "reconstructed": true,
+        "executable": "python",
+        "args": [
+          "l138_type_trace.py"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138",
+        "outputFiles": [
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138\\l138-type-candidates.json",
+            "sha256": "7ff76329a10505796dffbb57d7f4c0aa11b431839b852dec889bd536a3ec1844"
+          }
+        ],
+        "helperSha256": "1bd6d4bb69d91f06ceab9c049d6fb0ae653a7641d9dd2f387ee579aaea704172",
+        "decoderHelperSha256": "6fdc0334efaee0fe6113b5c9db4973f1358f53ee65dfb94edbc22fb0bf07a727"
+      },
+      {
+        "step": "raw-check manifest generation",
+        "reconstructed": true,
+        "executable": "python",
+        "args": [
+          "l138_build_manifest.py"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138",
+        "outputFiles": [
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138\\l138-raw-manifest.json",
+            "sha256": "ce07b8a5af043160b948a95916f718d7be21eeb57f6c429b30901f67d33564dc"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138\\l138-raw-manifest-meta.json",
+            "sha256": "186db8053ea87399dc06ab19cfab4d3fe7b82eab8fc7d07ba7909bdcea73f75b"
+          }
+        ],
+        "helperSha256": "94985e19da40e5387c6337f4d580a12840e4ca3007c582b6ba979b1233125691"
+      },
+      {
+        "step": "raw field and reference verification",
+        "reconstructed": true,
+        "executable": "python",
+        "args": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+          "--manifest",
+          "l138-raw-manifest.json",
+          "--out",
+          "l138-raw-checks.json"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138",
+        "outputFiles": [
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138\\l138-raw-checks.json",
+            "sha256": "2e8771d228b68170165c14fe3092420f5d1a7826e0b4d4f078bfde0304633d62"
+          }
+        ],
+        "helperSha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3"
+      },
+      {
+        "step": "raw-check result validation and linkage",
+        "reconstructed": true,
+        "executable": "python",
+        "args": [
+          "l138_summarize_raw_checks.py"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138",
+        "outputFiles": [
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138\\l138-raw-checks-linked.json",
+            "sha256": "4178407a4d87e8d1e03ef902dde6ccfa454aaaab612d0793b639161a80cd5c05"
+          }
+        ],
+        "helperSha256": "0aaec35987004c84569cd6bb98fcd9387844c328c0117bdf7c5c9e17cedf9ac9"
+      },
+      {
+        "step": "decode identity validation",
+        "reconstructed": true,
+        "executable": "python",
+        "args": [
+          "l138_verify_decodes.py"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138",
+        "outputFiles": [
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138\\l138-decode-verification.json",
+            "sha256": "ff5a1bef98b559b778c0bda8457a6167bec0616e9c0bef9b1707d811b60443a0"
+          }
+        ],
+        "helperSha256": "16e154d0a5d6b071c8377c9999d1e06d1a9d62c212da2ed8c7697a08098544c1"
+      },
+      {
+        "step": "receipt schema validation",
+        "reconstructed": true,
+        "executable": "python",
+        "args": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-records.py",
+          "check-receipt",
+          "draft-receipt.json"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138",
+        "expectedOutput": "Read-only receipt diagnostics; this check must be run after the draft is written.",
+        "helperSha256": "ffb0e7574ce66779ae5041f4fc55047d0da2f63d917682b527673a75612b734c",
+        "passes": true,
+        "observedOutput": "draft-receipt.json: record ok",
+        "runs": 2
+      },
+      {
+        "step": "final progress and receipt evidence update",
+        "reconstructed": true,
+        "executable": "python",
+        "args": [
+          "l138_finalize.py"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138",
+        "outputFiles": [
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138\\progress.md",
+            "sha256": "79251908ab4acf447d29d006fedca0ff41383ec8d69f22c7c248c0c9515aa7b2"
+          }
+        ],
+        "helperSha256": "91a2daf78474a3e01162781084193692d98ac9b4070db2dc289a8af3b4e95549",
+        "note": "This helper adds its own hash and the final progress hash to the draft receipt."
+      }
+    ],
+    "artifacts": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138\\l138-control.json",
+        "sha256": "5f76caeb1046b7fe3232d00db51f0fca2a89d38e39e15bf225be8de90a6889e8"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138\\l138-db-scan.json",
+        "sha256": "4974ebf507834a6f081bc9656f4e28d5fc6e1ee1b116bfef2d2993aec16b7f0e"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138\\l138-route-evidence.json",
+        "sha256": "7d5667f00a3ddd17f38da6c07aea640cfedb1af14a605d6f3d16ddca4e0f39c0"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138\\l138-capture-plan.json",
+        "sha256": "65436989e5d6a738e5fb0ef4390ec7f6320e95228723ea9bd9a2f8e7b2b886f4"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138\\l138-m18-decode.json",
+        "sha256": "2df0056ac85bf49f10262fd74c7931f078d932e19e4a89efb662a25d7d9dbb18"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138\\l138-other-decode.json",
+        "sha256": "f8f06cc20b1e5e2f71c64f89f428fc38109577a71089ceb4fe6790089d4e4ee4"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138\\l138-decode-verification.json",
+        "sha256": "ff5a1bef98b559b778c0bda8457a6167bec0616e9c0bef9b1707d811b60443a0"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138\\l138-sim-focused.json",
+        "sha256": "cc1c3e25adc75064853156af720d1a2b825037fe1624e414451e6cc6040b956f"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138\\l138-raw-manifest.json",
+        "sha256": "ce07b8a5af043160b948a95916f718d7be21eeb57f6c429b30901f67d33564dc"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138\\l138-raw-manifest-meta.json",
+        "sha256": "186db8053ea87399dc06ab19cfab4d3fe7b82eab8fc7d07ba7909bdcea73f75b"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138\\l138-raw-checks.json",
+        "sha256": "2e8771d228b68170165c14fe3092420f5d1a7826e0b4d4f078bfde0304633d62"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138\\l138-raw-checks-linked.json",
+        "sha256": "4178407a4d87e8d1e03ef902dde6ccfa454aaaab612d0793b639161a80cd5c05"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138\\l138-result.json",
+        "sha256": "860eaa0edf826051b47e8880211a66e86ba3810d0b52a89fcc93736031092b98"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138\\summary.md",
+        "sha256": "8b536448565acaa710cfe1ea742a11efedf2e540401d613bb98328d8d6c90811"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138\\progress.md",
+        "sha256": "c76e84d7cf85c06d9e015cd15a2667f28d483286f98590c3a1b5a415bddb2e99"
+      }
+    ],
+    "sourceArtifacts": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\exhaustive-audit-2026-09-23\\coverage-decoder-v5.sqlite",
+        "sha256": "1fac4aa159b11741943eaf6ae94f64e63928b9fa0f866ca4a1d191897718cf10",
+        "role": "coverage decoder database containing release and hotfix captures"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\toolchain\\SharedTypeDescriptors-hotfix-2026-09-16.ebx",
+        "sha256": "99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640",
+        "role": "pinned hotfix descriptor"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-audit-cache-variant-candidate-capture-2026-09-23.json",
+        "sha256": "4ada898a5276cb835b00ce4ea2520031d375e869054a8087df4f227bfaa31dc6"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-audit-candidate-expression-resources-2026-09-23.json",
+        "sha256": "e458aefc2112f159254ffc8158abfd112d0625bd7f573258a787331ded733838"
+      }
+    ],
+    "helperHashes": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138\\l138_build_deliverables.py",
+        "sha256": "055fc4f8375dade3adab7a6f620a2114d36b1a82dfa9b23c88a14c06f49a6395"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138\\l138_build_manifest.py",
+        "sha256": "94985e19da40e5387c6337f4d580a12840e4ca3007c582b6ba979b1233125691"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138\\l138_capture_plan.py",
+        "sha256": "69cb3770bde9311447adb7592b365634365d76c09e4ee9d7832bd23297056d5c"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138\\l138_children.py",
+        "sha256": "648556b20e6893599049432bb1ea64c26893159adbdfd955bc6847ae763fd327"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138\\l138_db_scan.py",
+        "sha256": "f07a306aa395371c0e95cb577cbeaeda0cdb930bdca4314c9d32cde7f14e5ad4"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138\\l138_decode_summary.py",
+        "sha256": "939421e08a80042656cf5425f8277ff1d7599bf61c5c410b5acfd4f7f98cf7f0"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138\\l138_decoded_summary.py",
+        "sha256": "327830f9759d407e471acdac010371d058a819e1b02eaecff5a37ab76f0b72a6"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138\\l138_prepare_decode.py",
+        "sha256": "c7c7ccdfa7cdd05d8e299d8cba61679f529695d8e423406e718cbb7af6dc08f7"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138\\l138_probe.py",
+        "sha256": "4638f82fa1edcb537819b4f2feeac94c9103470457e0ee27e5c9bdc18986f570"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138\\l138_progress.py",
+        "sha256": "aa3cc76cf265f3c374025075910f8a9dff02be7b3ec0d9c9e21b48b391b90967"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138\\l138_progress_stage2.py",
+        "sha256": "3f965b591075478b2701438f49423254e5f2617d9ec7558b6bdaa9e555057141"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138\\l138_progress_stage3.py",
+        "sha256": "03ed3a3b34db282982a17e3ade556fa55e4ca264712ff076faeeead589813676"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138\\l138_progress_stage4.py",
+        "sha256": "ba6fd44b2b8875def3d9e1b61e8006bd372ee5b67cdfc747315de85723881d43"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138\\l138_root_survey.py",
+        "sha256": "5a6ceac543703cf0566f49b7b4f6ac957a56bb705d84ea1392ddad867f7a59f4"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138\\l138_routes.py",
+        "sha256": "2f908f90a7f5af8ba3d299e241c4212376217376c37203d24c50b71783071e85"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138\\l138_sim_focus.py",
+        "sha256": "6f0181df85f3245e2535df322d954c4b533f4ecd075c5af100bfdd0e06b6afea"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138\\l138_summarize_raw_checks.py",
+        "sha256": "0aaec35987004c84569cd6bb98fcd9387844c328c0117bdf7c5c9e17cedf9ac9"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138\\l138_type_trace.py",
+        "sha256": "1bd6d4bb69d91f06ceab9c049d6fb0ae653a7641d9dd2f387ee579aaea704172"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138\\l138_verify_decodes.py",
+        "sha256": "16e154d0a5d6b071c8377c9999d1e06d1a9d62c212da2ed8c7697a08098544c1"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L138\\l138_finalize.py",
+        "sha256": "91a2daf78474a3e01162781084193692d98ac9b4070db2dc289a8af3b4e95549"
+      }
+    ],
+    "repositoryHelperHashes": [
+      {
+        "name": "rawCheck",
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+        "sha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3"
+      },
+      {
+        "name": "worker",
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-worker.py",
+        "sha256": "91d73d328cfe39862ec882ef02eda665580b28a6da9fa541f7b03d12d755beb2"
+      },
+      {
+        "name": "ebxDecoder",
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-ebx-decode.py",
+        "sha256": "6fdc0334efaee0fe6113b5c9db4973f1358f53ee65dfb94edbc22fb0bf07a727"
+      },
+      {
+        "name": "records",
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-records.py",
+        "sha256": "ffb0e7574ce66779ae5041f4fc55047d0da2f63d917682b527673a75612b734c"
+      }
+    ]
+  },
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-09-29",
+    "build": "1.4.3.0-hotfix",
+    "leads": [
+      {
+        "id": "L138",
+        "title": "Placed-mine trigger and deployment comparison",
+        "status": "finding",
+        "summary": "Three fixed hotfix projectile roots and their source simulation chains are identified, while trigger, distance and lifetime field meanings remain unresolved.",
+        "reopenWhen": "Reopen when a Head 4892087 raw capture and typed field-to-consumer mapping for the shared trigger route or a named activation-distance or lifetime field are available."
+      }
+    ],
+    "assets": [
+      {
+        "path": "Common/Hardware/Gadgets/PlacedExplosives/M18Claymore/M18Claymore_Projectile",
+        "format": "raw-ebx",
+        "sha256": "8e4cf92b1999983c1e8852a22db7042c4e106a5d53e09c16276427556ed6c193",
+        "question": "Which typed source fields and direct references occur in this fixed multiplayer projectile root?",
+        "result": "useful",
+        "conclusion": "Head 4892087 root identity and direct feature/SimEx references are pinned; source links do not establish activation or field roles."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Mines/ATMine/PBNS_ATMine",
+        "format": "raw-ebx",
+        "sha256": "a41318ef04b07cc68543bbffd2862b9b29674c0ea53bf871c543e055294c7c4f",
+        "question": "Which typed source fields and direct references occur in this fixed multiplayer projectile root?",
+        "result": "useful",
+        "conclusion": "Head 4892087 root identity links to ProjFeature_M15ATMine and the shared Razer trigger import; the target body and field roles are unresolved."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Mines/M4SLAM/PB_M4SLAM",
+        "format": "raw-ebx",
+        "sha256": "2a2f2279d357278c7e901b6c2b483742e5881d71c0ba1bb1b7b5cb45fa44a6c4",
+        "question": "Which typed source fields and direct references occur in this fixed multiplayer projectile root?",
+        "result": "useful",
+        "conclusion": "Head 4892087 root identity links to ProjFeature_M4SLAM and the shared Razer trigger import; the target body and field roles are unresolved."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/PlacedExplosives/M18Claymore/SimEx_ClaymoreFrag",
+        "format": "raw-ebx",
+        "sha256": "7cfb766e7ed3f0cc977f3aa5b5084f421d95efcf09dcb4460e22c5c39683fa68",
+        "question": "Which typed primitive fields are present in the selected simulation asset?",
+        "result": "useful",
+        "conclusion": "The exact descriptor identity and common bool fields are recorded; field roles are unresolved and no f32 operand was identified in this asset."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/PlacedExplosives/M18Claymore/ProjectileFeature_M18Claymore",
+        "format": "raw-ebx",
+        "sha256": "170a6c0bfaca4b1c3725dc32bb490b592edd6207ed6f4749f1b0d5bac323a449",
+        "question": "Which selected simulation asset is directly imported by this projectile feature asset?",
+        "result": "useful",
+        "conclusion": "The raw import graph points to the recorded selected simulation route; this is a source reference only."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/PlacedExplosives/M18Claymore/PRJ_SimEx_M18Claymore",
+        "format": "raw-ebx",
+        "sha256": "5789d521e1f411fe332c044a35527ec28f6985f5d88b92da45613422f168d68a",
+        "question": "Which typed primitive fields are present in the selected simulation asset?",
+        "result": "useful",
+        "conclusion": "The exact descriptor identity and common bool fields are recorded; field roles are unresolved and no f32 operand was identified in this asset."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Mines/ATMine/ProjFeature_M15ATMine",
+        "format": "raw-ebx",
+        "sha256": "e576dc117518fe3a8306347d4aae0d41b0358b3169ca05b1707a33ef22cfcc56",
+        "question": "Which selected simulation asset is directly imported by this projectile feature asset?",
+        "result": "useful",
+        "conclusion": "The raw import graph points to the recorded selected simulation route; this is a source reference only."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Mines/ATMine/ProjSimEx_M15ATMine",
+        "format": "raw-ebx",
+        "sha256": "9ad4c08077628347319a95179a7831cc88e3a49f250380d1cea9b8b1d72bdfb2",
+        "question": "Which typed primitive fields are present in the selected simulation asset?",
+        "result": "useful",
+        "conclusion": "The exact descriptor identity and common bool fields are recorded; field roles are unresolved and no f32 operand was identified in this asset."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Mines/M4SLAM/ProjFeature_M4SLAM",
+        "format": "raw-ebx",
+        "sha256": "21d8b01a7e47c04c7c96ecd1697b71e15822960d8a1810274a34168ccffa7509",
+        "question": "Which selected simulation asset is directly imported by this projectile feature asset?",
+        "result": "useful",
+        "conclusion": "The raw import graph points to the recorded selected simulation route; this is a source reference only."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Mines/M4SLAM/ProjSimEx_M4SLAM",
+        "format": "raw-ebx",
+        "sha256": "b90dfd024c65600a4186f9e6e6df55df26edcd4136d87762ee5d3dab913e625c",
+        "question": "Which typed primitive fields are present in the selected simulation asset?",
+        "result": "useful",
+        "conclusion": "The exact descriptor identity and common bool fields are recorded; field roles are unresolved and no f32 operand was identified in this asset."
+      }
+    ],
+    "binding": "research"
+  },
+  "scope": {
+    "expected": 3,
+    "examined": 3,
+    "notes": "Exactly the three brief-named projectile roots were examined at hotfix Head 4892087. Seven unique captured child assets were decoded separately. The shared Razer trigger target is referenced by ATMine and M4SLAM but has no Head 4892087 capture row in the pinned decoder database."
+  },
+  "control": {
+    "description": "Release Head 4892017 site pipeline control: data/weapons.json:/[id=m433]/recoil/ads/amount = 0.6695; not gadget evidence.",
+    "passed": true,
+    "rawChecks": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+        "rawSha256": "66caca0e667d17fdf03f9fb4f620b9c5842aa1fd8de0221128ad4862895eed51",
+        "offset": 1084,
+        "type": "f32",
+        "bytesHex": "5a642b3f",
+        "value": 0.6694999933242798
+      }
+    ]
+  },
+  "orchestratorReview": {
+    "helperIssues": [],
+    "scope": "Three of three named hotfix projectile roots; seven directly linked captured child assets were decoded separately.",
+    "independentRawCheck": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer7-2026-09-23\\raw\\common\\Hardware\\Gadgets\\PlacedExplosives\\M18Claymore\\ProjectileFeature_M18Claymore.ebx",
+      "rawSha256": "170a6c0bfaca4b1c3725dc32bb490b592edd6207ed6f4749f1b0d5bac323a449",
+      "offset": 292,
+      "type": "guid",
+      "bytesHex": "13326245f797044a8c92d3cdca556f71",
+      "value": "45623213-97f7-4a04-8c92-d3cdca556f71",
+      "matches": true
+    },
+    "siteEncoding": "No gadget input or simulator path exists. Import-chain and hashed-bool checks do not translate to an activation radius.",
+    "classification": "Partial source finding. The selected simulation chains are pinned; the shared proximity-trigger target lacks a hotfix body."
+  }
+}

@@ -1,0 +1,1730 @@
+{
+  "lead": "L165",
+  "status": "reviewed-source-finding",
+  "build": "1.4.3.0-hotfix",
+  "question": "Do direct scoped source edges select the PTKM1R combat-element and EFP damage bodies?",
+  "sourceFacts": {
+    "head": 4892087,
+    "descriptorSha256": "99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640",
+    "control": {
+      "description": "Release HK433 recoil ADS amount raw read reproduces site encoding 0.6695.",
+      "passed": true,
+      "rawChecks": [
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+          "rawSha256": "66caca0e667d17fdf03f9fb4f620b9c5842aa1fd8de0221128ad4862895eed51",
+          "offset": 1084,
+          "type": "f32",
+          "bytesHex": "5a642b3f",
+          "value": 0.6694999933242798
+        }
+      ]
+    },
+    "rows": [
+      {
+        "route": "Common/Hardware/Gadgets/Mines/PTKM1R/SimEx_PTKM1R_Targeting",
+        "rawPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer10-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Mines\\PTKM1R\\SimEx_PTKM1R_Targeting.ebx",
+        "rawSha256": "bd227c225c27a236d305945a048fc6178d9f926667d7f5ae0a48c402dcee27cc",
+        "fileGuid": "8b04db5c-4b4d-40dc-ab34-6ae36023a5e6",
+        "finding": "Targeting root has no decoded direct import to CombatElement or EFP within the fixed roots.",
+        "fields": [],
+        "edges": [],
+        "rawChecks": [
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer10-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Mines\\PTKM1R\\SimEx_PTKM1R_Targeting.ebx",
+            "rawSha256": "bd227c225c27a236d305945a048fc6178d9f926667d7f5ae0a48c402dcee27cc",
+            "offset": 32,
+            "type": "guid",
+            "bytesHex": "88cc82010338c54faece8b5a06813851",
+            "value": "0182cc88-3803-4fc5-aece-8b5a06813851"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer10-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Mines\\PTKM1R\\SimEx_PTKM1R_Targeting.ebx",
+            "rawSha256": "bd227c225c27a236d305945a048fc6178d9f926667d7f5ae0a48c402dcee27cc",
+            "offset": 776,
+            "type": "guid",
+            "bytesHex": "3a8e3a9b60e9df44913bb19b9cbbc780",
+            "value": "9b3a8e3a-e960-44df-913b-b19b9cbbc780"
+          }
+        ]
+      },
+      {
+        "route": "Common/Hardware/Gadgets/Mines/PTKM1R/GadgetVehicle/VB_GAD_Mine_PTKM1R",
+        "rawPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Mines\\PTKM1R\\GadgetVehicle\\VB_GAD_Mine_PTKM1R.ebx",
+        "rawSha256": "098a9b4f3c123a79dd3f883645da05f48f5f7d7859388868ea2c8c0f081c51b8",
+        "fileGuid": "7bc04a06-8019-4d23-8ae6-2d1362e49f45",
+        "finding": "VB mapped Shot.Field_808dd66c at offset 2112 selects local object 1 Class_23637dce, not CombatElement.",
+        "fields": [
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/GadgetVehicle/VB_GAD_Mine_PTKM1R",
+            "objectIndex": 1,
+            "localKey": "664ff89c671d542411ab855346760f0a",
+            "rootClass": "Class_23637dce",
+            "physicalOwner": "Class_4d07474a",
+            "descriptorIndex": 995,
+            "field": "Field_94869d67",
+            "label": "StartDamage",
+            "offset": 692,
+            "value": 0.0,
+            "selection": "VB local projectile",
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Mines\\PTKM1R\\GadgetVehicle\\VB_GAD_Mine_PTKM1R.ebx",
+                "rawSha256": "098a9b4f3c123a79dd3f883645da05f48f5f7d7859388868ea2c8c0f081c51b8",
+                "offset": 692,
+                "type": "f32",
+                "bytesHex": "00000000",
+                "value": 0.0
+              }
+            ]
+          },
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/GadgetVehicle/VB_GAD_Mine_PTKM1R",
+            "objectIndex": 1,
+            "localKey": "664ff89c671d542411ab855346760f0a",
+            "rootClass": "Class_23637dce",
+            "physicalOwner": "Class_4d07474a",
+            "descriptorIndex": 995,
+            "field": "Field_bc7acc94",
+            "label": "EndDamage",
+            "offset": 696,
+            "value": 0.0,
+            "selection": "VB local projectile",
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Mines\\PTKM1R\\GadgetVehicle\\VB_GAD_Mine_PTKM1R.ebx",
+                "rawSha256": "098a9b4f3c123a79dd3f883645da05f48f5f7d7859388868ea2c8c0f081c51b8",
+                "offset": 696,
+                "type": "f32",
+                "bytesHex": "00000000",
+                "value": 0.0
+              }
+            ]
+          },
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/GadgetVehicle/VB_GAD_Mine_PTKM1R",
+            "objectIndex": 1,
+            "localKey": "664ff89c671d542411ab855346760f0a",
+            "rootClass": "Class_23637dce",
+            "physicalOwner": "Class_4d07474a",
+            "descriptorIndex": 995,
+            "field": "Field_e5b11905",
+            "label": "DamageFalloffStartDistance",
+            "offset": 700,
+            "value": 100.0,
+            "selection": "VB local projectile",
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Mines\\PTKM1R\\GadgetVehicle\\VB_GAD_Mine_PTKM1R.ebx",
+                "rawSha256": "098a9b4f3c123a79dd3f883645da05f48f5f7d7859388868ea2c8c0f081c51b8",
+                "offset": 700,
+                "type": "f32",
+                "bytesHex": "0000c842",
+                "value": 100.0
+              }
+            ]
+          },
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/GadgetVehicle/VB_GAD_Mine_PTKM1R",
+            "objectIndex": 1,
+            "localKey": "664ff89c671d542411ab855346760f0a",
+            "rootClass": "Class_23637dce",
+            "physicalOwner": "Class_4d07474a",
+            "descriptorIndex": 995,
+            "field": "Field_68be3481",
+            "label": "DamageFalloffEndDistance",
+            "offset": 704,
+            "value": 200.0,
+            "selection": "VB local projectile",
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Mines\\PTKM1R\\GadgetVehicle\\VB_GAD_Mine_PTKM1R.ebx",
+                "rawSha256": "098a9b4f3c123a79dd3f883645da05f48f5f7d7859388868ea2c8c0f081c51b8",
+                "offset": 704,
+                "type": "f32",
+                "bytesHex": "00004843",
+                "value": 200.0
+              }
+            ]
+          }
+        ],
+        "edges": [
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/GadgetVehicle/VB_GAD_Mine_PTKM1R",
+            "offset": 2112,
+            "token": -1920,
+            "target": {
+              "$ref": 1
+            }
+          }
+        ],
+        "rawChecks": [
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Mines\\PTKM1R\\GadgetVehicle\\VB_GAD_Mine_PTKM1R.ebx",
+            "rawSha256": "098a9b4f3c123a79dd3f883645da05f48f5f7d7859388868ea2c8c0f081c51b8",
+            "offset": 2112,
+            "type": "i32",
+            "bytesHex": "80f8ffff",
+            "value": -1920
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Mines\\PTKM1R\\GadgetVehicle\\VB_GAD_Mine_PTKM1R.ebx",
+            "rawSha256": "098a9b4f3c123a79dd3f883645da05f48f5f7d7859388868ea2c8c0f081c51b8",
+            "offset": 692,
+            "type": "f32",
+            "bytesHex": "00000000",
+            "value": 0.0
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Mines\\PTKM1R\\GadgetVehicle\\VB_GAD_Mine_PTKM1R.ebx",
+            "rawSha256": "098a9b4f3c123a79dd3f883645da05f48f5f7d7859388868ea2c8c0f081c51b8",
+            "offset": 696,
+            "type": "f32",
+            "bytesHex": "00000000",
+            "value": 0.0
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Mines\\PTKM1R\\GadgetVehicle\\VB_GAD_Mine_PTKM1R.ebx",
+            "rawSha256": "098a9b4f3c123a79dd3f883645da05f48f5f7d7859388868ea2c8c0f081c51b8",
+            "offset": 700,
+            "type": "f32",
+            "bytesHex": "0000c842",
+            "value": 100.0
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Mines\\PTKM1R\\GadgetVehicle\\VB_GAD_Mine_PTKM1R.ebx",
+            "rawSha256": "098a9b4f3c123a79dd3f883645da05f48f5f7d7859388868ea2c8c0f081c51b8",
+            "offset": 704,
+            "type": "f32",
+            "bytesHex": "00004843",
+            "value": 200.0
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Mines\\PTKM1R\\GadgetVehicle\\VB_GAD_Mine_PTKM1R.ebx",
+            "rawSha256": "098a9b4f3c123a79dd3f883645da05f48f5f7d7859388868ea2c8c0f081c51b8",
+            "offset": 32,
+            "type": "guid",
+            "bytesHex": "4e27f3eeb44ddf4597672e546900019d",
+            "value": "eef3274e-4db4-45df-9767-2e546900019d"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Mines\\PTKM1R\\GadgetVehicle\\VB_GAD_Mine_PTKM1R.ebx",
+            "rawSha256": "098a9b4f3c123a79dd3f883645da05f48f5f7d7859388868ea2c8c0f081c51b8",
+            "offset": 176,
+            "type": "guid",
+            "bytesHex": "d96540a6e53fe9429f6b71d30b64c21f",
+            "value": "a64065d9-3fe5-42e9-9f6b-71d30b64c21f"
+          }
+        ]
+      },
+      {
+        "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PKTM1R_CombatElement",
+        "rawPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer9-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PKTM1R_CombatElement.ebx",
+        "rawSha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+        "fileGuid": "9634325d-c4f6-11ed-8004-89b9e3470006",
+        "finding": "CombatElement root selects object 1, whose Field_1f7b3933 selects local blast object 16; object 17 imports EFP root. Object 20 imports targeting root; this is a reverse edge.",
+        "fields": [
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PKTM1R_CombatElement",
+            "objectIndex": 16,
+            "localKey": "a57116aedf259bd743cedc6f7d0622f5",
+            "rootClass": "Class_9966532d",
+            "physicalOwner": "Class_d11bf358",
+            "descriptorIndex": 521,
+            "field": "Field_95e340fe",
+            "label": "InnerBlastRadius",
+            "offset": 3752,
+            "value": 1.0,
+            "selection": "candidate; combat chain disconnected from deployed roots",
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer9-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PKTM1R_CombatElement.ebx",
+                "rawSha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+                "offset": 3752,
+                "type": "f32",
+                "bytesHex": "0000803f",
+                "value": 1.0
+              }
+            ]
+          },
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PKTM1R_CombatElement",
+            "objectIndex": 16,
+            "localKey": "a57116aedf259bd743cedc6f7d0622f5",
+            "rootClass": "Class_9966532d",
+            "physicalOwner": "Class_d11bf358",
+            "descriptorIndex": 521,
+            "field": "Field_19861d8c",
+            "label": "BlastDamage",
+            "offset": 3760,
+            "value": 0.0,
+            "selection": "candidate; combat chain disconnected from deployed roots",
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer9-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PKTM1R_CombatElement.ebx",
+                "rawSha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+                "offset": 3760,
+                "type": "f32",
+                "bytesHex": "00000000",
+                "value": 0.0
+              }
+            ]
+          },
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PKTM1R_CombatElement",
+            "objectIndex": 16,
+            "localKey": "a57116aedf259bd743cedc6f7d0622f5",
+            "rootClass": "Class_9966532d",
+            "physicalOwner": "Class_d11bf358",
+            "descriptorIndex": 521,
+            "field": "Field_33f3a8ab",
+            "label": "BlastRadius",
+            "offset": 3776,
+            "value": 5.0,
+            "selection": "candidate; combat chain disconnected from deployed roots",
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer9-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PKTM1R_CombatElement.ebx",
+                "rawSha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+                "offset": 3776,
+                "type": "f32",
+                "bytesHex": "0000a040",
+                "value": 5.0
+              }
+            ]
+          },
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PKTM1R_CombatElement",
+            "objectIndex": 16,
+            "localKey": "a57116aedf259bd743cedc6f7d0622f5",
+            "rootClass": "Class_9966532d",
+            "physicalOwner": "Class_d11bf358",
+            "descriptorIndex": 521,
+            "field": "Field_524836d3",
+            "label": "ShockwaveRadius",
+            "offset": 3796,
+            "value": 5.0,
+            "selection": "candidate; combat chain disconnected from deployed roots",
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer9-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PKTM1R_CombatElement.ebx",
+                "rawSha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+                "offset": 3796,
+                "type": "f32",
+                "bytesHex": "0000a040",
+                "value": 5.0
+              }
+            ]
+          }
+        ],
+        "edges": [
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PKTM1R_CombatElement",
+            "offset": 5632,
+            "token": -1632,
+            "target": {
+              "$ref": 17
+            }
+          },
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PKTM1R_CombatElement",
+            "offset": 6144,
+            "token": -2144,
+            "target": {
+              "$ref": 17
+            }
+          },
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PKTM1R_CombatElement",
+            "offset": 6176,
+            "token": -2176,
+            "target": {
+              "$ref": 17
+            }
+          },
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PKTM1R_CombatElement",
+            "offset": 6200,
+            "token": -6008,
+            "target": {
+              "$ref": 1
+            }
+          },
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PKTM1R_CombatElement",
+            "offset": 6232,
+            "token": -6040,
+            "target": {
+              "$ref": 1
+            }
+          },
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PKTM1R_CombatElement",
+            "offset": 6264,
+            "token": -6072,
+            "target": {
+              "$ref": 1
+            }
+          },
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PKTM1R_CombatElement",
+            "offset": 6296,
+            "token": -6104,
+            "target": {
+              "$ref": 1
+            }
+          },
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PKTM1R_CombatElement",
+            "offset": 6328,
+            "token": -6136,
+            "target": {
+              "$ref": 1
+            }
+          },
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PKTM1R_CombatElement",
+            "offset": 6360,
+            "token": -6168,
+            "target": {
+              "$ref": 1
+            }
+          },
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PKTM1R_CombatElement",
+            "offset": 6456,
+            "token": -6264,
+            "target": {
+              "$ref": 1
+            }
+          },
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PKTM1R_CombatElement",
+            "offset": 6464,
+            "token": -2464,
+            "target": {
+              "$ref": 17
+            }
+          },
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PKTM1R_CombatElement",
+            "offset": 6616,
+            "token": -6424,
+            "target": {
+              "$ref": 1
+            }
+          },
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PKTM1R_CombatElement",
+            "offset": 6648,
+            "token": -6456,
+            "target": {
+              "$ref": 1
+            }
+          },
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PKTM1R_CombatElement",
+            "offset": 6952,
+            "token": -6760,
+            "target": {
+              "$ref": 1
+            }
+          },
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PKTM1R_CombatElement",
+            "offset": 6976,
+            "token": -6784,
+            "target": {
+              "$ref": 1
+            }
+          },
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PKTM1R_CombatElement",
+            "offset": 7000,
+            "token": -6808,
+            "target": {
+              "$ref": 1
+            }
+          },
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PKTM1R_CombatElement",
+            "offset": 7056,
+            "token": -6864,
+            "target": {
+              "$ref": 1
+            }
+          },
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PKTM1R_CombatElement",
+            "offset": 7088,
+            "token": -6896,
+            "target": {
+              "$ref": 1
+            }
+          },
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PKTM1R_CombatElement",
+            "offset": 7120,
+            "token": -6928,
+            "target": {
+              "$ref": 1
+            }
+          },
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PKTM1R_CombatElement",
+            "offset": 7152,
+            "token": -6960,
+            "target": {
+              "$ref": 1
+            }
+          },
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PKTM1R_CombatElement",
+            "offset": 7184,
+            "token": -6992,
+            "target": {
+              "$ref": 1
+            }
+          },
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PKTM1R_CombatElement",
+            "offset": 7248,
+            "token": -7056,
+            "target": {
+              "$ref": 1
+            }
+          },
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PKTM1R_CombatElement",
+            "offset": 7280,
+            "token": -7088,
+            "target": {
+              "$ref": 1
+            }
+          },
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PKTM1R_CombatElement",
+            "offset": 7312,
+            "token": -7120,
+            "target": {
+              "$ref": 1
+            }
+          },
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PKTM1R_CombatElement",
+            "offset": 7416,
+            "token": -3416,
+            "target": {
+              "$ref": 17
+            }
+          },
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PKTM1R_CombatElement",
+            "offset": 7448,
+            "token": -7256,
+            "target": {
+              "$ref": 1
+            }
+          },
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PKTM1R_CombatElement",
+            "offset": 7480,
+            "token": -7288,
+            "target": {
+              "$ref": 1
+            }
+          },
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PKTM1R_CombatElement",
+            "offset": 7512,
+            "token": -7320,
+            "target": {
+              "$ref": 1
+            }
+          },
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PKTM1R_CombatElement",
+            "offset": 7568,
+            "token": -7376,
+            "target": {
+              "$ref": 1
+            }
+          },
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PKTM1R_CombatElement",
+            "offset": 7600,
+            "token": -7408,
+            "target": {
+              "$ref": 1
+            }
+          },
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PKTM1R_CombatElement",
+            "offset": 7632,
+            "token": -7440,
+            "target": {
+              "$ref": 1
+            }
+          },
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PKTM1R_CombatElement",
+            "offset": 7664,
+            "token": -7472,
+            "target": {
+              "$ref": 1
+            }
+          },
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PKTM1R_CombatElement",
+            "offset": 7704,
+            "token": -7512,
+            "target": {
+              "$ref": 1
+            }
+          },
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PKTM1R_CombatElement",
+            "offset": 152,
+            "token": 40,
+            "target": {
+              "$ref": 1
+            }
+          },
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PKTM1R_CombatElement",
+            "offset": 400,
+            "token": 3104,
+            "target": {
+              "$ref": 16
+            }
+          },
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PKTM1R_CombatElement",
+            "offset": 4176,
+            "token": 21,
+            "target": {
+              "$import": {
+                "fileGuid": "c261cab2-72e8-4d17-8c5a-52175d28464e",
+                "classGuid": "458db4ee-bf3a-4eab-96f7-5ed9ce9c0a29"
+              }
+            }
+          },
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PKTM1R_CombatElement",
+            "offset": 4456,
+            "token": 13,
+            "target": {
+              "$import": {
+                "fileGuid": "8b04db5c-4b4d-40dc-ab34-6ae36023a5e6",
+                "classGuid": "0182cc88-3803-4fc5-aece-8b5a06813851"
+              }
+            }
+          }
+        ],
+        "rawChecks": [
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer9-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PKTM1R_CombatElement.ebx",
+            "rawSha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+            "offset": 5632,
+            "type": "i32",
+            "bytesHex": "a0f9ffff",
+            "value": -1632
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer9-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PKTM1R_CombatElement.ebx",
+            "rawSha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+            "offset": 6144,
+            "type": "i32",
+            "bytesHex": "a0f7ffff",
+            "value": -2144
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer9-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PKTM1R_CombatElement.ebx",
+            "rawSha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+            "offset": 6176,
+            "type": "i32",
+            "bytesHex": "80f7ffff",
+            "value": -2176
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer9-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PKTM1R_CombatElement.ebx",
+            "rawSha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+            "offset": 6200,
+            "type": "i32",
+            "bytesHex": "88e8ffff",
+            "value": -6008
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer9-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PKTM1R_CombatElement.ebx",
+            "rawSha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+            "offset": 6232,
+            "type": "i32",
+            "bytesHex": "68e8ffff",
+            "value": -6040
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer9-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PKTM1R_CombatElement.ebx",
+            "rawSha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+            "offset": 6264,
+            "type": "i32",
+            "bytesHex": "48e8ffff",
+            "value": -6072
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer9-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PKTM1R_CombatElement.ebx",
+            "rawSha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+            "offset": 6296,
+            "type": "i32",
+            "bytesHex": "28e8ffff",
+            "value": -6104
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer9-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PKTM1R_CombatElement.ebx",
+            "rawSha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+            "offset": 6328,
+            "type": "i32",
+            "bytesHex": "08e8ffff",
+            "value": -6136
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer9-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PKTM1R_CombatElement.ebx",
+            "rawSha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+            "offset": 6360,
+            "type": "i32",
+            "bytesHex": "e8e7ffff",
+            "value": -6168
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer9-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PKTM1R_CombatElement.ebx",
+            "rawSha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+            "offset": 6456,
+            "type": "i32",
+            "bytesHex": "88e7ffff",
+            "value": -6264
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer9-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PKTM1R_CombatElement.ebx",
+            "rawSha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+            "offset": 6464,
+            "type": "i32",
+            "bytesHex": "60f6ffff",
+            "value": -2464
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer9-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PKTM1R_CombatElement.ebx",
+            "rawSha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+            "offset": 6616,
+            "type": "i32",
+            "bytesHex": "e8e6ffff",
+            "value": -6424
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer9-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PKTM1R_CombatElement.ebx",
+            "rawSha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+            "offset": 6648,
+            "type": "i32",
+            "bytesHex": "c8e6ffff",
+            "value": -6456
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer9-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PKTM1R_CombatElement.ebx",
+            "rawSha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+            "offset": 6952,
+            "type": "i32",
+            "bytesHex": "98e5ffff",
+            "value": -6760
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer9-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PKTM1R_CombatElement.ebx",
+            "rawSha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+            "offset": 6976,
+            "type": "i32",
+            "bytesHex": "80e5ffff",
+            "value": -6784
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer9-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PKTM1R_CombatElement.ebx",
+            "rawSha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+            "offset": 7000,
+            "type": "i32",
+            "bytesHex": "68e5ffff",
+            "value": -6808
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer9-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PKTM1R_CombatElement.ebx",
+            "rawSha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+            "offset": 7056,
+            "type": "i32",
+            "bytesHex": "30e5ffff",
+            "value": -6864
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer9-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PKTM1R_CombatElement.ebx",
+            "rawSha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+            "offset": 7088,
+            "type": "i32",
+            "bytesHex": "10e5ffff",
+            "value": -6896
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer9-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PKTM1R_CombatElement.ebx",
+            "rawSha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+            "offset": 7120,
+            "type": "i32",
+            "bytesHex": "f0e4ffff",
+            "value": -6928
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer9-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PKTM1R_CombatElement.ebx",
+            "rawSha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+            "offset": 7152,
+            "type": "i32",
+            "bytesHex": "d0e4ffff",
+            "value": -6960
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer9-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PKTM1R_CombatElement.ebx",
+            "rawSha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+            "offset": 7184,
+            "type": "i32",
+            "bytesHex": "b0e4ffff",
+            "value": -6992
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer9-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PKTM1R_CombatElement.ebx",
+            "rawSha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+            "offset": 7248,
+            "type": "i32",
+            "bytesHex": "70e4ffff",
+            "value": -7056
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer9-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PKTM1R_CombatElement.ebx",
+            "rawSha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+            "offset": 7280,
+            "type": "i32",
+            "bytesHex": "50e4ffff",
+            "value": -7088
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer9-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PKTM1R_CombatElement.ebx",
+            "rawSha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+            "offset": 7312,
+            "type": "i32",
+            "bytesHex": "30e4ffff",
+            "value": -7120
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer9-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PKTM1R_CombatElement.ebx",
+            "rawSha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+            "offset": 7416,
+            "type": "i32",
+            "bytesHex": "a8f2ffff",
+            "value": -3416
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer9-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PKTM1R_CombatElement.ebx",
+            "rawSha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+            "offset": 7448,
+            "type": "i32",
+            "bytesHex": "a8e3ffff",
+            "value": -7256
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer9-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PKTM1R_CombatElement.ebx",
+            "rawSha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+            "offset": 7480,
+            "type": "i32",
+            "bytesHex": "88e3ffff",
+            "value": -7288
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer9-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PKTM1R_CombatElement.ebx",
+            "rawSha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+            "offset": 7512,
+            "type": "i32",
+            "bytesHex": "68e3ffff",
+            "value": -7320
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer9-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PKTM1R_CombatElement.ebx",
+            "rawSha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+            "offset": 7568,
+            "type": "i32",
+            "bytesHex": "30e3ffff",
+            "value": -7376
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer9-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PKTM1R_CombatElement.ebx",
+            "rawSha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+            "offset": 7600,
+            "type": "i32",
+            "bytesHex": "10e3ffff",
+            "value": -7408
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer9-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PKTM1R_CombatElement.ebx",
+            "rawSha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+            "offset": 7632,
+            "type": "i32",
+            "bytesHex": "f0e2ffff",
+            "value": -7440
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer9-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PKTM1R_CombatElement.ebx",
+            "rawSha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+            "offset": 7664,
+            "type": "i32",
+            "bytesHex": "d0e2ffff",
+            "value": -7472
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer9-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PKTM1R_CombatElement.ebx",
+            "rawSha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+            "offset": 7704,
+            "type": "i32",
+            "bytesHex": "a8e2ffff",
+            "value": -7512
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer9-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PKTM1R_CombatElement.ebx",
+            "rawSha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+            "offset": 152,
+            "type": "i32",
+            "bytesHex": "28000000",
+            "value": 40
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer9-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PKTM1R_CombatElement.ebx",
+            "rawSha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+            "offset": 400,
+            "type": "i32",
+            "bytesHex": "200c0000",
+            "value": 3104
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer9-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PKTM1R_CombatElement.ebx",
+            "rawSha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+            "offset": 4176,
+            "type": "i32",
+            "bytesHex": "15000000",
+            "value": 21
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer9-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PKTM1R_CombatElement.ebx",
+            "rawSha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+            "offset": 11066,
+            "type": "guid",
+            "bytesHex": "b2ca61c2e872174d8c5a52175d28464e",
+            "value": "c261cab2-72e8-4d17-8c5a-52175d28464e"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer9-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PKTM1R_CombatElement.ebx",
+            "rawSha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+            "offset": 11082,
+            "type": "guid",
+            "bytesHex": "eeb48d453abfab4e96f75ed9ce9c0a29",
+            "value": "458db4ee-bf3a-4eab-96f7-5ed9ce9c0a29"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer9-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PKTM1R_CombatElement.ebx",
+            "rawSha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+            "offset": 4456,
+            "type": "i32",
+            "bytesHex": "0d000000",
+            "value": 13
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer9-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PKTM1R_CombatElement.ebx",
+            "rawSha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+            "offset": 10938,
+            "type": "guid",
+            "bytesHex": "5cdb048b4d4bdc40ab346ae36023a5e6",
+            "value": "8b04db5c-4b4d-40dc-ab34-6ae36023a5e6"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer9-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PKTM1R_CombatElement.ebx",
+            "rawSha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+            "offset": 10954,
+            "type": "guid",
+            "bytesHex": "88cc82010338c54faece8b5a06813851",
+            "value": "0182cc88-3803-4fc5-aece-8b5a06813851"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer9-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PKTM1R_CombatElement.ebx",
+            "rawSha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+            "offset": 3752,
+            "type": "f32",
+            "bytesHex": "0000803f",
+            "value": 1.0
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer9-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PKTM1R_CombatElement.ebx",
+            "rawSha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+            "offset": 3760,
+            "type": "f32",
+            "bytesHex": "00000000",
+            "value": 0.0
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer9-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PKTM1R_CombatElement.ebx",
+            "rawSha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+            "offset": 3776,
+            "type": "f32",
+            "bytesHex": "0000a040",
+            "value": 5.0
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer9-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PKTM1R_CombatElement.ebx",
+            "rawSha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+            "offset": 3796,
+            "type": "f32",
+            "bytesHex": "0000a040",
+            "value": 5.0
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer9-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PKTM1R_CombatElement.ebx",
+            "rawSha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+            "offset": 32,
+            "type": "guid",
+            "bytesHex": "c60b7a75067d793ca846e12d4630903e",
+            "value": "757a0bc6-7d06-3c79-a846-e12d4630903e"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer9-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PKTM1R_CombatElement.ebx",
+            "rawSha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+            "offset": 176,
+            "type": "guid",
+            "bytesHex": "6414b9cf563c1277cf715c46e3470006",
+            "value": "cfb91464-3c56-7712-cf71-5c46e3470006"
+          }
+        ]
+      },
+      {
+        "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PTKM1R_EFP",
+        "rawPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer10-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PTKM1R_EFP.ebx",
+        "rawSha256": "09c32887741cc43c55a13540152675e62770e070b11269c14c525364b0a5a644",
+        "fileGuid": "c261cab2-72e8-4d17-8c5a-52175d28464e",
+        "finding": "EFP root selects object 1 Class_6a25e89d; Field_1f7b3933 selects local blast object 6.",
+        "fields": [
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PTKM1R_EFP",
+            "objectIndex": 6,
+            "localKey": "a57116aedf259bd743cedc6f7d0622f5",
+            "rootClass": "Class_9966532d",
+            "physicalOwner": "Class_d11bf358",
+            "descriptorIndex": 521,
+            "field": "Field_95e340fe",
+            "label": "InnerBlastRadius",
+            "offset": 1912,
+            "value": 3.990000009536743,
+            "selection": "candidate; combat chain disconnected from deployed roots",
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer10-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PTKM1R_EFP.ebx",
+                "rawSha256": "09c32887741cc43c55a13540152675e62770e070b11269c14c525364b0a5a644",
+                "offset": 1912,
+                "type": "f32",
+                "bytesHex": "295c7f40",
+                "value": 3.990000009536743
+              }
+            ]
+          },
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PTKM1R_EFP",
+            "objectIndex": 6,
+            "localKey": "a57116aedf259bd743cedc6f7d0622f5",
+            "rootClass": "Class_9966532d",
+            "physicalOwner": "Class_d11bf358",
+            "descriptorIndex": 521,
+            "field": "Field_19861d8c",
+            "label": "BlastDamage",
+            "offset": 1920,
+            "value": 160.0,
+            "selection": "candidate; combat chain disconnected from deployed roots",
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer10-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PTKM1R_EFP.ebx",
+                "rawSha256": "09c32887741cc43c55a13540152675e62770e070b11269c14c525364b0a5a644",
+                "offset": 1920,
+                "type": "f32",
+                "bytesHex": "00002043",
+                "value": 160.0
+              }
+            ]
+          },
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PTKM1R_EFP",
+            "objectIndex": 6,
+            "localKey": "a57116aedf259bd743cedc6f7d0622f5",
+            "rootClass": "Class_9966532d",
+            "physicalOwner": "Class_d11bf358",
+            "descriptorIndex": 521,
+            "field": "Field_33f3a8ab",
+            "label": "BlastRadius",
+            "offset": 1936,
+            "value": 4.0,
+            "selection": "candidate; combat chain disconnected from deployed roots",
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer10-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PTKM1R_EFP.ebx",
+                "rawSha256": "09c32887741cc43c55a13540152675e62770e070b11269c14c525364b0a5a644",
+                "offset": 1936,
+                "type": "f32",
+                "bytesHex": "00008040",
+                "value": 4.0
+              }
+            ]
+          },
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PTKM1R_EFP",
+            "objectIndex": 6,
+            "localKey": "a57116aedf259bd743cedc6f7d0622f5",
+            "rootClass": "Class_9966532d",
+            "physicalOwner": "Class_d11bf358",
+            "descriptorIndex": 521,
+            "field": "Field_524836d3",
+            "label": "ShockwaveRadius",
+            "offset": 1956,
+            "value": 8.0,
+            "selection": "candidate; combat chain disconnected from deployed roots",
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer10-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PTKM1R_EFP.ebx",
+                "rawSha256": "09c32887741cc43c55a13540152675e62770e070b11269c14c525364b0a5a644",
+                "offset": 1956,
+                "type": "f32",
+                "bytesHex": "00000041",
+                "value": 8.0
+              }
+            ]
+          }
+        ],
+        "edges": [
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PTKM1R_EFP",
+            "offset": 2424,
+            "token": -2232,
+            "target": {
+              "$ref": 1
+            }
+          },
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PTKM1R_EFP",
+            "offset": 2528,
+            "token": -2336,
+            "target": {
+              "$ref": 1
+            }
+          },
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PTKM1R_EFP",
+            "offset": 2560,
+            "token": -2368,
+            "target": {
+              "$ref": 1
+            }
+          },
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PTKM1R_EFP",
+            "offset": 152,
+            "token": 40,
+            "target": {
+              "$ref": 1
+            }
+          },
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PTKM1R_EFP",
+            "offset": 400,
+            "token": 1264,
+            "target": {
+              "$ref": 6
+            }
+          }
+        ],
+        "rawChecks": [
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer10-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PTKM1R_EFP.ebx",
+            "rawSha256": "09c32887741cc43c55a13540152675e62770e070b11269c14c525364b0a5a644",
+            "offset": 2424,
+            "type": "i32",
+            "bytesHex": "48f7ffff",
+            "value": -2232
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer10-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PTKM1R_EFP.ebx",
+            "rawSha256": "09c32887741cc43c55a13540152675e62770e070b11269c14c525364b0a5a644",
+            "offset": 2528,
+            "type": "i32",
+            "bytesHex": "e0f6ffff",
+            "value": -2336
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer10-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PTKM1R_EFP.ebx",
+            "rawSha256": "09c32887741cc43c55a13540152675e62770e070b11269c14c525364b0a5a644",
+            "offset": 2560,
+            "type": "i32",
+            "bytesHex": "c0f6ffff",
+            "value": -2368
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer10-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PTKM1R_EFP.ebx",
+            "rawSha256": "09c32887741cc43c55a13540152675e62770e070b11269c14c525364b0a5a644",
+            "offset": 152,
+            "type": "i32",
+            "bytesHex": "28000000",
+            "value": 40
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer10-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PTKM1R_EFP.ebx",
+            "rawSha256": "09c32887741cc43c55a13540152675e62770e070b11269c14c525364b0a5a644",
+            "offset": 400,
+            "type": "i32",
+            "bytesHex": "f0040000",
+            "value": 1264
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer10-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PTKM1R_EFP.ebx",
+            "rawSha256": "09c32887741cc43c55a13540152675e62770e070b11269c14c525364b0a5a644",
+            "offset": 1912,
+            "type": "f32",
+            "bytesHex": "295c7f40",
+            "value": 3.990000009536743
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer10-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PTKM1R_EFP.ebx",
+            "rawSha256": "09c32887741cc43c55a13540152675e62770e070b11269c14c525364b0a5a644",
+            "offset": 1920,
+            "type": "f32",
+            "bytesHex": "00002043",
+            "value": 160.0
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer10-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PTKM1R_EFP.ebx",
+            "rawSha256": "09c32887741cc43c55a13540152675e62770e070b11269c14c525364b0a5a644",
+            "offset": 1936,
+            "type": "f32",
+            "bytesHex": "00008040",
+            "value": 4.0
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer10-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PTKM1R_EFP.ebx",
+            "rawSha256": "09c32887741cc43c55a13540152675e62770e070b11269c14c525364b0a5a644",
+            "offset": 1956,
+            "type": "f32",
+            "bytesHex": "00000041",
+            "value": 8.0
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer10-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PTKM1R_EFP.ebx",
+            "rawSha256": "09c32887741cc43c55a13540152675e62770e070b11269c14c525364b0a5a644",
+            "offset": 32,
+            "type": "guid",
+            "bytesHex": "eeb48d453abfab4e96f75ed9ce9c0a29",
+            "value": "458db4ee-bf3a-4eab-96f7-5ed9ce9c0a29"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer10-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PTKM1R_EFP.ebx",
+            "rawSha256": "09c32887741cc43c55a13540152675e62770e070b11269c14c525364b0a5a644",
+            "offset": 176,
+            "type": "guid",
+            "bytesHex": "da5717a85f141842b7659d4f9b67b7a4",
+            "value": "a81757da-145f-4218-b765-9d4f9b67b7a4"
+          }
+        ]
+      },
+      {
+        "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PTKM1R_WB",
+        "rawPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer5-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PTKM1R_WB.ebx",
+        "rawSha256": "faee480785a322e92a84fca9ca0c832324d77c70915c93ccde574812dc8e7c4c",
+        "fileGuid": "d96ad0ac-deb6-4e40-8be0-8654cf066193",
+        "finding": "WB deployed-gadget objects 1 through 6 import VB exact file and class GUIDs. L161 handling and deploy values reused without re-extraction.",
+        "fields": [],
+        "edges": [
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PTKM1R_WB",
+            "offset": 432,
+            "token": 1,
+            "target": {
+              "$import": {
+                "fileGuid": "7bc04a06-8019-4d23-8ae6-2d1362e49f45",
+                "classGuid": "eef3274e-4db4-45df-9767-2e546900019d"
+              }
+            }
+          },
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PTKM1R_WB",
+            "offset": 768,
+            "token": 1,
+            "target": {
+              "$import": {
+                "fileGuid": "7bc04a06-8019-4d23-8ae6-2d1362e49f45",
+                "classGuid": "eef3274e-4db4-45df-9767-2e546900019d"
+              }
+            }
+          },
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PTKM1R_WB",
+            "offset": 1104,
+            "token": 1,
+            "target": {
+              "$import": {
+                "fileGuid": "7bc04a06-8019-4d23-8ae6-2d1362e49f45",
+                "classGuid": "eef3274e-4db4-45df-9767-2e546900019d"
+              }
+            }
+          },
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PTKM1R_WB",
+            "offset": 1440,
+            "token": 1,
+            "target": {
+              "$import": {
+                "fileGuid": "7bc04a06-8019-4d23-8ae6-2d1362e49f45",
+                "classGuid": "eef3274e-4db4-45df-9767-2e546900019d"
+              }
+            }
+          },
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PTKM1R_WB",
+            "offset": 1776,
+            "token": 1,
+            "target": {
+              "$import": {
+                "fileGuid": "7bc04a06-8019-4d23-8ae6-2d1362e49f45",
+                "classGuid": "eef3274e-4db4-45df-9767-2e546900019d"
+              }
+            }
+          },
+          {
+            "route": "Common/Hardware/Gadgets/Mines/PTKM1R/PTKM1R_WB",
+            "offset": 2112,
+            "token": 1,
+            "target": {
+              "$import": {
+                "fileGuid": "7bc04a06-8019-4d23-8ae6-2d1362e49f45",
+                "classGuid": "eef3274e-4db4-45df-9767-2e546900019d"
+              }
+            }
+          }
+        ],
+        "rawChecks": [
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer5-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PTKM1R_WB.ebx",
+            "rawSha256": "faee480785a322e92a84fca9ca0c832324d77c70915c93ccde574812dc8e7c4c",
+            "offset": 432,
+            "type": "i32",
+            "bytesHex": "01000000",
+            "value": 1
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer5-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PTKM1R_WB.ebx",
+            "rawSha256": "faee480785a322e92a84fca9ca0c832324d77c70915c93ccde574812dc8e7c4c",
+            "offset": 8682,
+            "type": "guid",
+            "bytesHex": "064ac07b1980234d8ae62d1362e49f45",
+            "value": "7bc04a06-8019-4d23-8ae6-2d1362e49f45"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer5-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PTKM1R_WB.ebx",
+            "rawSha256": "faee480785a322e92a84fca9ca0c832324d77c70915c93ccde574812dc8e7c4c",
+            "offset": 8698,
+            "type": "guid",
+            "bytesHex": "4e27f3eeb44ddf4597672e546900019d",
+            "value": "eef3274e-4db4-45df-9767-2e546900019d"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer5-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PTKM1R_WB.ebx",
+            "rawSha256": "faee480785a322e92a84fca9ca0c832324d77c70915c93ccde574812dc8e7c4c",
+            "offset": 768,
+            "type": "i32",
+            "bytesHex": "01000000",
+            "value": 1
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer5-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PTKM1R_WB.ebx",
+            "rawSha256": "faee480785a322e92a84fca9ca0c832324d77c70915c93ccde574812dc8e7c4c",
+            "offset": 1104,
+            "type": "i32",
+            "bytesHex": "01000000",
+            "value": 1
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer5-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PTKM1R_WB.ebx",
+            "rawSha256": "faee480785a322e92a84fca9ca0c832324d77c70915c93ccde574812dc8e7c4c",
+            "offset": 1440,
+            "type": "i32",
+            "bytesHex": "01000000",
+            "value": 1
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer5-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PTKM1R_WB.ebx",
+            "rawSha256": "faee480785a322e92a84fca9ca0c832324d77c70915c93ccde574812dc8e7c4c",
+            "offset": 1776,
+            "type": "i32",
+            "bytesHex": "01000000",
+            "value": 1
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer5-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PTKM1R_WB.ebx",
+            "rawSha256": "faee480785a322e92a84fca9ca0c832324d77c70915c93ccde574812dc8e7c4c",
+            "offset": 2112,
+            "type": "i32",
+            "bytesHex": "01000000",
+            "value": 1
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer5-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PTKM1R_WB.ebx",
+            "rawSha256": "faee480785a322e92a84fca9ca0c832324d77c70915c93ccde574812dc8e7c4c",
+            "offset": 32,
+            "type": "guid",
+            "bytesHex": "fdacf540a490fb4cab5244b2781be5d0",
+            "value": "40f5acfd-90a4-4cfb-ab52-44b2781be5d0"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer5-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PTKM1R_WB.ebx",
+            "rawSha256": "faee480785a322e92a84fca9ca0c832324d77c70915c93ccde574812dc8e7c4c",
+            "offset": 160,
+            "type": "guid",
+            "bytesHex": "047ce6e227c3c842a0a03fdc51d9df80",
+            "value": "e2e67c04-c327-42c8-a0a0-3fdc51d9df80"
+          }
+        ]
+      }
+    ],
+    "rawCheckCount": 77,
+    "mechanicOperandCount": 12,
+    "importedChildrenFollowed": 0,
+    "reuse": "L161 handling values reused from committed receipt."
+  },
+  "inference": "Exact CombatElement-to-EFP and CombatElement-to-targeting imports do not establish the reverse deployed-gadget selection route. The two PB profiles remain candidates.",
+  "unresolved": [
+    "No forward selection route from targeting/deployed VB to CombatElement was established in the five-root scope. EFP and CombatElement values remain candidate profiles.",
+    "Compiled-resource execution, activation, units, and effective anti-vehicle damage are unresolved.",
+    "Specialized CombatElement/EFP projectile classes do not expose the four mapped direct-damage scalar fields in the checked root inheritance; no name transfer by order was made."
+  ],
+  "siteImpact": "No site change. EFP BlastDamage 160 and radius fields are candidates; do not add a selected PTKM1R combat profile from this bounded result.",
+  "evidence": {
+    "files": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T181241-0400-sol61\\L165\\brief.txt",
+        "sha256": "f52c066506eed6bbf2cb881797c2127372e8a79da3a196096d3c5de66a677062"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T181241-0400-sol61\\L165\\scoped-inputs.json",
+        "sha256": "7d443fcc9968335c7995fec552a568fcdadf60c75ebf52f01506a4037c370c65"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T181241-0400-sol61\\L165\\control.json",
+        "sha256": "5f76caeb1046b7fe3232d00db51f0fca2a89d38e39e15bf225be8de90a6889e8"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T181241-0400-sol61\\L165\\inventory.json",
+        "sha256": "9d61357a0415b10a82e59ed356908c1f5fcb27ddf0bcdbfbc01ba260ec8b0c40"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T181241-0400-sol61\\L165\\source-extract.json",
+        "sha256": "3ac825b7ad63f7852080b19ea989a3bd50bbc431af67f9d4398818e5d326246f"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T181241-0400-sol61\\L165\\raw-manifest.json",
+        "sha256": "a96ceb1e6213e290aa505b8fe419d72b6644a4cca77ca1eae5ca6ab5a5ed26b4"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T181241-0400-sol61\\L165\\raw-checks.json",
+        "sha256": "2f445f637a76584edc6ce17e78336e936d0322c001d8b794e1f0636b379f8676"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T181241-0400-sol61\\L165\\command-log.json",
+        "sha256": "a01e1661e8fb04aa14d11e7b2f60d5c753da26878af1feab6d4eb03d6e25ff61"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T181241-0400-sol61\\L165\\l165-result.json",
+        "sha256": "93e21b291abcd2c62d3984dbeee3cb83d2d96465587c01a2ea1a00111c07aea9"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T181241-0400-sol61\\L165\\decode-1.json",
+        "sha256": "ec65b7e27a8a719cdf66e85b280d61ec03d09147c5f264fe24ce63290b40e2a7"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T181241-0400-sol61\\L165\\decode-2.json",
+        "sha256": "61296eaa6276295dabd6b03b4d351f6a359007b28566772d6540267119b25a04"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T181241-0400-sol61\\L165\\decode-3.json",
+        "sha256": "f79979b41b51e56c3c49ed260308726763c45a18ee118197b9f42b555748431c"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T181241-0400-sol61\\L165\\decode-4.json",
+        "sha256": "50460eaa092eaf1224d02965532b725abbdfa05a811c152bdd36b4c53e8d6ae7"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T181241-0400-sol61\\L165\\decode-5.json",
+        "sha256": "3f65bb9a94f932296383bc5d80617c99717972fca729ffbf328a2ddf09230be8"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T181241-0400-sol61\\L165\\inspect.py",
+        "sha256": "25a3c570389840b40b42ad0fd4ac472e0e90b4f23d2d140ce02ebeca8d00928d"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T181241-0400-sol61\\L165\\edges.py",
+        "sha256": "cf5b5d091b49f4d4935c94c844db1aa6da0fcd9fe8e5bbbc49b18eb56c2cfe35"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T181241-0400-sol61\\L165\\focus.py",
+        "sha256": "d2b4e8d5561d660de8455a14e589bde3baa127249d60befb5764002536a81714"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T181241-0400-sol61\\L165\\extract.py",
+        "sha256": "37b35ec8f4d54ba0eca41c6cc60211265ca6e637207a6a586b97901468ff4533"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T181241-0400-sol61\\L165\\finalize.py",
+        "sha256": "a976d6fad64311bb2262d1ea55152d6b7b6db43c217ecc030f955d138693c377"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-09-29-L161-gadget-handling-source.json",
+        "sha256": "62e5315a1c0829a22857967a6925350c22d9463daa58cb13d78dea048b5a818e"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\docs\\frosty\\FIELD_MAP.md",
+        "sha256": "976db6b19f6e2f4fa6ecd1784d907f1bceb055e1aad8033158412b7a65d20fcb"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-ebx-decode.py",
+        "sha256": "6fdc0334efaee0fe6113b5c9db4973f1358f53ee65dfb94edbc22fb0bf07a727"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+        "sha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-worker.py",
+        "sha256": "91d73d328cfe39862ec882ef02eda665580b28a6da9fa541f7b03d12d755beb2"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-records.py",
+        "sha256": "ffb0e7574ce66779ae5041f4fc55047d0da2f63d917682b527673a75612b734c"
+      }
+    ],
+    "commands": [
+      {
+        "executable": "python",
+        "arguments": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+          "--path",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+          "--offset",
+          "1084",
+          "--type",
+          "f32",
+          "--expect",
+          "0.6695",
+          "--out",
+          "control.json"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T181241-0400-sol61\\L165",
+        "outputs": [
+          "control.json"
+        ]
+      },
+      {
+        "executable": "python",
+        "arguments": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-worker.py",
+          "prior-work",
+          "--terms",
+          "PTKM1R",
+          "L161",
+          "L156",
+          "L153"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T181241-0400-sol61\\L165",
+        "outputs": []
+      },
+      {
+        "executable": "python",
+        "arguments": [
+          "inspect.py"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T181241-0400-sol61\\L165",
+        "outputs": [
+          "inventory.json",
+          "decode-1.json",
+          "decode-2.json",
+          "decode-3.json",
+          "decode-4.json",
+          "decode-5.json"
+        ]
+      },
+      {
+        "executable": "python",
+        "arguments": [
+          "edges.py"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T181241-0400-sol61\\L165",
+        "outputs": []
+      },
+      {
+        "executable": "python",
+        "arguments": [
+          "focus.py"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T181241-0400-sol61\\L165",
+        "outputs": []
+      },
+      {
+        "executable": "python",
+        "arguments": [
+          "extract.py"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T181241-0400-sol61\\L165",
+        "outputs": [
+          "raw-manifest.json",
+          "source-extract.json"
+        ],
+        "note": "Two earlier failed revisions used EFIX relocation offsets directly and raised IndexError. They made no evidence output. Their exact revision hashes were not retained; final revision uses descriptor-owned field offsets and passed."
+      },
+      {
+        "executable": "python",
+        "arguments": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+          "--manifest",
+          "raw-manifest.json",
+          "--out",
+          "raw-checks.json"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T181241-0400-sol61\\L165",
+        "outputs": [
+          "raw-checks.json"
+        ]
+      },
+      {
+        "executable": "python",
+        "arguments": [
+          "finalize.py"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T181241-0400-sol61\\L165",
+        "outputs": [
+          "l165-result.json",
+          "summary.md",
+          "draft-receipt.json",
+          "command-log.json"
+        ]
+      },
+      {
+        "executable": "python",
+        "arguments": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-records.py",
+          "check-receipt",
+          "draft-receipt.json"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T181241-0400-sol61\\L165",
+        "outputs": [
+          "receipt-check.txt"
+        ]
+      }
+    ],
+    "helperRevisionLimit": "Hashes identify final executed successful helper revisions. Two failed extract.py revisions were not separately saved; their hashes are unavailable."
+  },
+  "authorship": {
+    "orchestrator": "GPT-6.1 Sol",
+    "worker": "GPT-6.1 Sol",
+    "reasoningEffort": "Low"
+  },
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-09-29",
+    "build": "1.4.3.0-hotfix",
+    "leads": [
+      {
+        "id": "L165",
+        "title": "PTKM1R combat projectile source profile",
+        "status": "finding",
+        "summary": "PTKM1R WB selects the deployed VB, but no scoped forward edge selects CombatElement; CombatElement imports targeting and EFP, whose BlastDamage 160 and BlastRadius 4 remain candidate values.",
+        "reopenWhen": "A checked deployed-to-CombatElement consumer edge permits selection proof.",
+        "statusNote": "GPT-6.1 Sol, 29 Sep; source only"
+      }
+    ],
+    "assets": [
+      {
+        "path": "Common/Hardware/Gadgets/Mines/PTKM1R/SimEx_PTKM1R_Targeting",
+        "format": "raw-ebx",
+        "sha256": "bd227c225c27a236d305945a048fc6178d9f926667d7f5ae0a48c402dcee27cc",
+        "question": "Checked PTKM1R combat projectile selection within fixed scope",
+        "result": "useful",
+        "conclusion": "Targeting root has no decoded direct import to CombatElement or EFP within the fixed roots."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Mines/PTKM1R/GadgetVehicle/VB_GAD_Mine_PTKM1R",
+        "format": "raw-ebx",
+        "sha256": "098a9b4f3c123a79dd3f883645da05f48f5f7d7859388868ea2c8c0f081c51b8",
+        "question": "Checked PTKM1R combat projectile selection within fixed scope",
+        "result": "useful",
+        "conclusion": "VB mapped Shot.Field_808dd66c at offset 2112 selects local object 1 Class_23637dce, not CombatElement."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PKTM1R_CombatElement",
+        "format": "raw-ebx",
+        "sha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+        "question": "Checked PTKM1R combat projectile selection within fixed scope",
+        "result": "useful",
+        "conclusion": "CombatElement root selects object 1, whose Field_1f7b3933 selects local blast object 16; object 17 imports EFP root. Object 20 imports targeting root; this is a reverse edge."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PTKM1R_EFP",
+        "format": "raw-ebx",
+        "sha256": "09c32887741cc43c55a13540152675e62770e070b11269c14c525364b0a5a644",
+        "question": "Checked PTKM1R combat projectile selection within fixed scope",
+        "result": "useful",
+        "conclusion": "EFP root selects object 1 Class_6a25e89d; Field_1f7b3933 selects local blast object 6."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Mines/PTKM1R/PTKM1R_WB",
+        "format": "raw-ebx",
+        "sha256": "faee480785a322e92a84fca9ca0c832324d77c70915c93ccde574812dc8e7c4c",
+        "question": "Checked PTKM1R combat projectile selection within fixed scope",
+        "result": "useful",
+        "conclusion": "WB deployed-gadget objects 1 through 6 import VB exact file and class GUIDs. L161 handling and deploy values reused without re-extraction."
+      }
+    ],
+    "binding": "research",
+    "run": {
+      "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T181241-0400-sol61",
+      "orchestrator": "GPT-6.1 Sol",
+      "workers": [
+        {
+          "lead": "L165",
+          "model": "GPT-6.1 Sol",
+          "effort": "Low"
+        }
+      ]
+    }
+  },
+  "orchestratorReview": {
+    "reviewer": "GPT-6.1 Sol",
+    "workerModel": "GPT-6.1 Sol",
+    "workerEffort": "Low",
+    "date": "2026-09-29",
+    "draftPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T181241-0400-sol61\\L165\\draft-receipt.json",
+    "draftSha256": "c28c590372d121ebe73fc268f8d95957a80f2f2147f3e03cd6d6af694821260e",
+    "helperReview": {
+      "tool": "scripts/frosty-worker.py review",
+      "issues": 0,
+      "leadDir": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T181241-0400-sol61\\L165"
+    },
+    "scope": {
+      "roots": 5,
+      "externalChildrenFollowed": 0
+    },
+    "independentRawReview": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T181241-0400-sol61\\independent-raw-review.json",
+      "sha256": "44946b4e358a0e57f881a3288c763f7ae7b3687fe402a456850da124271f823f",
+      "uniqueChecksIncludingControl": 78,
+      "failures": 0
+    },
+    "semanticLimit": "Owner-key equality cannot strengthen unresolved historical labels. Selected serialized links do not prove native activation, units or composition.",
+    "controlBoundary": "Release Head 4892017 M433 raw/site control validates the reader and site encoding separately from hotfix Head 4892087 gadget evidence."
+  }
+}

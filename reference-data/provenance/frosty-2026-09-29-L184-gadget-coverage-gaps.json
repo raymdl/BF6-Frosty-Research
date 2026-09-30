@@ -1,0 +1,230 @@
+{
+  "lead": "L184",
+  "status": "reviewed-source-finding",
+  "build": "1.4.3.0-hotfix",
+  "question": "All-gadgets goal: distinguish source families with concrete gameplay routes from art-only catalog prefixes, so each candidate has an explicit next source route or limited catalog disposition. No global gameplay absence or released roster claim.",
+  "sourceFacts": {
+    "scope": {
+      "expected": 66,
+      "examined": 66,
+      "notes": "Only supplied normalized prefixes; no child traversal, art capture, or numeric mechanic decode."
+    },
+    "counts": {
+      "positive-gameplay-source-candidates": 29,
+      "art-and-UI-or-ambiguous-roots": 2,
+      "shared-or-ambiguous-routes": 9,
+      "art-only-in-listed-prefix": 26
+    },
+    "control": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+      "rawSha256": "66caca0e667d17fdf03f9fb4f620b9c5842aa1fd8de0221128ad4862895eed51",
+      "offset": 1084,
+      "type": "f32",
+      "bytesHex": "5a642b3f",
+      "value": 0.6694999933242798,
+      "expect": "0.6695",
+      "matches": true
+    },
+    "captureFilter": {
+      "head": 4892087,
+      "descriptorSha256": "99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640"
+    },
+    "descriptorMetadata": {
+      "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\toolchain\\SharedTypeDescriptors-hotfix-2026-09-16.ebx": {
+        "exists": true,
+        "sha256": "99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640"
+      }
+    }
+  },
+  "inference": "Route roles use exact route names and directory location; they are candidates, not typed mechanic claims.",
+  "unresolved": [
+    "Catalog routes do not prove a selected gameplay chain or current multiplayer availability.",
+    "Art-only applies only to the supplied prefix routes. Gameplay and aliases elsewhere remain unresolved.",
+    "Exact alias import/receipt evidence was not established; no alias is promoted from a name.",
+    "No family is complete from this catalog classification."
+  ],
+  "siteImpact": "No site change; future source selection only.",
+  "evidence": [
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L184\\scoped-inputs.json",
+      "sha256": "823f03154462f94ed0ffaf7e3b12230516cc39a235074efc491ce2d4085621ad"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L184\\control-raw.json",
+      "sha256": "5f76caeb1046b7fe3232d00db51f0fca2a89d38e39e15bf225be8de90a6889e8"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L184\\classify.py",
+      "sha256": "ddeac90bce88663742b844c80e82a03da5af6c22438b5eccfd78ce398f75817b"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L184\\inspect_scope.py",
+      "sha256": "6bae1f167412802cfe86b9dba41de601f7e0e2d930af5c9d4d45d539b00d5d04"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L184\\coverage-gaps.json",
+      "sha256": "c8faea0832a014dda96dde2e2a1ce5b8def55cd79c58b2d11fa49cafec7bae06"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L184\\l184-result.json",
+      "sha256": "2352390607e9aaacc38e842e5b73f4211d1d4963f584f90a4ac7f70c941a016e"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+      "sha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-records.py",
+      "sha256": "a6b0ca77270f6abc5dc48f164762569a8cb36faf37754f04f892d0ae7e7c7f34"
+    }
+  ],
+  "commands": [
+    {
+      "executable": "python",
+      "args": [
+        "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+        "--path",
+        "Common/Hardware/Weapons/AssaultRifle/HK433/GS_HK433.ebx",
+        "--offset",
+        "1084",
+        "--type",
+        "f32",
+        "--expect",
+        "0.6695",
+        "--out",
+        "control-raw.json"
+      ],
+      "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L184"
+    },
+    {
+      "executable": "python",
+      "args": [
+        "classify.py"
+      ],
+      "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L184"
+    }
+  ],
+  "history": "One inline SQLite inspection failed before execution with a quoting SyntaxError; replaced by saved inspect_scope.py. Initial bounded scope inventory used python -c. No capture/decode helpers invoked.",
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-09-29",
+    "build": "1.4.3.0-hotfix",
+    "binding": "research",
+    "leads": [
+      {
+        "id": "L184",
+        "title": "All-gadget coverage gaps",
+        "status": "finding",
+        "summary": "66 unreviewed gadget catalog prefixes classified after root correction: 29 have gameplay source candidates, 25 art-only within the listed prefix, two art/UI/ambiguous and ten shared/ambiguous; none is complete mechanic coverage.",
+        "reopenWhen": "Trace selected root consumer routes and exact aliases before semantic or availability claims.",
+        "statusNote": "GPT-6.1 Sol, 29 Sep; source only"
+      }
+    ],
+    "run": {
+      "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets",
+      "orchestrator": "GPT-6.1 Sol",
+      "workers": [
+        {
+          "lead": "L184",
+          "model": "GPT-6.1 Sol",
+          "effort": "Low"
+        }
+      ]
+    },
+    "refs": []
+  },
+  "rootClassificationCorrections": {
+    "lead": "L184",
+    "status": "catalog-stage-only",
+    "classificationCorrections": [
+      {
+        "route": "Common/Hardware/Gadgets/RemoteControllable/ReconDrone/Feature_TrackAndDestroy/PresEx_Ability_Drone_TrackAndDestroy_Crosshair",
+        "role": "UI",
+        "reason": "Presentation crosshair route contains Ability in its name; remove it from selected mechanic priorities."
+      },
+      {
+        "route": "Common/Hardware/Gadgets/CallIns/UAVOverwatch/SimEx_DestroyUAVCallInWeaponAbility",
+        "role": "simulation-expression-candidate",
+        "reason": "Ability in the expression name does not establish an Ability root."
+      }
+    ],
+    "priority": [
+      "Tools/SniperDecoy: WB + Ability + Equipment + U root pinned",
+      "Launchers/M320Smoke: Ability + Equipment + U root pinned; selected WB route not established here",
+      "CallIns/UAVOverwatch: WB + U + DiceFeature pinned; mode availability unresolved",
+      "RemoteControllable/ReconDrone: Ability_TrackAndDestroy and DiceFeature_Drone_TrackAndDestroyGadgets pinned",
+      "Throwables/MedicCrate: U_Gadget_MedicCrate_Affector_Healing pinned"
+    ],
+    "priorWork": {
+      "command": "python \"C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-worker.py\" prior-work --terms Airburst M26Mass SOFLAM",
+      "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L184",
+      "findings": "L163 covers AirburstIncendiary; L73/L80/L81 cover M26Mass00Buck/Dragonbreath roots. These are possible related families, not exact aliases for the listed Airburst/M26Mass prefixes. No alias promoted. SOFLAM no exact receipt join established."
+    },
+    "verification": "check-receipt draft-receipt.json returned record ok; all 30 catalog candidate capture raw hashes passed; one candidate is UI and one is an expression as corrected above."
+  },
+  "independentCatalogReview": {
+    "reviewer": "GPT-6.1 Sol",
+    "groups": 66,
+    "candidateCapturePinsRehashed": 30,
+    "errors": [],
+    "source": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L184\\coverage-gaps.json",
+    "sourceSha256": "c8faea0832a014dda96dde2e2a1ce5b8def55cd79c58b2d11fa49cafec7bae06",
+    "reviewedOutput": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L184-reviewed-coverage-gaps.json",
+    "reviewedOutputSha256": "3db38a178502f31273e4366b044e98a25c8d1e6f700c70ccef517941374e397b",
+    "counts": {
+      "positive-gameplay-source-candidates": 29,
+      "art-and-UI-or-ambiguous-roots": 2,
+      "shared-or-ambiguous-routes": 10,
+      "art-only-in-listed-prefix": 25
+    },
+    "limits": "Listed prefixes and route candidates only; no selected gameplay, alias, availability or completion claim.",
+    "helperSha256": "ba973f53088c4f542edc7dc07ba3d3c5eb388c382727b64d9fbed5453b06cf60",
+    "history": "Initial root strict Art-prefix assertion caught CorpseDropAmmo classification. Original worker data and failed verifier preserved; corrected output separate."
+  },
+  "orchestratorCaptureReviews": [
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\armor-resource-capture\\verification.json",
+      "sha256": "15f1421c545a9e0a1f217fcc8b95638706c2b3bfa0e0f0ecbbfd7ecc15bd24e6"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\missing-gameplay-capture\\verification.json",
+      "sha256": "2743270e30d78f0dad9426589138bb79dbd35fe03ecec6ce9aab789392437b0f"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\nvg-child-capture\\verification.json",
+      "sha256": "054a23735b9b352510cb5a17f8aaa3a2f2b94a45f568f3547051561924d2de12"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\registry-capture\\verification.json",
+      "sha256": "2e6ff41233fe7bdcd2f74b5189df235ab5113f6a2789b4f3c1b1fb747b23b8f9"
+    }
+  ],
+  "orchestratorReview": {
+    "reviewer": "GPT-6.1 Sol",
+    "workerModel": "GPT-6.1 Sol",
+    "workerEffort": "Low",
+    "date": "2026-09-29",
+    "draft": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L184\\draft-receipt.json",
+      "sha256": "677e05fb4ec16d58dc624a8b83a6813f8612d088cfce1c5a18c139f54b818a95"
+    },
+    "helperReview": {
+      "tool": "scripts/frosty-worker.py review",
+      "issues": 0,
+      "leadDir": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L184"
+    },
+    "scope": {
+      "roots": 66,
+      "externalChildrenExamined": 0
+    },
+    "independentRawReview": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L184-independent-raw-review.json",
+      "sha256": "e7f8fe549b61f2b24d0124400cc7d98ae2f48e3326274939ffd0123a731d334b",
+      "uniqueChecksIncludingControl": 1,
+      "failures": 0
+    },
+    "pinReview": "Every recorded raw EBX asset hash matches either an indexed hotfix Head 4892087 capture or a reviewed fresh run-local capture with matching catalog Head/SDK and frozen descriptor hash. Release M433 control is separate.",
+    "semanticReview": "Selected source joins and exact member-owner meanings checked against reviewed prior mappings. No current multiplayer availability, native activation, units or effective composition claim."
+  }
+}

@@ -10,6 +10,9 @@ examined; all findings use exported values and their structure.
 
 ## Multiplayer audit scope (1.4.3.0)
 
+Weapon sound profiles are outside the Analyzer research scope, per the
+[operator scope decision](../../reference-data/provenance/frosty-2026-09-29-L135-sound-scope-decision.json).
+
 The [archive package census](../../reference-data/provenance/frosty-audit-weapon-bundle-context-2026-09-23.json)
 checks all 192 GS/WB/Ability roots for 64 candidate weapons. The 189 roots for the
 63 mapped weapons have GlacierMP package assignments. KSG's three core roots have
@@ -104,6 +107,37 @@ damage-number test. [Receipt](../../reference-data/provenance/frosty-2026-09-27-
 - Two unsupported Lightweight ammo choices (M60, M121 A2) were removed: no Frosty
   attachment, and the operator confirmed the game does not offer them.
 
+### Unassigned projectile fields (L136, 29 September 2026)
+
+The [six-family source trace](../../reference-data/provenance/frosty-2026-09-29-L136-projectile-candidate-fields.json)
+pins Head4892017 and verifies 54 float32 values plus six local-pointer reads.
+Each `Class_23637dce` wrapper has four checked fields and a `Field_538b9219`
+link to a local `Class_3d3dd0d2` body with five floats. Their roles and units
+remain unassigned. The arrays below use these explicit field orders:
+
+- Wrapper: `556dd6d1`, `ee5ca261`, `5c031026`, `4f720886`.
+- Linked body: `1f61855d`, `832e839f`, `97755b2a`, `2f621799`, `f8149be8`.
+
+| Projectile under `Common/Hardware/Weapons/_Bullets/` | Wrapper values | Linked-body values |
+|---|---|---|
+| `PD_556x45mmNATO` | 20, 100, 150, 0.8 | 0.1, 10, 12, 100, 1 |
+| `PD_68x51mm_MG` | 20, 20, 150, 0.8 | 0.1, 15, 12, 100, 1 |
+| `PD_.300WinMag` | 20, 20, 150, 0.8 | 0.1, 20, 12, 100, 1 |
+| `PD_762x51mmNATO_Semi` | 20, 20, 150, 0.8 | 0.1, 15, 12, 100, 1 |
+| `PD_12gaNo01Buck275_Pump` | 20, 20, 150, 0.3 | 0.1, 2, 12, 100, 1 |
+| `PD_.44Magnum` | 20, 20, 100, 0.8 | 0.1, 12, 12, 100, 1 |
+
+The decimal display is rounded; the receipt retains exact float32 values, bytes,
+typed owners and offsets. The six WB imports reach the corresponding candidate
+families from site metadata, but this pass did not follow `PrimaryFire.Shot`
+selection. M2010 also imports `PD_SP_Player_.300WinMag`. This limit does not
+supersede the existing base-projectile selection evidence used by the site generator.
+
+No suppression or near-miss function is identified. The older SDK
+`WeaponSuppressionData` has four members; its names cannot be assigned by order
+to this five-float body. A comparison needs independent current field roles and
+the applicable selected-chain evidence. No new site value or capture is proposed.
+
 ### Zeroing source configuration (1.4.3.0, 23 September 2026)
 
 All 63 captured weapon blueprints contain a zeroing block. Twelve (six bolt-actions
@@ -179,6 +213,44 @@ this does not establish native zeroing. [Receipt](../../reference-data/provenanc
 The [L40 prior-evidence review](../../reference-data/provenance/frosty-2026-09-24-L40-collateral-route-review.json)
 found no new link from the named index to native table selection. Keep the
 operator-confirmed clamp separate from that unresolved source route.
+
+### Material-pair candidates (L128, 29 September 2026)
+
+[L128](../../reference-data/provenance/frosty-2026-09-29-L128-primary-material-pairs.json)
+joined six base primary projectile materials (AK-205 276, M433 277, M39 EMR 498,
+M2010 ESR 290, Interdictor 784, DB-12 buck 279) to 11 target IDs on Abbasid and
+Badlands: 132 cells. Record presence and present values match between maps.
+Of 66 source/target pairs, 50 have the candidate penetration record on both maps
+and 36 have the candidate damage record; absent records remain unresolved.
+
+`Class_7d765f18.Field_b162a322` at +24 is a descriptor Boolean, false in all 100
+present map occurrences. The old helper calls it `NeverPenetrate` and inverts it
+to generate `CanPenetrateTargets`; that name/inversion is inferred. False does
+not establish denial of penetration. Its separate inherited +0 block is 24 opaque
+bytes, with no declared permission enum in the inspected descriptor chain.
+
+The candidate damage record's `Field_4782a5a1` at +40 is f32. For target IDs
+24/25/26/115, DB-12 buck stores 0; M2010 ESR and Interdictor store 1; the other
+three store 0.9 or 1. The legacy label `DamagePenetrationMultiplier` is an inferred
+offset/type/order assignment. These are source differences, not wall damage or
+pass-through results. Target-material names and the consuming equation remain
+unresolved. An opaque numeric-ID table is not yet a useful Analyzer comparison,
+so no feature is proposed. Do not combine these candidates with the site's
+operator-confirmed body-collateral percentage. Reopen for an authoritative field
+association and a concrete consumer route that resolves a weapon comparison.
+
+[L130](../../reference-data/provenance/frosty-2026-09-29-L130-grid-speed-candidates.json)
+inspected the nine Abbasid objects labeled `BelowSpeedModifier` by the prior
+inventory (`Class_d686a7c7`). Their two descriptor f32 fields are
+`Field_52bf99dc` at +24 (0–2.5) and `Field_d160f72c` at +32 (approximately
+0.1–10); the inherited 24-byte prefix remains opaque. All nine objects have raw
+checks. The bounded inventory records no direct grid-cell occurrences of this
+type, and the six specified base-primary WB/projectile/material joins did not
+establish a connection to it. No velocity threshold, range effect or field units
+follow from the type label. This is a limit of the inspected route, not global
+absence or inactivity. Reopen for a concrete pinned primary-projectile association
+and consumer; the L128/L130 grid line is parked after two leads without a
+correction or useful comparison proposal.
 
 ## Controller recoil
 
@@ -377,6 +449,45 @@ retains named registry values for `Jump_HorizontalVelocityCap` 8,
 pass did not establish their standard MP activation or native units/application.
 Do not add them to the simulation as effective player settings.
 
+**Jump and combat-dive source context (L132, 29 September).** The release
+`Feature_JumpAcceleration` and `Feature_CombatDiveAcceleration` import their exact
+simulation-expression objects. Those expressions directly import four named
+`GRX_Glacier_Soldier` children. Each child uses local type key
+`c03e3ff27f5cfebb73c91d2973a7dfc1` / `Class_d59e68b9`. Its three float32 slots are
+raw-verified; values below are shown rounded.
+
+| Registry name | `Field_3ff76ddb` (+64) | `Field_42c8b257` (+68) | `Field_c06d0cbb` (+72) |
+|---|---:|---:|---:|
+| `Jump_HorizontalVelocityCap` | 12 | 8 | 3 |
+| `Jump_MinSpeedForHorizontalImpulse` | 10 | 3.6 | 0 |
+| `Jump_StrafeSpeed` | 10 | 0.125 | 0 |
+| `CombatDiveDuration` | 2 | 0.1 | 0 |
+
+The middle-slot value and other-slot bounds interpretation remains inferred, as
+in L106. Units, compiled equations, activation and composition are unresolved.
+The named imports do not establish a weapon-ready delay or a loadout-specific
+movement calculation. The site's ADS movement ratios and sprint recovery times
+provide no mapping for these slots. [Reviewed receipt](../../reference-data/provenance/frosty-2026-09-29-L132-maneuver-source-context.json).
+
+**Landing speed penalty source context (L134, 29 September).**
+`Traversal/OnGround/SimEx_OnGround` names `JumpLandingMovementSpeedPenalty`,
+`LandingPenaltyProcessed` and `LandingPenaltySet`. Its object 8 directly imports
+the three exact GRX children below, using the same typed slot order as L132.
+
+| Registry name | `Field_3ff76ddb` (+64) | `Field_42c8b257` (+68) | `Field_c06d0cbb` (+72) |
+|---|---:|---:|---:|
+| `Jump_LandingPenalty_Strength` | 100 | 9 | 0 |
+| `Jump_LandingRecovery_IncreasePerSecond` | 5 | 0.5 | 0 |
+| `Jump_LandingPenalty_MinScaleClamp` | 1 | 0.5 | 0 |
+
+The nine raw float32 slots and their import joins are established. Their roles,
+units and composition remain unresolved; 9 is not established as 9%, and 0.5 is
+not established as a half-second duration. The compiled resource reference
+`cc04055a48e4ccad` is an identity, not a decoded formula or activation proof.
+These tuples do not support an effective landing-speed comparison. The jump and
+landing inventory line is parked until new consumer evidence exists.
+[Reviewed receipt](../../reference-data/provenance/frosty-2026-09-29-L134-landing-speed-penalty.json).
+
 The [LowProfile and suppression verification](../../reference-data/provenance/frosty-multiplayer-final-review-2026-09-23.json)
 closes the selected LowProfile chain: Ability → FL → SimEx → both spot affectors.
 Their raw operands 1.2 and 0.667 remain unnamed; no delay/duration multiplier is
@@ -495,13 +606,21 @@ read all 1,512 values from raw bytes (control: M433 CrouchToProne 6 degrees / 0.
 offsets 3216/3220). Prone transitions are 6 degrees over 0.9 s on 54 weapons; outliers are
 Carbine/LMG/Shotgun/Sidearm bodies with 7 degrees or 0.6-0.8 s (one per class, for
 example DB-12: 7 degrees / 0.6 s on CrouchToProne, 3 degrees / 0.8 s on ProneToStand),
-and sidearms mostly 3 degrees (0.5 degrees on one). Eight crouch/stand leaves carry 0.2-1
-degree over 0.3 s under a candidate name-to-slot join (the exact offsets are not joined).
+and sidearms mostly 3 degrees (0.5 degrees on one). The eight crouch/stand leaves carry
+0.2-1 degree over 0.3 s in the same array. The leaves are elements of a 200-slot array
+(`Field_fc724c05`, 16 bytes each) indexed 10 x from + to for Stand 0, Crouch 1, Prone 2,
+plus 100 when zoomed ([L124](../../reference-data/provenance/frosty-2026-09-29-L124-stance-leaf-join.json)),
+so all 24 joins are exact; StandToCrouch and CrouchToStand hold identical values on all 63
+weapons.
 No site choice and none of 895 verified release modifier bodies targets these leaves; 93
 catalog routes lack pinned raw. Their runtime meaning is unresolved: the names suggest a
 transient spread floor after a stance change, but composition with the static minima is
 unknown. The 13 September "identical on 9 weapons" note described the nine directly named
-registry owners and does not hold for the 63 raw owners.
+registry owners and does not hold for the 63 raw owners. L122 searched for an activation
+route and found none in the captured data: the neighbouring GS families are dispersion,
+recoil and idle-duration fields, and of 2,316 named registry entries 491 float32 values
+equal a penalty duration or angle, 216 inside the family and 275 by value only, which
+establishes no shared quantity ([receipt](../../reference-data/provenance/frosty-2026-09-29-L122-stance-activation-route.json)).
 
 ### Recovery law
 
@@ -638,20 +757,34 @@ children have identical pairs of time fields. The numeric candidate
 `ADS_SPD_TIERS[i] = 1000 * AZTT_Ti.Field_a89997ad + 2 * 1000/60`
 fits every tier within 0.000342 ms. These are byte-checked source fields, but the
 opaque field's meaning and the two-frame adjustment are unproven. Do not turn
-this relationship into a confirmed native ADS equation. The separate SSA sprint
+this relationship into a confirmed native ADS equation. L125 (29 September) found matching
+source values: `FZTT_General_01_T0-T7` (f32 at raw offset 100) hold 0.5, 0.433334,
+0.366667, 0.3, 0.25, 0.2, 0.166667 and 0.133334 s, equal to `ADS_SPD_TIERS` within 1.2e-5 ms,
+supporting a candidate ADS-in role. This match does not establish the runtime consumer
+or exclude a contribution from AZTT; its two-frame relation remains a numeric candidate
+([receipt](../../reference-data/provenance/frosty-2026-09-29-L125-fzt-general01-ads-in.json)). The separate SSA sprint
 array directly reproduces all 12 sprint timings after seconds-to-milliseconds
 conversion, and its exact WB selectors agree for all 63 weapons.
 
 **ADS-out (L114, 29 September).** Each weapon body's raw `WeaponZoomTransitionIndex`
 (GRX child `<Weapon>_WB.WeaponZoomTransitionIndex.Index`) equals the site's ADS-in index
 (`defAds`) on 63 of 63 weapons and also selects an entry of the shared `FZT_Weapons`
-array (`Field_e2c9902e`) that pairs a General_01 and a General_10 zoom-transition array.
+array (`Field_e2c9902e`) that pairs a General_01 zoom-transition array (values matching
+the site's ADS-in ladder, L125) and a General_10 one.
 The General_10 durations by index are 400, 333.334, 266.667, 233.334, 200, 166.667,
-133.334 and 100 ms (ADS-in: 500 to 133.334 ms), so ADS-out is a separate ladder at the same
-index. If the selector drives ADS-out, that gives a per-weapon baseline `Aout`. None of the 55
+133.334 and 100 ms (General_01: 500 to 133.334 ms), supporting a candidate ADS-out ladder
+at the same index. The runtime transition directions remain unresolved. If the selector
+drives ADS-out, that gives a per-weapon baseline `Aout`. None of the 55
 traced ADS-relevant choice routes of the M4A1 and the six Sniper Rifles references FZT
 directly and the `GID_ADSTime` add target is unresolved, so attachment shifts of ADS-out
 are not established. [Receipt](../../reference-data/provenance/frosty-2026-09-29-L114-ads-out-transition.json).
+L121 traced the ADS-time modifier chains (55 M4A1 and Sniper routes, ten Support-trait LMG
+bindings) and found that neither the WME step (`Field_9540bd8e` in WPM entries) nor the GID
+step (`Field_4692836a` in GS bindings) names the field that receives it: the WB
+`WeaponZoomTransitionIndex` and `AnimationZoomSettingsIndex` are candidates only. If the
+steps shift the transition index, the six M4A1 choices checked move from index 4 to 5
+(ADS-in 200 ms, ADS-out 166.667 ms); that is conditional arithmetic
+([receipt](../../reference-data/provenance/frosty-2026-09-29-L121-ads-time-modifier-targets.json)).
 
 Three representative XML/raw index checks passed, including BREN3's null anchor.
 Do not use the parent GRX `[1,0]` array or `Field_8cf424e7` registry values as weapon
@@ -878,6 +1011,17 @@ now part of the class-trait proposal.
 The raw comparisons use 1.4.3.0 Head 4892017. The recorded client is labeled
 1.4.3.1, Head 4892087; the build folder and source paths are unchanged.
 
+**Full pass (L123, 29 September).** All 124 `ReloadInfoArray` entries of the 63 weapons
+were read from raw bytes (1,352 checks): the site rule below reproduces every tactical
+reload (63 of 63) and every non-null empty reload (60 of 60; three shell-fed shotguns are
+null). `ReloadThreshold x ReloadTimeBulletsLeft` falls between phase indices 1 and 2 on
+29 of 57 phase-bearing empty entries and nearest the penultimate `ReloadTimerArray` entry
+on 47 of 57 (exceptions: GRT-BC, SOR-300SC, VSSM, KTS100, L110, M240L, CZ3A1, ES 5.7,
+Vz. 61, SV-98). Class medians of the threshold fraction run 0.62 (Carbine) to 0.88
+(Shotgun); ReloadType codes differ only on the shotguns, KTS100 and the two revolvers.
+The phase items have no verified names and the threshold's runtime meaning is unresolved
+([receipt](../../reference-data/provenance/frosty-2026-09-29-L123-reload-phases.json)).
+
 **Site rule.** The site's reload values are the stored time divided by the
 per-weapon `ReloadSpeed` (`Field_1c533b56`) of the same `ReloadInfoArray` entry.
 `tacRld = [0].ReloadTimeBulletsLeft / [0].ReloadSpeed` matches 60 of 63 weapons;
@@ -984,6 +1128,13 @@ an import-set scan of all 63 roots finds no other LMG-only asset. The official
 "no sprint speed penalty" therefore has no source operand; it is probably native or
 animation-driven. [Receipt](../../reference-data/provenance/frosty-2026-09-28-L106-L111-orchestrator-trial.json).
 
+**Base traits and soldier features (L126, 29 September).** The catalog has 35 assets under
+`InRoundProgression/_BaseTraits` and 32 under `Soldier/Features`. Only 13 of the 67 have
+release captures and none carries a weapon-stat operand; the one feature imported by weapon
+bodies is `CorpseDropFeatures/DroppedPrimaryWeapon` (56 site Ability roots, not the seven
+sidearms). All 35 base traits lack release raw (22 exist only at the hotfix head), so their
+effect on weapons is unresolved ([receipt](../../reference-data/provenance/frosty-2026-09-29-L126-basetraits-soldier-features.json)).
+
 **Other in-round modifiers (L108/L109, 28 September).** `WM_WeaponSwap` is one draw step
 (+1, faster) imported by 60 of 63 weapon bodies (not CZ3A1, DB-12, Vz. 61); its selector
 `7727fe65…` has no owning asset in the collection (L115, 29 September: the GUID occurs only
@@ -1006,6 +1157,19 @@ variation x1.161-1.223. The matching `WM_MountedPlus*` files also carry unnamed
 camera/visual vectors (0.67, 0.33, 0.5/0.4/0.7) that were not decoded. Native activation
 is unresolved. [Receipt](../../reference-data/provenance/frosty-2026-09-28-L106-L111-orchestrator-trial.json).
 
+The [L131 tactical-movement receipt](../../reference-data/provenance/frosty-2026-09-29-L131-tactical-movement.json)
+adds three release feature/expression roots and six direct target assets. Exact
+imports resolve named mounted/aim channels, stance and transform channels, three
+mount-choice options and five TWM registry children. FilterAngle(up) has a
+three-f32 tuple 45/30/0; MountAimBreakoutDelay has 0/0.3/0; the edge-query duration
+has 0/0.5/0. MountBreakoutDelay's middle field is a struct containing the float
+array [0,0.5,1], not a scalar; ClearMountPathFromHead has a true boolean.
+All 15 retained operands are raw-verified. Their roles, delay units, selected
+options and execution remain unresolved. A GetWeaponBasicStateNode label does
+not establish weapon-specific firing readiness or a link to the site's handling
+inputs. This source context does not extend L108's separate recoil projection
+into a new mounted comparison or proposal.
+
 ## Named GS/WB fields the site does not use
 
 109 of 170 GRX leaf names under GS/WB paths are not used by the site (13 September; a
@@ -1013,8 +1177,8 @@ is unresolved. [Receipt](../../reference-data/provenance/frosty-2026-09-28-L106-
 recounted on 1.4.3.0 (29 September): 272 distinct full suffixes on the 63 weapons (166 after
 collapsing aim and movement-state components); 179 feed a documented site value and 93 are
 candidates, of which 47 are uniform and 46 vary. Of the varying candidates only the
-`CameraRecoil.IdleSpring*` family (visual camera settling, 11 fields) has no earlier
-explanation. The 13 September table below is otherwise still current except for
+`CameraRecoil.IdleSpring*` family had no earlier explanation; the bounded source
+trace below now records its inputs and limits. The 13 September table below is otherwise still current except for
 `StanceChangePenalties`.
 
 | Field family | Spread | Assessment |
@@ -1033,6 +1197,23 @@ explanation. The 13 September table below is otherwise still current except for
 Other leads not modeled: bipod and mounted recoil (`GRM_BipodDeployed_*`,
 `GBM_Increase_ADS_*_BTM_Bipod` on M4A1 and QBZ-192, `GRM_Mounted*`). The operator decided
 on 13 September to document these without model changes.
+
+### Camera idle spring inputs (L127, 29 September 2026)
+
+[L127](../../reference-data/provenance/frosty-2026-09-29-L127-camera-idle-spring.json)
+checked 12 named f32 fields on each of 12 selected GS roots (144 raw reads). Ten
+fields vary in this sample: the unzoomed/zoomed constants are 200–2000 / 200–3500,
+damping is 0.4–0.9 / 0.42–0.85, and six `*SwitchTime` fields each have seven values
+between approximately 0.083334 and 0.25. Both exponent fields are 30 throughout.
+These ranges describe serialized parameters; units and effective camera output
+are unresolved. BREN3 was resolved through its release descriptor because its
+registry anchor is missing; the other 11 roots have matching named registry children.
+
+The site's ballistic recoil amount and decay inputs are separate from this
+camera tuple. No settling time, visual ranking or feature proposal follows from
+the tuple alone. Reopen for a concrete release consumer/equation route that can
+establish units, activation and zoom/transition composition; do not repeat the
+parameter extraction or request a recording solely to explain these fields.
 
 ## Composite stats
 

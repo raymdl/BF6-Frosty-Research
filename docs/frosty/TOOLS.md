@@ -144,7 +144,7 @@ Build only FrostyCmd, so the existing FrostySdk and FrostyHash builds stay uncha
 
 | Script | Use |
 |---|---|
-| `scripts/frosty-collect-raw.ps1` | Full catalog and an optional routes-file raw set, without object decoding. Use a new output directory per capture. |
+| `scripts/frosty-collect-raw.ps1` | Optional routes-file raw set, without object decoding, plus a small `capture-identity.json` (Head, SDK version). The full catalog (about 110 MB) is written only with `-Catalog`: use it for build and hotfix captures, and for captures read by `frosty-audit-coverage --collection-dir` or `frosty-audit-capture-review`. Use a new output directory per capture. |
 | `scripts/frosty-raw-assets.ps1` | Raw dump of specific routes (routes in its header; has a size limit). |
 | `scripts/frosty-material-grid-inventory.py --descriptors <SharedTypeDescriptors.ebx> --class-guids FrostyPlugin/Sdk/ClassGuids.txt --grid <raw .ebx> --out <json>` | Bounded, safe reader for material grids. Ran on both 1.4.3.0 grids. |
 | `scripts/frosty-hit-zones.py` | Reads raw grids with `SharedTypeDescriptors.ebx`. |

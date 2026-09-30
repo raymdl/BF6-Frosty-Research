@@ -1,0 +1,776 @@
+{
+  "lead": "L159",
+  "status": "reviewed-proposal",
+  "build": {
+    "label": "1.4.3.0-hotfix",
+    "head": 4892087,
+    "descriptorSha256": "99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640"
+  },
+  "question": "Which standard or gas projectile body does the multiplayer DrillGL WB select, and which typed blast or direct-hit values are available for a conditional Breaching Dart comparison?",
+  "sourceFacts": {
+    "control": {
+      "description": "Release Head 4892017 GS_HK433 raw known-answer control for site data/weapons.json:/[id=m433]/recoil/ads/amount = 0.6695; it controls the raw-check route/site encoding only.",
+      "passed": true,
+      "rawChecks": [
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+          "rawSha256": "66caca0e667d17fdf03f9fb4f620b9c5842aa1fd8de0221128ad4862895eed51",
+          "offset": 1084,
+          "type": "f32",
+          "bytesHex": "5a642b3f",
+          "value": 0.6694999933242798
+        }
+      ]
+    },
+    "scope": {
+      "expected": 3,
+      "examined": 3,
+      "notes": [
+        "Exactly the three named hotfix Head 4892087 roots were examined under descriptor SHA-256 99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640.",
+        "The WB Field_58d70acb/Field_808dd66c import resolves to the standard PB body. A separate object[12]/Field_808dd66c import resolves to the gas PB on another source path; it is retained as a candidate only.",
+        "The standard and gas projectile bodies each contain one direct Class_9966532d child linked by Class_6761170b.Field_1f7b3933; the child Class key and inherited Class_d11bf358 descriptor key match the reviewed L148 blast-field identity.",
+        "All 14 raw checks matched and both selected-chain assertions passed. The retained values are serialized fields and imports, not runtime behavior."
+      ],
+      "directBlastDamageChildren": {
+        "Common/Hardware/Gadgets/Launchers/BreachingDart/PB_40x46mmLVG_Drill": 1,
+        "Common/Hardware/Gadgets/Launchers/BreachingDart/PB_40x46mmLVG_Drill_Gas": 1
+      },
+      "rawChecksTotal": 14,
+      "rawChecksPassed": 14
+    },
+    "rows": [
+      {
+        "route": "Common/Hardware/Gadgets/Launchers/BreachingDart/DrillGL_WB",
+        "role": "multiplayer DrillGL weapon blueprint",
+        "rawPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\BreachingDart\\DrillGL_WB.ebx",
+        "rawSha256": "4974e714801ffd618f4b676dd6f05c2cc0f19873d2db7b2bbdcdf43facad9d43",
+        "head": 4892087,
+        "descriptorSha256": "99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640",
+        "rootClass": "Class_a6e2adec",
+        "primaryProjectile": {
+          "fieldPath": "object[1]/Field_58d70acb/Field_808dd66c",
+          "sourceClass": "Class_35259f6b",
+          "sourceClassKey": "503dde81ed5cf4d154423f8a5b58e439",
+          "fieldOwnerType": "Class_29ea5d2b",
+          "fieldOwnerDescriptorIndex": 531,
+          "fieldOwnerDescriptorKey": "5b15b659cc5c6b1a34f0e2a3f0c58edc",
+          "serializedPointerToken": 65,
+          "targetRoute": "Common/Hardware/Gadgets/Launchers/BreachingDart/PB_40x46mmLVG_Drill",
+          "targetRawSha256": "6c9f20ee890bd2f63f00c264f23c96f14e3b3fa71ecc0b21685ef48b68d2f19d",
+          "chainAssertion": "L159-WB-primary-projectile",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\BreachingDart\\DrillGL_WB.ebx",
+              "rawSha256": "4974e714801ffd618f4b676dd6f05c2cc0f19873d2db7b2bbdcdf43facad9d43",
+              "offset": 544,
+              "type": "u32",
+              "bytesHex": "41000000",
+              "value": 65
+            }
+          ]
+        },
+        "gasProjectileCandidate": {
+          "fieldPath": "object[12]/Field_808dd66c",
+          "sourceClass": "Class_b1afeb65",
+          "sourceClassKey": "189ccec1d8ca1c9cd0914d6a9d54e0ab",
+          "fieldOwnerType": "Class_b1afeb65",
+          "fieldOwnerDescriptorIndex": 1663,
+          "serializedPointerToken": 59,
+          "targetRoute": "Common/Hardware/Gadgets/Launchers/BreachingDart/PB_40x46mmLVG_Drill_Gas",
+          "targetRawSha256": "0eb7eac61be11dc33e09581302aa07096beb4b5bf38b02fd8edd0f8dc82e4e1d",
+          "configurationPath": [
+            {
+              "sourceIndex": 0,
+              "sourceClass": "Class_a6e2adec",
+              "pointer": "/Field_f5dfcfc5/0/Field_4676ba2c",
+              "targetIndex": 7,
+              "targetClass": "Class_542ac52c"
+            },
+            {
+              "sourceIndex": 7,
+              "sourceClass": "Class_542ac52c",
+              "pointer": "/Field_0cd9f20f/6",
+              "targetIndex": 20,
+              "targetClass": "Class_897c99a7"
+            },
+            {
+              "sourceIndex": 20,
+              "sourceClass": "Class_897c99a7",
+              "pointer": "/Field_9690d604/2",
+              "targetIndex": 12,
+              "targetClass": "Class_b1afeb65"
+            }
+          ],
+          "classification": "candidate only; separate source path, not the primary selector",
+          "chainAssertion": "L159-WB-gas-projectile-candidate",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\BreachingDart\\DrillGL_WB.ebx",
+              "rawSha256": "4974e714801ffd618f4b676dd6f05c2cc0f19873d2db7b2bbdcdf43facad9d43",
+              "offset": 4104,
+              "type": "u32",
+              "bytesHex": "3b000000",
+              "value": 59
+            }
+          ]
+        },
+        "rawChecks": [
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\BreachingDart\\DrillGL_WB.ebx",
+            "rawSha256": "4974e714801ffd618f4b676dd6f05c2cc0f19873d2db7b2bbdcdf43facad9d43",
+            "offset": 544,
+            "type": "u32",
+            "bytesHex": "41000000",
+            "value": 65
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\BreachingDart\\DrillGL_WB.ebx",
+            "rawSha256": "4974e714801ffd618f4b676dd6f05c2cc0f19873d2db7b2bbdcdf43facad9d43",
+            "offset": 4104,
+            "type": "u32",
+            "bytesHex": "3b000000",
+            "value": 59
+          }
+        ]
+      },
+      {
+        "route": "Common/Hardware/Gadgets/Launchers/BreachingDart/PB_40x46mmLVG_Drill",
+        "role": "standard primary projectile body",
+        "rawPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\BreachingDart\\PB_40x46mmLVG_Drill.ebx",
+        "rawSha256": "6c9f20ee890bd2f63f00c264f23c96f14e3b3fa71ecc0b21685ef48b68d2f19d",
+        "head": 4892087,
+        "descriptorSha256": "99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640",
+        "rootClass": "Class_b141ba19",
+        "directBlastDamageChildren": {
+          "count": 1,
+          "sourceObjectIndex": 1,
+          "sourceClass": "Class_6761170b",
+          "sourceClassKey": "b7e98dad14facbc2575a0afaa0752794",
+          "pointerField": "Field_1f7b3933",
+          "targetObjectIndex": 11,
+          "targetClass": "Class_9966532d",
+          "targetClassKey": "a57116aedf259bd743cedc6f7d0622f5",
+          "nameMappingIdentityMatch": true
+        },
+        "blastFields": [
+          {
+            "field": "Field_19861d8c",
+            "name": "BlastDamage",
+            "type": "f32",
+            "value": 40.0,
+            "ownerType": "Class_d11bf358",
+            "ownerDescriptorIndex": 521,
+            "ownerDescriptorKey": "cc2e2a83f3144a2460391b3d48426827",
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\BreachingDart\\PB_40x46mmLVG_Drill.ebx",
+                "rawSha256": "6c9f20ee890bd2f63f00c264f23c96f14e3b3fa71ecc0b21685ef48b68d2f19d",
+                "offset": 2272,
+                "type": "f32",
+                "bytesHex": "00002042",
+                "value": 40.0
+              }
+            ]
+          },
+          {
+            "field": "Field_33f3a8ab",
+            "name": "BlastRadius",
+            "type": "f32",
+            "value": 1.0,
+            "ownerType": "Class_d11bf358",
+            "ownerDescriptorIndex": 521,
+            "ownerDescriptorKey": "cc2e2a83f3144a2460391b3d48426827",
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\BreachingDart\\PB_40x46mmLVG_Drill.ebx",
+                "rawSha256": "6c9f20ee890bd2f63f00c264f23c96f14e3b3fa71ecc0b21685ef48b68d2f19d",
+                "offset": 2288,
+                "type": "f32",
+                "bytesHex": "0000803f",
+                "value": 1.0
+              }
+            ]
+          },
+          {
+            "field": "Field_95e340fe",
+            "name": "InnerBlastRadius",
+            "type": "f32",
+            "value": 1.0,
+            "ownerType": "Class_d11bf358",
+            "ownerDescriptorIndex": 521,
+            "ownerDescriptorKey": "cc2e2a83f3144a2460391b3d48426827",
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\BreachingDart\\PB_40x46mmLVG_Drill.ebx",
+                "rawSha256": "6c9f20ee890bd2f63f00c264f23c96f14e3b3fa71ecc0b21685ef48b68d2f19d",
+                "offset": 2264,
+                "type": "f32",
+                "bytesHex": "0000803f",
+                "value": 1.0
+              }
+            ]
+          },
+          {
+            "field": "Field_3ef01f58",
+            "name": "ShockwaveDamage",
+            "type": "f32",
+            "value": 1.0,
+            "ownerType": "Class_d11bf358",
+            "ownerDescriptorIndex": 521,
+            "ownerDescriptorKey": "cc2e2a83f3144a2460391b3d48426827",
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\BreachingDart\\PB_40x46mmLVG_Drill.ebx",
+                "rawSha256": "6c9f20ee890bd2f63f00c264f23c96f14e3b3fa71ecc0b21685ef48b68d2f19d",
+                "offset": 2304,
+                "type": "f32",
+                "bytesHex": "0000803f",
+                "value": 1.0
+              }
+            ]
+          },
+          {
+            "field": "Field_524836d3",
+            "name": "ShockwaveRadius",
+            "type": "f32",
+            "value": 7.0,
+            "ownerType": "Class_d11bf358",
+            "ownerDescriptorIndex": 521,
+            "ownerDescriptorKey": "cc2e2a83f3144a2460391b3d48426827",
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\BreachingDart\\PB_40x46mmLVG_Drill.ebx",
+                "rawSha256": "6c9f20ee890bd2f63f00c264f23c96f14e3b3fa71ecc0b21685ef48b68d2f19d",
+                "offset": 2308,
+                "type": "f32",
+                "bytesHex": "0000e040",
+                "value": 7.0
+              }
+            ]
+          }
+        ],
+        "rawChecks": [
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\BreachingDart\\PB_40x46mmLVG_Drill.ebx",
+            "rawSha256": "6c9f20ee890bd2f63f00c264f23c96f14e3b3fa71ecc0b21685ef48b68d2f19d",
+            "offset": 400,
+            "type": "u32",
+            "bytesHex": "50060000",
+            "value": 1616
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\BreachingDart\\PB_40x46mmLVG_Drill.ebx",
+            "rawSha256": "6c9f20ee890bd2f63f00c264f23c96f14e3b3fa71ecc0b21685ef48b68d2f19d",
+            "offset": 2272,
+            "type": "f32",
+            "bytesHex": "00002042",
+            "value": 40.0
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\BreachingDart\\PB_40x46mmLVG_Drill.ebx",
+            "rawSha256": "6c9f20ee890bd2f63f00c264f23c96f14e3b3fa71ecc0b21685ef48b68d2f19d",
+            "offset": 2288,
+            "type": "f32",
+            "bytesHex": "0000803f",
+            "value": 1.0
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\BreachingDart\\PB_40x46mmLVG_Drill.ebx",
+            "rawSha256": "6c9f20ee890bd2f63f00c264f23c96f14e3b3fa71ecc0b21685ef48b68d2f19d",
+            "offset": 2264,
+            "type": "f32",
+            "bytesHex": "0000803f",
+            "value": 1.0
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\BreachingDart\\PB_40x46mmLVG_Drill.ebx",
+            "rawSha256": "6c9f20ee890bd2f63f00c264f23c96f14e3b3fa71ecc0b21685ef48b68d2f19d",
+            "offset": 2304,
+            "type": "f32",
+            "bytesHex": "0000803f",
+            "value": 1.0
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\BreachingDart\\PB_40x46mmLVG_Drill.ebx",
+            "rawSha256": "6c9f20ee890bd2f63f00c264f23c96f14e3b3fa71ecc0b21685ef48b68d2f19d",
+            "offset": 2308,
+            "type": "f32",
+            "bytesHex": "0000e040",
+            "value": 7.0
+          }
+        ]
+      },
+      {
+        "route": "Common/Hardware/Gadgets/Launchers/BreachingDart/PB_40x46mmLVG_Drill_Gas",
+        "role": "gas projectile candidate",
+        "rawPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\BreachingDart\\PB_40x46mmLVG_Drill_Gas.ebx",
+        "rawSha256": "0eb7eac61be11dc33e09581302aa07096beb4b5bf38b02fd8edd0f8dc82e4e1d",
+        "head": 4892087,
+        "descriptorSha256": "99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640",
+        "rootClass": "Class_b141ba19",
+        "directBlastDamageChildren": {
+          "count": 1,
+          "sourceObjectIndex": 1,
+          "sourceClass": "Class_6761170b",
+          "sourceClassKey": "b7e98dad14facbc2575a0afaa0752794",
+          "pointerField": "Field_1f7b3933",
+          "targetObjectIndex": 14,
+          "targetClass": "Class_9966532d",
+          "targetClassKey": "a57116aedf259bd743cedc6f7d0622f5",
+          "nameMappingIdentityMatch": true
+        },
+        "blastFields": [
+          {
+            "field": "Field_19861d8c",
+            "name": "BlastDamage",
+            "type": "f32",
+            "value": 40.0,
+            "ownerType": "Class_d11bf358",
+            "ownerDescriptorIndex": 521,
+            "ownerDescriptorKey": "cc2e2a83f3144a2460391b3d48426827",
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\BreachingDart\\PB_40x46mmLVG_Drill_Gas.ebx",
+                "rawSha256": "0eb7eac61be11dc33e09581302aa07096beb4b5bf38b02fd8edd0f8dc82e4e1d",
+                "offset": 2624,
+                "type": "f32",
+                "bytesHex": "00002042",
+                "value": 40.0
+              }
+            ]
+          },
+          {
+            "field": "Field_33f3a8ab",
+            "name": "BlastRadius",
+            "type": "f32",
+            "value": 1.0,
+            "ownerType": "Class_d11bf358",
+            "ownerDescriptorIndex": 521,
+            "ownerDescriptorKey": "cc2e2a83f3144a2460391b3d48426827",
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\BreachingDart\\PB_40x46mmLVG_Drill_Gas.ebx",
+                "rawSha256": "0eb7eac61be11dc33e09581302aa07096beb4b5bf38b02fd8edd0f8dc82e4e1d",
+                "offset": 2640,
+                "type": "f32",
+                "bytesHex": "0000803f",
+                "value": 1.0
+              }
+            ]
+          },
+          {
+            "field": "Field_95e340fe",
+            "name": "InnerBlastRadius",
+            "type": "f32",
+            "value": 1.0,
+            "ownerType": "Class_d11bf358",
+            "ownerDescriptorIndex": 521,
+            "ownerDescriptorKey": "cc2e2a83f3144a2460391b3d48426827",
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\BreachingDart\\PB_40x46mmLVG_Drill_Gas.ebx",
+                "rawSha256": "0eb7eac61be11dc33e09581302aa07096beb4b5bf38b02fd8edd0f8dc82e4e1d",
+                "offset": 2616,
+                "type": "f32",
+                "bytesHex": "0000803f",
+                "value": 1.0
+              }
+            ]
+          },
+          {
+            "field": "Field_3ef01f58",
+            "name": "ShockwaveDamage",
+            "type": "f32",
+            "value": 1.0,
+            "ownerType": "Class_d11bf358",
+            "ownerDescriptorIndex": 521,
+            "ownerDescriptorKey": "cc2e2a83f3144a2460391b3d48426827",
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\BreachingDart\\PB_40x46mmLVG_Drill_Gas.ebx",
+                "rawSha256": "0eb7eac61be11dc33e09581302aa07096beb4b5bf38b02fd8edd0f8dc82e4e1d",
+                "offset": 2656,
+                "type": "f32",
+                "bytesHex": "0000803f",
+                "value": 1.0
+              }
+            ]
+          },
+          {
+            "field": "Field_524836d3",
+            "name": "ShockwaveRadius",
+            "type": "f32",
+            "value": 7.0,
+            "ownerType": "Class_d11bf358",
+            "ownerDescriptorIndex": 521,
+            "ownerDescriptorKey": "cc2e2a83f3144a2460391b3d48426827",
+            "rawChecks": [
+              {
+                "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\BreachingDart\\PB_40x46mmLVG_Drill_Gas.ebx",
+                "rawSha256": "0eb7eac61be11dc33e09581302aa07096beb4b5bf38b02fd8edd0f8dc82e4e1d",
+                "offset": 2660,
+                "type": "f32",
+                "bytesHex": "0000e040",
+                "value": 7.0
+              }
+            ]
+          }
+        ],
+        "rawChecks": [
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\BreachingDart\\PB_40x46mmLVG_Drill_Gas.ebx",
+            "rawSha256": "0eb7eac61be11dc33e09581302aa07096beb4b5bf38b02fd8edd0f8dc82e4e1d",
+            "offset": 400,
+            "type": "u32",
+            "bytesHex": "b0070000",
+            "value": 1968
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\BreachingDart\\PB_40x46mmLVG_Drill_Gas.ebx",
+            "rawSha256": "0eb7eac61be11dc33e09581302aa07096beb4b5bf38b02fd8edd0f8dc82e4e1d",
+            "offset": 2624,
+            "type": "f32",
+            "bytesHex": "00002042",
+            "value": 40.0
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\BreachingDart\\PB_40x46mmLVG_Drill_Gas.ebx",
+            "rawSha256": "0eb7eac61be11dc33e09581302aa07096beb4b5bf38b02fd8edd0f8dc82e4e1d",
+            "offset": 2640,
+            "type": "f32",
+            "bytesHex": "0000803f",
+            "value": 1.0
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\BreachingDart\\PB_40x46mmLVG_Drill_Gas.ebx",
+            "rawSha256": "0eb7eac61be11dc33e09581302aa07096beb4b5bf38b02fd8edd0f8dc82e4e1d",
+            "offset": 2616,
+            "type": "f32",
+            "bytesHex": "0000803f",
+            "value": 1.0
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\BreachingDart\\PB_40x46mmLVG_Drill_Gas.ebx",
+            "rawSha256": "0eb7eac61be11dc33e09581302aa07096beb4b5bf38b02fd8edd0f8dc82e4e1d",
+            "offset": 2656,
+            "type": "f32",
+            "bytesHex": "0000803f",
+            "value": 1.0
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\BreachingDart\\PB_40x46mmLVG_Drill_Gas.ebx",
+            "rawSha256": "0eb7eac61be11dc33e09581302aa07096beb4b5bf38b02fd8edd0f8dc82e4e1d",
+            "offset": 2660,
+            "type": "f32",
+            "bytesHex": "0000e040",
+            "value": 7.0
+          }
+        ]
+      }
+    ],
+    "selectedChain": {
+      "assertions": 2,
+      "failures": 0,
+      "items": [
+        {
+          "id": "L159-WB-primary-projectile",
+          "lead": "L159",
+          "kind": "import_resolves",
+          "verified": true,
+          "route": "Common/Hardware/Gadgets/Launchers/BreachingDart/DrillGL_WB",
+          "rawSha256": "4974e714801ffd618f4b676dd6f05c2cc0f19873d2db7b2bbdcdf43facad9d43",
+          "descriptorSha256": "99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640",
+          "import": {
+            "fileGuid": "5f43a1b3-3290-49ea-8499-13ceddbd28f6",
+            "classGuid": "1fa9e0b7-541b-42f6-9efd-40120817c374"
+          },
+          "expectedTarget": {
+            "route": "Common/Hardware/Gadgets/Launchers/BreachingDart/PB_40x46mmLVG_Drill",
+            "rawSha256": "6c9f20ee890bd2f63f00c264f23c96f14e3b3fa71ecc0b21685ef48b68d2f19d"
+          },
+          "resolved": true,
+          "resolvedFileGuids": [
+            "5f43a1b3-3290-49ea-8499-13ceddbd28f6"
+          ],
+          "targetObjectIndices": [
+            1
+          ]
+        },
+        {
+          "id": "L159-WB-gas-projectile-candidate",
+          "lead": "L159",
+          "kind": "import_resolves",
+          "verified": true,
+          "route": "Common/Hardware/Gadgets/Launchers/BreachingDart/DrillGL_WB",
+          "rawSha256": "4974e714801ffd618f4b676dd6f05c2cc0f19873d2db7b2bbdcdf43facad9d43",
+          "descriptorSha256": "99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640",
+          "import": {
+            "fileGuid": "2b39fea2-6d6a-4947-a43f-ca7511c41687",
+            "classGuid": "ab6ae941-1f64-47ac-947a-bf987983508f"
+          },
+          "expectedTarget": {
+            "route": "Common/Hardware/Gadgets/Launchers/BreachingDart/PB_40x46mmLVG_Drill_Gas",
+            "rawSha256": "0eb7eac61be11dc33e09581302aa07096beb4b5bf38b02fd8edd0f8dc82e4e1d"
+          },
+          "resolved": true,
+          "resolvedFileGuids": [
+            "2b39fea2-6d6a-4947-a43f-ca7511c41687"
+          ],
+          "targetObjectIndices": [
+            1
+          ]
+        }
+      ]
+    },
+    "blastFieldIdentityReuse": {
+      "priorLead": "L148",
+      "childClassKey": "a57116aedf259bd743cedc6f7d0622f5",
+      "ownerType": "Class_d11bf358",
+      "ownerDescriptorIndex": 521,
+      "ownerDescriptorKey": "cc2e2a83f3144a2460391b3d48426827",
+      "selectionFieldOwnerType": "Class_29ea5d2b",
+      "selectionFieldOwnerDescriptorIndex": 531,
+      "selectionFieldOwnerDescriptorKey": "5b15b659cc5c6b1a34f0e2a3f0c58edc",
+      "launcherComparisonReuse": {
+        "priorLead": "L152",
+        "primaryFieldPath": [
+          "Field_58d70acb",
+          "Field_808dd66c"
+        ]
+      }
+    }
+  },
+  "inference": "The serialized DrillGL_WB primary selector pattern used by the reviewed launcher chains resolves here to the standard PB_40x46mmLVG_Drill. The gas PB is present through another configuration path and remains a candidate only; this trace does not establish runtime selection.",
+  "unresolved": [
+    "The gas import is recorded on a separate source configuration path. These serialized links do not establish which configuration or variant is active at runtime.",
+    "The five mapped Class_d11bf358 f32 fields are available for comparison, but their units, formula, and native damage composition are not established by this trace.",
+    "No direct-hit-specific field name is claimed from the scoped child identity. This does not establish the absence of other direct-hit data outside this one-hop scope.",
+    "The Analyzer has no gadget data table for a Breaching Dart profile, so this trace makes no site comparison or site change."
+  ],
+  "siteImpact": "Proposed Analyzer changes: optional Breaching Dart serialized blast source profile beside the reviewed launcher and throwable profiles. Show standard selected BlastDamage 40, BlastRadius 1, InnerBlastRadius 1, ShockwaveDamage 1 and ShockwaveRadius 7 only with source/units/runtime limits; gas is a separate candidate. No site data or code changed.",
+  "evidence": {
+    "files": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L159\\brief.txt",
+        "sha256": "60a8b5539d3a730fdfbb7836c4b7e4ec771cf92a2b7be25e5195931424ea0fea"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\exhaustive-audit-2026-09-23\\coverage-decoder-v5.sqlite",
+        "sha256": "1fac4aa159b11741943eaf6ae94f64e63928b9fa0f866ca4a1d191897718cf10"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\toolchain\\SharedTypeDescriptors-hotfix-2026-09-16.ebx",
+        "sha256": "99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+        "sha256": "66caca0e667d17fdf03f9fb4f620b9c5842aa1fd8de0221128ad4862895eed51"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\BreachingDart\\DrillGL_WB.ebx",
+        "sha256": "4974e714801ffd618f4b676dd6f05c2cc0f19873d2db7b2bbdcdf43facad9d43"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\BreachingDart\\PB_40x46mmLVG_Drill.ebx",
+        "sha256": "6c9f20ee890bd2f63f00c264f23c96f14e3b3fa71ecc0b21685ef48b68d2f19d"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-related-audit-2026-09-23\\raw\\Common\\Hardware\\gadgets\\launchers\\BreachingDart\\PB_40x46mmLVG_Drill_Gas.ebx",
+        "sha256": "0eb7eac61be11dc33e09581302aa07096beb4b5bf38b02fd8edd0f8dc82e4e1d"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L148\\l148-result.json",
+        "sha256": "051ceb2d5ee016e5dd8e42f8778f62820ef8f5654590a546d285130e630fde27"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L152\\draft-receipt.json",
+        "sha256": "19a7f65e90da03a8fadb387bbd77d3d7f7faa01ef28145a28dacb674930ca4ba"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L152\\l152-primary-chain-manifest.json",
+        "sha256": "b8df501d29cc3ba07f112321d770f59c698ffdd313fb867cc8382afb99daabb8"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L159\\l159-layout-evidence-v2.json",
+        "sha256": "8aa346ff67921a510d3e51050a0bf6f0b9e02457ded4fa1b35c256227afbe71b"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L159\\l159-raw-manifest-v2.json",
+        "sha256": "244468d323306bc00a9f2593aadead689a6ad1ddf9775a9cfd14cb5bf71cbedd"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L159\\l159-raw-check-results-v2.json",
+        "sha256": "5fef87618f3e8d95e281ba9be53f3324caf890e2f6c71b76bc65972ff2aa2716"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L159\\l159-primary-chain-manifest-v2.json",
+        "sha256": "81867003b4a7b540d7f029f3201fc346f9ce45aa56b2523b9cef9f92030ae3c0"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L159\\l159-primary-chain-report-v2.json\\comparison.json",
+        "sha256": "fa64e5365b765794c214a75d153cfa0f6f5452a9828fbed5db22e4a894ace147"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+        "sha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-selected-chain-check.py",
+        "sha256": "52648d1ba88bfa4dbf1c170f303483c5a250f463bee535223e9ec09b4e8da32e"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-records.py",
+        "sha256": "ffb0e7574ce66779ae5041f4fc55047d0da2f63d917682b527673a75612b734c"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-worker.py",
+        "sha256": "91d73d328cfe39862ec882ef02eda665580b28a6da9fa541f7b03d12d755beb2"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-ebx-decode.py",
+        "sha256": "6fdc0334efaee0fe6113b5c9db4973f1358f53ee65dfb94edbc22fb0bf07a727"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L159\\l159_inspect.py",
+        "sha256": "f988719b7d9dae98558abcff15a0a76cadb81d4c65293128fd6dc03d346475eb"
+      }
+    ],
+    "commands": [
+      {
+        "executable": "python",
+        "arguments": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+          "--path",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+          "--offset",
+          "1084",
+          "--type",
+          "f32",
+          "--expect",
+          "0.6695"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L159",
+        "helperSha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3"
+      },
+      {
+        "executable": "python",
+        "arguments": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-worker.py",
+          "prior-work",
+          "--terms",
+          "DrillGL_WB",
+          "PB_40x46mmLVG_Drill",
+          "BreachingDart"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L159",
+        "helperSha256": "91d73d328cfe39862ec882ef02eda665580b28a6da9fa541f7b03d12d755beb2"
+      },
+      {
+        "executable": "python",
+        "arguments": [
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L159\\l159_inspect.py",
+          "write-operands"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L159",
+        "helperSha256": "46c0ec78a6562d8aa1a73ce8a1facdd56b8411c6c515ee4d61845dea4f97e3ac"
+      },
+      {
+        "executable": "python",
+        "arguments": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+          "--manifest",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L159\\l159-raw-manifest-v2.json",
+          "--out",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L159\\l159-raw-check-results-v2.json"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L159",
+        "helperSha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3"
+      },
+      {
+        "executable": "python",
+        "arguments": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-selected-chain-check.py",
+          "--manifest",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L159\\l159-primary-chain-manifest-v2.json",
+          "--db",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\exhaustive-audit-2026-09-23\\coverage-decoder-v5.sqlite",
+          "--out",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L159\\l159-primary-chain-report-v2.json"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L159",
+        "helperSha256": "52648d1ba88bfa4dbf1c170f303483c5a250f463bee535223e9ec09b4e8da32e"
+      },
+      {
+        "executable": "python",
+        "arguments": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-records.py",
+          "schema"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L159",
+        "helperSha256": "ffb0e7574ce66779ae5041f4fc55047d0da2f63d917682b527673a75612b734c"
+      },
+      {
+        "executable": "python",
+        "arguments": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-records.py",
+          "check-receipt",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L159\\draft-receipt.json"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L159",
+        "helperSha256": "ffb0e7574ce66779ae5041f4fc55047d0da2f63d917682b527673a75612b734c"
+      },
+      {
+        "executable": "python",
+        "arguments": [
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L159\\l159_inspect.py",
+          "finalize"
+        ],
+        "workingDirectory": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L159",
+        "helperSha256": "f988719b7d9dae98558abcff15a0a76cadb81d4c65293128fd6dc03d346475eb"
+      }
+    ],
+    "commandHistoryNote": "Earlier exploratory calls used intermediate l159_inspect.py revisions before hashes were captured; their per-revision hashes are unavailable. The source evidence bundle was generated by the stable helper revision explicitly hashed in the write-operands command below, then checked by the pinned raw and chain tools."
+  },
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-09-29",
+    "build": "1.4.3.0-hotfix",
+    "leads": [
+      {
+        "id": "L159",
+        "title": "Breaching Dart selected projectile and gas variant",
+        "status": "proposal",
+        "summary": "DrillGL_WB selects the standard Breaching Dart body, whose direct blast child stores mapped BlastDamage 40 and BlastRadius 1, plus InnerBlastRadius 1, ShockwaveDamage 1 and ShockwaveRadius 7. The gas path is a separate candidate with the same mapped fields; propose only a conditional serialized source profile.",
+        "reopenWhen": "Validate field units, selected multiplayer configuration, and effective blast/direct-hit composition before implementing a gadget comparison."
+      }
+    ],
+    "assets": [
+      {
+        "path": "Common/Hardware/Gadgets/Launchers/BreachingDart/DrillGL_WB",
+        "format": "raw-ebx",
+        "sha256": "4974e714801ffd618f4b676dd6f05c2cc0f19873d2db7b2bbdcdf43facad9d43",
+        "question": "Which Breaching Dart source selection or direct blast child does this scoped root establish?",
+        "result": "useful",
+        "conclusion": "The primary import path selects the standard PB body; a separate gas PB import is a candidate only."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Launchers/BreachingDart/PB_40x46mmLVG_Drill",
+        "format": "raw-ebx",
+        "sha256": "6c9f20ee890bd2f63f00c264f23c96f14e3b3fa71ecc0b21685ef48b68d2f19d",
+        "question": "Which Breaching Dart source selection or direct blast child does this scoped root establish?",
+        "result": "useful",
+        "conclusion": "One direct Class_9966532d child has five raw-verified mapped f32 blast fields."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Launchers/BreachingDart/PB_40x46mmLVG_Drill_Gas",
+        "format": "raw-ebx",
+        "sha256": "0eb7eac61be11dc33e09581302aa07096beb4b5bf38b02fd8edd0f8dc82e4e1d",
+        "question": "Which Breaching Dart source selection or direct blast child does this scoped root establish?",
+        "result": "useful",
+        "conclusion": "One direct Class_9966532d child has the same five mapped f32 blast values as the standard body."
+      }
+    ],
+    "binding": "research"
+  }
+}

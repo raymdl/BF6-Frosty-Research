@@ -1,0 +1,557 @@
+{
+  "lead": "L185",
+  "status": "reviewed-source-finding",
+  "control": {
+    "description": "Release HK433 ADS amount raw reproduces site 0.6695.",
+    "passed": true,
+    "rawChecks": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+        "rawSha256": "66caca0e667d17fdf03f9fb4f620b9c5842aa1fd8de0221128ad4862895eed51",
+        "offset": 1084,
+        "type": "f32",
+        "bytesHex": "5a642b3f",
+        "value": 0.6694999933242798,
+        "expect": "0.6695",
+        "matches": true
+      }
+    ]
+  },
+  "scope": {
+    "expected": 5,
+    "examined": 5,
+    "notes": "Root explicitly extended external EBX cap from3 to5. Five roots and five necessary external EBX children examined; one compiled resource body exact hash inspected; three numeric mechanic operands retained."
+  },
+  "rows": [
+    {
+      "route": "Common/Hardware/Gadgets/Tools/Repair/Basic/WB_RepairTool",
+      "rawSha256": "6833cd8af9aac2d759390e6e6dbfc68bc998f0418c9631da9d2c7926d7c2b369",
+      "finding": "L174 WB selection reused; no damage extraction repeated."
+    },
+    {
+      "route": "Common/Hardware/Gadgets/Tools/Repair/Basic/RepairTool_Ability",
+      "rawSha256": "b534687c4e70447586f9a43baca0add08cb5e52b4635e5294de946f98f092085",
+      "finding": "Ability local selection and named single-hand/fast-sprint channel bindings verified."
+    },
+    {
+      "route": "Common/Hardware/Gadgets/Tools/Repair/Logic/SimEx_Ability_GAD_Soldier_RepairTool",
+      "rawSha256": "b84740549430df827f4a1b1181f0fc043525a73586ba83255e3529bcf191fad1",
+      "finding": "Selected object10 RID0c613cb9571f9ab1; IsHealingVehicle, HasTarget, Target, FiringStarted and FirstRepairQueryDone named ports."
+    },
+    {
+      "route": "Common/Hardware/Gadgets/Tools/Repair/Logic/Affector_RepairTool_HealVehicle",
+      "rawSha256": "4d32f8fcb2073cf891a71f679899a3713e34b7790ef7b341e1a9ce0613845a31",
+      "finding": "Eight Heal wrapper links retained separately; not the directly selected VehicleRepair affector."
+    },
+    {
+      "route": "Common/Hardware/Gadgets/Tools/Repair/Logic/U_Gadget_RepairTool_Affector_VehicleRepair",
+      "rawSha256": "52f7065d82ea79aa6f0ae89b964a586b25ace98da79bb85dc18517777e0dc0ff",
+      "finding": "Selected repair effect references this wrapper; wrapper schematic imports the exact CT_GLA child Ignore_Damage."
+    }
+  ],
+  "sourceFacts": {
+    "summary": "The selected repair expression imports Affector_VehicleRepair, whose first effect references the exact RepairTool_Default_Repair Amount Per Second child and scoped VehicleRepair wrapper; named-owner members are 40, 0 and 250. The wrapper config child is Ignore_Damage, while the vehicle-health receiver and effective rate remain unresolved.",
+    "proofArtifacts": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185\\join-proof.json",
+        "sha256": "2e0f16a41d8b9a85af395cdd65a3e60958b9bc0d8323acc9e88bf320203c420f"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185\\amount-proof.json",
+        "sha256": "40b1d4f81fdb43f52cddaf0dbe6a00302c3f10c9bd11eb0166c586a099663bb2"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185\\selected-affector.json",
+        "sha256": "6a3bba7cc0e11664b95ab56e4c88251bb15eb628ec2024a022aa3a0cc47366c8"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185\\selected-affector-pin.json",
+        "sha256": "625af208fd30c334a92e57a49eb603d29c8b5659e73040cacbd995eaecdbe281"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185\\selected-member-proof.json",
+        "sha256": "fc799f4ce85fb6ac7ecc3f4287e81855d614e14c80bbd6941469ea97a1d4d7e5"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185\\receiver-proof-final.json",
+        "sha256": "eee76e06f9c761ac8d86ff26fd711f0c04fa70eb463f59372be62212d9be65a8"
+      }
+    ]
+  },
+  "siteImpact": "Future source vehicle repair profile is supported in part; no site numeric rate or current availability claim.",
+  "unresolved": [
+    "The numeric member roles of Class_d59e68b9 remain presumed; 40 is not a proven effective health-per-second value.",
+    "Selected resource body exists and matches its hash, but compiled expression grammar/execution is unresolved.",
+    "Current multiplayer availability and activation/composition remain unproved.",
+    "Scoped HealVehicle affector is not the directly imported SimEx affector; keep its separate eight Heal wrapper links separate from selected VehicleRepair effect.",
+    "CT_GLA exact selected child is Ignore_Damage, a configuration token. It does not establish a vehicle-health receiving member.",
+    "Affector first effect parameter Field_1d82b65b is typed but unnamed; named GRX child alone does not name this receiving parameter or prove numeric slot roles."
+  ],
+  "outOfScopeNotes": [],
+  "build": "1.4.3.0-hotfix",
+  "question": "Selected repair effect, target, receiver, conditions and exact named operand.",
+  "inference": "Named selected source parameter suggests a repair amount input, but typed source layout alone does not establish value-slot roles, health units, execution or rate.",
+  "evidence": [
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185\\join-proof.json",
+      "sha256": "2e0f16a41d8b9a85af395cdd65a3e60958b9bc0d8323acc9e88bf320203c420f"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185\\amount-proof.json",
+      "sha256": "40b1d4f81fdb43f52cddaf0dbe6a00302c3f10c9bd11eb0166c586a099663bb2"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185\\selected-affector.json",
+      "sha256": "6a3bba7cc0e11664b95ab56e4c88251bb15eb628ec2024a022aa3a0cc47366c8"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185\\selected-affector-pin.json",
+      "sha256": "625af208fd30c334a92e57a49eb603d29c8b5659e73040cacbd995eaecdbe281"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\candidate-expression-resources-2026-09-23\\resources\\0c613cb9571f9ab1.res",
+      "sha256": "b99dd7cbdbcde2222fd4301259db3b849c2482fc4a71264e4dd36a7b0b10d3c3",
+      "resourceId": "0c613cb9571f9ab1"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L174\\draft-receipt.json",
+      "sha256": "17b4e5009391761d2330c1b8314d031802fe33abcf861a94048024360590940d",
+      "reuse": "WB selected damage route only; no damage extraction repeated."
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L183\\l183-result.json",
+      "sha256": "0fec17f1b35ea18f4ae35d8728c865faeb5d921b4ef4cfcef67d639dcb91010e",
+      "reuse": "Exact registry child/name proof."
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185\\selected-member-proof.json",
+      "sha256": "fc799f4ce85fb6ac7ecc3f4287e81855d614e14c80bbd6941469ea97a1d4d7e5"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185\\receiver-proof-final.json",
+      "sha256": "eee76e06f9c761ac8d86ff26fd711f0c04fa70eb463f59372be62212d9be65a8"
+    }
+  ],
+  "commands": [
+    {
+      "executable": "python",
+      "argv": [
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185\\inspect-v1.py"
+      ],
+      "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185",
+      "helperSha256": "79ed02cb6b6fc9d643870fb2f022471bf824a8f298d36645417523850030ace7",
+      "history": "Exact script invocation; Get-FileHash ran before each invocation."
+    },
+    {
+      "executable": "python",
+      "argv": [
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185\\target-v1.py"
+      ],
+      "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185",
+      "helperSha256": "aa7300d6ae6fcd99ba36a43dbe6b373d3d829a2171366afd968fce5b855b5b86",
+      "history": "Exact script invocation; Get-FileHash ran before each invocation."
+    },
+    {
+      "executable": "python",
+      "argv": [
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185\\children-v1.py"
+      ],
+      "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185",
+      "helperSha256": "8975b92f595a5e0ee7cc65c81c9dd1b832eeecf39b4f3b5815da7a7079cd44e7",
+      "history": "Exact script invocation; Get-FileHash ran before each invocation."
+    },
+    {
+      "executable": "python",
+      "argv": [
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185\\proof-v1.py"
+      ],
+      "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185",
+      "helperSha256": "a3d303777c8a55a58ade2c85db5adc8d759a72bc31a657001ae81b4e5f2acfa5",
+      "history": "Exact script invocation; Get-FileHash ran before each invocation."
+    },
+    {
+      "executable": "python",
+      "argv": [
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185\\registry-v1.py"
+      ],
+      "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185",
+      "helperSha256": "c1472cf3116b55b30c03b1a911034b8abad604bc0db28c6aa0d1451033d71118",
+      "history": "Exact script invocation; Get-FileHash ran before each invocation."
+    },
+    {
+      "executable": "python",
+      "argv": [
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185\\route-v1.py"
+      ],
+      "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185",
+      "helperSha256": "573797e7dec4162499c2fe951e09db49f8007c5391d989fef67cb2784cb54f50",
+      "history": "Exact script invocation; Get-FileHash ran before each invocation."
+    },
+    {
+      "executable": "python",
+      "argv": [
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185\\imports-v1.py"
+      ],
+      "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185",
+      "helperSha256": "f1ef0e1953c4489b517c4b53df624e55049f26bd8f0e8c3090fd37763d4629fc",
+      "history": "Exact script invocation; Get-FileHash ran before each invocation."
+    },
+    {
+      "executable": "python",
+      "argv": [
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185\\affector-v1.py"
+      ],
+      "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185",
+      "helperSha256": "042232c4ca28ffa50121176c0d8598c45a76175a8e6ab07044243a4c63564e94",
+      "history": "Exact script invocation; Get-FileHash ran before each invocation."
+    },
+    {
+      "executable": "python",
+      "argv": [
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185\\join-proof-v1.py"
+      ],
+      "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185",
+      "helperSha256": "d524395707264099ba05d12d4dd7a0ea10cffb3333976cae157cdcd5e6eec00f",
+      "history": "Exact script invocation; Get-FileHash ran before each invocation."
+    },
+    {
+      "executable": "python",
+      "argv": [
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185\\amount-v1.py"
+      ],
+      "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185",
+      "helperSha256": "0c152db0b18d65e9abd8302cd4f70c1bb603e4474b88fa92a03d35d013738be0",
+      "history": "Exact script invocation; Get-FileHash ran before each invocation."
+    },
+    {
+      "executable": "python",
+      "argv": [
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185\\finalize-v1.py"
+      ],
+      "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185",
+      "helperSha256": "e70ffe8d5c242f92931c623af7e88556a7a194a1ff9e664b760c04a6120d95ae",
+      "history": "Exact script invocation; Get-FileHash ran before each invocation."
+    },
+    {
+      "executable": "python",
+      "argv": [
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185\\member-proof-v1.py"
+      ],
+      "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185",
+      "helperSha256": "389c74753fb9439ec831f929559b0b2ef64467495e0deb68579fba6ad465a93f",
+      "history": "Exact script invocation; helper hash recorded before invocation."
+    },
+    {
+      "executable": "python",
+      "argv": [
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185\\receiver-v1.py"
+      ],
+      "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185",
+      "helperSha256": "2ee7743bb5c7418c1a6f583b0c12e6825bbb335af016ad8398709cac3a0c2fad",
+      "history": "Exact script invocation; helper hash recorded before invocation."
+    },
+    {
+      "executable": "python",
+      "argv": [
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185\\receiver-name-v1.py"
+      ],
+      "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185",
+      "helperSha256": "78b672bfa79892e8ae9f918654c3133993c4b323f46527a2ba16c30ef1d1298c",
+      "history": "Exact script invocation; helper hash recorded before invocation."
+    },
+    {
+      "executable": "python",
+      "argv": [
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185\\finalize-v2.py"
+      ],
+      "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185",
+      "helperSha256": "e7a80d9ec36d3772b9244702b0db51099844aec270a01064a61cdc6a8affb88a",
+      "history": "Exact script invocation; helper hash recorded before invocation."
+    }
+  ],
+  "helpers": [
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185\\affector-v1.py",
+      "sha256": "042232c4ca28ffa50121176c0d8598c45a76175a8e6ab07044243a4c63564e94"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185\\amount-v1.py",
+      "sha256": "0c152db0b18d65e9abd8302cd4f70c1bb603e4474b88fa92a03d35d013738be0"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185\\children-v1.py",
+      "sha256": "8975b92f595a5e0ee7cc65c81c9dd1b832eeecf39b4f3b5815da7a7079cd44e7"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185\\decoder-preserved.py",
+      "sha256": "6fdc0334efaee0fe6113b5c9db4973f1358f53ee65dfb94edbc22fb0bf07a727"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185\\finalize-v1.py",
+      "sha256": "e70ffe8d5c242f92931c623af7e88556a7a194a1ff9e664b760c04a6120d95ae"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185\\finalize-v2.py",
+      "sha256": "e7a80d9ec36d3772b9244702b0db51099844aec270a01064a61cdc6a8affb88a"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185\\imports-v1.py",
+      "sha256": "f1ef0e1953c4489b517c4b53df624e55049f26bd8f0e8c3090fd37763d4629fc"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185\\inspect-v1.py",
+      "sha256": "79ed02cb6b6fc9d643870fb2f022471bf824a8f298d36645417523850030ace7"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185\\join-proof-v1.py",
+      "sha256": "d524395707264099ba05d12d4dd7a0ea10cffb3333976cae157cdcd5e6eec00f"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185\\member-proof-v1.py",
+      "sha256": "389c74753fb9439ec831f929559b0b2ef64467495e0deb68579fba6ad465a93f"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185\\proof-v1.py",
+      "sha256": "a3d303777c8a55a58ade2c85db5adc8d759a72bc31a657001ae81b4e5f2acfa5"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185\\raw-check-preserved.py",
+      "sha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185\\receiver-name-v1.py",
+      "sha256": "78b672bfa79892e8ae9f918654c3133993c4b323f46527a2ba16c30ef1d1298c"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185\\receiver-v1.py",
+      "sha256": "2ee7743bb5c7418c1a6f583b0c12e6825bbb335af016ad8398709cac3a0c2fad"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185\\records-preserved.py",
+      "sha256": "a6b0ca77270f6abc5dc48f164762569a8cb36faf37754f04f892d0ae7e7c7f34"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185\\registry-v1.py",
+      "sha256": "c1472cf3116b55b30c03b1a911034b8abad604bc0db28c6aa0d1451033d71118"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185\\route-v1.py",
+      "sha256": "573797e7dec4162499c2fe951e09db49f8007c5391d989fef67cb2784cb54f50"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185\\target-v1.py",
+      "sha256": "aa7300d6ae6fcd99ba36a43dbe6b373d3d829a2171366afd968fce5b855b5b86"
+    }
+  ],
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-09-29",
+    "build": "1.4.3.0-hotfix",
+    "binding": "research",
+    "leads": [
+      {
+        "id": "L185",
+        "title": "Repair Tool vehicle-health consumer",
+        "status": "finding",
+        "summary": "Repair SimEx selects VehicleRepair affector whose first effect joins exact named repair amount owner and VehicleRepair wrapper; raw 40/0/250 member roles, health receiver and effective rate remain unresolved.",
+        "reopenWhen": "Establish repair parameter/value-slot meanings and vehicle-health receiver; decode selected compiled graph for activation/composition.",
+        "statusNote": "GPT-6.1 Sol, 29 Sep; source only"
+      }
+    ],
+    "assets": [
+      {
+        "path": "Common/Hardware/Gadgets/Tools/Repair/Basic/WB_RepairTool",
+        "format": "raw-ebx",
+        "sha256": "6833cd8af9aac2d759390e6e6dbfc68bc998f0418c9631da9d2c7926d7c2b369",
+        "question": "Trace selected vehicle repair source.",
+        "result": "useful",
+        "conclusion": "L174 WB selection reused; no damage extraction repeated."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Tools/Repair/Basic/RepairTool_Ability",
+        "format": "raw-ebx",
+        "sha256": "b534687c4e70447586f9a43baca0add08cb5e52b4635e5294de946f98f092085",
+        "question": "Trace selected vehicle repair source.",
+        "result": "useful",
+        "conclusion": "Ability local selection and named single-hand/fast-sprint channel bindings verified."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Tools/Repair/Logic/SimEx_Ability_GAD_Soldier_RepairTool",
+        "format": "raw-ebx",
+        "sha256": "b84740549430df827f4a1b1181f0fc043525a73586ba83255e3529bcf191fad1",
+        "question": "Trace selected vehicle repair source.",
+        "result": "useful",
+        "conclusion": "Selected object10 RID0c613cb9571f9ab1; IsHealingVehicle, HasTarget, Target, FiringStarted and FirstRepairQueryDone named ports."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Tools/Repair/Logic/Affector_RepairTool_HealVehicle",
+        "format": "raw-ebx",
+        "sha256": "4d32f8fcb2073cf891a71f679899a3713e34b7790ef7b341e1a9ce0613845a31",
+        "question": "Trace selected vehicle repair source.",
+        "result": "useful",
+        "conclusion": "Eight Heal wrapper links retained separately; not the directly selected VehicleRepair affector."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Tools/Repair/Logic/U_Gadget_RepairTool_Affector_VehicleRepair",
+        "format": "raw-ebx",
+        "sha256": "52f7065d82ea79aa6f0ae89b964a586b25ace98da79bb85dc18517777e0dc0ff",
+        "question": "Trace selected vehicle repair source.",
+        "result": "useful",
+        "conclusion": "Selected by Affector_VehicleRepair; CT_GLA receiving config child reference identified."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Tools/Repair/Logic/Affector_VehicleRepair",
+        "format": "raw-ebx",
+        "sha256": "d39e5746ff58ac4bf33062f5008267d629daad964808ffa200246235043f25f1",
+        "question": "Trace selected repair effect/operand/receiver.",
+        "result": "useful",
+        "conclusion": "First effect exact typed parameter references named repair amount registry child and scoped VehicleRepair wrapper."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/GRX_Gadgets_Glacier",
+        "format": "raw-ebx",
+        "sha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+        "question": "Trace selected repair effect/operand/receiver.",
+        "result": "useful",
+        "conclusion": "Only exact selected child94bace0d traced; label Repair Amount Per Second, hash members40/0/250 raw verified; slot roles unresolved."
+      },
+      {
+        "path": "Common/GameSetup/GameConfigurations/CT_GLA_CH1_S0_Common",
+        "format": "raw-ebx",
+        "sha256": "0f4517a469c8e18024c4d0b5b3119d80010cd41f3efecf7158b2f82da1cb188b",
+        "question": "Trace selected repair effect/operand/receiver.",
+        "result": "useful",
+        "conclusion": "Only exact childd159f0a1 traced; name Ignore_Damage configuration token, no vehicle health receiver established."
+      }
+    ],
+    "run": {
+      "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets",
+      "orchestrator": "GPT-6.1 Sol",
+      "workers": [
+        {
+          "lead": "L185",
+          "model": "GPT-6.1 Sol",
+          "effort": "Low"
+        }
+      ]
+    },
+    "refs": []
+  },
+  "historyNotes": [
+    "Initial v1 result/draft/summary preserved. proof-v1.py produced broad pointer proof523 entries; only selected proof26 rows retained as consequential evidence. No anonymous numeric inventory was generated.",
+    "One attempted read of absent L183/inspect.py failed; no inference or finding depends on that command.",
+    "Local preserved records helper invoked for schema and receipt checks; helper and driver hashes retained. No repository writes."
+  ],
+  "reviewedSupplements": [
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185\\command-supplement.json",
+      "sha256": "e35ab2915f7c0358ecb4498a9a4b0bca3a02c26e5463ad8f53de4aafbe2a4469",
+      "contents": {
+        "history": "Exact quoted command argument vectors from current run; Get-FileHash preceded helper invocation.",
+        "commands": [
+          {
+            "executable": "python",
+            "argv": [
+              ".\\raw-check-preserved.py",
+              "--path",
+              "Common/Hardware/Weapons/AssaultRifle/HK433/GS_HK433.ebx",
+              "--offset",
+              "1084",
+              "--type",
+              "f32",
+              "--expect",
+              "0.6695",
+              "--out",
+              ".\\control.json"
+            ],
+            "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185",
+            "helperSha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3"
+          },
+          {
+            "executable": "python",
+            "argv": [
+              ".\\records-preserved.py",
+              "schema"
+            ],
+            "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185",
+            "helperSha256": "a6b0ca77270f6abc5dc48f164762569a8cb36faf37754f04f892d0ae7e7c7f34"
+          },
+          {
+            "executable": "python",
+            "argv": [
+              ".\\records-preserved.py",
+              "check-receipt",
+              ".\\draft-receipt-final-v2.json"
+            ],
+            "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185",
+            "helperSha256": "a6b0ca77270f6abc5dc48f164762569a8cb36faf37754f04f892d0ae7e7c7f34",
+            "outcome": "record ok"
+          }
+        ],
+        "driverSha256": "1eefea562e8b8cdf37eca72a3d0dc7b449f8c8b91ed80dcd0323e71cd82f607e"
+      }
+    }
+  ],
+  "orchestratorCaptureReviews": [
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\armor-resource-capture\\verification.json",
+      "sha256": "15f1421c545a9e0a1f217fcc8b95638706c2b3bfa0e0f0ecbbfd7ecc15bd24e6"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\missing-gameplay-capture\\verification.json",
+      "sha256": "2743270e30d78f0dad9426589138bb79dbd35fe03ecec6ce9aab789392437b0f"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\nvg-child-capture\\verification.json",
+      "sha256": "054a23735b9b352510cb5a17f8aaa3a2f2b94a45f568f3547051561924d2de12"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\registry-capture\\verification.json",
+      "sha256": "2e6ff41233fe7bdcd2f74b5189df235ab5113f6a2789b4f3c1b1fb747b23b8f9"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\utility-function-capture\\verification.json",
+      "sha256": "9714dd0000b8c561297ed75d0edeae45b1d7d53e66f10d885816bf0f0319f2fd"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\utility-receiver-capture\\verification.json",
+      "sha256": "54c4c93de9cb5027bcdc7903b0c5840d89aeb4b5907157a8f57952c6356093ed"
+    }
+  ],
+  "orchestratorResourceReview": {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\utility-selected-resources.json",
+    "sha256": "c32f63f62c25a650d6e16ff5e6d5304cdb708ac4da6c5c45ab570ded7f28ec16",
+    "review": "Exact selected captured bodies independently rehashed with recorded Head4892087/SDK4414275. Resource bytes do not establish grammar or runtime activation."
+  },
+  "orchestratorReview": {
+    "reviewer": "GPT-6.1 Sol",
+    "workerModel": "GPT-6.1 Sol",
+    "workerEffort": "Low",
+    "date": "2026-09-29",
+    "draft": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185\\draft-receipt-final-v2.json",
+      "sha256": "f817fc85e1524dbd0bc1a3132726e73d6b68bd93f3238c1de78c84f84a3dffcf"
+    },
+    "helperReview": {
+      "tool": "scripts/frosty-worker.py review",
+      "issues": 0,
+      "leadDir": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185",
+      "reportPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185-helper-review.json"
+    },
+    "scope": {
+      "roots": 5,
+      "externalChildrenExamined": 5,
+      "externalChildrenExaminedKind": "EBX",
+      "compiledResourceBodiesExamined": 1
+    },
+    "independentRawReview": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T185409-0400-sol61-all-gadgets\\L185-independent-raw-review.json",
+      "sha256": "47dbadfe8f1c583e467bf5c8185bbc0b16dcdd0a269716e017bb74d47b24c48c",
+      "uniqueChecksIncludingControl": 588,
+      "failures": 0
+    },
+    "pinReview": "Every recorded raw EBX asset hash matches either an indexed hotfix Head 4892087 capture or a reviewed fresh run-local capture with matching catalog Head/SDK and frozen descriptor hash. Release M433 control is separate.",
+    "semanticReview": "Selected source joins and exact member-owner meanings checked against reviewed prior mappings. No current multiplayer availability, native activation, units or effective composition claim."
+  }
+}

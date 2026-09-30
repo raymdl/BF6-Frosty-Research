@@ -1,0 +1,78 @@
+{
+  "date": "2026-09-29",
+  "title": "FZT General_01 values match the site ADS-in ladder",
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-09-29",
+    "build": "1.4.3.0-release",
+    "leads": [
+      {
+        "id": "L125",
+        "title": "FZT General_01 values match the site ADS-in ladder",
+        "status": "finding",
+        "summary": "The eight FZTT_General_01 tiers (f32 at raw offset 100: 0.5, 0.433334, 0.366667, 0.3, 0.25, 0.2, 0.166667, 0.133334 s) match the site ADS_SPD_TIERS within 1.2e-5 ms. FZT_Weapons pairs General_01 and General_10 entries at the same index. This supports candidate ADS-in/ADS-out roles, but does not establish runtime transition directions or exclude a contribution from AZTT; the AZTT-plus-two-frames relation remains a numeric candidate.",
+        "reopenWhen": "Reopen if the site ADS-in ladder changes or a pinned source consumer or controlled capture resolves the transition directions or AZTT's contribution.",
+        "statusNote": "Matching values and paired entries; runtime roles unresolved (29 Sep)"
+      }
+    ],
+    "binding": "research",
+    "assets": [
+      {
+        "path": "Common/Hardware/Common/Arrays/ZoomTransitions/FZTT_General_01_T0",
+        "format": "raw-ebx",
+        "sha256": "ecc3f10274866343241b1c763462a7385e885319bfbcc0f929ffa361544e245c",
+        "question": "Is FZT General_01 tier 0 the site ADS-in ladder entry 0?",
+        "result": "useful",
+        "conclusion": "f32 at raw offset 100 is 0.5 s = 500.0 ms, equal to data/balance_tables.json ADS_SPD_TIERS[0]."
+      },
+      {
+        "path": "Common/Hardware/Common/Arrays/ZoomTransitions/FZTT_General_01_T3",
+        "format": "raw-ebx",
+        "sha256": "8bbe6e3b09df289cde7f002e6dca0c653815722a559f5e232cdf3ca348ac1bc0",
+        "question": "Is FZT General_01 tier 3 the site ADS-in ladder entry 3?",
+        "result": "useful",
+        "conclusion": "f32 at raw offset 100 is 0.3 s = 300.0 ms, equal to data/balance_tables.json ADS_SPD_TIERS[3]."
+      },
+      {
+        "path": "Common/Hardware/Common/Arrays/ZoomTransitions/FZTT_General_01_T7",
+        "format": "raw-ebx",
+        "sha256": "5be09620b47e4ac400fada690c11e8caa57152e161838a5728d5879319656565",
+        "question": "Is FZT General_01 tier 7 the site ADS-in ladder entry 7?",
+        "result": "useful",
+        "conclusion": "f32 at raw offset 100 is 0.133334 s = 133.334 ms, equal to data/balance_tables.json ADS_SPD_TIERS[7]."
+      }
+    ],
+    "site": [
+      {
+        "pointer": "data/balance_tables.json:/ADS_SPD_TIERS",
+        "value": [
+          500.0,
+          433.334,
+          366.667,
+          300.0,
+          250.0,
+          200.0,
+          166.667,
+          133.334
+        ],
+        "relation": "supports"
+      }
+    ]
+  },
+  "lead": "L125",
+  "question": "Do FZT General_01 values match the site ADS-in ladder, and what supports a paired General_10 ADS-out candidate?",
+  "sourceFacts": [
+    "FZTT_General_01_T0..T7 (raw f32 at offset 100, scripts/frosty-raw-check.py): [500.0, 433.334, 366.667, 300.0, 250.0, 200.0, 166.667, 133.334] ms.",
+    "FZTT_General_10_T0..T7: [400.0, 333.334, 266.667, 233.334, 200.0, 166.667, 133.334, 100.0] ms.",
+    "Site ADS_SPD_TIERS: [500.0, 433.334, 366.667, 300.0, 250.0, 200.0, 166.667, 133.334]; maximum difference to General_01 1.2e-5 ms.",
+    "L114: FZT_Weapons Field_e2c9902e pairs a General_01 and a General_10 entry at each index 0-7; every weapon body selects one index through WeaponZoomTransitionIndex, equal to the site defAds on 63/63 weapons."
+  ],
+  "inference": "The General_01 value match and its pairing with General_10 support candidate ADS-in and ADS-out roles respectively. These observations do not establish runtime transition directions or exclude a contribution from AZTT; the earlier AZTT-plus-two-frames relation remains a numeric candidate.",
+  "unresolved": [
+    "Whether General_01 and General_10 are played as ADS-in and ADS-out at runtime (value matching, names and pairing only); attachment shifts of ADS-out (L121).",
+    "Whether AZTT contributes to the effective transition timing; the numeric relations do not establish a consumer or composition."
+  ],
+  "siteImpact": "None to current numbers. It supports the ADS-out proposal (L114) with the pairing evidence.",
+  "workers": "none (answered directly by the orchestrator)"
+}

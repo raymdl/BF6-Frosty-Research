@@ -1,0 +1,601 @@
+{
+  "lead": "L155",
+  "status": "reviewed-source-finding",
+  "build": "1.4.3.0-hotfix",
+  "question": "Does the multiplayer Flashbang WB select a projectile and effect route with typed radius, duration or intensity operands that can support a nonlethal throwable comparison with the reviewed Concussion source?",
+  "sourceFacts": {
+    "scope": "Five requested hotfix Head 4892087 roots; direct child inventory is kept separate from the five root count.",
+    "facts": [
+      "Flashbang_WB has two raw-verified pointer imports to distinct PBNS_Flashbang exported object GUIDs.",
+      "PBNS_Flashbang object 4 has a raw-verified direct pointer to ProjFeature_Flashbang; its body was not inspected.",
+      "ProjSimEx_Flashbang object 1 array element 2 has a raw-verified direct pointer to Affector_Flashbang.",
+      "The direct child counts for the five roots are respectively 20, 12, 4, 0, and 11 distinct child files.",
+      "The ProjSimEx candidate node contains UINT32 304, UINT32 0, UINT32 0, and BOOLEAN false at raw-verified offsets.",
+      "The Affector candidate contains raw-verified UINT32/ENUM scalar and array values; all relevant member names remain hashes."
+    ],
+    "rawChecks": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+        "rawSha256": "66caca0e667d17fdf03f9fb4f620b9c5842aa1fd8de0221128ad4862895eed51",
+        "offset": 1084,
+        "type": "f32",
+        "bytesHex": "5a642b3f",
+        "value": 0.6694999933242798
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer5-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Throwables\\Flashbang\\Flashbang_WB.ebx",
+        "rawSha256": "3844b717c1d026c54feb76596b760b1dc57e54225674e09fbce555b40aa17463",
+        "offset": 560,
+        "type": "i32",
+        "bytesHex": "0d000000",
+        "value": 13
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer5-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Throwables\\Flashbang\\Flashbang_WB.ebx",
+        "rawSha256": "3844b717c1d026c54feb76596b760b1dc57e54225674e09fbce555b40aa17463",
+        "offset": 5318,
+        "type": "guid",
+        "bytesHex": "4b059db9911ff011a80be21c3cdbe238",
+        "value": "b99d054b-1f91-11f0-a80b-e21c3cdbe238"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer5-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Throwables\\Flashbang\\Flashbang_WB.ebx",
+        "rawSha256": "3844b717c1d026c54feb76596b760b1dc57e54225674e09fbce555b40aa17463",
+        "offset": 5334,
+        "type": "guid",
+        "bytesHex": "6d1a01decf526dc814bae18d12e31460",
+        "value": "de011a6d-52cf-c86d-14ba-e18d12e31460"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer5-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Throwables\\Flashbang\\Flashbang_WB.ebx",
+        "rawSha256": "3844b717c1d026c54feb76596b760b1dc57e54225674e09fbce555b40aa17463",
+        "offset": 544,
+        "type": "i32",
+        "bytesHex": "0b000000",
+        "value": 11
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer5-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Throwables\\Flashbang\\Flashbang_WB.ebx",
+        "rawSha256": "3844b717c1d026c54feb76596b760b1dc57e54225674e09fbce555b40aa17463",
+        "offset": 5286,
+        "type": "guid",
+        "bytesHex": "4b059db9911ff011a80be21c3cdbe238",
+        "value": "b99d054b-1f91-11f0-a80b-e21c3cdbe238"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer5-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Throwables\\Flashbang\\Flashbang_WB.ebx",
+        "rawSha256": "3844b717c1d026c54feb76596b760b1dc57e54225674e09fbce555b40aa17463",
+        "offset": 5302,
+        "type": "guid",
+        "bytesHex": "6807bb1fe3fedc4467446b353cdbe238",
+        "value": "1fbb0768-fee3-44dc-6744-6b353cdbe238"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\FlashBang\\PBNS_Flashbang.ebx",
+        "rawSha256": "91aac4b5573c7884c0f2ae0cc00810ff0894248633b30975f4c5345091d97e50",
+        "offset": 1200,
+        "type": "i32",
+        "bytesHex": "09000000",
+        "value": 9
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\FlashBang\\PBNS_Flashbang.ebx",
+        "rawSha256": "91aac4b5573c7884c0f2ae0cc00810ff0894248633b30975f4c5345091d97e50",
+        "offset": 7536,
+        "type": "guid",
+        "bytesHex": "6d367f653ed2d14c8de1f656704f19e7",
+        "value": "657f366d-d23e-4cd1-8de1-f656704f19e7"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\FlashBang\\PBNS_Flashbang.ebx",
+        "rawSha256": "91aac4b5573c7884c0f2ae0cc00810ff0894248633b30975f4c5345091d97e50",
+        "offset": 7552,
+        "type": "guid",
+        "bytesHex": "09bcb6250a58274d9853187b08cc6a4a",
+        "value": "25b6bc09-580a-4d27-9853-187b08cc6a4a"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer8-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Flashbang\\ProjSimEx_Flashbang.ebx",
+        "rawSha256": "d68d50d0454a5f7bbc5e1a8510e4440dc58c9709e3a0785a9d1fe15d9c3e4e8d",
+        "offset": 1136,
+        "type": "i32",
+        "bytesHex": "05000000",
+        "value": 5
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer8-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Flashbang\\ProjSimEx_Flashbang.ebx",
+        "rawSha256": "d68d50d0454a5f7bbc5e1a8510e4440dc58c9709e3a0785a9d1fe15d9c3e4e8d",
+        "offset": 2276,
+        "type": "guid",
+        "bytesHex": "65dee499a47c3445b3460dddc5347e4e",
+        "value": "99e4de65-7ca4-4534-b346-0dddc5347e4e"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer8-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Flashbang\\ProjSimEx_Flashbang.ebx",
+        "rawSha256": "d68d50d0454a5f7bbc5e1a8510e4440dc58c9709e3a0785a9d1fe15d9c3e4e8d",
+        "offset": 2292,
+        "type": "guid",
+        "bytesHex": "010a628e0548eb4ea53a75815f3ca79f",
+        "value": "8e620a01-4805-4eeb-a53a-75815f3ca79f"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\FlashBang\\PBNS_Flashbang.ebx",
+        "rawSha256": "91aac4b5573c7884c0f2ae0cc00810ff0894248633b30975f4c5345091d97e50",
+        "offset": 32,
+        "type": "guid",
+        "bytesHex": "6d1a01decf526dc814bae18d12e31460",
+        "value": "de011a6d-52cf-c86d-14ba-e18d12e31460"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\FlashBang\\PBNS_Flashbang.ebx",
+        "rawSha256": "91aac4b5573c7884c0f2ae0cc00810ff0894248633b30975f4c5345091d97e50",
+        "offset": 176,
+        "type": "guid",
+        "bytesHex": "6807bb1fe3fedc4467446b353cdbe238",
+        "value": "1fbb0768-fee3-44dc-6744-6b353cdbe238"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer2-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\FlashBang\\Affector_Flashbang.ebx",
+        "rawSha256": "94fd176d8b8c729b43e2b37878d157626f05de5cb6f715793c5d8d37b580980a",
+        "offset": 88,
+        "type": "u32",
+        "bytesHex": "51ae019f",
+        "value": 2667687505
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer2-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\FlashBang\\Affector_Flashbang.ebx",
+        "rawSha256": "94fd176d8b8c729b43e2b37878d157626f05de5cb6f715793c5d8d37b580980a",
+        "offset": 96,
+        "type": "u32",
+        "bytesHex": "ba0ebe6b",
+        "value": 1807617722
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer2-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\FlashBang\\Affector_Flashbang.ebx",
+        "rawSha256": "94fd176d8b8c729b43e2b37878d157626f05de5cb6f715793c5d8d37b580980a",
+        "offset": 100,
+        "type": "i32",
+        "bytesHex": "00000000",
+        "value": 0
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer2-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\FlashBang\\Affector_Flashbang.ebx",
+        "rawSha256": "94fd176d8b8c729b43e2b37878d157626f05de5cb6f715793c5d8d37b580980a",
+        "offset": 80,
+        "type": "i32",
+        "bytesHex": "44000000",
+        "value": 68
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer2-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\FlashBang\\Affector_Flashbang.ebx",
+        "rawSha256": "94fd176d8b8c729b43e2b37878d157626f05de5cb6f715793c5d8d37b580980a",
+        "offset": 148,
+        "type": "u32",
+        "bytesHex": "6c5732cf",
+        "value": 3476182892
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer2-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\FlashBang\\Affector_Flashbang.ebx",
+        "rawSha256": "94fd176d8b8c729b43e2b37878d157626f05de5cb6f715793c5d8d37b580980a",
+        "offset": 152,
+        "type": "u32",
+        "bytesHex": "33cfeb53",
+        "value": 1407962931
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer2-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\FlashBang\\Affector_Flashbang.ebx",
+        "rawSha256": "94fd176d8b8c729b43e2b37878d157626f05de5cb6f715793c5d8d37b580980a",
+        "offset": 156,
+        "type": "u32",
+        "bytesHex": "9b0abb0e",
+        "value": 247138971
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer2-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\FlashBang\\Affector_Flashbang.ebx",
+        "rawSha256": "94fd176d8b8c729b43e2b37878d157626f05de5cb6f715793c5d8d37b580980a",
+        "offset": 92,
+        "type": "i32",
+        "bytesHex": "00000000",
+        "value": 0
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer8-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Flashbang\\ProjSimEx_Flashbang.ebx",
+        "rawSha256": "d68d50d0454a5f7bbc5e1a8510e4440dc58c9709e3a0785a9d1fe15d9c3e4e8d",
+        "offset": 1148,
+        "type": "u32",
+        "bytesHex": "00000000",
+        "value": 0
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer8-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Flashbang\\ProjSimEx_Flashbang.ebx",
+        "rawSha256": "d68d50d0454a5f7bbc5e1a8510e4440dc58c9709e3a0785a9d1fe15d9c3e4e8d",
+        "offset": 1144,
+        "type": "u32",
+        "bytesHex": "30010000",
+        "value": 304
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer8-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Flashbang\\ProjSimEx_Flashbang.ebx",
+        "rawSha256": "d68d50d0454a5f7bbc5e1a8510e4440dc58c9709e3a0785a9d1fe15d9c3e4e8d",
+        "offset": 1152,
+        "type": "u32",
+        "bytesHex": "00000000",
+        "value": 0
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer8-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Flashbang\\ProjSimEx_Flashbang.ebx",
+        "rawSha256": "d68d50d0454a5f7bbc5e1a8510e4440dc58c9709e3a0785a9d1fe15d9c3e4e8d",
+        "offset": 1156,
+        "type": "bool",
+        "bytesHex": "00",
+        "value": false
+      }
+    ],
+    "descriptor": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\toolchain\\SharedTypeDescriptors-hotfix-2026-09-16.ebx",
+      "sha256": "99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640",
+      "head": 4892087
+    }
+  },
+  "inference": [
+    "The two WB imports cannot be assigned primary-projectile roles from their hash-named fields.",
+    "The ProjSimEx-to-Affector route remains a candidate because the captured PBNS references do not resolve to that ProjSimEx root.",
+    "The captured typed values do not support a radius, duration, or intensity comparison without resolved field roles and units."
+  ],
+  "unresolved": [
+    "Which of the two imported PBNS_Flashbang exports, if either, is the primary projectile remains unresolved because the WB field names and roles are hashed.",
+    "The captured PBNS-to-ProjFeature reference does not establish a selected ProjSimEx_Flashbang route.",
+    "The ProjSimEx-to-Affector import is a candidate and is not connected to the WB-selected projectile route in the captured evidence.",
+    "No selected effect operand has a resolved radius, duration, or intensity role and unit.",
+    "Runtime activation, composition, and native effect behavior remain unresolved."
+  ],
+  "siteImpact": "No Flashbang-versus-Concussion comparison value is supported. The WB imports two PBNS exports without a resolved primary-projectile role; the candidate ProjSimEx-to-Affector link has no selected WB path or typed radius, duration or intensity. L142 and L155 close the nonlethal-effect line for this run.",
+  "evidence": {
+    "assets": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer5-2026-09-23\\raw\\common\\Hardware\\Gadgets\\Throwables\\Flashbang\\Flashbang_WB.ebx",
+        "sha256": "3844b717c1d026c54feb76596b760b1dc57e54225674e09fbce555b40aa17463",
+        "format": "raw-ebx",
+        "role": "Inspected scoped root Common/Hardware/Gadgets/Throwables/Flashbang/Flashbang_WB"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer6-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\FlashBang\\PBNS_Flashbang.ebx",
+        "sha256": "91aac4b5573c7884c0f2ae0cc00810ff0894248633b30975f4c5345091d97e50",
+        "format": "raw-ebx",
+        "role": "Inspected scoped root Common/Hardware/Gadgets/Throwables/FlashBang/PBNS_Flashbang"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer8-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Flashbang\\ProjSimEx_Flashbang.ebx",
+        "sha256": "d68d50d0454a5f7bbc5e1a8510e4440dc58c9709e3a0785a9d1fe15d9c3e4e8d",
+        "format": "raw-ebx",
+        "role": "Inspected scoped root Common/Hardware/Gadgets/Throwables/Flashbang/ProjSimEx_Flashbang"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer2-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\FlashBang\\Affector_Flashbang.ebx",
+        "sha256": "94fd176d8b8c729b43e2b37878d157626f05de5cb6f715793c5d8d37b580980a",
+        "format": "raw-ebx",
+        "role": "Inspected scoped root Common/Hardware/Gadgets/Throwables/Flashbang/Affector_Flashbang"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer3-2026-09-23\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Flashbang\\Flashbang_Ability.ebx",
+        "sha256": "050b1214afc4578db3d4bc7f2163b6d7267676d50cefc314b993b1bb260abde7",
+        "format": "raw-ebx",
+        "role": "Inspected scoped root Common/Hardware/Gadgets/Throwables/Flashbang/Flashbang_Ability"
+      }
+    ],
+    "artifacts": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L155\\l155-control-raw-check.json",
+        "sha256": "5f76caeb1046b7fe3232d00db51f0fca2a89d38e39e15bf225be8de90a6889e8"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L155\\l155-raw-check-manifest-v2.json",
+        "sha256": "451f5f86113e7fb4f92aa1c303131af3b10f5a3860729b7f2797daafd4f81ae1"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L155\\l155-raw-check-output-v2.json",
+        "sha256": "23d5c1f118da6f8c017bc7e6daebd8e8bb4d74edb504557db470564141992cea"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L155\\l155-raw-check-output-v3.json",
+        "sha256": "23d5c1f118da6f8c017bc7e6daebd8e8bb4d74edb504557db470564141992cea"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L155\\l155-db-summary.json",
+        "sha256": "523ceea412ef24bed0ce293330227d12c5fe2880119a436bff81e1bf157bbd79"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L155\\l155-selected-imports.json",
+        "sha256": "abb5cdf9197a1f399e531f9d806ed0fbcb031fc5352766ef72519fbf2ea5a57c"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L155\\l155-effect-child-lookup-v2.json",
+        "sha256": "30d8ac8f37d99eaee566827aa53ffced952644ffcbdc442b217e4ada555608ab"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L155\\l155-candidate-root-values.json",
+        "sha256": "1411c28f726a8a47050f1415a97796c0539bc9d778a7e7d377637cb5e1361365"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L155\\l155-typed-route-probe-v2.json",
+        "sha256": "ec2344280d6dd2219df15ea7270fe2c212846e3ab2944a6a2290ca8a4b9697ef"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L155\\l155-affector-candidate-node.json",
+        "sha256": "7343520270a2bb9eb83fbe3f043435329c43050f6942782c3adb5d6a85d89c2a"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L155\\l155-result.json",
+        "sha256": "68f6da3136f47461d2f4a955c37e7be15e8c2add498277d355c2af103888edd6"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L155\\summary.md",
+        "sha256": "16ffd7a280ba95f96a173a7ff97db6776d0a70eb52516e8c61d2f6e5921a4a34"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\exhaustive-audit-2026-09-23\\coverage-decoder-v5.sqlite",
+        "sha256": "1fac4aa159b11741943eaf6ae94f64e63928b9fa0f866ca4a1d191897718cf10"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\toolchain\\SharedTypeDescriptors-hotfix-2026-09-16.ebx",
+        "sha256": "99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer\\data\\weapons.json",
+        "sha256": "22d2d83eb65c0f7f69cad6efff077d8b1435d08827c1a1a3633976f87266eb7f"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+        "sha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-records.py",
+        "sha256": "ffb0e7574ce66779ae5041f4fc55047d0da2f63d917682b527673a75612b734c"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-worker.py",
+        "sha256": "91d73d328cfe39862ec882ef02eda665580b28a6da9fa541f7b03d12d755beb2"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-ebx-decode.py",
+        "sha256": "6fdc0334efaee0fe6113b5c9db4973f1358f53ee65dfb94edbc22fb0bf07a727"
+      }
+    ],
+    "helpers": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L155\\l155_db_inspect.py",
+        "sha256": "853947d57b100a72672f1379bfd0b1672d728561ccc1e66bc6d571080f24a638",
+        "history": "local revision hash; earlier per-invocation argv is not fully retained"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L155\\l155_selected_imports.py",
+        "sha256": "b85ae3b21e052e3f5c498bb90a87f3c0c667380745470704676ee16485db2c2f",
+        "history": "local revision hash; earlier per-invocation argv is not fully retained"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L155\\l155_effect_child_lookup.py",
+        "sha256": "9d88ddd2c1a1803e21879d8d7ada3ff35381a5c58ea2d26e255616adf9526b16",
+        "history": "local revision hash; earlier per-invocation argv is not fully retained"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L155\\l155_candidate_values.py",
+        "sha256": "e558646b1bfcdb061de865268554c30501a03528c79d058407f012d3e68394d2",
+        "history": "local revision hash; earlier per-invocation argv is not fully retained"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L155\\l155_flatten_candidates.py",
+        "sha256": "cf1ff5955321fd1f5c822794cdeacbd331f2957b3869820d90b29ae96ebee4c3",
+        "history": "local revision hash; earlier per-invocation argv is not fully retained"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L155\\l155_affector_candidate_node.py",
+        "sha256": "fce2a5ce8ebfdc3a3d17f8bad58915dbb80adb56209194d1b513db6b67081c19",
+        "history": "local revision hash; earlier per-invocation argv is not fully retained"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L155\\l155_capture_meta.py",
+        "sha256": "566679fe26efd2ec7c8615712e35f063980908707ba414a5b696c5e19639f032",
+        "history": "local revision hash; earlier per-invocation argv is not fully retained"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L155\\l155_site_control.py",
+        "sha256": "802662b8d911c33e7bf95a31a7a74095d3e2116e807a5951acdd5d57e2a41b97",
+        "history": "local revision hash; earlier per-invocation argv is not fully retained"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L155\\l155_reuse_receipt_shape.py",
+        "sha256": "fc353f0d51fcaa229f473ae53f5e0260df4b9d3a986f1b5c4cbb1a2797face07",
+        "history": "local revision hash; earlier per-invocation argv is not fully retained"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L155\\l155_typed_route_probe.py",
+        "sha256": "0e388deb50584b5ab0565ea6897e0a9a36ddab8fbd144c8db1d43fab3d919ad5",
+        "history": "local revision hash; earlier per-invocation argv is not fully retained"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L155\\l155_make_raw_manifest.py",
+        "sha256": "46acf8df3c2a1481f4110559c7109dfe79494dada1ddb1c0ecbd8485605337d5",
+        "history": "local revision hash; earlier per-invocation argv is not fully retained"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L155\\l155_validate_raw_output.py",
+        "sha256": "e7cc224cf4940213debcb3ba2e36341baab094939472b8a7b1f55aa7047d7a1c",
+        "history": "local revision hash; earlier per-invocation argv is not fully retained"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L155\\l155_review_extract.py",
+        "sha256": "99e0d81d6f7b6476065b63218139ff4fa6117ad349b6212cffe1e196af1c8290",
+        "history": "local revision hash; earlier per-invocation argv is not fully retained"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L155\\l155_write_deliverables.py",
+        "sha256": "19f374ff20d4b1609a0e8ee6e61d6eb2210abae4c32405471da881dac3ad92eb",
+        "history": "local revision hash; earlier per-invocation argv is not fully retained"
+      }
+    ],
+    "commands": [
+      {
+        "status": "exact",
+        "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+          "--path",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+          "--offset",
+          "1084",
+          "--type",
+          "f32",
+          "--expect",
+          "0.6695",
+          "--out",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L155\\l155-control-raw-check.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L155",
+        "output": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L155\\l155-control-raw-check.json"
+      },
+      {
+        "status": "exact",
+        "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+          "--manifest",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L155\\l155-raw-check-manifest-v2.json",
+          "--out",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L155\\l155-raw-check-output-v3.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L155",
+        "output": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L155\\l155-raw-check-output-v3.json"
+      },
+      {
+        "status": "exact",
+        "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-records.py",
+          "schema"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L155",
+        "output": "stdout"
+      },
+      {
+        "status": "exact",
+        "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L155\\l155_write_deliverables.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L155",
+        "output": [
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L155\\l155-result.json",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L155\\summary.md",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L155\\draft-receipt.json"
+        ]
+      },
+      {
+        "status": "reconstructed-from-progress.md",
+        "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-worker.py",
+          "prior-work",
+          "--terms",
+          "Flashbang_WB",
+          "PBNS_Flashbang",
+          "ProjSimEx_Flashbang",
+          "Affector_Flashbang",
+          "--lines",
+          "30"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L155",
+        "output": "stdout; exact output not retained as a file"
+      },
+      {
+        "status": "historical-argv-unavailable",
+        "executable": "saved lead-local helper scripts",
+        "argv": null,
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T123439-0400-astra\\L155",
+        "output": "see helper hashes and retained JSON artifacts; no claim of rerun"
+      }
+    ],
+    "notes": [
+      "The control was run before the hotfix route checks; this later command is a confirming repeat of that already-passed known-answer control.",
+      "Earlier exploratory helper invocations did not retain complete per-command argv and cwd history. The record labels those commands as reconstructed or unavailable and gives hashes for saved helper revisions; it does not imply those commands were rerun.",
+      "Raw checks report serialized bytes only. They do not prove effect activation, composition, or native runtime behavior."
+    ]
+  },
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-09-29",
+    "build": "1.4.3.0-hotfix",
+    "leads": [
+      {
+        "id": "L155",
+        "title": "Flashbang effect source versus Concussion",
+        "status": "finding",
+        "summary": "Flashbang_WB imports two PBNS_Flashbang exports, but the captured scoped data does not establish a selected primary projectile or typed effect operands for comparison.",
+        "reopenWhen": "Reopen only when the WB-selected projectile-to-effect route and descriptor-resolved effect operand roles and units are established."
+      }
+    ],
+    "assets": [
+      {
+        "path": "Common/Hardware/Gadgets/Throwables/Flashbang/Flashbang_WB",
+        "format": "raw-ebx",
+        "sha256": "3844b717c1d026c54feb76596b760b1dc57e54225674e09fbce555b40aa17463",
+        "question": "Whether this root establishes the selected Flashbang projectile/effect route and a typed comparison operand.",
+        "result": "useful",
+        "conclusion": "Two PBNS exports are imported; their hashed field roles do not identify a primary projectile."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Throwables/FlashBang/PBNS_Flashbang",
+        "format": "raw-ebx",
+        "sha256": "91aac4b5573c7884c0f2ae0cc00810ff0894248633b30975f4c5345091d97e50",
+        "question": "Whether this root establishes the selected Flashbang projectile/effect route and a typed comparison operand.",
+        "result": "useful",
+        "conclusion": "A direct ProjFeature_Flashbang import is present; this does not resolve to the scoped ProjSimEx root."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Throwables/Flashbang/ProjSimEx_Flashbang",
+        "format": "raw-ebx",
+        "sha256": "d68d50d0454a5f7bbc5e1a8510e4440dc58c9709e3a0785a9d1fe15d9c3e4e8d",
+        "question": "Whether this root establishes the selected Flashbang projectile/effect route and a typed comparison operand.",
+        "result": "inconclusive",
+        "conclusion": "A direct Affector_Flashbang candidate import and typed neighboring values are present; no WB-selected route is established."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Throwables/Flashbang/Affector_Flashbang",
+        "format": "raw-ebx",
+        "sha256": "94fd176d8b8c729b43e2b37878d157626f05de5cb6f715793c5d8d37b580980a",
+        "question": "Whether this root establishes the selected Flashbang projectile/effect route and a typed comparison operand.",
+        "result": "inconclusive",
+        "conclusion": "Hashed inherited UINT32/ENUM values are raw verified but have no resolved role or unit and remain candidate-only."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/Throwables/Flashbang/Flashbang_Ability",
+        "format": "raw-ebx",
+        "sha256": "050b1214afc4578db3d4bc7f2163b6d7267676d50cefc314b993b1bb260abde7",
+        "question": "Whether this root establishes the selected Flashbang projectile/effect route and a typed comparison operand.",
+        "result": "inconclusive",
+        "conclusion": "No relation to the other scoped roots was resolved from the captured direct-child mapping."
+      }
+    ],
+    "site": [
+      {
+        "pointer": "data/weapons.json:/[id=m433]/recoil/ads/amount",
+        "value": 0.6695,
+        "relation": "context"
+      }
+    ],
+    "binding": "research"
+  },
+  "orchestratorReview": {
+    "reviewIssues": 0,
+    "scope": "5/5 fixed roots; direct candidate expression child counted separately",
+    "independentRawCheck": {
+      "route": "Common/Hardware/Gadgets/Throwables/Flashbang/ProjSimEx_Flashbang",
+      "offset": 1136,
+      "type": "i32",
+      "bytesHex": "05000000",
+      "value": 5,
+      "rawSha256": "d68d50d0454a5f7bbc5e1a8510e4440dc58c9709e3a0785a9d1fe15d9c3e4e8d"
+    },
+    "classification": "No selected effect comparison; close nonlethal-effect line after L142 and L155."
+  }
+}
