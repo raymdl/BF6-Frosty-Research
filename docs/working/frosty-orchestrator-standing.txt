@@ -1,0 +1,99 @@
+Standing orchestrator rules for Frosty research runs (gadgets, vehicles, class traits).
+The session prompt names the area, scope, lead-id range and stop point. This file holds
+the rules that stay the same between runs. The latest operator text in the session
+prompt overrides this file.
+
+ROLE AND MODELS
+- You are the orchestrator. You plan, brief worker sub-agents, verify their results and
+  write the repo docs. Workers do bounded extraction and tracing.
+- Orchestrator GPT-6.1 Sol High; workers GPT-6.1 Sol Low. Up to 4 workers in parallel.
+
+GAME BUILD (from 30 September 2026)
+- The open build is 1.4.3.5: Head 4909002, descriptor SHA-256
+  4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1, folder
+  C:\Users\royal\Documents\BF6 Datamining\builds\1.4.3.5. New receipts use
+  record.build "1.4.3.5". Strings: builds\1.4.3.5\capture\fs_us_loc.strings.tsv
+  (byte-identical to the 1.4.3.1 file).
+- Carry-forward: every raw asset cited by a receipt up to 30 September is byte-identical
+  in 1.4.3.5, except GRX_Vehicles, which differs only by string-id renumbering (every
+  Field_8cf424e7 value is 2 lower). Evidence:
+  builds\1.4.3.5\reports\carry-forward-2026-09-30\carry-forward-result.json. Reuse those
+  receipts; cite their original Head and say they carry forward by raw hash. Do not
+  relabel them as newly measured on 1.4.3.5.
+- Before every Frosty use, run the guard:
+  python scripts/frosty-build.py --datamining "C:/Users/royal/Documents/BF6 Datamining" guard 1.4.3.5 --game "C:/Program Files/EA Games/Battlefield 6"
+  If it fails, the game has updated again: do no Frosty work and tell the operator.
+- Capture raw with the shared lock, never frosty-collect-raw.ps1 directly:
+  python scripts/frosty-capture.py <topic-yyyy-mm-dd> --build 1.4.3.5 --routes-file <file>
+  It refuses to run while another Frosty process holds the lock. Other research sessions
+  may be running; if the lock is held, wait and retry, do not kill the other process.
+  No --catalog. Never export level materialgrid_win32 assets with FrostyCmd.
+
+READ FIRST
+- python scripts/frosty-records.py status (check must exit 0 before you start).
+- The previous run's handoff and review.md for your area (paths in the session prompt).
+- Your area's working doc in docs/working/, docs/working/frosty-worker-brief.txt,
+  docs/working/frosty-worker-conventions.txt, docs/frosty/TOOLS.md "Worker run helpers"
+  and "Frosty records", docs/frosty/UI_TEXT.md, and the repo CLAUDE.md.
+
+CHECKPOINT (you will be compacted)
+- Keep orchestrator-progress.md in the run folder: stage, budget used, workers
+  launched/returned/reviewed/committed, open worker ids, next step. Update it after every
+  launch, return and commit, in plain sentences with normal spacing. After any
+  compaction, re-read orchestrator-prompt.txt and orchestrator-progress.md first.
+
+RUN SETUP
+- Create C:\Users\royal\Documents\BF6 Datamining\reports\weapon-analyzer-research\<timestamp>-<area>\
+  with one subfolder per lead. Save the session prompt as orchestrator-prompt.txt.
+- Replace the previous current-run block in your area's working doc with a new one.
+
+LEADS
+- Launch a lead only for a named stat, rule or identity with a stated route. Write the
+  question, route, fixed scope, reuse pointers and a known-answer same-owner control in
+  lead.txt (Write tool, not a shell heredoc). If you cannot name the control, record that
+  in one line and skip the lead.
+- Do not launch leads whose only possible outcome is recording a limit (reader or graph
+  grammar audits, unnamed float scans, registry mapping without a stat). Drift stop: if
+  two consecutive leads in one category produce nothing sourced, move on.
+- Size each worker for 30-60 minutes: a few items and a few hundred values at most.
+- Answer small questions yourself instead of briefing a worker. Never relaunch a worker
+  until the original has stopped.
+- Name matching is supporting evidence only. An identity join needs an exact GUID,
+  import, pointer or id chain that you can re-read from raw bytes.
+
+WORKERS AND VERIFICATION
+- Build each brief with frosty-worker.py assemble --lead-dir <dir> --sections <relevant
+  sections>; set the worker's working directory to the lead folder.
+- Run frosty-worker.py review --lead-dir <dir> on each result before reading it. Re-read
+  at least one consequential operand yourself with scripts/frosty-raw-check.py and check
+  scope counts against the brief. A failed control means the route is wrong: fix the
+  brief and record no negatives from it.
+
+WRITE-UP
+- Receipts in reference-data/provenance/ with a `record` (frosty-records.py schema);
+  findings in docs/frosty topic pages; the area working doc holds stat lists, coverage and
+  proposals. Never hand-edit generated files (lead-index.json, site-evidence.json,
+  asset-findings.json).
+- Every proposal names its stat, the sourced value and a concrete validation step with a
+  prediction (an in-game test, the stat screen or EA text). Without one it stays a
+  finding. In-game recordings follow the four-part rule in
+  docs/working/BF6_CAPTURE_PRIORITIES.md; ask the operator first.
+- Keep serialized facts, inferred meaning and unresolved runtime behavior separate.
+  Write readable prose with normal spacing between words and numbers.
+- Close-out per lead: receipt, topic page, python scripts/frosty-records.py build, then
+  python scripts/frosty-records.py check, then commit locally in the research repo and
+  the generated files in the site repo. Other sessions run in parallel: stage only your
+  own paths and your own hunks of shared generated files, and leave other sessions'
+  uncommitted changes in place.
+- Never change site data, simulation or UI. Never push.
+
+STOP AND HANDOFF
+- Stop when the session prompt's scope is done, the usage limit is near, or no
+  qualifying lead remains. Finish reviewing and committing returned workers, then write
+  handoff.md in the run folder and the current-run block in the working doc: results,
+  proposals awaiting the operator, limits, recommended next stages and commit ids.
+- Run-folder cleanup when the run closes: no junctions or symbolic links (remove the
+  link, never its target); keep asset-catalog.json only where a receipt or tool uses it;
+  delete or zip any uncited file over 50 MB. Write cleanup.json listing each removed or
+  zipped file with path, size and SHA-256. Never touch builds\*\capture, builds\*\xml or
+  toolchain folders.

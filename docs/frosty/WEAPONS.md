@@ -8,6 +8,30 @@ equations live in the model guides ([damage and ballistics](https://github.com/r
 this page covers the source side. The native equations are in game code, which was not
 examined; all findings use exported values and their structure.
 
+## 1.4.3.5 update review (30 September 2026)
+
+Head 4909002 is a new snapshot under the maintained update procedure. The captured
+weapon-folder set has 19,846 byte-identical assets against retained old raw, including
+88 bullet records. No weapon balance value change is established in that set. The
+patch summary is not content evidence: 371 of its entries have unchanged raw bytes.
+The 41 raw differences elsewhere are 38 known-noise/build-identity changes and three
+non-gameplay store-configuration changes. One killswitch comparison uses release Head
+4892017; the other 40 use hotfix Head 4892087.
+
+This is not a global no-change result. Old raw is absent for 753 summary entries,
+including 110 catalog-hash changes and three material grids. Current bounded grids
+agree across maps but cannot prove unchanged damage multipliers across the update.
+The announced APHEI/carrier damage restriction and AI water-navigation fix remain
+unverified against retained old raw. No site numeric data was changed.
+See the [dated update receipt](../../reference-data/provenance/frosty-update-1.4.3.5-2026-09-30.json)
+for hashed reports, scope and proposed validation steps.
+
+## Weapons site audit census (30 September 2026)
+
+The [L500 audit](../../reference-data/provenance/frosty-2026-09-30-L500-weapons-audit-census.json) finds no family that needs a new extraction after excluding existing field-level reviews. The current `weapons.json` numeric leaves were checked against the earlier leaf ledger and later accepted receipts. The 169 relevant GS/WB/base-projectile raw assets equal their recorded release hashes in 1.4.3.5. Earlier measurements keep their original Head and carry forward by hash; the M433 velocity control was re-read as 630 m/s at offset 416.
+
+No new value-mismatch proposal follows from this census. L107 precision decisions, the reviewed M45A1 damage step, and in-game reload deviations remain as recorded. ADS/deploy/sprint indices are outside `weapons.json`; numeric provenance and unused literals are not displayed stats. The external census was not committed. No worker extraction, source recapture or site implementation was required. The existing reviews retain their native-runtime limits.
+
 ## Multiplayer audit scope (1.4.3.0)
 
 Weapon sound profiles are outside the Analyzer research scope, per the
@@ -1087,6 +1111,127 @@ others. It is 3 on most other weapons and 1 on sixteen. The SDK's `ShotConfigDat
 lists `NumberOfBulletsPerBurst`, so the name is probable.
 [Receipt](../../reference-data/provenance/frosty-source-leads-2026-09-23.json).
 
+### Fire-mode selector source data (1.4.3.5, L600-L604)
+
+The planned selector now has source data for all 63 site weapons. New raw reads
+use Head 4909002 and descriptor `4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1`.
+The run file `BF6 Datamining/reports/weapon-analyzer-research/2026-09-30T2323-0400-fire-modes/fire-modes.json` contains 110 rows, one per weapon and
+source mode. Each row keeps full float32 precision, source field paths, raw file
+hashes, byte offsets, bytes and Head. WB primary mode is `Field_f8822efa/Field_16e6fa59`;
+alternates are `Field_f8822efa/Field_9b956c3d`. Each row contains `RateOfFire`,
+`RateOfFireForBurst`, `RateOfFireForSingleFire`, `BurstsPerMinute` and rounds per
+burst. Code 1 remains bolt/pump single; its cadence needs the separate cycle
+inputs, so this data does not substitute a simple RPM value for the cycle.
+
+All 13 required controls passed: M4A1 main/single
+899.9990234375/399.9989929199219 RPM; rounds match `burstRounds` on all nine
+burst weapons; GRT-BC within-burst rate is 830.7689819335938 RPM and SL9 is
+771.427978515625 RPM. The parent compared 378 base fields with current decodes
+and made 75 further typed raw checks after worker review.
+
+Twelve source mode-changing branches are retained. Ten match site choices by
+the existing exact weapon/attachment route crosswalk: six Burst Training
+branches select burst plus auto/single; GRT-BC and SL9 Burst Mode select burst
+plus single; M16A4 A3 Receiver and VSSM Folding Stock select auto plus single.
+M16A4's additional source burst progression and GRT-CPS's source-only burst
+branch remain in the data. The operator reported GRT-CPS burst unavailable on
+28 September; it is excluded from the selector count prediction.
+
+VSSM Folding Stock also supplies a `Class_582cbe36` single-rate override:
+399.9989929199219 at byte 168 in `WPM_ERG_FullAutoReplaceVSSM_W50`.
+Its main/burst slots contain -1. Their native sentinel meaning is unresolved.
+M16A4's traced A3 mode effect has no cadence override in its selected modifier
+list. Existing source rates are retained without a new composition claim.
+
+L63 semi no-bloom and L17/L24 Match Trigger are recorded per row as conditional.
+L63's 40 bound GS owners include five LMGs with no serialized single mode;
+therefore 35 single-mode rows carry that note. EF88 and BREN3/BROD 3 are outside
+that binding scope. A binding does not add a mode. Earlier evidence keeps its
+original Head 4892017 and carries forward by raw hash. New mode reads remain
+separate from that prior condition evidence. No recoil/spread composition or
+native activation result follows.
+
+The table gives a count prediction across the WB list and mode-changing
+attachments offered by the site. It does not assert that every listed mode is
+available in every loadout. WB arrays can include attachment-gated burst modes.
+Counts are 26 weapons with one mode, 28 with two and nine with three. Runtime
+availability is pending the operator's toggle check.
+
+| Weapon | WB primary, then alternates | Count prediction across site choices | Mode-changing site attachment lists |
+|---|---|---:|---|
+| AK4D | auto, semi | 2 |  |
+| B36A4 | auto, semi | 2 |  |
+| EF88 | auto, semi | 2 |  |
+| KORD 6P67 | auto, burst, semi | 3 | Burst Training: burst, auto, semi |
+| L85A3 | auto, semi | 2 |  |
+| M16A4 | burst, semi | 3 | A3 Receiver: auto, semi |
+| M433 | auto, semi | 2 |  |
+| NVO-228E | auto, semi | 2 |  |
+| SOR-556 Mk2 | auto, semi | 2 |  |
+| TR-7 | auto, semi | 2 |  |
+| VCR-2 | auto, semi | 2 |  |
+| DB-12 | bolt/pump | 1 |  |
+| 18.5KS-K | semi | 1 |  |
+| M1014 | semi | 1 |  |
+| M87A1 | bolt/pump | 1 |  |
+| AK-205 | auto, semi | 2 |  |
+| BROD 3 | auto, semi | 2 |  |
+| GRT-BC | auto, semi | 3 | Burst Mode: burst, semi |
+| M277 | auto, semi | 2 |  |
+| M417 A2 | auto, semi | 2 |  |
+| M4A1 | auto, semi | 2 |  |
+| QBZ-192 | auto, semi | 2 |  |
+| SG 553R | auto, burst, semi | 3 | Burst Training: burst, auto, semi |
+| SOR-300SC | auto, semi | 2 |  |
+| Interdictor | bolt/pump | 1 |  |
+| L115 | bolt/pump | 1 |  |
+| M2010 ESR | bolt/pump | 1 |  |
+| Mini Scout | bolt/pump | 1 |  |
+| PSR | bolt/pump | 1 |  |
+| SV-98 | bolt/pump | 1 |  |
+| GRT-CPS | semi | 1 |  |
+| LMR27 | semi | 1 |  |
+| M39 EMR | semi | 1 |  |
+| SVDM | semi | 1 |  |
+| SVK-8.6 | semi | 1 |  |
+| VSSM | semi | 2 | Folding Stock: auto, semi |
+| CZ3A1 | auto, burst, semi | 3 | Burst Training: burst, auto, semi |
+| KV9 | auto, burst, semi | 3 | Burst Training: burst, auto, semi |
+| PP-19 | auto, semi | 2 |  |
+| PW5A3 | auto, burst, semi | 3 | Burst Training: burst, auto, semi |
+| PW7A2 | auto, semi | 2 |  |
+| SCW-10 | auto, semi | 2 |  |
+| SGX | auto, semi | 2 |  |
+| SL9 | auto, semi | 3 | Burst Mode: burst, semi |
+| UMG-40 | auto, burst, semi | 3 | Burst Training: burst, auto, semi |
+| USG-90 | auto, semi | 2 |  |
+| DRS-IAR | auto, semi | 2 |  |
+| KTS100 MK8 | auto, semi | 2 |  |
+| L110 | auto | 1 |  |
+| M121 A2 | auto | 1 |  |
+| M123K | auto | 1 |  |
+| M240L | auto | 1 |  |
+| M250 | auto, semi | 2 |  |
+| M/60 | auto | 1 |  |
+| RPK-74M | auto, semi | 2 |  |
+| RPKM | auto, semi | 2 |  |
+| ES 5.7 | semi | 1 |  |
+| GGH-22 | semi | 1 |  |
+| M357 Trait | semi | 1 |  |
+| M44 | semi | 1 |  |
+| M45A1 | semi | 1 |  |
+| P18 | semi | 1 |  |
+| vz. 61 | auto, semi | 2 |  |
+
+The operator can check M4A1 bare (auto/single), M16A4 bare (burst/single) and
+A3 Receiver (auto/single), KORD 6P67 with Burst Training (burst/auto/single),
+GRT-BC and SL9 with Burst Mode (burst/single), VSSM bare (single) and Folding
+Stock (auto/single), GRT-CPS bare (single), vz. 61 bare (auto/single) and
+M2010 ESR bare (single with bolt action). Compare the distinct toggle modes and
+counts with these predictions. No recording is needed. No in-game test was
+performed in this run. Source lists, mode-conditioned effects and player
+availability remain separate. [Data receipt and validation](../../reference-data/provenance/frosty-2026-09-30-L604-fire-mode-selector-data.json).
+
 ## Class weapon traits
 
 Raw-verified in release 1.4.3.0 on 28 September 2026 ([receipt](../../reference-data/provenance/frosty-2026-09-28-L100-L104-class-traits.json)).
@@ -1117,6 +1262,74 @@ M10 = 2.25. `WPM_SwayPenalty` has an empty selector array. The operator confirms
 that snipers sway more on non-Recon classes, which fits an always-active ×2.25
 penalty cancelled by the trait; the site's current sniper value 1.0 is the Recon
 case. Breath-control operands were not in these assets.
+
+### Class, path and perk source cross-check
+
+The 30 September run examined nine perks on client **1.4.3.1 / Head 4892087**.
+[UI table and proficiency comparison (L400)](../../reference-data/provenance/frosty-2026-09-30-L400-class-trait-ui.json)
+keep the older L100-L104 release operands separate. No direct proficiency conflict
+was found. Support sprint exemption and Recon breath control still lack operands.
+
+| Perk text | Source finding | Serialized path or activation limit | Site proposal and validation prediction |
+|---|---|---|---|
+| AGILE SHOOTER | No numeric movement operand established. | Assault_2 slot 1 imports Commando Ability, which imports its U selector; UI identity is a candidate. | Finding only. Compare equal-distance firing movement with perk off/on; text predicts less slowdown. |
+| WEAPON SWAP | Hotfix WM_WeaponSwap draw step +1. | No Ability/U owner in the current catalog; class/path/unlock unknown. | Conditional `data/` trait table and `sim/applyAttachments.js` draw index. Predict base deploy index +1; verify both swap directions and total duration. |
+| STEADY AIM | Hotfix MountedPlus amount exponent +3, variation exponent -2, both aim states. | Support_2 slot 2 imports MountedPlus Ability and U selector; UI identity and runtime selection remain unresolved. | Keep L108 operator deferral. Conditional recoil in `sim/applyAttachments.js`; predict amount times amountMult^3 and variation times dirVarMult^-2 in matched mounted tests. |
+| QUICK RECOVERY | FasterRegen rate/delay/amount 30/2.5/0; L405 establishes source field-role associations against named soldier baseline 10/5/0. | Assault_1 slot 2 imports FasterHealing. Override/addition and exact UI association unknown. | Finding before numeric implementation in `sim/target.js`/`sim/damage.js`, with display in `ui/target-stats.js`. Under replacement, the delay value halves and the rate value is 3x, while UI states 50% healing improvement. Measure healing start and slope to distinguish 1.5x from 3x. |
+| EVASION TRAINING | Captured qualitative text; source alias and numeric operand unknown. | Class/path/unlock unknown. | Finding only; text predicts improved sprint under heavy fire. |
+| HEAVY FLAK | Captured qualitative explosive-resistance text; no source operand. | Use metadata object 421; object 36 with the same internal name is RALLY SQUAD. Class/path/unlock unknown. | Finding only; text predicts less explosive damage during activation. |
+| LOW PROFILE | SpotDelay 1.2 and unnamed SpotDuration field 0.667 raw-verified; no proved 1.5-second role. | Recon_2 slot 2 imports LowProfile Ability; UI identity, unlock and native consumers remain unresolved. | Proposed game-stated text in `data/` trait metadata and `ui/app.js`. Validate exact string first; before numeric use, predict spotted duration ratio about 0.67 and combat clearing 1.5 seconds earlier. Do not replace 1.5 with 1.2. |
+| ENHANCED PERCEPTION | Named AdvancedSpot range 1.33, angle 1.1 and duration increase 3 agree with +33%, +10% and +3 seconds. BaseTime 0.25 is source-only. | Recon_1 slot 0 imports AdvancedSpot Ability; UI identity, unlock and native consumer remain unresolved. | Proposed perk information in `data/` metadata and `ui/app.js`. Confirm exact text, then predict range ratio 1.33, angle ratio 1.10 and duration +3 seconds under matched active/inactive tests. |
+| CONFIRMED KILL | Explicit sniper-headshot/no-revive UI text; exact U selector matches WM_Killshot, whose boolean is true. | Recon_1 slot 2 imports Killshot Ability. Headshot/revive boolean consumer, unlock and native activation remain unresolved. | Proposed perk information in `data/` metadata and `ui/app.js`. Text must match; enabled sniper headshots should prevent revive in matched headshot/body-shot and perk off/on tests. |
+
+Receipts: [handling L401](../../reference-data/provenance/frosty-2026-09-30-L401-class-perk-handling.json),
+[survival L402](../../reference-data/provenance/frosty-2026-09-30-L402-class-perk-survival.json),
+[spotting and revive L403](../../reference-data/provenance/frosty-2026-09-30-L403-class-perk-spotting.json).
+Array position is not an unlock tier. Source path names do not prove class
+selection. Image imports and equal internal names do not prove UI-to-source
+identity. No site data, simulation or UI change is included.
+
+**Activation and missing-operand preflight (L404, 30 September).** Earlier class-trait
+raw evidence carries forward to **1.4.3.5 / Head 4909002** by hash; original receipt
+Heads remain recorded. No `UI-to-asset joins` method was available in UI_TEXT.md.
+The Recon class, Sniper path and Enhanced Perception UI lookup IDs did not equal
+the inspected class, U-path or U-perk identity fields. One guarded capture of
+`Common/Gameplay/Classes/Class_Recon` succeeded under the shared capture lock.
+Its single decoded identity record did not complete an end-to-end selection
+control. No activation worker was launched, and no absence or runtime conclusion
+is drawn from that route. Class-to-path-to-perk links and unlock tiers remain open.
+
+Agile Shooter has the named Commando_Base Ability/U route but no qualified numeric
+same-owner movement control. Evasion Training lacks an exact SERETraining gameplay
+route and control. Heavy Flak lacks an exact ActiveFlak gameplay route and control;
+generic Flak is not a substitute. All three leads were skipped under the control
+rule. This preserves their existing operand limits without adding route negatives.
+[Preflight receipt](../../reference-data/provenance/frosty-2026-09-30-L404-class-trait-control-preflight.json).
+
+**FasterRegen field roles (L405, 30 September).** Exact imports in the
+`Glacier_Soldier` regeneration block select named exported children of
+`Common/Gameplay/Soldier/GRX_Glacier_Soldier`. The delay control selects GUID
+`37efb14f-d146-4998-aa9f-9b6e09108d85`, target hash `1017720342`, with baseline
+value 5. The rate and amount imports likewise select their named children, with
+baseline values 10 and 0. Separate local root keys were resolved for each owner;
+the soldier expressions and affector entries use the same expression descriptor
+`Class_c93fe299`. These joins establish the source field-role associations:
+
+| Field | Named source role | Baseline value | FasterRegen value |
+|---|---|---|---|
+| `Field_3233bcbf` | RegenerationRate | 10 | 30 |
+| `Field_5c9d2d82` | RegenerationDelay | 5 | 2.5 |
+| `Field_507ad482` | RegenerationAmount | 0 | 0 |
+
+The three raw assets are byte-identical to the earlier evidence. New reads use the
+1.4.3.5 descriptor; the original Head 4892087 evidence is retained as carry-forward.
+Worker review passed for all four scoped rows. Independent parent reads confirm
+the rate import/export GUID, baseline 10 and all three affector values. Native
+units, equation, composition and activation remain unresolved. Under replacement,
+30/10 is 3x and 2.5/5 is one half; the comparison with UI 50% healing improvement
+is still conditional, not a verified gameplay defect. No implementation is
+proposed from this role check.
+[Field-role receipt](../../reference-data/provenance/frosty-2026-09-30-L405-fasterregen-field-roles.json).
 
 **Sprint speed (L106, 28 September).** No per-weapon sprint-speed operand exists in the
 weapon assets. Sprint speed is soldier-level: `GRX_Glacier_Soldier` records
@@ -1550,3 +1763,20 @@ Maximum pre-shot point errors are 0.006992° and 0.009645°; adjacent finest res
 differ by less than 2e-12°. All 24 source fields passed raw checks. Seed 0 and zero
 compensation only; neither case overlaps impulses. This is not a native-equation
 validation or an error bound for other loadouts; no new capture is required.
+
+## Current ammo site value audit (30 September 2026)
+
+The ammo audit uses 1.4.3.5, Head 4909002, descriptor `4c28ad65...`, and the
+mixed-source baseline in register assumption A01. Current raw operands were read;
+prior selection joins retain their original Head 4892017 and carry forward by raw
+hash. This establishes serialized configuration, not native activation.
+
+- [Curves, L580-L582](../../reference-data/provenance/frosty-2026-09-30-site-audit-ammo-curves.json): 328 selections; 20 exact, 293 float32-equivalent decimal differences, 11 reviewed function-equivalent representations, and four reviewed M45A1 step deviations. No new value mismatch. The eight curves stored in ammo.json are included; inherited weapons.json curves provide selection context for the separate weapons audit.
+- [Pellets, L588](../../reference-data/provenance/frosty-2026-09-30-site-audit-ammo-pellets.json): all 16 primary shotgun selections match. Buckshot and Flechette have 16 pellets, #00 Buck eight, and Slugs one in the configured source routes.
+- [Subsonic velocity, L583](../../reference-data/provenance/frosty-2026-09-30-site-audit-ammo-velocity.json): all 31 treatments agree within precision. The maximum conditional speed difference is 0.00001284 m/s. Source WPM effects serialize multipliers; site tiers represent powers of 0.8. Native ammo/barrel order and display rounding remain unresolved.
+
+Precision differences are counted under [L107](../../reference-data/provenance/frosty-2026-09-28-L107-precision-audit.json)
+and do not become proposals. The reviewed M45A1 step retains the 13 September
+damage/BTK observation; it is not a newly found defect. Current raw field paths,
+offsets, values and hashes are in the family receipts' external comparison and
+worker artifacts. No site data, simulation or UI was changed.

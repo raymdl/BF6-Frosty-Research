@@ -1,0 +1,1968 @@
+{
+  "lead": "L403",
+  "status": "complete",
+  "build": "1.4.3.0-hotfix",
+  "question": "Cross-check exactly Low Profile, Enhanced Perception and Confirmed Kill against source operands and activation evidence.",
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-09-30",
+    "build": "1.4.3.0-hotfix",
+    "leads": [
+      {
+        "id": "L403",
+        "title": "Spotting and confirmed-kill perk source cross-check",
+        "status": "proposal",
+        "summary": "AdvancedSpot named registry operands agree with perk text; LowProfile and Killshot support game-stated trait information while native consumers remain unresolved.",
+        "reopenWhen": "Validate class/path activation and native consumer semantics before numerical gameplay composition."
+      }
+    ],
+    "binding": "research",
+    "assets": [
+      {
+        "path": "Common/Gameplay/InRoundProgression/LowProfile/Ability_LowProfile",
+        "format": "raw-ebx",
+        "sha256": "aadd866d840fa367a0c53f54353dafb2224cd69397879fa50b09274cc543ba3b",
+        "question": "What exact ability and selector records support the scoped perk?",
+        "result": "useful",
+        "conclusion": "Ability_LowProfile imports its matching U selector; LowProfile also imports the FL/SimEx chain; native class/path use is unresolved."
+      },
+      {
+        "path": "Common/Gameplay/InRoundProgression/LowProfile/U_Ability_LowProfile",
+        "format": "raw-ebx",
+        "sha256": "d84d5e8bce4230d5b2bb7ec87309c42ddd6855496137793f5969db1279606d3a",
+        "question": "What exact ability and selector records support the scoped perk?",
+        "result": "useful",
+        "conclusion": "U_Ability_LowProfile exports 21c1e2b3-8eae-4e77-b6c0-ccc8488081fb; Killshot selector matches WM_Killshot; effect consumers remain unresolved."
+      },
+      {
+        "path": "Common/Gameplay/InRoundProgression/AdvancedSpot/Ability_AdvancedSpot",
+        "format": "raw-ebx",
+        "sha256": "3dc3c310bfaf532f61067e948077dc461b54cf3d2cebcfb0b96c2e81d63be1a6",
+        "question": "What exact ability and selector records support the scoped perk?",
+        "result": "useful",
+        "conclusion": "Ability_AdvancedSpot imports its matching U selector; LowProfile also imports the FL/SimEx chain; native class/path use is unresolved."
+      },
+      {
+        "path": "Common/Gameplay/InRoundProgression/AdvancedSpot/U_Ability_AdvancedSpot",
+        "format": "raw-ebx",
+        "sha256": "9c375e44e08ba1c3b1e98f0f4ba271d0e838db1bb7c1b796a4fa9d9f6cd57dfd",
+        "question": "What exact ability and selector records support the scoped perk?",
+        "result": "useful",
+        "conclusion": "U_Ability_AdvancedSpot exports 66d9fd3e-1a5e-4e84-8b04-a1543743b48c; Killshot selector matches WM_Killshot; effect consumers remain unresolved."
+      },
+      {
+        "path": "Common/Gameplay/InRoundProgression/Killshot/Ability_Killshot",
+        "format": "raw-ebx",
+        "sha256": "1caddc23eec9b44616789da9139c89ba9900f8a9f95a06a492e56cf61a3e9824",
+        "question": "What exact ability and selector records support the scoped perk?",
+        "result": "useful",
+        "conclusion": "Ability_Killshot imports its matching U selector; LowProfile also imports the FL/SimEx chain; native class/path use is unresolved."
+      },
+      {
+        "path": "Common/Gameplay/InRoundProgression/Killshot/U_Ability_Killshot",
+        "format": "raw-ebx",
+        "sha256": "aea54ce5ae542f1170ac0935249bee383142712accd5836ba05d8572b69f44ba",
+        "question": "What exact ability and selector records support the scoped perk?",
+        "result": "useful",
+        "conclusion": "U_Ability_Killshot exports c9ac1d21-bc55-48ae-a825-90f3b15d6817; Killshot selector matches WM_Killshot; effect consumers remain unresolved."
+      },
+      {
+        "path": "Common/Gameplay/Soldier/GRX_Glacier_Soldier",
+        "format": "raw-ebx",
+        "sha256": "9b44340483d9af272ef5f0cbda5934ad9a30ff1f055fd3fddc60fc4943e822cc",
+        "question": "Do named AdvancedSpot operands agree with UI numbers?",
+        "result": "useful",
+        "conclusion": "Named registry value fields 1.33, 1.1, 3 and 0.25 are raw verified; no native consumer is proven."
+      },
+      {
+        "path": "Common/Gameplay/InRoundProgression/Killshot/WM_Killshot",
+        "format": "raw-ebx",
+        "sha256": "049f729947b006a8543597cb5094a1a2b9e0b557faa077bb31c2c3ed3900491b",
+        "question": "Does the scoped perk selector match the sniper modifier?",
+        "result": "useful",
+        "conclusion": "Selector matches U_Ability_Killshot exported GUID; bool at 216=true. Runtime role remains unresolved."
+      },
+      {
+        "path": "Common/Gameplay/InRoundProgression/LowProfile/Affector_LowProfile_SpotDelay",
+        "format": "raw-ebx",
+        "sha256": "9b56e4c0e93deef0259148a71ab86cf19caf9d317de7fa98082b4540079220fc",
+        "question": "What numbers are stored in the established source chain?",
+        "result": "inconclusive",
+        "conclusion": "Raw scalar verified; field role remains unnamed."
+      },
+      {
+        "path": "Common/Gameplay/InRoundProgression/LowProfile/Affector_LowProfile_SpotDuration",
+        "format": "raw-ebx",
+        "sha256": "7c9879339cf44e4dd630ceea13115490b30eb258fd66dca15213744e56da8cd4",
+        "question": "What numbers are stored in the established source chain?",
+        "result": "inconclusive",
+        "conclusion": "Raw scalar verified; field role remains unnamed."
+      }
+    ],
+    "run": {
+      "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0112-0400-class-traits",
+      "orchestrator": "Codex research orchestrator",
+      "workers": [
+        {
+          "lead": "L403",
+          "model": "gpt-6.1-sol low"
+        }
+      ]
+    },
+    "refs": [
+      "queue-proposals"
+    ]
+  },
+  "sourceFacts": [
+    {
+      "internalName": "Ability_LowProfile",
+      "name": "LOW PROFILE",
+      "description": "Going prone clears your in-combat state 1.5s faster and reduces your spotted status duration by 33%.",
+      "metadata": {
+        "source": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\gadget-ui-metadata-2026-09-30\\raw\\Common\\UI\\MetaData\\UIPlayerAbilityDescriptionMetadata.ebx",
+        "sourceSha256": "393af3d78e2e52851ee23fad8b4be3c8eec1d9d01bfdde0472c715b4fd876ab4",
+        "object": 457,
+        "guid": "ba390be9-09d9-4623-9a7f-faa100b7a58c",
+        "class": "Class_dc833adc",
+        "typeKey": "992b49eb6e15fd6c2e6e84c9672d8756",
+        "textFields": {
+          "Field_fd698f51": {
+            "targetObject": 464,
+            "targetGuid": "4953e9eb-68b0-211e-6bb3-436743d12b68",
+            "stringField": "Field_3d34898a",
+            "id": "2AF83DF1",
+            "text": "LOW PROFILE",
+            "line": 18198
+          },
+          "Field_490f0dd0": {
+            "targetObject": 434,
+            "targetGuid": "e5da57df-3cb0-dc9d-9143-48656aacdbf2",
+            "stringField": "Field_3d34898a",
+            "id": "49AF2EAF",
+            "text": "Going prone clears your in-combat state 1.5s faster and reduces your spotted status duration by 33%.",
+            "line": 31796
+          },
+          "Field_f8c63ce7": {
+            "targetObject": 450,
+            "targetGuid": "e1dbc6e6-cf37-74d8-8081-57aa419b290c",
+            "stringField": "Field_3d34898a",
+            "id": "49AF2EAF",
+            "text": "Going prone clears your in-combat state 1.5s faster and reduces your spotted status duration by 33%.",
+            "line": 31796
+          }
+        },
+        "activationLinkStatus": "No verified class/path/perk activation link inside the four scoped metadata assets."
+      },
+      "rawChecks": [
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\gadget-ui-metadata-2026-09-30\\raw\\Common\\UI\\MetaData\\UIPlayerAbilityDescriptionMetadata.ebx",
+          "rawSha256": "393af3d78e2e52851ee23fad8b4be3c8eec1d9d01bfdde0472c715b4fd876ab4",
+          "offset": 55264,
+          "type": "i32",
+          "bytesHex": "f0030000",
+          "value": 1008
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\gadget-ui-metadata-2026-09-30\\raw\\Common\\UI\\MetaData\\UIPlayerAbilityDescriptionMetadata.ebx",
+          "rawSha256": "393af3d78e2e52851ee23fad8b4be3c8eec1d9d01bfdde0472c715b4fd876ab4",
+          "offset": 56304,
+          "type": "i32",
+          "bytesHex": "f13df82a",
+          "value": 720911857,
+          "expect": 720911857,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\gadget-ui-metadata-2026-09-30\\raw\\Common\\UI\\MetaData\\UIPlayerAbilityDescriptionMetadata.ebx",
+          "rawSha256": "393af3d78e2e52851ee23fad8b4be3c8eec1d9d01bfdde0472c715b4fd876ab4",
+          "offset": 55488,
+          "type": "i32",
+          "bytesHex": "00f6ffff",
+          "value": -2560
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\gadget-ui-metadata-2026-09-30\\raw\\Common\\UI\\MetaData\\UIPlayerAbilityDescriptionMetadata.ebx",
+          "rawSha256": "393af3d78e2e52851ee23fad8b4be3c8eec1d9d01bfdde0472c715b4fd876ab4",
+          "offset": 52960,
+          "type": "i32",
+          "bytesHex": "af2eaf49",
+          "value": 1236217519,
+          "expect": 1236217519,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\gadget-ui-metadata-2026-09-30\\raw\\Common\\UI\\MetaData\\UIPlayerAbilityDescriptionMetadata.ebx",
+          "rawSha256": "393af3d78e2e52851ee23fad8b4be3c8eec1d9d01bfdde0472c715b4fd876ab4",
+          "offset": 55520,
+          "type": "i32",
+          "bytesHex": "b0faffff",
+          "value": -1360
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\gadget-ui-metadata-2026-09-30\\raw\\Common\\UI\\MetaData\\UIPlayerAbilityDescriptionMetadata.ebx",
+          "rawSha256": "393af3d78e2e52851ee23fad8b4be3c8eec1d9d01bfdde0472c715b4fd876ab4",
+          "offset": 54192,
+          "type": "i32",
+          "bytesHex": "af2eaf49",
+          "value": 1236217519,
+          "expect": 1236217519,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\class-traits-2026-09-30T0135\\raw\\Common\\Gameplay\\InRoundProgression\\LowProfile\\Ability_LowProfile.ebx",
+          "rawSha256": "aadd866d840fa367a0c53f54353dafb2224cd69397879fa50b09274cc543ba3b",
+          "offset": 32,
+          "type": "guid",
+          "bytesHex": "fd00ffda85e7a1499a77b2be7a141f83",
+          "value": "daff00fd-e785-49a1-9a77-b2be7a141f83",
+          "expect": "daff00fd-e785-49a1-9a77-b2be7a141f83",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\class-traits-2026-09-30T0135\\raw\\Common\\Gameplay\\InRoundProgression\\LowProfile\\Ability_LowProfile.ebx",
+          "rawSha256": "aadd866d840fa367a0c53f54353dafb2224cd69397879fa50b09274cc543ba3b",
+          "offset": 384,
+          "type": "guid",
+          "bytesHex": "f2fcdc79e1d55143aa1da868768228eb",
+          "value": "79dcfcf2-d5e1-4351-aa1d-a868768228eb",
+          "expect": "79dcfcf2-d5e1-4351-aa1d-a868768228eb",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\class-traits-2026-09-30T0135\\raw\\Common\\Gameplay\\InRoundProgression\\LowProfile\\Ability_LowProfile.ebx",
+          "rawSha256": "aadd866d840fa367a0c53f54353dafb2224cd69397879fa50b09274cc543ba3b",
+          "offset": 746,
+          "type": "guid",
+          "bytesHex": "10284beb745e86418acaf4bdd89795f6",
+          "value": "eb4b2810-5e74-4186-8aca-f4bdd89795f6",
+          "expect": "eb4b2810-5e74-4186-8aca-f4bdd89795f6",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\class-traits-2026-09-30T0135\\raw\\Common\\Gameplay\\InRoundProgression\\LowProfile\\Ability_LowProfile.ebx",
+          "rawSha256": "aadd866d840fa367a0c53f54353dafb2224cd69397879fa50b09274cc543ba3b",
+          "offset": 762,
+          "type": "guid",
+          "bytesHex": "b3e2c121ae8e774eb6c0ccc8488081fb",
+          "value": "21c1e2b3-8eae-4e77-b6c0-ccc8488081fb",
+          "expect": "21c1e2b3-8eae-4e77-b6c0-ccc8488081fb",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\class-traits-2026-09-30T0135\\raw\\Common\\Gameplay\\InRoundProgression\\LowProfile\\Ability_LowProfile.ebx",
+          "rawSha256": "aadd866d840fa367a0c53f54353dafb2224cd69397879fa50b09274cc543ba3b",
+          "offset": 778,
+          "type": "guid",
+          "bytesHex": "1c45786dfc7b5544904719228df4a129",
+          "value": "6d78451c-7bfc-4455-9047-19228df4a129",
+          "expect": "6d78451c-7bfc-4455-9047-19228df4a129",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\class-traits-2026-09-30T0135\\raw\\Common\\Gameplay\\InRoundProgression\\LowProfile\\Ability_LowProfile.ebx",
+          "rawSha256": "aadd866d840fa367a0c53f54353dafb2224cd69397879fa50b09274cc543ba3b",
+          "offset": 794,
+          "type": "guid",
+          "bytesHex": "1a5d0efe04a218499c8ddeb05445c049",
+          "value": "fe0e5d1a-a204-4918-9c8d-deb05445c049",
+          "expect": "fe0e5d1a-a204-4918-9c8d-deb05445c049",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\class-traits-2026-09-30T0135\\raw\\Common\\Gameplay\\InRoundProgression\\LowProfile\\Ability_LowProfile.ebx",
+          "rawSha256": "aadd866d840fa367a0c53f54353dafb2224cd69397879fa50b09274cc543ba3b",
+          "offset": 810,
+          "type": "guid",
+          "bytesHex": "39f896aa9e1e5746a645a229b0de25b6",
+          "value": "aa96f839-1e9e-4657-a645-a229b0de25b6",
+          "expect": "aa96f839-1e9e-4657-a645-a229b0de25b6",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\class-traits-2026-09-30T0135\\raw\\Common\\Gameplay\\InRoundProgression\\LowProfile\\Ability_LowProfile.ebx",
+          "rawSha256": "aadd866d840fa367a0c53f54353dafb2224cd69397879fa50b09274cc543ba3b",
+          "offset": 826,
+          "type": "guid",
+          "bytesHex": "2fa0f77c233894459faf415ed0d8a803",
+          "value": "7cf7a02f-3823-4594-9faf-415ed0d8a803",
+          "expect": "7cf7a02f-3823-4594-9faf-415ed0d8a803",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\class-traits-2026-09-30T0135\\raw\\Common\\Gameplay\\InRoundProgression\\LowProfile\\Ability_LowProfile.ebx",
+          "rawSha256": "aadd866d840fa367a0c53f54353dafb2224cd69397879fa50b09274cc543ba3b",
+          "offset": 842,
+          "type": "guid",
+          "bytesHex": "3af6e7246f7cbc41acb044d578d18eec",
+          "value": "24e7f63a-7c6f-41bc-acb0-44d578d18eec",
+          "expect": "24e7f63a-7c6f-41bc-acb0-44d578d18eec",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\class-traits-2026-09-30T0135\\raw\\Common\\Gameplay\\InRoundProgression\\LowProfile\\Ability_LowProfile.ebx",
+          "rawSha256": "aadd866d840fa367a0c53f54353dafb2224cd69397879fa50b09274cc543ba3b",
+          "offset": 858,
+          "type": "guid",
+          "bytesHex": "ce3592f0fda06b4c8e59f66d37b9d770",
+          "value": "f09235ce-a0fd-4c6b-8e59-f66d37b9d770",
+          "expect": "f09235ce-a0fd-4c6b-8e59-f66d37b9d770",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\class-traits-2026-09-30T0135\\raw\\Common\\Gameplay\\InRoundProgression\\LowProfile\\Ability_LowProfile.ebx",
+          "rawSha256": "aadd866d840fa367a0c53f54353dafb2224cd69397879fa50b09274cc543ba3b",
+          "offset": 874,
+          "type": "guid",
+          "bytesHex": "648c9518e67701639a22738608045d48",
+          "value": "18958c64-77e6-6301-9a22-738608045d48",
+          "expect": "18958c64-77e6-6301-9a22-738608045d48",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\class-traits-2026-09-30T0135\\raw\\Common\\Gameplay\\InRoundProgression\\LowProfile\\Ability_LowProfile.ebx",
+          "rawSha256": "aadd866d840fa367a0c53f54353dafb2224cd69397879fa50b09274cc543ba3b",
+          "offset": 890,
+          "type": "guid",
+          "bytesHex": "99079fa5987f1349be5e740ca1273394",
+          "value": "a59f0799-7f98-4913-be5e-740ca1273394",
+          "expect": "a59f0799-7f98-4913-be5e-740ca1273394",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\class-traits-2026-09-30T0135\\raw\\Common\\Gameplay\\InRoundProgression\\LowProfile\\Ability_LowProfile.ebx",
+          "rawSha256": "aadd866d840fa367a0c53f54353dafb2224cd69397879fa50b09274cc543ba3b",
+          "offset": 906,
+          "type": "guid",
+          "bytesHex": "da248813170a22419c6a77fcca0506ef",
+          "value": "138824da-0a17-4122-9c6a-77fcca0506ef",
+          "expect": "138824da-0a17-4122-9c6a-77fcca0506ef",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\class-traits-2026-09-30T0135\\raw\\Common\\Gameplay\\InRoundProgression\\LowProfile\\Ability_LowProfile.ebx",
+          "rawSha256": "aadd866d840fa367a0c53f54353dafb2224cd69397879fa50b09274cc543ba3b",
+          "offset": 922,
+          "type": "guid",
+          "bytesHex": "f8d340002c347649aa0349c4649d8bdf",
+          "value": "0040d3f8-342c-4976-aa03-49c4649d8bdf",
+          "expect": "0040d3f8-342c-4976-aa03-49c4649d8bdf",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\class-traits-2026-09-30T0135\\raw\\Common\\Gameplay\\InRoundProgression\\LowProfile\\U_Ability_LowProfile.ebx",
+          "rawSha256": "d84d5e8bce4230d5b2bb7ec87309c42ddd6855496137793f5969db1279606d3a",
+          "offset": 32,
+          "type": "guid",
+          "bytesHex": "b3e2c121ae8e774eb6c0ccc8488081fb",
+          "value": "21c1e2b3-8eae-4e77-b6c0-ccc8488081fb",
+          "expect": "21c1e2b3-8eae-4e77-b6c0-ccc8488081fb",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\class-traits-2026-09-30T0135\\raw\\Common\\Gameplay\\InRoundProgression\\LowProfile\\U_Ability_LowProfile.ebx",
+          "rawSha256": "d84d5e8bce4230d5b2bb7ec87309c42ddd6855496137793f5969db1279606d3a",
+          "offset": 104,
+          "type": "guid",
+          "bytesHex": "04cf1e87444d684bacdbde971e8012f8",
+          "value": "871ecf04-4d44-4b68-acdb-de971e8012f8",
+          "expect": "871ecf04-4d44-4b68-acdb-de971e8012f8",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\class-traits-2026-09-30T0135\\raw\\Common\\Gameplay\\InRoundProgression\\LowProfile\\U_Ability_LowProfile.ebx",
+          "rawSha256": "d84d5e8bce4230d5b2bb7ec87309c42ddd6855496137793f5969db1279606d3a",
+          "offset": 432,
+          "type": "guid",
+          "bytesHex": "648c9518e67701639a22738608045d48",
+          "value": "18958c64-77e6-6301-9a22-738608045d48",
+          "expect": "18958c64-77e6-6301-9a22-738608045d48",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\class-traits-2026-09-30T0135\\raw\\Common\\Gameplay\\InRoundProgression\\LowProfile\\U_Ability_LowProfile.ebx",
+          "rawSha256": "d84d5e8bce4230d5b2bb7ec87309c42ddd6855496137793f5969db1279606d3a",
+          "offset": 448,
+          "type": "guid",
+          "bytesHex": "748ef70be9d3e24d91d5e410f58b1171",
+          "value": "0bf78e74-d3e9-4de2-91d5-e410f58b1171",
+          "expect": "0bf78e74-d3e9-4de2-91d5-e410f58b1171",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\multiplayer-features-2026-09-23\\Common__Gameplay__InRoundProgression__LowProfile__Affector_LowProfile_SpotDelay.ebx",
+          "rawSha256": "9b56e4c0e93deef0259148a71ab86cf19caf9d317de7fa98082b4540079220fc",
+          "offset": 104,
+          "type": "f32",
+          "bytesHex": "9a99993f",
+          "value": 1.2000000476837158,
+          "expect": 1.2,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\multiplayer-features-2026-09-23\\Common__Gameplay__InRoundProgression__LowProfile__Affector_LowProfile_SpotDuration.ebx",
+          "rawSha256": "7c9879339cf44e4dd630ceea13115490b30eb258fd66dca15213744e56da8cd4",
+          "offset": 188,
+          "type": "f32",
+          "bytesHex": "83c02a3f",
+          "value": 0.6669999957084656,
+          "expect": 0.667,
+          "matches": true
+        }
+      ],
+      "activation": {
+        "class": "unresolved",
+        "trainingPath": "unresolved",
+        "perk": "Metadata internal name joins the source route by exact name; this is not proof of runtime activation. Image imports do not prove activation."
+      },
+      "sourceAssets": [
+        {
+          "file": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\class-traits-2026-09-30T0135\\raw\\Common\\Gameplay\\InRoundProgression\\LowProfile\\Ability_LowProfile.ebx",
+          "sha256": "aadd866d840fa367a0c53f54353dafb2224cd69397879fa50b09274cc543ba3b",
+          "fileGuid": "c22ad966-22e4-4483-8643-b35e0922998e",
+          "objects": [
+            {
+              "$class": "Class_af900787",
+              "$guid": "daff00fd-e785-49a1-9a77-b2be7a141f83",
+              "$layoutAmbiguous": true,
+              "Field_0c59fa06": "Common/Gameplay/InRoundProgression/LowProfile/Ability_LowProfile",
+              "Field_a4da4b98": true,
+              "Field_b2193141": true,
+              "Field_9dac47e3": true,
+              "Field_f86e0433": {
+                "$import": {
+                  "fileGuid": "eb4b2810-5e74-4186-8aca-f4bdd89795f6",
+                  "classGuid": "21c1e2b3-8eae-4e77-b6c0-ccc8488081fb"
+                }
+              },
+              "Field_18d8777e": {
+                "$import": {
+                  "fileGuid": "aa96f839-1e9e-4657-a645-a229b0de25b6",
+                  "classGuid": "7cf7a02f-3823-4594-9faf-415ed0d8a803"
+                }
+              },
+              "Field_8a7dfc78": [
+                {
+                  "$import": {
+                    "fileGuid": "aa96f839-1e9e-4657-a645-a229b0de25b6",
+                    "classGuid": "7cf7a02f-3823-4594-9faf-415ed0d8a803"
+                  }
+                }
+              ],
+              "Field_c910f9c2": 0,
+              "Field_5aec774f": {
+                "$ref": 1
+              },
+              "Field_ec8171fa": [],
+              "Field_3fcbdff0": null,
+              "Field_6b831b88": null,
+              "Field_def7f8dd": {
+                "Field_e0b43a29": {
+                  "Field_6b28f68f": {
+                    "$import": {
+                      "fileGuid": "138824da-0a17-4122-9c6a-77fcca0506ef",
+                      "classGuid": "0040d3f8-342c-4976-aa03-49c4649d8bdf"
+                    }
+                  }
+                },
+                "Field_043d7a08": false
+              },
+              "Field_958dc613": [],
+              "Field_49b3bb0e": [],
+              "Field_de6f63b3": 3458223936,
+              "Field_b77123cc": true,
+              "Field_d7605aab": [],
+              "Field_a21a7b29": [
+                {
+                  "$import": {
+                    "fileGuid": "24e7f63a-7c6f-41bc-acb0-44d578d18eec",
+                    "classGuid": "f09235ce-a0fd-4c6b-8e59-f66d37b9d770"
+                  }
+                }
+              ],
+              "Field_87293fc2": 0,
+              "Field_e59acd2d": 0,
+              "Field_8986fc0b": 0,
+              "Field_409478c9": 0,
+              "Field_460a9db1": 0,
+              "Field_abc643c2": 0,
+              "Field_1af83dc6": 0,
+              "Field_48c6ff7d": 0,
+              "Field_20746087": false,
+              "Field_e2cee558": false,
+              "Field_98d8888a": null,
+              "Field_dfc3e000": {
+                "Field_c478cc3b": {
+                  "Field_3901db14": 1.0,
+                  "Field_42fc0f5e": 0.0,
+                  "Field_32a99b9c": 0.0
+                },
+                "Field_bf151ef9": {
+                  "Field_3901db14": 0.0,
+                  "Field_42fc0f5e": 1.0,
+                  "Field_32a99b9c": 0.0
+                },
+                "Field_695d12a4": {
+                  "Field_3901db14": 0.0,
+                  "Field_42fc0f5e": 0.0,
+                  "Field_32a99b9c": 1.0
+                },
+                "Field_bc4b07b4": {
+                  "Field_3901db14": 0.0,
+                  "Field_42fc0f5e": 0.0,
+                  "Field_32a99b9c": 0.0
+                }
+              },
+              "Field_98aaa29d": [],
+              "Field_779b28f6": null,
+              "Field_6cce2f25": {
+                "Field_f29fce94": 32,
+                "Field_675a2be7": 0,
+                "Field_d2b8fc26": {
+                  "$import": {
+                    "fileGuid": "6d78451c-7bfc-4455-9047-19228df4a129",
+                    "classGuid": "fe0e5d1a-a204-4918-9c8d-deb05445c049"
+                  }
+                }
+              },
+              "Field_9a433a49": [],
+              "Field_ffe24fd8": [],
+              "Field_e58acee4": true
+            },
+            {
+              "$class": "Class_e923016e",
+              "$guid": "79dcfcf2-d5e1-4351-aa1d-a868768228eb",
+              "Field_605f79af": [
+                {
+                  "Field_6b28f68f": {
+                    "$import": {
+                      "fileGuid": "18958c64-77e6-6301-9a22-738608045d48",
+                      "classGuid": "a59f0799-7f98-4913-be5e-740ca1273394"
+                    }
+                  }
+                }
+              ]
+            }
+          ],
+          "unresolvedTypes": []
+        },
+        {
+          "file": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\class-traits-2026-09-30T0135\\raw\\Common\\Gameplay\\InRoundProgression\\LowProfile\\U_Ability_LowProfile.ebx",
+          "sha256": "d84d5e8bce4230d5b2bb7ec87309c42ddd6855496137793f5969db1279606d3a",
+          "fileGuid": "eb4b2810-5e74-4186-8aca-f4bdd89795f6",
+          "objects": [
+            {
+              "$class": "Class_bc0062dc",
+              "$guid": "21c1e2b3-8eae-4e77-b6c0-ccc8488081fb",
+              "Field_0c59fa06": "Common/Gameplay/InRoundProgression/LowProfile/U_Ability_LowProfile",
+              "Field_9d34093f": "U_Ability_LowProfile",
+              "Field_de6f63b3": 234911279,
+              "Field_32cf19f5": true,
+              "Field_5aec774f": {
+                "$ref": 1
+              }
+            },
+            {
+              "$class": "Class_e923016e",
+              "$guid": "871ecf04-4d44-4b68-acdb-de971e8012f8",
+              "Field_605f79af": [
+                {
+                  "Field_6b28f68f": {
+                    "$import": {
+                      "fileGuid": "18958c64-77e6-6301-9a22-738608045d48",
+                      "classGuid": "0bf78e74-d3e9-4de2-91d5-e410f58b1171"
+                    }
+                  }
+                }
+              ]
+            }
+          ],
+          "unresolvedTypes": []
+        }
+      ],
+      "sourceFacts": [
+        "Fresh Ability_LowProfile and U_Ability_LowProfile are byte-identical to the prior Head4892087 hotfix assets.",
+        "Ability imports U and FL; FL imports SimEx; SimEx imports both named SpotDelay and SpotDuration affectors. See the preserved prior receipt and new decoded bodies.",
+        "SpotDelay Field_def89065=1.2000000476837158; SpotDuration nested Field_f95f67f4=0.6669999957084656. Field roles remain unnamed."
+      ],
+      "comparison": "The UI states -33% duration and 1.5s faster combat-state clearing. The affector 0.667 is arithmetically compatible with a 33.3% reduction, but its multiplier role is not proven. No 1.5s source operand is established; do not substitute 1.2.",
+      "proposal": {
+        "kind": "metadata-only",
+        "data": "New data/class-traits.json record Ability_LowProfile (proposed path)",
+        "code": "ui/app.js optional class/path/perk information panel",
+        "value": "Going prone clears your in-combat state 1.5s faster and reduces your spotted status duration by 33%.",
+        "activationCertainty": "Class/path join and gameplay consumer unresolved. Display as game-stated perk text only.",
+        "validation": "Compare the displayed text with StringId 49AF2EAF; prediction is exact text equality. For any future duration model, matched spotted-status tests prone versus standing must show approximately 0.67 duration ratio and combat clearing 1.5s earlier before enabling numeric composition."
+      }
+    },
+    {
+      "internalName": "Ability_AdvancedSpot",
+      "name": "ENHANCED PERCEPTION",
+      "description": "Improved Auto-Spotting range with 33% increased distance and 10% wider angle of detection from weapon crosshair. Spotting is quicker and lasts 3s longer.",
+      "metadata": {
+        "source": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\gadget-ui-metadata-2026-09-30\\raw\\Common\\UI\\MetaData\\UIPlayerAbilityDescriptionMetadata.ebx",
+        "sourceSha256": "393af3d78e2e52851ee23fad8b4be3c8eec1d9d01bfdde0472c715b4fd876ab4",
+        "object": 461,
+        "guid": "9d42d1ea-00ae-454b-859c-d6b8d6ba6ae4",
+        "class": "Class_dc833adc",
+        "typeKey": "992b49eb6e15fd6c2e6e84c9672d8756",
+        "textFields": {
+          "Field_fd698f51": {
+            "targetObject": 383,
+            "targetGuid": "2179e7c3-886e-4261-2174-b9f76e18511d",
+            "stringField": "Field_3d34898a",
+            "id": "15E62F3D",
+            "text": "ENHANCED PERCEPTION",
+            "line": 8820
+          },
+          "Field_490f0dd0": {
+            "targetObject": 158,
+            "targetGuid": "e627ef4d-6646-2e45-2081-dc89eda6fedd",
+            "stringField": "Field_3d34898a",
+            "id": "FEDE3CBB",
+            "text": "Improved Auto-Spotting range with 33% increased distance and 10% wider angle of detection from weapon crosshair. Spotting is quicker and lasts 3s longer.",
+            "line": 108712
+          },
+          "Field_f8c63ce7": {
+            "targetObject": 303,
+            "targetGuid": "06c07d9e-5d3e-4e57-92f4-dc101c1fe3bb",
+            "stringField": "Field_3d34898a",
+            "id": "FEDE3CBB",
+            "text": "Improved Auto-Spotting range with 33% increased distance and 10% wider angle of detection from weapon crosshair. Spotting is quicker and lasts 3s longer.",
+            "line": 108712
+          }
+        },
+        "activationLinkStatus": "No verified class/path/perk activation link inside the four scoped metadata assets."
+      },
+      "rawChecks": [
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\gadget-ui-metadata-2026-09-30\\raw\\Common\\UI\\MetaData\\UIPlayerAbilityDescriptionMetadata.ebx",
+          "rawSha256": "393af3d78e2e52851ee23fad8b4be3c8eec1d9d01bfdde0472c715b4fd876ab4",
+          "offset": 55824,
+          "type": "i32",
+          "bytesHex": "60e0ffff",
+          "value": -8096
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\gadget-ui-metadata-2026-09-30\\raw\\Common\\UI\\MetaData\\UIPlayerAbilityDescriptionMetadata.ebx",
+          "rawSha256": "393af3d78e2e52851ee23fad8b4be3c8eec1d9d01bfdde0472c715b4fd876ab4",
+          "offset": 47760,
+          "type": "i32",
+          "bytesHex": "3d2fe615",
+          "value": 367406909,
+          "expect": 367406909,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\gadget-ui-metadata-2026-09-30\\raw\\Common\\UI\\MetaData\\UIPlayerAbilityDescriptionMetadata.ebx",
+          "rawSha256": "393af3d78e2e52851ee23fad8b4be3c8eec1d9d01bfdde0472c715b4fd876ab4",
+          "offset": 56048,
+          "type": "i32",
+          "bytesHex": "c06effff",
+          "value": -37184
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\gadget-ui-metadata-2026-09-30\\raw\\Common\\UI\\MetaData\\UIPlayerAbilityDescriptionMetadata.ebx",
+          "rawSha256": "393af3d78e2e52851ee23fad8b4be3c8eec1d9d01bfdde0472c715b4fd876ab4",
+          "offset": 18896,
+          "type": "i32",
+          "bytesHex": "bb3cdefe",
+          "value": -18989893,
+          "expect": -18989893,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\gadget-ui-metadata-2026-09-30\\raw\\Common\\UI\\MetaData\\UIPlayerAbilityDescriptionMetadata.ebx",
+          "rawSha256": "393af3d78e2e52851ee23fad8b4be3c8eec1d9d01bfdde0472c715b4fd876ab4",
+          "offset": 56080,
+          "type": "i32",
+          "bytesHex": "70b1ffff",
+          "value": -20112
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\gadget-ui-metadata-2026-09-30\\raw\\Common\\UI\\MetaData\\UIPlayerAbilityDescriptionMetadata.ebx",
+          "rawSha256": "393af3d78e2e52851ee23fad8b4be3c8eec1d9d01bfdde0472c715b4fd876ab4",
+          "offset": 36000,
+          "type": "i32",
+          "bytesHex": "bb3cdefe",
+          "value": -18989893,
+          "expect": -18989893,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\class-traits-2026-09-30T0135\\raw\\Common\\Gameplay\\InRoundProgression\\AdvancedSpot\\Ability_AdvancedSpot.ebx",
+          "rawSha256": "3dc3c310bfaf532f61067e948077dc461b54cf3d2cebcfb0b96c2e81d63be1a6",
+          "offset": 32,
+          "type": "guid",
+          "bytesHex": "5f96ab257bdca84e991102d7ffc60609",
+          "value": "25ab965f-dc7b-4ea8-9911-02d7ffc60609",
+          "expect": "25ab965f-dc7b-4ea8-9911-02d7ffc60609",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\class-traits-2026-09-30T0135\\raw\\Common\\Gameplay\\InRoundProgression\\AdvancedSpot\\Ability_AdvancedSpot.ebx",
+          "rawSha256": "3dc3c310bfaf532f61067e948077dc461b54cf3d2cebcfb0b96c2e81d63be1a6",
+          "offset": 384,
+          "type": "guid",
+          "bytesHex": "9907f639c47b1f4280af10ceb2ba9908",
+          "value": "39f60799-7bc4-421f-80af-10ceb2ba9908",
+          "expect": "39f60799-7bc4-421f-80af-10ceb2ba9908",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\class-traits-2026-09-30T0135\\raw\\Common\\Gameplay\\InRoundProgression\\AdvancedSpot\\Ability_AdvancedSpot.ebx",
+          "rawSha256": "3dc3c310bfaf532f61067e948077dc461b54cf3d2cebcfb0b96c2e81d63be1a6",
+          "offset": 734,
+          "type": "guid",
+          "bytesHex": "39f896aa9e1e5746a645a229b0de25b6",
+          "value": "aa96f839-1e9e-4657-a645-a229b0de25b6",
+          "expect": "aa96f839-1e9e-4657-a645-a229b0de25b6",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\class-traits-2026-09-30T0135\\raw\\Common\\Gameplay\\InRoundProgression\\AdvancedSpot\\Ability_AdvancedSpot.ebx",
+          "rawSha256": "3dc3c310bfaf532f61067e948077dc461b54cf3d2cebcfb0b96c2e81d63be1a6",
+          "offset": 750,
+          "type": "guid",
+          "bytesHex": "2fa0f77c233894459faf415ed0d8a803",
+          "value": "7cf7a02f-3823-4594-9faf-415ed0d8a803",
+          "expect": "7cf7a02f-3823-4594-9faf-415ed0d8a803",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\class-traits-2026-09-30T0135\\raw\\Common\\Gameplay\\InRoundProgression\\AdvancedSpot\\Ability_AdvancedSpot.ebx",
+          "rawSha256": "3dc3c310bfaf532f61067e948077dc461b54cf3d2cebcfb0b96c2e81d63be1a6",
+          "offset": 766,
+          "type": "guid",
+          "bytesHex": "648c9518e67701639a22738608045d48",
+          "value": "18958c64-77e6-6301-9a22-738608045d48",
+          "expect": "18958c64-77e6-6301-9a22-738608045d48",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\class-traits-2026-09-30T0135\\raw\\Common\\Gameplay\\InRoundProgression\\AdvancedSpot\\Ability_AdvancedSpot.ebx",
+          "rawSha256": "3dc3c310bfaf532f61067e948077dc461b54cf3d2cebcfb0b96c2e81d63be1a6",
+          "offset": 782,
+          "type": "guid",
+          "bytesHex": "00427494b7c1f548975e9071ba08ee16",
+          "value": "94744200-c1b7-48f5-975e-9071ba08ee16",
+          "expect": "94744200-c1b7-48f5-975e-9071ba08ee16",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\class-traits-2026-09-30T0135\\raw\\Common\\Gameplay\\InRoundProgression\\AdvancedSpot\\Ability_AdvancedSpot.ebx",
+          "rawSha256": "3dc3c310bfaf532f61067e948077dc461b54cf3d2cebcfb0b96c2e81d63be1a6",
+          "offset": 798,
+          "type": "guid",
+          "bytesHex": "da248813170a22419c6a77fcca0506ef",
+          "value": "138824da-0a17-4122-9c6a-77fcca0506ef",
+          "expect": "138824da-0a17-4122-9c6a-77fcca0506ef",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\class-traits-2026-09-30T0135\\raw\\Common\\Gameplay\\InRoundProgression\\AdvancedSpot\\Ability_AdvancedSpot.ebx",
+          "rawSha256": "3dc3c310bfaf532f61067e948077dc461b54cf3d2cebcfb0b96c2e81d63be1a6",
+          "offset": 814,
+          "type": "guid",
+          "bytesHex": "62849a2c76e8a544a502f1dfac603ec7",
+          "value": "2c9a8462-e876-44a5-a502-f1dfac603ec7",
+          "expect": "2c9a8462-e876-44a5-a502-f1dfac603ec7",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\class-traits-2026-09-30T0135\\raw\\Common\\Gameplay\\InRoundProgression\\AdvancedSpot\\Ability_AdvancedSpot.ebx",
+          "rawSha256": "3dc3c310bfaf532f61067e948077dc461b54cf3d2cebcfb0b96c2e81d63be1a6",
+          "offset": 830,
+          "type": "guid",
+          "bytesHex": "e20db0935e1655469bcb68cf197a64aa",
+          "value": "93b00de2-165e-4655-9bcb-68cf197a64aa",
+          "expect": "93b00de2-165e-4655-9bcb-68cf197a64aa",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\class-traits-2026-09-30T0135\\raw\\Common\\Gameplay\\InRoundProgression\\AdvancedSpot\\Ability_AdvancedSpot.ebx",
+          "rawSha256": "3dc3c310bfaf532f61067e948077dc461b54cf3d2cebcfb0b96c2e81d63be1a6",
+          "offset": 846,
+          "type": "guid",
+          "bytesHex": "3efdd9665e1a844e8b04a1543743b48c",
+          "value": "66d9fd3e-1a5e-4e84-8b04-a1543743b48c",
+          "expect": "66d9fd3e-1a5e-4e84-8b04-a1543743b48c",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\class-traits-2026-09-30T0135\\raw\\Common\\Gameplay\\InRoundProgression\\AdvancedSpot\\U_Ability_AdvancedSpot.ebx",
+          "rawSha256": "9c375e44e08ba1c3b1e98f0f4ba271d0e838db1bb7c1b796a4fa9d9f6cd57dfd",
+          "offset": 32,
+          "type": "guid",
+          "bytesHex": "3efdd9665e1a844e8b04a1543743b48c",
+          "value": "66d9fd3e-1a5e-4e84-8b04-a1543743b48c",
+          "expect": "66d9fd3e-1a5e-4e84-8b04-a1543743b48c",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\class-traits-2026-09-30T0135\\raw\\Common\\Gameplay\\InRoundProgression\\AdvancedSpot\\U_Ability_AdvancedSpot.ebx",
+          "rawSha256": "9c375e44e08ba1c3b1e98f0f4ba271d0e838db1bb7c1b796a4fa9d9f6cd57dfd",
+          "offset": 104,
+          "type": "guid",
+          "bytesHex": "a05ec3bc5236d54aa873fb180eaa9ecc",
+          "value": "bcc35ea0-3652-4ad5-a873-fb180eaa9ecc",
+          "expect": "bcc35ea0-3652-4ad5-a873-fb180eaa9ecc",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\class-traits-2026-09-30T0135\\raw\\Common\\Gameplay\\InRoundProgression\\AdvancedSpot\\U_Ability_AdvancedSpot.ebx",
+          "rawSha256": "9c375e44e08ba1c3b1e98f0f4ba271d0e838db1bb7c1b796a4fa9d9f6cd57dfd",
+          "offset": 438,
+          "type": "guid",
+          "bytesHex": "648c9518e67701639a22738608045d48",
+          "value": "18958c64-77e6-6301-9a22-738608045d48",
+          "expect": "18958c64-77e6-6301-9a22-738608045d48",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\class-traits-2026-09-30T0135\\raw\\Common\\Gameplay\\InRoundProgression\\AdvancedSpot\\U_Ability_AdvancedSpot.ebx",
+          "rawSha256": "9c375e44e08ba1c3b1e98f0f4ba271d0e838db1bb7c1b796a4fa9d9f6cd57dfd",
+          "offset": 454,
+          "type": "guid",
+          "bytesHex": "748ef70be9d3e24d91d5e410f58b1171",
+          "value": "0bf78e74-d3e9-4de2-91d5-e410f58b1171",
+          "expect": "0bf78e74-d3e9-4de2-91d5-e410f58b1171",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\pre-update-1.4.3.1-2026-09-29\\collection\\raw\\Common\\Gameplay\\Soldier\\GRX_Glacier_Soldier.ebx",
+          "rawSha256": "9b44340483d9af272ef5f0cbda5934ad9a30ff1f055fd3fddc60fc4943e822cc",
+          "offset": 3652,
+          "type": "f32",
+          "bytesHex": "713daa3f",
+          "value": 1.3300000429153442,
+          "expect": 1.33,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\pre-update-1.4.3.1-2026-09-29\\collection\\raw\\Common\\Gameplay\\Soldier\\GRX_Glacier_Soldier.ebx",
+          "rawSha256": "9b44340483d9af272ef5f0cbda5934ad9a30ff1f055fd3fddc60fc4943e822cc",
+          "offset": 3656,
+          "type": "f32",
+          "bytesHex": "cdcc8c3f",
+          "value": 1.100000023841858,
+          "expect": 1.1,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\pre-update-1.4.3.1-2026-09-29\\collection\\raw\\Common\\Gameplay\\Soldier\\GRX_Glacier_Soldier.ebx",
+          "rawSha256": "9b44340483d9af272ef5f0cbda5934ad9a30ff1f055fd3fddc60fc4943e822cc",
+          "offset": 3648,
+          "type": "f32",
+          "bytesHex": "0000c03f",
+          "value": 1.5,
+          "expect": 1.5,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\pre-update-1.4.3.1-2026-09-29\\collection\\raw\\Common\\Gameplay\\Soldier\\GRX_Glacier_Soldier.ebx",
+          "rawSha256": "9b44340483d9af272ef5f0cbda5934ad9a30ff1f055fd3fddc60fc4943e822cc",
+          "offset": 7084,
+          "type": "f32",
+          "bytesHex": "cdcc8c3f",
+          "value": 1.100000023841858,
+          "expect": 1.1,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\pre-update-1.4.3.1-2026-09-29\\collection\\raw\\Common\\Gameplay\\Soldier\\GRX_Glacier_Soldier.ebx",
+          "rawSha256": "9b44340483d9af272ef5f0cbda5934ad9a30ff1f055fd3fddc60fc4943e822cc",
+          "offset": 7088,
+          "type": "f32",
+          "bytesHex": "6666863f",
+          "value": 1.0499999523162842,
+          "expect": 1.05,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\pre-update-1.4.3.1-2026-09-29\\collection\\raw\\Common\\Gameplay\\Soldier\\GRX_Glacier_Soldier.ebx",
+          "rawSha256": "9b44340483d9af272ef5f0cbda5934ad9a30ff1f055fd3fddc60fc4943e822cc",
+          "offset": 7080,
+          "type": "f32",
+          "bytesHex": "0000a03f",
+          "value": 1.25,
+          "expect": 1.25,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\pre-update-1.4.3.1-2026-09-29\\collection\\raw\\Common\\Gameplay\\Soldier\\GRX_Glacier_Soldier.ebx",
+          "rawSha256": "9b44340483d9af272ef5f0cbda5934ad9a30ff1f055fd3fddc60fc4943e822cc",
+          "offset": 11420,
+          "type": "f32",
+          "bytesHex": "0000803e",
+          "value": 0.25,
+          "expect": 0.25,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\pre-update-1.4.3.1-2026-09-29\\collection\\raw\\Common\\Gameplay\\Soldier\\GRX_Glacier_Soldier.ebx",
+          "rawSha256": "9b44340483d9af272ef5f0cbda5934ad9a30ff1f055fd3fddc60fc4943e822cc",
+          "offset": 11424,
+          "type": "f32",
+          "bytesHex": "cdcccc3d",
+          "value": 0.10000000149011612,
+          "expect": 0.1,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\pre-update-1.4.3.1-2026-09-29\\collection\\raw\\Common\\Gameplay\\Soldier\\GRX_Glacier_Soldier.ebx",
+          "rawSha256": "9b44340483d9af272ef5f0cbda5934ad9a30ff1f055fd3fddc60fc4943e822cc",
+          "offset": 11416,
+          "type": "f32",
+          "bytesHex": "0000c03f",
+          "value": 1.5,
+          "expect": 1.5,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\pre-update-1.4.3.1-2026-09-29\\collection\\raw\\Common\\Gameplay\\Soldier\\GRX_Glacier_Soldier.ebx",
+          "rawSha256": "9b44340483d9af272ef5f0cbda5934ad9a30ff1f055fd3fddc60fc4943e822cc",
+          "offset": 19196,
+          "type": "f32",
+          "bytesHex": "00004040",
+          "value": 3.0,
+          "expect": 3.0,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\pre-update-1.4.3.1-2026-09-29\\collection\\raw\\Common\\Gameplay\\Soldier\\GRX_Glacier_Soldier.ebx",
+          "rawSha256": "9b44340483d9af272ef5f0cbda5934ad9a30ff1f055fd3fddc60fc4943e822cc",
+          "offset": 19200,
+          "type": "f32",
+          "bytesHex": "00000000",
+          "value": 0.0,
+          "expect": 0.0,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\pre-update-1.4.3.1-2026-09-29\\collection\\raw\\Common\\Gameplay\\Soldier\\GRX_Glacier_Soldier.ebx",
+          "rawSha256": "9b44340483d9af272ef5f0cbda5934ad9a30ff1f055fd3fddc60fc4943e822cc",
+          "offset": 19192,
+          "type": "f32",
+          "bytesHex": "0000e040",
+          "value": 7.0,
+          "expect": 7.0,
+          "matches": true
+        }
+      ],
+      "activation": {
+        "class": "unresolved",
+        "trainingPath": "unresolved",
+        "perk": "Metadata internal name joins the source route by exact name; this is not proof of runtime activation. Image imports do not prove activation."
+      },
+      "sourceAssets": [
+        {
+          "file": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\class-traits-2026-09-30T0135\\raw\\Common\\Gameplay\\InRoundProgression\\AdvancedSpot\\Ability_AdvancedSpot.ebx",
+          "sha256": "3dc3c310bfaf532f61067e948077dc461b54cf3d2cebcfb0b96c2e81d63be1a6",
+          "fileGuid": "f35b8adf-3115-40af-b7cc-8a968c843ca9",
+          "objects": [
+            {
+              "$class": "Class_af900787",
+              "$guid": "25ab965f-dc7b-4ea8-9911-02d7ffc60609",
+              "$layoutAmbiguous": true,
+              "Field_0c59fa06": "Common/Gameplay/InRoundProgression/AdvancedSpot/Ability_AdvancedSpot",
+              "Field_a4da4b98": true,
+              "Field_b2193141": true,
+              "Field_9dac47e3": true,
+              "Field_f86e0433": {
+                "$import": {
+                  "fileGuid": "93b00de2-165e-4655-9bcb-68cf197a64aa",
+                  "classGuid": "66d9fd3e-1a5e-4e84-8b04-a1543743b48c"
+                }
+              },
+              "Field_18d8777e": {
+                "$import": {
+                  "fileGuid": "aa96f839-1e9e-4657-a645-a229b0de25b6",
+                  "classGuid": "7cf7a02f-3823-4594-9faf-415ed0d8a803"
+                }
+              },
+              "Field_8a7dfc78": [
+                {
+                  "$import": {
+                    "fileGuid": "aa96f839-1e9e-4657-a645-a229b0de25b6",
+                    "classGuid": "7cf7a02f-3823-4594-9faf-415ed0d8a803"
+                  }
+                }
+              ],
+              "Field_c910f9c2": 0,
+              "Field_5aec774f": {
+                "$ref": 1
+              },
+              "Field_ec8171fa": [],
+              "Field_3fcbdff0": null,
+              "Field_6b831b88": null,
+              "Field_def7f8dd": {
+                "Field_e0b43a29": {
+                  "Field_6b28f68f": {
+                    "$import": {
+                      "fileGuid": "138824da-0a17-4122-9c6a-77fcca0506ef",
+                      "classGuid": "2c9a8462-e876-44a5-a502-f1dfac603ec7"
+                    }
+                  }
+                },
+                "Field_043d7a08": false
+              },
+              "Field_958dc613": [],
+              "Field_49b3bb0e": [],
+              "Field_de6f63b3": 4093449804,
+              "Field_b77123cc": true,
+              "Field_d7605aab": [],
+              "Field_a21a7b29": [],
+              "Field_87293fc2": 0,
+              "Field_e59acd2d": 0,
+              "Field_8986fc0b": 0,
+              "Field_409478c9": 0,
+              "Field_460a9db1": 0,
+              "Field_abc643c2": 0,
+              "Field_1af83dc6": 0,
+              "Field_48c6ff7d": 0,
+              "Field_20746087": false,
+              "Field_e2cee558": false,
+              "Field_98d8888a": null,
+              "Field_dfc3e000": {
+                "Field_c478cc3b": {
+                  "Field_3901db14": 1.0,
+                  "Field_42fc0f5e": 0.0,
+                  "Field_32a99b9c": 0.0
+                },
+                "Field_bf151ef9": {
+                  "Field_3901db14": 0.0,
+                  "Field_42fc0f5e": 1.0,
+                  "Field_32a99b9c": 0.0
+                },
+                "Field_695d12a4": {
+                  "Field_3901db14": 0.0,
+                  "Field_42fc0f5e": 0.0,
+                  "Field_32a99b9c": 1.0
+                },
+                "Field_bc4b07b4": {
+                  "Field_3901db14": 0.0,
+                  "Field_42fc0f5e": 0.0,
+                  "Field_32a99b9c": 0.0
+                }
+              },
+              "Field_98aaa29d": [],
+              "Field_779b28f6": null,
+              "Field_6cce2f25": {
+                "Field_f29fce94": 0,
+                "Field_675a2be7": 0,
+                "Field_d2b8fc26": null
+              },
+              "Field_9a433a49": [],
+              "Field_ffe24fd8": [],
+              "Field_e58acee4": false
+            },
+            {
+              "$class": "Class_e923016e",
+              "$guid": "39f60799-7bc4-421f-80af-10ceb2ba9908",
+              "Field_605f79af": [
+                {
+                  "Field_6b28f68f": {
+                    "$import": {
+                      "fileGuid": "18958c64-77e6-6301-9a22-738608045d48",
+                      "classGuid": "94744200-c1b7-48f5-975e-9071ba08ee16"
+                    }
+                  }
+                }
+              ]
+            }
+          ],
+          "unresolvedTypes": []
+        },
+        {
+          "file": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\class-traits-2026-09-30T0135\\raw\\Common\\Gameplay\\InRoundProgression\\AdvancedSpot\\U_Ability_AdvancedSpot.ebx",
+          "sha256": "9c375e44e08ba1c3b1e98f0f4ba271d0e838db1bb7c1b796a4fa9d9f6cd57dfd",
+          "fileGuid": "93b00de2-165e-4655-9bcb-68cf197a64aa",
+          "objects": [
+            {
+              "$class": "Class_bc0062dc",
+              "$guid": "66d9fd3e-1a5e-4e84-8b04-a1543743b48c",
+              "Field_0c59fa06": "Common/Gameplay/InRoundProgression/AdvancedSpot/U_Ability_AdvancedSpot",
+              "Field_9d34093f": "U_Ability_AdvancedSpot",
+              "Field_de6f63b3": 2574341168,
+              "Field_32cf19f5": true,
+              "Field_5aec774f": {
+                "$ref": 1
+              }
+            },
+            {
+              "$class": "Class_e923016e",
+              "$guid": "bcc35ea0-3652-4ad5-a873-fb180eaa9ecc",
+              "Field_605f79af": [
+                {
+                  "Field_6b28f68f": {
+                    "$import": {
+                      "fileGuid": "18958c64-77e6-6301-9a22-738608045d48",
+                      "classGuid": "0bf78e74-d3e9-4de2-91d5-e410f58b1171"
+                    }
+                  }
+                }
+              ]
+            }
+          ],
+          "unresolvedTypes": []
+        }
+      ],
+      "sourceFacts": [
+        "Named GRX_Glacier_Soldier registry leaf Field_42c8b257 values: AdvancedSpotRangeMultiplier = 1.33, AdvancedSpotAngleMultiplier = 1.1, AdvancedSpotDurationIncrease = 3, AdvancedSpotBaseTime 0.25. These are serialized registry operands; effective runtime composition remains unresolved."
+      ],
+      "registry": [
+        {
+          "object": 37,
+          "offset": 3584,
+          "typeKey": "c03e3ff27f5cfebb73c91d2973a7dfc1",
+          "body": {
+            "$class": "Class_d59e68b9",
+            "$guid": "ec857325-6580-4ab1-8050-d85ec5b50578",
+            "Field_0c59fa06": "AdvancedSpotRangeMultiplier",
+            "Field_c124c7d8": 384436087,
+            "Field_96e1b4f3": {
+              "$ref": 0
+            },
+            "Field_8cf424e7": 42292,
+            "Field_a524635f": -1048704094,
+            "Field_e73c7944": 3142701642,
+            "Field_605f79af": [],
+            "Field_42c8b257": 1.33,
+            "Field_c06d0cbb": 1.1,
+            "Field_3ff76ddb": 1.5
+          }
+        },
+        {
+          "object": 73,
+          "offset": 7016,
+          "typeKey": "c03e3ff27f5cfebb73c91d2973a7dfc1",
+          "body": {
+            "$class": "Class_d59e68b9",
+            "$guid": "ff08f148-6383-435b-b59e-393c0f598953",
+            "Field_0c59fa06": "AdvancedSpotAngleMultiplier",
+            "Field_c124c7d8": -1013738007,
+            "Field_96e1b4f3": {
+              "$ref": 0
+            },
+            "Field_8cf424e7": 42293,
+            "Field_a524635f": -1048704094,
+            "Field_e73c7944": 4252040164,
+            "Field_605f79af": [],
+            "Field_42c8b257": 1.1,
+            "Field_c06d0cbb": 1.05,
+            "Field_3ff76ddb": 1.25
+          }
+        },
+        {
+          "object": 118,
+          "offset": 11352,
+          "typeKey": "c03e3ff27f5cfebb73c91d2973a7dfc1",
+          "body": {
+            "$class": "Class_d59e68b9",
+            "$guid": "fdce7769-72f5-4b97-ac16-79823a0e2138",
+            "Field_0c59fa06": "AdvancedSpotBaseTime",
+            "Field_c124c7d8": -1779573757,
+            "Field_96e1b4f3": {
+              "$ref": 0
+            },
+            "Field_8cf424e7": 42291,
+            "Field_a524635f": -1048704094,
+            "Field_e73c7944": 56470222,
+            "Field_605f79af": [],
+            "Field_42c8b257": 0.25,
+            "Field_c06d0cbb": 0.1,
+            "Field_3ff76ddb": 1.5
+          }
+        },
+        {
+          "object": 200,
+          "offset": 19128,
+          "typeKey": "c03e3ff27f5cfebb73c91d2973a7dfc1",
+          "body": {
+            "$class": "Class_d59e68b9",
+            "$guid": "530028b2-b00a-4109-a3d3-f9b21563ddb3",
+            "Field_0c59fa06": "AdvancedSpotDurationIncrease",
+            "Field_c124c7d8": -1385377415,
+            "Field_96e1b4f3": {
+              "$ref": 0
+            },
+            "Field_8cf424e7": 42294,
+            "Field_a524635f": -1048704094,
+            "Field_e73c7944": 2026584620,
+            "Field_605f79af": [],
+            "Field_42c8b257": 3.0,
+            "Field_c06d0cbb": 0.0,
+            "Field_3ff76ddb": 7.0
+          }
+        }
+      ],
+      "comparison": "Named range multiplier and angle multiplier agree with +33% and +10%. Named duration increase 3 agrees with +3s. BaseTime 0.25 accompanies the quicker wording, which states no number. No native consumer or comparison with ordinary spotting time is proven.",
+      "proposal": {
+        "kind": "conditional enhancement",
+        "data": "New data/class-traits.json record Ability_AdvancedSpot (proposed path)",
+        "code": "ui/app.js optional perk information panel; spotting remains separate from weapon attachment spotting in sim/applyAttachments.js",
+        "value": {
+          "rangeMultiplier": 1.33,
+          "angleMultiplier": 1.1,
+          "durationIncreaseSeconds": 3,
+          "baseTimeSerialized": 0.25
+        },
+        "activationCertainty": "Ability->U and named registry operands are sourced; class/path and native consumer unresolved.",
+        "validation": "First compare perk panel numbers to StringId FEDE3CBB. Before a runtime calculator, use a fixed target and weapon with the perk enabled/disabled. Prediction: detection range ratio 1.33, crosshair detection angle ratio 1.10, spotted duration difference 3s. Treat 0.25 as source-only until the timer owner is proven."
+      }
+    },
+    {
+      "internalName": "Ability_Killshot",
+      "name": "CONFIRMED KILL",
+      "description": "Enemy soldiers you kill with headshots from a sniper rifle cannot be revived by their teammates.",
+      "metadata": {
+        "source": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\gadget-ui-metadata-2026-09-30\\raw\\Common\\UI\\MetaData\\UIPlayerAbilityDescriptionMetadata.ebx",
+        "sourceSha256": "393af3d78e2e52851ee23fad8b4be3c8eec1d9d01bfdde0472c715b4fd876ab4",
+        "object": 175,
+        "guid": "6efead56-9a21-47de-9936-4f67670400c2",
+        "class": "Class_dc833adc",
+        "typeKey": "992b49eb6e15fd6c2e6e84c9672d8756",
+        "textFields": {
+          "Field_fd698f51": {
+            "targetObject": 66,
+            "targetGuid": "b3fcfd20-d377-c268-ced7-e51e3f9ec07f",
+            "stringField": "Field_3d34898a",
+            "id": "8989C958",
+            "text": "CONFIRMED KILL",
+            "line": 59160
+          },
+          "Field_490f0dd0": {
+            "targetObject": 349,
+            "targetGuid": "f21893b2-6ab5-585e-2faa-b387f453e44f",
+            "stringField": "Field_3d34898a",
+            "id": "9832F276",
+            "text": "Enemy soldiers you kill with headshots from a sniper rifle cannot be revived by their teammates.",
+            "line": 65381
+          },
+          "Field_f8c63ce7": {
+            "targetObject": 223,
+            "targetGuid": "a1537770-e970-0c8a-24a3-a596f7fdb14f",
+            "stringField": "Field_3d34898a",
+            "id": "9832F276",
+            "text": "Enemy soldiers you kill with headshots from a sniper rifle cannot be revived by their teammates.",
+            "line": 65381
+          }
+        },
+        "activationLinkStatus": "No verified class/path/perk activation link inside the four scoped metadata assets."
+      },
+      "rawChecks": [
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\gadget-ui-metadata-2026-09-30\\raw\\Common\\UI\\MetaData\\UIPlayerAbilityDescriptionMetadata.ebx",
+          "rawSha256": "393af3d78e2e52851ee23fad8b4be3c8eec1d9d01bfdde0472c715b4fd876ab4",
+          "offset": 19872,
+          "type": "i32",
+          "bytesHex": "98d0ffff",
+          "value": -12136
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\gadget-ui-metadata-2026-09-30\\raw\\Common\\UI\\MetaData\\UIPlayerAbilityDescriptionMetadata.ebx",
+          "rawSha256": "393af3d78e2e52851ee23fad8b4be3c8eec1d9d01bfdde0472c715b4fd876ab4",
+          "offset": 7768,
+          "type": "i32",
+          "bytesHex": "58c98989",
+          "value": -1987458728,
+          "expect": -1987458728,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\gadget-ui-metadata-2026-09-30\\raw\\Common\\UI\\MetaData\\UIPlayerAbilityDescriptionMetadata.ebx",
+          "rawSha256": "393af3d78e2e52851ee23fad8b4be3c8eec1d9d01bfdde0472c715b4fd876ab4",
+          "offset": 20096,
+          "type": "i32",
+          "bytesHex": "88570000",
+          "value": 22408
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\gadget-ui-metadata-2026-09-30\\raw\\Common\\UI\\MetaData\\UIPlayerAbilityDescriptionMetadata.ebx",
+          "rawSha256": "393af3d78e2e52851ee23fad8b4be3c8eec1d9d01bfdde0472c715b4fd876ab4",
+          "offset": 42536,
+          "type": "i32",
+          "bytesHex": "76f23298",
+          "value": -1741491594,
+          "expect": -1741491594,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\gadget-ui-metadata-2026-09-30\\raw\\Common\\UI\\MetaData\\UIPlayerAbilityDescriptionMetadata.ebx",
+          "rawSha256": "393af3d78e2e52851ee23fad8b4be3c8eec1d9d01bfdde0472c715b4fd876ab4",
+          "offset": 20128,
+          "type": "i32",
+          "bytesHex": "08150000",
+          "value": 5384
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\gadget-ui-metadata-2026-09-30\\raw\\Common\\UI\\MetaData\\UIPlayerAbilityDescriptionMetadata.ebx",
+          "rawSha256": "393af3d78e2e52851ee23fad8b4be3c8eec1d9d01bfdde0472c715b4fd876ab4",
+          "offset": 25544,
+          "type": "i32",
+          "bytesHex": "76f23298",
+          "value": -1741491594,
+          "expect": -1741491594,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\class-traits-2026-09-30T0135\\raw\\Common\\Gameplay\\InRoundProgression\\Killshot\\Ability_Killshot.ebx",
+          "rawSha256": "1caddc23eec9b44616789da9139c89ba9900f8a9f95a06a492e56cf61a3e9824",
+          "offset": 32,
+          "type": "guid",
+          "bytesHex": "09715a9474f8ab40b35c2abb6246d880",
+          "value": "945a7109-f874-40ab-b35c-2abb6246d880",
+          "expect": "945a7109-f874-40ab-b35c-2abb6246d880",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\class-traits-2026-09-30T0135\\raw\\Common\\Gameplay\\InRoundProgression\\Killshot\\Ability_Killshot.ebx",
+          "rawSha256": "1caddc23eec9b44616789da9139c89ba9900f8a9f95a06a492e56cf61a3e9824",
+          "offset": 384,
+          "type": "guid",
+          "bytesHex": "08850881f372a1469528af7ae5592437",
+          "value": "81088508-72f3-46a1-9528-af7ae5592437",
+          "expect": "81088508-72f3-46a1-9528-af7ae5592437",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\class-traits-2026-09-30T0135\\raw\\Common\\Gameplay\\InRoundProgression\\Killshot\\Ability_Killshot.ebx",
+          "rawSha256": "1caddc23eec9b44616789da9139c89ba9900f8a9f95a06a492e56cf61a3e9824",
+          "offset": 726,
+          "type": "guid",
+          "bytesHex": "142df0f436707f448315f52592dea86e",
+          "value": "f4f02d14-7036-447f-8315-f52592dea86e",
+          "expect": "f4f02d14-7036-447f-8315-f52592dea86e",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\class-traits-2026-09-30T0135\\raw\\Common\\Gameplay\\InRoundProgression\\Killshot\\Ability_Killshot.ebx",
+          "rawSha256": "1caddc23eec9b44616789da9139c89ba9900f8a9f95a06a492e56cf61a3e9824",
+          "offset": 742,
+          "type": "guid",
+          "bytesHex": "211dacc955bcae48a82590f3b15d6817",
+          "value": "c9ac1d21-bc55-48ae-a825-90f3b15d6817",
+          "expect": "c9ac1d21-bc55-48ae-a825-90f3b15d6817",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\class-traits-2026-09-30T0135\\raw\\Common\\Gameplay\\InRoundProgression\\Killshot\\Ability_Killshot.ebx",
+          "rawSha256": "1caddc23eec9b44616789da9139c89ba9900f8a9f95a06a492e56cf61a3e9824",
+          "offset": 758,
+          "type": "guid",
+          "bytesHex": "39f896aa9e1e5746a645a229b0de25b6",
+          "value": "aa96f839-1e9e-4657-a645-a229b0de25b6",
+          "expect": "aa96f839-1e9e-4657-a645-a229b0de25b6",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\class-traits-2026-09-30T0135\\raw\\Common\\Gameplay\\InRoundProgression\\Killshot\\Ability_Killshot.ebx",
+          "rawSha256": "1caddc23eec9b44616789da9139c89ba9900f8a9f95a06a492e56cf61a3e9824",
+          "offset": 774,
+          "type": "guid",
+          "bytesHex": "2fa0f77c233894459faf415ed0d8a803",
+          "value": "7cf7a02f-3823-4594-9faf-415ed0d8a803",
+          "expect": "7cf7a02f-3823-4594-9faf-415ed0d8a803",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\class-traits-2026-09-30T0135\\raw\\Common\\Gameplay\\InRoundProgression\\Killshot\\Ability_Killshot.ebx",
+          "rawSha256": "1caddc23eec9b44616789da9139c89ba9900f8a9f95a06a492e56cf61a3e9824",
+          "offset": 790,
+          "type": "guid",
+          "bytesHex": "648c9518e67701639a22738608045d48",
+          "value": "18958c64-77e6-6301-9a22-738608045d48",
+          "expect": "18958c64-77e6-6301-9a22-738608045d48",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\class-traits-2026-09-30T0135\\raw\\Common\\Gameplay\\InRoundProgression\\Killshot\\Ability_Killshot.ebx",
+          "rawSha256": "1caddc23eec9b44616789da9139c89ba9900f8a9f95a06a492e56cf61a3e9824",
+          "offset": 806,
+          "type": "guid",
+          "bytesHex": "8abd7f7c69c43748a7e671693531768e",
+          "value": "7c7fbd8a-c469-4837-a7e6-71693531768e",
+          "expect": "7c7fbd8a-c469-4837-a7e6-71693531768e",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\class-traits-2026-09-30T0135\\raw\\Common\\Gameplay\\InRoundProgression\\Killshot\\Ability_Killshot.ebx",
+          "rawSha256": "1caddc23eec9b44616789da9139c89ba9900f8a9f95a06a492e56cf61a3e9824",
+          "offset": 822,
+          "type": "guid",
+          "bytesHex": "da248813170a22419c6a77fcca0506ef",
+          "value": "138824da-0a17-4122-9c6a-77fcca0506ef",
+          "expect": "138824da-0a17-4122-9c6a-77fcca0506ef",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\class-traits-2026-09-30T0135\\raw\\Common\\Gameplay\\InRoundProgression\\Killshot\\Ability_Killshot.ebx",
+          "rawSha256": "1caddc23eec9b44616789da9139c89ba9900f8a9f95a06a492e56cf61a3e9824",
+          "offset": 838,
+          "type": "guid",
+          "bytesHex": "78b6fd0271611f428fb27cb9d3087b68",
+          "value": "02fdb678-6171-421f-8fb2-7cb9d3087b68",
+          "expect": "02fdb678-6171-421f-8fb2-7cb9d3087b68",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\class-traits-2026-09-30T0135\\raw\\Common\\Gameplay\\InRoundProgression\\Killshot\\U_Ability_Killshot.ebx",
+          "rawSha256": "aea54ce5ae542f1170ac0935249bee383142712accd5836ba05d8572b69f44ba",
+          "offset": 32,
+          "type": "guid",
+          "bytesHex": "211dacc955bcae48a82590f3b15d6817",
+          "value": "c9ac1d21-bc55-48ae-a825-90f3b15d6817",
+          "expect": "c9ac1d21-bc55-48ae-a825-90f3b15d6817",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\class-traits-2026-09-30T0135\\raw\\Common\\Gameplay\\InRoundProgression\\Killshot\\U_Ability_Killshot.ebx",
+          "rawSha256": "aea54ce5ae542f1170ac0935249bee383142712accd5836ba05d8572b69f44ba",
+          "offset": 104,
+          "type": "guid",
+          "bytesHex": "c5d4f7c25d283140b484386dae9ca30e",
+          "value": "c2f7d4c5-285d-4031-b484-386dae9ca30e",
+          "expect": "c2f7d4c5-285d-4031-b484-386dae9ca30e",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\class-traits-2026-09-30T0135\\raw\\Common\\Gameplay\\InRoundProgression\\Killshot\\U_Ability_Killshot.ebx",
+          "rawSha256": "aea54ce5ae542f1170ac0935249bee383142712accd5836ba05d8572b69f44ba",
+          "offset": 426,
+          "type": "guid",
+          "bytesHex": "648c9518e67701639a22738608045d48",
+          "value": "18958c64-77e6-6301-9a22-738608045d48",
+          "expect": "18958c64-77e6-6301-9a22-738608045d48",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\class-traits-2026-09-30T0135\\raw\\Common\\Gameplay\\InRoundProgression\\Killshot\\U_Ability_Killshot.ebx",
+          "rawSha256": "aea54ce5ae542f1170ac0935249bee383142712accd5836ba05d8572b69f44ba",
+          "offset": 442,
+          "type": "guid",
+          "bytesHex": "748ef70be9d3e24d91d5e410f58b1171",
+          "value": "0bf78e74-d3e9-4de2-91d5-e410f58b1171",
+          "expect": "0bf78e74-d3e9-4de2-91d5-e410f58b1171",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\pre-update-1.4.3.1-2026-09-29\\collection\\raw\\Common\\Gameplay\\InRoundProgression\\Killshot\\WM_Killshot.ebx",
+          "rawSha256": "049f729947b006a8543597cb5094a1a2b9e0b557faa077bb31c2c3ed3900491b",
+          "offset": 216,
+          "type": "bool",
+          "bytesHex": "01",
+          "value": true,
+          "expect": true,
+          "matches": true
+        }
+      ],
+      "activation": {
+        "class": "unresolved",
+        "trainingPath": "unresolved",
+        "perk": "Metadata internal name joins the source route by exact name; this is not proof of runtime activation. Image imports do not prove activation."
+      },
+      "sourceAssets": [
+        {
+          "file": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\class-traits-2026-09-30T0135\\raw\\Common\\Gameplay\\InRoundProgression\\Killshot\\Ability_Killshot.ebx",
+          "sha256": "1caddc23eec9b44616789da9139c89ba9900f8a9f95a06a492e56cf61a3e9824",
+          "fileGuid": "eb556d41-2d46-4f69-bd58-fd6df77efa87",
+          "objects": [
+            {
+              "$class": "Class_af900787",
+              "$guid": "945a7109-f874-40ab-b35c-2abb6246d880",
+              "$layoutAmbiguous": true,
+              "Field_0c59fa06": "Common/Gameplay/InRoundProgression/Killshot/Ability_Killshot",
+              "Field_a4da4b98": true,
+              "Field_b2193141": true,
+              "Field_9dac47e3": true,
+              "Field_f86e0433": {
+                "$import": {
+                  "fileGuid": "f4f02d14-7036-447f-8315-f52592dea86e",
+                  "classGuid": "c9ac1d21-bc55-48ae-a825-90f3b15d6817"
+                }
+              },
+              "Field_18d8777e": {
+                "$import": {
+                  "fileGuid": "aa96f839-1e9e-4657-a645-a229b0de25b6",
+                  "classGuid": "7cf7a02f-3823-4594-9faf-415ed0d8a803"
+                }
+              },
+              "Field_8a7dfc78": [
+                {
+                  "$import": {
+                    "fileGuid": "aa96f839-1e9e-4657-a645-a229b0de25b6",
+                    "classGuid": "7cf7a02f-3823-4594-9faf-415ed0d8a803"
+                  }
+                }
+              ],
+              "Field_c910f9c2": 0,
+              "Field_5aec774f": {
+                "$ref": 1
+              },
+              "Field_ec8171fa": [],
+              "Field_3fcbdff0": null,
+              "Field_6b831b88": null,
+              "Field_def7f8dd": {
+                "Field_e0b43a29": {
+                  "Field_6b28f68f": {
+                    "$import": {
+                      "fileGuid": "138824da-0a17-4122-9c6a-77fcca0506ef",
+                      "classGuid": "02fdb678-6171-421f-8fb2-7cb9d3087b68"
+                    }
+                  }
+                },
+                "Field_043d7a08": false
+              },
+              "Field_958dc613": [],
+              "Field_49b3bb0e": [],
+              "Field_de6f63b3": 679624271,
+              "Field_b77123cc": true,
+              "Field_d7605aab": [],
+              "Field_a21a7b29": [],
+              "Field_87293fc2": 0,
+              "Field_e59acd2d": 0,
+              "Field_8986fc0b": 0,
+              "Field_409478c9": 0,
+              "Field_460a9db1": 0,
+              "Field_abc643c2": 0,
+              "Field_1af83dc6": 0,
+              "Field_48c6ff7d": 0,
+              "Field_20746087": false,
+              "Field_e2cee558": false,
+              "Field_98d8888a": null,
+              "Field_dfc3e000": {
+                "Field_c478cc3b": {
+                  "Field_3901db14": 1.0,
+                  "Field_42fc0f5e": 0.0,
+                  "Field_32a99b9c": 0.0
+                },
+                "Field_bf151ef9": {
+                  "Field_3901db14": 0.0,
+                  "Field_42fc0f5e": 1.0,
+                  "Field_32a99b9c": 0.0
+                },
+                "Field_695d12a4": {
+                  "Field_3901db14": 0.0,
+                  "Field_42fc0f5e": 0.0,
+                  "Field_32a99b9c": 1.0
+                },
+                "Field_bc4b07b4": {
+                  "Field_3901db14": 0.0,
+                  "Field_42fc0f5e": 0.0,
+                  "Field_32a99b9c": 0.0
+                }
+              },
+              "Field_98aaa29d": [],
+              "Field_779b28f6": null,
+              "Field_6cce2f25": {
+                "Field_f29fce94": 0,
+                "Field_675a2be7": 0,
+                "Field_d2b8fc26": null
+              },
+              "Field_9a433a49": [],
+              "Field_ffe24fd8": [],
+              "Field_e58acee4": true
+            },
+            {
+              "$class": "Class_e923016e",
+              "$guid": "81088508-72f3-46a1-9528-af7ae5592437",
+              "Field_605f79af": [
+                {
+                  "Field_6b28f68f": {
+                    "$import": {
+                      "fileGuid": "18958c64-77e6-6301-9a22-738608045d48",
+                      "classGuid": "7c7fbd8a-c469-4837-a7e6-71693531768e"
+                    }
+                  }
+                }
+              ]
+            }
+          ],
+          "unresolvedTypes": []
+        },
+        {
+          "file": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\class-traits-2026-09-30T0135\\raw\\Common\\Gameplay\\InRoundProgression\\Killshot\\U_Ability_Killshot.ebx",
+          "sha256": "aea54ce5ae542f1170ac0935249bee383142712accd5836ba05d8572b69f44ba",
+          "fileGuid": "f4f02d14-7036-447f-8315-f52592dea86e",
+          "objects": [
+            {
+              "$class": "Class_bc0062dc",
+              "$guid": "c9ac1d21-bc55-48ae-a825-90f3b15d6817",
+              "Field_0c59fa06": "Common/Gameplay/InRoundProgression/Killshot/U_Ability_Killshot",
+              "Field_9d34093f": "U_Ability_Killshot",
+              "Field_de6f63b3": 462755690,
+              "Field_32cf19f5": true,
+              "Field_5aec774f": {
+                "$ref": 1
+              }
+            },
+            {
+              "$class": "Class_e923016e",
+              "$guid": "c2f7d4c5-285d-4031-b484-386dae9ca30e",
+              "Field_605f79af": [
+                {
+                  "Field_6b28f68f": {
+                    "$import": {
+                      "fileGuid": "18958c64-77e6-6301-9a22-738608045d48",
+                      "classGuid": "0bf78e74-d3e9-4de2-91d5-e410f58b1171"
+                    }
+                  }
+                }
+              ]
+            }
+          ],
+          "unresolvedTypes": []
+        }
+      ],
+      "sourceFacts": [
+        "Fresh U_Ability_Killshot exported GUID c9ac1d21-bc55-48ae-a825-90f3b15d6817 matches WM_Killshot selector.",
+        "WM_Killshot Field_8d6d2bc1=true at 216. Prior L109 records imports from six site sniper rifles; new hotfix WM has identical raw hash.",
+        "New UI text resolves the former missing-text blocker in L116: sniper-rifle headshot kills prevent teammate revive. This does not by itself prove the boolean implementation role."
+      ],
+      "comparison": "No numeric claim. The UI gives an explicit revive condition; WM boolean matches the exact U selector, while the native headshot/revive consumer remains unresolved.",
+      "proposal": {
+        "kind": "metadata-only",
+        "data": "New data/class-traits.json record Ability_Killshot; sniper category applicability from data/weapons.json remains conditional",
+        "code": "ui/app.js optional perk information panel",
+        "value": "Enemy soldiers you kill with headshots from a sniper rifle cannot be revived by their teammates.",
+        "activationCertainty": "Ability->U->WM selector identity is exact; class/path activation and boolean consumer unresolved.",
+        "validation": "Compare text with StringId 9832F276. Before native applicability display, test enemy teammate revive after sniper headshot versus body-shot kill with perk enabled/disabled. Prediction: only enabled-perk sniper headshot prevents revive. Do not change damage, TTK, recoil or cadence."
+      }
+    }
+  ],
+  "inference": "AdvancedSpot arithmetic agrees with explicit named registry values and text; LowProfile 0.667 remains candidate arithmetic; Killshot text supplies semantic context without naming the boolean consumer.",
+  "unresolved": [
+    "Class and training-path activation joins await parent path tracing.",
+    "LowProfile affector field roles and1.5s clearing operand.",
+    "AdvancedSpot native consumer and timer units/application.",
+    "Killshot headshot/revive boolean consumer."
+  ],
+  "siteImpact": "Propose game-stated trait information for all three perks and conditional named AdvancedSpot values. No site files were changed. Do not apply these operands to attachment spotting or weapon simulation until native activation/composition is established.",
+  "evidence": {
+    "helpers": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0112-0400-class-traits\\L403\\build-result.py",
+        "sha256": "dc4ad42be5fdb5163451cb3187832805d9bc9f85b7a4285a8f8e4964dd5ae1b9"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0112-0400-class-traits\\L403\\db-fields.py",
+        "sha256": "d3c9a6b97e17bf3039840a6668d98fd98bcd9cc6c171198b40f86d7e03bf429a"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0112-0400-class-traits\\L403\\db-scope.py",
+        "sha256": "7845df7eaf9e72aa9d41f9ae50a53588469557c279fdfba3a633a754be2d0d08"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0112-0400-class-traits\\L403\\db-spot.py",
+        "sha256": "fef215b048ec11cebae86832de7ad8d130ededcabeac093eeb89d8ba99e4ca9b"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0112-0400-class-traits\\L403\\evidence-final.py",
+        "sha256": "e20e07fee1bdc2826f49c30ca74ce4bd322dc911c8223a016a77692dab0d7e78"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0112-0400-class-traits\\L403\\finalize.py",
+        "sha256": "f1b59b670a38ca3368551ace99e9749778f010e4956b4eaca86d6d7a69fcb23b"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0112-0400-class-traits\\L403\\fresh.py",
+        "sha256": "caf037a951b87fb389a6446b0cf1f094fa87c15fc0ef8bbb4d7fde99b085000c"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0112-0400-class-traits\\L403\\links.py",
+        "sha256": "cc5750fa40b39317513d13ba6335bdf8f4ebd516e37abc2bbfdb7bbb481a83e3"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0112-0400-class-traits\\L403\\probe.py",
+        "sha256": "82f210f51475b0a490b8e4d221c90c3fb5f392d8d0436e76ab0628fee521a306"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0112-0400-class-traits\\L403\\soldier.py",
+        "sha256": "540c9f14a3bcdc3e2ee92adceefb0fbb1c4d513cc5763ea5da4fdfe7debf2270"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0112-0400-class-traits\\L403\\trace.py",
+        "sha256": "cb4f8b85b98d176ae964598d6b819cd9aa8c76993aaa78d2e4a4dd714dff2841"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-ebx-decode.py",
+        "sha256": "6fdc0334efaee0fe6113b5c9db4973f1358f53ee65dfb94edbc22fb0bf07a727"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+        "sha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-worker.py",
+        "sha256": "91d73d328cfe39862ec882ef02eda665580b28a6da9fa541f7b03d12d755beb2"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-records.py",
+        "sha256": "a6b0ca77270f6abc5dc48f164762569a8cb36faf37754f04f892d0ae7e7c7f34"
+      }
+    ],
+    "outputs": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0112-0400-class-traits\\L403\\Ability_AdvancedSpot-traced.json",
+        "sha256": "8cd1433925538651e31bc1233486a9517d6a597ccb12163021145686e2025ecb"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0112-0400-class-traits\\L403\\Common__Gameplay__InRoundProgression__LowProfile__Ability_LowProfile-traced.json",
+        "sha256": "efa59e31dc64a4c6920676aa115183a86d1aa5fe76d75cd648a934b7c58b1a89"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0112-0400-class-traits\\L403\\Common__Gameplay__InRoundProgression__LowProfile__Ability_LowProfile.json",
+        "sha256": "bdbf5baa62e882d77120e1f75206db08a54357697a62d6af11794566984c74db"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0112-0400-class-traits\\L403\\Common__Gameplay__InRoundProgression__LowProfile__Affector_LowProfile_SpotDelay-traced.json",
+        "sha256": "55d59683b62b21fde3af7203572aa2b06f498c9aeac54d9f1e4346e87eacdf2f"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0112-0400-class-traits\\L403\\Common__Gameplay__InRoundProgression__LowProfile__Affector_LowProfile_SpotDelay.json",
+        "sha256": "6bc4e9a2c31fc16431816be6ae29303201123bd6c822b4d8efdd00d0165a6301"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0112-0400-class-traits\\L403\\Common__Gameplay__InRoundProgression__LowProfile__Affector_LowProfile_SpotDuration-traced.json",
+        "sha256": "c3443ff304e1a5ab5e9dfa856eb0deb9b14537db5d6455bb47df3d7811ba0732"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0112-0400-class-traits\\L403\\Common__Gameplay__InRoundProgression__LowProfile__Affector_LowProfile_SpotDuration.json",
+        "sha256": "7e372447f1a40a3580348170a2ce71f84d2cffad25bc0d96f4a695e4caa623ca"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0112-0400-class-traits\\L403\\Common__Gameplay__InRoundProgression__LowProfile__FL_Ability_LowProfile-traced.json",
+        "sha256": "a39596e01a5631f3a7e3608b6603841037d6ba5d43231fa421590fc816db41da"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0112-0400-class-traits\\L403\\Common__Gameplay__InRoundProgression__LowProfile__FL_Ability_LowProfile.json",
+        "sha256": "c6505bb92d5184fedceaa735798bfb0ac8b2f436e08e1242203e6f05a46b94e5"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0112-0400-class-traits\\L403\\Common__Gameplay__InRoundProgression__LowProfile__SimEx_Ability_LowProfile-traced.json",
+        "sha256": "9784c3718fb2af4a46dee004afcf68bfd794c31efc3b52f682382f9fafefdb97"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0112-0400-class-traits\\L403\\Common__Gameplay__InRoundProgression__LowProfile__SimEx_Ability_LowProfile.json",
+        "sha256": "d75933f9486c5669ed3627f34e2dcd6c1c7898aa460f6e64289f4db93d7c3a8e"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0112-0400-class-traits\\L403\\Common__Gameplay__InRoundProgression__LowProfile__U_Ability_LowProfile-traced.json",
+        "sha256": "336cf1b20c7ce95bb64a0de7e93316757351690b1657be38c7e53b066890138e"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0112-0400-class-traits\\L403\\Common__Gameplay__InRoundProgression__LowProfile__U_Ability_LowProfile.json",
+        "sha256": "25dfba30c19c5e9be0347da6a45042bf1eae190e56ea3a09728fc1f55f14fc5a"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0112-0400-class-traits\\L403\\fresh-abilities.json",
+        "sha256": "fb0d38c4507c95f626ecef9c1a94a341a3d76e245c4e73365a929d95ae9640a1"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0112-0400-class-traits\\L403\\l403-result.json",
+        "sha256": "34ae12b9e23e3fdefa8e8c4d678de277f627b3a04e55f94393a7c77449fbf087"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0112-0400-class-traits\\L403\\links-manifest.json",
+        "sha256": "29715019f688a4f98457b80a3143d871e66e8b11e99662fae63046807917e2ca"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0112-0400-class-traits\\L403\\links-raw-checks.json",
+        "sha256": "0c97f9a74e93f143bf08ee50336f49721391f04e6cd455ea49cd0db49d2f3f05"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0112-0400-class-traits\\L403\\other-manifest.json",
+        "sha256": "1b2ad625b7f8f1d725ca32b7cbd147598339995f2fae72715256a49eefb89184"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0112-0400-class-traits\\L403\\other-raw-checks.json",
+        "sha256": "7e8b871303fb01f2b2b841411d2a181185e940a30c51002e51875ffcebd10569"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0112-0400-class-traits\\L403\\soldier-manifest.json",
+        "sha256": "d10f2d87c2a698af8169375cdff06a4427ee3906bbe029a788e0918fab8f70d4"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0112-0400-class-traits\\L403\\soldier-raw-checks-final.json",
+        "sha256": "1505d9f8fca359156ee81499509ef110ec752fac1cd4dd30b65adf643b71816d"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0112-0400-class-traits\\L403\\soldier-raw-checks.json",
+        "sha256": "0e0a339ebbc73b0efa92385c5860700554c9be2bbe71e2c1d4e567abfbf3fb49"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0112-0400-class-traits\\L403\\soldier-selected.json",
+        "sha256": "f260a6a3712d32cd787f595e507c30f2563b1735747ca6a7fa6df3937e0fd5a8"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0112-0400-class-traits\\L403\\U_Ability_AdvancedSpot-traced.json",
+        "sha256": "857308bd4a001727dc5d6f442f7374933c02d3879585900112b9187d10bff36f"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0112-0400-class-traits\\L403\\WM_Killshot-traced.json",
+        "sha256": "cdc9ec142dc208db68d223db8362b16f88afd68664c20abc88ea1802d330bbdb"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0112-0400-class-traits\\L403\\worker-review.json",
+        "sha256": "e1e8f69319a67fcf0826516924c572ff67d9d20332f961e0d7c1308c255eb2d4"
+      }
+    ],
+    "commands": [
+      {
+        "executable": "python",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0112-0400-class-traits\\L403\\probe.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer",
+        "status": "executed; helper hash identifies current revision. trace initial BOOL lookup failed, corrected revision executed. soldier initial broad boolean f32 expectation failed; exact AdvancedSpot revision and final checks pass."
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0112-0400-class-traits\\L403\\trace.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer",
+        "status": "executed; helper hash identifies current revision. trace initial BOOL lookup failed, corrected revision executed. soldier initial broad boolean f32 expectation failed; exact AdvancedSpot revision and final checks pass."
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0112-0400-class-traits\\L403\\db-scope.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer",
+        "status": "executed; helper hash identifies current revision. trace initial BOOL lookup failed, corrected revision executed. soldier initial broad boolean f32 expectation failed; exact AdvancedSpot revision and final checks pass."
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0112-0400-class-traits\\L403\\db-spot.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer",
+        "status": "executed; helper hash identifies current revision. trace initial BOOL lookup failed, corrected revision executed. soldier initial broad boolean f32 expectation failed; exact AdvancedSpot revision and final checks pass."
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0112-0400-class-traits\\L403\\db-fields.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer",
+        "status": "executed; helper hash identifies current revision. trace initial BOOL lookup failed, corrected revision executed. soldier initial broad boolean f32 expectation failed; exact AdvancedSpot revision and final checks pass."
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0112-0400-class-traits\\L403\\soldier.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer",
+        "status": "executed; helper hash identifies current revision. trace initial BOOL lookup failed, corrected revision executed. soldier initial broad boolean f32 expectation failed; exact AdvancedSpot revision and final checks pass."
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0112-0400-class-traits\\L403\\fresh.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer",
+        "status": "executed; helper hash identifies current revision. trace initial BOOL lookup failed, corrected revision executed. soldier initial broad boolean f32 expectation failed; exact AdvancedSpot revision and final checks pass."
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0112-0400-class-traits\\L403\\links.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer",
+        "status": "executed; helper hash identifies current revision. trace initial BOOL lookup failed, corrected revision executed. soldier initial broad boolean f32 expectation failed; exact AdvancedSpot revision and final checks pass."
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+          "--manifest",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0112-0400-class-traits\\L403\\soldier-manifest.json",
+          "--out",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0112-0400-class-traits\\L403\\soldier-raw-checks-final.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer",
+        "status": "executed; exit0"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+          "--manifest",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0112-0400-class-traits\\L403\\other-manifest.json",
+          "--out",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0112-0400-class-traits\\L403\\other-raw-checks.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer",
+        "status": "executed; exit0"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+          "--manifest",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0112-0400-class-traits\\L403\\links-manifest.json",
+          "--out",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0112-0400-class-traits\\L403\\links-raw-checks.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer",
+        "status": "executed; exit0"
+      },
+      {
+        "executable": "python",
+        "argv": [
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0112-0400-class-traits\\L403\\finalize.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer",
+        "status": "Executed. Produces receipt-check.txt and worker-review.json; both pass."
+      }
+    ],
+    "priorReceipts": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-lowprofile-2026-09-23.json",
+        "sha256": "040f47615a4769c86cc41bc766a0950e63baabdda8dd3b53c358f4ef559ec251"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-09-28-L106-L111-orchestrator-trial.json",
+        "sha256": "324dfc62b3081310ed1ba17a2bcf9381116a4fed1a61228c2ad93b00be8246f7"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-09-29-L116-killshot-boolean.json",
+        "sha256": "96e7d2c7c6e6f021e09c744a8c7c5aa7667c5de0b1b37e25de9264ca714d4a4e"
+      }
+    ],
+    "historyLimit": "Initial failed trace.py and broad soldier.py revisions were corrected in place; their old helper hashes are unavailable. The final operand manifests, successful current helper revisions and raw checks are retained; no result depends on those failed reads.",
+    "parentResult": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0112-0400-class-traits\\L403\\l403-result.json",
+      "sha256": "34ae12b9e23e3fdefa8e8c4d678de277f627b3a04e55f94393a7c77449fbf087"
+    }
+  },
+  "control": {
+    "description": "Current hotfix WME_WSway_P05 offset 156 must equal 0.6666666865348816; parent confirmed site SIGHTS iron m39emr 0.6666667.",
+    "passed": true,
+    "rawChecks": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\pre-update-1.4.3.1-2026-09-29\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\Sway\\WME_WSway_P05.ebx",
+        "rawSha256": "1c1ee8a317d68074d2979949b11a01e1771f7f6ffab7836fd7391bd9ef221504",
+        "offset": 156,
+        "type": "f32",
+        "bytesHex": "abaa2a3f",
+        "value": 0.6666666865348816,
+        "expect": 0.6666666865348816,
+        "matches": true
+      }
+    ]
+  },
+  "buildPin": {
+    "clientVersion": "1.4.3.1",
+    "head": 4892087,
+    "descriptorSha256": "99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640"
+  },
+  "parentReview": {
+    "controlPassed": true,
+    "scopeConfirmed": true,
+    "workerReviewIssues": 0,
+    "note": "Parent ran frosty-worker.py review and independently raw-read a key operand for each lead. Source path imports are independent of candidate UI associations."
+  }
+}

@@ -32,6 +32,7 @@ DESC_HOTFIX = '99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640'
 BUILDS = {  # build id -> Head and descriptor; the receipts' `build` shapes all resolve to one of these
     '1.4.3.0-release': {'head': '4892017', 'descriptorSha256': DESC_RELEASE, 'label': '1.4.3.0 release'},
     '1.4.3.0-hotfix': {'head': '4892087', 'descriptorSha256': DESC_HOTFIX, 'label': '1.4.3.1 hotfix (EA label)'},
+    '1.4.3.5': {'head': '4909002', 'descriptorSha256': '4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1', 'label': '1.4.3.5 (operator label)'},
     '1.4.2.5': {'head': None, 'descriptorSha256': None, 'label': '1.4.2.5 research baseline'},
     'site-only': {'head': None, 'descriptorSha256': None, 'label': 'site data or captures; no game build evidence'},
     'mixed': {'head': None, 'descriptorSha256': None, 'label': 'several builds compared in one record'},

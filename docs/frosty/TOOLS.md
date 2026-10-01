@@ -5,6 +5,23 @@
 How to export and decode BF6 game data safely. The step order for a game update is in
 the [game update guide](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/GAME_UPDATE_GUIDE.md); this page is the tool reference.
 
+## Update-tool corrections (30 September 2026)
+
+The raw collector's Windows PowerShell child can inherit PowerShell 7 module paths.
+Get-FileHash then fails to load. The collector now imports its native Utility module
+before Frosty starts and marks a row successful only after hashing. During the
+1.4.3.5 Stage 1 check, null hashes produced an invalid all-changed comparison. The
+exported bytes were retained, independently rehashed on both sides, and compared
+again. The fresh guarded Stage 2 capture validated the correction. Never accept a
+successful row with a null hash as raw-difference evidence.
+
+The bounded material-grid inventory now records the supplied grid routes, resolved
+file paths and actual type count. Its old hardcoded map labels and type count were
+not valid for new grids. Historical observations remain labelled as historical.
+Values, types, soldier pairs and grid agreement were checked unchanged after this
+metadata-only correction. The [update receipt](../../reference-data/provenance/frosty-update-1.4.3.5-2026-09-30.json)
+pins the verified inventory. Do not XML-export material grids or regenerate the SDK.
+
 ## Locations
 
 ### Site input audit tools
@@ -130,7 +147,8 @@ Build only FrostyCmd, so the existing FrostySdk and FrostyHash builds stay uncha
 - **Material grids.** Never decode a level `materialgrid_win32` with `export-ebx`,
   `export-ebx-list` or the Frosty Editor. It reached 49–52 GB and crashed the machine
   once. A failed or timed-out export keeps reading in the background.
-- **One FrostyCmd at a time.** Do not run exports in parallel.
+- **One FrostyCmd at a time.** Do not run exports in parallel. `frosty-capture.py` enforces
+  this for raw captures.
 - **After a failed or slow export,** check `Get-Process FrostyCmd` and stop it with
   `Stop-Process -Name FrostyCmd -Force`. Git Bash `timeout` does not stop the Windows
   process.
@@ -144,7 +162,10 @@ Build only FrostyCmd, so the existing FrostySdk and FrostyHash builds stay uncha
 
 | Script | Use |
 |---|---|
-| `scripts/frosty-collect-raw.ps1` | Optional routes-file raw set, without object decoding, plus a small `capture-identity.json` (Head, SDK version). The full catalog (about 110 MB) is written only with `-Catalog`: use it for build and hotfix captures, and for captures read by `frosty-audit-coverage --collection-dir` or `frosty-audit-capture-review`. Use a new output directory per capture. |
+| `scripts/frosty-capture.py <name> <route ...> \| --routes-file <file> [--catalog] [--build]` | **Use this for every capture** instead of running the collector by hand. Takes an exclusive lock (`<datamining>\.frosty-capture.lock`), refuses if a FrostyCmd or collector process is running, runs `guard`, runs the collector into a new `builds\<build>\reports\<name>\` (or `--into <dir under the build>`), prints failed routes and runs `record`. Exits non-zero if any step fails. `--update-check` (Stage 1 of the update guide) skips `guard` and `record`. The lock covers captures started through this script; the process check catches the rest, but a capture started by hand at the same moment can still slip past it. |
+| `scripts/frosty-capture-compare.py <baseline collection> <new collection> <out.json>` | Update check: catalog added/removed/GUID/size/SHA-1 changes and raw SHA-256 changes by area. Lists baseline routes missing from the new capture (and the reverse) and new failures, and exits 1 when coverage is incomplete. |
+| `scripts/frosty-ui-text.py <raw .ebx ...> [--strings] [--descriptors] [--catalog] [--out]` | One row per UI metadata object with its text resolved against `fs_us_loc` and imports resolved to catalog paths ([UI text](UI_TEXT.md)). Defaults are the 1.4.3.1 baseline. |
+| `scripts/frosty-collect-raw.ps1` (site repo) | Optional routes-file raw set, without object decoding, plus a small `capture-identity.json` (Head, SDK version). The full catalog (about 110 MB) is written only with `-Catalog`: use it for build and hotfix captures, and for captures read by `frosty-audit-coverage --collection-dir` or `frosty-audit-capture-review`. Use a new output directory per capture. |
 | `scripts/frosty-raw-assets.ps1` | Raw dump of specific routes (routes in its header; has a size limit). |
 | `scripts/frosty-material-grid-inventory.py --descriptors <SharedTypeDescriptors.ebx> --class-guids FrostyPlugin/Sdk/ClassGuids.txt --grid <raw .ebx> --out <json>` | Bounded, safe reader for material grids. Ran on both 1.4.3.0 grids. |
 | `scripts/frosty-hit-zones.py` | Reads raw grids with `SharedTypeDescriptors.ebx`. |
@@ -585,6 +606,21 @@ Added 28 September 2026 for Codex worker runs. They check process, not meaning.
   receipt's `record`) and re-reads the control operand and two sampled operands
   from raw bytes. The lead still checks comparisons against the site's actual
   encoding.
+
+### Run cleanup and push helpers
+
+Added 30 September 2026 (moved from local agent skills so every agent uses one copy).
+
+- `frosty-run-cleanup.py <run folder>` lists links, uncited `asset-catalog.json` copies and
+  uncited files over 50 MB in a closed research run folder and writes `cleanup-plan.json`.
+  `--apply` acts only on that reviewed plan, re-checking each link, size, hash and citation
+  first. A failed citation search stops it. It refuses build `capture\`, `xml\` and toolchain
+  folders.
+- `repo-squash.py plan|apply|citations` performs the push-time squash in both repos'
+  `CLAUDE.md` with `git commit-tree`, without touching the working tree. `apply` refuses a plan
+  whose base is no longer `origin/<branch>`, whose groups are not exactly the unpushed commits
+  in order, or that puts a site commit in a research group. Squashed messages carry the union
+  of the member commits' `Co-Authored-By` trailers.
 
 ### Frosty records
 

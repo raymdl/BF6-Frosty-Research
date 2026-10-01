@@ -7,6 +7,60 @@ generated from it. The site model is in the [attachment model](https://github.co
 game data errors are in [attachment bugs](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/ATTACHMENT_BUGS.md). The link path from a
 site choice to its modifiers is in the [data graph](DATA_GRAPH.md).
 
+## Current site value audit census (30 September 2026)
+
+The [attachments census](../../reference-data/provenance/frosty-site-audit-attachments-census-2026-09-30.json)
+enumerates all **113 numeric field families and 7,578 numeric leaves** in the current
+site file. A01 applies: the site baseline combines source versions and reviewed
+panel evidence. Ownership follows `docs/data-flow/REGISTER.md` and the site's
+"Attachment source generation" section. The four named generator scopes are
+excluded; a grip's extra recoil/spread fields are not automatically generated
+handling fields.
+
+The census retains **7,248 exclusions**, **251 prior no-source-field
+contracts/observations**, and **79 candidate leaves across 12 families**.
+The per-leaf records identify the method of the earlier comparison. L107 integer
+receipt-copy comparisons are not new raw reads. The 23 September cost proof covers
+400 numeric cost leaves and 4,558 effective source selections. All 287 magazine
+point leaves have prior source records. All 287 nominal-capacity leaves have prior
+comparisons, including L110's exact Ability/action/selector join; the source's
+extra chamber capacity remains separate from menu capacity and native loaded
+behavior. The 282 stored reload-tier leaves are covered by prior field records
+or explicit neutral/no-source-field contracts. PP-19 Flash Comp and L115 Standard
+Suppressor keep the reviewed exceptions in attachment bugs 6 and 12.
+
+Earlier source receipts keep their original Head. The 1.4.3.5 carry-forward report
+establishes equal raw hashes for previously cited weapon/attachment assets; this
+census does not relabel them as new measurements. Exact current pointer/value
+matches are required for an exclusion.
+
+The run stopped at **90% account usage**, before Stage 2. No fresh source family,
+precision-only difference or value-mismatch proposal was established. Remaining
+families and their priorities are in the run's `census.json`; neutral defaults,
+existing reviewed deviations and older unjoined records still require scope
+reconciliation before new extraction. A family is not declared clean from a
+partial source comparison.
+
+## 1.4.3.5 recheck (30 September 2026)
+
+The captured AD/Attachment set (6,546 records) and weapon-modifier folder (721
+records) have unchanged raw content. The 17 attachment-bug rows retain their prior
+source and description status; this is not new in-game confirmation. Current
+metadata roles and localization were checked separately. All 1,004 AD metadata
+assets have layout ambiguity, but their raw bytes and the complete English strings
+table are unchanged.
+
+The 34 GCR assets have no paired-value/flag mismatch, disabled nonzero residue or
+value outside the recovered 14-value ladder. The retained multi-package scan returns
+15 candidate actions, not confirmed bugs. Re-reading 629 current raw magazine
+operands supports 287 relative-to-default selections without a value disagreement
+or missing default. The five checked handling fields match between KTS100 50 Rnd
+and default 60 Rnd; reload and sway were not newly measured. Three unrelated
+Blacklight inputs lack current/reference raw in the retained selector graph.
+See the [dated receipt](../../reference-data/provenance/frosty-update-1.4.3.5-2026-09-30.json)
+and its per-entry recheck and consistency artifacts. Native activation and earlier
+panel observations keep their original evidence limits.
+
 ## Exhaustive source census (1.4.3.0)
 
 The [reviewed primary-root census summary](../../reference-data/provenance/frosty-audit-branches-summary-2026-09-23.json)
@@ -1217,3 +1271,21 @@ two recoil-variation and four recovery operands to the existing Folding Stock
 values. Recovery factor 76 and exponent 1.24 are enabled in both aim states.
 Native evaluation and timing remain unresolved, so the existing assumption note
 stays valid; the GRM layout warning is retained. No new capture is proposed.
+
+## Current ammo modifier and point audit (30 September 2026)
+
+This audit uses 1.4.3.5, Head 4909002, with register assumption A01. Earlier
+selection identities retain their original Head and are carried forward by equal
+raw hashes. The workers read current raw operands; the orchestrator compared the
+site values after the controls passed.
+
+- [Recoil/spread, L584-L585](../../reference-data/provenance/frosty-2026-09-30-site-audit-ammo-recoil-spread.json): 186 selected field comparisons over 74 stored leaves match after sign and additive transforms. Source shotgun hip step +9 maps to site -9. Sniper Tungsten exceptions and sidearm Subsonic omission retain ATTACHMENT_BUGS.md entries 13 and 5. Slugs ADS spread increment 0.05 has no qualified source route/control; no new lead.
+- [Type modifiers](../../reference-data/provenance/frosty-2026-09-30-site-audit-ammo-type-modifiers.json): Lightweight ADS movement matches 27 selected comparisons. Seven additional stored leaves agree with named owner controls: four exact and three precision-only. Full Frangible/spotting selection joins and Flechette regen +2 were not established in this bounded pass; no new lead.
+- [Points and identities, L586-L587](../../reference-data/provenance/frosty-2026-09-30-site-audit-ammo-points-availability.json): all 328 point costs match exact current uint32 reads. Current descriptor decodes agree with the prior field routes but flag `layoutAmbiguous`; that limit is retained. Matching source option identities do not establish current game menu availability or default selection.
+- [Per-class collateral tables](../../reference-data/provenance/frosty-2026-09-30-site-audit-ammo-class-tables.json): 77 fallback leaves are inactive for all 328 current selections, which have per-weapon overrides. Native fallback origin is not established; no lead.
+
+All 328 modifier choices were listed. Across both modifier families, 191 choices
+have reused configured operand records and 137 lack a qualified reused operand or
+complete selected-graph absence check. No zero effect is inferred for those 137.
+The clean configured comparisons do not prove native activation or composition.
+No new non-precision value mismatch was found, so no Analyzer change is proposed.

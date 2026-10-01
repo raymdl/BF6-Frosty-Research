@@ -1,0 +1,190 @@
+{
+ "lead": "L500",
+ "date": "2026-09-30",
+ "status": "complete-census-no-qualifying-family",
+ "build": "1.4.3.5",
+ "question": "Which displayed weapons.json numeric field families still require source extraction after excluding generated families and existing field-level reviews?",
+ "assumptions": [
+  {
+   "id": "A01",
+   "reference": "BF6 Weapon Analyzer/docs/data-flow/REGISTER.md",
+   "text": "Mixed 1.4.2.5 export, Sym fields, panel evidence and reviewed 1.4.3.0 changes. A source label is not field-level verification."
+  }
+ ],
+ "sourceFacts": {
+  "currentBuild": {
+   "version": "1.4.3.5",
+   "head": 4909002,
+   "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1"
+  },
+  "reviewReuse": "Earlier release evidence retains Head 4892017 and descriptor 91c9ea7c3dd830e34a78123c8bb7485e80eefdb18fc9c7ee41117971d23565c2. The 126 GS/WB and 43 base-projectile assets used to exclude existing reviews were independently hash-compared with current raw: all 169 match. This is carry-forward by raw hash, not 169 new field measurements.",
+  "knownAnswerControl": {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\HK433_WB.ebx",
+   "rawSha256": "c02751eac2b054343a2a115dff8f2000bc450548c96185445cd7c3b613030e0a",
+   "offset": 416,
+   "type": "f32",
+   "bytesHex": "00801d44",
+   "value": 630.0,
+   "expect": "630",
+   "matches": true
+  }
+ },
+ "censusConclusion": "No qualified family remains after existing field-level reviews, non-displayed metadata and unused literals are excluded. The external census is not promoted into site data. No Stage 2 source-extraction worker was launched; no new per-family comparison receipt is implied.",
+ "reviewReuse": {
+  "currentSiteAgainstEarlierLeafLedger": "All current numeric leaves have a prior ledger entry. The 34 changed values are covered by 32 applied L107 precision rows and two later burst-cadence values. The damage pairs are unchanged for all 63 exact site identities.",
+  "sourceReviewDetailHashes": "All five sampled family-wide detail files match their receipt hashes; exact values/paths/offsets remain in those original receipts and details.",
+  "knownPrecision": "L107 retains 10 sub-f32 rows (RPM 5, tactical reload 3, empty reload 1, DB-12 bursts/minute 1) and 55 reviewed derived recoilV aliases (38 sub-f32, 17 held beyond-f32). These are prior reviewed decisions, not new proposals.",
+  "intentionalDamageDeviation": "The M45A1 54–75 m ramp is retained as a step in the site, under the 13 September damage/BTK review. At 60 m the site keeps 14.3 versus the serialized curve about 13.7857. Reuse frosty-site-projectile-2026-09-23.json; no new mismatch proposal.",
+  "knownEmptyReloadDeviation": "SOR-300SC 3.2 s and GRT-CPS 3.034 s follow reviewed in-game phase/timing evidence rather than the conflicting 3.284 s ReloadTime field. ATTACHMENT_BUGS.md item 15 and L123 explain the retained totals.",
+  "handlingScope": "No numeric ADS/deploy/sprint base indices occur in weapons.json. They live in balance_tables.json. Historical measured ADS milliseconds inside provenance are metadata.",
+  "routeLimits": "No new family route was required after the census exclusions. Mode-selection interpretation belongs to the parallel L600+ session."
+ },
+ "inference": [
+  "Raw-byte identity preserves the earlier decoded serialized values for the excluded reviews. This does not establish native execution, attachment composition or a global unchanged-game result."
+ ],
+ "unresolved": [
+  "Existing native-runtime and model limits in the cited reviews remain. The census does not replace the separate fire-mode session or re-open accepted/declined precision decisions."
+ ],
+ "siteImpact": "No new class (a) proposal. No site data, simulation or UI edit. No generator rerun or in-game test.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T2322-0400-site-audit-weapons",
+  "files": [
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T2322-0400-site-audit-weapons\\census-raw-reuse.json",
+    "sha256": "d791ecd99961ff1361785addee4327f5e6be74ec477401248d32460293855241"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T2322-0400-site-audit-weapons\\review-detail-hashes.json",
+    "sha256": "5d6d092bd5e44ece333b6230c28eff9e31ce9880f229f3a91bfcac9dc4bf0f60"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T2322-0400-site-audit-weapons\\control-velocity.json",
+    "sha256": "b7933a6d2b7c6fbe70fdc19cd05cefad1304543c877493b5363c3c30ffe6e017"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T2322-0400-site-audit-weapons\\prior-work.txt",
+    "sha256": "5341034bae91b8f6783e735786103cea44c219dc8fc078b487cb13c7951e56b5"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T2322-0400-site-audit-weapons\\weapon-crosswalk.json",
+    "sha256": "9c4479057a20d0ebc6d091140a70a0227b6b9184db26e4fadee674da18df2e76"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T2322-0400-site-audit-weapons\\ledger-weapons-numeric.json",
+    "sha256": "03607b3c6e989365f6d4ad66ab6bee8559aa9d077c37c0f61cae18b1dc842463"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T2322-0400-site-audit-weapons\\census.py",
+    "sha256": "ecb100b483be321f89521ecb517c3fec0b22f9e7ef08daac7152c30e535a0d5d"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T2322-0400-site-audit-weapons\\close_census.py",
+    "sha256": "ad2780a716ab870e18d04d952e0c9816c186ad4e8f82fef13a29d58c7761cafa"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T2322-0400-site-audit-weapons\\orchestrator-prompt.txt",
+    "sha256": "3eab0d920be4f59d78466015229f867fee381cd5ec34ca711209ffeb254e49d9"
+   }
+  ],
+  "siteWeapons": {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer\\data\\weapons.json",
+   "sha256": "22d2d83eb65c0f7f69cad6efff077d8b1435d08827c1a1a3633976f87266eb7f"
+  },
+  "commands": [
+   {
+    "argv": [
+     "python",
+     "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T2322-0400-site-audit-weapons\\census.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer",
+    "note": "Executed by absolute script path from the site checkout; the script records the exact prior-work subprocess argv and cwd."
+   },
+   {
+    "argv": [
+     "python",
+     "scripts/frosty-build.py",
+     "--datamining",
+     "C:/Users/royal/Documents/BF6 Datamining",
+     "guard",
+     "1.4.3.5",
+     "--game",
+     "C:/Program Files/EA Games/Battlefield 6"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Frosty Research",
+    "result": "passed"
+   },
+   {
+    "argv": [
+     "python",
+     "scripts/frosty-raw-check.py",
+     "--raw-root",
+     "C:/Users/royal/Documents/BF6 Datamining/builds/1.4.3.5/capture/collection/raw",
+     "--path",
+     "Common/Hardware/Weapons/AssaultRifle/HK433/HK433_WB",
+     "--offset",
+     "416",
+     "--type",
+     "f32",
+     "--expect",
+     "630",
+     "--out",
+     "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-09-30T2322-0400-site-audit-weapons/control-velocity.json"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Frosty Research",
+    "result": "passed"
+   }
+  ],
+  "helperRevisions": [
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-worker.py",
+    "sha256": "91d73d328cfe39862ec882ef02eda665580b28a6da9fa541f7b03d12d755beb2"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+    "sha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-build.py",
+    "sha256": "a96df4205644b8987356e41042f832adc3b4e4eedaf9eded443afa743a5236b6"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "audit",
+  "date": "2026-09-30",
+  "build": "1.4.3.5",
+  "leads": [
+   {
+    "id": "L500",
+    "title": "Weapons site audit census",
+    "status": "finding",
+    "summary": "Existing field-level reviews carry forward by raw hash; no displayed weapons.json family qualifies for new extraction after the requested exclusions.",
+    "reopenWhen": "A displayed numeric leaf changes without a reviewed receipt, or a cited source asset changes."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Hardware/Weapons/AssaultRifle/HK433/HK433_WB",
+    "format": "raw-ebx",
+    "sha256": "c02751eac2b054343a2a115dff8f2000bc450548c96185445cd7c3b613030e0a",
+    "question": "Does the current known-answer base velocity reproduce the reviewed operand?",
+    "result": "useful",
+    "conclusion": "M433 base InitialSpeed.z remains 630 at offset 416; raw hash matches release evidence."
+   }
+  ],
+  "site": [
+   {
+    "pointer": "data/weapons.json:/[id=m433]/bulletVel",
+    "value": 630,
+    "relation": "supports"
+   }
+  ],
+  "binding": "research",
+  "run": {
+   "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T2322-0400-site-audit-weapons",
+   "orchestrator": "GPT-6.1 Sol",
+   "workers": []
+  }
+ }
+}

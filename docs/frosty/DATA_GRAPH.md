@@ -482,6 +482,51 @@ The exact incoming SimEx_GasMask source imports both SpecialMask duration affect
 The exact projectile local object 23 selects SimEx_CorpseDropAmmo by checked pointer and exported GUID. The simulation expression selects Affector_CorpseDropAmmo and compiled RID 1b4a962ab988a0ef; the exact affector imports U_CorpseDropAmmo as a resource dependency without proving its receiving semantics. The selected compiled body is captured and independently hash-verified. A separate SP affector reference remains a distinct unresolved branch. The bounded pinned incoming-import index contains no caller for the projectile root, a capture-coverage limit rather than global source absence. No recipient eligibility, refill amount, timing, drop condition, multiplayer availability or native execution is established. Further token/receiver and incoming-owner tracing remains a resume step; this lead closes as a partial source finding at the operator-requested pause checkpoint.
 ([L209 receipt](../../reference-data/provenance/frosty-2026-09-29-L209-corpse-drop-ammo-utility-source.json)).
 
+**GPT-6.1 Sol, 30 September 2026 (L210; GPT-6.1 Sol worker, Low effort):**
+
+The coverage census consolidated 23 normalized groups: 22 unresolved, 1 shared-system. It retains catalog blueprint candidates, receipt-reviewed roots and dependencies, and the exact existing receipt links. These classifications concern source context; they do not prove current multiplayer availability, runtime effects or completed mechanics. The known-answer raw control and a selected source-link operand passed parent review. No new Frosty capture or targeted stat trace was made.
+([L210 receipt](../../reference-data/provenance/frosty-2026-09-30-L210-gadget-callin-census.json)).
+
+**GPT-6.1 Sol, 30 September 2026 (L211; GPT-6.1 Sol worker, Low effort):**
+
+The coverage census consolidated 25 normalized groups: 24 unresolved, 1 shared-system. It retains catalog blueprint candidates, receipt-reviewed roots and dependencies, and the exact existing receipt links. These classifications concern source context; they do not prove current multiplayer availability, runtime effects or completed mechanics. The known-answer raw control and a selected source-link operand passed parent review. No new Frosty capture or targeted stat trace was made.
+([L211 receipt](../../reference-data/provenance/frosty-2026-09-29-L211-gadget-launcher-census.json)).
+
+**GPT-6.1 Sol, 30 September 2026 (L212; GPT-6.1 Sol worker, Low effort):**
+
+The coverage census consolidated 22 normalized groups: 20 unresolved, 2 shared-system. It retains catalog blueprint candidates, receipt-reviewed roots and dependencies, and the exact existing receipt links. These classifications concern source context; they do not prove current multiplayer availability, runtime effects or completed mechanics. The known-answer raw control and a selected source-link operand passed parent review. No new Frosty capture or targeted stat trace was made.
+([L212 receipt](../../reference-data/provenance/frosty-2026-09-29-L212-gadget-explosive-census.json)).
+
+**GPT-6.1 Sol, 30 September 2026 (L213; GPT-6.1 Sol worker, Low effort):**
+
+The coverage census consolidated 18 normalized groups: 18 unresolved. It retains catalog blueprint candidates, receipt-reviewed roots and dependencies, and the exact existing receipt links. These classifications concern source context; they do not prove current multiplayer availability, runtime effects or completed mechanics. The known-answer raw control and a selected source-link operand passed parent review. No new Frosty capture or targeted stat trace was made.
+([L213 receipt](../../reference-data/provenance/frosty-2026-09-29-L213-gadget-tools-supply-census.json)).
+
+**GPT-6.1 Sol, 30 September 2026 (L214; GPT-6.1 Sol worker, Low effort):**
+
+The coverage census consolidated 18 normalized groups: 18 unresolved. It retains catalog blueprint candidates, receipt-reviewed roots and dependencies, and the exact existing receipt links. These classifications concern source context; they do not prove current multiplayer availability, runtime effects or completed mechanics. The known-answer raw control and a selected source-link operand passed parent review. No new Frosty capture or targeted stat trace was made.
+([L214 receipt](../../reference-data/provenance/frosty-2026-09-30-L214-gadget-utility-census.json)).
+
+**GPT-6.1 Sol, 30 September 2026 (L215; GPT-6.1 Sol worker, Low effort):**
+
+The coverage census consolidated 15 normalized groups: 12 unresolved, 2 shared-system, 1 not-multiplayer. It retains catalog blueprint candidates, receipt-reviewed roots and dependencies, and the exact existing receipt links. These classifications concern source context; they do not prove current multiplayer availability, runtime effects or completed mechanics. The known-answer raw control and a selected source-link operand passed parent review. No new Frosty capture or targeted stat trace was made.
+([L215 receipt](../../reference-data/provenance/frosty-2026-09-30-L215-gadget-drone-utility-census.json)).
+
+**GPT-6.1 Sol, 30 September 2026 (L216; GPT-6.1 Sol worker, Low effort):**
+
+DeployableCover_WB and WB_TUGS select local Class_35259f6b firing owners through the WB configuration pointer, configuration weapon pointer and Field_e29fe7dd firing pointer. The parent owner key and Struct_598cc52c Ammo key exactly match the L137 known-answer owner. Both store MagazineCapacity 1, NumberOfMagazines 1 and InitialAmmo -1. AutoReplenishMagazine is true and AutoReplenishRounds is -1. Raw pointers and fields passed worker and parent checks. These are serialized resource source profiles; they do not establish initial deployment uses, refill behavior or runtime activation. The proposed fresh-loadout test predicts equal initial counters and tests whether 1/1 means one initial deployment.
+([L216 receipt](../../reference-data/provenance/frosty-2026-09-30-L216-deployment-resource-count-source.json)).
+
+**GPT-6.1 Sol, 30 September 2026 (L217; worker Low effort):**
+
+The four support WBs select exact Class_35259f6b / Struct_598cc52c owners through three local configuration pointers each. MagazineCapacity/NumberOfMagazines/InitialAmmo are Supply Pouch 1/3/-1, Spawn Beacon 1/1/-1, Defibrillator 1/3/3 and Squad Revive 1/-1/10. AutoReplenishMagazine is true and AutoReplenishRounds is i32 -1 for all four. Typed identities and raw edges/counts pass checks. These are source profiles; carried uses, sentinel meanings and native replenishment are unresolved. Fresh-loadout initial-counter hypotheses are 3/1/3/10, with no carried-count formula. No game test was performed.
+([L217 receipt](../../reference-data/provenance/frosty-2026-09-30-L217-support-resource-source.json)).
+
+**GPT-6.1 Sol, 30 September 2026 (L218; worker Low effort):**
+
+SupplyDrop_Ability Field_3150c257 selects the captured CUST_AirDrop_Supply export. Its Class_1aaa99ef owner/key matches the corrected L198 CUST control; Field_6b831b88 selects SupplyDrop_WB file 78efceb9-9cb4-4d1f-9598-186bd2a9aa70 / export e5f8c912-df63-47df-a079-17b226f40b91. The selected typed Ammo owner stores 1/1/1, AutoReplenishMagazine false and AutoReplenishRounds -1. A guarded one-asset capture at 01:58 local reports Head 4892087. The original Equipment control actually selects U and was stopped/corrected without negative findings. These exact source bindings do not establish native activation, marker consumption, refill or cooldown; serialized delay 5.0 is not a five-second cooldown claim. The future test conditionally predicts one fresh marker use and no automatic refill.
+([L218 receipt](../../reference-data/provenance/frosty-2026-09-30-L218-supplydrop-resource-binding.json)).
+
 ## From attachment to effect
 
 ```mermaid

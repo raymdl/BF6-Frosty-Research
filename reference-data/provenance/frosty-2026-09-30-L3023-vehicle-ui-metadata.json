@@ -1,0 +1,1153 @@
+{
+  "lead": "L3023",
+  "status": "complete",
+  "build": {
+    "name": "1.4.3.1",
+    "head": 4892087,
+    "descriptorSha256": "99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640"
+  },
+  "question": "Vehicle archetype/preset names, descriptions, seat/tag statements and exact root links from four saved UI assets.",
+  "inference": "Localized text content supports display-name/description/tag roles; exact source field hashes remain explicit. Family role matches are candidates only.",
+  "unresolved": [
+    "All nine cards remain unlinked to exact family/root identities; candidate role matches do not populate family values.",
+    "Imported vehicle metadata records and icon targets lack a pinned saved target in the bounded DB check; exact GUID pairs/routes retained.",
+    "Semantic names for hashed card fields are inferred from selected localized content; source hashes/classes/keys remain explicit.",
+    "Seat tags are sourced game statements, not measured behavior. No in-game tests or recordings.",
+    "Preset internal-name strings were decoded under pinned hashes; separate raw string-byte checks omitted to remain within 300 reads."
+  ],
+  "siteImpact": "Source UI statements and unresolved links only; no site edit or family seat statistic promoted.",
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-09-30",
+    "build": "1.4.3.0-hotfix",
+    "binding": "research",
+    "leads": [
+      {
+        "id": "L3023",
+        "title": "Vehicle UI archetype, preset and customization metadata",
+        "status": "finding",
+        "summary": "Nine archetype cards and fifteen presets resolve selected localized text; all cards retain explicit unlinked family status.",
+        "reopenWhen": "Exact captured vehicle UI metadata intermediaries establish typed card-to-root linkage or seat tests are performed."
+      }
+    ],
+    "assets": [
+      {
+        "path": "Common/UI/Static/Metadata/UIVehicleMetadata",
+        "format": "raw-ebx",
+        "sha256": "5c74684722ec5d8818a61cb399cb8acbfcd5ffbe0afd41d1a41b8c76661235df",
+        "question": "Selected localized cards, presets and exact link tables.",
+        "result": "useful",
+        "conclusion": "Twenty-five external vehicle metadata pairs retain exact GUIDs/routes with uncaptured target boundaries."
+      },
+      {
+        "path": "Common/UI/Static/Metadata/UIVehicleArchetypeMetadata",
+        "format": "raw-ebx",
+        "sha256": "ffde820f6ea7f25c7916d30a5f884299a069f863a21be6b6040179a25698bc8d",
+        "question": "Selected localized cards, presets and exact link tables.",
+        "result": "useful",
+        "conclusion": "Nine archetype cards resolve names, descriptions and numeric seat tags."
+      },
+      {
+        "path": "Common/UI/Static/Metadata/UIVehicleLoadoutPresetMetadata",
+        "format": "raw-ebx",
+        "sha256": "4235293a1a487a5d3bf1b73f6265ba27c179b9337bc581b8ffce1f4299bf0983",
+        "question": "Selected localized cards, presets and exact link tables.",
+        "result": "useful",
+        "conclusion": "Fifteen loadout presets resolve selected names/descriptions."
+      },
+      {
+        "path": "Common/UI/Static/Config/BFUIVehicleCustomizationsViewManagerConfig",
+        "format": "raw-ebx",
+        "sha256": "55a1ad6f94fa9a32707a9ee37fac4a7bc4597fce01f572db4d835647483f74f0",
+        "question": "Selected localized cards, presets and exact link tables.",
+        "result": "useful",
+        "conclusion": "Customization slot/text links retain exact source edges and eighteen saved slot target GUID joins."
+      }
+    ]
+  },
+  "sourceFacts": {
+    "operatorItem": "4A",
+    "cards": [
+      {
+        "metadataName": "UIMetadata_Vehicle_Archetype_MBT",
+        "objectIndex": 26,
+        "actualClass": "02be5e85",
+        "actualKey": "9b9c42a5efc21f07060d23aa9918083c",
+        "lookupKeys": [
+          3264785404
+        ],
+        "roleName": {
+          "id": "ECD2AB78",
+          "targetIndex": 38,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "MAIN BATTLE TANK",
+          "line": 101061
+        },
+        "shortName": {
+          "id": "8F43AE76",
+          "targetIndex": 58,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "MBT",
+          "line": 61625
+        },
+        "description": {
+          "id": "C0FE2896",
+          "targetIndex": 59,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "Built for engaging enemy land vehicles but can also effectively combat enemy infantry.",
+          "line": 82371
+        },
+        "tags": [
+          {
+            "id": "C56CADDC",
+            "targetIndex": 24,
+            "actualClass": "fbe1d3bc",
+            "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+            "text": "2 Seats",
+            "line": 84226
+          },
+          {
+            "id": "B1015EF6",
+            "targetIndex": 47,
+            "actualClass": "fbe1d3bc",
+            "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+            "text": "Anti-Vehicle",
+            "line": 75554
+          },
+          {
+            "id": "CBA53610",
+            "targetIndex": 22,
+            "actualClass": "fbe1d3bc",
+            "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+            "text": "Hard Target",
+            "line": 86769
+          }
+        ],
+        "seatText": "2 Seats",
+        "statedUsableSeats": 2,
+        "seatStatus": "sourced-in-game-statement",
+        "validation": "Count all enterable seats on a matched vehicle in-game, including spawn, enter and switch.",
+        "prediction": "The observed enterable seat count equals 2.",
+        "testStatus": "not-run; exact family link required",
+        "linkedFamilies": [],
+        "linkStatus": "unlinked",
+        "rawEvidence": {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3023\\cards.json",
+          "sha256": "a23ecd83f69899fe16e3ee019cdfad736ae5bcfd7d1ca206086348e7af6d56f3",
+          "pointer": "/0"
+        }
+      },
+      {
+        "metadataName": "UIMetadata_Vehicle_Archetype_IFV",
+        "objectIndex": 15,
+        "actualClass": "02be5e85",
+        "actualKey": "9b9c42a5efc21f07060d23aa9918083c",
+        "lookupKeys": [
+          3519457750
+        ],
+        "roleName": {
+          "id": "E0634B6F",
+          "targetIndex": 33,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "INFANTRY FIGHTING VEHICLE",
+          "line": 95660
+        },
+        "shortName": {
+          "id": "92F2A6E5",
+          "targetIndex": 50,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "IFV",
+          "line": 63192
+        },
+        "description": {
+          "id": "92F45AED",
+          "targetIndex": 54,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "Effectively counters hostile infantry but has limited capability against heavy enemy armor.",
+          "line": 63194
+        },
+        "tags": [
+          {
+            "id": "C56CADE0",
+            "targetIndex": 57,
+            "actualClass": "fbe1d3bc",
+            "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+            "text": "6 Seats",
+            "line": 84229
+          },
+          {
+            "id": "E1ABFBC8",
+            "targetIndex": 40,
+            "actualClass": "fbe1d3bc",
+            "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+            "text": "Anti-Soldier",
+            "line": 96228
+          }
+        ],
+        "seatText": "6 Seats",
+        "statedUsableSeats": 6,
+        "seatStatus": "sourced-in-game-statement",
+        "validation": "Count all enterable seats on a matched vehicle in-game, including spawn, enter and switch.",
+        "prediction": "The observed enterable seat count equals 6.",
+        "testStatus": "not-run; exact family link required",
+        "linkedFamilies": [],
+        "linkStatus": "unlinked",
+        "rawEvidence": {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3023\\cards.json",
+          "sha256": "a23ecd83f69899fe16e3ee019cdfad736ae5bcfd7d1ca206086348e7af6d56f3",
+          "pointer": "/1"
+        }
+      },
+      {
+        "metadataName": "UIMetadata_Vehicle_Archetype_TacticalLightTransport",
+        "objectIndex": 42,
+        "actualClass": "02be5e85",
+        "actualKey": "9b9c42a5efc21f07060d23aa9918083c",
+        "lookupKeys": [
+          3159550240
+        ],
+        "roleName": {
+          "id": "24C523A2",
+          "targetIndex": 12,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "LIGHT GROUND TRANSPORT",
+          "line": 15265
+        },
+        "shortName": {
+          "id": "0D3296F8",
+          "targetIndex": 20,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "LIGHT TRANSPORT",
+          "line": 5283
+        },
+        "description": {
+          "id": "0D344B00",
+          "targetIndex": 37,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "Designed for rapid battlefield traversal. Equipped with firepower to combat hostiles. ",
+          "line": 5287
+        },
+        "tags": [
+          {
+            "id": "C56CADDF",
+            "targetIndex": 4,
+            "actualClass": "fbe1d3bc",
+            "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+            "text": "5 Seats",
+            "line": 84228
+          },
+          {
+            "id": "3D5374DC",
+            "targetIndex": 18,
+            "actualClass": "fbe1d3bc",
+            "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+            "text": "Open Seats",
+            "line": 26590
+          },
+          {
+            "id": "391D2E18",
+            "targetIndex": 28,
+            "actualClass": "fbe1d3bc",
+            "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+            "text": "Transport",
+            "line": 24823
+          }
+        ],
+        "seatText": "5 Seats",
+        "statedUsableSeats": 5,
+        "seatStatus": "sourced-in-game-statement",
+        "validation": "Count all enterable seats on a matched vehicle in-game, including spawn, enter and switch.",
+        "prediction": "The observed enterable seat count equals 5.",
+        "testStatus": "not-run; exact family link required",
+        "linkedFamilies": [],
+        "linkStatus": "unlinked",
+        "rawEvidence": {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3023\\cards.json",
+          "sha256": "a23ecd83f69899fe16e3ee019cdfad736ae5bcfd7d1ca206086348e7af6d56f3",
+          "pointer": "/2"
+        }
+      },
+      {
+        "metadataName": "UIMetadata_Vehicle_Archetype_APC",
+        "objectIndex": 2,
+        "actualClass": "02be5e85",
+        "actualKey": "9b9c42a5efc21f07060d23aa9918083c",
+        "lookupKeys": [
+          739933092
+        ],
+        "roleName": {
+          "id": "568AB29E",
+          "targetIndex": 10,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "ARMORED TRANSPORT",
+          "line": 37243
+        },
+        "shortName": {
+          "id": "AA74E374",
+          "targetIndex": 27,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "ATP",
+          "line": 72881
+        },
+        "description": {
+          "id": "AA76977C",
+          "targetIndex": 41,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "Primarily for use in urban areas. Mine blast protection ensures optimal navigation through hostile territory.",
+          "line": 72883
+        },
+        "tags": [
+          {
+            "id": "C56CADDE",
+            "targetIndex": 32,
+            "actualClass": "fbe1d3bc",
+            "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+            "text": "4 Seats",
+            "line": 84227
+          },
+          {
+            "id": "438C8D8C",
+            "targetIndex": 56,
+            "actualClass": "fbe1d3bc",
+            "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+            "text": "Shielded Seats",
+            "line": 29254
+          }
+        ],
+        "seatText": "4 Seats",
+        "statedUsableSeats": 4,
+        "seatStatus": "sourced-in-game-statement",
+        "validation": "Count all enterable seats on a matched vehicle in-game, including spawn, enter and switch.",
+        "prediction": "The observed enterable seat count equals 4.",
+        "testStatus": "not-run; exact family link required",
+        "linkedFamilies": [],
+        "linkStatus": "unlinked",
+        "rawEvidence": {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3023\\cards.json",
+          "sha256": "a23ecd83f69899fe16e3ee019cdfad736ae5bcfd7d1ca206086348e7af6d56f3",
+          "pointer": "/3"
+        }
+      },
+      {
+        "metadataName": "UIMetadata_Vehicle_Archetype_AA",
+        "objectIndex": 31,
+        "actualClass": "02be5e85",
+        "actualKey": "9b9c42a5efc21f07060d23aa9918083c",
+        "lookupKeys": [
+          3944079827
+        ],
+        "roleName": {
+          "id": "C896EA44",
+          "targetIndex": 1,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "MOBILE ANTI-AIR",
+          "line": 85547
+        },
+        "shortName": {
+          "id": "12F3D2DA",
+          "targetIndex": 7,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "ANTI-AIR",
+          "line": 7611
+        },
+        "description": {
+          "id": "12F586E2",
+          "targetIndex": 35,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "Capable of using dual autocannons and homing missiles to combat enemy aircraft.",
+          "line": 7614
+        },
+        "tags": [
+          {
+            "id": "C56CADDB",
+            "targetIndex": 36,
+            "actualClass": "fbe1d3bc",
+            "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+            "text": "1 Seat",
+            "line": 84225
+          },
+          {
+            "id": "438C8D8C",
+            "targetIndex": 44,
+            "actualClass": "fbe1d3bc",
+            "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+            "text": "Shielded Seats",
+            "line": 29254
+          }
+        ],
+        "seatText": "1 Seat",
+        "statedUsableSeats": 1,
+        "seatStatus": "sourced-in-game-statement",
+        "validation": "Count all enterable seats on a matched vehicle in-game, including spawn, enter and switch.",
+        "prediction": "The observed enterable seat count equals 1.",
+        "testStatus": "not-run; exact family link required",
+        "linkedFamilies": [],
+        "linkStatus": "unlinked",
+        "rawEvidence": {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3023\\cards.json",
+          "sha256": "a23ecd83f69899fe16e3ee019cdfad736ae5bcfd7d1ca206086348e7af6d56f3",
+          "pointer": "/4"
+        }
+      },
+      {
+        "metadataName": "UIMetadata_Vehicle_Archetype_Helicopter",
+        "objectIndex": 16,
+        "actualClass": "02be5e85",
+        "actualKey": "9b9c42a5efc21f07060d23aa9918083c",
+        "lookupKeys": [
+          2389927870
+        ],
+        "roleName": {
+          "id": "4D06EBFD",
+          "targetIndex": 17,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "Attack Helicopter",
+          "line": 33184
+        },
+        "shortName": {
+          "id": "D3BDE03A",
+          "targetIndex": 43,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "ATTACK HELI",
+          "line": 90110
+        },
+        "description": {
+          "id": "CEA6662F",
+          "targetIndex": 13,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "Highly effective at engaging all ground targets, especially when both crew positions are manned.",
+          "line": 88047
+        },
+        "tags": [
+          {
+            "id": "C56CADDC",
+            "targetIndex": 52,
+            "actualClass": "fbe1d3bc",
+            "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+            "text": "2 Seats",
+            "line": 84226
+          },
+          {
+            "id": "B1015EF6",
+            "targetIndex": 48,
+            "actualClass": "fbe1d3bc",
+            "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+            "text": "Anti-Vehicle",
+            "line": 75554
+          },
+          {
+            "id": "E1ABFBC8",
+            "targetIndex": 60,
+            "actualClass": "fbe1d3bc",
+            "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+            "text": "Anti-Soldier",
+            "line": 96228
+          }
+        ],
+        "seatText": "2 Seats",
+        "statedUsableSeats": 2,
+        "seatStatus": "sourced-in-game-statement",
+        "validation": "Count all enterable seats on a matched vehicle in-game, including spawn, enter and switch.",
+        "prediction": "The observed enterable seat count equals 2.",
+        "testStatus": "not-run; exact family link required",
+        "linkedFamilies": [],
+        "linkStatus": "unlinked",
+        "rawEvidence": {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3023\\cards.json",
+          "sha256": "a23ecd83f69899fe16e3ee019cdfad736ae5bcfd7d1ca206086348e7af6d56f3",
+          "pointer": "/5"
+        }
+      },
+      {
+        "metadataName": "UIMetadata_Vehicle_Archetype_TransportHelicopter",
+        "objectIndex": 23,
+        "actualClass": "02be5e85",
+        "actualKey": "9b9c42a5efc21f07060d23aa9918083c",
+        "lookupKeys": [
+          1037210721
+        ],
+        "roleName": {
+          "id": "92F3C6B9",
+          "targetIndex": 25,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "TRANSPORT HELICOPTER",
+          "line": 63193
+        },
+        "shortName": {
+          "id": "F2741A0A",
+          "targetIndex": 29,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "TRANSPORT HELI",
+          "line": 103373
+        },
+        "description": {
+          "id": "F6A77477",
+          "targetIndex": 3,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "This transport helicopter serves as a vital component in air assaults. Two side-mounted miniguns aid in self-defense.",
+          "line": 105149
+        },
+        "tags": [
+          {
+            "id": "C56CADDF",
+            "targetIndex": 30,
+            "actualClass": "fbe1d3bc",
+            "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+            "text": "5 Seats",
+            "line": 84228
+          },
+          {
+            "id": "391D2E18",
+            "targetIndex": 5,
+            "actualClass": "fbe1d3bc",
+            "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+            "text": "Transport",
+            "line": 24823
+          }
+        ],
+        "seatText": "5 Seats",
+        "statedUsableSeats": 5,
+        "seatStatus": "sourced-in-game-statement",
+        "validation": "Count all enterable seats on a matched vehicle in-game, including spawn, enter and switch.",
+        "prediction": "The observed enterable seat count equals 5.",
+        "testStatus": "not-run; exact family link required",
+        "linkedFamilies": [],
+        "linkStatus": "unlinked",
+        "rawEvidence": {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3023\\cards.json",
+          "sha256": "a23ecd83f69899fe16e3ee019cdfad736ae5bcfd7d1ca206086348e7af6d56f3",
+          "pointer": "/6"
+        }
+      },
+      {
+        "metadataName": "UIMetadata_Vehicle_Archetype_AttackPlane",
+        "objectIndex": 6,
+        "actualClass": "02be5e85",
+        "actualKey": "9b9c42a5efc21f07060d23aa9918083c",
+        "lookupKeys": [
+          1058413250
+        ],
+        "roleName": {
+          "id": "E25E3503",
+          "targetIndex": 49,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "ATTACK JET",
+          "line": 96591
+        },
+        "shortName": {
+          "id": "BC62ACF9",
+          "targetIndex": 8,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "ATTACK JET",
+          "line": 80475
+        },
+        "description": {
+          "id": "BC646101",
+          "targetIndex": 14,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "A fast multirole attack aircraft specialized in engaging all ground targets, including vehicles and infantry.",
+          "line": 80477
+        },
+        "tags": [
+          {
+            "id": "C56CADDB",
+            "targetIndex": 34,
+            "actualClass": "fbe1d3bc",
+            "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+            "text": "1 Seat",
+            "line": 84225
+          },
+          {
+            "id": "B1015EF6",
+            "targetIndex": 11,
+            "actualClass": "fbe1d3bc",
+            "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+            "text": "Anti-Vehicle",
+            "line": 75554
+          },
+          {
+            "id": "E1ABFBC8",
+            "targetIndex": 55,
+            "actualClass": "fbe1d3bc",
+            "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+            "text": "Anti-Soldier",
+            "line": 96228
+          },
+          {
+            "id": "CBAB784D",
+            "targetIndex": 39,
+            "actualClass": "fbe1d3bc",
+            "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+            "text": "Soft Target",
+            "line": 86781
+          }
+        ],
+        "seatText": "1 Seat",
+        "statedUsableSeats": 1,
+        "seatStatus": "sourced-in-game-statement",
+        "validation": "Count all enterable seats on a matched vehicle in-game, including spawn, enter and switch.",
+        "prediction": "The observed enterable seat count equals 1.",
+        "testStatus": "not-run; exact family link required",
+        "linkedFamilies": [],
+        "linkStatus": "unlinked",
+        "rawEvidence": {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3023\\cards.json",
+          "sha256": "a23ecd83f69899fe16e3ee019cdfad736ae5bcfd7d1ca206086348e7af6d56f3",
+          "pointer": "/7"
+        }
+      },
+      {
+        "metadataName": "UIMetadata_Vehicle_Archetype_FighterPlane",
+        "objectIndex": 46,
+        "actualClass": "02be5e85",
+        "actualKey": "9b9c42a5efc21f07060d23aa9918083c",
+        "lookupKeys": [
+          3187423673
+        ],
+        "roleName": {
+          "id": "669F98A3",
+          "targetIndex": 21,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "FIGHTER JET",
+          "line": 43904
+        },
+        "shortName": {
+          "id": "75335499",
+          "targetIndex": 19,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "FIGHTER JET",
+          "line": 49888
+        },
+        "description": {
+          "id": "753508A1",
+          "targetIndex": 51,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "A stealth fighter that specializes in combating other air vehicles, with limited air-to-ground combat capabilities.",
+          "line": 49893
+        },
+        "tags": [
+          {
+            "id": "C56CADDB",
+            "targetIndex": 53,
+            "actualClass": "fbe1d3bc",
+            "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+            "text": "1 Seat",
+            "line": 84225
+          },
+          {
+            "id": "B1015EF6",
+            "targetIndex": 9,
+            "actualClass": "fbe1d3bc",
+            "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+            "text": "Anti-Vehicle",
+            "line": 75554
+          },
+          {
+            "id": "CBAB784D",
+            "targetIndex": 45,
+            "actualClass": "fbe1d3bc",
+            "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+            "text": "Soft Target",
+            "line": 86781
+          }
+        ],
+        "seatText": "1 Seat",
+        "statedUsableSeats": 1,
+        "seatStatus": "sourced-in-game-statement",
+        "validation": "Count all enterable seats on a matched vehicle in-game, including spawn, enter and switch.",
+        "prediction": "The observed enterable seat count equals 1.",
+        "testStatus": "not-run; exact family link required",
+        "linkedFamilies": [],
+        "linkStatus": "unlinked",
+        "rawEvidence": {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3023\\cards.json",
+          "sha256": "a23ecd83f69899fe16e3ee019cdfad736ae5bcfd7d1ca206086348e7af6d56f3",
+          "pointer": "/8"
+        }
+      }
+    ],
+    "presets": [
+      {
+        "metadataName": "AA_Loadout_1",
+        "index": 33,
+        "lookupKeys": [
+          2159572264
+        ],
+        "name": {
+          "id": "9675E5C5",
+          "targetIndex": 41,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "LOADOUT 1",
+          "line": 64655
+        },
+        "description": {
+          "id": "12F586E2",
+          "targetIndex": 21,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "Capable of using dual autocannons and homing missiles to combat enemy aircraft.",
+          "line": 7614
+        }
+      },
+      {
+        "metadataName": "AA_Loadout_2",
+        "index": 19,
+        "lookupKeys": [
+          260157656
+        ],
+        "name": {
+          "id": "9675E5C6",
+          "targetIndex": 31,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "LOADOUT 2",
+          "line": 64656
+        },
+        "description": {
+          "id": "12F586E2",
+          "targetIndex": 27,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "Capable of using dual autocannons and homing missiles to combat enemy aircraft.",
+          "line": 7614
+        }
+      },
+      {
+        "metadataName": "AA_Loadout_3",
+        "index": 17,
+        "lookupKeys": [
+          3663242990
+        ],
+        "name": {
+          "id": "9675E5C7",
+          "targetIndex": 2,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "LOADOUT 3",
+          "line": 64657
+        },
+        "description": {
+          "id": "12F586E2",
+          "targetIndex": 30,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "Capable of using dual autocannons and homing missiles to combat enemy aircraft.",
+          "line": 7614
+        }
+      },
+      {
+        "metadataName": "AH_Loadout_1",
+        "index": 44,
+        "lookupKeys": [
+          2306033517
+        ],
+        "name": {
+          "id": "9675E5C5",
+          "targetIndex": 29,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "LOADOUT 1",
+          "line": 64655
+        },
+        "description": {
+          "id": "CEA6662F",
+          "targetIndex": 3,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "Highly effective at engaging all ground targets, especially when both crew positions are manned.",
+          "line": 88047
+        }
+      },
+      {
+        "metadataName": "AH_Loadout_2",
+        "index": 37,
+        "lookupKeys": [
+          1574230042
+        ],
+        "name": {
+          "id": "9675E5C6",
+          "targetIndex": 12,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "LOADOUT 2",
+          "line": 64656
+        },
+        "description": {
+          "id": "CEA6662F",
+          "targetIndex": 43,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "Highly effective at engaging all ground targets, especially when both crew positions are manned.",
+          "line": 88047
+        }
+      },
+      {
+        "metadataName": "AH_Loadout_3",
+        "index": 40,
+        "lookupKeys": [
+          2286834827
+        ],
+        "name": {
+          "id": "9675E5C7",
+          "targetIndex": 13,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "LOADOUT 3",
+          "line": 64657
+        },
+        "description": {
+          "id": "CEA6662F",
+          "targetIndex": 45,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "Highly effective at engaging all ground targets, especially when both crew positions are manned.",
+          "line": 88047
+        }
+      },
+      {
+        "metadataName": "APC_Loadout_1",
+        "index": 23,
+        "lookupKeys": [
+          1604085785
+        ],
+        "name": {
+          "id": "9675E5C5",
+          "targetIndex": 8,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "LOADOUT 1",
+          "line": 64655
+        },
+        "description": {
+          "id": "AA76977C",
+          "targetIndex": 25,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "Primarily for use in urban areas. Mine blast protection ensures optimal navigation through hostile territory.",
+          "line": 72883
+        }
+      },
+      {
+        "metadataName": "APC_Loadout_2",
+        "index": 18,
+        "lookupKeys": [
+          471579424
+        ],
+        "name": {
+          "id": "9675E5C6",
+          "targetIndex": 42,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "LOADOUT 2",
+          "line": 64656
+        },
+        "description": {
+          "id": "AA76977C",
+          "targetIndex": 38,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "Primarily for use in urban areas. Mine blast protection ensures optimal navigation through hostile territory.",
+          "line": 72883
+        }
+      },
+      {
+        "metadataName": "APC_Loadout_3",
+        "index": 34,
+        "lookupKeys": [
+          3687801387
+        ],
+        "name": {
+          "id": "9675E5C7",
+          "targetIndex": 26,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "LOADOUT 3",
+          "line": 64657
+        },
+        "description": {
+          "id": "AA76977C",
+          "targetIndex": 7,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "Primarily for use in urban areas. Mine blast protection ensures optimal navigation through hostile territory.",
+          "line": 72883
+        }
+      },
+      {
+        "metadataName": "IFV_Loadout_1",
+        "index": 20,
+        "lookupKeys": [
+          12740584
+        ],
+        "name": {
+          "id": "9675E5C5",
+          "targetIndex": 35,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "LOADOUT 1",
+          "line": 64655
+        },
+        "description": {
+          "id": "92F45AED",
+          "targetIndex": 11,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "Effectively counters hostile infantry but has limited capability against heavy enemy armor.",
+          "line": 63194
+        }
+      },
+      {
+        "metadataName": "IFV_Loadout_2",
+        "index": 1,
+        "lookupKeys": [
+          2737242907
+        ],
+        "name": {
+          "id": "9675E5C6",
+          "targetIndex": 6,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "LOADOUT 2",
+          "line": 64656
+        },
+        "description": {
+          "id": "92F45AED",
+          "targetIndex": 14,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "Effectively counters hostile infantry but has limited capability against heavy enemy armor.",
+          "line": 63194
+        }
+      },
+      {
+        "metadataName": "IFV_Loadout_3",
+        "index": 15,
+        "lookupKeys": [
+          2419719838
+        ],
+        "name": {
+          "id": "9675E5C7",
+          "targetIndex": 32,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "LOADOUT 3",
+          "line": 64657
+        },
+        "description": {
+          "id": "92F45AED",
+          "targetIndex": 4,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "Effectively counters hostile infantry but has limited capability against heavy enemy armor.",
+          "line": 63194
+        }
+      },
+      {
+        "metadataName": "MBT_Loadout1",
+        "index": 24,
+        "lookupKeys": [
+          3908690353
+        ],
+        "name": {
+          "id": "9675E5C5",
+          "targetIndex": 22,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "LOADOUT 1",
+          "line": 64655
+        },
+        "description": {
+          "id": "C0FE2896",
+          "targetIndex": 5,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "Built for engaging enemy land vehicles but can also effectively combat enemy infantry.",
+          "line": 82371
+        }
+      },
+      {
+        "metadataName": "MBT_Loadout2",
+        "index": 9,
+        "lookupKeys": [
+          4025718161
+        ],
+        "name": {
+          "id": "9675E5C6",
+          "targetIndex": 10,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "LOADOUT 2",
+          "line": 64656
+        },
+        "description": {
+          "id": "C0FE2896",
+          "targetIndex": 39,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "Built for engaging enemy land vehicles but can also effectively combat enemy infantry.",
+          "line": 82371
+        }
+      },
+      {
+        "metadataName": "MBT_Loadout3",
+        "index": 16,
+        "lookupKeys": [
+          1625724606
+        ],
+        "name": {
+          "id": "9675E5C7",
+          "targetIndex": 36,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "LOADOUT 3",
+          "line": 64657
+        },
+        "description": {
+          "id": "C0FE2896",
+          "targetIndex": 28,
+          "actualClass": "fbe1d3bc",
+          "actualKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "text": "Built for engaging enemy land vehicles but can also effectively combat enemy infantry.",
+          "line": 82371
+        }
+      }
+    ],
+    "linkCounts": [
+      {
+        "asset": "UIVehicleMetadata",
+        "status": "unresolved",
+        "count": 25
+      },
+      {
+        "asset": "UIVehicleArchetypeMetadata",
+        "status": "local",
+        "count": 60
+      },
+      {
+        "asset": "UIVehicleArchetypeMetadata",
+        "status": "unresolved",
+        "count": 9
+      },
+      {
+        "asset": "UIVehicleLoadoutPresetMetadata",
+        "status": "local",
+        "count": 45
+      },
+      {
+        "asset": "BFUIVehicleCustomizationsViewManagerConfig",
+        "status": "unresolved",
+        "count": 17
+      },
+      {
+        "asset": "BFUIVehicleCustomizationsViewManagerConfig",
+        "status": "exact-saved-target",
+        "count": 18
+      },
+      {
+        "asset": "BFUIVehicleCustomizationsViewManagerConfig",
+        "status": "local",
+        "count": 21
+      }
+    ],
+    "exactFamilyLinks": 0,
+    "familyValuesPopulated": false
+  },
+  "evidence": {
+    "result": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3023\\l3023-result.json",
+      "sha256": "4ec3b58519e52de16b0ddf491c735fd53f0c2ff11f744437ab705d0efadd042e"
+    },
+    "draft": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3023\\draft-receipt.json",
+      "sha256": "c0dc9c27f391313e2ff23371d83ec3d071fadc7398ae6c772df66b181d1ac1a2"
+    },
+    "cards": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3023\\cards.json",
+      "sha256": "a23ecd83f69899fe16e3ee019cdfad736ae5bcfd7d1ca206086348e7af6d56f3"
+    },
+    "presets": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3023\\presets.json",
+      "sha256": "2eb4845f356b7d58587186a34835740003a7026d832ddae0751dc31bc7676e71"
+    },
+    "links": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3023\\links.json",
+      "sha256": "54ce9fde2b47231bfbc0237d7d79f2541e2b1d1688a5ca5ea2cdc337dd7862f6"
+    },
+    "schemas": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3023\\schemas.json",
+      "sha256": "79f99802475f4fb95189f735f0ea4d0288544964180e83183789b22b08b966e6"
+    },
+    "execution": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3023\\execution.json",
+      "sha256": "b56752c3a44741828cdf1a9ba34086efbc992d4cc066b7ee452b8988af3ffecb"
+    },
+    "rawChecks": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3023\\raw-checks.json",
+      "sha256": "5e801caa3fd6c25c20fd8a4cdc24264e43f4953b8a277f676410188f620f0f05"
+    },
+    "parentWorkerReview": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3023\\parent-worker-review.json",
+      "sha256": "534ebb4059aec7c09a037729147f3cb27a8f05e39be5a8fbdb0afcf0e49fef85"
+    },
+    "parentSourceReview": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3023\\parent-ui-source-review.json",
+      "sha256": "ba71eaae0c47f7970b17f663bbbc2d8702da6a76872a51c0b43f300959344b04"
+    },
+    "parentTextRaw": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3023\\parent-text-control-raw.json",
+      "sha256": "5f13ce5d831f1a7df27b082538b8d1f1a8a58205a7dd822cd43e9c67afab5859"
+    },
+    "parentLinkRaw": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3023\\parent-link-check-raw.json",
+      "sha256": "54c0dbdbe7791e85dad9dea6b0076b659b44c2c9528763054711ad274ffb003f"
+    },
+    "parentLinkCommand": {
+      "argv": [
+        "python",
+        "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+        "--manifest",
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3023\\parent-link-check-manifest.json",
+        "--out",
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3023\\parent-link-check-raw.json"
+      ],
+      "cwd": "C:\\Users\\royal\\Documents\\BF6 Frosty Research"
+    },
+    "promotionHelper": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\promote-ui.py",
+      "sha256": "8bfc7b784205c3196c7d72f32acef7b265faac13fd7c8ab078b109584ea4fb57"
+    },
+    "updatedStatMap": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\stat-map\\L3023-comparison-stat-map.json",
+      "sha256": "e4bc444dd22464be00f3f7d26307a869b9f169da545cee48979ff7f3b32bfbc2"
+    }
+  }
+}

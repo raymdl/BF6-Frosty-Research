@@ -1,0 +1,277 @@
+{
+  "lead": "L3022",
+  "status": "complete",
+  "question": "Configured firing, ammo and projectile launch-vector values for Flyer60, JLTV, Marauder and Vector.",
+  "inference": "Source labels transfer by exact actual owner key and full nested/member descriptor identity; they are schema inference, not every WF own-wrapper matches.",
+  "unresolved": [
+    "Configured source values do not establish units, active/default selection, effective speed, ammo interpretation or native cadence.",
+    "No exact same-owner named projectile/damage/radius control is established in the bounded captures; no values are transferred for those owners.",
+    "All selected firing owners match the named control schema."
+  ],
+  "siteImpact": "Source-only finding. No site edit or runtime claim.",
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-09-30",
+    "build": "1.4.3.0-hotfix",
+    "binding": "research",
+    "leads": [
+      {
+        "id": "L3022",
+        "title": "Flyer60, JLTV, Marauder and Vector configured firing, ammo and vector",
+        "status": "finding",
+        "summary": "Four families retain selected alternatives with 4 named firing profiles and 0 explicit unmatched owner boundaries.",
+        "reopenWhen": "An exact named SP owner control or targeted native test is available."
+      }
+    ],
+    "assets": [
+      {
+        "path": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/Shared/WF_Vehicles_OpenGunner_HMG",
+        "format": "raw-ebx",
+        "sha256": "1d1be1c0ea852a99ce3a7daca9ca3ac4621102b0a6cf55d97d010fc9442756e3",
+        "question": "Configured named firing, ammo and initial vector values.",
+        "result": "useful",
+        "conclusion": "WF_Vehicles_OpenGunner_HMG firing object 10 stores RateOfFire 500.0, MagazineCapacity 250 and InitialSpeed vector [0.0, 0.0, 760.0]; native composition remains unresolved."
+      },
+      {
+        "path": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/RWS/WF_Vehicles_RWS_AGL",
+        "format": "raw-ebx",
+        "sha256": "abad41ab7ae0f91e64f3a40d0c27add94f6a34d618a2c0350b09e1c454004471",
+        "question": "Configured named firing, ammo and initial vector values.",
+        "result": "useful",
+        "conclusion": "WF_Vehicles_RWS_AGL firing object 1 stores RateOfFire 325.0, MagazineCapacity 5 and InitialSpeed vector [0.0, 1.2699999809265137, 100.0]; native composition remains unresolved."
+      },
+      {
+        "path": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/RWS/WF_Vehicles_RWS_LMG",
+        "format": "raw-ebx",
+        "sha256": "1aa019ea7aee0341346d26fb54417cccae583f32a77c1c51e5ffcb08ca443416",
+        "question": "Configured named firing, ammo and initial vector values.",
+        "result": "useful",
+        "conclusion": "WF_Vehicles_RWS_LMG firing object 5 stores RateOfFire 720.0, MagazineCapacity 250 and InitialSpeed vector [0.0, 0.0, 600.0]; native composition remains unresolved."
+      },
+      {
+        "path": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/RWS/WF_Vehicles_RWS_HMG",
+        "format": "raw-ebx",
+        "sha256": "7d14e7e408ccd497c1c21dff0836520ae9a880b11f2835482c4d8f1157df063c",
+        "question": "Configured named firing, ammo and initial vector values.",
+        "result": "useful",
+        "conclusion": "WF_Vehicles_RWS_HMG firing object 3 stores RateOfFire 400.0, MagazineCapacity 250 and InitialSpeed vector [0.0, 0.0, 760.0]; native composition remains unresolved."
+      }
+    ]
+  },
+  "build": {
+    "client": "1.4.3.1",
+    "head": 4892087,
+    "descriptorSha256": "99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640",
+    "dataBuild": "1.4.3.0"
+  },
+  "sourceFacts": {
+    "operatorItem": 4,
+    "scope": {
+      "expected": 4,
+      "examined": 4,
+      "notes": "4 matched profiles; 0 unmatched owner profiles retained. 20 new raw reads; 24 reused stat checks."
+    },
+    "configuredProfiles": [
+      {
+        "id": "WF_Vehicles_OpenGunner_HMG:10",
+        "route": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/Shared/WF_Vehicles_OpenGunner_HMG",
+        "firingObjectIndex": 10,
+        "actualClass": "35259f6b",
+        "actualKey": "503dde81ed5cf4d154423f8a5b58e439",
+        "values": {
+          "Ammo.AutoReplenishDelay": 5.0,
+          "Ammo.InitialAmmo": -1,
+          "Ammo.MagazineCapacity": 250,
+          "Ammo.NumberOfMagazines": 1,
+          "FireLogic.RateOfFire": 500.0,
+          "Shot.InitialSpeed.x": 0.0,
+          "Shot.InitialSpeed.y": 0.0,
+          "Shot.InitialSpeed.z": 760.0
+        },
+        "typedPaths": {
+          "Ammo.AutoReplenishDelay": "Field_4cc9e2ed/Field_46afa73c",
+          "Ammo.InitialAmmo": "Field_4cc9e2ed/Field_80a58418",
+          "Ammo.MagazineCapacity": "Field_4cc9e2ed/Field_7f22bfb4",
+          "Ammo.NumberOfMagazines": "Field_4cc9e2ed/Field_4614adfe",
+          "FireLogic.RateOfFire": "Field_f8822efa/Field_14c4a054",
+          "Shot.InitialSpeed.x": "Field_58d70acb/Field_0bf4f62b/Field_3901db14",
+          "Shot.InitialSpeed.y": "Field_58d70acb/Field_0bf4f62b/Field_42fc0f5e",
+          "Shot.InitialSpeed.z": "Field_58d70acb/Field_0bf4f62b/Field_32a99b9c"
+        },
+        "rawEvidence": {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3022\\stat-profiles.json",
+          "sha256": "b948603e5022617ed6f680ad82ad2c2942b59891a2f62e5289cd8afb22d08194",
+          "pointer": "/0"
+        }
+      },
+      {
+        "id": "WF_Vehicles_RWS_AGL:1",
+        "route": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/RWS/WF_Vehicles_RWS_AGL",
+        "firingObjectIndex": 1,
+        "actualClass": "35259f6b",
+        "actualKey": "503dde81ed5cf4d154423f8a5b58e439",
+        "values": {
+          "Ammo.AutoReplenishDelay": 5.0,
+          "Ammo.InitialAmmo": -1,
+          "Ammo.MagazineCapacity": 5,
+          "Ammo.NumberOfMagazines": 10,
+          "FireLogic.RateOfFire": 325.0,
+          "Shot.InitialSpeed.x": 0.0,
+          "Shot.InitialSpeed.y": 1.2699999809265137,
+          "Shot.InitialSpeed.z": 100.0
+        },
+        "typedPaths": {
+          "Ammo.AutoReplenishDelay": "Field_4cc9e2ed/Field_46afa73c",
+          "Ammo.InitialAmmo": "Field_4cc9e2ed/Field_80a58418",
+          "Ammo.MagazineCapacity": "Field_4cc9e2ed/Field_7f22bfb4",
+          "Ammo.NumberOfMagazines": "Field_4cc9e2ed/Field_4614adfe",
+          "FireLogic.RateOfFire": "Field_f8822efa/Field_14c4a054",
+          "Shot.InitialSpeed.x": "Field_58d70acb/Field_0bf4f62b/Field_3901db14",
+          "Shot.InitialSpeed.y": "Field_58d70acb/Field_0bf4f62b/Field_42fc0f5e",
+          "Shot.InitialSpeed.z": "Field_58d70acb/Field_0bf4f62b/Field_32a99b9c"
+        },
+        "rawEvidence": {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3022\\stat-profiles.json",
+          "sha256": "b948603e5022617ed6f680ad82ad2c2942b59891a2f62e5289cd8afb22d08194",
+          "pointer": "/1"
+        }
+      },
+      {
+        "id": "WF_Vehicles_RWS_LMG:5",
+        "route": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/RWS/WF_Vehicles_RWS_LMG",
+        "firingObjectIndex": 5,
+        "actualClass": "35259f6b",
+        "actualKey": "503dde81ed5cf4d154423f8a5b58e439",
+        "values": {
+          "Ammo.AutoReplenishDelay": 5.0,
+          "Ammo.InitialAmmo": -1,
+          "Ammo.MagazineCapacity": 250,
+          "Ammo.NumberOfMagazines": 1,
+          "FireLogic.RateOfFire": 720.0,
+          "Shot.InitialSpeed.x": 0.0,
+          "Shot.InitialSpeed.y": 0.0,
+          "Shot.InitialSpeed.z": 600.0
+        },
+        "typedPaths": {
+          "Ammo.AutoReplenishDelay": "Field_4cc9e2ed/Field_46afa73c",
+          "Ammo.InitialAmmo": "Field_4cc9e2ed/Field_80a58418",
+          "Ammo.MagazineCapacity": "Field_4cc9e2ed/Field_7f22bfb4",
+          "Ammo.NumberOfMagazines": "Field_4cc9e2ed/Field_4614adfe",
+          "FireLogic.RateOfFire": "Field_f8822efa/Field_14c4a054",
+          "Shot.InitialSpeed.x": "Field_58d70acb/Field_0bf4f62b/Field_3901db14",
+          "Shot.InitialSpeed.y": "Field_58d70acb/Field_0bf4f62b/Field_42fc0f5e",
+          "Shot.InitialSpeed.z": "Field_58d70acb/Field_0bf4f62b/Field_32a99b9c"
+        },
+        "rawEvidence": {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3022\\stat-profiles.json",
+          "sha256": "b948603e5022617ed6f680ad82ad2c2942b59891a2f62e5289cd8afb22d08194",
+          "pointer": "/2"
+        }
+      },
+      {
+        "id": "WF_Vehicles_RWS_HMG:3",
+        "route": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/RWS/WF_Vehicles_RWS_HMG",
+        "firingObjectIndex": 3,
+        "actualClass": "35259f6b",
+        "actualKey": "503dde81ed5cf4d154423f8a5b58e439",
+        "values": {
+          "Ammo.AutoReplenishDelay": 5.0,
+          "Ammo.InitialAmmo": -1,
+          "Ammo.MagazineCapacity": 250,
+          "Ammo.NumberOfMagazines": 1,
+          "FireLogic.RateOfFire": 400.0,
+          "Shot.InitialSpeed.x": 0.0,
+          "Shot.InitialSpeed.y": 0.0,
+          "Shot.InitialSpeed.z": 760.0
+        },
+        "typedPaths": {
+          "Ammo.AutoReplenishDelay": "Field_4cc9e2ed/Field_46afa73c",
+          "Ammo.InitialAmmo": "Field_4cc9e2ed/Field_80a58418",
+          "Ammo.MagazineCapacity": "Field_4cc9e2ed/Field_7f22bfb4",
+          "Ammo.NumberOfMagazines": "Field_4cc9e2ed/Field_4614adfe",
+          "FireLogic.RateOfFire": "Field_f8822efa/Field_14c4a054",
+          "Shot.InitialSpeed.x": "Field_58d70acb/Field_0bf4f62b/Field_3901db14",
+          "Shot.InitialSpeed.y": "Field_58d70acb/Field_0bf4f62b/Field_42fc0f5e",
+          "Shot.InitialSpeed.z": "Field_58d70acb/Field_0bf4f62b/Field_32a99b9c"
+        },
+        "rawEvidence": {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3022\\stat-profiles.json",
+          "sha256": "b948603e5022617ed6f680ad82ad2c2942b59891a2f62e5289cd8afb22d08194",
+          "pointer": "/3"
+        }
+      }
+    ],
+    "families": [
+      "Car/Flyer60",
+      "Car/JLTV",
+      "Car/Marauder",
+      "Car/Vector"
+    ],
+    "unmatchedProfiles": {
+      "Car/Flyer60": [],
+      "Car/JLTV": [],
+      "Car/Marauder": [],
+      "Car/Vector": []
+    },
+    "workerResult": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3022\\l3022-result.json",
+      "sha256": "9f8eef7894401d8e81312bd12760dd33f76f1655bb4aee93d3f2754e0becc4f4",
+      "pointer": "/rows"
+    },
+    "limits": "Names transferred by exact actual owner and nested member schema identity. Source values only; active loadouts, gameplay units, ammo interpretation, effective speed and native cadence remain unresolved."
+  },
+  "evidence": {
+    "result": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3022\\l3022-result.json",
+      "sha256": "9f8eef7894401d8e81312bd12760dd33f76f1655bb4aee93d3f2754e0becc4f4"
+    },
+    "draft": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3022\\draft-receipt.json",
+      "sha256": "0ddd5cf296b5235425b5c7a0afc3d0ae725d3ca594a57dc88152ae434e90d8f2"
+    },
+    "workerReview": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3022\\parent-worker-review.json",
+      "sha256": "995dd5d5a05ce153ecb62ceceec7398bbaff31cbaf23a0a6749c68d6197b2fe8"
+    },
+    "parentRawCheck": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3022\\parent-key-operand-review.json",
+      "sha256": "d8e696c7498d36a01e5a62993a10153ad7c789fce58b719128e204b6731ef8f7"
+    },
+    "controlProof": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3022\\control-proof.json",
+      "sha256": "71bca9fb475e465560fa78e1a653fd62189f6efedd38e3141ed2dd449dc7a5fe"
+    },
+    "controlCapture": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\capture-control-winps\\parent-capture-review.json",
+      "sha256": "d98647d8a9538c68ca4e60eccd4dea05f303b93ad297bf22866a6be6806c2ec3"
+    },
+    "captureInvocation": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\capture-control-command.json",
+      "sha256": "c8d2eafdef73d0e56b02608156b3d52c9ba412833f4c292f2642ec896ef87f0b"
+    },
+    "workerCommands": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3022\\execution.json",
+      "sha256": "60dccb28587e62da694cdede02f5481e803351f1b7cd2050c6b36b46bfd01a98"
+    },
+    "promotionHelper": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\promote-stat-lead-v2.py",
+      "sha256": "acb9ce7a75152a358f5fd80fc6d8adcbeed7195c2425a9751ba713b7c06c3098"
+    },
+    "parentRawCommand": {
+      "argv": [
+        "python",
+        "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+        "--manifest",
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3022\\parent-key-operand-manifest.json",
+        "--out",
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3022\\parent-key-operand-review.json"
+      ],
+      "cwd": "C:\\Users\\royal\\Documents\\BF6 Frosty Research"
+    },
+    "updatedStatMap": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\stat-map\\L3022-comparison-stat-map.json",
+      "sha256": "2eccb281c0402c24f01d0a3d8c92bc2fd899458308687a4598aafe862f3c6f77"
+    }
+  }
+}

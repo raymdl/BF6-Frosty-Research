@@ -1,0 +1,178 @@
+{
+  "lead": "L3029",
+  "status": "complete",
+  "question": "Transport helicopter: eight configured fields, exactly two families.",
+  "inference": "Labels transfer by exact actual owner class/key and complete nested/member identities.",
+  "unresolved": [
+    "Configured source values do not establish units, active/default selection, ammo interpretation, effective velocity or native cadence.",
+    "No named same-owner ground projectile damage/radius control passed; projectile fields remain unresolved for this role."
+  ],
+  "siteImpact": "Source-only finding. No site change.",
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-09-30",
+    "build": "1.4.3.0-hotfix",
+    "binding": "research",
+    "leads": [
+      {
+        "id": "L3029",
+        "title": "Transport helicopter configured firing, ammo and vector",
+        "status": "finding",
+        "summary": "One UH60 matched selected firing profile; MH47 retains its established polymorphic armament boundary with configured values unset.",
+        "reopenWhen": "An exact named projectile control or native selection evidence is available."
+      }
+    ],
+    "assets": [
+      {
+        "path": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/TransportHeli/WF_Vehicles_TransportHeli_Gunner_Minigun",
+        "format": "raw-ebx",
+        "sha256": "d66a0d4f1e5a45c039b9c1168bf2219bc59bc6a7b81e4ccacdf893dd1d8f6ab5",
+        "question": "Eight configured firing/ammo/vector fields.",
+        "result": "useful",
+        "conclusion": "WF_Vehicles_TransportHeli_Gunner_Minigun firing object 5 stores RateOfFire 1800.0, MagazineCapacity 100 and InitialSpeed vector [0.0, 0.0, 700.0]; native composition remains unresolved."
+      }
+    ]
+  },
+  "build": {
+    "client": "1.4.3.1",
+    "head": 4892087,
+    "descriptorSha256": "99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640",
+    "dataBuild": "1.4.3.0"
+  },
+  "sourceFacts": {
+    "operatorItem": 6,
+    "scope": {
+      "expected": 2,
+      "examined": 2,
+      "notes": "One UH60 matched selected firing profile; MH47 retains its established polymorphic armament boundary with configured values unset."
+    },
+    "configuredProfiles": [
+      {
+        "id": "WF_Vehicles_TransportHeli_Gunner_Minigun:5",
+        "route": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/TransportHeli/WF_Vehicles_TransportHeli_Gunner_Minigun",
+        "firingObjectIndex": 5,
+        "actualClass": "35259f6b",
+        "actualKey": "503dde81ed5cf4d154423f8a5b58e439",
+        "values": {
+          "Ammo.AutoReplenishDelay": 20.0,
+          "Ammo.InitialAmmo": 200,
+          "Ammo.MagazineCapacity": 100,
+          "Ammo.NumberOfMagazines": 4,
+          "FireLogic.RateOfFire": 1800.0,
+          "Shot.InitialSpeed.x": 0.0,
+          "Shot.InitialSpeed.y": 0.0,
+          "Shot.InitialSpeed.z": 700.0
+        },
+        "typedPaths": {
+          "Ammo.AutoReplenishDelay": "Field_4cc9e2ed/Field_46afa73c",
+          "Ammo.InitialAmmo": "Field_4cc9e2ed/Field_80a58418",
+          "Ammo.MagazineCapacity": "Field_4cc9e2ed/Field_7f22bfb4",
+          "Ammo.NumberOfMagazines": "Field_4cc9e2ed/Field_4614adfe",
+          "FireLogic.RateOfFire": "Field_f8822efa/Field_14c4a054",
+          "Shot.InitialSpeed.x": "Field_58d70acb/Field_0bf4f62b/Field_3901db14",
+          "Shot.InitialSpeed.y": "Field_58d70acb/Field_0bf4f62b/Field_42fc0f5e",
+          "Shot.InitialSpeed.z": "Field_58d70acb/Field_0bf4f62b/Field_32a99b9c"
+        },
+        "rawEvidence": {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3029\\stat-profiles.json",
+          "sha256": "52389df0c90cc47c43c7d69449f03cc3028c057fd2e0271b041231269063237e",
+          "pointer": "/0"
+        }
+      }
+    ],
+    "families": [
+      "helicopter/mh47",
+      "helicopter/uh60"
+    ],
+    "unmatchedProfiles": {
+      "helicopter/mh47": [
+        {
+          "reason": "Established polymorphic armament boundary; no matched selected firing profile. Configured values remain unset.",
+          "rawChecks": [
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T2025-0400-vehicles\\capture-missing-roots-winps\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\MH47\\VB_VEH_Helicopter_MH47_Insertion.ebx",
+              "rawSha256": "2283aa479c1c9942788e2fbbef21e51412e97b21540db299921b857e5d1e9e4b",
+              "offset": 152,
+              "type": "i32",
+              "bytesHex": "28000000",
+              "value": 40
+            },
+            {
+              "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-29T2025-0400-vehicles\\capture-missing-roots-winps\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\MH47\\VB_VEH_Helicopter_MH47_SP.ebx",
+              "rawSha256": "d29abee576574ee192f2487f9101f1863a6cc6486496035ed9af316cf08dc240",
+              "offset": 152,
+              "type": "i32",
+              "bytesHex": "28000000",
+              "value": 40
+            }
+          ]
+        }
+      ],
+      "helicopter/uh60": []
+    },
+    "workerResult": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3029\\l3029-result-v2.json",
+      "sha256": "bd9f424cb68efedb9937ca9fc3d10b263357e3e19c086d3fd3e8deb70ea9fa8d",
+      "pointer": "/rows"
+    },
+    "limits": "Names transferred by exact actual owner and nested member schema identity. Source values only; active loadouts, gameplay units, ammo interpretation, effective speed and native cadence remain unresolved."
+  },
+  "evidence": {
+    "result": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3029\\l3029-result-v2.json",
+      "sha256": "bd9f424cb68efedb9937ca9fc3d10b263357e3e19c086d3fd3e8deb70ea9fa8d"
+    },
+    "draft": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3029\\draft-receipt-v2.json",
+      "sha256": "0461a4940c971d67eaf91c9c443cf76b2a50cbe68d3d715d967bfa0bb161b359"
+    },
+    "workerReview": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3029\\parent-worker-review-v2.json",
+      "sha256": "0cf4d8d09f4bed9b22a549b9f9f9865b3e99b99cd6c55ca1aed46d09326d5f8d"
+    },
+    "parentRawCheck": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3029\\parent-key-operand-review.json",
+      "sha256": "5dbc30e65654aecc9d658d1b245e92f1025f3ac816e30a1de3a58186e590bc52"
+    },
+    "controlProof": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3029\\control-proof.json",
+      "sha256": "15ce7e643b8731932cbf596aea5f42d43b0438f7420dcd60c6f00f218707a65b"
+    },
+    "controlCapture": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\capture-control-winps\\parent-capture-review.json",
+      "sha256": "d98647d8a9538c68ca4e60eccd4dea05f303b93ad297bf22866a6be6806c2ec3"
+    },
+    "captureInvocation": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\capture-control-command.json",
+      "sha256": "c8d2eafdef73d0e56b02608156b3d52c9ba412833f4c292f2642ec896ef87f0b"
+    },
+    "workerCommands": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3029\\execution.json",
+      "sha256": "7b609f2f50daf03b26db283b0870f5673a5c2c39f115ffadb79a877860cf6b66"
+    },
+    "promotionHelper": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\promote-stat-lead-v4.py",
+      "sha256": "0409a2e68a75ea931bb76a688cd28321cce484b031609789a7c79fd68cee9020"
+    },
+    "parentRawCommand": {
+      "argv": [
+        "python",
+        "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+        "--manifest",
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3029\\parent-key-operand-manifest.json",
+        "--out",
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3029\\parent-key-operand-review.json"
+      ],
+      "cwd": "C:\\Users\\royal\\Documents\\BF6 Frosty Research"
+    },
+    "workerRevisionSupplement": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3029\\execution-supplement-v2.json",
+      "sha256": "58a964cd6975003da69ce409c26cfc3a293986a0d0371a5a197bd9c3a835da34"
+    },
+    "updatedStatMap": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\stat-map\\L3029-comparison-stat-map.json",
+      "sha256": "0dc2e9c0f00d9a5644175e1e31a9843fee11cd0835bfc4582e01deacc794aede"
+    }
+  }
+}

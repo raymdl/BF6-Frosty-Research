@@ -4,6 +4,7 @@
 
 How the site resolves English weapon names, attachment and optic names, labels and
 descriptions from BF6 game data, and what the current site mapping contains.
+The gadget section records captured 1.4.3.1 text separately from site data.
 Snapshot: 1.4.2.5 export (13–14 September 2026), strings rechecked on 1.4.3.0.
 
 Results:
@@ -12,6 +13,17 @@ Results:
 - [frosty-attachment-descriptions-2026-09-13.json](../../reference-data/provenance/frosty-attachment-descriptions-2026-09-13.json)
 - [frosty-optic-render-fov-2026-09-16.json](../../reference-data/provenance/frosty-optic-render-fov-2026-09-16.json) `opticNames` (in-game names of 42 optics)
 - [weapon-descriptions-2026-09-13.json](../../reference-data/provenance/weapon-descriptions-2026-09-13.json)
+
+## 1.4.3.5 text check (30 September 2026)
+
+The 109,195-row current English strings export is byte-identical to the recorded
+1.4.3.1 table: SHA-256
+`1ec449fa2a12bc3d307bfa5878ee7d8c56af14fae65ea1f6c6286e85d98e7392`.
+Current label and description roles were decoded for 1,004 AD metadata assets and
+resolved against that table. Their raw bytes are unchanged. All AD metadata has
+layout ambiguity, so unchanged decoded fields alone are not the stability proof.
+No generated old tooltip file was used to verify new wording. Evidence and limits:
+[update receipt](../../reference-data/provenance/frosty-update-1.4.3.5-2026-09-30.json).
 
 ## Why the XML export is not enough
 
@@ -140,6 +152,131 @@ image links and a pointer to an object that holds one 32-bit id.
 | `SCAR-SC .300 BLK`, `MP7A2 SP SUPPRESSED` | Variant records of SOR-300SC and PW7A2, not separate weapons. |
 | Mini Scout, DB-12, GGH-22, M357 Trait | Two records each. |
 | Sym and Companion names | They use old spellings. Recorded Sym `displayname` values stay unchanged. |
+
+## Gadget names and descriptions
+
+### Export the gadget UI metadata
+
+```text
+Common/UI/Static/Metadata/UIGadgetAbilityMetadata
+Common/UI/Static/Metadata/UIGadgetAbilityMetadata_S2
+Common/UI/Static/Metadata/S3/UIGadgetAbilityMetaData_S3
+Common/UI/Static/Metadata/UISoldierLoadoutPresetMetadata
+Common/UI/MetaData/UIPlayerAbilityDescriptionMetadata
+```
+
+The operator captured these assets on 1.4.3.1, Head 4892087. The parent folder
+is named `1.4.3.0`; that name does not identify the captured client. Use the
+capture identity and descriptor hash. L219 uses descriptor SHA-256
+`99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640`
+and the `pre-update-1.4.3.1-2026-09-29/fs_us_loc.strings.tsv` capture.
+
+### Parse the links
+
+1. Decode the three gadget metadata files with the pinned descriptor. Keep all
+   78 records, including SP, EOD sub-tool, mode, placeholder and missing-text
+   records. L219 identifies the main owner as `Class_8680e440`, with exact
+   type key `3b1ec1ab4a3bfb39a85b2dbf937536cc`.
+2. Read `Field_55aded8d` as the internal text label. Resolve local text pointers:
+   `Field_33a358a7` (short name), `Field_70b5525f` (display name),
+   `Field_490f0dd0` (description), `Field_f8c63ce7` (short description/category)
+   and `Field_fd698f51` (alternate in-game name). Keep each field separately.
+3. The selected `Class_fbe1d3bc` object has the string id in `Field_3d34898a`.
+   Look up its uppercase eight-digit id in the pinned TSV. Preserve the exact
+   escaped TSV text, its line and id; do not silently repair encoding.
+4. Raw-check the pointer, selected object and string id. For example, AT Mine
+   resolves to AV Mine, Anti-Vehicle Mine and M15 in the respective fields.
+5. Record asset links separately from text. `Field_53078b86` and
+   `Field_ebe3976f` are image imports. In this descriptor,
+   `Field_1636b8bd` is a `UINT32[]` field. It is not an import pointer.
+   Name matches and image names are supporting evidence only. A blueprint or
+   ability join requires an exact source identity edge.
+
+### Apply and check
+
+1. Resolve the table independently before use. Do not run the supplied
+   `gadget_table.py` in its source folder: it overwrites decoded outputs and
+   the candidate table. Write independent outputs in a new lead folder.
+2. Compare all 78 records, field by field, against the candidate table. Record
+   missing ids and exact text differences. Keep unlinked records visible.
+3. For coverage, record class loadout preset presence or verified player-facing
+   metadata presence under the operator's approved rule. SP, EOD sub-tools,
+   Portal and placeholders do not establish multiplayer availability by
+   themselves. Preserve the evidence basis and unresolved identity joins.
+4. Add a concrete check and prediction for a description's number or rule.
+   Compare it to the selected source value only after the gadget identity is
+   established. A description is a documentation claim; it is not a measured
+   mechanic. Do not start in-game tests as part of this source pass.
+5. Write a receipt with source hashes, raw offsets/bytes, exact ids and text,
+   then run the receipt and records checks. Keep site data unchanged until
+   the operator approves implementation.
+
+### Result
+
+[L219](../../reference-data/provenance/frosty-2026-09-30-L219-gadget-ui-metadata-linkage.json)
+independently checks all 78 records with 4,164 raw checks. There are 75 exact
+candidate-table matches and three description encoding differences: Sniper
+Decoy, TOW and Mortar. Seventy-five description ids resolve; three are missing.
+Excluding 12 stated label/stub texts reproduces the supplied count of 63
+descriptive texts. This text criterion does not classify gadgets.
+
+The outward direct-import and selected local-owner route leaves all 78 records
+unlinked to a blueprint/ability: 451 imports are images and seven are UI movie
+or configuration assets. Other inbound identity routes remain open. The
+[verified metadata table](../../reference-data/frosty/gadget-ui-metadata.json)
+keeps every record and its text fields. The
+[L220 preset/ability-description pass](../../reference-data/provenance/frosty-2026-09-30-L220-gadget-preset-coverage.json)
+decodes 24 MP preset rows and 102 ability descriptions. Preset descriptions
+name Defibrillator, Deployable Cover, C4 and Ladder. Their numeric identifiers
+have no overlap with the gadget metadata arrays, and all 194 ability-description
+imports are images. Under the accepted text-presence rule, coverage records
+56 multiplayer gadget groups, six shared systems, one SP/mode item and
+58 unresolved groups. Every group states its text evidence basis separately
+from the unresolved exact blueprint link.
+
+[L221](../../reference-data/provenance/frosty-2026-09-30-L221-gadget-ui-text-and-checks.json) adds
+UI text records to all 121 coverage groups and a 39-row stat companion. Sixty
+groups show exact UI-owner text under a disclosed supporting association. The
+63 substantive descriptions have concrete check steps and predictions; 12
+stubs and three missing descriptions remain explicit exclusions. No game
+tests were performed. M26 Slug versus buckshot text is recorded as a source
+contradiction, without repair.
+
+### Gadget reverse identity search (L222)
+
+[L222](../../reference-data/provenance/frosty-2026-09-30-L222-gadget-reverse-ui-identity.json)
+checks the reverse route from named gameplay WB, Ability, CUST, U_ and loadout
+roots to the exact file and exported-object GUIDs of all 78 UI records. The
+known Supply Drop Ability → CUST → WB chain passes before the search, and the
+independent import reader recovers its exact CUST-to-WB pair.
+
+The inventory retains all 121 groups and 320 named routes. It inspects 274
+captured revisions and 4,712 imports with no exact metadata GUID reference,
+encoded GUID candidate or reader error. Of these, 146 revisions and 3,358
+imports have directly verified 1.4.3.5 raw bytes; 128 revisions and 1,354
+imports remain historical-only evidence. There are 46 missing routes. The
+negative applies to these inspected bytes, not to all gameplay assets.
+Historical captures retain their original Head; equal current hashes prove
+carry-forward only for the explicitly verified revisions.
+
+No UI-to-gameplay join method follows from this route. All 78 records remain
+unlinked. The numeric preset route is a separate check.
+
+[L223](../../reference-data/provenance/frosty-2026-09-30-L223-gadget-preset-numeric-identity.json)
+tests all 24 MP preset identifier arrays against typed integer fields in
+named gadget Ability, WB, CUST, U_ and loadout roots. The exact Supply Drop
+chain, its typed identity field and one preset UINT32 pass the controls.
+All 24 preset values are distinct. None equals an inspected gameplay field.
+The current scope is 145 directly verified roots with 761 integer operands;
+128 historical-only roots have 833 further operands. Forty-six named routes
+remain uncaptured. This scan covers typed root integer fields, integer arrays
+and value structs; it skips pointers and other array types. No equality,
+exact join or native selection rule follows from this scope.
+
+The two unsuccessful identity leads close this run under the operator's stop
+rule. Coverage and the stat-list statuses remain unchanged. No reusable
+UI-to-asset join method was established. Reopen only with a new authoritative
+identity route or a specific essential capture that can settle a named join.
 
 ## Weapon descriptions and role tags
 
@@ -418,3 +555,65 @@ use it only as a research lead.
 - Name and description links establish UI text and source identity. They do not prove
   live availability or engine behavior.
 - Open questions are in [Open questions](OPEN_QUESTIONS.md).
+
+## Vehicle archetype, loadout and customization text (L3023)
+
+[L3023](../../reference-data/provenance/frosty-2026-09-30-L3023-vehicle-ui-metadata.json) uses the operator capture at Head 4892087 (1.4.3.1), without Frosty. Four raw hashes, the descriptor and the localization TSV are pinned. Nine archetype cards and fifteen presets are retained.
+
+Archetype Class_02be5e85 has actual key `9b9c42a5efc21f07060d23aa9918083c`. Field_8a9d7d7b selects role name, Field_f9aca425 short name, Field_490f0dd0 description and Field_ccfb8048 text tags. These semantic labels are inferred from the resolved text. Selected Class_fbe1d3bc targets contain ids in Field_3d34898a. Keep exact ids, TSV lines and escaped text. Field_1636b8bd is UINT32[] lookup keys. Hash-name layout ambiguity is retained; actual local keys and raw offsets control these reads. The independent parent control resolves ECD2AB78 to MAIN BATTLE TANK.
+
+| Card / role name | Description | Seat text | Tags | Exact family/root link |
+|---|---|---|---|---|
+| MAIN BATTLE TANK (MBT) | Built for engaging enemy land vehicles but can also effectively combat enemy infantry. | 2 Seats | 2 Seats, Anti-Vehicle, Hard Target | Unlinked |
+| INFANTRY FIGHTING VEHICLE (IFV) | Effectively counters hostile infantry but has limited capability against heavy enemy armor. | 6 Seats | 6 Seats, Anti-Soldier | Unlinked |
+| LIGHT GROUND TRANSPORT (LIGHT TRANSPORT) | Designed for rapid battlefield traversal. Equipped with firepower to combat hostiles.  | 5 Seats | 5 Seats, Open Seats, Transport | Unlinked |
+| ARMORED TRANSPORT (ATP) | Primarily for use in urban areas. Mine blast protection ensures optimal navigation through hostile territory. | 4 Seats | 4 Seats, Shielded Seats | Unlinked |
+| MOBILE ANTI-AIR (ANTI-AIR) | Capable of using dual autocannons and homing missiles to combat enemy aircraft. | 1 Seat | 1 Seat, Shielded Seats | Unlinked |
+| Attack Helicopter (ATTACK HELI) | Highly effective at engaging all ground targets, especially when both crew positions are manned. | 2 Seats | 2 Seats, Anti-Vehicle, Anti-Soldier | Unlinked |
+| TRANSPORT HELICOPTER (TRANSPORT HELI) | This transport helicopter serves as a vital component in air assaults. Two side-mounted miniguns aid in self-defense. | 5 Seats | 5 Seats, Transport | Unlinked |
+| ATTACK JET (ATTACK JET) | A fast multirole attack aircraft specialized in engaging all ground targets, including vehicles and infantry. | 1 Seat | 1 Seat, Anti-Vehicle, Anti-Soldier, Soft Target | Unlinked |
+| FIGHTER JET (FIGHTER JET) | A stealth fighter that specializes in combating other air vehicles, with limited air-to-ground combat capabilities. | 1 Seat | 1 Seat, Anti-Vehicle, Soft Target | Unlinked |
+
+Each stated numeric seat count is sourced as an in-game statement for usable seats. Validation: after establishing the exact vehicle/card join, count every enterable seat through spawn, enter and switch. Prediction: the count equals the card number. No test was run. Open Seats and Shielded Seats are descriptive tags, not extra seats. All nine cards remain explicitly unlinked after one saved-root selector pass; family seat values remain unset.
+
+UIVehicleArchetypeMetadata selects nine local records and nine unresolved icon imports. UIVehicleLoadoutPresetMetadata selects fifteen local records: AA, AH, APC, IFV and MBT each have three numbered loadouts. Field_fd698f51 resolves LOADOUT 1/2/3; Field_490f0dd0 resolves descriptions, retained separately per preset in the receipt. Preset internal-name bytes are decoder/hash-pinned without separate string-byte checks.
+
+UIVehicleMetadata links 25 external vehicle UI metadata GUID pairs; the registry routes are retained, but exact same-Head target objects are not captured in the bounded check. BFUIVehicleCustomizationsViewManagerConfig retains 21 local and 35 external pointer records: 18 have exact saved target GUID matches and 17 remain unresolved. The receipt pins every source field/index, offset and target GUID pair in links.json. These are customization and metadata selections, not default or active loadouts.
+
+Worker review passed 292 unique raw checks. Parent rereads confirm one text id and one customization import pair. No family join was invented from a route label.
+
+## Class, training-path and perk metadata
+
+Client **1.4.3.1, Head 4892087**, descriptor `99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640`.
+The retained `builds/1.4.3.0` folder name does not identify the client version.
+[Table and source links (L400)](../../reference-data/provenance/frosty-2026-09-30-L400-class-trait-ui.json)
+contain 17 class records, 12 training paths, 102 perk records and 24 presets.
+The receipt keeps explicit columns for class, description, signature trait,
+proficiency, path, perk, text numbers and exact record references. Missing fields
+and all unverified activation links remain explicit.
+
+Text resolves through local pointers to `Field_3d34898a`, then the captured English
+TSV. The exact Support LMG control passes. There are 832 raw pointer/string reads.
+Support and Recon signature string IDs are absent from this TSV; no substitute
+names or descriptions are supplied. Decoder layout ambiguity markers remain in
+the table. `Field_890a772b` path imports resolve to ClassSpecs **images**, which do
+not establish class or perk selection. Duplicate internal names also need the
+record GUID: `Ability_ActiveFlak` includes both RALLY SQUAD and HEAVY FLAK.
+
+| Class | Captured proficiency text | Cross-check with existing release evidence |
+|---|---|---|
+| Assault | Faster draw times and fire sooner when exiting a sprint with Assault Rifles. | Agrees with draw/sprint-recovery +1 steps. |
+| Engineer | Improved hip-fire control when using SMGs. | Agrees with hip minimum row +1. |
+| Support | Faster transition to aim down sights (ADS) and no sprint speed penalty when carrying LMGs. | ADS agrees; sprint exemption has no sourced operand in L100-L104. |
+| Recon | Reduced weapon sway, faster rechambering, and improved breath control with Sniper Rifles. | Sway agrees; rechambering remains conditional and breath control lacks an operand. |
+
+The comparison uses L100-L104 and the existing timing receipt; it does not retrace
+those release operands or establish their behavior on a new client build.
+Eight captured multiplayer source paths have 32 raw-checked ordered
+`Field_ba52a009` Ability imports. Their `U_FieldUpgradePath` wrapper tokens do not
+establish a match to the UI table. Source paths and array positions are serialized
+facts; UI display-name associations, unlock levels and class selection remain
+unresolved. The readable table and run handoff are retained in
+`BF6 Datamining/reports/weapon-analyzer-research/2026-09-30T0112-0400-class-traits/`.
+
+See [class/perk stat findings](WEAPONS.md#class-path-and-perk-source-cross-check).

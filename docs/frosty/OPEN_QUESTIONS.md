@@ -17,6 +17,20 @@ Active investigations with their own files:
 - [Composite stats](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/archive/COMPOSITE_STATS_FINDINGS.md) (includes which native
   provider supplies Precision)
 
+## 1.4.3.5 update limits (30 September 2026)
+
+The [update receipt](../../reference-data/provenance/frosty-update-1.4.3.5-2026-09-30.json)
+pins the current evidence and the exact missing routes.
+
+| Question | Next step |
+|---|---|
+| Content changes in 751 patch-summary routes with no retained old raw, including 110 catalog-hash changes | A search of 70 other retained captures recovered 2 more (both drone gadget features, byte-identical; `supplemental-old-raw-search.json` in the 1.4.3.5 reports). Obtain a retained pre-update capture for the rest; do not substitute current bytes. |
+| Before/after damage multipliers in the three current changed-record material grids | Obtain old raw for the exact maps, then use the bounded reader with each build's own descriptors. Current cross-map agreement is insufficient. |
+| Asset/consumer implementing the announced APHEI/carrier damage restriction and shallow-water AI fix | Join exact consumers and compare old/current source; patch wording and current-only AI records are not proof. |
+| Native significance of Class_d8dce156 enum member classRef changes | Resolve the descriptor metadata targets. Integer offsets, class size and alignment are unchanged; no instance-offset change is established. |
+| Native effect of two purchase deeplinks moving from KST_Glacier_Meta to GRX_Online | Trace the store consumer. The serialized ownership move is established, not its runtime effect. |
+| Three Blacklight selector inputs outside current/reference raw coverage | Capture exact inputs before a complete selector-graph claim. This does not block the listed unrelated attachment-bug retention. |
+
 ## Field meanings
 
 | Question | Next step |

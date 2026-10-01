@@ -1,0 +1,276 @@
+{
+  "lead": "L3024",
+  "status": "complete",
+  "build": {
+    "name": "1.4.3.1",
+    "head": 4892087,
+    "descriptorSha256": "99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640"
+  },
+  "question": "Can selected own-wrapper joins name configured MaxHealth/RepairRateModifier for AAV7A1, TheBeast and JetSki?",
+  "inference": "Exact own-wrapper naming is required per actual owner. No CB90 label transfers across differing keys.",
+  "unresolved": [
+    "All three selected own-wrapper pointers are serialized null; exact owner keys differ from CB90 and no health/repair names transfer.",
+    "Null selected wrappers do not establish zero health, absent repair, units, effective health or native behavior."
+  ],
+  "siteImpact": "No named health or repair values sourced for the three families; no site edit.",
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-09-30",
+    "build": "1.4.3.0-hotfix",
+    "binding": "research",
+    "leads": [
+      {
+        "id": "L3024",
+        "title": "AAV7A1, TheBeast and JetSki own-wrapper health naming",
+        "status": "finding",
+        "summary": "Three exact selected owner wrappers are null; no CB90 health/repair names transfer across their different keys.",
+        "reopenWhen": "Exact named own-owner health evidence is available for the three keys."
+      }
+    ],
+    "assets": [
+      {
+        "path": "Common/Hardware/Vehicles/Tank/AAV7A1/VB_VEH_Tank_AAV7A1",
+        "format": "raw-ebx",
+        "sha256": "9912c341bb80f992e104cc364f737e3d7b64943d6c423509581e7d2e1a3b5c71",
+        "question": "Exact selected own-wrapper health/repair naming join.",
+        "result": "inconclusive",
+        "conclusion": "VB_VEH_Tank_AAV7A1: selected own-wrapper pointer is serialized null; health and repair names remain unset."
+      },
+      {
+        "path": "Common/Hardware/Vehicles/Car/TheBeast/VB_VEH_Car_TheBeast",
+        "format": "raw-ebx",
+        "sha256": "6f344d9f8fd7f43adbbaffef62183d640e072addff58f58af86ecebd9838c8d7",
+        "question": "Exact selected own-wrapper health/repair naming join.",
+        "result": "inconclusive",
+        "conclusion": "VB_VEH_Car_TheBeast: selected own-wrapper pointer is serialized null; health and repair names remain unset."
+      },
+      {
+        "path": "Common/Hardware/Vehicles/Boat/JetSki/VB_VEH_Boat_JetSki",
+        "format": "raw-ebx",
+        "sha256": "8f911f6676c9a701c943e0e955fbfc0ca544ded800d6dc17b6039ed890632518",
+        "question": "Exact selected own-wrapper health/repair naming join.",
+        "result": "inconclusive",
+        "conclusion": "VB_VEH_Boat_JetSki: selected own-wrapper pointer is serialized null; health and repair names remain unset."
+      },
+      {
+        "path": "Common/Hardware/Vehicles/Boat/CB90/VB_VEH_Boat_CB90",
+        "format": "raw-ebx",
+        "sha256": "2d8e05398f8f3f2b79159a8db1ec5a87d3033ac7c2469d0cb5f3c6c3f6911ad3",
+        "question": "Known exact own-wrapper route control.",
+        "result": "useful",
+        "conclusion": "VB_VEH_Boat_CB90: selected own-wrapper pointer is serialized null; health and repair names remain unset."
+      },
+      {
+        "path": "Common/GameSetup/Tweakables/GameRemixer/GRX_Vehicles",
+        "format": "raw-ebx",
+        "sha256": "7be1c136b6b4de1c3071eca63c12b5affc714ff96c51bd1dbf3f38b1fc2580de",
+        "question": "CB90 selected own-wrapper identity and child names.",
+        "result": "useful",
+        "conclusion": "GRX_Vehicles: selected own-wrapper pointer is serialized null; health and repair names remain unset."
+      }
+    ]
+  },
+  "sourceFacts": {
+    "operatorItem": 5,
+    "families": [
+      {
+        "family": "Tank/AAV7A1",
+        "roots": [
+          "Common/Hardware/Vehicles/Tank/AAV7A1/VB_VEH_Tank_AAV7A1"
+        ],
+        "status": "unresolved-own-wrapper",
+        "reason": "Selected exact own-wrapper pointer is serialized null; this owner key cannot inherit CB90 health/repair names.",
+        "owners": [
+          {
+            "index": 1,
+            "class": "f2a56983",
+            "key": "e39565c4c24306f97c377628132bba60",
+            "wrapper": {
+              "offset": 1032,
+              "path": "Field_95253068/Field_6b28f68f",
+              "target": null,
+              "typedPath": [
+                {
+                  "class": "f2a56983",
+                  "key": "e39565c4c24306f97c377628132bba60"
+                },
+                {
+                  "field": "Field_95253068",
+                  "descriptor": {
+                    "hash": "95253068",
+                    "offset": 840,
+                    "flags": 32,
+                    "classRef": 308
+                  }
+                },
+                {
+                  "field": "Field_6b28f68f",
+                  "descriptor": {
+                    "hash": "6b28f68f",
+                    "offset": 0,
+                    "flags": 48,
+                    "classRef": 65535
+                  }
+                }
+              ],
+              "rawCheckIndex": 1
+            }
+          }
+        ],
+        "sourceEvidence": {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3024\\l3024-result.json",
+          "sha256": "420fc618aa588acc568c88afdfe74d2ccba64d6502eb50e8059c2933b8bbe484",
+          "pointer": "/rows/0"
+        }
+      },
+      {
+        "family": "Car/TheBeast",
+        "roots": [
+          "Common/Hardware/Vehicles/Car/TheBeast/VB_VEH_Car_TheBeast"
+        ],
+        "status": "unresolved-own-wrapper",
+        "reason": "Selected exact own-wrapper pointer is serialized null; this owner key cannot inherit CB90 health/repair names.",
+        "owners": [
+          {
+            "index": 1,
+            "class": "f2a56983",
+            "key": "e39565c4c24306f97c377628132bba60",
+            "wrapper": {
+              "offset": 1032,
+              "path": "Field_95253068/Field_6b28f68f",
+              "target": null,
+              "typedPath": [
+                {
+                  "class": "f2a56983",
+                  "key": "e39565c4c24306f97c377628132bba60"
+                },
+                {
+                  "field": "Field_95253068",
+                  "descriptor": {
+                    "hash": "95253068",
+                    "offset": 840,
+                    "flags": 32,
+                    "classRef": 308
+                  }
+                },
+                {
+                  "field": "Field_6b28f68f",
+                  "descriptor": {
+                    "hash": "6b28f68f",
+                    "offset": 0,
+                    "flags": 48,
+                    "classRef": 65535
+                  }
+                }
+              ],
+              "rawCheckIndex": 3
+            }
+          }
+        ],
+        "sourceEvidence": {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3024\\l3024-result.json",
+          "sha256": "420fc618aa588acc568c88afdfe74d2ccba64d6502eb50e8059c2933b8bbe484",
+          "pointer": "/rows/1"
+        }
+      },
+      {
+        "family": "Boat/JetSki",
+        "roots": [
+          "Common/Hardware/Vehicles/Boat/JetSki/VB_VEH_Boat_JetSki"
+        ],
+        "status": "unresolved-own-wrapper",
+        "reason": "Selected exact own-wrapper pointer is serialized null; this owner key cannot inherit CB90 health/repair names.",
+        "owners": [
+          {
+            "index": 1,
+            "class": "f2a56983",
+            "key": "e39565c4c24306f97c377628132bba60",
+            "wrapper": {
+              "offset": 1032,
+              "path": "Field_95253068/Field_6b28f68f",
+              "target": null,
+              "typedPath": [
+                {
+                  "class": "f2a56983",
+                  "key": "e39565c4c24306f97c377628132bba60"
+                },
+                {
+                  "field": "Field_95253068",
+                  "descriptor": {
+                    "hash": "95253068",
+                    "offset": 840,
+                    "flags": 32,
+                    "classRef": 308
+                  }
+                },
+                {
+                  "field": "Field_6b28f68f",
+                  "descriptor": {
+                    "hash": "6b28f68f",
+                    "offset": 0,
+                    "flags": 48,
+                    "classRef": 65535
+                  }
+                }
+              ],
+              "rawCheckIndex": 5
+            }
+          }
+        ],
+        "sourceEvidence": {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3024\\l3024-result.json",
+          "sha256": "420fc618aa588acc568c88afdfe74d2ccba64d6502eb50e8059c2933b8bbe484",
+          "pointer": "/rows/2"
+        }
+      }
+    ],
+    "namedHealthValuesAdded": 0,
+    "control": "Exact CB90 own-wrapper route passed; its labels are not transferred to a different owner key."
+  },
+  "evidence": {
+    "result": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3024\\l3024-result.json",
+      "sha256": "420fc618aa588acc568c88afdfe74d2ccba64d6502eb50e8059c2933b8bbe484"
+    },
+    "draft": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3024\\draft-receipt.json",
+      "sha256": "0970c0ed8603220b09987df04e474dc164fce6fa0ede1d8a54db7e148fd758fd"
+    },
+    "review": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3024\\parent-worker-review.json",
+      "sha256": "b6ab7a1f0b308ea93b735f34cf67dd1efd57d81eb19e291fe6fabbdfaf82a7c9"
+    },
+    "control": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3024\\control-proof.json",
+      "sha256": "13da40cdd42735540eaf98febfe058dfdd690677abb2695e492b35bfd20ff92c"
+    },
+    "execution": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3024\\execution.json",
+      "sha256": "2b4427eea59cde7d252569a5a9a36069bea2a102ebfbbc94722aed520822a425"
+    },
+    "parentNullRaw": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3024\\parent-null-check-raw.json",
+      "sha256": "45ea5caeb1adde0902453a3a13fc32b5bf139eb8ed3c8ce8472c88129b40ac8b"
+    },
+    "parentNullCommand": {
+      "argv": [
+        "python",
+        "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+        "--manifest",
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3024\\parent-null-check-manifest.json",
+        "--out",
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\L3024\\parent-null-check-raw.json"
+      ],
+      "cwd": "C:\\Users\\royal\\Documents\\BF6 Frosty Research"
+    },
+    "promotionHelper": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\promote-health.py",
+      "sha256": "b56b3c7707d754b2732454eafd3714c63200ae7fb03662616db061bd54da8ab6"
+    },
+    "updatedStatMap": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T0030-0400-vehicles\\stat-map\\L3024-comparison-stat-map.json",
+      "sha256": "4e287a89187fb5f8861276e578a421d50da96350d2b58fe5584266c8454d6e62"
+    }
+  }
+}

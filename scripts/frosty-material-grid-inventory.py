@@ -169,6 +169,7 @@ def main():
         surfaces[str(material)] = {"canPenetrateTargets": can, "neverPenetrateCount": never,
                                    "damagePenetrationMultiplierCounts": {str(k): v for k, v in multiplier.most_common()}}
 
+    record_types = grids[0].type_table()
     report = {
         "scope": "Research inventory of material-grid record types and projectile-to-soldier/surface records. Not used by the site; semantics of legacy records are unverified.",
         "method": [
@@ -180,19 +181,19 @@ def main():
         ],
         "inputs": {"descriptorsSha256": descriptors_sha, "classGuidsSha256": sha(args.class_guids),
                    "hitZonesReportSha256": sha(ROOT / HIT_ZONES_REPORT),
-                   "grids": [{"file": p.name, "sha256": inv.grid.sha256} for p, inv in zip(args.grid, grids)],
-                   "gridRoutes": ["game/glaciermp/levels/mp_abbasid/mp_abbasid/materialgrid_win32",
-                                  "game/glaciermp/levels/mp_badlands/mp_badlands/materialgrid_win32"]},
+                   "grids": [{"file": str(p.resolve()), "sha256": inv.grid.sha256} for p, inv in zip(args.grid, grids)],
+                   "gridRoutes": [p.relative_to(next(parent for parent in p.parents if parent.name.lower() == "raw")).with_suffix("").as_posix()
+                                  if any(parent.name.lower() == "raw" for parent in p.parents) else str(p.resolve()) for p in args.grid]},
         "observations": [
-            "65 record types; 31 have ClassGuids names. Earlier site work used only the protection array (c180226c) and collateral array (6aa794ef), both without ClassGuids names.",
-            "MaterialRelationDamageData.DamageProtectionMultiplier for soldier materials differs from the protection arrays the site uses (for example Interdictor limb 0.8 vs 0.67; automatic limb 1.0 vs 0.84). The VSSM in-game limb observation supports the protection array. Treat the damage record as not proven live.",
-            "Secondary bone material 580 has protection 0 for every weapon projectile material.",
-            "Most bullet materials can penetrate 7 target materials; materials 290, 351 and 781 can penetrate 27. Target material names are not resolved.",
+            f"{len(record_types)} record types; {sum(bool(t['class']) for t in record_types)} have ClassGuids names. Earlier site work used only the protection array (c180226c) and collateral array (6aa794ef), both without ClassGuids names.",
+            "Historical 1.4.3.0 observation: MaterialRelationDamageData.DamageProtectionMultiplier for soldier materials differs from the protection arrays the site uses (for example Interdictor limb 0.8 vs 0.67; automatic limb 1.0 vs 0.84). The VSSM in-game limb observation supports the protection array. Treat the damage record as not proven live.",
+            "Historical 1.4.3.0 observation: secondary bone material 580 has protection 0 for every weapon projectile material.",
+            "Historical 1.4.3.0 observation: most bullet materials can penetrate 7 target materials; materials 290, 351 and 781 can penetrate 27. Target material names are not resolved.",
         ],
         "openQuestions": ["Which asset names grid material IDs?", "Which runtime path reads MaterialRelationDamageData versus the protection arrays?",
                           "What do DamagePenetrationMultiplier and CanPenetrate mean for damage after passing through a surface?"],
         "gridAgreement": {"soldierPairsCompared": len(materials) * len(SOLDIER_MATERIALS), "disagreements": disagreements},
-        "types": grids[0].type_table(),
+        "types": record_types,
         "soldierPairs": soldier,
         "surfacePenetration": surfaces,
     }

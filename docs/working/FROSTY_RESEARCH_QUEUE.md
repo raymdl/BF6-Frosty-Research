@@ -54,7 +54,17 @@ callers. "Needs a native consumer" is a reason to look for one, not a stopping p
   recording; an unresolved runtime question is recorded as a limit, not a capture.
 - Keep 1.4.3.0 (Head 4892017, descriptor `91c9ea7c…`) and 1.4.3.1 (Head 4892087,
   descriptor `99b49cfd…`) evidence separate. Use hashes, not file versions. The
-  `builds/1.4.3.0` folder name is the retained identifier for both.
+  `builds/1.4.3.0` folder name is the retained identifier for both. New work uses
+  the open build 1.4.3.5 (Head 4909002, descriptor `4c28ad65…`, `builds/1.4.3.5`).
+  An earlier receipt carries forward to 1.4.3.5 only where the cited raw SHA-256
+  equals the 1.4.3.5 bytes. On 30 September, 1,070 of 1,073 cited raw assets were
+  equal; the other 3 citations are `GRX_Vehicles`, which differs only by the
+  reviewed string-id renumbering (`builds/1.4.3.5/reports/carry-forward-2026-09-30/carry-forward-result.json`).
+- Start a new exploration area from the game's UI metadata (`Common/UI/Static/Metadata`,
+  `Common/UI/MetaData`): in-game names, descriptions and the numbers they state. They
+  say what each item does and which source values to trace; tracing without them
+  produced source profiles with unknown meaning (gadget run, 29 September). Resolve
+  strings as in [UI text](../frosty/UI_TEXT.md).
 
 ### Awaiting operator
 
@@ -66,6 +76,83 @@ callers. "Needs a native consumer" is a reason to look for one, not a stopping p
   proposals.
 - Mounted-state recoil (L108) and reserve-rounds / chambered-round (L110) proposals:
   deferred by the operator (28 Sep); keep them in the proposal table.
+
+## Current class-trait run (30 September 2026)
+
+Run: `BF6 Datamining/reports/weapon-analyzer-research/2026-09-30T2021-0400-class-traits/`, L404-L405, on 1.4.3.5 / Head 4909002. [Findings](../frosty/WEAPONS.md#class-path-and-perk-source-cross-check): L405 establishes FasterRegen source field-role associations (rate/delay/amount 30/2.5/0 against 10/5/0). Native composition and the UI 1.5x comparison remain conditional. L404 did not establish an end-to-end activation control; no activation worker was launched. Agile Shooter, Evasion Training and Heavy Flak were skipped without qualified route/control pairs. Reopen only with an exact selection consumer or a named same-owner operand control. Earlier L400-L403 raw evidence carries forward by hash with original Heads retained. Proposed implementation still awaits the operator; the L108 deferral remains in force. No site implementation or in-game tests were included. Handoff, verification and cleanup are in the run folder. Local source commit: `ed3f0c0`; site evidence index: `ed88827`. The handoff also records the research index commit.
+
+## Current site audit run (attachments)
+
+Run: `BF6 Datamining/reports/weapon-analyzer-research/2026-09-30T2100-0400-site-audit-attachments/`.
+Build: **1.4.3.5 / Head 4909002**, descriptor `4c28ad65...`. L540-L579 remain
+reserved and unused. A01 applies: the site baseline contains mixed versions and
+source/panel evidence.
+
+Stage 1 is complete. The [census receipt](../../reference-data/provenance/frosty-site-audit-attachments-census-2026-09-30.json)
+records **113 numeric field families / 7,578 leaves**: **7,248 excluded**
+by generator ownership or prior field comparison, **251 prior no-source-field
+contracts/observations**, and **79 candidate leaves in 12 families**.
+`census.json` records each pointer, value, owner, exclusion method and priority.
+Magazine points, nominal capacity and reload tiers have prior field records;
+they are not assumed to be new gaps. Earlier source receipts retain their original
+Head and the stated raw-hash carry-forward boundary.
+
+Stopped when account usage reached **90%**, before Stage 2. No worker launched,
+no new raw family comparison completed, and no new proposal entered the table.
+Resume with the ranked candidate families, using about 30 effective selections
+per worker and a receipt-verified same-owner control before each family. Resolve
+the retained L60/L62, reload-alias and optic-accessory receipt scope before a new
+extraction to avoid repeating verified work. Keep neutral/no-source contracts
+separate from source mismatches. Capture uses the shared lock. Do not edit site
+data, simulation or UI, run generators, conduct in-game tests or push.
+
+## Current site audit run (30 September 2026)
+
+Weapons audit: `BF6 Datamining/reports/weapon-analyzer-research/2026-09-30T2322-0400-site-audit-weapons/`, reserved L500–L539, on 1.4.3.5 / Head 4909002. [L500 receipt](../../reference-data/provenance/frosty-2026-09-30-L500-weapons-audit-census.json). The orchestrator completed the census without workers: 84 numeric field families and 5,416 values across 63 weapons. A01 is recorded; source labels alone were not used as verification. The census remains outside Git.
+
+No family remains after the requested exclusions. Existing field-level reviews cover the displayed values; all 169 relevant GS/WB/base-projectile raw assets carry forward by hash with their original Head retained. All 34 numeric changes since the 23 September ledger have later evidence: 32 applied L107 precision edits and two reviewed burst-cadence values. Nine numeric provenance families and unused `reloadSpeed` do not supply displayed values. ADS/deploy/sprint base indices are in `balance_tables.json`, outside this file audit. No Stage 2 worker or new per-family extraction receipt was needed. Existing receipts are retained, including the 13 September damage review, the M45A1 in-game step, L107 precision decisions and L123 reload totals. No new class (a) proposal; the Proposed Analyzer changes table needs no new row. This is a reuse and exclusion result, not a new measurement of every value or proof of native runtime behavior.
+
+The weapons run is closed. Attachments (L540–L579), ammo (L580–L599) and fire modes (L600 upward) remain separate sessions. No capture, site data/simulation/UI edit, generator rerun, in-game test or push was included. Run handoff and cleanup receipts are in the run folder. Local commits: `4d3fcb2` (receipt), `3669e3c` (site index). A concurrent commit, `bed1c58`, included this run's already-staged documentation and research index hunks; its history was preserved.
+
+
+## Current site audit run (ammo)
+
+Run: `BF6 Datamining/reports/weapon-analyzer-research/2026-09-30T232233-0400-site-audit-ammo/`.
+Build: **1.4.3.5 / Head 4909002**, descriptor `4c28ad65...`. L580-L588 used;
+L589-L599 unused. A01 applies: the site baseline has mixed source versions and
+reviewed evidence. Stage 1 was completed by the orchestrator without workers;
+`census.json` ranks seven families across 63 weapons, 15 ammo types and 328 choices.
+
+Nine workers returned and were reviewed. [Weapon findings](../frosty/WEAPONS.md#current-ammo-site-value-audit-30-september-2026)
+and [modifier findings](../frosty/ATTACHMENTS.md#current-ammo-modifier-and-point-audit-30-september-2026)
+link one receipt per family. Curves: 328 comparisons, no new value mismatch;
+293 precision-only rows and 15 reviewed deviations. Pellets: 16/16 exact. Velocity:
+31 precision-only comparisons, no proposal. Recoil/spread: 186 exact selected
+field comparisons over 74 leaves. Lightweight movement: 27 exact comparisons;
+seven additional type leaves pass named owner controls, including three
+precision-only spotting leaves. Points: 328/328 exact, with the decoder ambiguity
+flag retained. All 77 per-class collateral leaves are inactive fallbacks.
+
+The bounded run is closed at **91% account usage**. Remaining limits are Slugs ADS
+increment 0.05, full Frangible/spotting joins, Flechette regen +2, current game
+defaults/availability, and complete graph absence for 137 modifier choices.
+No negatives or zero effects are inferred from missing reused records. Native
+activation/composition remains unresolved. Earlier receipts retain their original
+Head; current matching raw hashes support carry-forward. L107 precision-only and
+reviewed panel/runtime differences do not become proposals. There is **no new
+class (a) mismatch**, so the Proposed Analyzer changes table has no new row.
+
+Local source commit: `3ce79cb`; site evidence index: `a7d1adf`. The handoff also records the close-out document/index commit.
+
+No site data/simulation/UI edit, site generator rerun, underbarrel work, in-game
+test, capture or push was included. Shared capture locking remains in force for a
+future run. Resume only the stated limits with a named selected source route and
+same-owner control. `handoff.md`, `orchestrator-progress.md` and `cleanup.json` in
+the run folder hold verification, commit IDs and the remaining scope.
+
+## Current fire-modes run (30 September 2026)
+
+Run: `BF6 Datamining/reports/weapon-analyzer-research/2026-09-30T2323-0400-fire-modes/`, L600-L604, on 1.4.3.5 / Head 4909002. All 63 weapons are covered in `fire-modes.json`: 110 source mode rows and 12 mode-changing branches, including 10 site choices. All controls and worker reviews passed. The four XML-missing modifier imports were resolved from existing raw; no capture was needed. Generic unmatched graph joins remain explicit and do not supply runtime negatives. Count predictions, named toggle validation and conditional L63/L17 effects are in the proposal row and [findings](../frosty/WEAPONS.md#fire-mode-selector-source-data-1435-l600-l604). No site implementation or in-game tests were included. Local source commit: `d1e51b4`; site evidence index: `d942f58`. The run handoff records verification, limits and cleanup. No push.
 
 ## Active source leads
 
@@ -92,7 +179,7 @@ operator approval; none is implemented unless stated.
 | Proposal | Affected data/code | Evidence and remaining validation |
 |---|---|---|
 | **Operator review: burst rate precision** | `data/weapons.json` grtbc/sl9 `burstRpm` | Store source 830.769 (GRT-BC) and 771.428 (SL9) instead of menu-rounded 830/771. Gap after a burst 105.289 → 105.557 ms and 99.957 → 100.000 ms; sustained burst RPM unchanged; TTK under 1 ms. [Receipt](../../reference-data/provenance/frosty-2026-09-28-burst-cadence.json). |
-| **Operator review: class weapon traits (L100–L104)** | New "class trait" toggle (off by default); `data/` trait table; `sim/applyAttachments.js` ADS, hip-spread and draw/sprint indices | Sourced for Assault/Support/Engineer on exactly the site weapons of each class; matches EA's class guide. Conditional values in the [receipt](../../reference-data/provenance/frosty-2026-09-28-L100-L104-class-traits.json): AR deploy 633 → 533 ms and sprint recovery 200 → 167 ms; LMG ADS one step faster; SMG hip minimum 1.804° → 1.352°. Recon: sniper sway ×2.25 without the trait, ×1.0 with it (the site's current value; operator confirms non-Recon sway is higher), plus the Recon rechamber block (e.g. Mini Scout 47.1 → 51.4 RPM; [timing receipt](../../reference-data/provenance/frosty-site-timing-2026-09-23.json)). Activation is class + signature weapon per EA; native composition unverified. |
+| **Operator review: class weapon traits (L100–L104; L400–L403)** | New "class trait" toggle (off by default); `data/` trait table; `sim/applyAttachments.js` ADS, hip-spread and draw/sprint indices | Sourced for Assault/Support/Engineer on exactly the site weapons of each class; matches EA's class guide. Conditional values in the [receipt](../../reference-data/provenance/frosty-2026-09-28-L100-L104-class-traits.json): AR deploy 633 → 533 ms and sprint recovery 200 → 167 ms; LMG ADS one step faster; SMG hip minimum 1.804° → 1.352°. Recon: sniper sway ×2.25 without the trait, ×1.0 with it (the site's current value; operator confirms non-Recon sway is higher), plus the Recon rechamber block (e.g. Mini Scout 47.1 → 51.4 RPM; [timing receipt](../../reference-data/provenance/frosty-site-timing-2026-09-23.json)). Activation is class + signature weapon per EA; native composition unverified. Extension: [L400-L403](../frosty/WEAPONS.md#class-path-and-perk-source-cross-check) source perk text and spotting 1.33/1.10/+3 s; WeaponSwap +1 and MountedPlus +3/-2 are hotfix-verified, with L108 deferral retained. Perk metadata would use a new `data/` trait table and `ui/app.js`; numeric composition stays conditional. Validation predicts exact text equality first, then matched active/inactive range/angle/duration and handling changes. Recovery source 30/2.5 versus baseline 10/5 is a conditional text discrepancy, not a verified gameplay defect. Class/path/unlock and UI-to-source identity limits remain explicit. |
 | **Operator review: ADS-out time per weapon (L114)** | New per-weapon ADS-out time in `data/` (with a UI stat); the sustained fully-ADS sniper cadence model | Sourced conditionally: all 63 weapon bodies select an `FZT_Weapons` `General_10` tier through the same `WeaponZoomTransitionIndex` as the site ADS-in index (`defAds` matches 63/63), giving 400/333.334/266.667/233.334/200/166.667/133.334/100 ms by index (e.g. 233.334 ms at index 3, the M4A1's 4 gives 200 ms). General_10 differs from General_01 at every index; the paired General_01 values match the site's ADS-in ladder within 1.2e-5 ms, supporting candidate transition roles ([L125](../../reference-data/provenance/frosty-2026-09-29-L125-fzt-general01-ads-in.json)). Whether the selector drives ADS-out, and whether ADS-time attachments shift it (no traced modifier references FZT directly and the receiving field of their steps is unnamed, [L121](../../reference-data/provenance/frosty-2026-09-29-L121-ads-time-modifier-targets.json)), is unresolved; do not apply ADS-in shifts to ADS-out. [Receipt](../../reference-data/provenance/frosty-2026-09-29-L114-ads-out-transition.json). |
 | **Operator review: stance-change spread penalty (L120)** | Optional per-weapon stance-change context beside the static spread minima in `data/`, `sim/core.js` spread and the stance control (see the crouch/prone posture row) | Sourced, activation unresolved: every weapon body stores `StanceChangePenalties` (Zoomed/Unzoomed x six stance transitions x `MinAngleOffset` degrees and `Duration` seconds; 1,512 raw reads over 63 weapons): prone transitions are 6 degrees over 0.9 s on 54 weapons, with class outliers, and the crouch/stand leaves are 0.2-1 degree over 0.3 s (all 24 slot joins exact, L124). No site choice or verified modifier targets them. If a capture confirms a transient spread floor after changing stance, show angle and duration beside the static minima; do not add them to spread until composition is known. [Receipt](../../reference-data/provenance/frosty-2026-09-29-L120-stance-change-penalties.json). |
 | **Deferred (operator, 28 Sep): mounted-state recoil (L108)** | New "mounted / MountedPlus" state toggle (off by default); `data/` state table; `sim/applyAttachments.js` recoil tiers | Source adds exponent +3/-2 for MountedPlus on all 63 weapons (amount x0.800-0.855, variation x1.161-1.223, conditional), and +10/-4 (amount x0.475-0.594) or +30/-5 (Bolt bipod, amount x0.107-0.209) when a bipod is deployed. The operator decided on 13 September to document mounted/bipod recoil without model changes; the MountedPlus operands were not known then. Activation, composition and the Vertical/Horizontal flags are unresolved. [Receipt](../../reference-data/provenance/frosty-2026-09-28-L106-L111-orchestrator-trial.json). |
@@ -109,7 +196,7 @@ operator approval; none is implemented unless stated.
 | Projectile lifetime and reachability (L22) | `data/ballistics.json` projectile fields; `sim/ballistics.js`; dependent travel/damage display | Current integration guard is not source lifetime. Selected buck/Slug TimeToLive 0.5/2.0 could affect reach within supported range. [Evidence](../../reference-data/provenance/frosty-2026-09-24-L22-projectile-lifetime.json). [L25](../../reference-data/provenance/frosty-2026-09-24-L25-selected-projectile-lifetimes.json) adds subsonic candidates using actual ammo velocity. Needs capture before implementation; show unreachable separately from conditional damage, do not assume zero damage. |
 | Match Trigger in an explicit tested mode (L17) | `ERGOS[id=match_trigger]`, `sim/applyAttachments.js`, recoil/spread calculations | Current choice has no modeled effects. HK433 source selects amount-exponent +3, recovery operand 1.728 and bloom multiplier 0. Candidate M433 model predicts recoil ratio 0.843908625 and recovery factor 124.416 from current inputs; conditional only. [Evidence](../../reference-data/provenance/frosty-2026-09-24-L17-match-trigger-indirect-effects.json). [L24](../../reference-data/provenance/frosty-2026-09-24-L24-match-trigger-family.json) confirms shared source targets on all 24 selections, with differing priorities. L70 shows the existing M433 pair has insufficient capture observability; the conditional prediction remains open. [L70 capture limit](../../reference-data/provenance/frosty-2026-09-26-L70-match-trigger-capture-limit.json). Needs semi/auto capture and operator/activation validation; no blanket runtime change. |
 | Controller vertical recovery (L19) | `ui/app.js` platform factor; `sim/core.js` `genRecoilPts` | Current factor changes amount only. Candidate separate vertical recovery control follows source 0.8836 multiplier; horizontal source operands are neutral. [Evidence](../../reference-data/provenance/frosty-2026-09-24-L19-controller-recovery-operand.json). Needs capture10/native equation before implementation; not a common decay-factor correction. |
-| **Future feature: fire-mode selector (auto / burst / single; L14, burst cadence)** | `data/weapons.json` per-weapon fire modes and rates; `sim/core.js` shot spacing; `sim/applyAttachments.js` mode selection | **Operator: planned, not a current priority (28 Sep).** Source data needed and where it is: `RateOfFire`, `RateOfFireForBurst`, `RateOfFireForSingleFire` (Sym SingleRoF, e.g. M4A1 400 vs 900 RPM; [L14](../../reference-data/provenance/frosty-2026-09-24-L14-single-fire-cadence.json)), `BurstsPerMinute` and rounds per burst ([burst cadence](../../reference-data/provenance/frosty-2026-09-28-burst-cadence.json)), base primary/alternate mode lists and the BurstFireEnabled/Replace attachment branches (WEAPONS.md, burst section). Burst timing is confirmed by operator recordings; semi no-bloom (L63) and Match Trigger (L17) effects are mode-conditioned. Store full source precision. |
+| **Future feature: fire-mode selector (auto / burst / single; L14, L600-L604)** | `data/weapons.json` per-weapon fire modes and rates; `sim/core.js` shot spacing; `sim/applyAttachments.js` mode selection | **Operator: planned; data supply complete, implementation remains separate.** Data: `BF6 Datamining/reports/weapon-analyzer-research/2026-09-30T2323-0400-fire-modes/fire-modes.json`, 63 weapons / 110 source mode rows, full precision with paths, offsets, hashes and Head 4909002. [Per-weapon mode lists and selectable-mode count predictions](../frosty/WEAPONS.md#fire-mode-selector-source-data-1435-l600-l604): 26 weapons have one mode, 28 have two and nine have three across WB lists and site-offered mode choices; per-loadout counts can differ. Ten site mode branches and two source-only branches are retained; GRT-CPS burst is excluded from player prediction by the prior operator unavailable note. L63 semi no-bloom and L17 Match Trigger remain conditional. **Validation:** operator checks the in-game toggle, no recording: M4A1 bare auto/single (2); M16A4 bare burst/single (2), A3 Receiver auto/single (2); KORD 6P67 Burst Training burst/auto/single (3); GRT-BC and SL9 Burst Mode burst/single (2); VSSM bare single (1), Folding Stock auto/single (2); GRT-CPS bare single (1); vz. 61 bare auto/single (2); M2010 ESR bare bolt single (1). [Receipt](../../reference-data/provenance/frosty-2026-09-30-L604-fire-mode-selector-data.json). |
 | Model sustained fully-ADS bolt-rifle cadence | Sniper RPM, shot spacing, TTK | ADS-out (`Aout`) now has a conditional source (L114 row above). DLC Bolt and Mini Scout keep ADS through rechambering (L1); other snipers add ADS exit and entry. Separate next accepted shot from next fully-ADS shot. [Candidate table](../frosty/WEAPONS.md#ads-bolt-and-scoped-shot-cadence-23-september-2026). Needs capture rank 6 for overlap. |
 | Generate per-weapon spot bases from WB | `sim/applyAttachments.js`, spotting display | M45A1 and Skorpion would differ from the current 54/150. Needs L7 and capture rank 1. [Official 1.2.1.0 context](../../reference-data/provenance/frosty-spotting-patch-context-2026-09-23.json) corroborates 54 m and 21 m. |
 | Test whether the idle-duration table controls ADS-entry spread timing | Not idle recovery in `sim/core.js` | The first eight values match the ADS ladder minus one 60 Hz frame; indices follow the ADS animation index on 62 of 64 weapons. Use the VSSM capture first. |
@@ -161,6 +248,10 @@ runtime question is not evidence that the source asset is unused.
   (28 September) classify the 1,739 data leaves that changed since (sim drift is reported by `frosty-records.py ledger-drift`, not re-reviewed). The
   [final review](../../reference-data/provenance/frosty-site-input-review-final-v2-2026-09-23.json)
   classifies each one, and its [validation](../../reference-data/provenance/frosty-site-input-review-validation-2026-09-23.json)
+- **Patch notes.** The [patch-notes inventory](../../reference-data/patch-notes/patch-notes-inventory.json)
+  dates every EA game update (1.0.1.0 to 1.4.3.5) with its link and local build. Use it to
+  date creator videos, guides and EA statements: content from date D reflects the latest
+  update released on or before D.
   checks it. Use the review's blocker and next-step fields for L11.
 - **Topic results.** Spread, recoil, precision, timing, ADS, zeroing, projectiles and
   spotting results are in [weapons](../frosty/WEAPONS.md) and
