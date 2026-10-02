@@ -529,13 +529,13 @@ original drafts remain in the run folder. The independent raw report records
 
 | Lead | Fixed scope | Reviewed outcome | Research / generated site commit |
 |---|---|---|---|
-| L162 | Four Stinger/IGLA WB and projectile roots | Proposal: selected ammo/reload/blast source profiles; other projectile floats unnamed | `4347334` / `cd671ed` |
-| L163 | Three Airburst Incendiary roots | Proposal: selected primary source profile; lingering selection and fire behavior unresolved | `0b83698` / `1721cd3` |
-| L164 | Two Claymore roots | Proposal: selected blast source profile; effective fragments and trigger behavior unresolved | `ed14709` / `2dbaba3` |
-| L165 | Five PTKM1R roots | Finding: no checked forward CombatElement selection; EFP fields remain candidates | `85ffe04` / `75732c7` |
-| L166 | Six throwable WB roots | Proposal: mapped resource/reload/z-component source differences; no carried-use or physical-speed claim | `6670528` / `7540da8` |
+| L162 | Four Stinger/IGLA WB and projectile roots | Proposal: selected ammo/reload/blast source profiles; other projectile floats unnamed | `23dc375` / `82059e2` |
+| L163 | Three Airburst Incendiary roots | Proposal: selected primary source profile; lingering selection and fire behavior unresolved | `23dc375` / `82059e2` |
+| L164 | Two Claymore roots | Proposal: selected blast source profile; effective fragments and trigger behavior unresolved | `23dc375` / `82059e2` |
+| L165 | Five PTKM1R roots | Finding: no checked forward CombatElement selection; EFP fields remain candidates | `23dc375` / `82059e2` |
+| L166 | Six throwable WB roots | Proposal: mapped resource/reload/z-component source differences; no carried-use or physical-speed claim | `23dc375` / `82059e2` |
 
-The operator requested separate future gadget work. `5e25289` moved eight older
+The operator requested separate future gadget work. `23dc375` moved eight older
 proposals and the live gadget rows into
 [potential gadget additions](../working/GADGET_SITE_ADDITIONS.md), linked from the
 current-site queue. The records tool tracks both documents. That document now

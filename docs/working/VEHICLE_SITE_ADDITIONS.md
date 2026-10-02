@@ -18,9 +18,9 @@ The `2026-09-30T2021-0400-vehicles` run is closed. All three workers stopped. It
 
 | Lead | Closed result | Research / site commit |
 |---|---|---|
-| L3031 | Guarded shared-lock capture resolves 42 external GUID pairs across 28 unique targets, zero failed. MBT source controls pass; image route does not complete a card/root chain. | e0f1ceb / 7c5326b |
-| L3032 | Fifteen selected category targets and source control pass; no complete card/root edge. UI stops after two leads. | 228b242 / 63eee8c |
-| L3033 | Current cannon control passes; four selected UI assets and two cannon candidates do not prove an exact APHEI owner. Projectile and carrier rule remain unresolved. Stop after one lead. | c6f8234 / 7982be4 |
+| L3031 | Guarded shared-lock capture resolves 42 external GUID pairs across 28 unique targets, zero failed. MBT source controls pass; image route does not complete a card/root chain. | dc7aa6c / b4e6074 |
+| L3032 | Fifteen selected category targets and source control pass; no complete card/root edge. UI stops after two leads. | dc7aa6c / b4e6074 |
+| L3033 | Current cannon control passes; four selected UI assets and two cannon candidates do not prove an exact APHEI owner. Projectile and carrier rule remain unresolved. Stop after one lead. | dc7aa6c / b4e6074 |
 
 All nine cards remain unlinked; no family seat counts, roles or tags are assigned. No working UI-to-asset method is claimed. The missing target capture gap is resolved; exact lookup/owner selection remains open. APHEI is current-only evidence, with no old/raw comparison or before/after claim. No additional recording proposal was made.
 
@@ -222,7 +222,7 @@ All 23 EA update snapshots are read and their summary fields are filled, preserv
 
 Current draft profiles, statements, community map, parent review and final commit receipts are in the run folder. No site data, simulation or UI changed. Any remaining effect: **unconfirmed; no recording planned**.
 
-Local commits: L640 research `df51417`, site `d1b2361`; L641-L651 research `7ee81d8`, site index `baff78b`. Parent controls, raw reads and committed-content review pass. The records check has zero errors. Run-folder cleanup removed zero links and zero files. The run is closed; no further source lead or recording is queued.
+Local commits: L640 research `8414ed2`, site `63e6ff6`; L641-L651 research `8414ed2`, site index `63e6ff6`. Parent controls, raw reads and committed-content review pass. The records check has zero errors. Run-folder cleanup removed zero links and zero files. The run is closed; no further source lead or recording is queued.
 
 ## Patch-note candidate context (1 October 2026)
 
@@ -252,7 +252,7 @@ Current raw is 1.4.3.5, Head 4909002, descriptor `4c28ad656c175d9a8540245a3e6b57
 
 Close-out: all six batches are reviewed and committed with private indexes and atomic ref updates. The frozen scope is 46 roots, 1,607 files, 5,540 typed field families and 22 ranked community items. No named eligible current raw route remains missing. Native meaning remains unconfirmed. [Fresh handoff](../../../BF6%20Datamining/reports/weapon-analyzer-research/2026-10-01T011608-0400-vehicles-open-frontier/handoff.md) lists evidence, limits, exact local commits and operator video candidates. Final artifact hash and foreign generated-entry checks pass; the record check has zero errors and four existing warnings.
 
-Research commits: L3034 `7ac780a`, L3035 `f4f51fd`, L3036 `d331b06`, L3037 `fa0c049`, L3038 `b1515b7`, L3039 `a40073e`. Generated site-index commits: L3034 `5dd0ca0`, L3035 `c858126`, L3036 `992ca1d`, L3037 `716737a`, L3038 `3f8ce9f`, L3039 `9d1da9a`. Cleanup retained both cited large files; zero links or files removed.
+Research commits: L3034 `8414ed2`, L3035 `8414ed2`, L3036 `8414ed2`, L3037 `8414ed2`, L3038 `8414ed2`, L3039 `8414ed2`. Generated site-index commits: L3034 `63e6ff6`, L3035 `63e6ff6`, L3036 `63e6ff6`, L3037 `63e6ff6`, L3038 `63e6ff6`, L3039 `63e6ff6`. Cleanup retained both cited large files; zero links or files removed.
 
 <!-- gadget-vehicle-display-2026-10-01-start -->
 ## Current run: displayable gadget and vehicle stats
@@ -269,7 +269,7 @@ Method switch: after two batches produced mostly semantic limits, the run change
 
 Validation: all nine lead receipts pass `frosty-records.py check-receipt`; consequential source operands were independently re-read. The EA inventory stayed read-only. Each local commit used a separate index seeded from HEAD and preserved other sessions' paths and hunks. One duplicate old hash citation in L227 is retired by the closing audit; the current audit artifact and findings are unchanged. The shared cleanup is complete: zero links and zero files removed, zero bytes freed. The report and cleanup.json are in the run folder. [Closing audit](../../reference-data/provenance/frosty-2026-10-01-gadget-vehicle-display-close-audit.json).
 
-Lead commits: L224 `0bba62e1a80f5b7ef0c14fd696ac469e5f9f3c1c`; L225 `7bf1e839a3979be3b42efb28f8a38849cae72669`; L226 `a62a59c7ecbefb89902f48ce3f7352a0b8d951dc`; L227 `4ce71b55e379e2315d5aa20dcab969c4d185ff96`; L228 `0b5d23284bc1ee5028c7fe2f5acee691404949bf`; L3040 `2f6f01672c9fd74d7aac9c3b96f6b008fc26b302`; L3041 `4d0c5640015c7921734dc08a282d36be36d4c1e7`; L3042 `7268c03d3741ee65dee6c194fc5f980ad827452c`; L3043 `1ce5ada8d08393591cdaae55dca155ae8c5809db`
+Lead commits: L224 `8414ed2e6fe600a4d29842162dbb34f137bc9847`; L225 `8414ed2e6fe600a4d29842162dbb34f137bc9847`; L226 `8414ed2e6fe600a4d29842162dbb34f137bc9847`; L227 `8414ed2e6fe600a4d29842162dbb34f137bc9847`; L228 `8414ed2e6fe600a4d29842162dbb34f137bc9847`; L3040 `8414ed2e6fe600a4d29842162dbb34f137bc9847`; L3041 `8414ed2e6fe600a4d29842162dbb34f137bc9847`; L3042 `8414ed2e6fe600a4d29842162dbb34f137bc9847`; L3043 `8414ed2e6fe600a4d29842162dbb34f137bc9847`
 
 ### L3041 reviewed
 
@@ -700,18 +700,18 @@ Local batch commits:
 
 | Lead | Commit |
 |---|---|
-| L3100 | `d0d3ac1c279eda815b4216ae6a9724e57e32d718` |
-| L3101 | `4678bf878e7d4a51f9d50c154111666d2036384f` |
-| L3102 | `fe6b33d0015272b03249f70ce28dc7db84985b15` |
-| L3103 | `a440785a70d825a58ed74f07ada2630c059a4619` |
-| L3104 | `3fdfdefbdcb2f91771b78554d8112eb3d2f8906f` |
-| L3105 | `bfd8587ec02671055cf4bf8dae2fe195601cdfa2` |
-| L3106 | `627325c94683b40b091aab82c96bec7b88469842` |
-| L3107 | `57177af7ea6e9b81d41c73c0d5069a393bc59fdd` |
-| L3108 | `52d51d67f38d7b8d3b0d395619a6a8cd7d9bd56f` |
-| L3109 | `0d63957bd8a03d267e819c63457ea20a2f1d5a89` |
-| L3110 | `60b8bd2c6eef71760eff77203b7bfe688e29338e` |
-| L3111 | `e38447edd38ed7587bd20901a35a931e2d65a31f` |
+| L3100 | `8414ed2e6fe600a4d29842162dbb34f137bc9847` |
+| L3101 | `8414ed2e6fe600a4d29842162dbb34f137bc9847` |
+| L3102 | `8414ed2e6fe600a4d29842162dbb34f137bc9847` |
+| L3103 | `8414ed2e6fe600a4d29842162dbb34f137bc9847` |
+| L3104 | `8414ed2e6fe600a4d29842162dbb34f137bc9847` |
+| L3105 | `8414ed2e6fe600a4d29842162dbb34f137bc9847` |
+| L3106 | `8414ed2e6fe600a4d29842162dbb34f137bc9847` |
+| L3107 | `8414ed2e6fe600a4d29842162dbb34f137bc9847` |
+| L3108 | `8414ed2e6fe600a4d29842162dbb34f137bc9847` |
+| L3109 | `8414ed2e6fe600a4d29842162dbb34f137bc9847` |
+| L3110 | `8414ed2e6fe600a4d29842162dbb34f137bc9847` |
+| L3111 | `8414ed2e6fe600a4d29842162dbb34f137bc9847` |
 
 The closing commit is recorded in `L3112-commits.json` after the atomic private-index commit. Nothing is pushed. Generated indexes await the shared reviewer rebuild.
 
@@ -885,11 +885,11 @@ MH47, Couch, _SP, SP_, _Cine and _CarChase roots are excluded per the operator s
 
 | Lead | Local commit |
 |---|---|
-| L3150 | `75bce859a8b8dba827fafdd1f432e88687bc18f0` |
-| L3151 | Main: `5df8517e700588b4b69160c350ecf8245b39e9f6`; parallel: `6f2fe1ff757194df03de78b95658668727800cc5` |
-| L3152 | Main: `5c57581b41565244b154aa2a3503d26ed54e4ec7`; parallel: `cc89af355e6bf0dd6c1a01e9cdb2dfe8dc765625` |
-| L3153 | `9333b98f1688f0b9d9594ea6ed2a5ee999dc45f5` |
-| L3154 | `fb63172fabea49af2b938fc014fbea9542b03e13` |
+| L3150 | `8414ed2e6fe600a4d29842162dbb34f137bc9847` |
+| L3151 | Main: `8414ed2e6fe600a4d29842162dbb34f137bc9847`; parallel: `8414ed2e6fe600a4d29842162dbb34f137bc9847` |
+| L3152 | Main: `8414ed2e6fe600a4d29842162dbb34f137bc9847`; parallel: `8414ed2e6fe600a4d29842162dbb34f137bc9847` |
+| L3153 | `8414ed2e6fe600a4d29842162dbb34f137bc9847` |
+| L3154 | `8414ed2e6fe600a4d29842162dbb34f137bc9847` |
 | L3155 | Reconciliation commit is recorded in `L3155-commits.json` and `handoff.md` after the private-index update. |
 
 No generated files were built or committed. No file over 10 MB is committed. Nothing is pushed. `cleanup.json` records the run-folder audit.
@@ -905,7 +905,7 @@ RPG Damage raw 135 differs from own registry default 125. APFSDS StartDamage raw
 
 [Source tables and close audit](../frosty/VEHICLES.md#tank-directional-damage-source-pass-l3200-l3208). Full run tables, controls and compact dead ends are cited by path and SHA-256 in the close audit. The handoff and cleanup receipt stay in `C:\Users\royal\Documents\BF6 Datamining\reports\weapon-analyzer-research\2026-10-01T164935-0400-tank-weak-spots`. Next source work requires an exact receiving operation for defaults, material response, angle evaluation and effective health. No recording is proposed. No site data, simulation or UI edit, generated build, capture or push occurred.
 
-Lead commits: `2612472`, `936d22d`, `050bb5e`, `9af7ef9`, `a4e16f4`, `42b536f`, `4453d1d`, `f883d07`, `1743a15`. The close commit is recorded in the handoff after its atomic private-index commit.
+Lead commits: `8414ed2`, `8414ed2`, `8414ed2`, `8414ed2`, `8414ed2`, `8414ed2`, `8414ed2`, `8414ed2`, `8414ed2`. The close commit is recorded in the handoff after its atomic private-index commit.
 <!-- tank-weak-spots-current-end -->
 
 ## Vehicle loadout slots current run (L3250-L3299)
@@ -1032,11 +1032,11 @@ Reopen only with an exact root/context selector that imports the numbered recipe
 
 ### Local lead commits
 
-- L3250: `4cd22819519cb48877647475c874f6f5ecdefa65`.
-- L3251: `cad33286d2a394e0a9751da57315fab3f175403e`.
-- L3252: `915579dec74f6abab01361d63b238d82e792f229`.
-- L3253: `4f35a90e329cce3dff4b6eafee413d55881d4656`.
-- L3254: `37eb90426a0270af81bbab3e752f42704c81ed5d`.
-- L3255: `729e6f3af7c424777cf9905330dd6168902bcdf9`.
-- L3256: `c0a00ddc0baf56e88f29b780b6ae372bbdf32253`.
-- L3257: `2fec66f16bd38118be8f55991f2615d8e11208cf`. Source pass closed; handoff.md and cleanup.json are in the run folder.
+- L3250: `8414ed2e6fe600a4d29842162dbb34f137bc9847`.
+- L3251: `8414ed2e6fe600a4d29842162dbb34f137bc9847`.
+- L3252: `8414ed2e6fe600a4d29842162dbb34f137bc9847`.
+- L3253: `8414ed2e6fe600a4d29842162dbb34f137bc9847`.
+- L3254: `8414ed2e6fe600a4d29842162dbb34f137bc9847`.
+- L3255: `8414ed2e6fe600a4d29842162dbb34f137bc9847`.
+- L3256: `8414ed2e6fe600a4d29842162dbb34f137bc9847`.
+- L3257: `8414ed2e6fe600a4d29842162dbb34f137bc9847`. Source pass closed; handoff.md and cleanup.json are in the run folder.

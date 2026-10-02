@@ -98,14 +98,14 @@ Method switches are recorded in `orchestrator-progress.md`: exact caller bodies 
 Reopen only when the exact consumer/control named in a dead end becomes available, or when accessible creator test text supplies a dated, testable meaning to corroborate. For new source/site disagreements, require a sourced operand and a concrete stat-screen, EA-text or cited-creator validation prediction before proposing a change. No site data/simulation/UI edit, recording, generated build or push occurred. Run handoff, review and cleanup receipts are in the run folder.
 
 Local lead commits:
-- `fbedaebf5e08a8c384bcfbc65a90a669d6b37606` - ranked-damage
-- `0ac540a34f5ceb25c67cb8e902de941fe670ea2e` - ranked-soldier
-- `ca8bf041c6f75d23537acb9ddba9702a5f44167c` - ranked-equipment
-- `c2b5905ce9203192fb72296b7699dae949d26320` - L1100-map
-- `582c08458e36dc0729e830dc787a1ec5f99c9d08` - L1101-source
-- `8412c8f1c77223918824c4ae293893714fb17858` - L1102-source
-- `7bf6150f207a5f892e6b9e91a23fd3ac5c737136` - L1103-source
-- `60d20d6cf98d515a40d947fdde549cad5e8ec268` - L1104-audit
+- `8414ed2e6fe600a4d29842162dbb34f137bc9847` - ranked-damage
+- `8414ed2e6fe600a4d29842162dbb34f137bc9847` - ranked-soldier
+- `8414ed2e6fe600a4d29842162dbb34f137bc9847` - ranked-equipment
+- `8414ed2e6fe600a4d29842162dbb34f137bc9847` - L1100-map
+- `8414ed2e6fe600a4d29842162dbb34f137bc9847` - L1101-source
+- `8414ed2e6fe600a4d29842162dbb34f137bc9847` - L1102-source
+- `8414ed2e6fe600a4d29842162dbb34f137bc9847` - L1103-source
+- `8414ed2e6fe600a4d29842162dbb34f137bc9847` - L1104-audit
 <!-- gunfight-mechanics:end -->
 
 <!-- soldier-frontier:start -->
@@ -122,7 +122,7 @@ Finished leads are locally committed through a separate index with own paths/hun
 
 ## Current class-trait run (30 September 2026)
 
-Run: `BF6 Datamining/reports/weapon-analyzer-research/2026-09-30T2021-0400-class-traits/`, L404-L405, on 1.4.3.5 / Head 4909002. [Findings](../frosty/WEAPONS.md#class-path-and-perk-source-cross-check): L405 establishes FasterRegen source field-role associations (rate/delay/amount 30/2.5/0 against 10/5/0). Native composition and the UI 1.5x comparison remain conditional. L404 did not establish an end-to-end activation control; no activation worker was launched. Agile Shooter, Evasion Training and Heavy Flak were skipped without qualified route/control pairs. Reopen only with an exact selection consumer or a named same-owner operand control. Earlier L400-L403 raw evidence carries forward by hash with original Heads retained. Proposed implementation still awaits the operator; the L108 deferral remains in force. No site implementation or in-game tests were included. Handoff, verification and cleanup are in the run folder. Local source commit: `ed3f0c0`; site evidence index: `ed88827`. The handoff also records the research index commit.
+Run: `BF6 Datamining/reports/weapon-analyzer-research/2026-09-30T2021-0400-class-traits/`, L404-L405, on 1.4.3.5 / Head 4909002. [Findings](../frosty/WEAPONS.md#class-path-and-perk-source-cross-check): L405 establishes FasterRegen source field-role associations (rate/delay/amount 30/2.5/0 against 10/5/0). Native composition and the UI 1.5x comparison remain conditional. L404 did not establish an end-to-end activation control; no activation worker was launched. Agile Shooter, Evasion Training and Heavy Flak were skipped without qualified route/control pairs. Reopen only with an exact selection consumer or a named same-owner operand control. Earlier L400-L403 raw evidence carries forward by hash with original Heads retained. Proposed implementation still awaits the operator; the L108 deferral remains in force. No site implementation or in-game tests were included. Handoff, verification and cleanup are in the run folder. Local source commit: `dc7aa6c`; site evidence index: `b4e6074`. The handoff also records the research index commit.
 
 Independent sample check (1 October): [L520 receipt](../../reference-data/provenance/frosty-2026-10-01-L520-weapons-sample-check.json), L520-L528, seed `20261001520`. Workers reread **1,172 current raw values** across all 74 displayed numeric field families and eight weapon classes, with two weapons per class/family where available (ten sparse exceptions). Parent join: **1,129 matches, 43 L107 precision-only differences, zero intentional deviations in the sample and zero mismatches**. The L500 review base is confirmed by sample, not by full re-extraction; no follow-up family or site change is required. Extraction leads were committed promptly through separate indexes. Run: `BF6 Datamining/reports/weapon-analyzer-research/2026-10-01T0001-0400-weapons-sample-check/`.
 
@@ -155,8 +155,8 @@ stop condition. Handoff records local commit IDs and cleanup. No site data/simul
 edit, generator rerun, underbarrel audit, in-game test or push was included.
 Commits use a private index and an atomic ref update; the shared index is untouched.
 
-Local commits: `b8998f2` (family receipts, findings and research indexes), `0f3a377`
-(site indexes), and `3677ae1` (original census). Cleanup found no links or delete
+Local commits: `8414ed2` (family receipts, findings and research indexes), `63e6ff6`
+(site indexes), and `dc7aa6c` (original census). Cleanup found no links or delete
 candidates; all evidence was kept. The final documentation commit is in the handoff.
 
 <!-- attachments-sample-check-2026-10-01:begin -->
@@ -179,7 +179,7 @@ Weapons audit: `BF6 Datamining/reports/weapon-analyzer-research/2026-09-30T2322-
 
 No family remains after the requested exclusions. Existing field-level reviews cover the displayed values; all 169 relevant GS/WB/base-projectile raw assets carry forward by hash with their original Head retained. All 34 numeric changes since the 23 September ledger have later evidence: 32 applied L107 precision edits and two reviewed burst-cadence values. Nine numeric provenance families and unused `reloadSpeed` do not supply displayed values. ADS/deploy/sprint base indices are in `balance_tables.json`, outside this file audit. No Stage 2 worker or new per-family extraction receipt was needed. Existing receipts are retained, including the 13 September damage review, the M45A1 in-game step, L107 precision decisions and L123 reload totals. No new class (a) proposal; the Proposed Analyzer changes table needs no new row. This is a reuse and exclusion result, not a new measurement of every value or proof of native runtime behavior.
 
-The weapons run is closed. Attachments (L540–L579), ammo (L580–L599) and fire modes (L600 upward) remain separate sessions. No capture, site data/simulation/UI edit, generator rerun, in-game test or push was included. Run handoff and cleanup receipts are in the run folder. Local commits: `4d3fcb2` (receipt), `3669e3c` (site index). A concurrent commit, `bed1c58`, included this run's already-staged documentation and research index hunks; its history was preserved.
+The weapons run is closed. Attachments (L540–L579), ammo (L580–L599) and fire modes (L600 upward) remain separate sessions. No capture, site data/simulation/UI edit, generator rerun, in-game test or push was included. Run handoff and cleanup receipts are in the run folder. Local commits: `dc7aa6c` (receipt), `b4e6074` (site index). A concurrent commit, `dc7aa6c`, included this run's already-staged documentation and research index hunks; its history was preserved.
 
 
 ## Current site audit run (ammo)
@@ -217,15 +217,15 @@ and reviewed panel/runtime differences do not become proposals. There is **no
 new class (a) mismatch**, so the Proposed Analyzer changes table has no new row.
 Displayed damage, BTK and TTK therefore remain unchanged.
 
-Local first-pass commits: research `3ce79cb`, site evidence `a7d1adf`, and
-close-out `8ca7269`. Continuation commit IDs are in the run's `handoff.md`.
+Local first-pass commits: research `dc7aa6c`, site evidence `b4e6074`, and
+close-out `dc7aa6c`. Continuation commit IDs are in the run's `handoff.md`.
 All continuation commits use a private index and an atomic ref update; the shared
 index is untouched. No site data, simulation or UI edits, site generator reruns,
 underbarrel work, in-game tests or pushes were performed.
 
 ## Current fire-modes run (30 September 2026)
 
-Run: `BF6 Datamining/reports/weapon-analyzer-research/2026-09-30T2323-0400-fire-modes/`, L600-L604, on 1.4.3.5 / Head 4909002. All 63 weapons are covered in `fire-modes.json`: 110 source mode rows and 12 mode-changing branches, including 10 site choices. All controls and worker reviews passed. The four XML-missing modifier imports were resolved from existing raw; no capture was needed. Generic unmatched graph joins remain explicit and do not supply runtime negatives. Count predictions, named toggle validation and conditional L63/L17 effects are in the proposal row and [findings](../frosty/WEAPONS.md#fire-mode-selector-source-data-1435-l600-l604). No site implementation or in-game tests were included. Local source commit: `d1e51b4`; site evidence index: `d942f58`. The run handoff records verification, limits and cleanup. No push.
+Run: `BF6 Datamining/reports/weapon-analyzer-research/2026-09-30T2323-0400-fire-modes/`, L600-L604, on 1.4.3.5 / Head 4909002. All 63 weapons are covered in `fire-modes.json`: 110 source mode rows and 12 mode-changing branches, including 10 site choices. All controls and worker reviews passed. The four XML-missing modifier imports were resolved from existing raw; no capture was needed. Generic unmatched graph joins remain explicit and do not supply runtime negatives. Count predictions, named toggle validation and conditional L63/L17 effects are in the proposal row and [findings](../frosty/WEAPONS.md#fire-mode-selector-source-data-1435-l600-l604). No site implementation or in-game tests were included. Local source commit: `dc7aa6c`; site evidence index: `b4e6074`. The run handoff records verification, limits and cleanup. No push.
 
 ## Current site audit run (tables)
 
@@ -241,7 +241,7 @@ L703: [receipt](../../reference-data/provenance/frosty-2026-10-01-L703-tooltips-
 
 L704: [used tooltip text receipt](../../reference-data/provenance/frosty-2026-10-01-L704-used-tooltip-text.json). All 413 localization IDs used by attachment-tooltips.json have identical old/current text; zero changed or missing IDs. The 18 screenshot override keys are not localization IDs. Exact used-ID comparison resolves the text question raised by L703's global TSV hash difference. No likely stale tooltip text or new proposal was found.
 
-The tables run is closed. L700-L704 are complete; L705-L739 are unused. Three workers returned, all controls and fixed-scope reviews passed; L704 was completed by the orchestrator. No class (a) mismatch or new proposal is supported. One current blacklight raw was reused from the concurrent ammo run; seven original input raw hashes remain unavailable. No capture or generator rerun was started. All seven data files retain their run-start hashes. `census-final.json`, handoff and cleanup receipts are in the run folder. Each finished lead was committed through a separate index; no push. Local commits: L700 `5066916` research / `8d59f31` site, L701 `2079881` research / `658f6f8` site, L702 `c7eb2c3` research / `1b29b1c` site, L703 `a5a4d02` research / `fbc149e` site, L704 `27a36ae` research / `782f620` site.
+The tables run is closed. L700-L704 are complete; L705-L739 are unused. Three workers returned, all controls and fixed-scope reviews passed; L704 was completed by the orchestrator. No class (a) mismatch or new proposal is supported. One current blacklight raw was reused from the concurrent ammo run; seven original input raw hashes remain unavailable. No capture or generator rerun was started. All seven data files retain their run-start hashes. `census-final.json`, handoff and cleanup receipts are in the run folder. Each finished lead was committed through a separate index; no push. Local commits: L700 `8414ed2` research / `63e6ff6` site, L701 `8414ed2` research / `63e6ff6` site, L702 `8414ed2` research / `63e6ff6` site, L703 `8414ed2` research / `63e6ff6` site, L704 `8414ed2` research / `63e6ff6` site.
 
 ## Prior weapon source frontier run (1 October 2026)
 
@@ -316,7 +316,7 @@ operator approval; none is implemented unless stated.
 | **Soldier frontier (L861): Revive Recovery description — parked, research only (operator, 1 Oct; the site has no class/perk surface)** | Show healing during revival and the incoming-damage interruption condition. | [EA Support guide](https://www.ea.com/games/battlefield/battlefield-6/news/support-class): Combat Medic level 1 gives both conditions. Validation prediction: the guide retains the heal-during-revive and damage-interruption clauses. L857/L860 retain exact ReviveHealthRegen source selection; no heal rate or duration is qualified. Confirm current UI selection before binding. |
 | **Soldier frontier (L861): Explosives Resistant description — parked, research only (operator, 1 Oct; the site has no class/perk surface)** | Show the guide-stated 25% splash reduction while prone or mounted. | [EA Support guide](https://www.ea.com/games/battlefield/battlefield-6/news/support-class): Fire Support level 1. Validation prediction: the guide states 25% and both stance conditions. L847/L852 trace current StanceFlak source0.75, whose numeric role remains unresolved. Verify current UI identity; do not treat the raw0.75 as an independent damage-role proof. |
 | **Soldier frontier (L861): Low Profile description — parked, research only (operator, 1 Oct; the site has no class/perk surface)** | Show the stated prone benefit: leave combat sooner and remain spotted for less time. | [EA Recon guide](https://www.ea.com/games/battlefield/battlefield-6/news/recon-class): Spec Ops level 2. Validation prediction: both benefits are conditional on prone. L856 traces exact LowProfile spotting and regen receivers; sentinel/operation roles prevent a numeric timer display. Confirm current UI selection before binding. |
-| **L740: Interdictor peak-range description** | `data/weapons.json` description | [Receipt](../../reference-data/provenance/frosty-2026-10-01-L740-interdictor-range-description.json): current raw/site curve and EA 1.4.3.0 agree on 120–160 m; the site and game description said 120–150 m. Control and 20 operands passed. **Implemented 1 Oct** in site commit `4152111`: the operator chose the game data, so the description now ends at 160 m. The curve is unchanged (100 damage through 160 m). |
+| **L740: Interdictor peak-range description** | `data/weapons.json` description | [Receipt](../../reference-data/provenance/frosty-2026-10-01-L740-interdictor-range-description.json): current raw/site curve and EA 1.4.3.0 agree on 120–160 m; the site and game description said 120–150 m. Control and 20 operands passed. **Implemented 1 Oct** in site commit `4200945`: the operator chose the game data, so the description now ends at 160 m. The curve is unchanged (100 damage through 160 m). |
 | **Operator review: burst rate precision** | `data/weapons.json` grtbc/sl9 `burstRpm` | Store source 830.769 (GRT-BC) and 771.428 (SL9) instead of menu-rounded 830/771. Gap after a burst 105.289 → 105.557 ms and 99.957 → 100.000 ms; sustained burst RPM unchanged; TTK under 1 ms. [Receipt](../../reference-data/provenance/frosty-2026-09-28-burst-cadence.json). |
 | **Operator review: class weapon traits (L100–L104; L400–L403)** | New "class trait" toggle (off by default); `data/` trait table; `sim/applyAttachments.js` ADS, hip-spread and draw/sprint indices | Sourced for Assault/Support/Engineer on exactly the site weapons of each class; matches EA's class guide. Conditional values in the [receipt](../../reference-data/provenance/frosty-2026-09-28-L100-L104-class-traits.json): AR deploy 633 → 533 ms and sprint recovery 200 → 167 ms; LMG ADS one step faster; SMG hip minimum 1.804° → 1.352°. Recon: sniper sway ×2.25 without the trait, ×1.0 with it (the site's current value; operator confirms non-Recon sway is higher), plus the Recon rechamber block (e.g. Mini Scout 47.1 → 51.4 RPM; [timing receipt](../../reference-data/provenance/frosty-site-timing-2026-09-23.json)). Activation is class + signature weapon per EA; native composition unverified. Extension: [L400-L403](../frosty/WEAPONS.md#class-path-and-perk-source-cross-check) source perk text and spotting 1.33/1.10/+3 s; WeaponSwap +1 and MountedPlus +3/-2 are hotfix-verified, with L108 deferral retained. Perk metadata would use a new `data/` trait table and `ui/app.js`; numeric composition stays conditional. Validation predicts exact text equality first, then matched active/inactive range/angle/duration and handling changes. Recovery source 30/2.5 versus baseline 10/5 is a conditional text discrepancy, not a verified gameplay defect. Class/path/unlock and UI-to-source identity limits remain explicit. |
 | **Operator review: ADS-out time per weapon (L114)** | New per-weapon ADS-out time in `data/` (with a UI stat); the sustained fully-ADS sniper cadence model | Sourced conditionally: all 63 weapon bodies select an `FZT_Weapons` `General_10` tier through the same `WeaponZoomTransitionIndex` as the site ADS-in index (`defAds` matches 63/63), giving 400/333.334/266.667/233.334/200/166.667/133.334/100 ms by index (e.g. 233.334 ms at index 3, the M4A1's 4 gives 200 ms). General_10 differs from General_01 at every index; the paired General_01 values match the site's ADS-in ladder within 1.2e-5 ms, supporting candidate transition roles ([L125](../../reference-data/provenance/frosty-2026-09-29-L125-fzt-general01-ads-in.json)). Whether the selector drives ADS-out, and whether ADS-time attachments shift it (no traced modifier references FZT directly and the receiving field of their steps is unnamed, [L121](../../reference-data/provenance/frosty-2026-09-29-L121-ads-time-modifier-targets.json)), is unresolved; do not apply ADS-in shifts to ADS-out. [Receipt](../../reference-data/provenance/frosty-2026-09-29-L114-ads-out-transition.json). |
@@ -430,15 +430,15 @@ Nine receipts pass check-receipt. Parent reviews and independent raw samples pas
 
 The handoff, progress, reader overlays, final verification and cleanup.json are in `C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-01T0840-0400-native-semantics`. Shared cleanup verified this closed folder: zero links or files removed. Resume only from a recorded reopen condition.
 
-- L1000: `9dfceabc762a5cc534a4f6753519f9b1e635fc24`.
-- L1003: `2408c21f23a716634be0bba4ee7f74cf7e388355`.
-- L1004: `f2a2e49b927f50302973efac5179c43dc14df5b4`.
-- L1001: `b60c526acb8a9faf2b36cfd62016073dae7cb7f2`.
-- L1002: `a31c2733f2c1f1ec740cd5510434bf1b118f0a90`.
-- L1005: `c3087b3e0110b9629944a07f98c3c37230a60947`.
-- L1006: `0def99f2e080d2c15f7310a9760b2f46c4574a74`.
-- L1007: `b2373815907ef50b60996ba1d3d6357e0581757b`.
-- L1008: `d205ce6ff360ef05da940c0f0ef9ffd275797cf0`.
+- L1000: `8414ed2e6fe600a4d29842162dbb34f137bc9847`.
+- L1003: `8414ed2e6fe600a4d29842162dbb34f137bc9847`.
+- L1004: `8414ed2e6fe600a4d29842162dbb34f137bc9847`.
+- L1001: `8414ed2e6fe600a4d29842162dbb34f137bc9847`.
+- L1002: `8414ed2e6fe600a4d29842162dbb34f137bc9847`.
+- L1005: `8414ed2e6fe600a4d29842162dbb34f137bc9847`.
+- L1006: `8414ed2e6fe600a4d29842162dbb34f137bc9847`.
+- L1007: `8414ed2e6fe600a4d29842162dbb34f137bc9847`.
+- L1008: `8414ed2e6fe600a4d29842162dbb34f137bc9847`.
 <!-- native-semantics:current-run:end -->
 
 <!-- weapons-ui-frontier:start -->
@@ -453,5 +453,5 @@ The prior atlas is reused without a rebuild. Exact candidate lookup adds 0 meani
 Eight leads are reviewed and committed through a separate index seeded from HEAD, own paths/hunks only. Seven shared-lock capture batches verified exact metadata/resource bytes. No generated-file build or commit, site edit, recording or push. Handoff and final audit are complete. The run is CLOSED for available source evidence. Final guard and manifest verify pass: 27,372 files, 0 new, 0 changed, 0 missing. The shared cleanup report and apply removed 0 links and 0 files; cleanup.json is verified. Commit IDs are in run-local-commits.json and handoff.md. Exact reopen conditions are recorded there.
 
 
-Local lead commits: `f4491ff1e22e`, `c9a8999c08d9`, `f845e5caff70`, `9fb55f973329`, `aed11f29f032`, `a96ac673e688`, `e0d5270b884c`, `c412d67b5ce7`.
+Local lead commits: `8414ed2e6fe6`, `8414ed2e6fe6`, `8414ed2e6fe6`, `8414ed2e6fe6`, `8414ed2e6fe6`, `8414ed2e6fe6`, `8414ed2e6fe6`, `8414ed2e6fe6`.
 <!-- weapons-ui-frontier:end -->

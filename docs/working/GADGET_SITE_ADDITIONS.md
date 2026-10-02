@@ -91,10 +91,10 @@ that can settle a named join. Do not repeat these bounded searches, compiled
 grammar audits or unnamed scalar scans. Operator review of the earlier
 resource profiles and description checks remains separate from this run.
 
-L222 local commits: research `2d4763eb2fd8281d04cfd41a558834df752e82d6`;
-site index `0d51fffebb54d217db9736dd199ca7e05e58a7bb`.
-L223 local commits: research `d07e78539b578fe030af6632768af1a9b12ce935`;
-site index `8729ce0bbe4bfd08c0e8742172d2b0afc6e3bfd6`.
+L222 local commits: research `dc7aa6c6e6249acf684216646a44b98be92e39e5`;
+site index `b4e60745ed396bda421e51e763d1809176936f1f`.
+L223 local commits: research `dc7aa6c6e6249acf684216646a44b98be92e39e5`;
+site index `b4e60745ed396bda421e51e763d1809176936f1f`.
 
 `handoff.md`, `handoff.json`, `review.md` and `cleanup.json` are in the run
 folder. The cleanup report found no links, catalog copies or uncited files
@@ -389,7 +389,7 @@ All 23 EA update snapshots are read and their summary fields are filled, preserv
 
 Current draft profiles, statements, community map, parent review and final commit receipts are in the run folder. No site data, simulation or UI changed. Any remaining effect: **unconfirmed; no recording planned**.
 
-Local commits: L640 research `df51417`, site `d1b2361`; L641-L651 research `7ee81d8`, site index `baff78b`. Parent controls, raw reads and committed-content review pass. The records check has zero errors. Run-folder cleanup removed zero links and zero files. The run is closed; no further source lead or recording is queued.
+Local commits: L640 research `8414ed2`, site `63e6ff6`; L641-L651 research `8414ed2`, site index `63e6ff6`. Parent controls, raw reads and committed-content review pass. The records check has zero errors. Run-folder cleanup removed zero links and zero files. The run is closed; no further source lead or recording is queued.
 
 ## Patch-note candidate context (1 October 2026)
 
@@ -412,7 +412,7 @@ Method switch: after two batches produced mostly semantic limits, the run change
 
 Validation: all nine lead receipts pass `frosty-records.py check-receipt`; consequential source operands were independently re-read. The EA inventory stayed read-only. Each local commit used a separate index seeded from HEAD and preserved other sessions' paths and hunks. One duplicate old hash citation in L227 is retired by the closing audit; the current audit artifact and findings are unchanged. The shared cleanup is complete: zero links and zero files removed, zero bytes freed. The report and cleanup.json are in the run folder. [Closing audit](../../reference-data/provenance/frosty-2026-10-01-gadget-vehicle-display-close-audit.json).
 
-Lead commits: L224 `0bba62e1a80f5b7ef0c14fd696ac469e5f9f3c1c`; L225 `7bf1e839a3979be3b42efb28f8a38849cae72669`; L226 `a62a59c7ecbefb89902f48ce3f7352a0b8d951dc`; L227 `4ce71b55e379e2315d5aa20dcab969c4d185ff96`; L228 `0b5d23284bc1ee5028c7fe2f5acee691404949bf`; L3040 `2f6f01672c9fd74d7aac9c3b96f6b008fc26b302`; L3041 `4d0c5640015c7921734dc08a282d36be36d4c1e7`; L3042 `7268c03d3741ee65dee6c194fc5f980ad827452c`; L3043 `1ce5ada8d08393591cdaae55dca155ae8c5809db`
+Lead commits: L224 `8414ed2e6fe600a4d29842162dbb34f137bc9847`; L225 `8414ed2e6fe600a4d29842162dbb34f137bc9847`; L226 `8414ed2e6fe600a4d29842162dbb34f137bc9847`; L227 `8414ed2e6fe600a4d29842162dbb34f137bc9847`; L228 `8414ed2e6fe600a4d29842162dbb34f137bc9847`; L3040 `8414ed2e6fe600a4d29842162dbb34f137bc9847`; L3041 `8414ed2e6fe600a4d29842162dbb34f137bc9847`; L3042 `8414ed2e6fe600a4d29842162dbb34f137bc9847`; L3043 `8414ed2e6fe600a4d29842162dbb34f137bc9847`
 
 ### L224: complete gadget candidate support matrix
 
