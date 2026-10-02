@@ -567,10 +567,14 @@ def check_site_rows(ctx, name, sr):
     if gone: ctx.warn('stale-pointer', f'{name}: {gone} of {len(rows)} siteRows pointers no longer resolve (first: {first})')
     if moved: ctx.warn('value-changed', f'{name}: {moved} of {len(rows)} siteRows values differ from the current site')
 
+CAPTURE_BUILD_DIRS = {'1.4.3.0-release': '1.4.3.0', '1.4.3.0-hotfix': '1.4.3.0', '1.4.3.5': '1.4.3.5', '1.4.2.5': '1.4.2.5'}  # record build -> Datamining builds/ folder; 'mixed' and 'site-only' have no single capture
+
 def external_checks(ctx, recs):
     if not ctx.dm.exists(): ctx.warn('external', f'{ctx.dm} not found; skipped'); return
-    raw_root = ctx.dm / 'builds/1.4.3.0/capture/collection/raw'
     for name, rec, _ in recs:
+        folder = CAPTURE_BUILD_DIRS.get(rec.get('build'))
+        if not folder: continue
+        raw_root = ctx.dm / 'builds' / folder / 'capture/collection/raw'
         for a in rec.get('assets', []):
             f = raw_root / (a['path'] + '.ebx')
             if a['format'] == 'raw-ebx' and f.exists() and sha(f.read_bytes()) != a['sha256']:

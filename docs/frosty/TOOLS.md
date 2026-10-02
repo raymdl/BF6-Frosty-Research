@@ -491,7 +491,7 @@ baseline.
 | Slots and prerequisites | `scripts/frosty-attachment-compatibility.py` ([maintenance command](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/MAINTENANCE.md#regenerate-attachment-modifiers)) | `frosty-attachment-compatibility.json` |
 | Arrays, damage, draw time, spread | `node --test scripts/source-arrays.test.mjs scripts/damage.test.mjs scripts/draw-time.test.mjs scripts/spread-distribution.test.mjs` | `frosty-array-review-2026-09-09.json`, `frosty-damage-curve-review-2026-09-13.json`, `frosty-draw-time-2026-09-09.json` |
 | Site ammo effect audit | `python scripts/frosty-site-ammo-tier-audit.py --report-dir "<external audit directory>" --out "<new receipt path>"` | `frosty-site-ammo-effects-2026-09-23.json`; research outputs only |
-| Watchlist | `python scripts/frosty-watchlist-merge.py --datamining "<datamining root>"` (dry run; add `--write`) | `reference-data/frosty/asset-watchlist.json` |
+| Watchlist (historical) | `python scripts/frosty-watchlist-merge.py --datamining "<datamining root>"` (dry run; add `--write`). Seeded the watchlist for the 1.4.3.0 update and is not part of the update flow; do not re-run it. Its `interdictor-1.4.3.0` evidence file now lives only in the Weapon Analyzer repo (`docs/archive/`), so a re-run fails on the missing file. | `reference-data/frosty/asset-watchlist.json` |
 
 ### Recorded primary scalar scan
 
