@@ -8,6 +8,223 @@ equations live in the model guides ([damage and ballistics](https://github.com/r
 this page covers the source side. The native equations are in game code, which was not
 examined; all findings use exported values and their structure.
 
+<!-- gunfight-ranked-damage:start -->
+## Ranked gunfight route qualification
+
+[L741, L742 and L746 qualification receipt](../../reference-data/provenance/frosty-2026-10-01-gunfight-ranked-damage-qualification.json) records targeted retained-owner and caller checks. No source-value trace was launched without a question-specific control. These are route limits, not evidence that a mechanic is absent.
+
+| Question | Source boundary | Reopen condition |
+|---|---|---|
+| Water-target damage (L741) | Exact Match projectile and swimming-expression identities do not identify water-damage attenuation. | Exact selected projectile/material or soldier damage caller and a known-answer water control. |
+| Damage to destructible cover (L746) | Material-pair layouts do not identify the chosen cover health or damage receiver. | One exact cover owner, selected weapon damage receiver and same-owner threshold/damage control. |
+<!-- gunfight-ranked-damage:end -->
+
+<!-- gunfight-L1101:start -->
+## Gunfight damage, cadence and ballistics cross-check
+
+[L1101](../../reference-data/provenance/frosty-2026-10-01-L1101-gunfight-damage-ballistics.json) checks SOR-300SC, M433 and M2010 ESR against current source owners and site operators. Same-owner controls passed before findings. The selected damage curves, protection-index multipliers, base velocity, cadence terms, gravity and drag agree with the sampled site inputs. The worker made 79 raw checks; the parent independently confirmed SOR velocity `528` at WB offset `416`. Prior wider coverage is retained context, not a new all-weapon measurement.
+
+The SOR health control is `0 m / 33.4` in the selected health curve. The site's damage input uses the separately selected tweakable curve, whose first value is about `35.22`. These are different exact curve owners. They are not a source/site disagreement. M433 protection index `11` resolves head material `24` to `1.4` and torso material `115` to `1`. The source's exact pointer, registry index and material joins are retained in the receipt and hashed result.
+
+Firing-only TTK uses the site's selected damage curve, hit zone and cadence policy. Site health `100` and lethal tolerance are software rules. The M2010 bolt formula remains conditional on its accepted primary timing block. Matching projectile gravity/drag operands does not prove the native trajectory solver, zeroing or impact-time damage rule. The Match projectile context does not establish its active choice or velocity composition. Native curve precedence, hit selection and fatal precision remain open. No new correction is proposed.
+<!-- gunfight-L1101:end -->
+
+<!-- gunfight-L1102:start -->
+## Gunfight spread and recoil cross-check
+
+[L1102](../../reference-data/provenance/frosty-2026-10-01-L1102-gunfight-spread-recoil.json) checks M433 spread/bloom and recoil. The named Zoomed Stationary IncreasePerShot and Zoomed RecoilAmount controls passed first, with exact source/registry joins. All 93 fresh raw reads passed. The 69 scoped current site input comparisons agree within float32 precision. HDA/ZDA selectors and row pointers are exact; source maxima use the named MinMaxDispersion fields.
+
+For the current bare M433 software model, spread per shot is `0.36` ADS and `0.648` hip. The software recoil amount is about `0.793332335`, with directional variation `41.4`. These are software outputs from the selected operands. Native cone sampling, recovery, random delivery, stance selection and input/camera composition remain unresolved. The parent re-read ADS IncreasePerShot at GS offset `736` (`ec51b83e`, `0.36000001430511475`). No new source/site correction is proposed. Creator titles and chapters establish research topics only.
+<!-- gunfight-L1102:end -->
+
+<!-- gunfight-L1100:start -->
+## Community gunfight topic map
+
+[L1100](../../reference-data/provenance/frosty-2026-10-01-L1100-community-gunfight-map.json) retains 21 dated primary metadata items across TheXclusiveAce, GhostGaming, Enders, zen3D, EclipseFPS and StriderBF. Six primary-author controls passed. Each title/date/topic row is linked to the read-only patch inventory and later relevant changes. Release proximity within two days is ambiguous; an upload date does not establish a test build. Exact primary timestamps and Eastern calendar dates are separate. The Enders limb video is July 2 in Eastern time; its Pacific timestamp is July 1.
+
+The ranks below are research judgements of player impact. They are not measured creator results. Descriptions and chapters name topics; no spoken test result or community number is used as a source value. All 15 earlier items advertised caption tracks; 13 corrected requests returned empty text and two metadata retries failed. The six addendum items advertised tracks, but their caption text was not retrieved.
+
+| Rank | Topic | Creator topic / citation | Source lead |
+|---:|---|---|---|
+| 1 | spread/bloom | [TheXclusiveAce](https://www.youtube.com/watch?v=TFO0qOd5DSY); [StriderBF](https://www.youtube.com/watch?v=E8rbwJbCjRQ) | L1102 |
+| 2 | recoil | [TheXclusiveAce](https://www.youtube.com/watch?v=FZ7u5Baz4dg); [GhostGaming](https://www.youtube.com/watch?v=SdmvVcXLIKo) | L1102 |
+| 3 | damage/multipliers | [TheXclusiveAce](https://www.youtube.com/watch?v=LaV-rot_w1c); [Enders](https://www.youtube.com/watch?v=Vx15nSvHM7A) | L1101 |
+| 4 | velocity/drop | No direct primary topic item; gap retained | L1101 |
+| 5 | TTK | [zen3D](https://www.youtube.com/watch?v=1VGO2cJbZJg); [EclipseFPS](https://www.youtube.com/watch?v=NYp7FA74dZc) | L1101 |
+| 6 | movement/jump shooting | [StriderBF](https://www.youtube.com/watch?v=XD7e9grpWEw) | L1103 |
+| 7 | ADS | [TheXclusiveAce](https://www.youtube.com/watch?v=mudrdyvKiUk); [StriderBF](https://www.youtube.com/watch?v=XD7e9grpWEw); timing gap | L1103 |
+| 8 | sprint-to-fire | No direct primary topic item; gap retained | L1103 |
+| 9 | hit registration | No direct primary topic item; gap retained | L1104 |
+| 10 | swap | No direct primary topic item; gap retained | L1103 |
+| 11 | suppression/flinch | [TheXclusiveAce](https://www.youtube.com/watch?v=YXmquB6M9oE); [EclipseFPS](https://www.youtube.com/watch?v=NYp7FA74dZc); flinch gap | L1104 |
+
+Ranks are operator judgement. Links certify topics only; no creator result is verified.
+
+Primary metadata leaves direct velocity/drop, sprint-to-fire, swap and hit-registration topics unresolved; ADS timing and flinch also remain gaps. These groups still receive source/site dispositions in L1101-L1104. The falsely attributed Enders candidate was excluded after its primary page identified Pvt_Rinzler. Full descriptions, chapters, hashes and immutable map revisions remain in the cited run artifacts.
+<!-- gunfight-L1100:end -->
+
+## Actual joins for added weapon graph contexts (L829)
+
+[L829](../../reference-data/provenance/frosty-2026-10-01-L829-late-context-actual-joins.json) completes actual site, independent earlier receipt and September 30 census join attempts for all 481 contexts added after the original atlas: 16 from L802 and 465 from L822. The current M433 capacity and source/site/census bridge control passed first. Parent native review, exact identity/context checks and independent control/late optic operand reads passed.
+
+The [late join index](../../reference-data/frosty/weapon-frontier/late-context-join-index-L829.json) contains 17 bounded parts, keyed to the exact family, context, source, descriptor and field path. All three attempt dispositions are present. The 21 current source-owner route/hash pairs have no matching asset record in the inspected census inputs. No exact current site operator or independent earlier receipt field bridge is established. Source extraction and current search receipts remain separate from independent prior semantics. Empty joins do not establish native non-use.
+
+The canonical atlas now links both the original 11,687-context join index and this 481-context addendum. All 12,168 contexts have actual join attempts or explicit bridge limits. The original family values, qualifications, variation summaries and classifications are unchanged. No new semantic, consumer, capture target or comparison stat was found. Three compact route limits record attempts and reopen requirements in [where-not-to-look.json](../../reference-data/frosty/weapon-frontier/where-not-to-look.json).
+
+## Final ranked weapon source audit (L828)
+
+[L828](../../reference-data/provenance/frosty-2026-10-01-L828-ranked-source-route-audit.json) audits all 133 current ranked source identities and their 347 exact contexts. The current source pointer/channel/resource control passed first. Every context resolves to actual source/schema and site/prior/census attempt records. Completed worker proofs and stops retain exact file/member/pointer identities. All 347 declaring owner, descriptor, field and path checks pass. Parent native review and independent control/operand reads passed.
+
+The audit reuses 89 completed raw-proof rows and canonicalizes 44 existing typed-byte proofs with descriptor types and their stated layout limits. Four families have existing modeled site or choice bindings; 34 are named GS parameters without a current site path; 78 retain serialized roles or types with unresolved native receivers, units or state composition; 17 are reference or container routes. All 12 represented outgoing imports have exact current targets. Raw or named values supply no missing native operator or selected comparison equation.
+
+There is no newly qualified missing current target or supported new comparison stat. The [route ledger](../../reference-data/frosty/weapon-frontier/ranked-source-route-audit-L828.json) retains every actual attempt and reopen requirement. The [compact limit batch](../../reference-data/frosty/weapon-frontier/where-not-to-look.json) retains exact qualified source-context pointers and fields. The checked available source frontier is exhausted; native meaning remains incomplete where stated.
+
+## Current weapon field atlas (1.4.3.5, L819)
+
+[L819](../../reference-data/provenance/frosty-2026-10-01-L819-current-weapon-field-atlas.json) publishes the [current field atlas](../../reference-data/frosty/weapon-frontier/field-atlas.json): 5,351 exact descriptor/path identities in 12,168 source contexts, across 458 declaring class hashes. All seven requested owner groups and all 63 site weapons are covered. There are 5,212 real field identities and 139 structural markers. The 337 added identities and 481 added contexts retain their exact source proofs. Known controls, native review, independent parent operands and the publication contract checks passed.
+
+The current view applies all 299 [L810 scalar corrections](../../reference-data/frosty/weapon-frontier/scalar-variation-correction-L810.json): 298 combine one exact scalar from each of the 63 weapons; one remains a single-weapon source. Profiles and source occurrence frequency remain separate. Original source classifications, the [Stage 1 baseline](../../reference-data/frosty/weapon-frontier/field-atlas-baseline.json) and the [lossless original source archive](../../reference-data/frosty/weapon-frontier/field-atlas-full.json.zip) are preserved.
+
+[Current counts](../../reference-data/frosty/weapon-frontier/final-current-counts.json) retain 11,895 known-limit, 166 modeled and 165 traced-not-site context memberships. Forty-nine contexts have multiple labels, so these counts overlap. No typed context remains never examined in this bounded inventory. A known limit records attempted routes and missing evidence; it does not establish no native effect. [L823 actual joins](../../reference-data/frosty/weapon-frontier/current-join-disposition-index.json) distinguish exact site consumers, stored-unused values, earlier receipt field bridges and census asset coverage. Asset availability supplies no field meaning.
+
+The [133 ranked source candidates](../../reference-data/frosty/weapon-frontier/current-ranked-frontier-draft.json) retain their exact contexts and native limits. [L828](../../reference-data/provenance/frosty-2026-10-01-L828-ranked-source-route-audit.json) audits their actual attempted routes and proof links. No unchased qualified source target remains in the checked graph. Units, activation, selected ownership and native composition remain unresolved where stated. No new numeric comparison stat is supported by the current proof. Existing conditional and qualitative proposals remain in the research queue.
+
+## Atlas source, site and census joins (L823)
+
+[L823](../../reference-data/provenance/frosty-2026-10-01-L823-field-atlas-actual-join-audit.json) audits all 5,014 baseline identities and 11,687 source contexts against exact owner route/raw SHA/build census records, canonical field/site proofs and earlier receipt field bridges. The current M433 capacity and site consumer control passed first. All 15 immutable source-part hashes match. Parent review and an independent raw sample passed. The earlier reference-key-only counts are superseded by the actual join packet.
+
+There is exact census asset coverage for 7,052 contexts; 5,959 have every qualified source asset covered. There are 318 exact site-field or explicitly stored-unused consumer dispositions and 143 exact earlier receipt field bridges. Asset census coverage establishes source availability, without transferring a field meaning. A stored value is distinct from a current simulation consumer. Every remaining bridge has an exact context disposition and reopen requirement in the indexed overlay and [where-not-to-look.json](../../reference-data/frosty/weapon-frontier/where-not-to-look.json). Missing bridges do not establish native non-use. No new native effect or comparison stat is inferred.
+
+## Selection and reference source audit (L817)
+
+[L817](../../reference-data/provenance/frosty-2026-10-01-L817-selection-reference-source-frontier.json) covers 831 identities in 1,610 exact immutable source contexts. The M39 control passed first. Representative and parent checks, neutral-owner numeric child checks and 485 source pointer/import-header pairs passed. Parent review and an independent operand sample passed. The neutral audit qualifies all 317 assigned contexts across 201 retained assets, including 218 registry-only identities. Numeric children retain their own exact field identities and prior evidence.
+
+The outgoing audit resolves 455 current target links and preserves 27 explicit gadget, vehicle or underbarrel exclusions. Three exact missing metadata owners were captured and parent-verified for L822: the NVG laser expression, volume-light emitter and flashlight texture metadata. Selection/reference names, array contents and zeros establish no native receiver operation or new player comparison stat. The batch adds 268 compact class/route groups to [where-not-to-look.json](../../reference-data/frosty/weapon-frontier/where-not-to-look.json); new captured fields continue separately.
+
+## Exact shared source context residuals (L821)
+
+[L821](../../reference-data/provenance/frosty-2026-10-01-L821-exact-shared-context-frontier.json) covers 129 identities in the final 190 comparative contexts left by exact context reconciliation: 86 balance, 101 WB and three modifier contexts. The M433/table control passed first. Twelve current bodies provide 220 operand checks and 39 distinct local-parent pointer checks; parent review and an independent sample passed. Reviewed contexts and the separate selection audit are excluded.
+
+All 190 local routes retain exact parent proofs. No current registry association qualifies the assigned contexts, so prior names from other instances are not transferred. Twenty same-hash historical contexts preserve their older selection limits. The pass establishes no external target inside the assigned values, new native role or comparison stat. Each exact context has a compact tried/stop/reopen row in [where-not-to-look.json](../../reference-data/frosty/weapon-frontier/where-not-to-look.json). Same-family evidence does not close another source context.
+
+## Weapon comparison route audit (L820)
+
+[L820](../../reference-data/provenance/frosty-2026-10-01-L820-weapon-stat-route-audit.json) audits 23 completed frontier packets and 49 graph, consumer, proposal and request packets across all 63 weapons and seven owner groups. The current index/table control passed first. Parent review and an independent table operand read passed. All 34 earlier optical exported-target gaps now have qualified current body proofs; earlier PiP and zeroing requests are also resolved.
+
+Seventy-one exact current named source roles retain their occurrence boundaries. Bolt, heat, stance and movement labels do not establish native seconds, angles or percentages. The audit finds no omitted positive-proof stat target or new numerical comparison with a supported prediction. Existing source and qualitative proposals retain their stated effect and validation limits. Seven grouped boundaries in [where-not-to-look.json](../../reference-data/frosty/weapon-frontier/where-not-to-look.json) preserve exact reopen conditions. Breath resource analysis and exact context completeness continue separately.
+
+## Remaining mixed weapon owner fields (L816)
+
+[L816](../../reference-data/provenance/frosty-2026-10-01-L816-remaining-mixed-owner-frontier.json) The pass covers 260 identities in 560 remaining source contexts across 28 declaring classes and 21 current representative bodies. Seven controls passed first. There are 635 new operand and header checks; parent review and an independent sample passed. Repeated context references to those checks are not additional raw reads.
+
+WB, projectile, balance and modifier contexts remain separate. The pass establishes no exact new registry alias, native operator, numeric comparison stat or qualified missing consumer. Constants and hashed members retain explicit role or selection limits. Twenty-eight compact class/source groups retain tried routes and reopen conditions. The compact limits are in [where-not-to-look.json](../../reference-data/frosty/weapon-frontier/where-not-to-look.json).
+
+## Remaining GS source fields (L811)
+
+[L811](../../reference-data/provenance/frosty-2026-10-01-L811-gs-source-residual-frontier.json) The pass covers 267 GS identities in 432 exact source contexts. The M433 control passed first. Current representative and parent checks, first-array-element reads and targeted registry proofs passed. Parent review and an independent sample passed.
+
+Fifty-two representative families have exact occurrence-local registry names. The L810 correction supplies combined scalar statistics for 141 families; 70 vary across weapons. Other profiles retain their source partition limits. Source labels do not supply native units, selection or equations. No new comparison stat or capture target is established. The batch adds 267 compact descriptor/path limits. The compact limits are in [where-not-to-look.json](../../reference-data/frosty/weapon-frontier/where-not-to-look.json).
+
+## GS and WB array residuals (L805)
+
+[L805](../../reference-data/provenance/frosty-2026-10-01-L805-gs-wb-array-residual-frontier.json) The pass covers 150 assigned identities: 28 exact prior dispositions and 122 current representative proofs. Same-owner controls passed first. There are 220 representative reads, 122 aggregate-array reads and eight exact idle-table target reads. Parent review and an independent sample passed.
+
+GS bound arrays have 60 positions in each of the 32 assigned owners. Prior evidence names positions 0 through 17; the additional tail operands retain values 1.0 and 0.10000000149011612 without native roles. An exact idle index 3 reaches the current table value 0.28333398699760437; its native timing meaning remains unresolved. No numeric comparison stat is established. The batch adds 119 compact limits. The compact limits are in [where-not-to-look.json](../../reference-data/frosty/weapon-frontier/where-not-to-look.json).
+
+## WB bolt and heat source contexts (L813)
+
+[L813](../../reference-data/provenance/frosty-2026-10-01-L813-wb-bolt-heat-source-frontier.json) traces 162 remaining WB identities in 319 exact source contexts. The M433 capacity control passed first. Four current representative bodies supply 248 scalar/container/header checks; parent review and an independent raw sample passed. Exact assignment and source context populations agree.
+
+Ten bolt or heat field families retain current occurrence-local registry labels. They do not establish native selection, units or timing composition in other WB contexts. All 162 identities retain explicit role or selected/native consumer limits. Prior shared-token matches supply candidates rather than names. Twenty-one compact groups in [where-not-to-look.json](../../reference-data/frosty/weapon-frontier/where-not-to-look.json) retain tried routes and reopen evidence. No new comparison stat or qualified missing consumer body is established.
+
+## Combined scalar variation correction (L810)
+
+[L810](../../reference-data/provenance/frosty-2026-10-01-L810-gs-scalar-variation-correction.json) corrects 299 scalar summary records in the field atlas. The earlier summary helper omitted the second GS batch when combining weapon values; both 32- and 31-weapon source inventories were present. The M433 GS control and 299 representative raw re-reads passed. The correction combines 298 records across all 63 weapons and retains one record limited to one weapon.
+
+[Corrected variation counts](../../reference-data/frosty/weapon-frontier/scalar-variation-correction-L810.json) supersede the matching baseline family summary counts and ranges. Per-weapon values retain exact source/family index proofs. Ordered, repeated and opaque profiles remain separate from single scalar weapon counts. Source values, field meanings and site inputs are unchanged. This is an atlas count correction, with no new comparison stat.
+
+## WB source residuals (1.4.3.5, L808)
+
+[L808](../../reference-data/provenance/frosty-2026-10-01-L808-wb-source-residual-frontier.json) traces 200 field/container identities in 397 remaining WB source contexts. The M433 capacity control passed first. Three current representative bodies supply 338 scalar/container/header reads; parent review and an independent operand sample passed. Exact parent descriptors qualify array leaves.
+
+All 63 primary fire-mode values match the site through current prior raw/profile joins. One family retains its modeled primary-mode role; an alternate-mode family retains a traced source role. Nine registry-name families have exact occurrence-local proofs. The remaining 198 roles retain source or native limits, including prior conditional rounds-per-burst meaning. Registry names do not establish global WB receiver behavior. Twenty-one compact groups in [where-not-to-look.json](../../reference-data/frosty/weapon-frontier/where-not-to-look.json) retain the tried routes and reopen conditions. No new comparison stat is established.
+
+## Weapon Ability residual fields (1.4.3.5, L806)
+
+[L806](../../reference-data/provenance/frosty-2026-10-01-L806-weapon-ability-residual-frontier.json) qualifies 103 assigned weapon Ability scalar and container families across 20 declaring classes. The AK205 branch/action/selector control passed five raw reads first. Three representative current bodies supply 129 field/container checks. Parent native review and an independent operand read passed. Array leaves retain their exact immutable parent descriptor and path proofs.
+
+Two exact kill-switch/fallback paths retain prior structural meanings. The other 101 roles lack an exact selected/native receiver or same-owner alias bridge in the inspected evidence. Constant and zero operands remain source facts. Generic scheduling, selection and weapon handling effects are unresolved; no new movement, firing, ADS or handling stat is established. Twenty compact class/source groups in [where-not-to-look.json](../../reference-data/frosty/weapon-frontier/where-not-to-look.json) retain the routes and reopen evidence. These limits do not establish native non-use.
+
+## Projectile and ammo residual fields (1.4.3.5, L803)
+
+[L803](../../reference-data/provenance/frosty-2026-10-01-L803-projectile-ammo-residual-frontier.json) reconciles 229 exact projectile, ammo, reload and modifier scalar families: 37 previously examined families and 192 additional families. The AK205 magazine selector/capacity control passed first. There are 189 new independent operand checks and three qualified proof reuses, with no operand proof gap. Parent review and independent raw samples passed. Nineteen families have exact owner/path registry names; seven have existing site consumer references.
+
+Constant values and source profile counts do not establish native selection or no effect. Member order supplies no suppression, flinch or reload phase meaning. The 291 related missing current wrappers retain exact catalog GUIDs and current parent import proofs, without a selected weapon/stat owner. Historical values remain context. New compact route/field limits are added to [where-not-to-look.json](../../reference-data/frosty/weapon-frontier/where-not-to-look.json); prior L799 limits are reused. No new stat or qualified capture target is established.
+
+## Handling source frontier (1.4.3.5, L800)
+
+[L800](../../reference-data/provenance/frosty-2026-10-01-L800-handling-source-frontier.json) covers all 63 WB roots, 441 exact default index/table joins across seven handling axes, 39 target files and 22 unchanged current modifier contexts. The M433 ADS index/table control passed first. The worker checked 5,577 new operands across 48 field families. All 756 site comparisons match or retain explicit nulls, including 123 reload totals. Parent review and independent raw samples passed.
+
+Deployment has a separate index on Class_e9fe5f4c, joined through the exact Class_01419c76 pointer to DTA_Weapons/Sidearms. BridgeDelay is zero in all 124 entries. Seven varying firing/deployment sibling fields retain their hashes and values; available schema and consumer evidence does not establish their roles. Native modifier dispatch, selection, composition and animation phase timing remain unresolved. The batch's 85 compact route groups are in [where-not-to-look.json](../../reference-data/frosty/weapon-frontier/where-not-to-look.json). No site correction or new comparison stat is proposed.
+
+## Ballistic recoil source frontier (1.4.3.5, L801)
+
+[L801](../../reference-data/provenance/frosty-2026-10-01-L801-ballistic-recoil-frontier.json) traces 60 exact GS recoil paths across all 63 weapons; 32 scalar families vary. The current M433 GS control passed first. All 11,221 source/registry/field-hash reads passed. All 1,764 source/site input comparisons agree. Parent native review and sampled raw reads passed.
+
+The current site consumes recoil amount, direction/variation, duration and recovery inputs through conditional equations. Norm and shooting-scale values are stored without a native-state consumer. Bound/cap, polar branch, axis/first-shot, pattern seed/multipliers and fade fields retain their exact source roles. Uniform neutral values do not establish native non-use, and registry names do not supply native RNG, cap application or axis composition. Six compact route groups in [where-not-to-look.json](../../reference-data/frosty/weapon-frontier/where-not-to-look.json) retain the missing evidence. No new comparison is proposed.
+
+## Projectile and ammo source frontier (1.4.3.5, L799)
+
+[L799](../../reference-data/provenance/frosty-2026-10-01-L799-projectile-ammo-frontier.json) examines 38 varying scalar families across 345 current source bodies: 37 comparison candidates and one selector identity. The exact projectile gravity/drag control passed before findings. The worker completed 12,174 raw reads; parent native review and consequential samples passed.
+
+The 588 exact current registry/source associations name Drag, StartDamage, EndDamage, damage falloff distances, InitialSpeed and TimeToLive on their actual declaring descriptors. Six reload schema names have same-descriptor proof. Source-file inventories, exact ammo choices, WB baseline pointers and native activation remain separate. Local array roots retain their individual paths and offsets; flattened inventory order does not form a single curve.
+
+WB `Field_bd024e1d` is -1 on 60 weapons, 2 on DP12 and 99 on M1014/M87A1. WPM contexts contain -1, 4, 5 and 99. These owner contexts do not establish a shared reload-state/count meaning. The current five-float body retains its hashes without legacy suppression/flinch positional names. Current ammo UI and consumer receipts supersede older coverage gaps. No new stat or qualified missing capture target was established. The batch's compact route/field limits are in [where-not-to-look.json](../../reference-data/frosty/weapon-frontier/where-not-to-look.json).
+
+## Combined weapon field atlas (1.4.3.5, L793)
+
+[L793](../../reference-data/provenance/frosty-2026-10-01-L793-combined-field-atlas.json) combines all seven owner groups for the 63 site weapons: 11,687 source contexts normalize to 5,014 exact descriptor/path identities, including 4,890 real fields and 124 structural markers. The M433 capacity control passed before assembly. Parent native review and sampled raw reads passed. Current enum values were independently checked against 82 raw integers in nine owners.
+
+The [Stage 1 field atlas](../../reference-data/frosty/weapon-frontier/field-atlas-baseline.json) retains field class/key, hash/path/type, ranges, source-profile and actual scalar weapon variation, site consumers, prior receipts and audit joins. [Class counts](../../reference-data/frosty/weapon-frontier/owner-class-counts.json) preserve the full census. Repeated source asset qualifications are indexed into a verified [lossless full atlas](../../reference-data/frosty/weapon-frontier/field-atlas-full.json.zip). Modeled, source-traced, known-limit and never-examined contexts remain distinct, including mixed uses of a field.
+
+This completes the finite typed inventory and required direct-owner capture pass. It does not identify every native field role. The frontier continues through ranked variable and source-only contexts, including unnamed members; new owners or families extend it. Selected HDA/ZDA minima, raw GS/cache fields, global registry reachability and runtime selection remain separate.
+
+The corrected current view is in [L819](../../reference-data/provenance/frosty-2026-10-01-L819-current-weapon-field-atlas.json). The original counts and classifications above remain Stage 1 facts.
+
+## Spread and recovery source frontier (1.4.3.5, L798)
+
+[L798](../../reference-data/provenance/frosty-2026-10-01-L798-spread-recovery-frontier.json) traces 128 exact GS spread and recovery paths across all 63 weapons; 83 scalar families vary. The M433 GS and HDA controls passed first. Current registry/source associations, same-descriptor BROD3 leaves and selected table chains passed 19,915 raw reads. Parent review and sampled re-reads passed.
+
+The 4,284 direct source/site comparisons include 194 differences in raw GS MinAngle contexts. These are separate stored paths: all 189 minima from the exact current HDA/ZDA selectors and serialized row references match the site. Both table hashes match the L69 source. A raw GS difference does not establish an incorrect site minimum or native cache precedence.
+
+Current consumers use the stored firing, not-firing and distribution inputs through conditional site equations. Idle and first-shot inputs are stored without a current spread consumer. Generic recovery fields and posture/jump contexts retain their source roles and native selection limits. The existing L69 posture proposal remains applicable. Four compact routes in [where-not-to-look.json](../../reference-data/frosty/weapon-frontier/where-not-to-look.json) record the missing consumer/equation evidence; no new stat is proposed.
+
+## Camera source frontier (1.4.3.5, L796)
+
+[L796](../../reference-data/provenance/frosty-2026-10-01-L796-camera-frontier.json) traces 25 exact camera amount, idle spring, firing spring and switching fields across all 63 weapons. Nineteen scalar families vary. The same-owner M433 GS recoil control passed first. The 1,550 current registry/source associations and the BROD3 same-descriptor leaves passed 4,676 raw reads. Parent review and sampled re-reads passed.
+
+The registry names identify source roles; they do not supply a camera output equation, physical units, runtime selection or composition with optic modifiers. The site has no consumer for these camera families in the examined recoil paths. Existing L127 spring meanings remain prior evidence. Three compact routes in [where-not-to-look.json](../../reference-data/frosty/weapon-frontier/where-not-to-look.json) retain the missing evidence and a precise reopen condition. No new numeric comparison stat is justified.
+
+## Weapon balance field atlas (1.4.3.5, L787)
+
+[L787](../../reference-data/provenance/frosty-2026-10-01-L787-weapon-balance-field-atlas.json) inventories 201 current files, 1,269 exact descriptor field families and 367,919 typed occurrences. The additive duration and exact recoil registry child/hash controls passed first. All 18 outward imports resolve current exported objects. The worker raw-checked 21,734 role operands and 63,421 association operands; parent review and sampled re-reads passed.
+
+The registry supplies 16,765 exact scalar associations across all 63 weapons. Each association retains the source owner, declaring descriptor, field path, offset and bytes, plus the registry anchor/child/hash and wrapper import proof. All scalar pairs agree. These associations can supply source role names; they do not establish native units, activation or composition. Two exact burst-control contexts join existing site consumers and five weapon overrides. Other occurrences retain their own limits or unexplained roles. Global registry imports remain candidate context rather than selected weapon effects.
+
+## Projectile field atlas (1.4.3.5, L785)
+
+[L785](../../reference-data/provenance/frosty-2026-10-01-L785-projectile-field-atlas.json) inventories 87 projectile files: 170 typed field families and 23,681 occurrences, including inherited projectile fields, local curves and suppression bodies. The same-owner gravity/drag control passed first. The parent review and raw re-reads passed. All 63 WB PrimaryFire.Shot pointers join the exact current base projectile objects used by the site; 64 of the 87 routes also occur in its configured projectile mapping. Graph-only and SP variants retain their own disposition.
+
+Gravity, drag and accepted damage-curve paths have conditional site joins. Seven families have traced source context but no site reader; the remaining families retain their known limits or unknown roles. The 895 outward import edges resolve exact current file/exported-object identities across 29 target files. This extends field coverage and does not identify a native suppression/flinch formula, assign legacy names to the five-member current suppression body, or establish runtime projectile selection for every graph candidate. The linked atlas records value ranges and source-byte provenance for later frontier tracing.
+
+## Weapon root field atlas (1.4.3.5, L780-L783)
+
+The source atlas covers all local typed fields in the WB and GS owners of all 63 site weapons. [L780](../../reference-data/provenance/frosty-2026-10-01-L780-root-field-atlas.json) and [L781](../../reference-data/provenance/frosty-2026-10-01-L781-root-field-atlas.json) cover 32/31 WB roots; [L782](../../reference-data/provenance/frosty-2026-10-01-L782-root-field-atlas.json) and [L783](../../reference-data/provenance/frosty-2026-10-01-L783-root-field-atlas.json) cover the same GS partitions. The partition counts are 1,284/1,301 WB and 563/581 GS field families. These counts overlap and must not be added as unique families across all weapons. The atlas preserves exact descriptor identities, inherited fields, array containers/elements, pointer identities, value ranges and cross-weapon profiles. Hash names alone do not state field meanings.
+
+The same-owner controls passed before extraction: M433 magazine capacity 31, M250 capacity 50, M433 ADS recoil amount 0.6694999933242798 and M250 maximum vertical recoil 20. Parent reviews passed and independently re-read raw operands. All 126 root hashes match the retained roster captures and the current 1.4.3.5 bytes; earlier receipts retain their original build. Known source roles and site consumers are recorded separately from inferred names and unexplained fields. The bulk layout atlas does not raw-validate native behavior or treat a numeric match as a site mapping.
+
+The 12,935 direct WB imports and the GS bindings retain exact file/exported-object GUID edges. L781 initially reported one missing direct target, `WPM_RGT_Blacklight_W10` from M45A1 WB. The parent later recovered its already-registered current capture and verified the raw pointer plus exact file/exported-object GUIDs; no zero-effect result follows. A graph import establishes reachability; selected effect and runtime activation require their own trace. The linked projectile, attachment/modifier, ammo, optic and weapon-balance atlases remain in Stage 1. Zoom, PiP, FOV, glint and zeroing receive explicit optic-owner coverage. This root pass does not exhaust the weapon frontier.
+
 ## 1.4.3.5 update review (30 September 2026)
 
 Head 4909002 is a new snapshot under the maintained update procedure. The captured
@@ -1154,8 +1371,8 @@ native activation result follows.
 The table gives a count prediction across the WB list and mode-changing
 attachments offered by the site. It does not assert that every listed mode is
 available in every loadout. WB arrays can include attachment-gated burst modes.
-Counts are 26 weapons with one mode, 28 with two and nine with three. Runtime
-availability is pending the operator's toggle check.
+Counts are 26 weapons with one mode, 28 with two and nine with three. On 1 October
+the operator confirmed all 11 named toggle predictions in game ([decision](../../reference-data/provenance/frosty-2026-10-01-decision-L604-toggle-check.json)).
 
 | Weapon | WB primary, then alternates | Count prediction across site choices | Mode-changing site attachment lists |
 |---|---|---:|---|
@@ -1228,8 +1445,8 @@ A3 Receiver (auto/single), KORD 6P67 with Burst Training (burst/auto/single),
 GRT-BC and SL9 with Burst Mode (burst/single), VSSM bare (single) and Folding
 Stock (auto/single), GRT-CPS bare (single), vz. 61 bare (auto/single) and
 M2010 ESR bare (single with bolt action). Compare the distinct toggle modes and
-counts with these predictions. No recording is needed. No in-game test was
-performed in this run. Source lists, mode-conditioned effects and player
+counts with these predictions. No recording is needed. All 11 matched in the
+operator's check on 1 October. Source lists, mode-conditioned effects and player
 availability remain separate. [Data receipt and validation](../../reference-data/provenance/frosty-2026-09-30-L604-fire-mode-selector-data.json).
 
 ## Class weapon traits
@@ -1262,6 +1479,10 @@ M10 = 2.25. `WPM_SwayPenalty` has an empty selector array. The operator confirms
 that snipers sway more on non-Recon classes, which fits an always-active ×2.25
 penalty cancelled by the trait; the site's current sniper value 1.0 is the Recon
 case. Breath-control operands were not in these assets.
+
+<!-- soldier-frontier-link:start -->
+The [soldier field atlas and frontier findings](SOLDIER.md) extend the class and perk source comparison with movement, survival, detection and mode settings. Numeric configuration is kept separate from native match behavior.
+<!-- soldier-frontier-link:end -->
 
 ### Class, path and perk source cross-check
 
@@ -1780,3 +2001,55 @@ and do not become proposals. The reviewed M45A1 step retains the 13 September
 damage/BTK observation; it is not a newly found defect. Current raw field paths,
 offsets, values and hashes are in the family receipts' external comparison and
 worker artifacts. No site data, simulation or UI was changed.
+
+## Interdictor range description conflict (L740, 1 October 2026)
+
+[L740 receipt](../../reference-data/provenance/frosty-2026-10-01-L740-interdictor-range-description.json). The current selected normal-health curve and the matching health curve both reach 100 damage at 120 m and retain 100 at 160 m. The same-owner 120 m/100 control and 20 raw operands passed on Head 4909002. Selection identity reuses the original Head 4892017 exact association by raw hash.
+
+The site numerical curve matches. L740 originally recorded a 150 m description conflict. [L905](../../reference-data/provenance/frosty-2026-10-01-L905-weapon-ui-statements.json) corrects the current-text assertion: exact metadata string ID A89AE617 in the pinned current TSV states 120-160 m, and the current site description also ends at 160 m. The older L740 receipt and historical 150 m wording remain preserved. Its current-localization assertion had no exact string-ID/raw-text proof. The selected curve remains at 100 damage through 160 m. No new site edit, native execution measurement or recording was made in the UI run.
+
+## Patch-note coverage questions (1 October 2026)
+
+[Coverage receipt](../../reference-data/provenance/frosty-2026-10-01-patch-notes-coverage.json). L741 asks whether the announced removal of unintended water-target reductions has a named consumer for the selected Match projectiles. L745 asks for normal melee damage/cadence; L746 asks for one exact destructible-cover owner. These could add conditional damage or comparison stats. The existing projectile/profile inventory does not establish those rules. Each question has its own EA prediction and missing-control gate in the coverage receipt. L740 is the completed text/curve conflict above.
+
+All 153 official sources were read; the final coverage files preserve item-level mappings and release state. Only current released questions were ranked. No new recording, native execution claim or site edit.
+
+<!-- L900-weapon-ui:start -->
+## Player-facing weapon descriptions (L900, corrected by L905)
+
+[L900](../../reference-data/provenance/frosty-2026-10-01-L900-weapon-ui-census.json) records current UI strings for the 63 site names. [L905](../../reference-data/provenance/frosty-2026-10-01-L905-weapon-ui-statements.json) corrects the wording comparison to 61 of 63: M4A1 and KTS100 were comparison decoding errors, while M2010 ESR and SV-98 are missing-string cases supported by archived screenshots. Exact selected UI/gameplay receiver joins remain unresolved. Text availability alone is not loadout activation or quantitative gameplay proof.
+<!-- L900-weapon-ui:end -->
+
+<!-- native-semantics:L1001:start -->
+### Exact descriptor enum reader (L1001)
+
+Exact descriptor enum membership is available through the L1001 reader. Current atlas application adds no zeroing, stance/state, spotting or vehicle enum names. Hash members stay unnamed. See the [receipt](../../reference-data/provenance/frosty-2026-10-01-L1001-descriptor-enum-reader.json) for identity counts, controls and limits.
+<!-- native-semantics:L1001:end -->
+
+<!-- native-semantics:L1002:start -->
+### Curve and table reader boundary (L1002)
+
+The L1002 reader identifies exact controlled curve/table schemas in the current atlas. Site-model interpolation controls do not name physical axes or native interpolation in other owners. No atlas semantic meaning or site number changes. See the [receipt](../../reference-data/provenance/frosty-2026-10-01-L1002-curve-table-reader.json) for identity counts, controls and limits.
+<!-- native-semantics:L1002:end -->
+
+<!-- L905-weapon-statements:start -->
+## Displayed peak-damage intervals and cylinder count (L905)
+
+[L905](../../reference-data/provenance/frosty-2026-10-01-L905-weapon-ui-statements.json) ties five displayed peak intervals to exact previously selected tweakable damage curves and rereads the current equal-hash bytes. It retains original Head 4892017 associations rather than relabeling them as new selection measurements.
+
+| Weapon | Displayed interval and selected tweakable peak | Separate health-curve peak |
+|---|---:|---:|
+| L115 | 100-133 m | 100-150 m |
+| PSR | 90-120 m | 100-150 m |
+| M2010 ESR | 75-100 m | 75-120 m |
+| SV-98 | 54-75 m | 54-90 m |
+| Interdictor | 120-160 m | 120-160 m |
+
+The first four parallel health curves differ and remain separate source facts; the selected tweakable intervals match the modeled site curves. Native health-curve selection is not inferred. M357's eight-shot statement agrees with current source MagazineCapacity 8. The current Interdictor metadata/TSV states 120-160 m, correcting L740's stale current-text assertion while preserving that receipt. These 11 numeric effect/count tokens match source and site. No new implementation proposal follows. A stat-screen or existing approved EA text check predicts these exact interval endpoints and the eight-shot capacity; no new recording was made.
+<!-- L905-weapon-statements:end -->
+
+<!-- L902-weapon-attributes:start -->
+## Current player-facing bar model check (L902)
+
+[L902](../../reference-data/provenance/frosty-2026-10-01-L902-weapon-attributes-ui.json) confirms current source support for the four implemented Weapon Attributes candidates: Hipfire, Precision, Control and Mobility. Seven compiled delegate hashes and the exact Precision settings body match reviewed evidence. The Control known-answer input/constant check passes. Menu-score candidates remain distinct from physical stat units, native provider selection and final renderer normalization. No universal clamp or new atlas field meaning is established; 0 known-limit families and 0 contexts receive meaning. No new implementation proposal follows.
+<!-- L902-weapon-attributes:end -->

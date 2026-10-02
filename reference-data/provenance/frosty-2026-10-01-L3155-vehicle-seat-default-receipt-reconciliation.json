@@ -1,0 +1,242 @@
+{
+  "build": "1.4.3.5",
+  "head": 4909002,
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "lead": "L3155",
+  "status": "complete",
+  "question": "Vehicle seat default receipt reconciliation",
+  "sourceFacts": {
+    "summary": "Canonical L3151 and L3152 receipts retain the final 25-target and six-sibling UI scopes. Parallel closeouts are preserved and explicitly superseded. Functional default results remain unresolved.",
+    "readerControl": {
+      "passed": true,
+      "description": "Reader/text control only: exact UH60 object 23 Field_fd698f51 -> object 26 string 60E604CE -> 7.62mm Minigun. Separate functional default controls all fail.",
+      "rawChecks": [
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-ui-targets-2026-09-30-2021\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\UH60\\UIMetaData_Vehicle_Helicopter_UH60.ebx",
+          "rawSha256": "33eaa62c1ffd4ec76995ec26340c9c7fac935ff7fbd186981eca85e492fd44f2",
+          "offset": 2048,
+          "type": "i64",
+          "bytesHex": "5003000000000000",
+          "value": 848,
+          "expect": 848,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-ui-targets-2026-09-30-2021\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\UH60\\UIMetaData_Vehicle_Helicopter_UH60.ebx",
+          "rawSha256": "33eaa62c1ffd4ec76995ec26340c9c7fac935ff7fbd186981eca85e492fd44f2",
+          "offset": 2928,
+          "type": "u32",
+          "bytesHex": "ce04e660",
+          "value": 1625687246,
+          "expect": 1625687246,
+          "matches": true
+        }
+      ],
+      "stringTable": {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\fs_us_loc.strings.tsv",
+        "sha256": "1ec449fa2a12bc3d307bfa5878ee7d8c56af14fae65ea1f6c6286e85d98e7392",
+        "bytes": 5010486,
+        "line": 41526,
+        "text": "60E604CE\t7.62mm Minigun"
+      }
+    },
+    "rawChecks": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-ui-targets-2026-09-30-2021\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\UH60\\UIMetaData_Vehicle_Helicopter_UH60.ebx",
+        "rawSha256": "33eaa62c1ffd4ec76995ec26340c9c7fac935ff7fbd186981eca85e492fd44f2",
+        "offset": 2048,
+        "type": "i64",
+        "bytesHex": "5003000000000000",
+        "value": 848,
+        "expect": 848,
+        "matches": true
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-ui-targets-2026-09-30-2021\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\UH60\\UIMetaData_Vehicle_Helicopter_UH60.ebx",
+        "rawSha256": "33eaa62c1ffd4ec76995ec26340c9c7fac935ff7fbd186981eca85e492fd44f2",
+        "offset": 2928,
+        "type": "u32",
+        "bytesHex": "ce04e660",
+        "value": 1625687246,
+        "expect": 1625687246,
+        "matches": true
+      }
+    ],
+    "reconciliation": {
+      "build": "1.4.3.5",
+      "head": 4909002,
+      "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+      "canonicalReceipts": [
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-10-01-L3151-vehicle-ui-equipment-default-controls.json",
+          "sha256": "b0bf6bac50374f0203f0c4abc1c4efa6eb7901f44ca51c5d8d3aa477ef5e1ff0",
+          "bytes": 38365
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-10-01-L3152-vehicle-ui-seat-equipment-definitions.json",
+          "sha256": "4f31435a8567bafccced4e677360c3079a2db380237147613834570fa6564beb",
+          "bytes": 17155
+        }
+      ],
+      "supersededParallelReceipts": [
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-10-01-L3151-vehicle-default-ui-controls.json",
+          "sha256": "51ef45266baf0d770a4f84fde809c9550456742a4af1e7e1d623fee5b30a6cdd",
+          "bytes": 39330
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-10-01-L3152-vehicle-default-ui-controls.json",
+          "sha256": "4fc5c64efd5ee7fdad917a20d315ff15814b3707c0c0704f46b49c49937bd727",
+          "bytes": 56095
+        }
+      ],
+      "checks": {
+        "L3151_same25AssetIdentities": true,
+        "L3152_oldFourDefinitionsSubsetOfFinalSix": true,
+        "functionalDefaultResult": "unresolved in both closeouts"
+      },
+      "preservation": "No committed receipt or existing parallel commit is changed or removed."
+    }
+  },
+  "inference": [],
+  "unresolved": [
+    "No exact UI-to-gameplay seat/default chain passed the three required functional controls. No global absence or native default claim follows."
+  ],
+  "siteImpact": "None. No site, simulation, UI, recordings or push.",
+  "evidence": [
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T163631-0400-vehicle-seat-defaults\\L3155\\receipt-overlap-audit.json",
+      "sha256": "22f680b34a2e82988e5ef09b00096bfa13fe23f27865169cb8e9721d0ea9a5ca",
+      "bytes": 1605
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-10-01-L3151-vehicle-ui-equipment-default-controls.json",
+      "sha256": "b0bf6bac50374f0203f0c4abc1c4efa6eb7901f44ca51c5d8d3aa477ef5e1ff0",
+      "bytes": 38365
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-10-01-L3152-vehicle-ui-seat-equipment-definitions.json",
+      "sha256": "4f31435a8567bafccced4e677360c3079a2db380237147613834570fa6564beb",
+      "bytes": 17155
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-10-01-L3151-vehicle-default-ui-controls.json",
+      "sha256": "51ef45266baf0d770a4f84fde809c9550456742a4af1e7e1d623fee5b30a6cdd",
+      "bytes": 39330
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-10-01-L3152-vehicle-default-ui-controls.json",
+      "sha256": "4fc5c64efd5ee7fdad917a20d315ff15814b3707c0c0704f46b49c49937bd727",
+      "bytes": 56095
+    }
+  ],
+  "record": {
+    "v": 1,
+    "kind": "decision",
+    "date": "2026-10-01",
+    "build": "1.4.3.5",
+    "binding": "research",
+    "leads": [
+      {
+        "id": "L3155",
+        "title": "Vehicle seat default receipt reconciliation",
+        "status": "finding",
+        "summary": "Canonical L3151 and L3152 receipts retain the final 25-target and six-sibling UI scopes. Parallel closeouts are preserved and explicitly superseded. Functional default results remain unresolved.",
+        "reopenWhen": "An exact serialized seat/slot/default selector reproduces UH60 minigun, RHIB HMG and MBT 120 mm known answers before any finding."
+      },
+      {
+        "id": "L3151",
+        "title": "Selected vehicle UI equipment census and default controls",
+        "status": "finding",
+        "summary": "25 selected UI targets retain 1111 objects, 170 resolved text rows and 456 import pairs. The UH60 minigun text control passes. The direct import route fails all three functional default controls; no seat default finding follows.",
+        "reopenWhen": "An exact serialized seat/slot/default selector reproduces UH60 minigun, RHIB HMG and MBT 120 mm known answers before any finding."
+      },
+      {
+        "id": "L3152",
+        "title": "Vehicle UI seat/equipment definitions and customization siblings",
+        "status": "finding",
+        "summary": "Six UI definition/customization siblings decode to 74 objects, 39 import pairs and 11 text rows. Exact schema/import reader control passes. Named seat, slot and selection properties are definitions, with no controlled per-seat default assignment.",
+        "reopenWhen": "An exact serialized seat/slot/default selector reproduces UH60 minigun, RHIB HMG and MBT 120 mm known answers before any finding."
+      }
+    ],
+    "assets": [],
+    "supersedes": [
+      "frosty-2026-10-01-L3151-vehicle-default-ui-controls.json",
+      "frosty-2026-10-01-L3152-vehicle-default-ui-controls.json"
+    ]
+  },
+  "functionalDefaultControls": {
+    "build": "1.4.3.5",
+    "head": 4909002,
+    "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+    "controls": [
+      {
+        "vehicle": "tank/abrams",
+        "seatIndex": 0,
+        "expectedWeapon": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/MBT/WF_Vehicles_MBT_PrimaryWeapon_120mm",
+        "exactTargetIdentity": {
+          "fileGuid": "bded4e9f-a95d-408a-87f4-d12caea5c4aa",
+          "classGuid": "a8dce1ea-097e-473c-9db8-821cd83119f5"
+        },
+        "exactUiOwnerMatches": [],
+        "defaultResult": null,
+        "passed": false,
+        "reason": "The direct UI import route does not reach the exact known gameplay owner. The route is unusable for defaults; no negative seat findings."
+      },
+      {
+        "vehicle": "tank/leopard",
+        "seatIndex": 0,
+        "expectedWeapon": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/MBT/WF_Vehicles_MBT_PrimaryWeapon_120mm",
+        "exactTargetIdentity": {
+          "fileGuid": "bded4e9f-a95d-408a-87f4-d12caea5c4aa",
+          "classGuid": "a8dce1ea-097e-473c-9db8-821cd83119f5"
+        },
+        "exactUiOwnerMatches": [],
+        "defaultResult": null,
+        "passed": false,
+        "reason": "The direct UI import route does not reach the exact known gameplay owner. The route is unusable for defaults; no negative seat findings."
+      },
+      {
+        "vehicle": "helicopter/uh60",
+        "seatIndex": 1,
+        "expectedWeapon": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/TransportHeli/WF_Vehicles_TransportHeli_Gunner_Minigun",
+        "exactTargetIdentity": {
+          "fileGuid": "f22c644e-0703-4ee3-8037-e1936a96cd88",
+          "classGuid": "15016020-d5ed-46fc-b5e6-750717ca35cd"
+        },
+        "exactUiOwnerMatches": [],
+        "defaultResult": null,
+        "passed": false,
+        "reason": "The direct UI import route does not reach the exact known gameplay owner. The route is unusable for defaults; no negative seat findings."
+      },
+      {
+        "vehicle": "helicopter/uh60",
+        "seatIndex": 2,
+        "expectedWeapon": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/TransportHeli/WF_Vehicles_TransportHeli_Gunner_Minigun",
+        "exactTargetIdentity": {
+          "fileGuid": "f22c644e-0703-4ee3-8037-e1936a96cd88",
+          "classGuid": "15016020-d5ed-46fc-b5e6-750717ca35cd"
+        },
+        "exactUiOwnerMatches": [],
+        "defaultResult": null,
+        "passed": false,
+        "reason": "The direct UI import route does not reach the exact known gameplay owner. The route is unusable for defaults; no negative seat findings."
+      },
+      {
+        "vehicle": "boat/rhib",
+        "seatIndex": 1,
+        "expectedWeapon": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/Shared/WF_Vehicles_OpenGunner_HMG",
+        "exactTargetIdentity": {
+          "fileGuid": "ff2b6016-d53a-412f-be53-62ab895b2d3a",
+          "classGuid": "5ee4fd7a-1e90-4c44-bee9-de7647f6bbd7"
+        },
+        "exactUiOwnerMatches": [],
+        "defaultResult": null,
+        "passed": false,
+        "reason": "The direct UI import route does not reach the exact known gameplay owner. The route is unusable for defaults; no negative seat findings."
+      }
+    ],
+    "allPassed": false,
+    "method": "Direct imported GUID pair to retained exact station-selected owner; no name or numeric join."
+  }
+}

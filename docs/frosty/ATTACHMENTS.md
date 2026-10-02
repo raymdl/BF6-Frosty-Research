@@ -7,39 +7,110 @@ generated from it. The site model is in the [attachment model](https://github.co
 game data errors are in [attachment bugs](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/ATTACHMENT_BUGS.md). The link path from a
 site choice to its modifiers is in the [data graph](DATA_GRAPH.md).
 
-## Current site value audit census (30 September 2026)
+<!-- gunfight-ranked-equipment:start -->
+## Attachment weight and functional package source boundary
 
-The [attachments census](../../reference-data/provenance/frosty-site-audit-attachments-census-2026-09-30.json)
-enumerates all **113 numeric field families and 7,578 numeric leaves** in the current
-site file. A01 applies: the site baseline combines source versions and reviewed
-panel evidence. Ownership follows `docs/data-flow/REGISTER.md` and the site's
-"Attachment source generation" section. The four named generator scopes are
-excluded; a grip's extra recoil/spread fields are not automatically generated
-handling fields.
+[L743-L744](../../reference-data/provenance/frosty-2026-10-01-gunfight-ranked-equipment-qualification.json) checks attachment-weight candidates, base UI package imports, SVDM/P90 package bodies and the exact Season 2 metadata owner. No semantic weight field or receiver qualified. Point costs and animation pose weights are separate concepts.
 
-The census retains **7,248 exclusions**, **251 prior no-source-field
-contracts/observations**, and **79 candidate leaves across 12 families**.
-The per-leaf records identify the method of the earlier comparison. L107 integer
-receipt-copy comparisons are not new raw reads. The 23 September cost proof covers
-400 numeric cost leaves and 4,558 effective source selections. All 287 magazine
-point leaves have prior source records. All 287 nominal-capacity leaves have prior
-comparisons, including L110's exact Ability/action/selector join; the source's
-extra chamber capacity remains separate from menu capacity and native loaded
-behavior. The 282 stored reload-tier leaves are covered by prior field records
-or explicit neutral/no-source-field contracts. PP-19 Flash Comp and L115 Standard
-Suppressor keep the reviewed exceptions in attachment bugs 6 and 12.
+Season 2 text resolves `7BFF8D02` to Professional's Headtaker and `B2FEF564` to Side Effects. Four pointer/StringId reads and two independent parent StringId re-reads passed against the current strings table. The package metadata and token bodies inspected do not establish fitted choices. Their resolved image references and similarly named token objects are not a functional identity chain. EA's remaining 50/45 points are validation predictions until the exact choice/budget consumer is joined. No weight, handling or package value change is proposed.
 
-Earlier source receipts keep their original Head. The 1.4.3.5 carry-forward report
-establishes equal raw hashes for previously cited weapon/attachment assets; this
-census does not relabel them as new measurements. Exact current pointer/value
-matches are required for an exclusion.
+The initial SVCh/SVDM import nomination was corrected before interpretation. Current SVDM file/exported GUIDs are `05ca9d8b-e332-4c53-9088-6673203a37ac` / `fe832261-9f01-415b-a7dc-f530a519af9a`. The failed nomination is retained in the run; no finding uses it.
+<!-- gunfight-ranked-equipment:end -->
 
-The run stopped at **90% account usage**, before Stage 2. No fresh source family,
-precision-only difference or value-mismatch proposal was established. Remaining
-families and their priorities are in the run's `census.json`; neutral defaults,
-existing reviewed deviations and older unjoined records still require scope
-reconciliation before new extraction. A family is not declared clean from a
-partial source comparison.
+## Supplemental source owner atlas (1.4.3.5, L792)
+
+[L792](../../reference-data/provenance/frosty-2026-10-01-L792-supplemental-owner-field-atlas.json) adds 256 current owner files, 30,392 typed occurrences, 2,558 descriptor/path families and 1,019 outward imports in 14 bounded batches. The M433 same-owner control passed before conclusions. Parent native review and sampled raw re-reads passed. Reconciliation covers 50,482 original graph edges and 20,620 exact target identities.
+
+Current captures close every qualified missing body in this pass, including pistol optic records, Blacklight selectors and affectors, PiP, breath/zeroing UI and reticle draw/property bodies. Exact current file and exported-object GUIDs retain their source pointer proofs. Historical wrapper bytes remain qualification context. Broad registry reachability does not select a weapon effect.
+
+Global configuration, presentation/resource and native-consumer limits remain explicit. They do not establish no effect. Fifty-one compact rows in [where-not-to-look.json](../../reference-data/frosty/weapon-frontier/where-not-to-look.json) retain investigated routes, fields, attempts and reopen conditions. Newly typed scalar roles remain frontier work; zero capture gaps does not mean all field roles are known.
+
+## Selection wrapper field atlas (1.4.3.5, L791)
+
+[L791](../../reference-data/provenance/frosty-2026-10-01-L791-selection-wrapper-field-atlas.json) accounts for 9,679 candidate wrappers: 7,728 current owners decoded and 1,951 current raw gaps. The exact AK-205 branch/action/exported selector and same-owner internal-token control passed first. Current extraction contains 39,545 typed records, 7,793 local objects and seven descriptor-qualified field families. All current inventory hashes match. The worker verified 420 outward object joins and 3,508 pointer operands; parent review and sampled raw re-reads passed.
+
+All 1,951 gap routes exist in the current catalog with the expected file GUIDs. Historical captures pin 63 to Head 4892017 and 1,888 to Head 4892087; their bytes are qualification context and are not current values. The gap evidence retains 2,823 exact imports from 66 current parents. Typed progression/action references, broad registry reachability and native selected effects remain separate. Wrapper names and configuration references do not establish gameplay effects. L792 reconciles the relevant selected targets before capture and supplemental coverage.
+
+## Attachment modifier field atlas (1.4.3.5, L790)
+
+[L790](../../reference-data/provenance/frosty-2026-10-01-L790-attachment-modifier-field-atlas.json) covers 128 initial packages and 102 exact linked supplemental owners, with 2,157 families qualified by both declaring descriptor and concrete owner. The M39 EMR iron-sight selector/exported sway-input control passed first: 0.6666666865348816 matches the current site factor and consumer. The recovered registered Blacklight capture adds 561 typed fields. The worker completed 3,978 independent raw checks; parent review and sampled raw re-reads passed.
+
+One relative weapon-sway context has an exact site input/consumer join. Other effect contexts retain their own inference limits or unexplained roles. The 1,968 graph edges include 15 occurrences to nine exact missing current target files, checked against current report captures. A broad configuration import does not imply every contained rule affects a selected weapon. Arrays and field hashes retain their declaring type; no percentage, unit or runtime modifier order follows from numeric resemblance.
+
+## Attachment record field atlas (1.4.3.5, L789)
+
+[L789](../../reference-data/provenance/frosty-2026-10-01-L789-attachment-record-field-atlas.json) accounts for 5,546 attachment candidates: 5,542 decoded current owners, 18 typed field families and four raw gaps. The same-owner M433 brake point-cost and exact progression control passed first. The atlas reproduces 4,554 current point-cost proofs and 4,522 complete serialized progression/Ability/action/selector/WPM associations. The worker raw-checked 32,716 consequential operands plus four control reads; parent review and sampled re-reads passed.
+
+Point-cost fields retain exact site consumers and per-weapon override contexts. Other fields remain known limits or unexplained identifiers, categories and alternate-record references. The four gaps are M145MGO and QMK171A attachment records for RagingHunter and TRR8, absent from the searched current capture/report folders. All 11,084 import edges retain exact identities; candidate records without a selected choice chain remain separate. No attachment effect follows from a route name, category number or missing raw file.
+
+## Ability field atlas (1.4.3.5, L788)
+
+[L788](../../reference-data/provenance/frosty-2026-10-01-L788-ability-field-atlas.json) covers all 63 weapon Ability owners, 150 typed field families and 260,587 occurrences. The AK-205 magazine branch/action/exact selector control passed before extraction. All 63 offered-branch arrays target the current local branch class. The worker reproduced 182 source magazine associations, with 542 selection reads and 63 offered-list reads; parent raw re-reads and review passed.
+
+These are source selection structures, not the site effect consumers. The atlas retains 33,883 outward import edges, six missing current targets and 23 additional owner candidates for reconciliation. The 135 exact SRU-linked underbarrel branches have explicit excluded-profile dispositions; their external profile bodies were not examined. IDs, flags and repeated array positions do not supply gameplay meanings. Missing raw targets do not support effect-absence claims.
+
+## Ammo package field atlas (1.4.3.5, L786)
+
+[L786](../../reference-data/provenance/frosty-2026-10-01-L786-ammo-field-atlas.json) covers 260 current source files and 55 typed families: 132 selector/token owners, 125 ammo-value owners and three effect-only packages. The exact AK-205 Ability branch/action/selector control gives source capacity 37 for the 36-round menu choice. The actual package capacity owner is `Class_e7d2410a`; the WB `Struct_598cc52c` context is separate. All hashes match, and parent raw re-reads pass.
+
+The current exact serialized chains link 182 site choices to 113 WPM owners. Source capacity minus menu capacity is +1 for 171 choices and 0 for 11; this does not assign loaded/chambered-round behavior. The unexplained `Field_bd024e1d` has four integer values across the 125 ammo owners, from -1 to 99. Six local reload objects retain exact phase-array leaves from 0.5 to 7.984000205993652; no phase-duration formula follows. The atlas separates modeled capacity, traced fields without a site reader, known limits and never-examined fields. Additional exact outgoing owner candidates remain part of Stage 1 coverage.
+
+## Current site value audit (30 September–1 October 2026)
+
+The [census](../../reference-data/provenance/frosty-site-audit-attachments-census-2026-09-30.json)
+contains **113 numeric field families and 7,578 numeric leaves**. A01 applies:
+the site baseline combines source versions and reviewed panel evidence. Owners
+follow the site's `docs/data-flow/REGISTER.md` and "Attachment source generation".
+The four named generator scopes and prior field comparisons exclude 7,248 leaves;
+251 leaves retain prior no-source-field contracts or observations. Magazine points
+(287 leaves), nominal capacity (287) and stored reload tiers (282) have prior field
+records. Source loaded/chamber capacity remains separate from nominal menu capacity.
+
+All **79 remaining candidate leaves in 12 families** now have a disposition in
+the run's `census-reconciled.json`, with one receipt per family. **No new material
+value mismatch or Analyzer change proposal was established.** The original census
+and its earlier usage stop are retained as history; the operator removed that stop
+condition on continuation.
+
+L540 supplied the only new source extraction: six offered AG Coating Attachment
+owners on 1.4.3.5 / Head 4909002 / descriptor `4c28ad65...`. The same-owner 185KSK
+Canted Iron Sights control passed first (5 points). All six owner fields
+`Class_a9b2eb87.Field_6ee865a5` read **10** at raw offset **128**, u32,
+bytes `0a000000`, matching the site. Worker review passed; the parent independently
+re-read M2010ESR. Serialized point cost does not prove every compatibility/runtime
+condition. No capture was needed.
+
+| Family | Candidate leaves | Result |
+| --- | ---: | --- |
+| [SIGHTS.adsMoveSpeedTierShift](../../reference-data/provenance/frosty-site-audit-attachments-sights-adsmovespeedtiershift-2026-10-01.json) | 2 | 275 prior optic selection rows: source -1 becomes site +1; matches. |
+| [MUZZLES.worldSpotMult](../../reference-data/provenance/frosty-site-audit-attachments-muzzles-worldspotmult-2026-10-01.json) | 18 | Direct source factors match; neutral packages without a comparable operand stay class (d). |
+| [MUZZLES.minimapSpotMult](../../reference-data/provenance/frosty-site-audit-attachments-muzzles-minimapspotmult-2026-10-01.json) | 11 | 3D-only spotting effects retain minimap 1; other neutral packages stay class (d). |
+| [MUZZLES.hipSpreadTierMod](../../reference-data/provenance/frosty-site-audit-attachments-muzzles-hipspreadtiermod-2026-10-01.json) | 1 | 53 Standard Suppressor selections match current effective values; L115 keeps reviewed bug 12. |
+| [BARRELS.movingAdsSpreadTierMod](../../reference-data/provenance/frosty-site-audit-attachments-barrels-movingadsspreadtiermod-2026-10-01.json) | 8 | Eight zero defaults: no comparable owner scalar in retained selector review; class (d), no lead. |
+| [BARRELS.velMult](../../reference-data/provenance/frosty-site-audit-attachments-barrels-velmult-2026-10-01.json) | 6 | Six inactive fallback values; present velTierMod=0 controls displayed velocity. |
+| [BARRELS.worldSpotMult](../../reference-data/provenance/frosty-site-audit-attachments-barrels-worldspotmult-2026-10-01.json) | 2 | Both VSSM choices match source world factor 0. |
+| [GRIPS.movingAdsSpreadTierMod](../../reference-data/provenance/frosty-site-audit-attachments-grips-movingadsspreadtiermod-2026-10-01.json) | 12 | Twelve defaults: no comparable bound scalar in retained review; class (d), no lead. |
+| [GRIPS.adsRecoilTierMod](../../reference-data/provenance/frosty-site-audit-attachments-grips-adsrecoiltiermod-2026-10-01.json) | 8 | Eight defaults: no comparable bound scalar in retained review; class (d), no lead. |
+| [GRIPS.frostyModifiers.movingAdsSpreadTierMod](../../reference-data/provenance/frosty-site-audit-attachments-grips-frostymodifiers-movingadsspreadtiermod-2026-10-01.json) | 2 | KS18K Slim Angled zero is intentional (bug 1b); L115 QD Grip Pod has no comparable scalar, class (d). |
+| [ACCESSORIES.pts](../../reference-data/provenance/frosty-site-audit-attachments-accessories-pts-2026-10-01.json) | 4 | AG Coating: all six current raw costs match 10; prior paid accessory costs match 5/10; None=0 is a site contract. |
+| [WEAPON_MAG.tacRldOverrideMs](../../reference-data/provenance/frosty-site-audit-attachments-weapon-mag-tacrldoverridems-2026-10-01.json) | 5 | Five integer-ms rounding cases, class (b), under L107; no proposal. |
+
+The 79-leaf disposition is: 18 prior field matches, one new current-raw match,
+five precision-only reload values, one intentional grip override, six inactive
+velocity fallbacks, one None cost contract and 47 bounded no-source-route leaves.
+These are leaf counts, not weapon-attachment pair counts. The five reload aliases
+are PP-19/53, M60/50, M240L/75 and /100, and RPK-74M/95; retained integer-ms
+rounding follows [L107](../../reference-data/provenance/frosty-2026-09-28-L107-precision-audit.json).
+No precision-only proposal was added.
+
+Earlier source evidence keeps its original Head and carries forward by equal raw
+hash; 90 reused raw bodies were rehashed against current capture. Reuse is not a
+new field extraction. No-route defaults do not establish source zero or native
+absence. Spotting operands remain conditional on native composition; the four
+existing SP suppressor minimap candidates (.10 versus .14, L47/L49) remain unresolved
+and do not become a new mismatch claim. Reviewed bugs 1b, 6 and 12 remain in force.
+No site data, simulation or UI edits, source-generator runs, underbarrel profiles
+or in-game tests were included.
 
 ## 1.4.3.5 recheck (30 September 2026)
 
@@ -550,6 +621,124 @@ These checks resolve exact associations; activation and priority remain open.
 
 Evidence: [frosty-optic-render-fov-2026-09-16.json](../../reference-data/provenance/frosty-optic-render-fov-2026-09-16.json).
 Field meanings come from values and in-game screenshots.
+
+### Optic field atlas (1.4.3.5, L784)
+
+[L784](../../reference-data/provenance/frosty-2026-10-01-L784-optic-field-atlas.json) covers 158 initial optic candidates and 114 additional exact linked owners: 731 typed field families and 1,735 import edges. Supplemental owners include input options, aiming controllers, render/zoom curves, lens-flare settings and aim-assist settings. Zoom, PiP, world/render FOV, glint-related sources and zeroing-related fields remain separate. Numeric optical settings were inventoried beyond the initial route-prefix scope; texture/bone/registry context retains explicit descriptor dispositions.
+
+The render-FOV controls passed before extraction: base RMR 55 degrees and RMR Riser 40, both from the same exact `Class_3a930efc` descriptor. Three zoom-definition owners also reproduce the L133 type, raw-hash and input-reference controls. The worker raw-checked 4,507 consequential operands; the parent review separately checks the controls and sampled operands. Array positions, legacy labels, equal values and asset names do not establish a field role. Optical sensitivity, magnification, render scale, relative sway and glint strength are not interchangeable. Source settings without a confirmed consumer stay known limits or unexplained frontier fields; this pass does not turn O1-O3 into numeric gameplay claims.
+
+### Glint, zeroing and breath frontier (1.4.3.5, L795)
+
+[L795](../../reference-data/provenance/frosty-2026-10-01-L795-optic-glint-zeroing-frontier.json) records 348 current owner and consumer dispositions. The M2010 iron-sight selector, NoScopeGlint and NoFlare control passed nine raw reads before findings. The worker checked 56,591 operands; parent review and sampled raw re-reads passed. The semantic pass covers 98 glint/zeroing families, 20 modifier-control families and exact rangefinder/breath schemas.
+
+Exact current registry links name six fields in 12 WB zeroing blocks. Two enum fields retain their raw signed values and hashed members. Current SoldierInfoPromptZeroing pointers join the exact HUDLoadout_WeaponZeroingDBD export and its ZeroingDistance binding. They provide no selectable numeric UI array or native zeroing equation. Anti-Glare UI text supports the existing qualitative glint wording; source differences do not establish a cone angle or strength percentage.
+
+The breath presentation expression joins an exact public channel and compiled resource RID `08a1a89d496bbf73`. Four qualified resource inventories contained no matching body. [L818](../../reference-data/provenance/frosty-2026-10-01-L818-compiled-breath-resource-frontier.json) later captured and verified the exact current body; its compiled grammar remains unresolved. No native expression grammar, breath duration or recovery stat was established. Eleven compact routes in [where-not-to-look.json](../../reference-data/frosty/weapon-frontier/where-not-to-look.json) record the attempted sources and reopen conditions. New exact source-owner candidates remain frontier work; no new numeric comparison is proposed.
+
+### Optic source frontier (1.4.3.5, L794)
+
+[L794](../../reference-data/provenance/frosty-2026-10-01-L794-optic-fov-pip-frontier.json) traces 125 current FOV/controller/zoom/input owners plus three exact PiP/reset supplements: 2,155 scalar occurrences and 99 concrete families. The RMR 55 and Riser 40 controls passed first. All 4,182 consequential raw reads passed; parent native review and sampled re-reads passed.
+
+Sixteen current zoom bodies reproduce the existing three-field source relationship. Thirty-one current options resolve 75 localized records. Exact descriptor, SDK, prior-receipt, registry, UI and available consumer searches retain the unknown numeric roles. Selected-part and inline/shared precedence remain unresolved. No new effective numeric stat is proposed; the existing optic identity/PiP-FOV proposal is retained. Exact visual composition targets remain separate frontier work.
+
+The batch's compact family limits are in [where-not-to-look.json](../../reference-data/frosty/weapon-frontier/where-not-to-look.json). Field names, array order and matching scalar values do not establish native optical meaning.
+
+### Optic visual composition frontier (1.4.3.5, L797)
+
+[L797](../../reference-data/provenance/frosty-2026-10-01-L797-optic-composition-frontier.json) covers 41 optical composition roots and two exact linked resource-backed owners: 11,251 typed occurrences, 383 full field families and 292 numeric families. The RMR incoming pointer, exported root/type key and same-owner enum control passed first. All 10,594 consequential reads passed; parent native review and sampled raw re-reads passed.
+
+The exact graph contains 171 local edges and four external imports; all four reach the two included thermal owners. RMR contains the text tokens Zoom, Distortion, IsRound, Attenuation and BackgroundBlur. The descriptor, 27 SDK type records and available independent consumer/schema sources do not bind those tokens to numeric array members. Array order supplies no confirmed view or reticle statistic. The atlas retains 84 lens/glint operands with their separate role limits.
+
+Each of the 292 numeric family routes has a compact tried/stop/reopen row in [where-not-to-look.json](../../reference-data/frosty/weapon-frontier/where-not-to-look.json). Exact typed source coverage does not establish optical units or native composition. No new numeric stat is proposed.
+
+### Optical consumer residuals (1.4.3.5, L802)
+
+[L802](../../reference-data/provenance/frosty-2026-10-01-L802-optic-consumer-residual-frontier.json) reconciles 3,289 source candidates from the optic and linked-owner inventories, plus all 224 initially ranked identities. All 100 optical ranked identities retain exact prior dispositions. RMR and zoom controls passed first. The pass adds 309 raw reads and qualifies 24 exact imported target objects; parent review and an independent new-owner operand read passed.
+
+The 22 CrosshairPropertyInterface entries identify case-sensitive property-name hashes through the confirmed hash algorithm. They supply structural identifiers, without a numeric reticle size, opacity or zoom meaning. Current option UI states behavior; the remaining shader, aiming-input and NoAssist fields do not establish native optical equations. The exact sight-to-canted blend owner adds [13 typed source contexts](../../reference-data/frosty/weapon-frontier/field-atlas-addendum-L802.json), including 11 scalars and 12 identities absent from the Stage 1 baseline; its float at offset 152 is zero, with role and units unresolved.
+
+Every candidate maps to its immutable source context. This mapping records the available field evidence and limits; generic ability, handling and configuration meanings remain open. The batch has 171 compact source groups in [where-not-to-look.json](../../reference-data/frosty/weapon-frontier/where-not-to-look.json). No missing qualified owner request or new numeric comparison stat is established. Remaining source contexts continue in later batches.
+
+### Modifier residual fields (1.4.3.5, L804)
+
+[L804](../../reference-data/provenance/frosty-2026-10-01-L804-modifier-residual-frontier.json) traces 42 assigned modifier identities across ten current representative bodies. The same-owner control passed six raw reads first. Fifty new operand/import-export reads, 15 local-owner pointer reads and two qualified rangefinder proof reuses retain the actual declaring descriptors and container parents. Parent review and independent samples passed. Ten direct current edges have no missing target body.
+
+Twenty-one prior receipt matches have equal source hashes, offsets and bytes. Existing fire-mode source/model context remains prior evidence; unknown flags and enum members gain no native operation from those matches. No new comparison stat or capture target is established. Forty new compact limits in [where-not-to-look.json](../../reference-data/frosty/weapon-frontier/where-not-to-look.json) retain exact modifier context. Shared WB, optic, projectile and ammo contexts remain separate.
+
+### Laser and light source fields (1.4.3.5, L807)
+
+[L807](../../reference-data/provenance/frosty-2026-10-01-L807-laser-light-source-frontier.json) traces 150 identities and 158 previously unexamined contexts on ten exact laser/flashlight FX source routes. Three qualified controls and 157 new representative raw reads passed. Parent review and an independent sample passed. The pass preserves 13 prior outgoing graph contexts and repeats no L802 context.
+
+Ten current declaring schemas retain hashed field names. Exact source/registry and independent consumer checks establish no new numeric role or player comparison stat. Serialized FX fields are source context; their values do not establish a laser or light gameplay effect. Compact source groups in [where-not-to-look.json](../../reference-data/frosty/weapon-frontier/where-not-to-look.json) record the attempted sources and reopen conditions. Roles, units and native operation remain explicit limits.
+
+### Mixed optical owner fields (1.4.3.5, L809)
+
+[L809](../../reference-data/provenance/frosty-2026-10-01-L809-mixed-optic-source-frontier.json) traces 150 identities in 362 remaining WB, modifier, projectile, registry and ammo source contexts. The RMR control passed first. All 420 consequential checks and 92 declared parent-container proofs passed; parent review and an independent sample passed. The batch repeats no L802 or L807 source context.
+
+Nineteen current declaring schemas retain hashed names. Eighteen exact same-source prior contexts preserve role limits. Consumer mentions are qualified against their actual property and owner; a shared hash supplies no alias or operation. No new unit, operator or comparison stat is established. Compact groups in [where-not-to-look.json](../../reference-data/frosty/weapon-frontier/where-not-to-look.json) retain tried sources and reopen evidence. Mixed owner context does not establish an optical role.
+
+### Optical container source contexts (L812)
+
+[L812](../../reference-data/provenance/frosty-2026-10-01-L812-mixed-optic-container-frontier.json) maps 200 identities in 847 remaining mixed-owner contexts. Controls passed first. The pass adds 917 raw operand checks and 372 declared parent proofs; parent review and an independent container read passed. Exact underbarrel source memberships remain excluded from semantic processing: 135 external profile routes and 270 source memberships. No representative operand uses an excluded route.
+
+Sixteen declaring schemas retain hashed names. Thirty-six exact prior context joins retain their limits; 21 consumer-mention files are qualified by actual property and owner. There is no new same-source registry role or numeric comparison stat. Compact source groups in [where-not-to-look.json](../../reference-data/frosty/weapon-frontier/where-not-to-look.json) retain tried routes and reopen evidence. Serialization, field names and native operation remain separate.
+
+### Optical sway source contexts (L814)
+
+[L814](../../reference-data/provenance/frosty-2026-10-01-L814-optic-sway-source-frontier.json) maps the next 111 optical/mixed identities in 491 remaining source contexts. Controls passed first. All 625 consequential raw reads and 351 declared parent proofs passed; parent review and an independent sample passed. No previously reviewed optical context is repeated.
+
+Three exact inherited Class_2fea847d/Field_90fd0310 source contexts retain typed sway candidates. They do not establish a selected WB/WM receiver, operator, unit or native composition. The batch establishes no new numeric stat. Compact source groups in [where-not-to-look.json](../../reference-data/frosty/weapon-frontier/where-not-to-look.json) retain available evidence limits and reopen conditions. A typed candidate is distinct from a confirmed player comparison effect.
+
+### Remaining linked optical and FX fields (L815)
+
+[L815](../../reference-data/provenance/frosty-2026-10-01-L815-remaining-extra-owner-frontier.json) The pass covers 242 identities in 268 remaining linked-owner contexts. Five controls passed first. There are 287 new operand reads and 112 declared parent proofs; parent review and an independent sample passed. Exact contexts do not repeat earlier optical or FX batches.
+
+Nineteen declaring schemas retain hashed names. Three qualified prior zoom contexts retain their limits. Consumer mentions are checked against their actual properties and owners. No new numeric role, comparison stat or missing selected consumer is established. Compact source groups retain the available evidence and reopen conditions. The compact limits are in [where-not-to-look.json](../../reference-data/frosty/weapon-frontier/where-not-to-look.json).
+
+### Current compiled breath resource (L818)
+
+[L818](../../reference-data/provenance/frosty-2026-10-01-L818-compiled-breath-resource-frontier.json) follows the exact current PresEx_HoldBreath RID `08a1a89d496bbf73` through the installed SDK lookup and raw export route. The source/channel controls passed first. The shared helper captured a known resource control and the 224-byte target on Head 4909002. Current source identity, resource status and both body hashes passed independent checks. This supersedes the earlier scoped inventory gap with a current body proof.
+
+The target type is SerializedExpressionNodeGraph. The inspected current SDK, collector and 273 C# source files supply raw access and type identity, without a validated graph grammar or known-answer node/operator control. No typed graph fields, breath duration, recovery equation or new comparison stat were decoded. The resource owner and source edge are retained; the compact limit in [where-not-to-look.json](../../reference-data/frosty/weapon-frontier/where-not-to-look.json) names the parser or native-consumer evidence needed to reopen it. Installed handler metadata continues in L824.
+
+### Installed compiled resource handlers (L824)
+
+[L824](../../reference-data/provenance/frosty-2026-10-01-L824-compiled-resource-handler-frontier.json) inspects 19 current installed root, plugin and BF6 assemblies, covering 29,626 types with zero loader failures. Texture resource inheritance and its declared Read contract pass a positive metadata/source control; the exact current breath RID operand is independently re-read. Parent review passed. Assembly identities, references and hashes qualify the bounded inventory.
+
+Texture is the sole Resource subclass in that inventory. The localization plugin handler registration names UITextDatabase and is distinct from expression graph decoding. The inspected metadata establishes no validated SerializedExpressionNodeGraph grammar, typed graph fields or new stat. Native and unnamed mechanisms remain unknown. The grouped limit in [where-not-to-look.json](../../reference-data/frosty/weapon-frontier/where-not-to-look.json) reopens with a validated graph parser and current semantic control, or an exact native-consumer contract.
+
+### Emitter and atlas resource types (L825)
+
+[L825](../../reference-data/provenance/frosty-2026-10-01-L825-emitter-atlas-resource-frontier.json) qualifies two current EmitterGraphResource bodies and one AtlasTexture body from exact source RID operands. Known source/resource and Texture contract controls passed first. Current resource identities, body hashes and consequential source operands passed independent checks. Parent review passed. The bounded grammar search covers 287 source files and 19 current installed assemblies.
+
+The local AtlasTexturePlugin source declares a dedicated Read and SaveBytes layout. Its version-three length agrees with the current 92-byte body. This is a parser candidate; length agreement and an unloaded plugin source do not provide an independent current semantic control. Texture's Read contract is not transferred to AtlasTexture. The emitter type remains opaque under the inspected source and handler routes. No typed resource field or new comparison stat is promoted. Compact boundaries in [where-not-to-look.json](../../reference-data/frosty/weapon-frontier/where-not-to-look.json) name the required controls and consumer contracts. The atlas-control route continues in L826.
+
+### Current atlas resource control (L826)
+
+[L826](../../reference-data/provenance/frosty-2026-10-01-L826-atlas-resource-control-frontier.json) The pass checks 688 receipt, document and index files, three current resource inventories, the current manifest and six plugin source files. Known controls passed first; parent review and an independent source operand read passed. The sole qualified current AtlasTexture body is the captured 92-byte target. Earlier atlas bodies are on Head 4892087 with Read False and supply no current semantic control.
+
+The source DDS export contract consumes Width, Height and MipCount. The checked evidence contains no independently known current dimensions, mip count, chunk or DDS fixture to validate that candidate reader. The route stays open at a precise control gap; no payload field or comparison stat is promoted. The compact boundary in [where-not-to-look.json](../../reference-data/frosty/weapon-frontier/where-not-to-look.json) records the required validation evidence.
+
+### Current mesh resource control (L827)
+
+[L827](../../reference-data/provenance/frosty-2026-10-01-L827-mesh-resource-control-frontier.json) The pass checks the exact current 1,344-byte MeshSet body, 19 current assemblies, 676 prior receipts, four current resource inventories, 23 plugin source files and the current manifest. Known controls passed first; parent review and an independent RID operand read passed. Historical metadata-only bodies are retained as context.
+
+The dedicated MeshSet source reader has an explicit Battlefield6 branch. It is a positive parser candidate, without an independent current bounds, LOD, vertex or chunk control in the checked scope. Older game field positions do not qualify the current body. The route stays open at that control gap; no payload field or comparison stat is promoted. The compact boundary in [where-not-to-look.json](../../reference-data/frosty/weapon-frontier/where-not-to-look.json) records the required validation evidence.
+
+### Further linked optical and FX owners (L822)
+
+[L822](../../reference-data/provenance/frosty-2026-10-01-L822-linked-optical-fx-owner-frontier.json) types seven further current metadata owners reached by exact source pointers: the NVG expression and query data, volume-light emitter, mesh, shader, texture metadata and World LOD group. The same-current expression/channel/RID control passed first. The owners contain 673 typed occurrences in 465 families: 321 new full descriptor/path identities and 144 existing identities with new contexts. Field/export, string and selected-channel reads passed; parent review and an independent operand sample passed.
+
+All 14 actual EBX pointers resolve to exact current exported objects. Five nonzero resource edges retain their actual body/type proofs and the parser/control limits in L824-L827. Five DQD labels have same-struct and local exported bindings; import-array position supplies no channel meaning. Shared rendering owners are qualified graph context, without a selected weapon value or native comparison equation. No new displayed stat is established. Fifty-nine compact class/route groups in [where-not-to-look.json](../../reference-data/frosty/weapon-frontier/where-not-to-look.json) retain source attempts and reopen conditions. The current atlas adds every qualified typed field while preserving the baseline.
+
+### Current optic field atlas (L819)
+
+[L819](../../reference-data/provenance/frosty-2026-10-01-L819-current-weapon-field-atlas.json) includes optic, attachment/modifier and linked presentation owners in the [current field atlas](../../reference-data/frosty/weapon-frontier/field-atlas.json). The declared optic group has 749 distinct identities in 1,574 source contexts. Mixed modifier, camera, shader, UI and FX owners retain their own qualified graph contexts. Group counts overlap; registry reachability does not select an optic effect.
+
+The source passes cover zoom, PiP, FOV, glint, zeroing, aiming input, sway, reticle/lens composition and exact linked resource edges. Sixteen current zoom bodies reproduce the existing three-field source relationship. Thirty-one optic options resolve 75 localized records. Exact zeroing HUD and public-channel bindings are traced. Anti-Glare text supports the existing qualitative glint wording. Field names and array positions supply no native units or numeric effect.
+
+The current breath and NVG expression bodies, emitter resources, AtlasTexture and MeshSet bodies are captured and hashed. Their grammar or same-current semantic control remains a precise limit. O1-O3 are retained as known gaps. The field atlas and [compact route limits](../../reference-data/frosty/weapon-frontier/where-not-to-look.json) show what was tried and what would reopen each route. No new effective zoom, glint percentage, zeroing distance or breath timer is promoted.
 
 ### Finding the part an attachment uses
 
@@ -1272,20 +1461,82 @@ values. Recovery factor 76 and exponent 1.24 are enabled in both aim states.
 Native evaluation and timing remain unresolved, so the existing assumption note
 stays valid; the GRM layout warning is retained. No new capture is proposed.
 
-## Current ammo modifier and point audit (30 September 2026)
+## Current ammo modifier and point audit (1 October 2026)
 
-This audit uses 1.4.3.5, Head 4909002, with register assumption A01. Earlier
-selection identities retain their original Head and are carried forward by equal
-raw hashes. The workers read current raw operands; the orchestrator compared the
-site values after the controls passed.
+This audit uses **1.4.3.5 / Head 4909002**, descriptor `4c28ad65...`, and
+register assumption A01. Earlier identities retain their original Head and carry
+forward by equal raw hashes. L589-L590 completed current typed raw selection
+joins for all 328 choices: Attachment/progression, root-listed Ability branch and
+action, exact selector GUID, WB modifier/effect lists, and GS condition/binding.
+The controls passed before extraction. One missing M45A1 Blacklight import was
+captured by the shared safe-capture script; the build manifest verification passed.
 
-- [Recoil/spread, L584-L585](../../reference-data/provenance/frosty-2026-09-30-site-audit-ammo-recoil-spread.json): 186 selected field comparisons over 74 stored leaves match after sign and additive transforms. Source shotgun hip step +9 maps to site -9. Sniper Tungsten exceptions and sidearm Subsonic omission retain ATTACHMENT_BUGS.md entries 13 and 5. Slugs ADS spread increment 0.05 has no qualified source route/control; no new lead.
-- [Type modifiers](../../reference-data/provenance/frosty-2026-09-30-site-audit-ammo-type-modifiers.json): Lightweight ADS movement matches 27 selected comparisons. Seven additional stored leaves agree with named owner controls: four exact and three precision-only. Full Frangible/spotting selection joins and Flechette regen +2 were not established in this bounded pass; no new lead.
-- [Points and identities, L586-L587](../../reference-data/provenance/frosty-2026-09-30-site-audit-ammo-points-availability.json): all 328 point costs match exact current uint32 reads. Current descriptor decodes agree with the prior field routes but flag `layoutAmbiguous`; that limit is retained. Matching source option identities do not establish current game menu availability or default selection.
-- [Per-class collateral tables](../../reference-data/provenance/frosty-2026-09-30-site-audit-ammo-class-tables.json): 77 fallback leaves are inactive for all 328 current selections, which have per-weapon overrides. Native fallback origin is not established; no lead.
+- [Recoil/spread, L589-L590](../../reference-data/provenance/frosty-2026-10-01-site-audit-ammo-recoil-spread.json): 186 selected operand comparisons match. 74 stored leaves were compared. Complete bounded graph checks also compare absent named owners with site consumer defaults. Source shotgun hip step +9 maps to site -9. Recoil amount and direction-variation exponent fields remain distinct. Slugs ADS spread increment 0.05 has no qualified source receiver/control; no lead.
+- [Type modifiers](../../reference-data/provenance/frosty-2026-10-01-site-audit-ammo-type-modifiers.json): 120 selected operand comparisons are exact and 31 are float32 precision only, counted under L107 without a proposal. All offered Frangible and Flechette regeneration additions, Lightweight movement shifts, and Subsonic spotting factors now have complete selected joins. World and minimap factors are compared as products of separate selected operands.
+- [Points and identities, L586-L587](../../reference-data/provenance/frosty-2026-09-30-site-audit-ammo-points-availability.json): all 328 point costs match exact current uint32 reads. The descriptor decoder's `layoutAmbiguous` flag is retained. Game menu availability and default selection have no qualified source route/control; no lead.
+- [Per-class collateral tables](../../reference-data/provenance/frosty-2026-09-30-site-audit-ammo-class-tables.json): all 77 fallback leaves are inactive for the 328 current selections, which use per-weapon overrides. Native fallback origin is not established; no lead.
 
-All 328 modifier choices were listed. Across both modifier families, 191 choices
-have reused configured operand records and 137 lack a qualified reused operand or
-complete selected-graph absence check. No zero effect is inferred for those 137.
-The clean configured comparisons do not prove native activation or composition.
-No new non-precision value mismatch was found, so no Analyzer change is proposed.
+All 328 choices have complete bounded selected graphs. 137 choices contain
+no named recoil/spread, ADS movement, regeneration-delay or spotting owner in
+that graph. This establishes configured absence only. It does not establish
+native runtime zero, activation, global default conditions or composition.
+Sniper Tungsten exceptions and sidearm Subsonic omission retain
+ATTACHMENT_BUGS.md entries 13 and 5. The older 30 September receipts remain frozen;
+the two new family receipts supersede their partial modifier coverage.
+No new non-precision value mismatch was found. No Analyzer change is proposed.
+
+## Patch-note coverage questions (1 October 2026)
+
+[Coverage receipt](../../reference-data/provenance/frosty-2026-10-01-patch-notes-coverage.json). L743 separates attachment weight from cost, sway and ADS handling. EA announces a weight exchange/corrected descriptions without numeric operands; existing L115 choice identities and 25/30-point costs do not establish weight. L744 asks for exact functional-package fitted selections and remaining budget; predict 100 minus summed selected costs when the exact package chain is joined. Both remain source questions, not applied Analyzer changes.
+
+All 153 official sources were read; the final coverage files preserve item-level mappings and release state. Only current released questions were ranked. No new recording, native execution claim or site edit.
+
+<!-- L901-attachment-ui:start -->
+## Player-facing attachment, ammo and optic text (L901)
+
+[L901](../../reference-data/provenance/frosty-2026-10-01-L901-attachment-ui-census.json) retains current text and exact local pointer/import evidence for all 1,003 UI AD assets. Fifty-seven missing IDs remain visible. The 233 nonempty metadata arrays are retained with target objects and raw checks, but their effect/pro-con roles are not inferred from field names. A metadata statement or image link does not establish the selected gameplay modifier. Exact selection joins continue in L903; existing reviewed bug behavior remains unchanged.
+<!-- L901-attachment-ui:end -->
+
+<!-- L903-selection-edges:start -->
+## UI selection identity limit (L903)
+
+[L903](../../reference-data/provenance/frosty-2026-10-01-L903-ui-selection-edges.json) verifies 5,303 AAM-to-AD edges across path-corresponding candidates for 63 weapons. It does not prove the native scalar-key/property receiver from the selected attachment to those records. Exact text pointers and imports establish description storage, while old name-based joins remain candidate context. No negative native-effect conclusion follows from the direct-root check.
+<!-- L903-selection-edges:end -->
+
+<!-- native-semantics:L1003:start -->
+## Current resource reader controls (L1003)
+
+Two current Emitter bodies, one AtlasTexture body and one MeshSet body pass identity, size and Head controls. Eight fresh reads cover body prefixes and exact derived copies of captured metadata. The metadata files are not resource body headers. Emitter size minus metadata first word is 28 in both samples; the sole MeshSet sample gives 64. Atlas metadata version 3 and body size 92 agree with the retained source path. These are structural controls and correlations. No independently confirmed current semantic input/output control or held-out body validates these grammars. No resource reader or atlas meaning is promoted.
+
+Evidence: [receipt](../../reference-data/provenance/frosty-2026-10-01-L1003-resource-grammar-qualification.json). Known-answer source controls and parent raw re-reads pass. Native semantics remain separate from serialized facts.
+<!-- native-semantics:L1003:end -->
+
+<!-- L906-statement-comparisons:start -->
+## Player-facing quantities and intended effects (L906)
+
+[L906](../../reference-data/provenance/frosty-2026-10-01-L906-attachment-ui-statements.json) changes method from graph expansion to exact localization-ID references and established source domains. It retains all 2,317 AD text occurrences and classifies 415 numerical tokens across 396 occurrences and 107 IDs. Thirteen tokens match exact site tooltip text references; 402 remain unmapped to a qualified source/site quantity. No source conflict or source-only scalar match is inferred from equal names, values or field hashes.
+
+The tokens are 232 nominal capacities, 111 nominal zoom values, 61 angles, four burst counts, three lengths, two model identifiers and two shot-size identifiers. The census finds no displayed percentage or timing effect quantity in those strings. A nominal magazine title remains separate from chamber-inclusive source capacity; a nominal optic title remains separate from selected optical FOV/PiP precedence. Angle and length labels are not assigned recoil or dispersion units.
+
+The qualitative index covers recoil, spread, handling, ADS, sprint recovery, reload, zoom, sway, velocity, spotting and capacity. It retains all 17 reviewed attachment-bug overview rows with their original confirmed, suspected, source-inconsistency or corrected-interpretation boundaries. Intended text does not override recorded actual bindings or observations. Existing bug models remain applicable; this pass supplies no new scalar implementation proposal. Its controls, occurrence/token coverage and parent raw reread pass. Selected UI/gameplay receiver limits remain explicit in L903.
+<!-- L906-statement-comparisons:end -->
+
+<!-- native-semantics:L1007:start -->
+### Emitter input-schema reader boundary (L1007)
+
+The two retained current volume-light emitter prefixes were tested against exact authored owner identifier arrays. Source/resource identities and consequential raw bytes pass the structural control. Apparent record counts at offset 4 and hash/packed-word pairs from offset 8 remain a candidate grammar. Three authored candidate IDs do not occur in those candidate tables, but no complete authored input count/type contract is established. This comparison does not establish a semantic negative or a complete resource reader. Input-table roles, offsets and emitter operation meanings stay unresolved. No further capture or widening was used. See the [receipt](../../reference-data/provenance/frosty-2026-10-01-L1007-emitter-input-schema-control.json).
+<!-- native-semantics:L1007:end -->
+
+<!-- native-semantics:L1008:start -->
+### UI choice/value enum boundary (L1008)
+
+The final enum method tests exact retained UI choice/value bindings. Current widget-to-zeroing DBD pointers, exported GUIDs and local keys pass the source identity control. The selected enum 536 UI array is empty, and its retained UI text list has zero records. Five selected spotting reset entries store exact INT32 values 0, 0 and 31; they are not established named enum choices. No complete named UI choice/value mapping exists in the inspected selected artifacts. This scoped limit does not establish absence elsewhere. Missing contracts and exact reopen conditions are in the two result rows. No zeroing or spotting enum meaning is promoted. See the [receipt](../../reference-data/provenance/frosty-2026-10-01-L1008-ui-enum-binding-control.json).
+<!-- native-semantics:L1008:end -->
+
+<!-- L907-source-boundaries:start -->
+## UI frontier completion and remaining source limits (L907)
+
+[L907](../../reference-data/provenance/frosty-2026-10-01-L907-weapons-ui-frontier-census.json) completes the available metadata/statement frontier. All 1,003 AD owners, their 2,317 text occurrences, 233 nonempty candidate effect/pro-con arrays and the exact extra MG5 iron-sight metadata target have dispositions. The current seven bar delegate resource bodies are verified, but no selected native UI/gameplay receiver or new operand-role control is established.
+
+Intended recoil, spread, handling, ADS, sprint recovery, reload and optic statements stay separate from actual bindings and the existing reviewed bug models. The statement index preserves all 17 prior bug overview rows and their confirmed/suspected/source-inconsistency/corrected-interpretation scopes. No new scalar site proposal is qualified. Reopen exact effects only when the named dead-end condition supplies a same-owner receiver, arithmetic or operand-role control. No underbarrel, gadget, vehicle or soldier perk-display finding is added.
+<!-- L907-source-boundaries:end -->

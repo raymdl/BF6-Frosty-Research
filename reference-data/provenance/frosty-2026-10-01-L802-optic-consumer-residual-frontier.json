@@ -1,0 +1,391 @@
+{
+  "lead": "L802",
+  "status": "complete",
+  "build": {
+    "version": "1.4.3.5",
+    "head": 4909002,
+    "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1"
+  },
+  "question": "Reconcile all optical candidates and ranked family IDs against exact field dispositions and pursue remaining available consumer/schema evidence",
+  "sourceFacts": {
+    "control": {
+      "passed": true,
+      "description": "Same-owner current RMR55/Riser40 plus exact L133 Zoom01x00 input-option type-key and file/exported GUID reference",
+      "rawChecks": [
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Attachments\\Reflex\\RMR\\WPM_SCP_RMR.ebx",
+          "rawSha256": "4ba83014372cfcbcd86c4bbb28af012e52ed7a1035ba0ac674f2ea0a8288595f",
+          "offset": 672,
+          "type": "f32",
+          "bytesHex": "00005c42",
+          "value": 55.0,
+          "expect": 55,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Attachments\\Reflex\\RMR\\WPM_SCP_RMR_Riser.ebx",
+          "rawSha256": "b088d968f84d25783b5b05644369396c1afba8ca94a7bb7bd13af2f821e41fd8",
+          "offset": 2976,
+          "type": "f32",
+          "bytesHex": "00002042",
+          "value": 40.0,
+          "expect": 40,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_ZoomLevels\\Zoom_01x00_PiP.ebx",
+          "rawSha256": "0f89eb491df91e653f9d1366b448dc976cd7be01e325e68113147733f01bb2b5",
+          "offset": 128,
+          "type": "u32",
+          "bytesHex": "01000000",
+          "value": 1,
+          "expect": 1,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_ZoomLevels\\Zoom_01x00_PiP.ebx",
+          "rawSha256": "0f89eb491df91e653f9d1366b448dc976cd7be01e325e68113147733f01bb2b5",
+          "offset": 512,
+          "type": "guid",
+          "bytesHex": "0e3c69fe6f479b449ba8b4af9a88afc5",
+          "value": "fe693c0e-476f-449b-9ba8-b4af9a88afc5",
+          "expect": "fe693c0e-476f-449b-9ba8-b4af9a88afc5",
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_ZoomLevels\\Zoom_01x00_PiP.ebx",
+          "rawSha256": "0f89eb491df91e653f9d1366b448dc976cd7be01e325e68113147733f01bb2b5",
+          "offset": 528,
+          "type": "guid",
+          "bytesHex": "c40b431bca63c149b0b21e3f7cd0e19d",
+          "value": "1b430bc4-63ca-49c1-b0b2-1e3f7cd0e19d",
+          "expect": "1b430bc4-63ca-49c1-b0b2-1e3f7cd0e19d",
+          "matches": true
+        }
+      ]
+    },
+    "scope": {
+      "expected": 3289,
+      "examined": 3289,
+      "L784Candidates": 731,
+      "L792Candidates": 2558,
+      "rankedExpected": 224,
+      "rankedExamined": 224,
+      "rankedOpticalExpected": 100,
+      "rankedOpticalExamined": 100,
+      "newQualifiedExactObjects": 24,
+      "newRawReads": 309,
+      "controlRawReads": 5,
+      "remainingExactOwnerRequests": 0,
+      "supplementalNewOwnerTypedFields": 13,
+      "supplementalNewOwnerScalarFields": 11
+    },
+    "findings": [
+      {
+        "id": "complete-optical-family-reconciliation",
+        "finding": "All731 L784 and2558 final L792 candidate families now have exact prior proofs or explicit field/schema/context dispositions. All224 current ranked IDs are mapped; all optical-tagged ranked entries retain exact descriptor/path proof records.",
+        "mapping": {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L802\\candidate-family-dispositions.json",
+          "sha256": "1408496601005bcfb4f793c54db1b8a91d1983afa9205d633999004c1625711d"
+        }
+      },
+      {
+        "id": "reticle-interface-name-hash",
+        "finding": "22 CrosshairPropertyInterface records prove Field_e03e9c5f is the case-sensitive property-name hash, using the documented djb2-xor seed5381. It is an identifier rather than a physical opacity/thickness/zoom value.",
+        "proof": {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L802\\reticle-namehash-proof.json",
+          "sha256": "60b19fb1b41d333e595a1df8fdc42a9d63e75b319995c433f1416a601491e9ab"
+        }
+      },
+      {
+        "id": "remaining-consumer-boundaries",
+        "finding": "169 current SDK declaring types and674 remaining field hashes were checked. No new numeric member alias/unit or exact L787 scalar association was established.34 focused import contexts qualify24 exact exported objects. Newly parent-captured canted gamestate has13 typed fields,11 scalars; source-only roles and blend units remain unresolved.",
+        "proof": {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L802\\remaining-owner-closure-proof.json",
+          "sha256": "2b3505269dfadfddffa6820607fa5191249ed698a03a805eab16137d2abe3284"
+        },
+        "requestProof": {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L802\\new-owner-requests.json",
+          "sha256": "7d2784b551043a8663a2d57f2c603d451392b51000b7c0f49785cbcc2663d79d"
+        }
+      },
+      {
+        "id": "settings-ui-context",
+        "finding": "Eight current HUD/aim-assist/controller-input option owners resolve their current labels/descriptions. Stated behavior does not identify the numeric members as min/max/default/step or establish effective per-weapon settings.",
+        "proof": {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L802\\current-remaining-option-ui.json",
+          "sha256": "95eca00dacf4d40a7a6e3c8a921e1b8b97c3f2d62ea7caa5a9fbcfe4af62e726"
+        }
+      }
+    ],
+    "dispositionCounts": {
+      "prior exact disposition": 429,
+      "remaining numeric role checked; known limit": 1760,
+      "structural/text/reference context retained; no numeric role asserted": 1099,
+      "established source identifier; no optical scalar effect": 1
+    },
+    "newRawReadFailures": 0,
+    "contextReconciliation": {
+      "candidatesMapped": 3289,
+      "mappedContexts": 3289,
+      "immutableFamilies": 2237,
+      "residualExpected": 3662,
+      "residualWithAnyMappedContext": 1589,
+      "residualAllContextsMapped": 762,
+      "remainingFamilyIds": 2900,
+      "remainingContexts": 6258,
+      "semanticClosure": false
+    }
+  },
+  "inference": {
+    "meaning": "Property name hashes establish structural identifiers only. Shader/reticle/input names and numeric ranges are not mapped to an effect or percentage. Existing same-owner modeled sway context is retained only in its exact physical subclass."
+  },
+  "unresolved": [
+    {
+      "kind": "unknown-numeric-member",
+      "groupedDeadEndPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L802\\where-not-to-look.json",
+      "groups": 170,
+      "candidateFamilies": 1760,
+      "reason": "Exact field roles/units/operations remain unknown after listed evidence checks."
+    },
+    {
+      "kind": "qualified-canted-owner-unknown-role",
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L802\\canted-owner-typed.json",
+      "reason": "Exact Class_e437f266 typed current exported owner. Field_97ea1523 is f32 serialized zero. No blend operation, units, native activation or displayed effect inferred from route/name/value."
+    }
+  ],
+  "siteImpact": {
+    "implemented": false,
+    "proposedStats": [],
+    "conclusion": "No new comparison numeric stat clears exact role/native-consumer/display-effect validation requirements. Existing tested render-FOV/optic/PiP context is retained without duplication."
+  },
+  "evidence": [
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L802\\candidate-family-dispositions.json",
+      "sha256": "1408496601005bcfb4f793c54db1b8a91d1983afa9205d633999004c1625711d"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L802\\ranked-family-dispositions.json",
+      "sha256": "b3de8a2931028229a831064724f72892ef20ae2f971754cd2ca041092585a924"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L802\\where-not-to-look.json",
+      "sha256": "87f86362ec02615ef41eed25c483f76a87f5a30a9b0a6e26cd8eddb9a448f584"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L802\\reticle-namehash-proof.json",
+      "sha256": "60b19fb1b41d333e595a1df8fdc42a9d63e75b319995c433f1416a601491e9ab"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L802\\current-remaining-option-ui.json",
+      "sha256": "95eca00dacf4d40a7a6e3c8a921e1b8b97c3f2d62ea7caa5a9fbcfe4af62e726"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L802\\remaining-consumer-search.json",
+      "sha256": "b92f3a902a13de70d27ed52887f5af4a5f476fb2600679e310721418eac68e64"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L802\\sdk-schema-complete.json",
+      "sha256": "f75e3689f07faabb8d5f5a1c0515f4872493555deb986b321f63986fa827e683"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L802\\remaining-registry-context.json",
+      "sha256": "970596f4715fd6798caf6071a775cd56d4f8df453a478cbb175b3296d586f41b"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L802\\remaining-owner-closure-proof.json",
+      "sha256": "2b3505269dfadfddffa6820607fa5191249ed698a03a805eab16137d2abe3284"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L802\\qualified-new-target-objects.json",
+      "sha256": "431bcd127d9953819b532b6065684b2b69d95fa0312191cc3653a06cf3871aef"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L802\\supplemental-exact-consumer-objects.json",
+      "sha256": "329fa1e384b0117719b826cd79e3766672dbd337a1aae6229d32f6677fbc7fb9"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L802\\new-owner-requests.json",
+      "sha256": "a963527862d28577714fe65fe4ee1a1d00a3780656ad18998da422be372d1565"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L802\\new-consequential-rawchecks-final.json",
+      "sha256": "e2caf35d69b9eeee9a686347a9ddbae9054970c41e16a4225fc11e1c7ca70eb6"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L802\\control-rawchecks.json",
+      "sha256": "ac41791d28f64799aa39728be5ea595c7acbd569719fe2ff34fe32fcfa812b4f"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L802\\focused-remaining-contexts-canonical.json",
+      "sha256": "6a745db5cdd5f87d79db01eb629cd1008e213189e5c58de914efbfcdb0ebb534"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L802\\l802-result.json",
+      "sha256": "e575b0949a93aa8e8e34f75fcaddc1e1edaff486a4f4cebc3aaedfe151fb0400"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L802\\start-reconcile.py",
+      "sha256": "9992d33260fbdc81edb1bccdfdda36f43e15852d3c7f326c452b2b6bf39392a3"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L802\\pursue-remaining-contexts.py",
+      "sha256": "2e59e79f459710b063d4937e9d0a28f9dc6cd88782ddd06011624ed057881db8"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L802\\qualify-new-context-imports.py",
+      "sha256": "4c17e5a1af0107a78801c821b514ce14c0782dea5d97dac12eed100854811e10"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L802\\resolve-exact-new-targets.py",
+      "sha256": "1cc5d97dff63ec0de47a8921b8720753fca737b634042c7bfc7391e5edc13e00"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L802\\finish-reconcile.py",
+      "sha256": "f0fb509a6bb679ddead3bcd67efaeeb3dc3ef966949556c17501b6fd8cfcf7fe"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L802\\sdk-schema.ps1",
+      "sha256": "8d0f672e13fff2e4a11211b54e3b36ed9b496a78a50168a7473de54fc098d8da"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L802\\atlas_reader.py",
+      "sha256": "46e9b54892ebc4bdaf8f0291a8e8ea9f5cae552ce3a62ff9d56b9e6f04f01a84"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L784\\final-atlas-part-v3.json.zip",
+      "sha256": "2aae1d7e8dad8f1a74e067fcd74ee417c19b18dcd2a3a1a86abc55a2b1c03ed6"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L792\\atlas-part-final.json",
+      "sha256": "fb20551d1b2069b42d3bc8f95edc08e55176308573524eaad2d64a9022b4c1f3"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L792\\l792-result.json",
+      "sha256": "c8c283684e01b175b8363a8411d43918d7808abc3c349cb6390f663332319706"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L793\\ranked-frontier-index.json",
+      "sha256": "e5bd2ae1ad1454e70cddd74414e2fb99235f1c6c6be28ee91b9632d1db3dd652"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L794\\typed-field-atlas.json",
+      "sha256": "64c4121f52202b4cba47d7e10b31af595e4e5dd6757e9207e33ce3fc8527f06e"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L795\\family-disposition.json",
+      "sha256": "cd16dd823e5a9744c004c8f6dabcb961b897f95057c3e1f899c15c8790ca28cd"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L797\\typed-field-atlas.json",
+      "sha256": "2ffabae5014cf1c135d0b1d1997fd589ef0d2a746847b558072125622eba114c"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L790\\atlas-part-v2.json",
+      "sha256": "e0d90ec3106f5f616f2920ec9ec0353f4f8c82d3d73956fed42a6f36e147d03b"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\ea-frontier-context.json",
+      "sha256": "f092f3e565c66a67fd00b563d9e1eb7778138c698af73619ff9ea8a66d65b045"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\docs\\frosty\\UI_TEXT.md",
+      "sha256": "3460e060c15b336043d6730662907e5311b50fc8ff720560341e417b5dcae168"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\toolchain\\BF6SDK.dll",
+      "sha256": "d6601d2eee9621f576b298cb7afcd8b67fb1a21329831dd86eb5493f29f1d55b"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\toolchain\\FrostySdk.dll",
+      "sha256": "fd852e16f4ff0bdccd25693eb2b01724b5346fe2d122bf485d927a7eb395e0f6"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\toolchain\\SharedTypeDescriptors.ebx",
+      "sha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L802\\canted-owner-typed.json",
+      "sha256": "c5a25d09eda6b77bf63722d61c102e6d751a5bc40b43e85e1387b23fe1d11e26"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L802\\canted-owner-rawchecks.json",
+      "sha256": "8eee62c039077432458d3a502274d0501abbdd09545e21b667455df7288c9458"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L802\\canted-owner-manifest.json",
+      "sha256": "32bd1bc5e82189da899f51308e0d7a456b206cc82201204efa9adfd18335b13c"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\sixth-parent-verification.json",
+      "sha256": "851a8a1907729a6b0810e128e871b0b343a5eb4ba91433430432b91bb658f875"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L802\\add-canted-owner.py",
+      "sha256": "4c65298bca9a4273bf9c5e34da90ab2190309ae0c3524ff5adc244d839c54a95"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L802\\where-not-to-look-compact.json",
+      "sha256": "fab4938ade81ad92575ec0b5d257f26442a2faa37715509e4fa8ff604ac57ebc"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L802\\immutable-family-context-mapping.json",
+      "sha256": "3678254517956a92ae02f3d035c380c06130a5be100608750c52cf1e23ac3249"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L802\\covered-immutable-family-ids.json",
+      "sha256": "da9ccbb0b350aace5f70ea0e41bf74d2e74c04effc918642f9659b2cb08f4bfa"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L802\\remaining-uncovered-residual-contexts.json",
+      "sha256": "bd1395bc2635f7e4d3db5ac091f4dd90fcaffe62b484abbad726785ca9ceb241"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L802\\compact-and-map-contexts.py",
+      "sha256": "acd19b9b2e5f4711d1b4b4cdae837be083ea5f8d035068f1234a469db97dbed9"
+    }
+  ],
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-10-01",
+    "build": "1.4.3.5",
+    "binding": "research",
+    "leads": [
+      {
+        "id": "L802",
+        "title": "Optical frontier exact family reconciliation",
+        "status": "finding",
+        "summary": "3289 candidate families and224 ranked IDs reconciled; all100 optical ranked entries retain exact proofs.22 property-name identifiers established;24 direct target objects qualified, no missing owner request. No new numeric effect statistic.",
+        "reopenWhen": "Exact same-owner schema or engine consumer resolves an unknown optical member."
+      }
+    ]
+  },
+  "commands": [
+    {
+      "script": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L802\\add-canted-owner.py",
+      "role": "Only newly captured exact owner decoding and consequential raw checks"
+    },
+    {
+      "command": "frosty-worker.py review --lead-dir L802 --result FULLABS/l802-result.json --reread 3",
+      "role": "Native standard schema and sample review"
+    }
+  ],
+  "atlasAssetIndex": [
+    {
+      "path": "Common/UI/HUD/Crosshair/Assets/CrosshairPropertyInterface",
+      "format": "raw-ebx",
+      "sha256": "53c506f830f1642a2fcbf6b1c643dc71a933fbf192bfa51fe4a0bbcba6cf2b3b",
+      "question": "Exact named reticle property identifier schema",
+      "result": "useful",
+      "conclusion": "22 same-record name/hash pairs match the documented hash and raw re-reads; identifiers do not establish physical display values."
+    }
+  ],
+  "publicAtlasAddendum": {
+    "path": "reference-data/frosty/weapon-frontier/field-atlas-addendum-L802.json",
+    "sha256": "052591fef4f8db29505f3cde62f4909bb1c3993cd0cf51b5ebc3609269c5d459",
+    "fieldCount": 13,
+    "newIdentityCount": 12,
+    "limit": "One qualified imported owner; numeric native roles remain limits."
+  }
+}

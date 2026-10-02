@@ -617,3 +617,140 @@ unresolved. The readable table and run handoff are retained in
 `BF6 Datamining/reports/weapon-analyzer-research/2026-09-30T0112-0400-class-traits/`.
 
 See [class/perk stat findings](WEAPONS.md#class-path-and-perk-source-cross-check).
+
+<!-- L900-weapon-ui:start -->
+## Weapon UI census (L900, corrected by L905)
+
+[L900 receipt](../../reference-data/provenance/frosty-2026-10-01-L900-weapon-ui-census.json) uses current 1.4.3.5 bytes, Head 4909002 and the current English table. Nine weapon metadata containers plus the description container contain 1,183 localized text objects, 70 weapon UI records and 1,607 exact pointer/import edges. The M433 pointer and string-ID control passes after correcting signed string-ID lookup. Mixed ability/perk/gadget text stays separate from the weapon scope.
+
+All 63 site names match available UI names. [L905](../../reference-data/provenance/frosty-2026-10-01-L905-weapon-ui-statements.json) corrects L900's description comparison to 61 of 63. M4A1 and KTS100 match; L900 read the UTF-8 site file through the default Windows encoding and produced two false apostrophe differences. The census's localized text objects were correct. M2010 ESR and SV-98 still have missing localization IDs and archived screenshot wording. The old receipt is retained as evidence of the original comparison.
+
+Every selected UI source-owner link remains explicitly unresolved; image names and equal strings do not supply identity. The census retains raw text IDs, offsets, bytes and hashes, non-site variants and empty containers. L905's exact reused gameplay source associations support separate curve/capacity comparisons, with original Heads and current raw-hash equality retained. The atlas is not rebuilt.
+<!-- L900-weapon-ui:end -->
+
+<!-- L901-attachment-ui:start -->
+## Attachment, ammo and optic metadata census (L901)
+
+[L901](../../reference-data/provenance/frosty-2026-10-01-L901-attachment-ui-census.json) decodes all 1,003 AD owners under the requested UI metadata roots on 1.4.3.5 / Head 4909002. The current iron-sight description control passes. The result retains 2,317 text pointer occurrences, 57 missing string IDs, 233 nonempty metadata arrays and 2,195 import edges. The full census and raw-check lists stay in the run folder and are cited by hash.
+
+Every asset retains the decoder's layout ambiguity. Raw pointer, GUID and string-ID reads support the exact text edges; they do not assign effect-chip or pros/cons roles to unnamed fields. Stated numbers are retained with text and units, while gameplay ownership and native effects remain unresolved. Image imports remain presentation edges. Underbarrel meaning is excluded. Exact selection joins and the stat-screen receiver determine which text can support a source comparison.
+<!-- L901-attachment-ui:end -->
+
+<!-- L903-selection-edges:start -->
+## Exact selection and metadata boundary (L903)
+
+[L903](../../reference-data/provenance/frosty-2026-10-01-L903-ui-selection-edges.json) independently verifies the M433 AAM-to-AD pointer/import and description-ID control. Its 63 source entries cover 189 current GS/WB/Ability roots, 64 AAM candidates (including extra KSG) and six metadata containers. The ledger retains 5,303 exact AAM-to-AD edges. Path correspondence selects AAM candidates; it does not establish gameplay ownership. The bounded direct-root check has no source-to-UI selection join and makes no transitive absence claim.
+
+The numeric key/property receiver that connects a selected attachment to an AAM record remains unresolved. Current source roots, metadata arrays and AAM lookup keys retain raw identities. Name-based historical UI matching cannot replace that receiver. The run-folder dead-end batch states the precise route, attempted fields and reopen condition. New player-facing quantities use exact localization-ID references and independently confirmed source meanings; they retain this activation boundary.
+<!-- L903-selection-edges:end -->
+
+<!-- L906-statement-comparisons:start -->
+## Numeric statement coverage (L906)
+
+[L906](../../reference-data/provenance/frosty-2026-10-01-L906-attachment-ui-statements.json) retains every one of the 2,317 AD text occurrences. The 415 numerical tokens have explicit classifications: 13 match exact site tooltip text and 402 are unmapped. Labels state nominal capacity, zoom, angle, burst count or length, or contain model/shot-size identifiers. No percentage or timing effect quantity is present in this bounded string corpus. Text-reference equality is not a source-selection or native-effect join. The qualitative statement and reviewed-bug indexes retain those separate evidence levels.
+<!-- L906-statement-comparisons:end -->
+
+<!-- L905-weapon-statements:start -->
+## Weapon description quantities and current text corrections (L905)
+
+[L905](../../reference-data/provenance/frosty-2026-10-01-L905-weapon-ui-statements.json) classifies all 41 numeric token occurrences in the 63 weapon descriptions. Eleven are sourced effect/count values: ten endpoints of five peak-damage intervals and the eight-shot M357 cylinder. Thirty are cartridge/shell designations, model identifiers or historical ordinals, retained as unmapped context rather than gameplay modifiers. All 528 independent metadata, curve and capacity raw reads pass.
+
+The current TSV entry `A89AE617`, selected by the raw Interdictor metadata pointer, states 120 m to 160 m. It is in the pinned current table with SHA-256 `1ec449fa2a12bc3d307bfa5878ee7d8c56af14fae65ea1f6c6286e85d98e7392`. L740's assertion that the current localization still ended at 150 m was stale; its receipt supplied no exact localization-ID/raw-text proof for that assertion. L905 retains the older receipt and the historical 150 m description separately. The implemented site wording and selected curve already use 160 m, so no new site edit is proposed.
+<!-- L905-weapon-statements:end -->
+
+<!-- L904-metadata-closure:start -->
+## UI root coverage, stat descriptions and scope (L904)
+
+[L904](../../reference-data/provenance/frosty-2026-10-01-L904-ui-metadata-closure.json) gives one scope disposition for all 1,319 catalog entries under the two requested metadata roots. All 39 fixed metadata containers and three exact extensions are examined; no fixed container or extra AD target is missing. The extensions are `Stats/UIStatDescriptionMetadata`, the mode-specific Granite shared-ammo metadata and the exact AAM import to `Common/Hardware/Weapons/MG/MG5/AD_MG5_IronSights`.
+
+The 1,260 raw-checked text pointers comprise 827 package cosmetic texts, 20 slot labels, 370 mixed stat labels, 41 mode-specific ammo labels and two extra iron-sight strings. Cosmetic, soldier/perk, gadget, vehicle and unrelated UI contexts have explicit scope dispositions and remain separate from 63-weapon claims. Mixed stat descriptions and Granite ammo text are context until an exact selected weapon/stat receiver establishes their use. Twelve package owners retain layout ambiguity. All 663 inspected metadata objects have raw local class/key/current-descriptor qualifications. The independent Carrion pointer/string control and parent reread pass. No text or container membership supplies native stat normalization.
+<!-- L904-metadata-closure:end -->
+
+<!-- L902-weapon-attributes:start -->
+## Current Weapon Attributes source and UI normalization (L902)
+
+[L902](../../reference-data/provenance/frosty-2026-10-01-L902-weapon-attributes-ui.json) verifies the Control same-owner constant/input control on 1.4.3.5 / Head 4909002. All seven current compiled delegate bodies equal the reviewed bytes. The exact Precision settings raw hash also carries forward 63 tables and 4,946 rows; representative typed reads pass, including Boolean flags.
+
+| Bar | Current source-supported site method | Remaining interpretation |
+|---|---|---|
+| Hipfire | Nonlinear delegate-specific 18-row dispersion lookup and separate angle input | Fraction branch and native operator meanings retain reviewed inference |
+| Precision | Exact per-weapon source lookup tables | Active native table provider/selection unresolved |
+| Control | `96 / (1.1 * R * sin(v) / v + 0.75)^2.25 + 4`, with `v = V * pi / 180` | Sine/native operator meaning and execution retain reviewed inference |
+| Mobility | Reviewed weighted source indices | Native input/provider selection unresolved |
+
+All four classify as matches site for the retained source-supported model candidates. This is not a claim that every game panel or native loadout uses that candidate. Extended RateOfFire, HeadshotMultiplier and CollateralMultiplier delegates have exact current input/resource identities but retain unresolved numeric operator/provider interpretation in this pass.
+
+The current wrapper passes connected values 100 and 1 through `CL_StatsBar_WeaponStats` into local nodes 28/29 of `CL_StatsBar`. Exact value, label and delta property edges are retained. Anonymous type/operator/property semantics do not prove division, final bounds or a universal 0-100 clamp. No unvisited exact arithmetic source import remains; the remaining nested prefab is rendering context.
+
+Exact atlas qualification checks 25 candidate families and 41 contexts. Their owners differ from the current bar delegates. Newly meaningful known-limit families: 0; contexts: 0. Matching class/field hashes or parameter names cannot transfer bar meaning to those owners. The atlas is reused without a rebuild or classification edits.
+<!-- L902-weapon-attributes:end -->
+
+<!-- L907-census-summary:start -->
+## Integrated weapons UI census (L907)
+
+[L907](../../reference-data/provenance/frosty-2026-10-01-L907-weapons-ui-frontier-census.json) retains the integrated `ui-census.json`, comparison ledger, scope audit and excluded-context ledger in the run folder, each with a SHA-256 citation. All 1,319 metadata catalog paths have scope dispositions. The census has 3,557 text/interface rows: 775 weapon-local text items, 2,317 AD occurrences, 433 slot/extra-AD/mixed-stat/mode-context occurrences and 32 stat-interface rows. The count includes available/contextual text, not a claim that every row is displayed for a selected multiplayer weapon. Another 1,235 mixed ability and package cosmetic rows remain separate.
+
+Every one of the 627 lexical numeric occurrences has a four-way disposition: 25 matches site and 602 unmapped; no new source-only or conflict quantity is qualified. The 11 unique weapon-description effect/count tokens and 13 AD text-reference matches have separate source and text scopes; the integrated count retains a repeated UI occurrence. Identifier, historical, mixed career/stat and mode-specific numbers do not become physical gameplay quantities. The 233 nonempty AD arrays remain indexed with unresolved effect-chip/pro-con roles.
+
+All four reviewed bar candidates retain current source support. Exact native provider selection, final renderer arithmetic and the selected attachment-to-metadata scalar receiver remain unresolved. Zero known-limit atlas families or contexts receive new meaning. The compact dead-end ledger uses route, fields, tried method, stop reason and reopen condition, with one receipt per batch. No currently available exact metadata or arithmetic import target remains unvisited.
+
+The final L904 revision is also checked here: 1,260 text pointers agree with the shared helper, zero mismatches; 16 Granite array text indices and 663 metadata objects have current raw type/index qualifications. Fourteen examined owners retain layout ambiguity, including 12 package owners. Mixed mode/stat roles remain context. This final verification supplements L904's earlier committed census receipt without modifying it.
+<!-- L907-census-summary:end -->
+
+## Vehicle preset UI census for seat defaults (L3150)
+
+[L3150](../../reference-data/provenance/frosty-2026-10-01-L3150-vehicle-default-ui-census.json) starts the default-loadout pass from four saved current UI roots at build 1.4.3.5, Head 4909002, descriptor `4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1`. The MAIN BATTLE TANK text control passes its exact local owner, pointer, string id and raw read. The parent independently re-read ECD2AB78 at offset 2608.
+
+The four roots contain 619 objects, 126 text rows and 115 import pairs. UIVehicleLoadoutPresetMetadata has 15 preset text records and no imports. Its MBT and IFV LOADOUT 1 descriptions state vehicle roles; they do not name selected equipment. No resolved text row contains "default" or "unlock". Literal array order is retained, with no default meaning assigned to the first entry or to LOADOUT 1. UIVehicleMetadata retains 25 exact selected UI target pairs for the equipment census.
+
+The UI text control validates this census. It does not validate seat defaults. UH60 minigun, RHIB OpenGunner HMG and MBT seat 0 main gun controls still need an exact UI slot-to-gameplay owner chain plus default selection evidence. Previous card/icon/category/lookup-id routes are not repeated.
+
+Full fields, text ids, slot/flag candidates, GUID pairs, local keys and raw checks stay in `2026-10-01T163631-0400-vehicle-seat-defaults/L3150/ui-census.json`, pinned by the receipt. Unknown hashed field roles remain unresolved. This is UI/source evidence, with no site change.
+
+## Vehicle seat default UI census (L3150)
+
+Build 1.4.3.5, Head 4909002, descriptor SHA-256 `4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1`. [Receipt](../../reference-data/provenance/frosty-2026-10-01-L3150-vehicle-ui-preset-census.json).
+
+Four current raw UI roots contain 619 objects, 126 text-bearing records and 115 import pairs. The exact MAIN BATTLE TANK pointer/string control passes. UIVehicleLoadoutPresetMetadata contains 15 LOADOUT 1/2/3 records and no imports. The census retains every decoded field, literal array order, text pointer and import pair. Slot, seat, unlock and default semantics remain unresolved. This text control does not establish a seat default.
+
+The census and full raw checks stay in `C:\Users\royal\Documents\BF6 Datamining\reports\weapon-analyzer-research\2026-10-01T163631-0400-vehicle-seat-defaults\L3150`; their paths and SHA-256 are in the receipt. The selected equipment targets and UI definition assets are checked separately. No gameplay identity is assigned from a name, image or lookup integer.
+
+## Selected vehicle equipment UI and default controls (L3151)
+
+Build 1.4.3.5, Head 4909002, descriptor SHA-256 `4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1`. [Receipt](../../reference-data/provenance/frosty-2026-10-01-L3151-vehicle-ui-equipment-default-controls.json).
+
+25 selected UI targets retain 1111 objects, 170 resolved text rows and 456 import pairs. The UH60 minigun text control passes. The direct import route fails all three functional default controls; no seat default finding follows.
+
+The census retains literal array order, localized names/descriptions, pointer operands, exported identities and hash-only Boolean candidates. These candidates are not assigned unlock/default meanings. Exact registry-to-MBT-UI and UH60 minigun text controls pass. Imports resolve to images/icon atlases and numerical-stat configuration context, not the retained selected gameplay owners. Names and repeated integers are not used as joins.
+
+The failed functional controls remain explicit for both UH60 door-gunner entries, RHIB OpenGunner and both MBT seat 0 main guns. A matching displayed label cannot repair the missing owner identity. This failed route produces no default or negative seat findings. All full census/raw-check files stay in the run folder; the receipt pins path and SHA-256.
+
+## Vehicle seat and equipment UI definitions (L3152)
+
+Build 1.4.3.5, Head 4909002, descriptor SHA-256 `4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1`. [Receipt](../../reference-data/provenance/frosty-2026-10-01-L3152-vehicle-ui-seat-equipment-definitions.json).
+
+Six UI definition/customization siblings decode to 74 objects, 39 import pairs and 11 text rows. Exact schema/import reader control passes. Named seat, slot and selection properties are definitions, with no controlled per-seat default assignment.
+
+VehicleLoadoutDBD declares CurrentItem and ItemCollection. VehicleLoadoutItemDBD declares AbilityId, AbilityCategory, IsWeapon, IsAvailable and IsSelected. VehicleLoadoutSeatDBD declares VehicleSeat, VehicleSeatName and VehicleEquipmentList. VehicleLoadoutEquipmentsDBD declares SlotId, LoadoutPositionOffset, UIAbilityCategory, EquipmentName and EquipmentDescription. The raw property-name bytes and exact DBD import control are retained.
+
+These are property declarations. Their live values and producer are not in these definitions. IsSelected does not state the factory default, and no stored slot value is joined to seat-map.json. Shared UIWeaponCustomizationSlotMetaData resolves infantry customization labels. The saved BFUIVehicleCustomizationsViewManagerConfig is retained as UI configuration context; prior card/category/image routes are not repeated. Functional default controls remain failed, so no default or negative seat finding is made.
+
+All six selected raws, declared properties, pointer operands and hash-only Boolean candidates are retained in the run census. The two captures passed guard and reported 5/5 routes with Head 4909002. Full output paths and SHA-256 are in the receipt.
+
+## Supplemental vehicle UI metadata census (L3153)
+
+Build 1.4.3.5, Head 4909002, descriptor SHA-256 `4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1`. [Receipt](../../reference-data/provenance/frosty-2026-10-01-L3153-additional-vehicle-ui-metadata.json).
+
+All six remaining current vehicle UI metadata assets are decoded: 288 objects, 41 text rows and 65 exact import pairs. CB90 mortar text reader control passes. No complete default chain passes the required functional controls.
+
+The six exact catalog assets are DirtBike, MissileBattery, Automatic AA, NavalFighterPlane, MultirolePlane and CB90 UI metadata. They complete 28/28 Common/Hardware/Vehicles UI metadata assets in the current catalog. The six captures passed guard and reported zero failures. Names, descriptions, literal array order, pointer operands and hash-only Boolean candidates are retained. The CB90 IR Smoke Shell pointer/string ID was read again from raw bytes.
+
+Imports remain UI image/icon context. The required gameplay seat/default identity is not supplied by this direct route, which was already rejected by the default controls. No numeric, image, name or category join is substituted. UI equipment wording remains UI-stated and unassigned to exact gameplay seats. Full outputs stay in the run folder with receipt path/SHA-256 pins.
+
+## Vehicle seat default receipt reconciliation (L3155)
+
+Build 1.4.3.5, Head 4909002, descriptor SHA-256 `4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1`. [Decision receipt](../../reference-data/provenance/frosty-2026-10-01-L3155-vehicle-seat-default-receipt-reconciliation.json).
+
+Two parallel closeouts used L3151 and L3152 during this run. Their receipts remain committed. The final L3151 `vehicle-ui-equipment-default-controls` receipt retains the same 25 exact asset/hash identities as the parallel closeout. The final L3152 `vehicle-ui-seat-equipment-definitions` receipt extends the parallel four-definition scope to six UI definition/customization siblings. The decision explicitly supersedes the two parallel `vehicle-default-ui-controls` receipts and identifies the final evidence for each lead.
+
+The exact source/UI reader controls pass. All three functional default controls remain unpassed. No gameplay/default claim changes and no existing commit or receipt is rewritten or removed.

@@ -1,0 +1,106 @@
+{
+  "status": "source pass closed; requested effective mechanism not proved",
+  "build": {
+    "id": "1.4.3.5",
+    "head": 4909002,
+    "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1"
+  },
+  "question": "Can the current selected vehicle and weapon source prove front/side/rear damage and hits-to-kill?",
+  "sourceFacts": {
+    "scope": {
+      "vehicles": 5,
+      "selectedParts": 40,
+      "sourceWeaponProfiles": 6,
+      "leads": [
+        "L3200",
+        "L3201",
+        "L3202",
+        "L3203",
+        "L3204",
+        "L3205",
+        "L3206",
+        "L3207",
+        "L3208"
+      ]
+    },
+    "mechanismControlGate": {
+      "archiveAndArithmetic": "pass",
+      "extractionAndTypedSourceControls": "pass",
+      "RPG188375500FromSourceOperation": "unresolved",
+      "M136207550FromSameOperation": "unresolved",
+      "APFSDS244650FromSameOperation": "unresolved",
+      "lockOnOrPlacedBypass": "unresolved"
+    },
+    "summary": [
+      "Exact part identifiers, bone children, material declarations and curve pointers are retained for all five vehicles.",
+      "All six live parts per vehicle declare material 119; wreck parts declare 0.",
+      "Root Field_9040392c is 1200 on Abrams and Leopard. It is 1000 on Bradley, CV90 and AAV7A1. These values do not establish effective health or normalization.",
+      "Abrams selects tank curves. CV90 selects IFV curves. The other scoped part curve pointers are null. Null does not establish default behavior.",
+      "Named RPG Damage raw 135 differs from own registry default 125. Named APFSDS StartDamage raw 150 differs from own registry default 130. Default activation is unresolved.",
+      "Grid Field_674633de is 2 for RPG, about 2.2 for M136, 2.5 for APFSDS, 0 for lock missiles and C4 projectile, and 3.5 for C4 explosion. Its operation is unresolved."
+    ],
+    "proposals": [],
+    "blockedFutureVehicleFields": [
+      "incomingDamageByDirection",
+      "incomingDamageByZone",
+      "hitsToKillByDirection"
+    ],
+    "reopenWhen": "An exact selected receiving operation establishes GameRemixer default activation, material relation meaning, angle evaluation, composition and effective health. Then reproduce all known answer rows before proposing site multipliers."
+  },
+  "inference": [
+    "ceil(1000 / attributed damage) gives the retained known-answer arithmetic. It does not prove current effective health.",
+    "A 0.375 front and 0.75 side hypothesis can fit displayed values. No serialized source operation establishes those factors.",
+    "Registry 125 * grid 2 * unproved 2 = 500 and registry 130 * grid 2.5 * unproved 2 = 650 are diagnostic fits only. They do not establish activation or operation."
+  ],
+  "unresolved": [
+    "Impact direction frame and angle convention; interpolation and threshold role.",
+    "Source-to-health channel composition and selected collision shape/mesh hit behavior.",
+    "Default or runtime receiver paths behind null part curve pointers.",
+    "Effective health normalization, smoke/repair/part transfer and rounding.",
+    "Lock-on and placed weapon direction bypass."
+  ],
+  "siteImpact": "No source multiplier proposal is supported. Attributed EA tank ranges and operator/creator RPG side corroboration remain separate from configuration facts. No site change.",
+  "evidence": [
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T164935-0400-tank-weak-spots\\direction-zone-table.json",
+      "sha256": "936078adfeed94f130e8336c5ba42438d46e66776fda67d71e17e147bc4b8bc3"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T164935-0400-tank-weak-spots\\hits-to-kill-predictions.json",
+      "sha256": "398d2dfb6e9a4824008aae099702e09f0238d9040fc4cba5623f57e8da42c615"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T164935-0400-tank-weak-spots\\known-answer-controls.json",
+      "sha256": "8988a6731541178bf88c26822513b6a0ac01bee8e58ec64d3296669345356a46"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T164935-0400-tank-weak-spots\\parent-part-material-rereads.json",
+      "sha256": "6a5d4692630b12d88483d3d2cd15c2ca6ae1ff9ca5c54acd064bda42b924e637"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T164935-0400-tank-weak-spots\\where-not-to-look.json",
+      "sha256": "a3fa7ed79da3819074017e0f25283050143d247041dbb908f77cf31dd861f859"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T164935-0400-tank-weak-spots\\tank_research_parent.py",
+      "sha256": "dc662ab224f30ed3fc5d6f6a8ce6689efc864336ad27ff8708744f2e6c8884b4"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T164935-0400-tank-weak-spots\\tank_research_setup.py",
+      "sha256": "13938692a22aba045fd65faaf541cb7137f6e26696eba0f2655e8702019ab73a"
+    }
+  ],
+  "parentHelperHistory": "The saved parent helper is the final revision. Earlier parent helper revisions were not retained. Their commands are in the session tool history and are not represented as reruns with this revision. Consequential typed reads use the preserved frosty-raw-check.py revision and retain bytes, offsets and hashes.",
+  "record": {
+    "v": 1,
+    "kind": "audit",
+    "date": "2026-10-01",
+    "build": "1.4.3.5",
+    "binding": "research",
+    "run": {
+      "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T164935-0400-tank-weak-spots",
+      "orchestrator": "Codex",
+      "workers": []
+    }
+  }
+}

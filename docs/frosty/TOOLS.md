@@ -668,3 +668,15 @@ does not). `frosty-records.py new` writes a skeleton record; `--searched` (repea
 fills an exhausted lead's search list and `--asset path|format|sha256` (repeat) adds
 assets whose question and conclusion start as `TODO`. `check` rejects any `TODO`
 left in a record.
+
+<!-- native-semantics:L1001:start -->
+### Exact descriptor enum reader (L1001)
+
+`python scripts/frosty-enum-meaning-reader.py --decoder scripts/frosty-ebx-decode.py --descriptors "<current SharedTypeDescriptors.ebx>" --self-check --control-manifest "<native-semantics run>/L1001/reader-control-manifest.json" --atlas "<atlas.json>" --out "<new output.json>"` validates current FireLogic raw controls and exact enum membership. Repeat `--atlas` for weapon, soldier and vehicle atlases. The descriptor is pinned to Head 4909002. Unknown enum members keep hashes; labels do not transfer across enum types. L1001 records the three-atlas application and zero new semantic names.
+<!-- native-semantics:L1001:end -->
+
+<!-- native-semantics:L1002:start -->
+### Curve and table reader boundary (L1002)
+
+`python scripts/frosty-curve-table-reader.py --control "<native-semantics run>/L1002/reader-control-portable-v3.json" --self-check [--out "<new overlay.json>"]` rechecks pinned source hashes and raw operands before matching controlled curve/table schemas across three atlas sources. The explicit control stays in the run folder; the installed script has no sibling input dependency. Exact schema matches authorize structural reading only. No native interpolation or axis-unit transfer is claimed. L1002 records the software-model controls and zero new semantic meanings.
+<!-- native-semantics:L1002:end -->

@@ -2,12 +2,13 @@
   "v": 1,
   "purpose": "Dates every published BF6 game update so creator videos, guides and EA statements can be matched to the game version that was live when they were made.",
   "collected": "2026-09-30",
-  "source": "EA news listings https://www.ea.com/games/battlefield/battlefield-6/news?page=N&type=latest (pages 1-11) and the REDSEC news listing.",
-  "dating": "articleDate is the EA article date, normally the release day. Content published on date D reflects the latest update with articleDate <= D; treat anything within two days after an articleDate as ambiguous (platform rollout).",
+  "source": "EA news listings https://www.ea.com/games/battlefield/battlefield-6/news?page=N&type=latest (pages 1-11) and the REDSEC news listing. Articles: every non-update article on both listings whose title suggests mechanics, guides, community updates or roadmaps (excluded: anticheat, twitch drops, battle pass, creator program, sales, Red Bull, challenge and bonus-path guides, esports, cosmetics).",
+  "dating": "Use verified releaseDate for update dating. articleDate is publication, often earlier than rollout. A null releaseDate leaves rollout unresolved; treat content within two days of a known release as ambiguous. Later item-specific patch changes limit community tests to their own version.",
   "limits": [
+    "Listings were read through a page summariser; the REDSEC pass found one community update (15 Jul 2026) missing from the BF6 pass, so other articles may be missing. A session with full web access should re-crawl both listings and add any gaps.",
     "Hotfixes without an EA article are not listed (e.g. the 1.4.3.1 client in builds/1.4.3.0).",
     "Only metadata and links are stored; patch note text is not copied.",
-    "gadgetVehicleChanges and weaponAttachmentChanges are null until read: fill them with short own-words summaries and the touched items."
+    "gadgetVehicleChanges, weaponAttachmentChanges and mechanicsRead are null until read: fill them with short own-words summaries and the touched items."
   ],
   "updates": [
     {
@@ -16,8 +17,49 @@
       "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-update-notes-1-0-1-0",
       "season": "Launch",
       "localBuild": null,
-      "gadgetVehicleChanges": null,
-      "weaponAttachmentChanges": null
+      "gadgetVehicleChanges": {
+        "summary": "Launcher guidance, blast checks and damage changed. Ladder deployment, beacon limits, drone flight, resupply and detection were revised.",
+        "itemsTouched": [
+          "rocket launchers",
+          "Thermobaric grenade",
+          "Assault Ladder",
+          "MAS 148 Glaive",
+          "Deploy Beacon",
+          "XFGM-6D",
+          "C4",
+          "Supply Pouch",
+          "Defibrillator",
+          "Repair Tool",
+          "M320A1 HE",
+          "AT4",
+          "RPG-7V2",
+          "MBT-LAW",
+          "SLM-93A",
+          "Airburst Incendiary",
+          "SS26",
+          "LTLM II",
+          "T-UGS",
+          "CSB IV",
+          "helicopters",
+          "tanks",
+          "smoke countermeasures",
+          "surface-to-air missiles"
+        ]
+      },
+      "weaponAttachmentChanges": {
+        "summary": "Recoil, movement accuracy, automatic spread, shotgun lethality, slug feedback and bolt first-shot behavior changed.",
+        "itemsTouched": [
+          "automatic weapons",
+          "M87A1",
+          "shotgun slugs",
+          "bolt-action rifles",
+          "thermal scopes",
+          "reticles"
+        ]
+      },
+      "releaseDate": null,
+      "releaseDateNote": "Article date is October 9; launch wording supplies no separate explicit rollout day.",
+      "mechanicsRead": true
     },
     {
       "version": "1.1.1.0",
@@ -25,8 +67,34 @@
       "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-update-1-1-1-0",
       "season": "Pre-Season 1",
       "localBuild": null,
-      "gadgetVehicleChanges": null,
-      "weaponAttachmentChanges": null
+      "gadgetVehicleChanges": {
+        "summary": "Gadget traversal, resupply and debris persistence were fixed. Anti-tank grenade craters shrank. Tank feedback and external-seat presentation were corrected.",
+        "itemsTouched": [
+          "MAS 148 Glaive",
+          "Defibrillator",
+          "Supply Pouch",
+          "deployables",
+          "AT grenades",
+          "Sledgehammer",
+          "M1A2 SEPv3",
+          "tanks"
+        ]
+      },
+      "weaponAttachmentChanges": {
+        "summary": "Dispersion was rebalanced by damage. Non-Recon sniper spread penalty became zoom sway. Optic, bipod and suppressor costs were fixed.",
+        "itemsTouched": [
+          "weapons",
+          "sniper rifles",
+          "red-dot sights",
+          "bipods",
+          "Long Suppressor",
+          "Sledgehammer",
+          "M39 EMR"
+        ]
+      },
+      "releaseDate": "2025-10-28",
+      "releaseDateNote": null,
+      "mechanicsRead": true
     },
     {
       "version": "1.1.1.5",
@@ -34,8 +102,25 @@
       "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-update-1-1-1-5",
       "season": "Season 1",
       "localBuild": null,
-      "gadgetVehicleChanges": null,
-      "weaponAttachmentChanges": null
+      "gadgetVehicleChanges": {
+        "summary": "Flares counter lock-guided missiles correctly; drone climbing exploit and vehicle spawns were fixed.",
+        "itemsTouched": [
+          "lock-guided missiles",
+          "flares",
+          "XFGM-6D",
+          "Sledgehammer",
+          "vehicles"
+        ]
+      },
+      "weaponAttachmentChanges": {
+        "summary": "Sprint-to-ADS and movement-dependent dispersion errors were corrected.",
+        "itemsTouched": [
+          "weapons"
+        ]
+      },
+      "releaseDate": "2025-11-11",
+      "releaseDateNote": null,
+      "mechanicsRead": true
     },
     {
       "version": "1.1.2.0",
@@ -43,8 +128,52 @@
       "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-1-2-0",
       "season": "Season 1",
       "localBuild": null,
-      "gadgetVehicleChanges": null,
-      "weaponAttachmentChanges": null
+      "gadgetVehicleChanges": {
+        "summary": "Assault spawn grenades, IFV missile damage, helicopter hitboxes and targeting were fixed. Gadget supply, placement, hit registration and drone pushing were corrected.",
+        "itemsTouched": [
+          "Assault extra grenade ability",
+          "IFV MR Missile",
+          "UH-79",
+          "attack helicopter missiles",
+          "GDF-009 AA",
+          "C4",
+          "M4A1 SLAM",
+          "CSS Bundle",
+          "X95 BRE",
+          "Defibrillator",
+          "Supply Pouch",
+          "Assault Ladder",
+          "LTLM II",
+          "M15 AV Mine",
+          "MP-APS",
+          "LWCMS",
+          "CSB IV",
+          "GPDIS",
+          "XFGM-6D",
+          "PTKM-1R",
+          "Golf Cart",
+          "RHIB"
+        ]
+      },
+      "weaponAttachmentChanges": {
+        "summary": "Dispersion fell; DMR recoil and automatic range balance changed. Slugs, optics, lasers, attachment placement and stat display were fixed.",
+        "itemsTouched": [
+          "automatic weapons",
+          "PW7A2",
+          "KV9",
+          "LMR27",
+          "M39",
+          "SVDM",
+          "SV-98",
+          "DRS-IAR",
+          "shotgun slugs",
+          "SU-230 LPVO",
+          "canted sights"
+        ]
+      },
+      "releaseDate": "2025-11-18",
+      "releaseDateNote": null,
+      "mechanicsRead": true
     },
     {
       "version": "1.1.3.0",
@@ -52,8 +181,46 @@
       "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-1-3-0",
       "season": "Season 1",
       "localBuild": null,
-      "gadgetVehicleChanges": null,
-      "weaponAttachmentChanges": null
+      "gadgetVehicleChanges": {
+        "summary": "Ladder angle, knife accuracy and mortar smoke supply changed. Supply Pouch healing lost its instant component. Vehicle damage zones and Breakthrough distributions were corrected.",
+        "itemsTouched": [
+          "Assault Ladder",
+          "Throwing Knife",
+          "LWCMS Portable Mortar",
+          "Supply Crate",
+          "Supply Pouch",
+          "armoured vehicles",
+          "vehicle HMGs",
+          "Smoke Cover",
+          "XFGM-6D",
+          "LTLM II",
+          "IFVs",
+          "tanks",
+          "light transports",
+          "redeploy towers",
+          "beacons"
+        ]
+      },
+      "weaponAttachmentChanges": {
+        "summary": "Mini Scout pacing slowed; recoil magnitude and randomness were rebalanced. Large LMG magazine cost and movement penalty fell; FMJ transfer was fixed.",
+        "itemsTouched": [
+          "Mini Scout",
+          "M250",
+          "NVO-228E",
+          "RPKM",
+          "SG 553R",
+          "SOR-300SC",
+          "L110",
+          "M123K",
+          "FMJ",
+          "Rorsch Mk-2",
+          "Adjustable Angled Grip",
+          "flashlights"
+        ]
+      },
+      "releaseDate": null,
+      "releaseDateNote": "Only article date is explicit; no rollout date in snapshot.",
+      "mechanicsRead": true
     },
     {
       "version": "1.1.3.5",
@@ -61,8 +228,34 @@
       "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-1-3-5",
       "season": "Season 1",
       "localBuild": null,
-      "gadgetVehicleChanges": null,
-      "weaponAttachmentChanges": null
+      "gadgetVehicleChanges": {
+        "summary": "Jet cannon effectiveness against aircraft fell. Gadget damage, sniper decoy and ladder interactions were fixed.",
+        "itemsTouched": [
+          "jet cannons",
+          "GDPIS",
+          "XFGM-6D",
+          "Defibrillator",
+          "Repair Tool",
+          "Sniper Decoy",
+          "Assault Ladder",
+          "Airburst Incendiary"
+        ]
+      },
+      "weaponAttachmentChanges": {
+        "summary": "Bipod bonus display, optic cost, short-barrel aim and muzzle-speed modifiers were corrected. Melee timing and controller recoil were refined.",
+        "itemsTouched": [
+          "bipods",
+          "DB-12 GRIM 1.50x",
+          "RPKM Short Barrel",
+          "TR-7 Light Barrel",
+          "knife",
+          "Sledgehammer",
+          "suppressors"
+        ]
+      },
+      "releaseDate": "2026-01-20",
+      "releaseDateNote": null,
+      "mechanicsRead": true
     },
     {
       "version": "1.1.3.6",
@@ -70,8 +263,19 @@
       "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-1-3-6",
       "season": "Season 1",
       "localBuild": null,
-      "gadgetVehicleChanges": null,
-      "weaponAttachmentChanges": null
+      "gadgetVehicleChanges": {
+        "summary": "UAV detection sound is limited to its operator.",
+        "itemsTouched": [
+          "UAV Drone"
+        ]
+      },
+      "weaponAttachmentChanges": {
+        "summary": "No direct weapon or attachment balance change is stated.",
+        "itemsTouched": []
+      },
+      "releaseDate": "2026-02-03",
+      "releaseDateNote": null,
+      "mechanicsRead": true
     },
     {
       "version": "1.2.1.0",
@@ -79,8 +283,65 @@
       "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-2-1-0",
       "season": "Season 2",
       "localBuild": null,
-      "gadgetVehicleChanges": null,
-      "weaponAttachmentChanges": null
+      "gadgetVehicleChanges": {
+        "summary": "Little Bird, IGLA, HTI-Mk2 and masks arrived. Vehicle damage directions, guided rockets, explosive drone loads, mine clearing and repair interactions changed.",
+        "itemsTouched": [
+          "AH-6 Little Bird",
+          "9K38 IGLA",
+          "HTI-Mk2",
+          "Protective Mask",
+          "Traverser Mark II",
+          "AA vehicles",
+          "stationary AA",
+          "RPG-7",
+          "MBT-LAW",
+          "M4A1 SLAM",
+          "XFGM-6D",
+          "CSB IV",
+          "LTLM II",
+          "Repair Tool",
+          "Anti-Tank Mines",
+          "Supply Pouch",
+          "Defibrillator",
+          "Gas Strike Package"
+        ]
+      },
+      "weaponAttachmentChanges": {
+        "summary": "Recoil and compensation were revised. Spotting radii, Mini Scout speed, fast magazines, scope visibility and barrel descriptions changed.",
+        "itemsTouched": [
+          "automatic weapons",
+          "suppressors",
+          "flash hiders",
+          "Mini Scout",
+          "LMR27",
+          "Fast 15-round magazine",
+          "Fast 20-round magazine",
+          "DB-12",
+          "L110",
+          "M123K",
+          "M277",
+          "PW5A3",
+          "SGX",
+          "PW7A2",
+          "USG-90",
+          "SCW-10",
+          "SG 553R",
+          "SOR-300SC",
+          "B36A4",
+          "L85A3",
+          "M433",
+          "SOR-555 MK2",
+          "M417 A2",
+          "QBZ-192",
+          "AK-205",
+          "Range Finder",
+          "lasers",
+          "grippods"
+        ]
+      },
+      "releaseDate": "2026-02-17",
+      "releaseDateNote": null,
+      "mechanicsRead": true
     },
     {
       "version": "1.2.1.5",
@@ -88,8 +349,24 @@
       "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-2-1-5",
       "season": "Season 2",
       "localBuild": null,
-      "gadgetVehicleChanges": null,
-      "weaponAttachmentChanges": null
+      "gadgetVehicleChanges": {
+        "summary": "Mask revive interruption, Recon pulse activation and armoured-vehicle mask voice cues were fixed.",
+        "itemsTouched": [
+          "Protective Mask",
+          "Tracking Pulse",
+          "deployable gadgets",
+          "armoured vehicles"
+        ]
+      },
+      "weaponAttachmentChanges": {
+        "summary": "Weapon skin rendering was refined; no numeric balance change is stated.",
+        "itemsTouched": [
+          "Objective Ace skin"
+        ]
+      },
+      "releaseDate": "2026-03-03",
+      "releaseDateNote": null,
+      "mechanicsRead": true
     },
     {
       "version": "1.2.2.0",
@@ -97,8 +374,55 @@
       "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-2-2-0",
       "season": "Season 2",
       "localBuild": null,
-      "gadgetVehicleChanges": null,
-      "weaponAttachmentChanges": null
+      "gadgetVehicleChanges": {
+        "summary": "Dirt bikes arrived. Guided vehicle missiles slowed. Transport handling, UH-79 health, mine lifetime/count and drone visibility changed; mortar deployment and direct hits improved.",
+        "itemsTouched": [
+          "M1030-M1",
+          "TM/O 450",
+          "IFV",
+          "MBT",
+          "Attack Helicopter",
+          "UH-79",
+          "RHIB",
+          "Scout Helicopter",
+          "Anti-Tank Mines",
+          "AN/M14",
+          "LWCMS Portable Mortar",
+          "T-UGS",
+          "Recon Drone",
+          "M4A1 SLAM",
+          "Defibrillator",
+          "Gas Mask",
+          "IGLA",
+          "SLM-93A",
+          "Claymore",
+          "Javelin",
+          "Deploy Beacon",
+          "Night Vision Goggles",
+          "light transports"
+        ]
+      },
+      "weaponAttachmentChanges": {
+        "summary": "New guns, sights, violet laser and tactical lights arrived. Bipod, dispersion, reload and attachment presentation errors were fixed.",
+        "itemsTouched": [
+          "CZ3A1",
+          "vz. 61",
+          "Hybrid Sight",
+          "M121 A2",
+          "50 mW Violet Laser",
+          "Taclight",
+          "DB-12",
+          "KORD 6P67",
+          "M250",
+          "B36A4",
+          "VCR-2",
+          "bipods",
+          "weapon upgrade kits"
+        ]
+      },
+      "releaseDate": "2026-03-17",
+      "releaseDateNote": null,
+      "mechanicsRead": true
     },
     {
       "version": "1.2.2.5",
@@ -106,8 +430,23 @@
       "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-2-2-5",
       "season": "Season 2",
       "localBuild": null,
-      "gadgetVehicleChanges": null,
-      "weaponAttachmentChanges": null
+      "gadgetVehicleChanges": {
+        "summary": "C-RAM visibility and automatic grenade looting were fixed.",
+        "itemsTouched": [
+          "C-RAM",
+          "grenades",
+          "Night Vision Goggles"
+        ]
+      },
+      "weaponAttachmentChanges": {
+        "summary": "Variable-scope hand obstruction was corrected.",
+        "itemsTouched": [
+          "variable scopes"
+        ]
+      },
+      "releaseDate": "2026-03-31",
+      "releaseDateNote": null,
+      "mechanicsRead": true
     },
     {
       "version": "1.2.3.0",
@@ -115,8 +454,58 @@
       "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-2-3-0",
       "season": "Season 2",
       "localBuild": null,
-      "gadgetVehicleChanges": null,
-      "weaponAttachmentChanges": null
+      "gadgetVehicleChanges": {
+        "summary": "LTV arrived; RHIB handling improved. Scout weapons, attack rockets, launcher guidance and defibrillator charges changed. C4 inventory and REDSEC supply/destruction were fixed.",
+        "itemsTouched": [
+          "LTV",
+          "Traverser Mark 2",
+          "RHIB",
+          "Scout Helicopter",
+          "Attack Helicopter Heavy Rockets",
+          "Seismic Detector",
+          "Mobile AA",
+          "RPG",
+          "AT4",
+          "TOW",
+          "MBT Guided Shell",
+          "AJ-03 COAG Med Pen",
+          "Protective Mask",
+          "Defibrillator",
+          "HTI-MK2",
+          "NVIS-500",
+          "Assault Ladder",
+          "XFGM-6D",
+          "C4",
+          "Ammo Drop",
+          "Armor Drop",
+          "MRAPV",
+          "Sledgehammer",
+          "Portal Gadget",
+          "Hazmat Breacher",
+          "VL-7",
+          "Automated AA"
+        ]
+      },
+      "weaponAttachmentChanges": {
+        "summary": "New machete, ammunition costs, range-finder sounds and DB-12/M87A1 transitions changed. TH-RDS recoil and violet-laser benefit were fixed.",
+        "itemsTouched": [
+          "Ripper 14-inch",
+          "Hollow Point",
+          "Synthetic Tip",
+          "Range Finder",
+          "CZ3A1",
+          "DB-12",
+          "TH-RDS",
+          "B36A4",
+          "SVDM",
+          "M87A1",
+          "Violet Laser",
+          "NVO-228E"
+        ]
+      },
+      "releaseDate": "2026-04-14",
+      "releaseDateNote": null,
+      "mechanicsRead": true
     },
     {
       "version": "1.2.3.5",
@@ -124,8 +513,23 @@
       "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-2-3-5",
       "season": "Season 2",
       "localBuild": null,
-      "gadgetVehicleChanges": null,
-      "weaponAttachmentChanges": null
+      "gadgetVehicleChanges": {
+        "summary": "Vehicle names and deployment presentation corrected.",
+        "itemsTouched": [
+          "Armored Transport",
+          "Dirt Bikes",
+          "Traverser Mark 2"
+        ]
+      },
+      "weaponAttachmentChanges": {
+        "summary": "Revived DMR appearance corrected.",
+        "itemsTouched": [
+          "DMR"
+        ]
+      },
+      "releaseDate": "2026-05-05",
+      "releaseDateNote": null,
+      "mechanicsRead": true
     },
     {
       "version": "1.3.1.0",
@@ -133,8 +537,99 @@
       "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-1-0",
       "season": "Season 3",
       "localBuild": null,
-      "gadgetVehicleChanges": null,
-      "weaponAttachmentChanges": null
+      "gadgetVehicleChanges": {
+        "summary": "Broad vehicle and gadget rebalance; modes differ.",
+        "itemsTouched": [
+          "9K93 IGLA",
+          "Aim-Guided Missile",
+          "Air-to-Ground Missile",
+          "Armored vehicles",
+          "Attack Jet Mk82",
+          "C-4",
+          "Claymore",
+          "Contingency Systems",
+          "Counterfire Radar",
+          "EOD Bot Mine Layer",
+          "Engineer Devastating Impact",
+          "Engineer Mine Sweeping",
+          "Engineer Overheat Control",
+          "Engineers Supply Crate",
+          "Fighter Jet GBU-39/B",
+          "Hardware Suppression System",
+          "Helicopter Aim-Guided Rockets",
+          "Helicopter Heavy Rockets",
+          "Helicopter Light Rockets",
+          "Helicopter Smart Rockets",
+          "IFV AP",
+          "IFV APDS",
+          "IFV Canister",
+          "IFV Cannons",
+          "IFV HE",
+          "IFV HEI-T",
+          "IFV Light Rockets",
+          "IFV Lock-Guided Missile",
+          "IFV; Mobile AA Targeting Jammer",
+          "LTLM II",
+          "LTLM II; vehicle designators",
+          "Land Projectile Intercept System",
+          "Land explosive weapons",
+          "M136 AT",
+          "M15",
+          "M15; PTKM-1R",
+          "M18A1 Claymore",
+          "M41A7 TOW2",
+          "M4A1 SLAM",
+          "MAS 148 Glaive",
+          "MBT APFSDS",
+          "MBT Aim-Guided Shell",
+          "MBT HEAT-MP-T",
+          "MBT HEMP-T",
+          "MBT-LAW",
+          "MBT; APT",
+          "Mortar; Recon Drone; LTLM II; EOD Bot",
+          "PTKM-1R",
+          "Portable Mortar",
+          "Portal Ammo Box",
+          "Portal Ammo Crate",
+          "Portal Supply Bag",
+          "RPG",
+          "RWS Automatic Grenade Launcher",
+          "RWS; Coax HMG",
+          "RWS; Coax LMG",
+          "SLM-93A",
+          "SLM-93A bots",
+          "Scout Helicopter AA",
+          "Smoke Screen",
+          "Tanks",
+          "Thermal Smoke",
+          "Thermal Smoke; C-4",
+          "Transport Helicopter .50 cal",
+          "Transport Helicopter armor",
+          "Transport Helicopter side guns",
+          "UH-79",
+          "UH-79 minigun",
+          "Vehicle Containers",
+          "XFGM-6D Recon Drone"
+        ]
+      },
+      "weaponAttachmentChanges": {
+        "summary": "Automatic recoil rises; controller reduction weakens. Speedloaders and shared magnifier added.",
+        "itemsTouched": [
+          "M16A4",
+          "L115",
+          "RPK-74M",
+          "automatic weapons",
+          "controller recoil",
+          "M87A1",
+          "M1014",
+          "Magnifier",
+          "DVO LPVO",
+          "shotgun speedloaders"
+        ]
+      },
+      "releaseDate": "2026-05-12",
+      "releaseDateNote": null,
+      "mechanicsRead": true
     },
     {
       "version": "1.3.1.5",
@@ -142,8 +637,23 @@
       "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-1-5",
       "season": "Season 3",
       "localBuild": null,
-      "gadgetVehicleChanges": null,
-      "weaponAttachmentChanges": null
+      "gadgetVehicleChanges": {
+        "summary": "LittleBird deployment and proximity spotting corrected.",
+        "itemsTouched": [
+          "AH-6 LittleBird",
+          "Assault Ladder",
+          "MTN-55"
+        ]
+      },
+      "weaponAttachmentChanges": {
+        "summary": "L115 revive appearance corrected.",
+        "itemsTouched": [
+          "L115"
+        ]
+      },
+      "releaseDate": "2026-05-26",
+      "releaseDateNote": null,
+      "mechanicsRead": true
     },
     {
       "version": "1.3.2.0",
@@ -151,8 +661,56 @@
       "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-2-0",
       "season": "Season 3",
       "localBuild": null,
-      "gadgetVehicleChanges": null,
-      "weaponAttachmentChanges": null
+      "gadgetVehicleChanges": {
+        "summary": "Mortar counterplay, launcher trajectories, Claymore range and mobile AA options changed.",
+        "itemsTouched": [
+          "Aircraft minimap",
+          "Assault Ladder",
+          "Defibrillator",
+          "EOD Bot mines; M15; M4A1 SLAM",
+          "Engineer Devastating Impact",
+          "Handheld Jammer",
+          "Incendiary Airburst",
+          "LTLM II",
+          "M18A1 Claymore",
+          "MAS 148 Glaive",
+          "MBT Anti-Personnel Shell",
+          "Mobile AA",
+          "Mobile AA Aim Guided Missiles",
+          "Mobile AA High Velocity Rockets",
+          "Portable Mortar",
+          "Portable Mortar; Missile Intercept System",
+          "RPG-7V2",
+          "Repair Tool",
+          "Tracer Dart",
+          "Vehicle Containers",
+          "Vehicle Supply Stations",
+          "Vehicle damage HUD",
+          "XFGM-6D Recon Drone"
+        ]
+      },
+      "weaponAttachmentChanges": {
+        "summary": "Burst modifiers limited to burst; extended barrel benefit removed and cost reduced.",
+        "itemsTouched": [
+          "PP-19",
+          "Cryo",
+          "00 Buck",
+          "Burst Fire",
+          "Extended Barrel",
+          "L115 thermal optic",
+          "P18",
+          "Vz.61",
+          "RPKM",
+          "RPK-74M",
+          "SS26",
+          "M45A1",
+          "Tac-Light",
+          "weapon poses"
+        ]
+      },
+      "releaseDate": "2026-06-09",
+      "releaseDateNote": null,
+      "mechanicsRead": true
     },
     {
       "version": "1.3.3.0",
@@ -160,8 +718,57 @@
       "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-3-0",
       "season": "Season 3",
       "localBuild": null,
-      "gadgetVehicleChanges": null,
-      "weaponAttachmentChanges": null
+      "gadgetVehicleChanges": {
+        "summary": "Vehicle weapon output, intercept timing, smoke and AA changed.",
+        "itemsTouched": [
+          "Attack Helicopter Heavy Rocket",
+          "Automated AA",
+          "Defibrillator",
+          "Emergency Countermeasures",
+          "Emergency Repair",
+          "GPDIS Grenade Intercept System",
+          "Goliath Pouches",
+          "Handheld Jammer",
+          "IFV AP",
+          "IFV Lock-Guided Missile",
+          "M84 Flashbang",
+          "MBT APFSDS",
+          "MBT Aim-Guided Shell",
+          "MBT HEAT-MP-T",
+          "Mobile AA Armor Piercing",
+          "Mobile AA General Purpose",
+          "Mobile AA High Velocity",
+          "Mortar",
+          "Projectile Intercept System",
+          "RPG-7V2",
+          "Smoke Generator",
+          "Thermal Smoke",
+          "Thermal Smoke; C-4",
+          "Thermite Charges",
+          "Tracer Dart"
+        ]
+      },
+      "weaponAttachmentChanges": {
+        "summary": "Ballistics, recoil variation, body multipliers and dispersion changed; sniper ranges narrowed.",
+        "itemsTouched": [
+          "primary weapons",
+          "Match Grade",
+          "automatic body multipliers",
+          "DMR body multipliers",
+          "sniper body multipliers",
+          "L115",
+          "M2010 ESR",
+          "PSR",
+          "SV-98",
+          "Angled Grips",
+          "Subsonic Ammo",
+          "L115 irons",
+          "RPK-74M Ballistic Tip"
+        ]
+      },
+      "releaseDate": "2026-06-30",
+      "releaseDateNote": null,
+      "mechanicsRead": true
     },
     {
       "version": "1.4.1.0",
@@ -169,8 +776,33 @@
       "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-4-1-0",
       "season": "Season 4",
       "localBuild": null,
-      "gadgetVehicleChanges": null,
-      "weaponAttachmentChanges": null
+      "gadgetVehicleChanges": {
+        "summary": "Naval vehicles added; launcher reload and REDSEC cluster ammunition adjusted.",
+        "itemsTouched": [
+          "APC Smoke Generator",
+          "Disposable launchers",
+          "Incendiary Airburst",
+          "M320A1",
+          "MAS 148 Glaive",
+          "NSW RHIB",
+          "RCB-90 Patrol Boat",
+          "RPG"
+        ]
+      },
+      "weaponAttachmentChanges": {
+        "summary": "Water ballistics and attachment presentation changed; new barrels and optics added.",
+        "itemsTouched": [
+          "BROD 3",
+          "EF88",
+          "VSSM",
+          "Extended Barrel",
+          "1P86 LPVO",
+          "water projectile damage"
+        ]
+      },
+      "releaseDate": "2026-07-21",
+      "releaseDateNote": null,
+      "mechanicsRead": true
     },
     {
       "version": "1.4.1.5",
@@ -178,8 +810,25 @@
       "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-4-1-5",
       "season": "Season 4",
       "localBuild": null,
-      "gadgetVehicleChanges": null,
-      "weaponAttachmentChanges": null
+      "gadgetVehicleChanges": {
+        "summary": "Smoke slope damage and tank reload selection corrected.",
+        "itemsTouched": [
+          "Battle Royale tanks",
+          "MBT Canister",
+          "Supply Crate",
+          "Thermal Smoke"
+        ]
+      },
+      "weaponAttachmentChanges": {
+        "summary": "Variable optic and underbarrel presentation corrected.",
+        "itemsTouched": [
+          "1P86 Variable Scope",
+          "M123K"
+        ]
+      },
+      "releaseDate": "2026-08-04",
+      "releaseDateNote": null,
+      "mechanicsRead": true
     },
     {
       "version": "1.4.2.0",
@@ -187,8 +836,47 @@
       "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-4-2-0",
       "season": "Season 4",
       "localBuild": null,
-      "gadgetVehicleChanges": null,
-      "weaponAttachmentChanges": null
+      "gadgetVehicleChanges": {
+        "summary": "Aircraft added; projectile selection, laser guidance and countermeasure responses corrected.",
+        "itemsTouched": [
+          "AGM-88",
+          "ALM-93 Lock-Guided AA",
+          "Defibrillator",
+          "EOD Bot Repair Tool",
+          "F/A-81F Super Spectre; F-74A Seacat",
+          "Fighter Jet Precision Bomb",
+          "Missiles",
+          "Naval Mine",
+          "Patrol Boat Mortar; Deployable Mortar",
+          "RCB-90",
+          "RCB-90 Aim-Guided Missile",
+          "Recon UAV",
+          "Stationary Automated AA",
+          "Su-57 R-73",
+          "Supply Bag",
+          "Tracer Dart; lock launchers"
+        ]
+      },
+      "weaponAttachmentChanges": {
+        "summary": "VSSM modifiers, match ammunition and attachment presentation corrected.",
+        "itemsTouched": [
+          "Interdictor",
+          "EF88",
+          "VSSM",
+          "BROD 3",
+          "Match Grade Ammo",
+          "M2010 ESR",
+          "SVK-8.6",
+          "Mini Scout",
+          "1/4x LPVO 5",
+          "LMR27",
+          "NVO-228E",
+          "non-Recon sniper ADS"
+        ]
+      },
+      "releaseDate": "2026-08-18",
+      "releaseDateNote": null,
+      "mechanicsRead": true
     },
     {
       "version": "1.4.2.5",
@@ -199,8 +887,27 @@
         "datamining": "builds/1.4.2.5",
         "state": "sealed"
       },
-      "gadgetVehicleChanges": null,
-      "weaponAttachmentChanges": null
+      "gadgetVehicleChanges": {
+        "summary": "Helicopter water damage and fighter designation restored.",
+        "itemsTouched": [
+          "EOD Bot Arm",
+          "F/A-81F Super Spectre; F-74A Seacat",
+          "Fighter Sweep squads",
+          "Grenade warning",
+          "Helicopter miniguns"
+        ]
+      },
+      "weaponAttachmentChanges": {
+        "summary": "Match Trigger restricted on BROD and EF88 automatic fire.",
+        "itemsTouched": [
+          "Match Trigger",
+          "BROD",
+          "EF88"
+        ]
+      },
+      "releaseDate": "2026-09-01",
+      "releaseDateNote": null,
+      "mechanicsRead": true
     },
     {
       "version": "1.4.3.0",
@@ -212,8 +919,42 @@
         "state": "sealed",
         "clients": "1.4.3.0 Head 4892017; 1.4.3.1 hotfix Head 4892087 (no separate EA article found)"
       },
-      "gadgetVehicleChanges": null,
-      "weaponAttachmentChanges": null
+      "gadgetVehicleChanges": {
+        "summary": "Boat health, scout minigun heating and AA warnings adjusted.",
+        "itemsTouched": [
+          "AH-6 minigun",
+          "Defibrillator",
+          "Hardware Suppression System",
+          "JAGM",
+          "M320A1",
+          "Portable Mortar",
+          "RCB90",
+          "RHIB",
+          "SLM-93A; 9K38 Igla",
+          "Transport Helicopters"
+        ]
+      },
+      "weaponAttachmentChanges": {
+        "summary": "Reticles improved; Interdictor damage retuned; attachment issues corrected.",
+        "itemsTouched": [
+          "Interdictor",
+          "M2010",
+          "SVK",
+          "EF88",
+          "BROD",
+          "VSSM",
+          "M45A1",
+          "vz.61",
+          "L115 suppressors",
+          "RPKM",
+          "RPK-74M",
+          "reticles",
+          "picture-in-picture zoom"
+        ]
+      },
+      "releaseDate": "2026-09-15",
+      "releaseDateNote": null,
+      "mechanicsRead": true
     },
     {
       "version": "1.4.3.5",
@@ -225,45 +966,31 @@
         "state": "open",
         "head": 4909002
       },
-      "gadgetVehicleChanges": null,
-      "weaponAttachmentChanges": null
-    }
-  ],
-  "related": [
-    {
-      "date": "2026-05-01",
-      "title": "Community Update - Land Vehicle Improvements",
-      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-community-update-land-vehicle-improvements"
-    },
-    {
-      "date": "2026-07-21",
-      "title": "Vehicles (guide)",
-      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/vehicles"
-    },
-    {
-      "date": "2026-07-17",
-      "title": "Naval Warfare Guide",
-      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/naval-warfare-how-to-use-sea-vehicles"
-    },
-    {
-      "date": "2026-08-18",
-      "title": "Aerial Vehicles Guide - How to Fly Jets",
-      "url": "https://www.ea.com/games/battlefield/redsec/news/aerial-vehicles-guide-how-to-fly-jets"
-    },
-    {
-      "date": "2026-04-09",
-      "title": "Class guides (Assault, Engineer, Support, Recon)",
-      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/assault-class"
-    },
-    {
-      "date": "2026-06-25",
-      "title": "Battlefield Combat - Gunplay",
-      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/bf-combat-gunplay"
-    },
-    {
-      "date": "2026-09-30",
-      "title": "Community Update - Siege of Vegas Incoming (Season 5 preview; vehicle durability, AA, AV mines, BR class changes; no release date)",
-      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-community-update-siege-of-vegas-incoming"
+      "gadgetVehicleChanges": {
+        "summary": "Carrier cannon damage blocked; vehicle water navigation improved.",
+        "itemsTouched": [
+          "AI vehicles",
+          "APHEI Cannon"
+        ]
+      },
+      "weaponAttachmentChanges": {
+        "summary": "PS5 optic borders corrected.",
+        "itemsTouched": [
+          "SU-123",
+          "CCO",
+          "Ro-M",
+          "2PRO",
+          "3VZR",
+          "R4T",
+          "1P86 Variable",
+          "1p88 variable",
+          "NFX",
+          "SSDS"
+        ]
+      },
+      "releaseDate": "2026-09-30",
+      "releaseDateNote": "Publication September 28 conflicts with tomorrow plus Wednesday September 30; explicit release date retained.",
+      "mechanicsRead": true
     }
   ],
   "upcoming": [
@@ -273,5 +1000,496 @@
       "releaseDate": null,
       "notes": "Full weapon-by-weapon breakdown promised in the Season 5 update notes."
     }
-  ]
+  ],
+  "articles": [
+    {
+      "date": "2025-04-18",
+      "title": "Battlefield Labs - Gunplay and Movement Philosophy",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-labs-gunplay-and-movement-philosophy",
+      "type": "labs",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2025-04-22",
+      "title": "Battlefield Labs - Destruction",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-labs-destruction",
+      "type": "labs",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2025-05-29",
+      "title": "Battlefield Labs - The Class System - Part One",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-labs-the-class-system-part-one",
+      "type": "labs",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2025-07-11",
+      "title": "Battlefield Labs - The Class System - Part Two",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-labs-the-class-system-part-two",
+      "type": "labs",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2025-07-31",
+      "title": "Lock and Load for the Battlefield 6 Open Beta",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/lock-and-load-for-the-open-beta",
+      "type": "beta",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2025-08-04",
+      "title": "Everything You Need to Know for the Open Beta",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/everything-you-need-to-know-for-the-open-beta",
+      "type": "beta",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2025-08-04",
+      "title": "Community Update - Open Beta and the Road to Launch",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/community-update-open-beta-and-the-road-to-launch",
+      "type": "community-update",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2025-08-21",
+      "title": "Community Update - Open Beta Debrief",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/community-update-open-beta-debrief",
+      "type": "community-update",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2025-08-28",
+      "title": "Community Update - Battlefield Labs Testing",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/community-update-battlefield-labs-testing",
+      "type": "community-update",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2025-09-10",
+      "title": "Battlefield Labs - Community Update - Battle Royale Testing",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/community-update-battle-royale-testing",
+      "type": "community-update-br",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2025-09-30",
+      "title": "Post-Launch 2025 - Season 1 Roadmap Preview",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-season-1-roadmap-preview",
+      "type": "roadmap",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2025-10-06",
+      "title": "Community Update - Play Your Way",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/community-update-play-your-way",
+      "type": "community-update",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2025-10-10",
+      "title": "Battlefield 101: It's Time for All-Out Warfare",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-101",
+      "type": "guide",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2025-10-10",
+      "title": "Five Tips for BF Veterans",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/five-tips-for-bf-veterans",
+      "type": "guide",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2025-10-10",
+      "title": "New Player Guide to Battlefield 6",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/new-player-guide-to-battlefield-6",
+      "type": "guide",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2025-10-10",
+      "title": "Escalation Mode Guide",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/escalation-mode-guide",
+      "type": "mode-guide",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2025-10-10",
+      "title": "Modes",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/modes",
+      "type": "mode-guide",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2025-10-24",
+      "title": "Community Update - Latest Changes and Preparing for Season 1",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-community-update-latest-changes-and-preparing-for-season-1",
+      "type": "community-update",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2025-10-28",
+      "title": "Season 1 - Full Roadmap Revealed",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/season-1-full-roadmap",
+      "type": "roadmap",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2025-10-28",
+      "title": "Community Update - Introducing REDSEC: Battle Royale, Gauntlet, and Portal",
+      "url": "https://www.ea.com/games/battlefield/redsec/news/community-update-introducing-redsec-battle-royale-gauntlet-and-portal",
+      "type": "community-update-br",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2025-10-28",
+      "title": "REDSEC - Gauntlet 101",
+      "url": "https://www.ea.com/games/battlefield/redsec/news/battlefield-redsec-gauntlet-101",
+      "type": "br-guide",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2025-10-28",
+      "title": "REDSEC New Player Guide",
+      "url": "https://www.ea.com/games/battlefield/redsec/news/redsec-new-player-guide",
+      "type": "br-guide",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2025-11-12",
+      "title": "Community Update - Latest Updates Ahead of California Resistance",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/updates-ahead-of-california-resistance",
+      "type": "community-update",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2025-11-18",
+      "title": "Season 1 - California Resistance Mid-Season Roadmap",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/season-1-california-resistance-mid-season-roadmap",
+      "type": "roadmap",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2025-12-03",
+      "title": "Community Update - Latest Updates Ahead of Winter Offensive",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-community-update-incoming-winter-offensive",
+      "type": "community-update",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2025-12-04",
+      "title": "REDSEC - Community Update - Armor",
+      "url": "https://www.ea.com/games/battlefield/redsec/news/redsec-community-update-armor",
+      "type": "community-update-br",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2025-12-09",
+      "title": "Season 1 - Winter Offensive Update",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-and-redsec-season-1-winter-offensive-update",
+      "type": "roadmap",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2025-12-11",
+      "title": "Community Update - Winter Offensive Launch and Player Feedback",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-community-update-winter-offensive-launch-and-player-feedback",
+      "type": "community-update",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2025-12-19",
+      "title": "Community Update - Holiday Wrap-Up",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-community-update-holiday-wrap-up",
+      "type": "community-update",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2026-01-13",
+      "title": "Season 1: January Update",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-and-redsec-season-1-january-update",
+      "type": "roadmap",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2026-01-21",
+      "title": "Community Update - Battlefield Labs Season 2 Testing and Beyond",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-community-update-battlefield-labs-season-2-testing-and-beyond",
+      "type": "community-update",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2026-02-10",
+      "title": "Community Update - Looking Ahead to Season 2",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-community-update-looking-ahead-to-season-2",
+      "type": "community-update",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2026-02-12",
+      "title": "Season 2 Roadmap",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-and-redsec-season-2-roadmap-everything-you-need-to-know",
+      "type": "roadmap",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2026-02-16",
+      "title": "REDSEC - Community Update - Armor, Looting and More",
+      "url": "https://www.ea.com/games/battlefield/redsec/news/redsec-community-update-armor-looting-and-more",
+      "type": "community-update-br",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2026-03-02",
+      "title": "Community Update - Season 2 Reactions and BR Solos Testing",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-community-update-season-2-reactions-and-br-solo-testing",
+      "type": "community-update",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2026-03-05",
+      "title": "Community Update - Ongoing Quality of Life Improvements",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-community-update-ongoing-quality-of-life-improvements",
+      "type": "community-update",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2026-03-16",
+      "title": "Nightfall Mode Guide",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/season-2-multiplayer-nightfall-mode-guide",
+      "type": "mode-guide",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2026-04-02",
+      "title": "Community Update - Nightfall Debrief and What's Next",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-community-update-nightfall-debrief-and-whats-next",
+      "type": "community-update",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2026-04-09",
+      "title": "Assault (class guide)",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/assault-class",
+      "type": "class-guide",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2026-04-09",
+      "title": "Engineer (class guide)",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/engineer-class",
+      "type": "class-guide",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2026-04-09",
+      "title": "Support (class guide)",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/support-class",
+      "type": "class-guide",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2026-04-09",
+      "title": "Recon (class guide)",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/recon-class",
+      "type": "class-guide",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2026-04-09",
+      "title": "Squad Tactics: How To Win in Battlefield",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/squad-tactics-how-to-win-in-battlefield",
+      "type": "guide",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2026-04-13",
+      "title": "Operation Augur Guide - Season 2",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/operation-augur-mode-guide-tips-and-tricks",
+      "type": "mode-guide",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2026-04-14",
+      "title": "Progression, Ranks and Unlocks",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/progression-in-battlefield-6",
+      "type": "guide",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2026-04-14",
+      "title": "REDSEC - Battle Royale 101",
+      "url": "https://www.ea.com/games/battlefield/redsec/news/battlefield-redsec-battle-royale-101",
+      "type": "br-guide",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2026-04-30",
+      "title": "Community Update - Railway to Golmud, Ranked BR, and More",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-community-update-railway-to-golmud-ranked-br-and-more",
+      "type": "community-update",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2026-05-01",
+      "title": "Community Update - Land Vehicle Improvements",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-community-update-land-vehicle-improvements",
+      "type": "community-update",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2026-05-08",
+      "title": "Season 3 Roadmap",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/season-3-roadmap-everything-you-need-to-know",
+      "type": "roadmap",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2026-05-28",
+      "title": "Community Update - Blastpoint Introduces Cairo Bazaar & BR Solos",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-community-update-blastpoint-introduces-cairo-bazaar-and-br-solos",
+      "type": "community-update",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2026-06-04",
+      "title": "Community Update - 2026 Roadmap Updates and Season 4",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/community-update-2026-roadmap-updates-and-season-4",
+      "type": "community-update",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2026-06-05",
+      "title": "Season 3 Blastpoint Roadmap, Bonus Path and Event Guide",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/season-3-blastpoint-roadmap-event-bonus-path-guide",
+      "type": "roadmap",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2026-06-09",
+      "title": "How to Play Obliteration and Tactical Obliteration",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/obliteration-mode-how-to-play-tips-and-tricks",
+      "type": "mode-guide",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2026-06-18",
+      "title": "Community Update - What's Coming in the Final Phase of Season 3",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-community-update-whats-coming-in-the-final-phase-of-season-3",
+      "type": "community-update",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2026-06-25",
+      "title": "Battlefield Combat - Gunplay",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/bf-combat-gunplay",
+      "type": "mechanics",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2026-07-15",
+      "title": "Community Update - Naval Warfare and Our Journey Since Launch",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/community-update-naval-warfare-and-our-journey-since-launch",
+      "type": "community-update",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2026-07-17",
+      "title": "Season 4 Roadmap",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/season-4-roadmap-everything-you-need-to-know",
+      "type": "roadmap",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2026-07-17",
+      "title": "Naval Warfare Guide - How to Use Naval Vehicles",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/naval-warfare-how-to-use-sea-vehicles",
+      "type": "vehicle-guide",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2026-07-21",
+      "title": "Loadout Creation and Weapon Classes",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/loadout-creation-and-weapon-classes",
+      "type": "mechanics",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2026-07-21",
+      "title": "Vehicles (guide)",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/vehicles",
+      "type": "vehicle-guide",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2026-07-30",
+      "title": "Community Update - New Maps, Features, and More",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-community-update-new-maps-features-and-more",
+      "type": "community-update",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2026-08-06",
+      "title": "Community Update - Top Gun Incoming",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-community-update-top-gun-incoming",
+      "type": "community-update",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2026-08-13",
+      "title": "Top Gun: Carrier Strike Mode Guide",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/top-gun-carrier-strike-mode-guide",
+      "type": "mode-guide",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2026-08-17",
+      "title": "Custom Lobbies and Spectator Mode Guide",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/custom-lobbies-and-spectator-mode-guide",
+      "type": "guide",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2026-08-18",
+      "title": "Aerial Vehicles Guide - How to Fly Jets",
+      "url": "https://www.ea.com/games/battlefield/redsec/news/aerial-vehicles-guide-how-to-fly-jets",
+      "type": "vehicle-guide",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2026-09-02",
+      "title": "Community Update - Tidal Strike",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-community-update-tidal-strike",
+      "type": "community-update",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2026-09-14",
+      "title": "Enter Tidal Strike: Season 4 Update and Event Guide",
+      "url": "https://www.ea.com/games/battlefield/redsec/news/battlefield-season-4-update-event-guide",
+      "type": "roadmap",
+      "mechanicsRead": null
+    },
+    {
+      "date": "2026-09-30",
+      "title": "Community Update - Siege of Vegas Incoming (Season 5 preview)",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-community-update-siege-of-vegas-incoming",
+      "type": "community-update",
+      "mechanicsRead": null
+    }
+  ],
+  "articleTypes": {
+    "mechanics": "dedicated mechanics explainer",
+    "community-update": "developer community update; often explains recent or upcoming changes",
+    "community-update-br": "REDSEC/battle royale community update; check for multiplayer overlap",
+    "class-guide": "EA class guide",
+    "vehicle-guide": "EA vehicle guide",
+    "guide": "general EA guide",
+    "mode-guide": "mode guide; mechanics only where a mode overrides them",
+    "br-guide": "battle royale guide",
+    "roadmap": "season roadmap; dates when weapons, gadgets and vehicles were added",
+    "labs": "pre-launch Battlefield Labs article; design intent, may predate launch values",
+    "beta": "open beta article; predates launch values"
+  }
 }

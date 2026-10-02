@@ -632,3 +632,59 @@ retain selected lists separately from availability. The default-change candidate
 is withdrawn: site comparisons intentionally use a bare weapon, so the M4A1
 Short/Basic difference is not a defect. Reuse these subsets only to explain a
 specific observed stat difference; no default-loadout capture is needed.
+
+## Gadget and vehicle semantic transfer census (L640)
+
+[L640](../../reference-data/provenance/frosty-2026-09-30-L640-transfer-census.json) inventories all 39 gadget comparison rows and 17 shared vehicle comparison rows, plus the per-family L3018 stat map. Exact class, descriptor key and field identity permit transfer of configured RateOfFire, MagazineCapacity, reload source fields and Shot.InitialSpeed components. Replenishment and reserve-count semantics remain unconfirmed on infantry and do not transfer. Gravity and drag transfer only for the exact infantry projectile schema consumed by `frosty-ballistics.py`. Other projectile owners retain their own field identities.
+
+M4A1 and L115 extraction controls pass the established IEEE float32 precision contract for rate, capacity, reload, damage, velocity, gravity and drag. Literal float64 differences are listed in the run control file. Field meaning does not establish active/default loadouts, native timing selection, utility effects, target/material damage or guided flight. Season 5 durability and named AA/mine items are excluded. UI identity searches remain parked; unconfirmed; no recording planned.
+
+## Configured weapon-shape profiles (L641-L645)
+
+The 2026-09-30T234837-0400-gadget-vehicle-semantics run extracted 26 gadget firing owners. M4A1 and L115 controls pass the established IEEE float32 source contract. Literal float64 differences remain explicit in the control result. Each selected firing owner and nested member has the same class key and field identity as its weapon control. The parent worker reviews and independent consequential raw reads pass.
+
+The draft profiles preserve full source precision for configured RateOfFire, MagazineCapacity and the launch vector. Matching infantry projectile owners also retain gravity and drag. Effective reload totals remain null because selector and composition are unconfirmed. Tweakable and primary health curves remain separate; one cannot replace the other. Different projectile classes do not inherit infantry damage or ballistics meaning. Display names and active loadouts remain unset. These results confirm configured field meaning through weapons; they do not establish effective cadence, reserve resources, guided flight or native activation.
+
+[Draft gadget profiles](../../../BF6%20Datamining/reports/weapon-analyzer-research/2026-09-30T234837-0400-gadget-vehicle-semantics/gadget-weapon-profiles.json) retain partial rows, exact selected joins and raw-check evidence. Vehicle batches are L641-L644 (15/15/15/12); gadget batch L645 has 11 owners. Original Head 4892087 and raw hashes are retained and carry forward to 1.4.3.5. No site data, simulation or UI changed. Unconfirmed fields: unconfirmed; no recording planned.
+
+## EA and UI semantic statements and baseline limits (L646-L651)
+
+All 23 official updates are read: 297 selected gadget/vehicle statements, including 221 numeric statements. The patch inventory retains all 68 `articles` entries. Verified rollout dates are separate from publication dates; two release dates remain unresolved. The 1.4.3.5 sentence has conflicting relative and explicit date wording. The ledger retains exact numeric fragments, quantities, mode, snapshot hash and line numbers.
+
+L649 retains 17 UI mechanic quantities and separates 128 model/caliber/label tokens. The UI-to-gameplay joins remain unlinked. No exact version-matched EA/UI operand comparison is established, so no field meaning is promoted from these statements. The local build labels are 1.4.2.5, 1.4.3.0 and 1.4.3.5; most stated numeric updates predate the captured builds. Supporting later-source comparisons retain explicit version and selection limits. The launch and later ladder baselines differ; the mortar prompt says increased while its endpoints decrease. These are source-text issues, not native runtime findings.
+
+The 73 selected vehicle WF routes include all 69 controlled firing owners and four saved routes without such a profile. All 12 AA/scout owners are retained by L650 as **changes in Season 5**. L648 adds 15 selected gadget/underbarrel or source-only throwable owners, including Breaching Dart, M26 and M320 HE; unsupported AT/TB/Smoke selections remain explicit. C4, Claymore and M4 SLAM remain included. Durability and named Season 5 validation exclusions stay separate from extraction.
+
+L649 corrects three L644 array boundaries: `Field_2ad7e688` has three local curve references and three null pointers; the referenced `Field_5279388d` arrays use the valid empty-array sentinel and decode `[]`. `Field_6008eb31` is null on all six owners. An empty curve is not a zero-damage conclusion. L651 adds receipt-local owner identities, reload-phase limits and the selected weapon damage-curve identity to the transfer census.
+
+The second community pass retains 29 mechanic leads. Titles and chapters are candidate topics, with no measured gadget/vehicle test promoted. Later patch changes limit older videos to their own version. [Statement ledger](../../../BF6%20Datamining/reports/weapon-analyzer-research/2026-09-30T234837-0400-gadget-vehicle-semantics/ea-stated-numbers.json), [UI statements](../../../BF6%20Datamining/reports/weapon-analyzer-research/2026-09-30T234837-0400-gadget-vehicle-semantics/L649/ui-statements-v2.json) and [handoff](../../../BF6%20Datamining/reports/weapon-analyzer-research/2026-09-30T234837-0400-gadget-vehicle-semantics/handoff.md) preserve the exact limits. Remaining effects: **unconfirmed; no recording planned**.
+
+<!-- native-semantics:L1004:start -->
+## Compiled-expression reader qualification (L1004)
+
+Nine current `SerializedExpressionNodeGraph` bodies are compared with exact authored EBX resource identities and metadata: breath, NVG, root movement, sliding, both swimming variants, suppression, soldier mutators and mode settings. The byte-identical current source RID and IsSniperHoldingBreath import/export control passes before comparisons. The exact public channel ID `a801edd8` occurs at offset 88 in the 224-byte HoldBreath body. Token presence is a serialized fact; it does not identify an operation, evaluated condition or duration. Preamble and authored scalar correlations do not validate a grammar. OverlayPicker authored metadata references RID `dcf8faa49217967f`; no output reader is qualified. All compiled operation and native activation limits remain. No atlas entry changes to meaning.
+
+Evidence: [receipt](../../reference-data/provenance/frosty-2026-10-01-L1004-compiled-expression-qualification.json). Known-answer source controls and parent raw re-reads pass. Native semantics remain separate from serialized facts.
+<!-- native-semantics:L1004:end -->
+
+<!-- native-semantics:L1002:start -->
+## Curve and table reader boundary (L1002)
+
+The portable curve/table reader uses an explicit external control file. It checks 19 source hashes and 52 raw operands, then matches six exact controlled schemas across the three pinned atlases. Schema matches are 4 weapon, 14 soldier and 5 vehicle entries, with 18, 14 and 265 context memberships respectively. Actual site controls reproduce the selected M433 damage curve, duplicate-range outgoing tiers, endpoint clamping and linear software ramps, plus deploy/undeploy rows. These are software-model checks. IDA does not match the site ADS-speed table, so no ADS formula is assigned. Axis units, interpolation and native operation do not transfer from a matching tuple or schema. Both native and site meaning-upgrade counts remain zero.
+
+Evidence: [receipt](../../reference-data/provenance/frosty-2026-10-01-L1002-curve-table-reader.json). Parent review, independent raw samples and receipt validation pass.
+<!-- native-semantics:L1002:end -->
+
+<!-- native-semantics:L1007:start -->
+## Emitter input-schema reader boundary (L1007)
+
+The two retained current volume-light emitter prefixes were tested against exact authored owner identifier arrays. Source/resource identities and consequential raw bytes pass the structural control. Apparent record counts at offset 4 and hash/packed-word pairs from offset 8 remain a candidate grammar. Three authored candidate IDs do not occur in those candidate tables, but no complete authored input count/type contract is established. This comparison does not establish a semantic negative or a complete resource reader. Input-table roles, offsets and emitter operation meanings stay unresolved. No further capture or widening was used.
+
+Evidence: [receipt](../../reference-data/provenance/frosty-2026-10-01-L1007-emitter-input-schema-control.json). Parent review and receipt validation pass.
+<!-- native-semantics:L1007:end -->
+
+<!-- native-semantics:L1008:start -->
+### UI choice/value enum boundary (L1008)
+
+The final enum method tests exact retained UI choice/value bindings. Current widget-to-zeroing DBD pointers, exported GUIDs and local keys pass the source identity control. The selected enum 536 UI array is empty, and its retained UI text list has zero records. Five selected spotting reset entries store exact INT32 values 0, 0 and 31; they are not established named enum choices. No complete named UI choice/value mapping exists in the inspected selected artifacts. This scoped limit does not establish absence elsewhere. Missing contracts and exact reopen conditions are in the two result rows. No zeroing or spotting enum meaning is promoted. See the [receipt](../../reference-data/provenance/frosty-2026-10-01-L1008-ui-enum-binding-control.json).
+<!-- native-semantics:L1008:end -->

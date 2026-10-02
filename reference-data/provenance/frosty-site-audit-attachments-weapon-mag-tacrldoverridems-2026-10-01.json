@@ -1,0 +1,666 @@
+{
+  "date": "2026-10-01",
+  "family": "WEAPON_MAG.tacRldOverrideMs",
+  "build": {
+    "version": "1.4.3.5",
+    "head": 4909002,
+    "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1"
+  },
+  "assumptions": [
+    {
+      "id": "A01",
+      "source": "docs/data-flow/REGISTER.md:60",
+      "statement": "The site baseline combines versions and source/panel evidence. No file-wide current-build guarantee is assumed."
+    }
+  ],
+  "method": "Current site pointer/value join; only AG Coating costs are new current raw extraction. Other source rows retain their original Head and carry forward by equal raw SHA-256. No generators or in-game tests run.",
+  "rows": [
+    {
+      "pointer": "data/attachments.json:/WEAPON_MAG/pp19/mags/53_rnd/tacRldOverrideMs",
+      "catalog": "WEAPON_MAG",
+      "family": "tacRldOverrideMs",
+      "choice": "53_rnd",
+      "weapon": "pp19",
+      "value": 2667,
+      "result": "precision-only",
+      "classification": "b",
+      "priorEvidence": {
+        "siteFile": "data/reload-exceptions.json",
+        "pointer": "/animationOverrides/pp19/53_rnd/tacRldOverrideMs",
+        "siteValue": 2667,
+        "sourceFileSha256": "bb456d5c1ce40dfdee2b2a223f27d7ffaca1dc980fc80285a738c7cc3897187b",
+        "build": "1.4.3.0",
+        "reviewStatus": "sourced-configuration-derived-ms",
+        "siteLocation": "data/attachments.json/WEAPON_MAG/pp19/mags/53_rnd/mag",
+        "sourceIdentity": {
+          "attachmentAsset": "Common/Hardware/Weapons/SMG/PP19/Attachment_PP19_MAG_Extended4.xml",
+          "attachmentGuid": "6b99482c-fa0a-47db-9ebc-2093cc656933",
+          "selectorAsset": "Common/Hardware/Weapons/_WeaponModifiers/_Magazine/ExtendedMagazine/U_WPM_MAG_053Ext4_PP19_W55",
+          "selectorGuid": "8c0e6842-6d5f-46cf-b5f7-4ad16a2cc13e",
+          "selectorBound": true,
+          "rawObjectEvidence": {
+            "overrideTimeRawSha256": "29c69198c20fa4acd9391869621f84e4018a0273ff46dd02d0135e33bedcea9b",
+            "overrideTimeOffset": 504,
+            "overrideTimeHex": "21b02a40",
+            "overrideSpeedRawSha256": "29c69198c20fa4acd9391869621f84e4018a0273ff46dd02d0135e33bedcea9b",
+            "overrideSpeedOffset": 488,
+            "overrideSpeedHex": "0000803f"
+          }
+        },
+        "sourceValueFieldPath": [
+          "/Field_d15a0c1c/0/Field_fc66e75e",
+          "/Field_d15a0c1c/0/Field_1c533b56"
+        ],
+        "sourceValueAgreement": null,
+        "remainingUncertainty": "Raw selected WPM override duration and speed are decoded; site millisecond rounding agrees. Selector/effect binding sources this configuration but does not prove animation execution timing in live gameplay.",
+        "sourceSiteAgreement": {
+          "siteMs": 2667,
+          "computedMs": 2667.0,
+          "roundedMs": 2667,
+          "sourceMinusSiteMs": 0
+        },
+        "sourceEvidence": {
+          "time": {
+            "sourceAsset": "Common/Hardware/Weapons/_WeaponModifiers/_Magazine/ExtendedMagazine/WPM_MAG_053Ext4_PP19_W55",
+            "sourceObjectGuid": "bf6006fd-4dbc-4eb8-b191-6b678fde6121",
+            "sourceClass": "Class_7d916d6b",
+            "sourceObjectIndex": 3,
+            "xmlObjectGuid": "bf6006fd-4dbc-4eb8-b191-6b678fde6121",
+            "objectJoin": "exact-object-guid",
+            "sourceFieldPath": "/Field_d15a0c1c/0/Field_fc66e75e",
+            "sourceValue": 2.667,
+            "rawValue": 2.6670000553131104,
+            "byteOffset": 504,
+            "bytesHex": "21b02a40",
+            "rawPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\ExtendedMagazine\\WPM_MAG_053Ext4_PP19_W55.ebx",
+            "rawSha256": "29c69198c20fa4acd9391869621f84e4018a0273ff46dd02d0135e33bedcea9b",
+            "head": 4892017,
+            "descriptorSha256": "91c9ea7c3dd830e34a78123c8bb7485e80eefdb18fc9c7ee41117971d23565c2"
+          },
+          "speed": {
+            "sourceAsset": "Common/Hardware/Weapons/_WeaponModifiers/_Magazine/ExtendedMagazine/WPM_MAG_053Ext4_PP19_W55",
+            "sourceObjectGuid": "bf6006fd-4dbc-4eb8-b191-6b678fde6121",
+            "sourceClass": "Class_7d916d6b",
+            "sourceObjectIndex": 3,
+            "xmlObjectGuid": "bf6006fd-4dbc-4eb8-b191-6b678fde6121",
+            "objectJoin": "exact-object-guid",
+            "sourceFieldPath": "/Field_d15a0c1c/0/Field_1c533b56",
+            "sourceValue": 1.0,
+            "rawValue": 1.0,
+            "byteOffset": 488,
+            "bytesHex": "0000803f",
+            "rawPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\ExtendedMagazine\\WPM_MAG_053Ext4_PP19_W55.ebx",
+            "rawSha256": "29c69198c20fa4acd9391869621f84e4018a0273ff46dd02d0135e33bedcea9b",
+            "head": 4892017,
+            "descriptorSha256": "91c9ea7c3dd830e34a78123c8bb7485e80eefdb18fc9c7ee41117971d23565c2"
+          },
+          "bindingEvidenceSource": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\exhaustive-audit-2026-09-23\\frosty-site-magazines-2026-09-23-leaves.jsonl",
+          "exactSelectedBranchSelectorBinding": [
+            {
+              "attachment": "Common/Hardware/Weapons/SMG/PP19/Attachment_PP19_MAG_Extended4.xml",
+              "ability": "Common/Hardware/Weapons/SMG/PP19/PP19_Ability.xml",
+              "branchGuid": "437c8bee-9bab-42ea-905e-6e203790b37c",
+              "action": "2af1fee3-f1ba-4950-a48e-2e9aec754dfd",
+              "selector": {
+                "asset": "Common/Hardware/Weapons/_WeaponModifiers/_Magazine/ExtendedMagazine/U_WPM_MAG_053Ext4_PP19_W55",
+                "guid": "8c0e6842-6d5f-46cf-b5f7-4ad16a2cc13e"
+              },
+              "modifier": {
+                "sourceXml": "Common/Hardware/Weapons/_WeaponModifiers/_Magazine/ExtendedMagazine/WPM_MAG_053Ext4_PP19_W55.xml",
+                "guid": "a6155757-d982-48ea-b551-a3a088920cf7"
+              },
+              "effects": [
+                {
+                  "sourceXml": "Common/Hardware/Weapons/_WeaponModifiers/_Magazine/ExtendedMagazine/WPM_MAG_053Ext4_PP19_W55.xml",
+                  "guid": "e1a5d77c-1b06-4f28-8980-7d404ba835e0",
+                  "type": "Class_e7d2410a"
+                },
+                {
+                  "sourceXml": "Common/Hardware/Weapons/_WeaponModifiers/ADSMoveSpeed/WME_ADSMoveSpeed_M05.xml",
+                  "guid": "20eae443-52ef-4b08-9b5b-313446a00033",
+                  "type": "Class_303a33cc"
+                },
+                {
+                  "sourceXml": "Common/Hardware/Weapons/_WeaponModifiers/_Magazine/ExtendedMagazine/WPM_MAG_053Ext4_PP19_W55.xml",
+                  "guid": "bf6006fd-4dbc-4eb8-b191-6b678fde6121",
+                  "type": "Class_7d916d6b"
+                }
+              ]
+            }
+          ],
+          "siteEffectGraphStatus": "precisely-blocked-runtime"
+        }
+      },
+      "sourceValue": 2667.0,
+      "note": "Five retained integer-ms aliases round the selected duration/speed formula; counted under L107, no value-change proposal."
+    },
+    {
+      "pointer": "data/attachments.json:/WEAPON_MAG/m60/mags/50_rnd/tacRldOverrideMs",
+      "catalog": "WEAPON_MAG",
+      "family": "tacRldOverrideMs",
+      "choice": "50_rnd",
+      "weapon": "m60",
+      "value": 4534,
+      "result": "precision-only",
+      "classification": "b",
+      "priorEvidence": {
+        "siteFile": "data/reload-exceptions.json",
+        "pointer": "/animationOverrides/m60/50_rnd/tacRldOverrideMs",
+        "siteValue": 4534,
+        "sourceFileSha256": "bb456d5c1ce40dfdee2b2a223f27d7ffaca1dc980fc80285a738c7cc3897187b",
+        "build": "1.4.3.0",
+        "reviewStatus": "sourced-configuration-derived-ms",
+        "siteLocation": "data/attachments.json/WEAPON_MAG/m60/mags/50_rnd/mag",
+        "sourceIdentity": {
+          "attachmentAsset": "Common/Hardware/Weapons/MG/M60E6/Attachment_M60E6_MAG_Compact1.xml",
+          "attachmentGuid": "dd108fd4-0907-42f3-9ac1-4cfc17b427ad",
+          "selectorAsset": "Common/Hardware/Weapons/_WeaponModifiers/_Magazine/CompactMagazine/U_WPM_MAG_050Cpt1_M60E6_W05",
+          "selectorGuid": "4cac9ef4-accd-4b8f-95b8-0cda3430c6c5",
+          "selectorBound": true,
+          "rawObjectEvidence": {
+            "overrideTimeRawSha256": "38cf561a87eb4bbf9a3faec871087a84ab56d10259f0cc34e24e9c0f7732f955",
+            "overrideTimeOffset": 552,
+            "overrideTimeHex": "dd249240",
+            "overrideSpeedRawSha256": "38cf561a87eb4bbf9a3faec871087a84ab56d10259f0cc34e24e9c0f7732f955",
+            "overrideSpeedOffset": 536,
+            "overrideSpeedHex": "7cee803f"
+          }
+        },
+        "sourceValueFieldPath": [
+          "/Field_d15a0c1c/0/Field_fc66e75e",
+          "/Field_d15a0c1c/0/Field_1c533b56"
+        ],
+        "sourceValueAgreement": null,
+        "remainingUncertainty": "Raw selected WPM override duration and speed are decoded; site millisecond rounding agrees. Selector/effect binding sources this configuration but does not prove animation execution timing in live gameplay.",
+        "sourceSiteAgreement": {
+          "siteMs": 4534,
+          "computedMs": 4534.001536815061,
+          "roundedMs": 4534,
+          "sourceMinusSiteMs": 0
+        },
+        "sourceEvidence": {
+          "time": {
+            "sourceAsset": "Common/Hardware/Weapons/_WeaponModifiers/_Magazine/CompactMagazine/WPM_MAG_050Cpt1_M60E6_W05",
+            "sourceObjectGuid": "799909ff-9793-4cbe-a1b6-7aa7c29dea17",
+            "sourceClass": "Class_7d916d6b",
+            "sourceObjectIndex": 3,
+            "xmlObjectGuid": "799909ff-9793-4cbe-a1b6-7aa7c29dea17",
+            "objectJoin": "exact-object-guid",
+            "sourceFieldPath": "/Field_d15a0c1c/0/Field_fc66e75e",
+            "sourceValue": 4.567,
+            "rawValue": 4.566999912261963,
+            "byteOffset": 552,
+            "bytesHex": "dd249240",
+            "rawPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\CompactMagazine\\WPM_MAG_050Cpt1_M60E6_W05.ebx",
+            "rawSha256": "38cf561a87eb4bbf9a3faec871087a84ab56d10259f0cc34e24e9c0f7732f955",
+            "head": 4892017,
+            "descriptorSha256": "91c9ea7c3dd830e34a78123c8bb7485e80eefdb18fc9c7ee41117971d23565c2"
+          },
+          "speed": {
+            "sourceAsset": "Common/Hardware/Weapons/_WeaponModifiers/_Magazine/CompactMagazine/WPM_MAG_050Cpt1_M60E6_W05",
+            "sourceObjectGuid": "799909ff-9793-4cbe-a1b6-7aa7c29dea17",
+            "sourceClass": "Class_7d916d6b",
+            "sourceObjectIndex": 3,
+            "xmlObjectGuid": "799909ff-9793-4cbe-a1b6-7aa7c29dea17",
+            "objectJoin": "exact-object-guid",
+            "sourceFieldPath": "/Field_d15a0c1c/0/Field_1c533b56",
+            "sourceValue": 1.007278,
+            "rawValue": 1.0072779655456543,
+            "byteOffset": 536,
+            "bytesHex": "7cee803f",
+            "rawPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\CompactMagazine\\WPM_MAG_050Cpt1_M60E6_W05.ebx",
+            "rawSha256": "38cf561a87eb4bbf9a3faec871087a84ab56d10259f0cc34e24e9c0f7732f955",
+            "head": 4892017,
+            "descriptorSha256": "91c9ea7c3dd830e34a78123c8bb7485e80eefdb18fc9c7ee41117971d23565c2"
+          },
+          "bindingEvidenceSource": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\exhaustive-audit-2026-09-23\\frosty-site-magazines-2026-09-23-leaves.jsonl",
+          "exactSelectedBranchSelectorBinding": [
+            {
+              "attachment": "Common/Hardware/Weapons/MG/M60E6/Attachment_M60E6_MAG_Compact1.xml",
+              "ability": "Common/Hardware/Weapons/MG/M60E6/M60E6_Ability.xml",
+              "branchGuid": "65f16a2d-c410-4afa-b051-bddcc4cf310d",
+              "action": "10cc60b6-eda7-4b27-b5c1-91c272a1539d",
+              "selector": {
+                "asset": "Common/Hardware/Weapons/_WeaponModifiers/_Magazine/CompactMagazine/U_WPM_MAG_050Cpt1_M60E6_W05",
+                "guid": "4cac9ef4-accd-4b8f-95b8-0cda3430c6c5"
+              },
+              "modifier": {
+                "sourceXml": "Common/Hardware/Weapons/_WeaponModifiers/_Magazine/CompactMagazine/WPM_MAG_050Cpt1_M60E6_W05.xml",
+                "guid": "4e94e317-3bca-438f-91c3-565d2e13fa2f"
+              },
+              "effects": [
+                {
+                  "sourceXml": "Common/Hardware/Weapons/_WeaponModifiers/_Magazine/CompactMagazine/WPM_MAG_050Cpt1_M60E6_W05.xml",
+                  "guid": "cf311d78-0402-45f4-b2c6-d844fa6be04d",
+                  "type": "Class_e7d2410a"
+                },
+                {
+                  "sourceXml": "Common/Hardware/Weapons/_WeaponModifiers/_Magazine/CompactMagazine/WPM_MAG_050Cpt1_M60E6_W05.xml",
+                  "guid": "799909ff-9793-4cbe-a1b6-7aa7c29dea17",
+                  "type": "Class_7d916d6b"
+                },
+                {
+                  "sourceXml": "Common/Hardware/Weapons/_WeaponModifiers/Draw/WME_Draw_Deploy_P05.xml",
+                  "guid": "1955c72d-e5a2-448a-8444-9181cd095ee4",
+                  "type": "Class_4aac041b"
+                },
+                {
+                  "sourceXml": "Common/Hardware/Weapons/_WeaponModifiers/Draw/WME_Draw_Sprint_P05.xml",
+                  "guid": "b66c5803-07dd-46d4-901b-1a97928885ca",
+                  "type": "Class_03db7a68"
+                },
+                {
+                  "sourceXml": "Common/Hardware/Weapons/_WeaponModifiers/ADSTime/WME_ADSTime_FOV_P10.xml",
+                  "guid": "fa6ff00e-afd6-414e-b767-22cdd98fb096",
+                  "type": "Class_104c2294"
+                },
+                {
+                  "sourceXml": "Common/Hardware/Weapons/_WeaponModifiers/ADSTime/WME_ADSTime_Anim_P10.xml",
+                  "guid": "c157bb27-c8f5-4771-a55e-32eac1033174",
+                  "type": "Class_016623ac"
+                },
+                {
+                  "sourceXml": "Common/Hardware/Weapons/_WeaponModifiers/ADSMoveSpeed/WME_ADSMoveSpeed_P10.xml",
+                  "guid": "2511b123-caee-40d8-80e3-f0be8613fedf",
+                  "type": "Class_303a33cc"
+                },
+                {
+                  "sourceXml": "Common/Hardware/Weapons/_WeaponModifiers/Sway/WME_WSway_P05.xml",
+                  "guid": "a76bf3ea-eeab-40d4-b461-f6be73f445d7",
+                  "type": "Class_2fea847d"
+                },
+                {
+                  "sourceXml": "Common/Hardware/Weapons/_WeaponModifiers/Sway/WME_CSway_P05.xml",
+                  "guid": "5332816a-2233-4750-991e-02667a0da366",
+                  "type": "Class_28d25398"
+                }
+              ]
+            }
+          ],
+          "siteEffectGraphStatus": "sourced-configuration"
+        }
+      },
+      "sourceValue": 4534.001536815061,
+      "note": "Five retained integer-ms aliases round the selected duration/speed formula; counted under L107, no value-change proposal."
+    },
+    {
+      "pointer": "data/attachments.json:/WEAPON_MAG/m240l/mags/75_rnd/tacRldOverrideMs",
+      "catalog": "WEAPON_MAG",
+      "family": "tacRldOverrideMs",
+      "choice": "75_rnd",
+      "weapon": "m240l",
+      "value": 7100,
+      "result": "precision-only",
+      "classification": "b",
+      "priorEvidence": {
+        "siteFile": "data/reload-exceptions.json",
+        "pointer": "/animationOverrides/m240l/75_rnd/tacRldOverrideMs",
+        "siteValue": 7100,
+        "sourceFileSha256": "bb456d5c1ce40dfdee2b2a223f27d7ffaca1dc980fc80285a738c7cc3897187b",
+        "build": "1.4.3.0",
+        "reviewStatus": "sourced-configuration-derived-ms",
+        "siteLocation": "data/attachments.json/WEAPON_MAG/m240l/mags/75_rnd/mag",
+        "sourceIdentity": {
+          "attachmentAsset": "Common/Hardware/Weapons/MG/M240L/Attachment_M240L_MAG_Extended1.xml",
+          "attachmentGuid": "a4f50f4a-c12a-46da-8f3c-1b47c3536a63",
+          "selectorAsset": "Common/Hardware/Weapons/_WeaponModifiers/_Magazine/ExtendedMagazine/U_WPM_MAG_075Ext1_M240L_W10",
+          "selectorGuid": "dd7850e3-43f7-40b4-9e0e-0fc0b3d779f6",
+          "selectorBound": true,
+          "rawObjectEvidence": {
+            "overrideTimeRawSha256": "307ebe25f51f557e1a0dbfb147811befd6266bca635de76b125cd0591feec68c",
+            "overrideTimeOffset": 520,
+            "overrideTimeHex": "448be840",
+            "overrideSpeedRawSha256": "307ebe25f51f557e1a0dbfb147811befd6266bca635de76b125cd0591feec68c",
+            "overrideSpeedOffset": 504,
+            "overrideSpeedHex": "6902833f"
+          }
+        },
+        "sourceValueFieldPath": [
+          "/Field_d15a0c1c/0/Field_fc66e75e",
+          "/Field_d15a0c1c/0/Field_1c533b56"
+        ],
+        "sourceValueAgreement": null,
+        "remainingUncertainty": "Raw selected WPM override duration and speed are decoded; site millisecond rounding agrees. Selector/effect binding sources this configuration but does not prove animation execution timing in live gameplay.",
+        "sourceSiteAgreement": {
+          "siteMs": 7100,
+          "computedMs": 7100.0702483901005,
+          "roundedMs": 7100,
+          "sourceMinusSiteMs": 0
+        },
+        "sourceEvidence": {
+          "time": {
+            "sourceAsset": "Common/Hardware/Weapons/_WeaponModifiers/_Magazine/ExtendedMagazine/WPM_MAG_075Ext1_M240L_W10",
+            "sourceObjectGuid": "671f3b64-1998-4ea8-8aff-e8a743aedae4",
+            "sourceClass": "Class_7d916d6b",
+            "sourceObjectIndex": 2,
+            "xmlObjectGuid": "671f3b64-1998-4ea8-8aff-e8a743aedae4",
+            "objectJoin": "exact-object-guid",
+            "sourceFieldPath": "/Field_d15a0c1c/0/Field_fc66e75e",
+            "sourceValue": 7.267,
+            "rawValue": 7.267000198364258,
+            "byteOffset": 520,
+            "bytesHex": "448be840",
+            "rawPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\ExtendedMagazine\\WPM_MAG_075Ext1_M240L_W10.ebx",
+            "rawSha256": "307ebe25f51f557e1a0dbfb147811befd6266bca635de76b125cd0591feec68c",
+            "head": 4892017,
+            "descriptorSha256": "91c9ea7c3dd830e34a78123c8bb7485e80eefdb18fc9c7ee41117971d23565c2"
+          },
+          "speed": {
+            "sourceAsset": "Common/Hardware/Weapons/_WeaponModifiers/_Magazine/ExtendedMagazine/WPM_MAG_075Ext1_M240L_W10",
+            "sourceObjectGuid": "671f3b64-1998-4ea8-8aff-e8a743aedae4",
+            "sourceClass": "Class_7d916d6b",
+            "sourceObjectIndex": 2,
+            "xmlObjectGuid": "671f3b64-1998-4ea8-8aff-e8a743aedae4",
+            "objectJoin": "exact-object-guid",
+            "sourceFieldPath": "/Field_d15a0c1c/0/Field_1c533b56",
+            "sourceValue": 1.023511,
+            "rawValue": 1.0235110521316528,
+            "byteOffset": 504,
+            "bytesHex": "6902833f",
+            "rawPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\ExtendedMagazine\\WPM_MAG_075Ext1_M240L_W10.ebx",
+            "rawSha256": "307ebe25f51f557e1a0dbfb147811befd6266bca635de76b125cd0591feec68c",
+            "head": 4892017,
+            "descriptorSha256": "91c9ea7c3dd830e34a78123c8bb7485e80eefdb18fc9c7ee41117971d23565c2"
+          },
+          "bindingEvidenceSource": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\exhaustive-audit-2026-09-23\\frosty-site-magazines-2026-09-23-leaves.jsonl",
+          "exactSelectedBranchSelectorBinding": [
+            {
+              "attachment": "Common/Hardware/Weapons/MG/M240L/Attachment_M240L_MAG_Extended1.xml",
+              "ability": "Common/Hardware/Weapons/MG/M240L/M240L_Ability.xml",
+              "branchGuid": "d68ee639-ae77-40f5-bb8a-49403f214adf",
+              "action": "c782dd4c-2d6f-449d-ae04-718d36d68c5b",
+              "selector": {
+                "asset": "Common/Hardware/Weapons/_WeaponModifiers/_Magazine/ExtendedMagazine/U_WPM_MAG_075Ext1_M240L_W10",
+                "guid": "dd7850e3-43f7-40b4-9e0e-0fc0b3d779f6"
+              },
+              "modifier": {
+                "sourceXml": "Common/Hardware/Weapons/_WeaponModifiers/_Magazine/ExtendedMagazine/WPM_MAG_075Ext1_M240L_W10.xml",
+                "guid": "d8cdd145-6680-414d-b80c-13a92a8f0b81"
+              },
+              "effects": [
+                {
+                  "sourceXml": "Common/Hardware/Weapons/_WeaponModifiers/_Magazine/ExtendedMagazine/WPM_MAG_075Ext1_M240L_W10.xml",
+                  "guid": "f6e7b6b2-29d4-4890-b3bd-1abf7a6091f3",
+                  "type": "Class_e7d2410a"
+                },
+                {
+                  "sourceXml": "Common/Hardware/Weapons/_WeaponModifiers/Draw/WME_Draw_Deploy_P05.xml",
+                  "guid": "1955c72d-e5a2-448a-8444-9181cd095ee4",
+                  "type": "Class_4aac041b"
+                },
+                {
+                  "sourceXml": "Common/Hardware/Weapons/_WeaponModifiers/Draw/WME_Draw_Sprint_P05.xml",
+                  "guid": "b66c5803-07dd-46d4-901b-1a97928885ca",
+                  "type": "Class_03db7a68"
+                },
+                {
+                  "sourceXml": "Common/Hardware/Weapons/_WeaponModifiers/_Magazine/ExtendedMagazine/WPM_MAG_075Ext1_M240L_W10.xml",
+                  "guid": "671f3b64-1998-4ea8-8aff-e8a743aedae4",
+                  "type": "Class_7d916d6b"
+                },
+                {
+                  "sourceXml": "Common/Hardware/Weapons/_WeaponModifiers/ADSMoveDispersion/WME_DynamicPivot_P10.xml",
+                  "guid": "270b8161-bfc2-416b-8809-0c61111980aa",
+                  "type": "Class_c42bd53b"
+                }
+              ]
+            }
+          ],
+          "siteEffectGraphStatus": "sourced-configuration"
+        }
+      },
+      "sourceValue": 7100.0702483901005,
+      "note": "Five retained integer-ms aliases round the selected duration/speed formula; counted under L107, no value-change proposal."
+    },
+    {
+      "pointer": "data/attachments.json:/WEAPON_MAG/m240l/mags/100_rnd/tacRldOverrideMs",
+      "catalog": "WEAPON_MAG",
+      "family": "tacRldOverrideMs",
+      "choice": "100_rnd",
+      "weapon": "m240l",
+      "value": 7100,
+      "result": "precision-only",
+      "classification": "b",
+      "priorEvidence": {
+        "siteFile": "data/reload-exceptions.json",
+        "pointer": "/animationOverrides/m240l/100_rnd/tacRldOverrideMs",
+        "siteValue": 7100,
+        "sourceFileSha256": "bb456d5c1ce40dfdee2b2a223f27d7ffaca1dc980fc80285a738c7cc3897187b",
+        "build": "1.4.3.0",
+        "reviewStatus": "sourced-configuration-derived-ms",
+        "siteLocation": "data/attachments.json/WEAPON_MAG/m240l/mags/100_rnd/mag",
+        "sourceIdentity": {
+          "attachmentAsset": "Common/Hardware/Weapons/MG/M240L/Attachment_M240L_MAG_Extended2.xml",
+          "attachmentGuid": "252d4e76-b379-4b9f-a603-b6556292673f",
+          "selectorAsset": "Common/Hardware/Weapons/_WeaponModifiers/_Magazine/ExtendedMagazine/U_WPM_MAG_100Ext2_M240L_W20",
+          "selectorGuid": "f8dda924-39d4-4ce4-b6a2-46ef37492079",
+          "selectorBound": true,
+          "rawObjectEvidence": {
+            "overrideTimeRawSha256": "e6e0eb62786fd580ab040fdfd51a713469480aeac36a6a06d752c276881b1617",
+            "overrideTimeOffset": 496,
+            "overrideTimeHex": "448be840",
+            "overrideSpeedRawSha256": "e6e0eb62786fd580ab040fdfd51a713469480aeac36a6a06d752c276881b1617",
+            "overrideSpeedOffset": 480,
+            "overrideSpeedHex": "6902833f"
+          }
+        },
+        "sourceValueFieldPath": [
+          "/Field_d15a0c1c/0/Field_fc66e75e",
+          "/Field_d15a0c1c/0/Field_1c533b56"
+        ],
+        "sourceValueAgreement": null,
+        "remainingUncertainty": "Raw selected WPM override duration and speed are decoded; site millisecond rounding agrees. Selector/effect binding sources this configuration but does not prove animation execution timing in live gameplay.",
+        "sourceSiteAgreement": {
+          "siteMs": 7100,
+          "computedMs": 7100.0702483901005,
+          "roundedMs": 7100,
+          "sourceMinusSiteMs": 0
+        },
+        "sourceEvidence": {
+          "time": {
+            "sourceAsset": "Common/Hardware/Weapons/_WeaponModifiers/_Magazine/ExtendedMagazine/WPM_MAG_100Ext2_M240L_W20",
+            "sourceObjectGuid": "052e1177-e521-4e75-b99d-469e10fb17f7",
+            "sourceClass": "Class_7d916d6b",
+            "sourceObjectIndex": 3,
+            "xmlObjectGuid": "052e1177-e521-4e75-b99d-469e10fb17f7",
+            "objectJoin": "exact-object-guid",
+            "sourceFieldPath": "/Field_d15a0c1c/0/Field_fc66e75e",
+            "sourceValue": 7.267,
+            "rawValue": 7.267000198364258,
+            "byteOffset": 496,
+            "bytesHex": "448be840",
+            "rawPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\ExtendedMagazine\\WPM_MAG_100Ext2_M240L_W20.ebx",
+            "rawSha256": "e6e0eb62786fd580ab040fdfd51a713469480aeac36a6a06d752c276881b1617",
+            "head": 4892017,
+            "descriptorSha256": "91c9ea7c3dd830e34a78123c8bb7485e80eefdb18fc9c7ee41117971d23565c2"
+          },
+          "speed": {
+            "sourceAsset": "Common/Hardware/Weapons/_WeaponModifiers/_Magazine/ExtendedMagazine/WPM_MAG_100Ext2_M240L_W20",
+            "sourceObjectGuid": "052e1177-e521-4e75-b99d-469e10fb17f7",
+            "sourceClass": "Class_7d916d6b",
+            "sourceObjectIndex": 3,
+            "xmlObjectGuid": "052e1177-e521-4e75-b99d-469e10fb17f7",
+            "objectJoin": "exact-object-guid",
+            "sourceFieldPath": "/Field_d15a0c1c/0/Field_1c533b56",
+            "sourceValue": 1.023511,
+            "rawValue": 1.0235110521316528,
+            "byteOffset": 480,
+            "bytesHex": "6902833f",
+            "rawPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\ExtendedMagazine\\WPM_MAG_100Ext2_M240L_W20.ebx",
+            "rawSha256": "e6e0eb62786fd580ab040fdfd51a713469480aeac36a6a06d752c276881b1617",
+            "head": 4892017,
+            "descriptorSha256": "91c9ea7c3dd830e34a78123c8bb7485e80eefdb18fc9c7ee41117971d23565c2"
+          },
+          "bindingEvidenceSource": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\exhaustive-audit-2026-09-23\\frosty-site-magazines-2026-09-23-leaves.jsonl",
+          "exactSelectedBranchSelectorBinding": [
+            {
+              "attachment": "Common/Hardware/Weapons/MG/M240L/Attachment_M240L_MAG_Extended2.xml",
+              "ability": "Common/Hardware/Weapons/MG/M240L/M240L_Ability.xml",
+              "branchGuid": "9c32e60d-eac5-470b-aa17-2214d66870f5",
+              "action": "1123ac91-3b40-483a-9441-834a68ff8c46",
+              "selector": {
+                "asset": "Common/Hardware/Weapons/_WeaponModifiers/_Magazine/ExtendedMagazine/U_WPM_MAG_100Ext2_M240L_W20",
+                "guid": "f8dda924-39d4-4ce4-b6a2-46ef37492079"
+              },
+              "modifier": {
+                "sourceXml": "Common/Hardware/Weapons/_WeaponModifiers/_Magazine/ExtendedMagazine/WPM_MAG_100Ext2_M240L_W20.xml",
+                "guid": "6ac0fa15-3369-4538-876f-cd879e3eb951"
+              },
+              "effects": [
+                {
+                  "sourceXml": "Common/Hardware/Weapons/_WeaponModifiers/_Magazine/ExtendedMagazine/WPM_MAG_100Ext2_M240L_W20.xml",
+                  "guid": "85b46b0e-1efa-4c97-858b-a85f11a65d4d",
+                  "type": "Class_e7d2410a"
+                },
+                {
+                  "sourceXml": "Common/Hardware/Weapons/_WeaponModifiers/_Magazine/ExtendedMagazine/WPM_MAG_100Ext2_M240L_W20.xml",
+                  "guid": "052e1177-e521-4e75-b99d-469e10fb17f7",
+                  "type": "Class_7d916d6b"
+                }
+              ]
+            }
+          ],
+          "siteEffectGraphStatus": "sourced-configuration"
+        }
+      },
+      "sourceValue": 7100.0702483901005,
+      "note": "Five retained integer-ms aliases round the selected duration/speed formula; counted under L107, no value-change proposal."
+    },
+    {
+      "pointer": "data/attachments.json:/WEAPON_MAG/rpk74m/mags/95_rnd/tacRldOverrideMs",
+      "catalog": "WEAPON_MAG",
+      "family": "tacRldOverrideMs",
+      "choice": "95_rnd",
+      "weapon": "rpk74m",
+      "value": 2950,
+      "result": "precision-only",
+      "classification": "b",
+      "priorEvidence": {
+        "siteFile": "data/reload-exceptions.json",
+        "pointer": "/animationOverrides/rpk74m/95_rnd/tacRldOverrideMs",
+        "siteValue": 2950,
+        "sourceFileSha256": "bb456d5c1ce40dfdee2b2a223f27d7ffaca1dc980fc80285a738c7cc3897187b",
+        "build": "1.4.3.0",
+        "reviewStatus": "sourced-configuration-derived-ms",
+        "siteLocation": "data/attachments.json/WEAPON_MAG/rpk74m/mags/95_rnd/mag",
+        "sourceIdentity": {
+          "attachmentAsset": "Common/Hardware/Weapons/MG/RPK74M/Attachment_RPK74M_MAG_Extended3.xml",
+          "attachmentGuid": "3bee8b0c-ef30-4615-8ed7-399f540ef80e",
+          "selectorAsset": "Common/Hardware/Weapons/_WeaponModifiers/_Magazine/ExtendedMagazine/U_WPM_MAG_095Ext3_RPK74M_W50",
+          "selectorGuid": "820f9a26-a80d-4ae6-b8f0-70a7ed7a5137",
+          "selectorBound": true,
+          "rawObjectEvidence": {
+            "overrideTimeRawSha256": "835f8fb3da709b4b30b1d6bdb7cc55d4321029b20866cc23882f60c301b54122",
+            "overrideTimeOffset": 448,
+            "overrideTimeHex": "0e2d3240",
+            "overrideSpeedRawSha256": "835f8fb3da709b4b30b1d6bdb7cc55d4321029b20866cc23882f60c301b54122",
+            "overrideSpeedOffset": 432,
+            "overrideSpeedHex": "2998713f"
+          }
+        },
+        "sourceValueFieldPath": [
+          "/Field_d15a0c1c/0/Field_fc66e75e",
+          "/Field_d15a0c1c/0/Field_1c533b56"
+        ],
+        "sourceValueAgreement": null,
+        "remainingUncertainty": "Raw selected WPM override duration and speed are decoded; site millisecond rounding agrees. Selector/effect binding sources this configuration but does not prove animation execution timing in live gameplay.",
+        "sourceSiteAgreement": {
+          "siteMs": 2950,
+          "computedMs": 2950.0025431056406,
+          "roundedMs": 2950,
+          "sourceMinusSiteMs": 0
+        },
+        "sourceEvidence": {
+          "time": {
+            "sourceAsset": "Common/Hardware/Weapons/_WeaponModifiers/_Magazine/ExtendedMagazine/WPM_MAG_095Ext3_RPK74M_W50",
+            "sourceObjectGuid": "0cc47270-bc27-421a-b2a0-05a3fb5e1e18",
+            "sourceClass": "Class_7d916d6b",
+            "sourceObjectIndex": 2,
+            "xmlObjectGuid": "0cc47270-bc27-421a-b2a0-05a3fb5e1e18",
+            "objectJoin": "exact-object-guid",
+            "sourceFieldPath": "/Field_d15a0c1c/0/Field_fc66e75e",
+            "sourceValue": 2.784,
+            "rawValue": 2.7839999198913574,
+            "byteOffset": 448,
+            "bytesHex": "0e2d3240",
+            "rawPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\ExtendedMagazine\\WPM_MAG_095Ext3_RPK74M_W50.ebx",
+            "rawSha256": "835f8fb3da709b4b30b1d6bdb7cc55d4321029b20866cc23882f60c301b54122",
+            "head": 4892017,
+            "descriptorSha256": "91c9ea7c3dd830e34a78123c8bb7485e80eefdb18fc9c7ee41117971d23565c2"
+          },
+          "speed": {
+            "sourceAsset": "Common/Hardware/Weapons/_WeaponModifiers/_Magazine/ExtendedMagazine/WPM_MAG_095Ext3_RPK74M_W50",
+            "sourceObjectGuid": "0cc47270-bc27-421a-b2a0-05a3fb5e1e18",
+            "sourceClass": "Class_7d916d6b",
+            "sourceObjectIndex": 2,
+            "xmlObjectGuid": "0cc47270-bc27-421a-b2a0-05a3fb5e1e18",
+            "objectJoin": "exact-object-guid",
+            "sourceFieldPath": "/Field_d15a0c1c/0/Field_1c533b56",
+            "sourceValue": 0.943728,
+            "rawValue": 0.9437280297279358,
+            "byteOffset": 432,
+            "bytesHex": "2998713f",
+            "rawPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\ExtendedMagazine\\WPM_MAG_095Ext3_RPK74M_W50.ebx",
+            "rawSha256": "835f8fb3da709b4b30b1d6bdb7cc55d4321029b20866cc23882f60c301b54122",
+            "head": 4892017,
+            "descriptorSha256": "91c9ea7c3dd830e34a78123c8bb7485e80eefdb18fc9c7ee41117971d23565c2"
+          },
+          "bindingEvidenceSource": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\exhaustive-audit-2026-09-23\\frosty-site-magazines-2026-09-23-leaves.jsonl",
+          "exactSelectedBranchSelectorBinding": [
+            {
+              "attachment": "Common/Hardware/Weapons/MG/RPK74M/Attachment_RPK74M_MAG_Extended3.xml",
+              "ability": "Common/Hardware/Weapons/MG/RPK74M/RPK74M_Ability.xml",
+              "branchGuid": "13a84ccc-e582-481a-9497-eecba12243bc",
+              "action": "1b856f3e-baa5-4853-99f6-76c0eb211db6",
+              "selector": {
+                "asset": "Common/Hardware/Weapons/_WeaponModifiers/_Magazine/ExtendedMagazine/U_WPM_MAG_095Ext3_RPK74M_W50",
+                "guid": "820f9a26-a80d-4ae6-b8f0-70a7ed7a5137"
+              },
+              "modifier": {
+                "sourceXml": "Common/Hardware/Weapons/_WeaponModifiers/_Magazine/ExtendedMagazine/WPM_MAG_095Ext3_RPK74M_W50.xml",
+                "guid": "e83ab2d4-27b8-4507-b8f0-7a5b1e70eb2d"
+              },
+              "effects": [
+                {
+                  "sourceXml": "Common/Hardware/Weapons/_WeaponModifiers/_Magazine/ExtendedMagazine/WPM_MAG_095Ext3_RPK74M_W50.xml",
+                  "guid": "dd9d9c6f-0ee1-4697-914e-dfaf77d9046a",
+                  "type": "Class_e7d2410a"
+                },
+                {
+                  "sourceXml": "Common/Hardware/Weapons/_WeaponModifiers/_Magazine/ExtendedMagazine/WPM_MAG_095Ext3_RPK74M_W50.xml",
+                  "guid": "0cc47270-bc27-421a-b2a0-05a3fb5e1e18",
+                  "type": "Class_7d916d6b"
+                },
+                {
+                  "sourceXml": "Common/Hardware/Weapons/_WeaponModifiers/ADSTime/WME_ADSTime_Anim_M10.xml",
+                  "guid": "62880565-cd65-482a-89ec-84f44ab0d77f",
+                  "type": "Class_016623ac"
+                },
+                {
+                  "sourceXml": "Common/Hardware/Weapons/_WeaponModifiers/ADSTime/WME_ADSTime_FOV_M10.xml",
+                  "guid": "8f35e474-6e82-4ff6-80dc-4908366b2cfb",
+                  "type": "Class_104c2294"
+                }
+              ]
+            }
+          ],
+          "siteEffectGraphStatus": "precisely-blocked-runtime"
+        }
+      },
+      "sourceValue": 2950.0025431056406,
+      "note": "Five retained integer-ms aliases round the selected duration/speed formula; counted under L107, no value-change proposal."
+    }
+  ],
+  "limits": [
+    "No source route is a retained bounded result, with no new lead or source-zero claim.",
+    "Serialized configuration and arithmetic comparison do not prove native activation/composition.",
+    "Existing four SP suppressor minimap candidate differences (.10 versus .14) remain unresolved L47/L49 evidence, outside the eleven neutral minimap candidate leaves; no new material mismatch is inferred."
+  ],
+  "record": {
+    "v": 1,
+    "kind": "audit",
+    "date": "2026-10-01",
+    "build": "1.4.3.5",
+    "binding": "research"
+  }
+}

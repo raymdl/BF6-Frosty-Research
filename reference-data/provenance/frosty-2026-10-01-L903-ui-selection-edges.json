@@ -1,0 +1,261 @@
+{
+  "lead": "L903",
+  "status": "partial",
+  "build": "1.4.3.5",
+  "question": "Can current attachment/progression/Ability selection identity connect to AAM and AD without name-only joins?",
+  "sourceFacts": {
+    "control": {
+      "description": "HK433 AAM object86 export and AD import pair, AD description pointer and ID0BB6AC0B independently raw checked",
+      "passed": true,
+      "rawChecks": [
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\AAM_HK433.ebx",
+          "rawSha256": "63c3b8765641ba08eae23e6f5cec41c20ab2db4a7cae3542a0e0701868296ff1",
+          "offset": 7288,
+          "type": "guid",
+          "bytesHex": "763ea427064a6143b72a27589ba9ce43",
+          "value": "27a43e76-4a06-4361-b72a-27589ba9ce43"
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\AAM_HK433.ebx",
+          "rawSha256": "63c3b8765641ba08eae23e6f5cec41c20ab2db4a7cae3542a0e0701868296ff1",
+          "offset": 7400,
+          "type": "i32",
+          "bytesHex": "b9000000",
+          "value": 185
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\AAM_HK433.ebx",
+          "rawSha256": "63c3b8765641ba08eae23e6f5cec41c20ab2db4a7cae3542a0e0701868296ff1",
+          "offset": 27066,
+          "type": "guid",
+          "bytesHex": "fcdb3f84c5c74183948611f8417bc9e5",
+          "value": "843fdbfc-c7c5-8341-9486-11f8417bc9e5"
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\AAM_HK433.ebx",
+          "rawSha256": "63c3b8765641ba08eae23e6f5cec41c20ab2db4a7cae3542a0e0701868296ff1",
+          "offset": 27082,
+          "type": "guid",
+          "bytesHex": "fcdb3f84c5c74183948611f8417bc9e5",
+          "value": "843fdbfc-c7c5-8341-9486-11f8417bc9e5"
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\UI\\Static\\Metadata\\Attachments\\HK433\\AD_HK433_IronSights.ebx",
+          "rawSha256": "819b6a707203fef0e641d163bf59f390fa44445850b82d72feddb6b4e81643c2",
+          "offset": 152,
+          "type": "i32",
+          "bytesHex": "40000000",
+          "value": 64
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\UI\\Static\\Metadata\\Attachments\\HK433\\AD_HK433_IronSights.ebx",
+          "rawSha256": "819b6a707203fef0e641d163bf59f390fa44445850b82d72feddb6b4e81643c2",
+          "offset": 248,
+          "type": "i32",
+          "bytesHex": "0bacb60b",
+          "value": 196520971
+        }
+      ]
+    },
+    "coverage": {
+      "expected": 63,
+      "examined": 63,
+      "sourceRootsExamined": 189,
+      "aamCandidatesExamined": 64,
+      "candidateScopedAam": 63,
+      "extraCandidateAam": [
+        "common/hardware/weapons/shotgun/ksg/aam_ksg"
+      ],
+      "exactAamAdEdges": 5303,
+      "candidateChoices": 5303,
+      "containers": 6,
+      "directSourceRootMetadataEdges": 0,
+      "exactSourceToUiJoins": 0,
+      "limit": "63 source crosswalk entries are exact scope. Their path-corresponding AAM choices are candidates until exact selection/property receiver identity is established."
+    },
+    "edgesArtifact": "ui-selection-edges-v3.json",
+    "sourceRootScanArtifact": "l903-result.json",
+    "deadEndLedger": "dead-end-ledger.json"
+  },
+  "inference": [
+    "Scalar Field_c9a39085 and Field_1636b8bd arrays are lookup candidates only. Path-corresponding AAM owners are scope candidates, not identity proof."
+  ],
+  "unresolved": [
+    "No exact gameplay selection/progression property-key receiver to AAM was established. The known control proves AAM->AD only. Scalar-id and key-array semantics and layout ambiguity remain unresolved; no native effect or availability claim.",
+    "Full selected attachment/progression receiver chain remains untraced; a root direct-import scan cannot settle it."
+  ],
+  "siteImpact": "No site mapping or values changed. No exact source-to-UI identity established.",
+  "evidence": {
+    "files": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0950-0400-weapons-ui-frontier\\L903\\control-l903.json",
+        "sha256": "5cbb1f109b14a354731a179d74b958a1abfedf6f66645763e0c0ae5455c56551"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0950-0400-weapons-ui-frontier\\L903\\coverage-v2.json",
+        "sha256": "76f0703fce63bd13c13cf910085314b7fa39e9db4c33a0ae5266f6747f08e585"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0950-0400-weapons-ui-frontier\\L903\\coverage.json",
+        "sha256": "4671c1eea56d2c7772bba45e53723fbac7d74f8718735f042de9d39dcc9de95e"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0950-0400-weapons-ui-frontier\\L903\\dead-end-ledger.json",
+        "sha256": "1b3dc5ffad1bda3a25306e9ae7e38de0f2d8f699f411fd2a4c39a972f3fc6804"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0950-0400-weapons-ui-frontier\\L903\\finalize-l903.py",
+        "sha256": "b7ad291913f36c6373f2858b78ce77abfb82c76c13ad328fc22cfd609589211c"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0950-0400-weapons-ui-frontier\\L903\\frosty-ebx-decode.py",
+        "sha256": "6fdc0334efaee0fe6113b5c9db4973f1358f53ee65dfb94edbc22fb0bf07a727"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0950-0400-weapons-ui-frontier\\L903\\frosty-raw-check.py",
+        "sha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0950-0400-weapons-ui-frontier\\L903\\hk433-probe.json",
+        "sha256": "af6cbac199cc7c19084b76b5f21a6b89c35f5e502f283d1917858e6a46158780"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0950-0400-weapons-ui-frontier\\L903\\inspect-l903.py",
+        "sha256": "41d6b0bb3c300ac9c597ccc531edc2e4185a3213df5bc767eec58573a0edbfa1"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0950-0400-weapons-ui-frontier\\L903\\l903-result.json",
+        "sha256": "20951b46a6a2c71e00b8622e581f5819e4d1ad0a219d029dbc377534c9b328b1"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0950-0400-weapons-ui-frontier\\L903\\list-l903.py",
+        "sha256": "2021e36840e8b75523e05a7ad580d2caf3af54ee4b05639e7d6e06aed1e78ea9"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0950-0400-weapons-ui-frontier\\L903\\probe-l903.py",
+        "sha256": "69d9342c736cd9a02013774aefb2316ee4790ff475e82ef08ca5d8dee1a8b3a2"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0950-0400-weapons-ui-frontier\\L903\\scan-l903.py",
+        "sha256": "3897d2d5d64f28b962b3f9c7925d1db93e38d41e87866ca089ec0dab23491c00"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0950-0400-weapons-ui-frontier\\L903\\source-probe-l903.py",
+        "sha256": "6dc3cd1df969dd86c5d6527ea36909259065e4688b19c04a1ea397ff2146329e"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0950-0400-weapons-ui-frontier\\L903\\source-scan-l903.py",
+        "sha256": "85cc0a5a60039b35a75328d18bc003dd3e91221e172d9bb184be4706aa0188be"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0950-0400-weapons-ui-frontier\\L903\\ui-selection-edges-v2.json",
+        "sha256": "37caa43f4a52f2e7109a20c3307c6ea03b925aaefd73795922077f2b319ea469"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0950-0400-weapons-ui-frontier\\L903\\ui-selection-edges.json",
+        "sha256": "63592c8c5d60ce8fda6556d2907ddc293769f7ced6cbd1ea6361e051bbd81294"
+      },
+      {
+        "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-01T0018-0400-weapon-frontier/weapon-crosswalk.json",
+        "sha256": "9c4479057a20d0ebc6d091140a70a0227b6b9184db26e4fadee674da18df2e76"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0950-0400-weapons-ui-frontier\\L903\\ui-selection-edges-v3.json",
+        "sha256": "68558e1a9d80eece304bc638b3990bdde19aa2acf0977c1f9653519f9f3b6bcc"
+      }
+    ],
+    "commands": [
+      {
+        "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "arguments": [
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0950-0400-weapons-ui-frontier\\L903\\probe-l903.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0950-0400-weapons-ui-frontier\\L903",
+        "history": "Reconstructed execution vector; original PowerShell wrapper and its default cwd not preserved here."
+      },
+      {
+        "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "arguments": [
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0950-0400-weapons-ui-frontier\\L903\\inspect-l903.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0950-0400-weapons-ui-frontier\\L903",
+        "history": "Reconstructed execution vector; original PowerShell wrapper and its default cwd not preserved here."
+      },
+      {
+        "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "arguments": [
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0950-0400-weapons-ui-frontier\\L903\\list-l903.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0950-0400-weapons-ui-frontier\\L903",
+        "history": "Reconstructed execution vector; original PowerShell wrapper and its default cwd not preserved here."
+      },
+      {
+        "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "arguments": [
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0950-0400-weapons-ui-frontier\\L903\\source-probe-l903.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0950-0400-weapons-ui-frontier\\L903",
+        "history": "Reconstructed execution vector; original PowerShell wrapper and its default cwd not preserved here."
+      },
+      {
+        "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "arguments": [
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0950-0400-weapons-ui-frontier\\L903\\scan-l903.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0950-0400-weapons-ui-frontier\\L903",
+        "history": "Reconstructed execution vector; original PowerShell wrapper and its default cwd not preserved here."
+      },
+      {
+        "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "arguments": [
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0950-0400-weapons-ui-frontier\\L903\\source-scan-l903.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0950-0400-weapons-ui-frontier\\L903",
+        "history": "Reconstructed execution vector; original PowerShell wrapper and its default cwd not preserved here."
+      }
+    ],
+    "helperRevision": "Local copied frosty-ebx-decode.py and frosty-raw-check.py hashes in files; Trace subclass text reused from L901/extract-l901.py.",
+    "superseded": "ui-selection-edges.json and coverage.json exclude RPKM provisionally and are superseded by v2. No deletion. v3 adds raw import GUID checks for RPKM choices.",
+    "buildPin": {
+      "head": 4909002,
+      "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1"
+    }
+  },
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-10-01",
+    "build": "1.4.3.5",
+    "binding": "research",
+    "leads": [
+      {
+        "id": "L903",
+        "title": "Exact attachment selection to UI description chain",
+        "status": "finding",
+        "summary": "Current AAM->AD pointer control passes; source selection/property receiver identity remains unresolved across63 scoped source entries.",
+        "reopenWhen": "Typed receiver or selected progression/attachment export proves the source-id/property-key lookup into AAM."
+      }
+    ],
+    "assets": [
+      {
+        "path": "Common/Hardware/Weapons/AssaultRifle/HK433/AAM_HK433",
+        "format": "raw-ebx",
+        "sha256": "63c3b8765641ba08eae23e6f5cec41c20ab2db4a7cae3542a0e0701868296ff1",
+        "question": "Exact AAM->AD control and source scalar receiver",
+        "result": "useful",
+        "conclusion": "Object86 export/pointer/import GUID checks pass; scalar/property receiver unresolved."
+      }
+    ]
+  },
+  "parentVerification": {
+    "review": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0950-0400-weapons-ui-frontier\\L903\\parent-review.json",
+      "sha256": "654ceba8eb2e4ffea44ca6b36b65aca206ac63adb765510bf5f474802049df90"
+    },
+    "reread": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0950-0400-weapons-ui-frontier\\L903\\parent-control-rawcheck.json",
+      "sha256": "ed8d22806852a95800a330a661bae179617956f7d46dac88d77b7c98e5abb0e8"
+    }
+  }
+}

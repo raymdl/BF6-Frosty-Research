@@ -1,0 +1,527 @@
+{
+  "lead": "L3041",
+  "status": "complete",
+  "build": "1.4.3.5",
+  "question": "Can high-impact vehicle stat meanings be supported without recordings or identity joins?",
+  "sourceFacts": {
+    "control": {
+      "description": "Current same-owner CB90 MaxHealth and smoke graph scalar controls; controls read before semantic inspection.",
+      "passed": true,
+      "rawChecks": [
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\Boat\\CB90\\VB_VEH_Boat_CB90.ebx",
+          "rawSha256": "2d8e05398f8f3f2b79159a8db1ec5a87d3033ac7c2469d0cb5f3c6c3f6911ad3",
+          "offset": 440,
+          "type": "f32",
+          "bytesHex": "00007a44",
+          "value": 1000.0,
+          "expect": 1000.0,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Gadgets\\_Logic\\SimEx_Smoke_FirePutOut.ebx",
+          "rawSha256": "475deec6a6c65e12bc66f188e4c1a0c557d0d72ec0cc8426b52c936719388d9f",
+          "offset": 108,
+          "type": "u32",
+          "bytesHex": "698fa442",
+          "value": 1118080873,
+          "expect": 1118080873,
+          "matches": true
+        }
+      ]
+    },
+    "findings": [
+      {
+        "id": "damage-from",
+        "stat": "Damage from vehicles",
+        "sourceOperand": "L3035 exact selected WF to Shot/projectile and separate curve channels; saved baseline reused.",
+        "meaningSupport": "Infantry control can name only Class_23637dce/key 664ff89c671d542411ab855346760f0a and matching selected curve representation. Missile Class_6a25e89d/key 31120380fad6ee70d05903053f9316b6 has no matching infantry control among the 43 saved controls.",
+        "effectiveStat": "No effective outgoing damage equation, material/zone composition or active slot established.",
+        "exactFields": [
+          {
+            "ownerClass": "Class_6a0d9448",
+            "declaringKey": "991d8294f5c6fcfaca7151be25423937",
+            "field": "Field_5279388d",
+            "role": "selected tweakable curve representation only"
+          }
+        ],
+        "rawChecks": [],
+        "eaStatementIds": [],
+        "relation": "source facts and name-matched mechanic support kept separate",
+        "reopenWhen": "Provide an exact same-owner projectile/payload wrapper contract plus selected damage consumer operation and units."
+      },
+      {
+        "id": "damage-to",
+        "stat": "Damage to vehicles",
+        "sourceOperand": "L3034 damage-zone/armor owners and L3001 health channels remain separate from outgoing projectile curves.",
+        "meaningSupport": "EA 1.3.1.0 distinguishes consistent lock-on damage from manually aimed zone/angle damage. Feedback chapter is only a lead.",
+        "effectiveStat": "No directional multiplier, weak-spot formula, armor-to-health composition or effective durability supported.",
+        "exactFields": [],
+        "rawChecks": [],
+        "eaStatementIds": [
+          "EA0042",
+          "EA0113",
+          "EA0114",
+          "EA0115",
+          "EA0116"
+        ],
+        "relation": "source facts and name-matched mechanic support kept separate",
+        "reopenWhen": "Provide controlled selected zone/angle/material damage consumer connecting projectile and exact vehicle owner, with units and modifier order."
+      },
+      {
+        "id": "max-health",
+        "stat": "MaxHealth",
+        "sourceOperand": "CB90 own-wrapper receiving member retained and control reread.",
+        "meaningSupport": "Exact own-wrapper association names Field_9040392c; same exact key/member schema can support source naming only. Different owner key  e39565c4c24306f97c377628132bba60 stays hash-only.",
+        "effectiveStat": "1000 is configured MaxHealth; HP units and effective health remain unresolved.",
+        "exactFields": [
+          {
+            "ownerClass": "Class_f2a56983",
+            "declaringKey": "e39565c4c24306f97c377628d6d9a47e",
+            "field": "Field_9040392c",
+            "memberOffset": 248
+          }
+        ],
+        "rawChecks": [
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\Boat\\CB90\\VB_VEH_Boat_CB90.ebx",
+            "rawSha256": "2d8e05398f8f3f2b79159a8db1ec5a87d3033ac7c2469d0cb5f3c6c3f6911ad3",
+            "offset": 440,
+            "type": "f32",
+            "bytesHex": "00007a44",
+            "value": 1000.0,
+            "expect": 1000.0,
+            "matches": true
+          }
+        ],
+        "eaStatementIds": [],
+        "relation": "source facts and name-matched mechanic support kept separate",
+        "reopenWhen": "Provide selected native/compiled health normalization and modifier consumer; different owner keys require their own wrapper name join."
+      },
+      {
+        "id": "repair",
+        "stat": "Repair",
+        "sourceOperand": "CB90 RepairRateModifier Field_8fc892f2 configured value 1, reread at 712.",
+        "meaningSupport": "Own-wrapper association names modifier; EA repair reduction, regeneration and Emergency Repair describe separate named mechanics.",
+        "effectiveStat": "No repair health-per-second, duration, emergency-heal formula or supply composition derived from modifier 1.",
+        "exactFields": [
+          {
+            "ownerClass": "Class_f2a56983",
+            "declaringKey": "e39565c4c24306f97c377628d6d9a47e",
+            "field": "Field_8fc892f2",
+            "memberOffset": 520
+          }
+        ],
+        "rawChecks": [
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\Boat\\CB90\\VB_VEH_Boat_CB90.ebx",
+            "rawSha256": "2d8e05398f8f3f2b79159a8db1ec5a87d3033ac7c2469d0cb5f3c6c3f6911ad3",
+            "offset": 712,
+            "type": "f32",
+            "bytesHex": "0000803f",
+            "value": 1.0,
+            "expect": 1.0,
+            "matches": true
+          }
+        ],
+        "eaStatementIds": [
+          "EA0110",
+          "EA0118",
+          "EA0119",
+          "EA0120",
+          "EA0249"
+        ],
+        "relation": "source facts and name-matched mechanic support kept separate",
+        "reopenWhen": "Provide matching receiver operation linking RepairRateModifier, repair tool/Emergency Repair inputs and named health channel, including units, pause and modifier order."
+      },
+      {
+        "id": "charges",
+        "stat": "Countermeasure charges",
+        "sourceOperand": "Selected Ability/U/WF/WMD serialized ammunition/replenishment owners reused.",
+        "meaningSupport": "NumberOfMagazines, InitialAmmo and AutoReplenishDelay source naming does not identify usable countermeasure charges.",
+        "effectiveStat": "No effective charges or replenishment count established.",
+        "exactFields": [
+          {
+            "ownerClass": "Struct_598cc52c",
+            "declaringKey": "6415a3ca14830b579b4ca38912db5a01",
+            "field": "Field_46afa73c",
+            "role": "AutoReplenishDelay source, not countermeasure cooldown"
+          }
+        ],
+        "rawChecks": [],
+        "eaStatementIds": [],
+        "relation": "source facts and name-matched mechanic support kept separate",
+        "reopenWhen": "Provide exact source-selected countermeasure resource receiver and charge debit/replenishment contract; no numeric/route-name substitution."
+      },
+      {
+        "id": "duration",
+        "stat": "Countermeasure duration",
+        "sourceOperand": "Smoke graph control pins Class_53d7404d/key 68be6a6ba6ab0bcbd19fd6d9bb5f89fb; u32 Field_42a48f69 is retained without a duration label.",
+        "meaningSupport": "EA Thermal Smoke active-duration statement supports mechanic vocabulary at its stated version only.",
+        "effectiveStat": "No source member-to-duration or current effective duration established.",
+        "exactFields": [
+          {
+            "ownerClass": "Class_53d7404d",
+            "declaringKey": "68be6a6ba6ab0bcbd19fd6d9bb5f89fb",
+            "field": "Field_42a48f69",
+            "role": "u32 control only"
+          }
+        ],
+        "rawChecks": [
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Gadgets\\_Logic\\SimEx_Smoke_FirePutOut.ebx",
+            "rawSha256": "475deec6a6c65e12bc66f188e4c1a0c557d0d72ec0cc8426b52c936719388d9f",
+            "offset": 108,
+            "type": "u32",
+            "bytesHex": "698fa442",
+            "value": 1118080873,
+            "expect": 1118080873,
+            "matches": true
+          }
+        ],
+        "eaStatementIds": [
+          "EA0168"
+        ],
+        "relation": "source facts and name-matched mechanic support kept separate",
+        "reopenWhen": "Provide exact named timer/receiver contract for selected countermeasure graph with independent operation control and units."
+      },
+      {
+        "id": "cooldown",
+        "stat": "Countermeasure cooldown",
+        "sourceOperand": "Source replenishment/delay inputs remain distinct from cooldown.",
+        "meaningSupport": "EA names Smoke Screen cooldown in 1.3.1.0; name-matched text can support that historical mechanic, not field identity.",
+        "effectiveStat": "No current source-field cooldown equation or displayed cooldown established.",
+        "exactFields": [],
+        "rawChecks": [],
+        "eaStatementIds": [
+          "EA0169"
+        ],
+        "relation": "source facts and name-matched mechanic support kept separate",
+        "reopenWhen": "Provide exact active Smoke Screen recharge timer receiver and units, then compare name-matched dated statement without equating numeric values."
+      },
+      {
+        "id": "lock-break",
+        "stat": "Countermeasure lock breaks",
+        "sourceOperand": "L3014 direct smoke removal set and L3037 selected locking graphs preserved; SimEx_Smoke_FirePutOut compiled fields remain opaque.",
+        "meaningSupport": "EA separately discusses countermeasures, Thermal Smoke mitigation/C-4 removal and later missile reaction. They are not interchangeable lock-break rules.",
+        "effectiveStat": "No active lock cancellation, immunity window, reacquisition or charge composition established.",
+        "exactFields": [
+          {
+            "route": "Common/Hardware/Gadgets/_Logic/SimEx_Smoke_FirePutOut",
+            "fields": [
+              "Field_0ba7f153",
+              "Field_23e8fc11/Field_3af2e007",
+              "Field_aa4fa860"
+            ]
+          }
+        ],
+        "rawChecks": [],
+        "eaStatementIds": [
+          "EA0019",
+          "EA0170",
+          "EA0171",
+          "EA0263",
+          "EA0264",
+          "EA0265",
+          "EA0283",
+          "EA0284"
+        ],
+        "relation": "source facts and name-matched mechanic support kept separate",
+        "reopenWhen": "Provide controlled matching SerializedExpressionNodeGraph/native dispatch contract linking exact removal identities and locking state channels."
+      },
+      {
+        "id": "lock-range",
+        "stat": "Lock range",
+        "sourceOperand": "L3037 exact lock/guidance selections and declaring schemas reused; no valid vehicle receiver role added.",
+        "meaningSupport": "EA explicitly states laser designators affect locking range, including vehicle-mounted designators. Gadget-specific base ranges remain gadget-specific.",
+        "effectiveStat": "No current vehicle lock range or multiplier composition established.",
+        "exactFields": [],
+        "rawChecks": [],
+        "eaStatementIds": [
+          "EA0206"
+        ],
+        "relation": "source facts and name-matched mechanic support kept separate",
+        "reopenWhen": "Provide same declaring-key/member own-wrapper name and controlled selected acquisition-range receiver, including base/laser/target modifier composition."
+      },
+      {
+        "id": "lock-time",
+        "stat": "Lock time",
+        "sourceOperand": "DiceEx_TEMPLEGACYWriteLockingTargetStates selected channel pointer members remain a typed source boundary.",
+        "meaningSupport": "EA named weapon/gadget locking time statements do not support a generic vehicle lock time; designator duration is separate.",
+        "effectiveStat": "No current acquisition time, delay units or reacquisition calculation established.",
+        "exactFields": [
+          {
+            "route": "Common/Gameplay/Vehicles/Expressions/DiceEx_TEMPLEGACYWriteLockingTargetStates",
+            "fields": [
+              "Field_a2734e52/Field_8cf424e7",
+              "Field_0ba7f153",
+              "Field_207099be/Field_3af2e007",
+              "Field_23e8fc11/Field_3af2e007",
+              "Field_aa4fa860"
+            ]
+          }
+        ],
+        "rawChecks": [],
+        "eaStatementIds": [
+          "EA0204"
+        ],
+        "relation": "source facts and name-matched mechanic support kept separate",
+        "reopenWhen": "Provide matching typed operation contract for exact selected locking-state receiver; resolve selected channel exported owners and distinguish acquisition time from designation duration."
+      }
+    ],
+    "baselineLabel": "pre-Season 5 baseline; meaning unconfirmed",
+    "baselineReuse": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T011608-0400-vehicles-open-frontier\\L3034\\baseline.json",
+        "sha256": "a59a71ffc82dc430cf62332f036bd1061bfa573e3dc301a734cf1e193ed66ebd"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T011608-0400-vehicles-open-frontier\\L3035\\vehicle-weapon-profiles-v2.json",
+        "sha256": "eb02784e0b574095452dc6bef4157d6b52ff1d7edeb4226a2e21246bb5e4f95d"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T011608-0400-vehicles-open-frontier\\L3035\\infantry-owner-controls.json",
+        "sha256": "6b2c8fc8847dd892629bc2e425b1b2c14477646bcf86d31270c4fe70859d9051"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T011608-0400-vehicles-open-frontier\\L3037\\field-atlas-abilities-v2.json",
+        "sha256": "4868e165177149cad0491db6563ca6130ac41d64add66beb0f3a714b02f222c0",
+        "pointer": "/control"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T011608-0400-vehicles-open-frontier\\L3037\\where-not-to-look.json",
+        "sha256": "e2e1d21982dd81d2ad2d39a5efc43f1ad663156f57428baff0174ce76ab138dc"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T011608-0400-vehicles-open-frontier\\L3038\\vehicle-field-atlas-converged.json",
+        "sha256": "49815e57c3e59a55355295c81825905be45169704d19635390f45f4284d33d68",
+        "pointer": "/fieldFamilies"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T011608-0400-vehicles-open-frontier\\L3039\\community-vehicle-traces.json",
+        "sha256": "9c8035f6ed5da356fc3d612b93edf0654fde464b70fe24290e24df655ba7446c",
+        "pointer": "/orderedItems"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\patch-notes\\patch-notes-inventory.json",
+        "sha256": "e6f38bf3acd15179467140af2711fb7fa1ab76b6ae211bfc01f0aed6927eea4f"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T234837-0400-gadget-vehicle-semantics\\ea-stated-numbers.json",
+        "sha256": "3ebd4a2e59d813ba8e8a99f8455fb78069ef4b7de8d8cb9fcaa72e966c1d718b"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-09-29-L3001-vehicle-health.json",
+        "sha256": "6ce9b44e5c3f17bc8d4ce85b27dff7efa05868903628758ccef19c138d3efff3"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-09-29-L3013-vehicle-ground-projectile-curves.json",
+        "sha256": "842bbc9ea2e746ff9fb7b6a09c7f1a761dd010e59502a8e6707d35c4c974ce3e"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-09-29-L3014-vehicle-aa-mbt-equipment.json",
+        "sha256": "8193eced8770d7a6246e344e94abaaf3f7bb20cbdb7722ec495904f733cd9473"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-09-30-L3024-health-own-wrapper-check.json",
+        "sha256": "2428c43bd37fdf66538ad8b92b00b5dbeb333f6d15c8b731bed0bb3b9fa3c7f0"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T234837-0400-gadget-vehicle-semantics\\ea-articles\\1.1.1.5.txt",
+        "sha256": "95f4898bef40fe9bfef3542d50727737392ba0c57b06403698052a3a19d399ff"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T234837-0400-gadget-vehicle-semantics\\ea-articles\\1.1.3.0.txt",
+        "sha256": "c4b3e2d5c476d9e7f47292fd0b13217f6f1e3ea993c21437ac3c64c901efe6f3"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T234837-0400-gadget-vehicle-semantics\\ea-articles\\1.3.1.0.txt",
+        "sha256": "88f1159c833ad91139adade8132c83bc245305f5e07ea9d32b564c7f6368b718"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T234837-0400-gadget-vehicle-semantics\\ea-articles\\1.3.3.0.txt",
+        "sha256": "c80ee030b5320580b7ca07e51081fa13ff1cc6c214444508e76278957d93f6cf"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T234837-0400-gadget-vehicle-semantics\\ea-articles\\1.4.2.0.txt",
+        "sha256": "b4321d0a17317b4cee639ad4f56d6ec48bb903f2d229c05a654a87ad2d6d4a1e"
+      }
+    ]
+  },
+  "inference": [
+    "Own-wrapper exact names support serialized configuration only.",
+    "EA text supports name-matched dated mechanic meaning independently of a serialized owner identity.",
+    "No numeric equality, field order or route label is used as semantic proof."
+  ],
+  "unresolved": [
+    "No effective outgoing damage equation, material/zone composition or active slot established.",
+    "No directional multiplier, weak-spot formula, armor-to-health composition or effective durability supported.",
+    "1000 is configured MaxHealth; HP units and effective health remain unresolved.",
+    "No repair health-per-second, duration, emergency-heal formula or supply composition derived from modifier 1.",
+    "No effective charges or replenishment count established.",
+    "No source member-to-duration or current effective duration established.",
+    "No current source-field cooldown equation or displayed cooldown established.",
+    "No active lock cancellation, immunity window, reacquisition or charge composition established.",
+    "No current vehicle lock range or multiplier composition established.",
+    "No current acquisition time, delay units or reacquisition calculation established."
+  ],
+  "siteImpact": "Source-only MaxHealth/RepairRateModifier and dated name-matched EA mechanic descriptions can be documented. No effective gameplay stat, UI-to-gameplay identity or numeric site proposal.",
+  "evidence": {
+    "artifacts": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T011608-0400-vehicles-open-frontier\\L3034\\baseline.json",
+        "sha256": "a59a71ffc82dc430cf62332f036bd1061bfa573e3dc301a734cf1e193ed66ebd"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T011608-0400-vehicles-open-frontier\\L3035\\vehicle-weapon-profiles-v2.json",
+        "sha256": "eb02784e0b574095452dc6bef4157d6b52ff1d7edeb4226a2e21246bb5e4f95d"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T011608-0400-vehicles-open-frontier\\L3035\\infantry-owner-controls.json",
+        "sha256": "6b2c8fc8847dd892629bc2e425b1b2c14477646bcf86d31270c4fe70859d9051"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T011608-0400-vehicles-open-frontier\\L3037\\field-atlas-abilities-v2.json",
+        "sha256": "4868e165177149cad0491db6563ca6130ac41d64add66beb0f3a714b02f222c0",
+        "pointer": "/control"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T011608-0400-vehicles-open-frontier\\L3037\\where-not-to-look.json",
+        "sha256": "e2e1d21982dd81d2ad2d39a5efc43f1ad663156f57428baff0174ce76ab138dc"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T011608-0400-vehicles-open-frontier\\L3038\\vehicle-field-atlas-converged.json",
+        "sha256": "49815e57c3e59a55355295c81825905be45169704d19635390f45f4284d33d68",
+        "pointer": "/fieldFamilies"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T011608-0400-vehicles-open-frontier\\L3039\\community-vehicle-traces.json",
+        "sha256": "9c8035f6ed5da356fc3d612b93edf0654fde464b70fe24290e24df655ba7446c",
+        "pointer": "/orderedItems"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\patch-notes\\patch-notes-inventory.json",
+        "sha256": "e6f38bf3acd15179467140af2711fb7fa1ab76b6ae211bfc01f0aed6927eea4f"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T234837-0400-gadget-vehicle-semantics\\ea-stated-numbers.json",
+        "sha256": "3ebd4a2e59d813ba8e8a99f8455fb78069ef4b7de8d8cb9fcaa72e966c1d718b"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-09-29-L3001-vehicle-health.json",
+        "sha256": "6ce9b44e5c3f17bc8d4ce85b27dff7efa05868903628758ccef19c138d3efff3"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-09-29-L3013-vehicle-ground-projectile-curves.json",
+        "sha256": "842bbc9ea2e746ff9fb7b6a09c7f1a761dd010e59502a8e6707d35c4c974ce3e"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-09-29-L3014-vehicle-aa-mbt-equipment.json",
+        "sha256": "8193eced8770d7a6246e344e94abaaf3f7bb20cbdb7722ec495904f733cd9473"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-09-30-L3024-health-own-wrapper-check.json",
+        "sha256": "2428c43bd37fdf66538ad8b92b00b5dbeb333f6d15c8b731bed0bb3b9fa3c7f0"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T234837-0400-gadget-vehicle-semantics\\ea-articles\\1.1.1.5.txt",
+        "sha256": "95f4898bef40fe9bfef3542d50727737392ba0c57b06403698052a3a19d399ff"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T234837-0400-gadget-vehicle-semantics\\ea-articles\\1.1.3.0.txt",
+        "sha256": "c4b3e2d5c476d9e7f47292fd0b13217f6f1e3ea993c21437ac3c64c901efe6f3"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T234837-0400-gadget-vehicle-semantics\\ea-articles\\1.3.1.0.txt",
+        "sha256": "88f1159c833ad91139adade8132c83bc245305f5e07ea9d32b564c7f6368b718"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T234837-0400-gadget-vehicle-semantics\\ea-articles\\1.3.3.0.txt",
+        "sha256": "c80ee030b5320580b7ca07e51081fa13ff1cc6c214444508e76278957d93f6cf"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T234837-0400-gadget-vehicle-semantics\\ea-articles\\1.4.2.0.txt",
+        "sha256": "b4321d0a17317b4cee639ad4f56d6ec48bb903f2d229c05a654a87ad2d6d4a1e"
+      }
+    ],
+    "commands": [
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+          "--manifest",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T084100-0400-gadget-vehicle-display\\L3041\\controls-manifest.json",
+          "--out",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T084100-0400-gadget-vehicle-display\\L3041\\controls-raw.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T084100-0400-gadget-vehicle-display\\L3041",
+        "exitCode": 0,
+        "helperSha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3",
+        "stdout": "[\n {\n  \"path\": \"C:\\\\Users\\\\royal\\\\Documents\\\\BF6 Datamining\\\\builds\\\\1.4.3.5\\\\reports\\\\carry-forward-2026-09-30\\\\raw\\\\Common\\\\Hardware\\\\Vehicles\\\\Boat\\\\CB90\\\\VB_VEH_Boat_CB90.ebx\",\n  \"rawSha256\": \"2d8e05398f8f3f2b79159a8db1ec5a87d3033ac7c2469d0cb5f3c6c3f6911ad3\",\n  \"offset\": 440,\n  \"type\": \"f32\",\n  \"bytesHex\": \"00007a44\",\n  \"value\": 1000.0,\n  \"expect\": 1000.0,\n  \"matches\": true\n },\n {\n  \"path\": \"C:\\\\Users\\\\royal\\\\Documents\\\\BF6 Datamining\\\\builds\\\\1.4.3.5\\\\capture\\\\collection\\\\raw\\\\Common\\\\Hardware\\\\Gadgets\\\\_Logic\\\\SimEx_Smoke_FirePutOut.ebx\",\n  \"rawSha256\": \"475deec6a6c65e12bc66f188e4c1a0c557d0d72ec0cc8426b52c936719388d9f\",\n  \"offset\": 108,\n  \"type\": \"u32\",\n  \"bytesHex\": \"698fa442\",\n  \"value\": 1118080873,\n  \"expect\": 1118080873,\n  \"matches\": true\n }\n]\n",
+        "stderr": ""
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+          "--manifest",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T084100-0400-gadget-vehicle-display\\L3041\\repair-verification-manifest.json",
+          "--out",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T084100-0400-gadget-vehicle-display\\L3041\\repair-raw.json"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T084100-0400-gadget-vehicle-display\\L3041",
+        "exitCode": 0,
+        "helperSha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3",
+        "stdout": "[\n {\n  \"path\": \"C:\\\\Users\\\\royal\\\\Documents\\\\BF6 Datamining\\\\builds\\\\1.4.3.5\\\\reports\\\\carry-forward-2026-09-30\\\\raw\\\\Common\\\\Hardware\\\\Vehicles\\\\Boat\\\\CB90\\\\VB_VEH_Boat_CB90.ebx\",\n  \"rawSha256\": \"2d8e05398f8f3f2b79159a8db1ec5a87d3033ac7c2469d0cb5f3c6c3f6911ad3\",\n  \"offset\": 712,\n  \"type\": \"f32\",\n  \"bytesHex\": \"0000803f\",\n  \"value\": 1.0,\n  \"expect\": 1.0,\n  \"matches\": true\n }\n]\n",
+        "stderr": ""
+      }
+    ],
+    "commandHistory": "Prior command histories were not rerun; current control and repair commands retained. Inspection scripts and exact invocation are preserved locally."
+  },
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-10-01",
+    "build": "1.4.3.5",
+    "binding": "research",
+    "leads": [
+      {
+        "id": "L3041",
+        "title": "High-impact vehicle semantic boundaries",
+        "status": "finding",
+        "summary": "Exact health/repair source names and dated name-matched EA mechanics retained; no effective vehicle stat established.",
+        "reopenWhen": "Provide one of the exact owner-name/unit/selected operation contracts enumerated per mechanic in high-impact-findings.json."
+      }
+    ],
+    "assets": [
+      {
+        "path": "Common/Hardware/Vehicles/Boat/CB90/VB_VEH_Boat_CB90",
+        "format": "raw-ebx",
+        "sha256": "2d8e05398f8f3f2b79159a8db1ec5a87d3033ac7c2469d0cb5f3c6c3f6911ad3",
+        "question": "Health and repair source operands",
+        "result": "useful",
+        "conclusion": "Exact source MaxHealth and RepairRateModifier retained; effective health and repair formulas unresolved."
+      },
+      {
+        "path": "Common/Hardware/Gadgets/_Logic/SimEx_Smoke_FirePutOut",
+        "format": "raw-ebx",
+        "sha256": "475deec6a6c65e12bc66f188e4c1a0c557d0d72ec0cc8426b52c936719388d9f",
+        "question": "Smoke graph known-answer control",
+        "result": "inconclusive",
+        "conclusion": "Same-owner raw u32 control passed; duration and lock-break composition unresolved."
+      }
+    ]
+  },
+  "parentReview": {
+    "workerReview": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T084100-0400-gadget-vehicle-display\\L3041\\parent-worker-review.json",
+      "sha256": "68598d7fb292f7276501caaede03ccf038d5db12f56895c111577c1f4319460d"
+    },
+    "consequentialRaw": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T084100-0400-gadget-vehicle-display\\L3041\\parent-consequential-raw.json",
+      "sha256": "2d928b3d57ff7eec96b3b593143ac47caeff4fbae7ba0fb33763be75d1e1143a"
+    },
+    "scopeReviewed": true,
+    "noBaselineReextraction": true
+  }
+}

@@ -1,0 +1,231 @@
+{
+  "date": "2026-10-01",
+  "family": "BARRELS.worldSpotMult",
+  "build": {
+    "version": "1.4.3.5",
+    "head": 4909002,
+    "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1"
+  },
+  "assumptions": [
+    {
+      "id": "A01",
+      "source": "docs/data-flow/REGISTER.md:60",
+      "statement": "The site baseline combines versions and source/panel evidence. No file-wide current-build guarantee is assumed."
+    }
+  ],
+  "method": "Current site pointer/value join; only AG Coating costs are new current raw extraction. Other source rows retain their original Head and carry forward by equal raw SHA-256. No generators or in-game tests run.",
+  "rows": [
+    {
+      "pointer": "data/attachments.json:/BARRELS/10/worldSpotMult",
+      "catalog": "BARRELS",
+      "family": "worldSpotMult",
+      "choice": "vssm_suppressed",
+      "weapon": null,
+      "value": 0,
+      "result": "prior-field-match",
+      "classification": null,
+      "selections": [
+        {
+          "siteWeaponId": "vssm",
+          "slot": "barrel",
+          "attachment": "vssm_suppressed",
+          "identityStatus": "source-linked",
+          "siteSpotFactors": {
+            "worldSpotMult": 0,
+            "minimapSpotMult": 0.06
+          },
+          "selectors": [
+            {
+              "guid": "2d77eab2-17a5-48bb-b917-3a35913e0dd4",
+              "asset": "Common/Hardware/Weapons/_WeaponModifiers/_Barrel/U_WPM_BRL_VSSMBasic_W10",
+              "packages": [
+                {
+                  "route": "Common/Hardware/Weapons/_WeaponModifiers/_Barrel/WPM_BRL_VSSMBasic_W10",
+                  "rawSha256": "093d4eeeb4c64fe6bc47cff3b26ace1f3b8a2235891e19b0f42c15d222e5e22f",
+                  "objectIndex": 1,
+                  "spotEffects": [
+                    {
+                      "importOrdinal": 0,
+                      "route": "Common/Hardware/Weapons/_WeaponModifiers/Spotting/WME_SpotRange_2D3D_VSSM_P35",
+                      "rawSha256": "29cf22a003c6386dd8b60703d0321e31bff385b0a9d3fc4da30760c60e08a1f9",
+                      "fields": {
+                        "Field_d98b0371": 0.06,
+                        "Field_6f8d5f40": 0.0,
+                        "Field_3f680d24": 9000
+                      }
+                    }
+                  ],
+                  "wbImportedForSiteWeapon": true
+                }
+              ]
+            }
+          ],
+          "spotEffectImports": [
+            {
+              "selectorGuid": "2d77eab2-17a5-48bb-b917-3a35913e0dd4",
+              "packageRoute": "Common/Hardware/Weapons/_WeaponModifiers/_Barrel/WPM_BRL_VSSMBasic_W10",
+              "packageRawSha256": "093d4eeeb4c64fe6bc47cff3b26ace1f3b8a2235891e19b0f42c15d222e5e22f",
+              "importOrdinal": 0,
+              "route": "Common/Hardware/Weapons/_WeaponModifiers/Spotting/WME_SpotRange_2D3D_VSSM_P35",
+              "rawSha256": "29cf22a003c6386dd8b60703d0321e31bff385b0a9d3fc4da30760c60e08a1f9",
+              "fields": {
+                "Field_d98b0371": 0.06,
+                "Field_6f8d5f40": 0.0,
+                "Field_3f680d24": 9000
+              }
+            }
+          ],
+          "siteModelOutputWorldMinimapM": null,
+          "auditStatus": "captured spotting import; compare factors",
+          "sourceFactorComparisons": [
+            {
+              "selectorGuid": "2d77eab2-17a5-48bb-b917-3a35913e0dd4",
+              "packageRoute": "Common/Hardware/Weapons/_WeaponModifiers/_Barrel/WPM_BRL_VSSMBasic_W10",
+              "packageRawSha256": "093d4eeeb4c64fe6bc47cff3b26ace1f3b8a2235891e19b0f42c15d222e5e22f",
+              "effectComponents": [
+                {
+                  "route": "Common/Hardware/Weapons/_WeaponModifiers/Spotting/WME_SpotRange_2D3D_VSSM_P35",
+                  "rawSha256": "29cf22a003c6386dd8b60703d0321e31bff385b0a9d3fc4da30760c60e08a1f9",
+                  "fieldPath": "Class_0045e7fa/{Field_6f8d5f40 world, Field_d98b0371 minimap, Field_3f680d24 priority}",
+                  "values": {
+                    "Field_d98b0371": 0.06,
+                    "Field_6f8d5f40": 0.0,
+                    "Field_3f680d24": 9000
+                  }
+                }
+              ],
+              "combinedFactorsWorldMinimapCandidate": [
+                0.0,
+                0.06
+              ],
+              "siteFactorsWorldMinimap": [
+                0,
+                0.06
+              ],
+              "candidateFactorsEqualSite": true
+            }
+          ],
+          "weaponWB": {
+            "route": "Common/Hardware/Weapons/DMR/VSSM/VSSM_WB",
+            "captureId": 11296,
+            "rawSha256": "5c5c2165c31058a94b8476775915260591bb7bbcb49c118e2bdae55115086336"
+          }
+        }
+      ],
+      "noDirectEffectPairs": 0,
+      "note": "Retained exact WB selector package factors agree where a direct spotting operand exists; neutral packages without a direct effect are bounded route limits, not source-zero/native-absence proof."
+    },
+    {
+      "pointer": "data/attachments.json:/BARRELS/11/worldSpotMult",
+      "catalog": "BARRELS",
+      "family": "worldSpotMult",
+      "choice": "vssm_suppressed_asm",
+      "weapon": null,
+      "value": 0,
+      "result": "prior-field-match",
+      "classification": null,
+      "selections": [
+        {
+          "siteWeaponId": "vssm",
+          "slot": "barrel",
+          "attachment": "vssm_suppressed_asm",
+          "identityStatus": "source-linked",
+          "siteSpotFactors": {
+            "worldSpotMult": 0,
+            "minimapSpotMult": 0.14
+          },
+          "selectors": [
+            {
+              "guid": "55b40763-27b2-4749-96bb-0797f71d0096",
+              "asset": "Common/Hardware/Weapons/_WeaponModifiers/_Barrel/U_WPM_BRL_VSSMNoPort_W10",
+              "packages": [
+                {
+                  "route": "Common/Hardware/Weapons/_WeaponModifiers/_Barrel/WPM_BRL_VSSMNoPort_W10",
+                  "rawSha256": "f0614e71002b07d99470616f08d27a261b393ec88364291edea36cedb3d62087",
+                  "objectIndex": 1,
+                  "spotEffects": [
+                    {
+                      "importOrdinal": 0,
+                      "route": "Common/Hardware/Weapons/_WeaponModifiers/Spotting/WME_SpotRange_2D3D_P25",
+                      "rawSha256": "6fb70ff3f176761efcfad6c8ccb5fd6e40eeeb98cbc607881cb34a94528597f8",
+                      "fields": {
+                        "Field_d98b0371": 0.14,
+                        "Field_6f8d5f40": 0.0,
+                        "Field_3f680d24": 9000
+                      }
+                    }
+                  ],
+                  "wbImportedForSiteWeapon": true
+                }
+              ]
+            }
+          ],
+          "spotEffectImports": [
+            {
+              "selectorGuid": "55b40763-27b2-4749-96bb-0797f71d0096",
+              "packageRoute": "Common/Hardware/Weapons/_WeaponModifiers/_Barrel/WPM_BRL_VSSMNoPort_W10",
+              "packageRawSha256": "f0614e71002b07d99470616f08d27a261b393ec88364291edea36cedb3d62087",
+              "importOrdinal": 0,
+              "route": "Common/Hardware/Weapons/_WeaponModifiers/Spotting/WME_SpotRange_2D3D_P25",
+              "rawSha256": "6fb70ff3f176761efcfad6c8ccb5fd6e40eeeb98cbc607881cb34a94528597f8",
+              "fields": {
+                "Field_d98b0371": 0.14,
+                "Field_6f8d5f40": 0.0,
+                "Field_3f680d24": 9000
+              }
+            }
+          ],
+          "siteModelOutputWorldMinimapM": null,
+          "auditStatus": "captured spotting import; compare factors",
+          "sourceFactorComparisons": [
+            {
+              "selectorGuid": "55b40763-27b2-4749-96bb-0797f71d0096",
+              "packageRoute": "Common/Hardware/Weapons/_WeaponModifiers/_Barrel/WPM_BRL_VSSMNoPort_W10",
+              "packageRawSha256": "f0614e71002b07d99470616f08d27a261b393ec88364291edea36cedb3d62087",
+              "effectComponents": [
+                {
+                  "route": "Common/Hardware/Weapons/_WeaponModifiers/Spotting/WME_SpotRange_2D3D_P25",
+                  "rawSha256": "6fb70ff3f176761efcfad6c8ccb5fd6e40eeeb98cbc607881cb34a94528597f8",
+                  "fieldPath": "Class_0045e7fa/{Field_6f8d5f40 world, Field_d98b0371 minimap, Field_3f680d24 priority}",
+                  "values": {
+                    "Field_d98b0371": 0.14,
+                    "Field_6f8d5f40": 0.0,
+                    "Field_3f680d24": 9000
+                  }
+                }
+              ],
+              "combinedFactorsWorldMinimapCandidate": [
+                0.0,
+                0.14
+              ],
+              "siteFactorsWorldMinimap": [
+                0,
+                0.14
+              ],
+              "candidateFactorsEqualSite": true
+            }
+          ],
+          "weaponWB": {
+            "route": "Common/Hardware/Weapons/DMR/VSSM/VSSM_WB",
+            "captureId": 11296,
+            "rawSha256": "5c5c2165c31058a94b8476775915260591bb7bbcb49c118e2bdae55115086336"
+          }
+        }
+      ],
+      "noDirectEffectPairs": 0,
+      "note": "Retained exact WB selector package factors agree where a direct spotting operand exists; neutral packages without a direct effect are bounded route limits, not source-zero/native-absence proof."
+    }
+  ],
+  "limits": [
+    "No source route is a retained bounded result, with no new lead or source-zero claim.",
+    "Serialized configuration and arithmetic comparison do not prove native activation/composition.",
+    "Existing four SP suppressor minimap candidate differences (.10 versus .14) remain unresolved L47/L49 evidence, outside the eleven neutral minimap candidate leaves; no new material mismatch is inferred."
+  ],
+  "record": {
+    "v": 1,
+    "kind": "audit",
+    "date": "2026-10-01",
+    "build": "1.4.3.5",
+    "binding": "research"
+  }
+}

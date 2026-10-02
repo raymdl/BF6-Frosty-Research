@@ -32,7 +32,10 @@ Report each as pass or flag, with the evidence in one line.
    `sim/`, `ui/`, `index.html` or `assets/`; files outside the run's topic; or anything pushed
    (the branch must still be ahead of origin).
 3. **Records.** `python scripts/frosty-records.py check` must pass. Known warnings:
-   ledger-stale and the L107 value-changed warning. Flag any other.
+   ledger-stale, the L107 value-changed warning and the two L604 warnings. Flag any other.
+   Runs no longer commit generated files, so "[generated] out of date" is expected. Once
+   every parallel run has closed and the repos are clean, the operator may approve one
+   `build`, a re-check and a single generated-files commit in each repo; otherwise flag it.
 4. **Raw bytes.** `python .claude/skills/review-frosty-research/review-rawcheck.py "<receipts glob>"`.
    Any byte or value mismatch or missing file is a flag.
 5. **Headline values.** Take the 3-5 numbers the handoff leads with. Decode each cited raw file

@@ -1,0 +1,175 @@
+{
+  "lead": "L3250",
+  "status": "finding",
+  "build": {
+    "id": "1.4.3.5",
+    "head": 4909002,
+    "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1"
+  },
+  "question": "Current vehicle gameplay loadout slot census",
+  "control": {
+    "description": "Current TransportHeli single-option slot has the same exact option import in the ordered list and separate reference as the prior CSV. This is a structural control, not an owner or runtime default control.",
+    "passed": true,
+    "rawChecks": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-stage1\\raw\\Common\\Gameplay\\Loadouts\\Vehicles\\TransportHeli\\EqSlot_Vehicle_TransportHeli_Equipment1_NonCustomizable.ebx",
+        "rawSha256": "8b2495f7442d3932ecbdaed355d7d93752b575ccb2bb8115f140740dc6bcecc8",
+        "offset": 80,
+        "type": "i32",
+        "bytesHex": "01000000",
+        "value": 1
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-stage1\\raw\\Common\\Gameplay\\Loadouts\\Vehicles\\TransportHeli\\EqSlot_Vehicle_TransportHeli_Equipment1_NonCustomizable.ebx",
+        "rawSha256": "8b2495f7442d3932ecbdaed355d7d93752b575ccb2bb8115f140740dc6bcecc8",
+        "offset": 368,
+        "type": "guid",
+        "bytesHex": "79d67d7dd5b72c40947452c2c4a65934",
+        "value": "7d7dd679-b7d5-402c-9474-52c2c4a65934"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-stage1\\raw\\Common\\Gameplay\\Loadouts\\Vehicles\\TransportHeli\\EqSlot_Vehicle_TransportHeli_Equipment1_NonCustomizable.ebx",
+        "rawSha256": "8b2495f7442d3932ecbdaed355d7d93752b575ccb2bb8115f140740dc6bcecc8",
+        "offset": 384,
+        "type": "guid",
+        "bytesHex": "b1d73f828dae0a44ab55a61b40d479da",
+        "value": "823fd7b1-ae8d-440a-ab55-a61b40d479da"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-stage1\\raw\\Common\\Gameplay\\Loadouts\\Vehicles\\TransportHeli\\EqSlot_Vehicle_TransportHeli_Equipment1_NonCustomizable.ebx",
+        "rawSha256": "8b2495f7442d3932ecbdaed355d7d93752b575ccb2bb8115f140740dc6bcecc8",
+        "offset": 168,
+        "type": "i32",
+        "bytesHex": "01000000",
+        "value": 1
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-stage1\\raw\\Common\\Gameplay\\Loadouts\\Vehicles\\TransportHeli\\EqSlot_Vehicle_TransportHeli_Equipment1_NonCustomizable.ebx",
+        "rawSha256": "8b2495f7442d3932ecbdaed355d7d93752b575ccb2bb8115f140740dc6bcecc8",
+        "offset": 368,
+        "type": "guid",
+        "bytesHex": "79d67d7dd5b72c40947452c2c4a65934",
+        "value": "7d7dd679-b7d5-402c-9474-52c2c4a65934"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-stage1\\raw\\Common\\Gameplay\\Loadouts\\Vehicles\\TransportHeli\\EqSlot_Vehicle_TransportHeli_Equipment1_NonCustomizable.ebx",
+        "rawSha256": "8b2495f7442d3932ecbdaed355d7d93752b575ccb2bb8115f140740dc6bcecc8",
+        "offset": 384,
+        "type": "guid",
+        "bytesHex": "b1d73f828dae0a44ab55a61b40d479da",
+        "value": "823fd7b1-ae8d-440a-ab55-a61b40d479da"
+      }
+    ]
+  },
+  "sourceFacts": {
+    "capturedRoutes": 688,
+    "captureFailures": 0,
+    "decodeFailures": 0,
+    "oldRows": 166,
+    "currentRows": 166,
+    "unchangedRows": 166,
+    "changedRows": 0,
+    "singleOptionRows": 47,
+    "separateReferenceEqualsFirst": 166,
+    "class": "Class_4a439ede",
+    "optionListField": "Field_0a2f2eab",
+    "separateOptionField": "Field_bf67ccc6",
+    "directImportsOutsideInitialCapture": 270
+  },
+  "inference": [
+    "The separate reference is a preset option selection candidate; list order alone is not default activation proof."
+  ],
+  "unresolved": [
+    "Eq option to exact seat-map owner controls are pending L3251.",
+    "Active default preset selector is pending L3252."
+  ],
+  "siteImpact": "No site changes.",
+  "evidence": [
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T-vehicle-loadout-slots-L3250\\slot-rows-current.json",
+      "sha256": "c46d39ec9982b558c8e3c6bfce224855dc35c695717e0e851b1f03dc6753ab50",
+      "bytes": 991820
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T-vehicle-loadout-slots-L3250\\slot-comparison.json",
+      "sha256": "4c7b933720eb9403db8d4444212c9f2f961fb55332a5840fbdabf5c70700cd1c",
+      "bytes": 107
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T-vehicle-loadout-slots-L3250\\current-decode.json",
+      "sha256": "2b70cd68733b58a6892250bd961928557970905da21692359ae6ebb073d12581",
+      "bytes": 5889096
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T-vehicle-loadout-slots-L3250\\direct-import-census.json",
+      "sha256": "5b0edd4390a4f04d2a9a8a5013b07663c65e118630c1c856eb6a5bc8d4436fa7",
+      "bytes": 26356
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T-vehicle-loadout-slots-L3250\\routes-stage1.txt",
+      "sha256": "a7208754d961b3916c50a466325c143a459f5234db0e174d1a91500579152f30",
+      "bytes": 62693
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T-vehicle-loadout-slots-L3250\\L3250\\parent-control-reread.json",
+      "sha256": "59293c97831b15bb566aee0678e6df78a670854542daa3056fb4c46b02b414a2",
+      "bytes": 3100
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\Codex\\2026-10-01\\vehicle-loadout-slots-and-defaults-lead\\work\\decode_stage1.py",
+      "sha256": "71f993f434f4dcaae620222838a177ce07fcbe1fa843492e071bee945b23594f",
+      "bytes": 4384
+    }
+  ],
+  "reproduction": {
+    "cwd": "C:\\Users\\royal\\Documents\\Codex\\2026-10-01\\vehicle-loadout-slots-and-defaults-lead",
+    "argv": [
+      "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "work/decode_stage1.py"
+    ],
+    "capture": {
+      "cwd": "C:\\Users\\royal\\Documents\\BF6 Frosty Research",
+      "argv": [
+        "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "scripts/frosty-capture.py",
+        "vehicle-loadout-slots-2026-10-01-stage1",
+        "--build",
+        "1.4.3.5",
+        "--routes-file",
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T-vehicle-loadout-slots-L3250\\routes-stage1.txt"
+      ]
+    },
+    "decoder": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-ebx-decode.py",
+      "sha256": "6fdc0334efaee0fe6113b5c9db4973f1358f53ee65dfb94edbc22fb0bf07a727",
+      "bytes": 23656
+    },
+    "rawReader": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+      "sha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3",
+      "bytes": 4103
+    }
+  },
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-10-01",
+    "build": "1.4.3.5",
+    "leads": [
+      {
+        "id": "L3250",
+        "title": "Current vehicle gameplay loadout slot census",
+        "status": "finding",
+        "summary": "All 166 current slot assets, ordered options and separate option references match the 1.4.3.0 probe including raw hashes; seat ownership and activation are separate checks.",
+        "reopenWhen": "Loadout asset bytes or selected fields change."
+      }
+    ],
+    "assets": [],
+    "binding": "research",
+    "run": {
+      "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T-vehicle-loadout-slots-L3250",
+      "orchestrator": "GPT-6.1 Sol",
+      "workers": []
+    }
+  }
+}

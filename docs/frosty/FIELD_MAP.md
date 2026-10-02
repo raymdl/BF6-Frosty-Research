@@ -456,3 +456,41 @@ The table adds hashes not listed elsewhere on this page. Confidence is **Named b
 | `Field_3b078489` | `OverHeatDropDelay` | WB.OverHeat |
 | `Field_3ad34fcc` | `OverHeatPenaltyTime` | WB.OverHeat |
 | `Field_37a30bd2` | `OverHeatThreshold` | WB.OverHeat |
+
+<!-- native-semantics:L1000:start -->
+## Field and type hash reader control (L1000)
+
+Three direct current GRX field name/hash pairs pass 15 fresh raw reads: RecoilDuration `5a02dd65`, InitialSpeed `0bf4f62b`, and TimeToLive `5ef7b9a1`. None of 24 finite source-derived algorithm/representation hypotheses reproduces all three pairs. The source-pair control passes; the algorithm candidates fail qualification. This bounded result does not establish a universal negative. No field or class names were changed in the atlases. An inverse-seed method is tested separately in L1005.
+
+Evidence: [receipt](../../reference-data/provenance/frosty-2026-10-01-L1000-name-hash-qualification.json). Known-answer source controls and parent raw re-reads pass. Native semantics remain separate from serialized facts.
+<!-- native-semantics:L1000:end -->
+
+<!-- native-semantics:L1001:start -->
+## Exact descriptor enum reader (L1001)
+
+The current descriptor enum reader checks declaring local keys, descriptor indices, field flags and enum references before exposing member hashes and numeric values. Current Single 0, Automatic 2 and Burst 3 controls pass exact typed raw reads. The installed self-check and application qualify 244 weapon, 638 soldier and 438 vehicle enum field identities, with zero identity rejections. The 1,320 identities retain existing FireLogic labels only; no new zeroing, stance/state or spotting meaning is established. Hash-only members remain unnamed. Atlas overlays record zero limit-to-meaning changes. This reader reports descriptor membership, not native enum use.
+
+Evidence: [receipt](../../reference-data/provenance/frosty-2026-10-01-L1001-descriptor-enum-reader.json). Parent review, independent raw samples and receipt validation pass.
+<!-- native-semantics:L1001:end -->
+
+<!-- native-semantics:L1005:start -->
+## Inverse-seed hash method (L1005)
+
+After the first hash and resource batches produced limits, the method changed to algebraic inverse-seed checks. Synthetic recovery from two distinct strings passes for each scoped recurrence/representation. A fresh current RecoilDuration name/hash read also passes. All 36 finite recurrence, encoding and case variants yield no shared initial seed across the three confirmed shipped field pairs. The Frosty source function named Fnv1 uses multiply-33/XOR; its labels do not establish conventional FNV. No candidate reaches a held-out field pair or a type-name control. This finite result leaves the field/type name algorithm unresolved and changes no atlas names.
+
+Evidence: [receipt](../../reference-data/provenance/frosty-2026-10-01-L1005-inverse-seed-hash-control.json). Parent review, independent raw samples and receipt validation pass.
+<!-- native-semantics:L1005:end -->
+
+<!-- native-semantics:L1006:start -->
+## Authored local-state enum boundary (L1006)
+
+Current named local objects use `Class_3038efcc.Field_b6657270` as exact enum descriptor 852, hash `3a012691`. InLobby stores 0 and Active stores 1 in OverlayPicker. Other exact current owners contain multiple distinct authored names with the same value: mode settings have ten names at 0, mutators have four at 0, and the NVG filter has RawAlign and NVG at 1. Independently controlled type and raw reads pass. The proposed unique state-ordinal control fails: that route is wrong. No semantic absence claim follows from it. Keep the enum role unnamed; these values are not qualified global stance/state IDs or compiled state transitions. No reader or atlas semantic promotion is made.
+
+Evidence: [receipt](../../reference-data/provenance/frosty-2026-10-01-L1006-authored-state-enum-control.json). Parent review and receipt validation pass.
+<!-- native-semantics:L1006:end -->
+
+<!-- native-semantics:L1008:start -->
+### UI choice/value enum boundary (L1008)
+
+The final enum method tests exact retained UI choice/value bindings. Current widget-to-zeroing DBD pointers, exported GUIDs and local keys pass the source identity control. The selected enum 536 UI array is empty, and its retained UI text list has zero records. Five selected spotting reset entries store exact INT32 values 0, 0 and 31; they are not established named enum choices. No complete named UI choice/value mapping exists in the inspected selected artifacts. This scoped limit does not establish absence elsewhere. Missing contracts and exact reopen conditions are in the two result rows. No zeroing or spotting enum meaning is promoted. See the [receipt](../../reference-data/provenance/frosty-2026-10-01-L1008-ui-enum-binding-control.json).
+<!-- native-semantics:L1008:end -->

@@ -1,0 +1,1672 @@
+{
+  "lead": "L794",
+  "status": "complete",
+  "build": {
+    "version": "1.4.3.5",
+    "head": 4909002,
+    "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1"
+  },
+  "question": "Exhaust fixed optics zoom/PiP/world-render FOV numeric field roles and stat possibilities",
+  "sourceFacts": {
+    "control": {
+      "passed": true,
+      "description": "Same-owner RMR55@672/Riser40@2976",
+      "rawChecks": [
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Attachments\\Reflex\\RMR\\WPM_SCP_RMR.ebx",
+          "rawSha256": "4ba83014372cfcbcd86c4bbb28af012e52ed7a1035ba0ac674f2ea0a8288595f",
+          "offset": 672,
+          "type": "f32",
+          "bytesHex": "00005c42",
+          "value": 55.0,
+          "expect": 55,
+          "matches": true
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Attachments\\Reflex\\RMR\\WPM_SCP_RMR_Riser.ebx",
+          "rawSha256": "b088d968f84d25783b5b05644369396c1afba8ca94a7bb7bd13af2f821e41fd8",
+          "offset": 2976,
+          "type": "f32",
+          "bytesHex": "00002042",
+          "value": 40.0,
+          "expect": 40,
+          "matches": true
+        }
+      ]
+    },
+    "expected": 125,
+    "examined": 125,
+    "supplementalExpected": 3,
+    "supplementalExamined": 3,
+    "numericExpected": 1935,
+    "numericExamined": 1935,
+    "supplementalNumericExpected": 220,
+    "supplementalNumericExamined": 220,
+    "familyExpected": 99,
+    "familyExamined": 99,
+    "classificationCounts": {
+      "known limit": 98,
+      "traced, not on the site": 1
+    },
+    "rawCheckCount": 4182,
+    "rawCheckFailures": 0,
+    "sourceFindings": [
+      {
+        "id": "render-source-role",
+        "finding": "All55 render-part objects use the controlled exact Class3a930efc field7768ebf2. The source render-FOV role in degrees is supported by prior operator comparison. Effective selected-part values require per-weapon selection and inline/shared precedence.",
+        "sourceValueCount": 55,
+        "distinctSourceValues": [
+          16.0,
+          20.0,
+          22.0,
+          24.0,
+          28.0,
+          29.0,
+          30.0,
+          32.0,
+          33.0,
+          34.0,
+          36.0,
+          37.0,
+          38.0,
+          40.0,
+          44.0,
+          45.0,
+          48.0,
+          55.0
+        ],
+        "publication": "No effective selected-weapon numeric stat proposed."
+      },
+      {
+        "id": "zoom-source-consistency",
+        "finding": "All16 current zoom-definition bodies reproduce the existing three-field source relationship to float precision. This is corroboration of a source relationship, not a native FOV/magnification equation.",
+        "evidence": {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L794\\zoom-consistency.json",
+          "sha256": "a2ba0b75bf3ae11cd61fb0b5c6d29517ae5b6901a6149b99b5b70f89750300f8"
+        },
+        "officialContext": {
+          "title": "BATTLEFIELD 6 UPDATE 1.4.3.0",
+          "url": "https://forums.ea.com/blog/battlefield-game-info-hub-en/battlefield-6-update-1-4-3-0/13707600",
+          "version": "1.4.3.0",
+          "releaseDate": "2026-09-15",
+          "paragraph": "WEAPONS, PiP option",
+          "meaning": "PiP off puts magnification into full-screen FOV. PiP on combines world FOV and in-optic zoom. Total magnification is unchanged.",
+          "limit": "Does not identify an unnamed scalar, effective setting or native formula."
+        }
+      },
+      {
+        "id": "current-option-behavior",
+        "finding": "31 exact current option bodies provide75 resolved current localized records. Per-tier zoom sensitivity text states multiplication by base Infantry Zoom Sensitivity. ADS FOV text states user-defined versus default FOV. PiP text distinguishes outside-scope FOV; no numeric member role or effective setting is inferred.",
+        "evidence": {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L794\\option-ui-final.json",
+          "sha256": "18da25e5288f9fc27aa1dbe43aa513797a2817d7bfeb6c5ee01b0a79e05f612c"
+        }
+      }
+    ]
+  },
+  "proposedStats": [],
+  "context": [
+    {
+      "candidate": "Selected weapon first-person render FOV",
+      "sourcePrediction": "When the effective selected part is established, a smaller render-FOV value should draw weapon/optic/arms larger; it should not change total world magnification by itself.",
+      "existingValidation": "16Sep operator comparisons support this meaning for shared base versus riser source values.",
+      "remainingRequirement": "Resolve selected part and inline/shared precedence before per-weapon display; no new recordings or operator action required in this batch."
+    }
+  ],
+  "inconclusive": [
+    "Fixed numeric field batch fully inventoried and field-specific available evidence searched.",
+    "Unknown roles/units/operations persist independently of complete extraction.",
+    "Source aliases/equation consistency do not establish player settings, projection axis, native composition or activation.",
+    "Lens-flare/glint/zeroing belong to the separate assigned lead."
+  ],
+  "commands": [
+    {
+      "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "argv": [
+        "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+        "--manifest",
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L794\\consequential-manifest.json",
+        "--out",
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L794\\consequential-rawchecks.json"
+      ],
+      "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L794",
+      "exitCode": 0
+    },
+    {
+      "executable": "python",
+      "script": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L794\\setup-control-scope.py",
+      "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L794",
+      "exitCode": 0
+    },
+    {
+      "executable": "powershell",
+      "script": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L794\\sdk-schema.ps1",
+      "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L794",
+      "exitCode": 0
+    },
+    {
+      "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "argv": [
+        "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-ui-text.py",
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\GameSetup\\Options\\Input\\OptionSoldierZoomSensitivity1x50.ebx",
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\GameSetup\\Options\\Input\\OptionSoldierZoomSensitivity1x00.ebx",
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\GameSetup\\Options\\Input\\OptionSoldierZoomSensitivity2x00.ebx",
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\GameSetup\\Options\\Input\\OptionSoldierZoomSensitivity2x50.ebx",
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\GameSetup\\Options\\Input\\OptionSoldierZoomSensitivity3x00.ebx",
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\GameSetup\\Options\\Input\\OptionSoldierZoomSensitivity3x50.ebx",
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\GameSetup\\Options\\Input\\OptionSoldierZoomSensitivity4x00.ebx",
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\GameSetup\\Options\\Input\\SoldierZoomSensitivity.ebx",
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\GameSetup\\Options\\Input\\OptionUniformSoldierAiming.ebx",
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\GameSetup\\Options\\Input\\OptionUniformSoldierAimingCoefficient.ebx",
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\GameSetup\\Options\\Input\\OptionSmoothZoomInputSensitivity.ebx",
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\GameSetup\\Options\\Render\\OptionFieldOfViewScaleADS.ebx",
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\GameSetup\\Options\\Input\\OptionHoldButtonToZoom.ebx",
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\GameSetup\\Options\\Input\\OptionSoldierZoomSensitivity1x75.ebx",
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\GameSetup\\Options\\Input\\OptionSoldierZoomSensitivity4x50.ebx",
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\GameSetup\\Options\\Input\\OptionSoldierZoomSensitivity6x00.ebx",
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\GameSetup\\Options\\Input\\OptionSoldierZoomSensitivity5x00.ebx",
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\GameSetup\\Options\\Input\\OptionSoldierZoomSensitivity1x25.ebx",
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\GameSetup\\Options\\Input\\OptionSoldierZoomSensitivity8x00.ebx",
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\GameSetup\\Options\\Input\\OptionSoldierZoomSensitivity10x00.ebx",
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\GameSetup\\Options\\Input\\OptionVerticalSoldierMouseRatio.ebx",
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\GameSetup\\Options\\Input\\OptionVerticalSoldierMouseZoomRatio.ebx",
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\GameSetup\\Options\\Input\\OptionVerticalSoldierStickRatio.ebx",
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\GameSetup\\Options\\Input\\OptionVerticalSoldierStickZoomRatio.ebx",
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\GameSetup\\Options\\Input\\StickAimingAccelerationAmount.ebx",
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\GameSetup\\Options\\Input\\OptionControllerAccelerationPresets.ebx",
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\GameSetup\\Options\\Input\\OptionGyroAimingModeSoldier.ebx",
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\GameSetup\\Options\\Input\\OptionFlickLookModeSoldier.ebx",
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\GameSetup\\Options\\Input\\OptionFlickLookThresholdSoldier.ebx",
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\GameSetup\\Options\\Input\\OptionFlickLookSpeedScaleSoldier.ebx",
+        "--strings",
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\fs_us_loc.strings.tsv",
+        "--descriptors",
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\toolchain\\SharedTypeDescriptors.ebx",
+        "--catalog",
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\asset-catalog.json",
+        "--out",
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L794\\option-ui-text.json"
+      ],
+      "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L794",
+      "exitCode": 0
+    },
+    {
+      "executable": "python",
+      "script": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L794\\decode-current-pip.py",
+      "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L794",
+      "exitCode": 0
+    },
+    {
+      "executable": "python",
+      "script": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L794\\decode-direct-killswitch.py",
+      "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L794",
+      "exitCode": 0
+    },
+    {
+      "executable": "python",
+      "script": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L794\\search-independent-consumers.py",
+      "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L794",
+      "exitCode": 0
+    },
+    {
+      "executable": "python",
+      "script": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L794\\cross-check-prior-roles.py",
+      "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L794",
+      "exitCode": 0
+    }
+  ],
+  "evidence": [
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L794\\typed-field-atlas.json",
+      "sha256": "64c4121f52202b4cba47d7e10b31af595e4e5dd6757e9207e33ce3fc8527f06e"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L794\\where-not-to-look.json",
+      "sha256": "01a68abd28c479c3eca9e1d0e615f90878355a7ea7941a6f0477fb701cd8878b"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L794\\frontier-additions.json",
+      "sha256": "cbdd88e2822ce83bbb8ef21d76a4cce218924ccb31673dc813a56cd070fe61fa"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L794\\option-ui-final.json",
+      "sha256": "18da25e5288f9fc27aa1dbe43aa513797a2817d7bfeb6c5ee01b0a79e05f612c"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L794\\graph-edges-final.json",
+      "sha256": "9f2b67a69ca71be257230f808de5040e40262d6fb874a84d8434ba943983a15f"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L794\\consequential-manifest.json",
+      "sha256": "8276362bdff1c094ef069ea21158435fc58860d63a92d9c386948d7944133ca4"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L794\\consequential-rawchecks.json",
+      "sha256": "8ba1f03337f03d59f9b085d72d5aaa3079c12efccff08a399f4fe40c4bf54ad5"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L794\\zoom-consistency.json",
+      "sha256": "a2ba0b75bf3ae11cd61fb0b5c6d29517ae5b6901a6149b99b5b70f89750300f8"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L794\\independent-consumer-search.json",
+      "sha256": "08a73e11de7703a33caa9cb22c9b5b71253e34c6a51c145ecc7e53c808b277e2"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L794\\sdk-schema-complete.json",
+      "sha256": "8b87766de92beae96ad3ca332988ad6281c170cb335b6b2c8b8182ca68766153"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L794\\finish-l794.py",
+      "sha256": "918fd9582584b83d6d0c67e088735794857b30023293b7026b11d951849841d8"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L794\\atlas_reader.py",
+      "sha256": "46e9b54892ebc4bdaf8f0291a8e8ea9f5cae552ce3a62ff9d56b9e6f04f01a84"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L794\\sdk-schema.ps1",
+      "sha256": "f1995dd3f78c743f8376925162e304495d74a28d04b52428d421d89e68e1a916"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-optic-render-fov-2026-09-16.json",
+      "sha256": "f980222aca1bb9d3788efbadf1f35389bb3bc521842fb4dee5f1b4d46bf902a9"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-optic-parts-2026-09-23.json",
+      "sha256": "26249e48b3fe2c64bbc8469b424cd7bd45abe2da306cc00bf48fde4d438d7c9d"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-pip-review-2026-09-23.json",
+      "sha256": "514f605337ca2e3a240165ad2750c070429910299f114f8551e2e0702c1ff4cb"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-pip-setting-context-2026-09-23.json",
+      "sha256": "a1d7aaa66a3a639d65ad99c50307cdf3aab6434af82956a449474a08ef3a00e8"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-09-29-L133-optic-input.json",
+      "sha256": "8a4bfbc9b701bf95885655eb5194058f89d4a9f0c0fd53b3a9dfb82e902e2254"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-09-26-L95-anti-glare-coating.json",
+      "sha256": "e82a05d36543e046c7072fbbbcc70c281c46e2aa10d4495a18f1c2640553b6a8"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\docs\\frosty\\FIELD_MAP.md",
+      "sha256": "976db6b19f6e2f4fa6ecd1784d907f1bceb055e1aad8033158412b7a65d20fcb"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L784\\l784-result-v3.json",
+      "sha256": "056620027b847d6d46f21f56f08e18600839e6e635e1771a132bc0322477f3f4"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L787\\registry-associations-v2.json",
+      "sha256": "07d9e22ee70b23a1ac6fd4b6891c7c3ca092da7d9eaf9c06a3493958ebafa5c2"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\ea-frontier-context.json",
+      "sha256": "f092f3e565c66a67fd00b563d9e1eb7778138c698af73619ff9ea8a66d65b045"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\toolchain\\BF6SDK.dll",
+      "sha256": "d6601d2eee9621f576b298cb7afcd8b67fb1a21329831dd86eb5493f29f1d55b"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\toolchain\\FrostySdk.dll",
+      "sha256": "fd852e16f4ff0bdccd25693eb2b01724b5346fe2d122bf485d927a7eb395e0f6"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\toolchain\\SharedTypeDescriptors.ebx",
+      "sha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L792\\parent-capture-verification.json",
+      "sha256": "bc4db15d410dfe24d6e389822e9c2c3357f28a4df02b8601a87a1a4cbd8d175f"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L794\\setup-control-scope.py",
+      "sha256": "1cc58454cb60f13ccf7d55f7df95787fb530830d96ca63b01cde327dd23c00a7"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L794\\option-ui-and-registry.py",
+      "sha256": "e926e397b00b598c2859669d1d4db466c19a85e8954b373ae91aaace2c68ff8f"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L794\\decode-current-pip.py",
+      "sha256": "de34a2e2d2ba1bc9e2cd3397035530b3f6022fb40fe4792df67f1ab37e50e750"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L794\\decode-direct-killswitch.py",
+      "sha256": "2e1bc8ec55c1c85a32f285e7067c22ffe596596051346c5ec21c965466032f75"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L794\\search-independent-consumers.py",
+      "sha256": "28a5a4281aedde2c4c5ff981ebfc90791f2f8e7a790c9c216cc27628f7454a0d"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L794\\cross-check-prior-roles.py",
+      "sha256": "382c05f4ba9ae65881162d1a64417011bafd49125258f61094e2a764f929e749"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L794\\review-l794.py",
+      "sha256": "2f73c558ca599359b5f954f176be3f1194077b6ad3314efc0233fcf2043511eb"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\docs\\frosty\\UI_TEXT.md",
+      "sha256": "3460e060c15b336043d6730662907e5311b50fc8ff720560341e417b5dcae168"
+    },
+    {
+      "path": "C:\\Users\\royal\\.codex\\skills\\bf6-ui-metadata\\SKILL.md",
+      "sha256": "f8d727c8336e07aa1410da6daa8f9d438dd83df1fdc8d9210136a371c03f7752"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L794\\l794-result-v2.json",
+      "sha256": "8d00f050bd6dfddf3ebbf75e47d1f93381101d1aecdc497cf567bfc21e24a74a"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T0018-0400-weapon-frontier\\L794\\repair-native-standard.py",
+      "sha256": "73f9f7c5936ad99a04e2962168565ad0b418e035a81b56a778ad66d12acb1ff8"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-worker.py",
+      "sha256": "91d73d328cfe39862ec882ef02eda665580b28a6da9fa541f7b03d12d755beb2"
+    }
+  ],
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-10-01",
+    "build": "1.4.3.5",
+    "binding": "research",
+    "leads": [
+      {
+        "id": "L794",
+        "title": "Optic FOV and PiP fixed numeric field role batch",
+        "status": "finding",
+        "summary": "125 fixed owners plus3 exact option/reset supplements provide2155 numeric occurrences and99 typed families. Controls and4182 raw rereads pass; no new effective numeric gameplay stat is justified.",
+        "reopenWhen": "An exact named schema/consumer resolves a listed unknown field, or a selected per-weapon optic route and precedence establish effective render FOV."
+      }
+    ]
+  },
+  "methods": {
+    "UI": "The shared metadata helper returned0 because these options use CString ID keys rather than local text-reference records. Documented UI_TEXT hash resolves exact current CString keys; key pointers and literal bytes are independently reread.",
+    "SDK": "Current BF6SDK/FrostySdk reflection covers17 exact optical declaring/struct/enum metadata types, with no named semantic aliases for96 unknown-role families.",
+    "comparison": "99 concrete-owner-qualified families cover2155 scalar occurrences; source profiles are not selected weapon profiles.",
+    "graph": "362 exact imports to82 exact exported targets.3 option/reset owner files supplement the fixed scope; visual composition owners stay explicit next optical batches."
+  },
+  "inference": {
+    "sourceRelationship": "The existing16 zoom-body relationship agrees at float precision; this does not establish an engine formula or effective total magnification.",
+    "renderRole": "Prior operator comparisons support the controlled render-FOV source role; per-weapon effective selected value is not established.",
+    "unknownFields": "Current option text and exact hashed SDK members do not name unknown scalar roles, units or operations."
+  },
+  "unresolved": [
+    {
+      "kind": "field-role",
+      "familyId": "9045e57f408b6efd1591",
+      "concreteClassHash": "3a930efc",
+      "concreteTypeKey": "ddaa9877c455a99811304738698636e7",
+      "declaringClassHash": "32ef702c",
+      "declaringTypeKeys": [
+        "eabb8bc52db6c742ec3a448e9ac0f19a"
+      ],
+      "fieldHash": "9ca063e9",
+      "pathShape": "Field_9ca063e9",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "bdee50a20f759e231f51",
+      "concreteClassHash": "3a930efc",
+      "concreteTypeKey": "ddaa9877c455a99811304738698636e7",
+      "declaringClassHash": "32ef702c",
+      "declaringTypeKeys": [
+        "eabb8bc52db6c742ec3a448e9ac0f19a"
+      ],
+      "fieldHash": "96eb74f6",
+      "pathShape": "Field_96eb74f6",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "db676c40dc1dd55b477e",
+      "concreteClassHash": "3a930efc",
+      "concreteTypeKey": "ddaa9877c455a99811304738698636e7",
+      "declaringClassHash": "3a930efc",
+      "declaringTypeKeys": [
+        "ddaa9877c455a99811304738698636e7"
+      ],
+      "fieldHash": "e5b5c7db",
+      "pathShape": "Field_e5b5c7db",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "01fead04333c2f33fa21",
+      "concreteClassHash": "3a930efc",
+      "concreteTypeKey": "ddaa9877c455a99811304738698636e7",
+      "declaringClassHash": "3a930efc",
+      "declaringTypeKeys": [
+        "ddaa9877c455a99811304738698636e7"
+      ],
+      "fieldHash": "652fb849",
+      "pathShape": "Field_652fb849",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "947a36640e34eec7d0bc",
+      "concreteClassHash": "3a930efc",
+      "concreteTypeKey": "ddaa9877c455a99811304738698636e7",
+      "declaringClassHash": "3a930efc",
+      "declaringTypeKeys": [
+        "ddaa9877c455a99811304738698636e7"
+      ],
+      "fieldHash": "9340a2b0",
+      "pathShape": "Field_9340a2b0",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "f7c3f97745d068feb32d",
+      "concreteClassHash": "3a930efc",
+      "concreteTypeKey": "ddaa9877c455a99811304738698636e7",
+      "declaringClassHash": "3a930efc",
+      "declaringTypeKeys": [
+        "ddaa9877c455a99811304738698636e7"
+      ],
+      "fieldHash": "eb1a0916",
+      "pathShape": "Field_eb1a0916",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "42bd0aa4ffae58f2363f",
+      "concreteClassHash": "3a930efc",
+      "concreteTypeKey": "ddaa9877c455a99811304738698636e7",
+      "declaringClassHash": "3a930efc",
+      "declaringTypeKeys": [
+        "ddaa9877c455a99811304738698636e7"
+      ],
+      "fieldHash": "07915e0d",
+      "pathShape": "Field_07915e0d",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "054c224c3b7c155b3c28",
+      "concreteClassHash": "3a930efc",
+      "concreteTypeKey": "ddaa9877c455a99811304738698636e7",
+      "declaringClassHash": "3a930efc",
+      "declaringTypeKeys": [
+        "ddaa9877c455a99811304738698636e7"
+      ],
+      "fieldHash": "10c5a412",
+      "pathShape": "Field_10c5a412",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "1e73b0a766937b3ebe0e",
+      "concreteClassHash": "3a930efc",
+      "concreteTypeKey": "ddaa9877c455a99811304738698636e7",
+      "declaringClassHash": "3a930efc",
+      "declaringTypeKeys": [
+        "ddaa9877c455a99811304738698636e7"
+      ],
+      "fieldHash": "cf750cea",
+      "pathShape": "Field_cf750cea",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "4c45a106c2dfab7f86d9",
+      "concreteClassHash": "3a930efc",
+      "concreteTypeKey": "ddaa9877c455a99811304738698636e7",
+      "declaringClassHash": "3a930efc",
+      "declaringTypeKeys": [
+        "ddaa9877c455a99811304738698636e7"
+      ],
+      "fieldHash": "3d20b2c4",
+      "pathShape": "Field_3d20b2c4",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "85d08e01acf00ea5c15a",
+      "concreteClassHash": "86ce0d70",
+      "concreteTypeKey": "8fe88916864920c9d0a1d6809a0c66d6",
+      "declaringClassHash": "86ce0d70",
+      "declaringTypeKeys": [
+        "8fe88916864920c9d0a1d6809a0c66d6"
+      ],
+      "fieldHash": "65ad1346",
+      "pathShape": "Field_65ad1346",
+      "reason": "Existing source relationship agrees across16 current zoom definitions; EA describes PiP distribution but does not map these fields or establish their native equation."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "67cbd98e915f21015389",
+      "concreteClassHash": "86ce0d70",
+      "concreteTypeKey": "8fe88916864920c9d0a1d6809a0c66d6",
+      "declaringClassHash": "86ce0d70",
+      "declaringTypeKeys": [
+        "8fe88916864920c9d0a1d6809a0c66d6"
+      ],
+      "fieldHash": "0283e089",
+      "pathShape": "Field_0283e089",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "337bccb58ba8caee185c",
+      "concreteClassHash": "86ce0d70",
+      "concreteTypeKey": "8fe88916864920c9d0a1d6809a0c66d6",
+      "declaringClassHash": "86ce0d70",
+      "declaringTypeKeys": [
+        "8fe88916864920c9d0a1d6809a0c66d6"
+      ],
+      "fieldHash": "4429992c",
+      "pathShape": "Field_4429992c",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "f24881fd62779b1cc6ba",
+      "concreteClassHash": "86ce0d70",
+      "concreteTypeKey": "8fe88916864920c9d0a1d6809a0c66d6",
+      "declaringClassHash": "86ce0d70",
+      "declaringTypeKeys": [
+        "8fe88916864920c9d0a1d6809a0c66d6"
+      ],
+      "fieldHash": "53b0abf6",
+      "pathShape": "Field_53b0abf6",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "f4816f6a815988242142",
+      "concreteClassHash": "86ce0d70",
+      "concreteTypeKey": "8fe88916864920c9d0a1d6809a0c66d6",
+      "declaringClassHash": "86ce0d70",
+      "declaringTypeKeys": [
+        "8fe88916864920c9d0a1d6809a0c66d6"
+      ],
+      "fieldHash": "28ae4fd6",
+      "pathShape": "Field_28ae4fd6",
+      "reason": "Existing source relationship agrees across16 current zoom definitions; EA describes PiP distribution but does not map these fields or establish their native equation."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "2fa9d6e111f4eea63a9a",
+      "concreteClassHash": "86ce0d70",
+      "concreteTypeKey": "8fe88916864920c9d0a1d6809a0c66d6",
+      "declaringClassHash": "86ce0d70",
+      "declaringTypeKeys": [
+        "8fe88916864920c9d0a1d6809a0c66d6"
+      ],
+      "fieldHash": "3edbd391",
+      "pathShape": "Field_3edbd391",
+      "reason": "Existing source relationship agrees across16 current zoom definitions; EA describes PiP distribution but does not map these fields or establish their native equation."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "a379972c3607a78c6a11",
+      "concreteClassHash": "86ce0d70",
+      "concreteTypeKey": "8fe88916864920c9d0a1d6809a0c66d6",
+      "declaringClassHash": "86ce0d70",
+      "declaringTypeKeys": [
+        "8fe88916864920c9d0a1d6809a0c66d6"
+      ],
+      "fieldHash": "76b27c34",
+      "pathShape": "Field_76b27c34",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "673aac55584b8aa49f9b",
+      "concreteClassHash": "86ce0d70",
+      "concreteTypeKey": "8fe88916864920c9d0a1d6809a0c66d6",
+      "declaringClassHash": "5e021a89",
+      "declaringTypeKeys": [
+        "6cc1ecb29f61d22755ff546ec58064eb"
+      ],
+      "fieldHash": "95b7b82a",
+      "pathShape": "Field_775480e0.Field_95b7b82a",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "2c334b60494c239bb9c6",
+      "concreteClassHash": "86ce0d70",
+      "concreteTypeKey": "8fe88916864920c9d0a1d6809a0c66d6",
+      "declaringClassHash": "5e021a89",
+      "declaringTypeKeys": [
+        "6cc1ecb29f61d22755ff546ec58064eb"
+      ],
+      "fieldHash": "8bcbee5c",
+      "pathShape": "Field_775480e0.Field_8bcbee5c",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "a2cf1663110fa1fafdf2",
+      "concreteClassHash": "86ce0d70",
+      "concreteTypeKey": "8fe88916864920c9d0a1d6809a0c66d6",
+      "declaringClassHash": "5e021a89",
+      "declaringTypeKeys": [
+        "6cc1ecb29f61d22755ff546ec58064eb"
+      ],
+      "fieldHash": "ccbda985",
+      "pathShape": "Field_775480e0.Field_ccbda985",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "8e5db4f108587a7cb64a",
+      "concreteClassHash": "86ce0d70",
+      "concreteTypeKey": "8fe88916864920c9d0a1d6809a0c66d6",
+      "declaringClassHash": "5e021a89",
+      "declaringTypeKeys": [
+        "6cc1ecb29f61d22755ff546ec58064eb"
+      ],
+      "fieldHash": "e86c24c0",
+      "pathShape": "Field_775480e0.Field_e86c24c0",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "6f52e55ddd977f4b08f4",
+      "concreteClassHash": "86ce0d70",
+      "concreteTypeKey": "8fe88916864920c9d0a1d6809a0c66d6",
+      "declaringClassHash": "5e021a89",
+      "declaringTypeKeys": [
+        "6cc1ecb29f61d22755ff546ec58064eb"
+      ],
+      "fieldHash": "658b326b",
+      "pathShape": "Field_775480e0.Field_658b326b",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "00c5e9b3348f2dff22d3",
+      "concreteClassHash": "86ce0d70",
+      "concreteTypeKey": "8fe88916864920c9d0a1d6809a0c66d6",
+      "declaringClassHash": "5e021a89",
+      "declaringTypeKeys": [
+        "6cc1ecb29f61d22755ff546ec58064eb"
+      ],
+      "fieldHash": "0a75f37f",
+      "pathShape": "Field_775480e0.Field_0a75f37f",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "b908797203b0822d13bc",
+      "concreteClassHash": "86ce0d70",
+      "concreteTypeKey": "8fe88916864920c9d0a1d6809a0c66d6",
+      "declaringClassHash": "5e021a89",
+      "declaringTypeKeys": [
+        "6cc1ecb29f61d22755ff546ec58064eb"
+      ],
+      "fieldHash": "9beb9318",
+      "pathShape": "Field_775480e0.Field_9beb9318",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "59bffac114c2df4213b5",
+      "concreteClassHash": "86ce0d70",
+      "concreteTypeKey": "8fe88916864920c9d0a1d6809a0c66d6",
+      "declaringClassHash": "5e021a89",
+      "declaringTypeKeys": [
+        "6cc1ecb29f61d22755ff546ec58064eb"
+      ],
+      "fieldHash": "c8a998d2",
+      "pathShape": "Field_775480e0.Field_c8a998d2",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "29c594da98ad03583c3d",
+      "concreteClassHash": "86ce0d70",
+      "concreteTypeKey": "8fe88916864920c9d0a1d6809a0c66d6",
+      "declaringClassHash": "5e021a89",
+      "declaringTypeKeys": [
+        "6cc1ecb29f61d22755ff546ec58064eb"
+      ],
+      "fieldHash": "3dff75ec",
+      "pathShape": "Field_775480e0.Field_3dff75ec",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "6e0b8c38bd8fff8a651a",
+      "concreteClassHash": "86ce0d70",
+      "concreteTypeKey": "8fe88916864920c9d0a1d6809a0c66d6",
+      "declaringClassHash": "5e021a89",
+      "declaringTypeKeys": [
+        "6cc1ecb29f61d22755ff546ec58064eb"
+      ],
+      "fieldHash": "b3155e64",
+      "pathShape": "Field_775480e0.Field_b3155e64",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "851e46bf02eca4b813ac",
+      "concreteClassHash": "86ce0d70",
+      "concreteTypeKey": "8fe88916864920c9d0a1d6809a0c66d6",
+      "declaringClassHash": "5e021a89",
+      "declaringTypeKeys": [
+        "6cc1ecb29f61d22755ff546ec58064eb"
+      ],
+      "fieldHash": "0b307c64",
+      "pathShape": "Field_775480e0.Field_0b307c64",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "00f685e0542aefae165d",
+      "concreteClassHash": "86ce0d70",
+      "concreteTypeKey": "8fe88916864920c9d0a1d6809a0c66d6",
+      "declaringClassHash": "5e021a89",
+      "declaringTypeKeys": [
+        "6cc1ecb29f61d22755ff546ec58064eb"
+      ],
+      "fieldHash": "f15aad6d",
+      "pathShape": "Field_775480e0.Field_f15aad6d",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "45347918ea3542806d26",
+      "concreteClassHash": "86ce0d70",
+      "concreteTypeKey": "8fe88916864920c9d0a1d6809a0c66d6",
+      "declaringClassHash": "5e021a89",
+      "declaringTypeKeys": [
+        "6cc1ecb29f61d22755ff546ec58064eb"
+      ],
+      "fieldHash": "0af2993f",
+      "pathShape": "Field_775480e0.Field_0af2993f",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "14ed0de96c7a4b92c79e",
+      "concreteClassHash": "86ce0d70",
+      "concreteTypeKey": "8fe88916864920c9d0a1d6809a0c66d6",
+      "declaringClassHash": "5e021a89",
+      "declaringTypeKeys": [
+        "6cc1ecb29f61d22755ff546ec58064eb"
+      ],
+      "fieldHash": "95b7b82a",
+      "pathShape": "Field_e6e8ad4b.Field_95b7b82a",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "b4bb86b05275bf774e66",
+      "concreteClassHash": "86ce0d70",
+      "concreteTypeKey": "8fe88916864920c9d0a1d6809a0c66d6",
+      "declaringClassHash": "5e021a89",
+      "declaringTypeKeys": [
+        "6cc1ecb29f61d22755ff546ec58064eb"
+      ],
+      "fieldHash": "8bcbee5c",
+      "pathShape": "Field_e6e8ad4b.Field_8bcbee5c",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "35bf06578d159c31e149",
+      "concreteClassHash": "86ce0d70",
+      "concreteTypeKey": "8fe88916864920c9d0a1d6809a0c66d6",
+      "declaringClassHash": "5e021a89",
+      "declaringTypeKeys": [
+        "6cc1ecb29f61d22755ff546ec58064eb"
+      ],
+      "fieldHash": "ccbda985",
+      "pathShape": "Field_e6e8ad4b.Field_ccbda985",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "4876cbed9b151caf85a6",
+      "concreteClassHash": "86ce0d70",
+      "concreteTypeKey": "8fe88916864920c9d0a1d6809a0c66d6",
+      "declaringClassHash": "5e021a89",
+      "declaringTypeKeys": [
+        "6cc1ecb29f61d22755ff546ec58064eb"
+      ],
+      "fieldHash": "e86c24c0",
+      "pathShape": "Field_e6e8ad4b.Field_e86c24c0",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "c9d6a8c96eb5aea1e631",
+      "concreteClassHash": "86ce0d70",
+      "concreteTypeKey": "8fe88916864920c9d0a1d6809a0c66d6",
+      "declaringClassHash": "5e021a89",
+      "declaringTypeKeys": [
+        "6cc1ecb29f61d22755ff546ec58064eb"
+      ],
+      "fieldHash": "658b326b",
+      "pathShape": "Field_e6e8ad4b.Field_658b326b",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "ff6f5ba6fad58f057809",
+      "concreteClassHash": "86ce0d70",
+      "concreteTypeKey": "8fe88916864920c9d0a1d6809a0c66d6",
+      "declaringClassHash": "5e021a89",
+      "declaringTypeKeys": [
+        "6cc1ecb29f61d22755ff546ec58064eb"
+      ],
+      "fieldHash": "0a75f37f",
+      "pathShape": "Field_e6e8ad4b.Field_0a75f37f",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "da46d57bc9b4015e78f6",
+      "concreteClassHash": "86ce0d70",
+      "concreteTypeKey": "8fe88916864920c9d0a1d6809a0c66d6",
+      "declaringClassHash": "5e021a89",
+      "declaringTypeKeys": [
+        "6cc1ecb29f61d22755ff546ec58064eb"
+      ],
+      "fieldHash": "9beb9318",
+      "pathShape": "Field_e6e8ad4b.Field_9beb9318",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "75d860ab3f78b317b3c9",
+      "concreteClassHash": "86ce0d70",
+      "concreteTypeKey": "8fe88916864920c9d0a1d6809a0c66d6",
+      "declaringClassHash": "5e021a89",
+      "declaringTypeKeys": [
+        "6cc1ecb29f61d22755ff546ec58064eb"
+      ],
+      "fieldHash": "c8a998d2",
+      "pathShape": "Field_e6e8ad4b.Field_c8a998d2",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "878d7d5f27ff086893ac",
+      "concreteClassHash": "86ce0d70",
+      "concreteTypeKey": "8fe88916864920c9d0a1d6809a0c66d6",
+      "declaringClassHash": "5e021a89",
+      "declaringTypeKeys": [
+        "6cc1ecb29f61d22755ff546ec58064eb"
+      ],
+      "fieldHash": "3dff75ec",
+      "pathShape": "Field_e6e8ad4b.Field_3dff75ec",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "57cd5497516eeed9a86e",
+      "concreteClassHash": "86ce0d70",
+      "concreteTypeKey": "8fe88916864920c9d0a1d6809a0c66d6",
+      "declaringClassHash": "5e021a89",
+      "declaringTypeKeys": [
+        "6cc1ecb29f61d22755ff546ec58064eb"
+      ],
+      "fieldHash": "b3155e64",
+      "pathShape": "Field_e6e8ad4b.Field_b3155e64",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "fcdf2d7abd07d325ca56",
+      "concreteClassHash": "86ce0d70",
+      "concreteTypeKey": "8fe88916864920c9d0a1d6809a0c66d6",
+      "declaringClassHash": "5e021a89",
+      "declaringTypeKeys": [
+        "6cc1ecb29f61d22755ff546ec58064eb"
+      ],
+      "fieldHash": "0b307c64",
+      "pathShape": "Field_e6e8ad4b.Field_0b307c64",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "36d15a60b71ab902ba59",
+      "concreteClassHash": "86ce0d70",
+      "concreteTypeKey": "8fe88916864920c9d0a1d6809a0c66d6",
+      "declaringClassHash": "5e021a89",
+      "declaringTypeKeys": [
+        "6cc1ecb29f61d22755ff546ec58064eb"
+      ],
+      "fieldHash": "f15aad6d",
+      "pathShape": "Field_e6e8ad4b.Field_f15aad6d",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "5408ba14d39baf91ac70",
+      "concreteClassHash": "86ce0d70",
+      "concreteTypeKey": "8fe88916864920c9d0a1d6809a0c66d6",
+      "declaringClassHash": "5e021a89",
+      "declaringTypeKeys": [
+        "6cc1ecb29f61d22755ff546ec58064eb"
+      ],
+      "fieldHash": "0af2993f",
+      "pathShape": "Field_e6e8ad4b.Field_0af2993f",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "705bdc75218b10bd4207",
+      "concreteClassHash": "86ce0d70",
+      "concreteTypeKey": "8fe88916864920c9d0a1d6809a0c66d6",
+      "declaringClassHash": "86ce0d70",
+      "declaringTypeKeys": [
+        "8fe88916864920c9d0a1d6809a0c66d6"
+      ],
+      "fieldHash": "30fc61c6",
+      "pathShape": "Field_30fc61c6",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "41dc00773dd781f14dd6",
+      "concreteClassHash": "86ce0d70",
+      "concreteTypeKey": "8fe88916864920c9d0a1d6809a0c66d6",
+      "declaringClassHash": "86ce0d70",
+      "declaringTypeKeys": [
+        "8fe88916864920c9d0a1d6809a0c66d6"
+      ],
+      "fieldHash": "ae703d20",
+      "pathShape": "Field_ae703d20",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "13f36b61fee8fda59ae3",
+      "concreteClassHash": "86ce0d70",
+      "concreteTypeKey": "8fe88916864920c9d0a1d6809a0c66d6",
+      "declaringClassHash": "86ce0d70",
+      "declaringTypeKeys": [
+        "8fe88916864920c9d0a1d6809a0c66d6"
+      ],
+      "fieldHash": "6d7638a2",
+      "pathShape": "Field_6d7638a2",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "e3ecb7b213d201972cbc",
+      "concreteClassHash": "86ce0d70",
+      "concreteTypeKey": "8fe88916864920c9d0a1d6809a0c66d6",
+      "declaringClassHash": "86ce0d70",
+      "declaringTypeKeys": [
+        "8fe88916864920c9d0a1d6809a0c66d6"
+      ],
+      "fieldHash": "2db346c6",
+      "pathShape": "Field_2db346c6",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "6d59e733b986eea68b23",
+      "concreteClassHash": "86ce0d70",
+      "concreteTypeKey": "8fe88916864920c9d0a1d6809a0c66d6",
+      "declaringClassHash": "86ce0d70",
+      "declaringTypeKeys": [
+        "8fe88916864920c9d0a1d6809a0c66d6"
+      ],
+      "fieldHash": "0186fe1e",
+      "pathShape": "Field_0186fe1e",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "dd0aa7edc02be4d3ea2c",
+      "concreteClassHash": "86ce0d70",
+      "concreteTypeKey": "8fe88916864920c9d0a1d6809a0c66d6",
+      "declaringClassHash": "86ce0d70",
+      "declaringTypeKeys": [
+        "8fe88916864920c9d0a1d6809a0c66d6"
+      ],
+      "fieldHash": "045fd21b",
+      "pathShape": "Field_045fd21b",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "99de20a3410e61ef39f3",
+      "concreteClassHash": "86ce0d70",
+      "concreteTypeKey": "8fe88916864920c9d0a1d6809a0c66d6",
+      "declaringClassHash": "86ce0d70",
+      "declaringTypeKeys": [
+        "8fe88916864920c9d0a1d6809a0c66d6"
+      ],
+      "fieldHash": "cb8350b0",
+      "pathShape": "Field_cb8350b0",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "07ba5ef2b0a1789bf333",
+      "concreteClassHash": "86ce0d70",
+      "concreteTypeKey": "8fe88916864920c9d0a1d6809a0c66d6",
+      "declaringClassHash": "86ce0d70",
+      "declaringTypeKeys": [
+        "8fe88916864920c9d0a1d6809a0c66d6"
+      ],
+      "fieldHash": "4b8095d5",
+      "pathShape": "Field_4b8095d5",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "43558e4dc02259fe0dcb",
+      "concreteClassHash": "86ce0d70",
+      "concreteTypeKey": "8fe88916864920c9d0a1d6809a0c66d6",
+      "declaringClassHash": "86ce0d70",
+      "declaringTypeKeys": [
+        "8fe88916864920c9d0a1d6809a0c66d6"
+      ],
+      "fieldHash": "096c99cb",
+      "pathShape": "Field_096c99cb",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "91d5916505193cf78faf",
+      "concreteClassHash": "86ce0d70",
+      "concreteTypeKey": "8fe88916864920c9d0a1d6809a0c66d6",
+      "declaringClassHash": "86ce0d70",
+      "declaringTypeKeys": [
+        "8fe88916864920c9d0a1d6809a0c66d6"
+      ],
+      "fieldHash": "4e86a84a",
+      "pathShape": "Field_4e86a84a",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "3c3ff2eeda0002aa6842",
+      "concreteClassHash": "86ce0d70",
+      "concreteTypeKey": "8fe88916864920c9d0a1d6809a0c66d6",
+      "declaringClassHash": "86ce0d70",
+      "declaringTypeKeys": [
+        "8fe88916864920c9d0a1d6809a0c66d6"
+      ],
+      "fieldHash": "f32c35db",
+      "pathShape": "Field_f32c35db",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "5714ddc8e0ad147b9104",
+      "concreteClassHash": "86ce0d70",
+      "concreteTypeKey": "8fe88916864920c9d0a1d6809a0c66d6",
+      "declaringClassHash": "86ce0d70",
+      "declaringTypeKeys": [
+        "8fe88916864920c9d0a1d6809a0c66d6"
+      ],
+      "fieldHash": "0d80b8c3",
+      "pathShape": "Field_0d80b8c3",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "63cd41fd704723fbf83c",
+      "concreteClassHash": "1d602e28",
+      "concreteTypeKey": "bdd721bcf6733145cce2cd356dc69ad4",
+      "declaringClassHash": "1d602e28",
+      "declaringTypeKeys": [
+        "bdd721bcf6733145cce2cd356dc69ad4"
+      ],
+      "fieldHash": "0ec68381",
+      "pathShape": "Field_0ec68381",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "bd88482212a94c140f12",
+      "concreteClassHash": "1d602e28",
+      "concreteTypeKey": "bdd721bcf6733145cce2cd356dc69ad4",
+      "declaringClassHash": "1d602e28",
+      "declaringTypeKeys": [
+        "bdd721bcf6733145cce2cd356dc69ad4"
+      ],
+      "fieldHash": "8c6204f7",
+      "pathShape": "Field_8c6204f7",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "965dd847266d53adcf38",
+      "concreteClassHash": "1d602e28",
+      "concreteTypeKey": "bdd721bcf6733145cce2cd356dc69ad4",
+      "declaringClassHash": "1d602e28",
+      "declaringTypeKeys": [
+        "bdd721bcf6733145cce2cd356dc69ad4"
+      ],
+      "fieldHash": "7f6066e9",
+      "pathShape": "Field_7f6066e9",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "ef924e0c727999c0aabf",
+      "concreteClassHash": "1d602e28",
+      "concreteTypeKey": "bdd721bcf6733145cce2cd356dc69ad4",
+      "declaringClassHash": "1d602e28",
+      "declaringTypeKeys": [
+        "bdd721bcf6733145cce2cd356dc69ad4"
+      ],
+      "fieldHash": "d749e864",
+      "pathShape": "Field_d749e864",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "715326e6f3abc2a68e4b",
+      "concreteClassHash": "1d602e28",
+      "concreteTypeKey": "bdd721bcf6733145cce2cd356dc69ad4",
+      "declaringClassHash": "1d602e28",
+      "declaringTypeKeys": [
+        "bdd721bcf6733145cce2cd356dc69ad4"
+      ],
+      "fieldHash": "d0675558",
+      "pathShape": "Field_d0675558",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "9e82504e6668cb3b87d6",
+      "concreteClassHash": "1d602e28",
+      "concreteTypeKey": "bdd721bcf6733145cce2cd356dc69ad4",
+      "declaringClassHash": "1d602e28",
+      "declaringTypeKeys": [
+        "bdd721bcf6733145cce2cd356dc69ad4"
+      ],
+      "fieldHash": "e327644d",
+      "pathShape": "Field_e327644d",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "130ef609e37239fbeb13",
+      "concreteClassHash": "e312e661",
+      "concreteTypeKey": "b58758fc564ce2838c0af0c83417b1ff",
+      "declaringClassHash": "e312e661",
+      "declaringTypeKeys": [
+        "b58758fc564ce2838c0af0c83417b1ff"
+      ],
+      "fieldHash": "e36b016e",
+      "pathShape": "Field_e36b016e",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "2bfaf6c7189a1c1a23b9",
+      "concreteClassHash": "e312e661",
+      "concreteTypeKey": "b58758fc564ce2838c0af0c83417b1ff",
+      "declaringClassHash": "f55e66db",
+      "declaringTypeKeys": [
+        "64e59b79ebfa47edf88dddba324fff09"
+      ],
+      "fieldHash": "c4707a5d",
+      "pathShape": "Field_2fb6d7e0.Field_c4707a5d",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "a8d288b7ec7b7edaf76e",
+      "concreteClassHash": "e312e661",
+      "concreteTypeKey": "b58758fc564ce2838c0af0c83417b1ff",
+      "declaringClassHash": "f55e66db",
+      "declaringTypeKeys": [
+        "64e59b79ebfa47edf88dddba324fff09"
+      ],
+      "fieldHash": "16f526ec",
+      "pathShape": "Field_2fb6d7e0.Field_16f526ec",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "0f9447c25cdc6dfdf3eb",
+      "concreteClassHash": "e312e661",
+      "concreteTypeKey": "b58758fc564ce2838c0af0c83417b1ff",
+      "declaringClassHash": "f55e66db",
+      "declaringTypeKeys": [
+        "64e59b79ebfa47edf88dddba324fff09"
+      ],
+      "fieldHash": "99ca166b",
+      "pathShape": "Field_2fb6d7e0.Field_99ca166b",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "25094b628c514e9b3390",
+      "concreteClassHash": "e312e661",
+      "concreteTypeKey": "b58758fc564ce2838c0af0c83417b1ff",
+      "declaringClassHash": "f55e66db",
+      "declaringTypeKeys": [
+        "64e59b79ebfa47edf88dddba324fff09"
+      ],
+      "fieldHash": "bf818311",
+      "pathShape": "Field_2fb6d7e0.Field_bf818311",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "beae8d797d1ab7a0cac6",
+      "concreteClassHash": "e312e661",
+      "concreteTypeKey": "b58758fc564ce2838c0af0c83417b1ff",
+      "declaringClassHash": "f55e66db",
+      "declaringTypeKeys": [
+        "64e59b79ebfa47edf88dddba324fff09"
+      ],
+      "fieldHash": "c4707a5d",
+      "pathShape": "Field_87e0fa2e.Field_c4707a5d",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "4df1daa4570f4760edf0",
+      "concreteClassHash": "e312e661",
+      "concreteTypeKey": "b58758fc564ce2838c0af0c83417b1ff",
+      "declaringClassHash": "f55e66db",
+      "declaringTypeKeys": [
+        "64e59b79ebfa47edf88dddba324fff09"
+      ],
+      "fieldHash": "16f526ec",
+      "pathShape": "Field_87e0fa2e.Field_16f526ec",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "e0c9b2678b34997672d1",
+      "concreteClassHash": "e312e661",
+      "concreteTypeKey": "b58758fc564ce2838c0af0c83417b1ff",
+      "declaringClassHash": "f55e66db",
+      "declaringTypeKeys": [
+        "64e59b79ebfa47edf88dddba324fff09"
+      ],
+      "fieldHash": "99ca166b",
+      "pathShape": "Field_87e0fa2e.Field_99ca166b",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "03603996f1aad9f2b034",
+      "concreteClassHash": "e312e661",
+      "concreteTypeKey": "b58758fc564ce2838c0af0c83417b1ff",
+      "declaringClassHash": "f55e66db",
+      "declaringTypeKeys": [
+        "64e59b79ebfa47edf88dddba324fff09"
+      ],
+      "fieldHash": "bf818311",
+      "pathShape": "Field_87e0fa2e.Field_bf818311",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "f39e751e1627defe74ab",
+      "concreteClassHash": "e312e661",
+      "concreteTypeKey": "b58758fc564ce2838c0af0c83417b1ff",
+      "declaringClassHash": "f55e66db",
+      "declaringTypeKeys": [
+        "64e59b79ebfa47edf88dddba324fff09"
+      ],
+      "fieldHash": "c4707a5d",
+      "pathShape": "Field_747d9857.Field_c4707a5d",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "708105e1cf9fd5a910b4",
+      "concreteClassHash": "e312e661",
+      "concreteTypeKey": "b58758fc564ce2838c0af0c83417b1ff",
+      "declaringClassHash": "f55e66db",
+      "declaringTypeKeys": [
+        "64e59b79ebfa47edf88dddba324fff09"
+      ],
+      "fieldHash": "16f526ec",
+      "pathShape": "Field_747d9857.Field_16f526ec",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "d1d847117f60ba6f9751",
+      "concreteClassHash": "e312e661",
+      "concreteTypeKey": "b58758fc564ce2838c0af0c83417b1ff",
+      "declaringClassHash": "f55e66db",
+      "declaringTypeKeys": [
+        "64e59b79ebfa47edf88dddba324fff09"
+      ],
+      "fieldHash": "99ca166b",
+      "pathShape": "Field_747d9857.Field_99ca166b",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "843f976db0390969a679",
+      "concreteClassHash": "e312e661",
+      "concreteTypeKey": "b58758fc564ce2838c0af0c83417b1ff",
+      "declaringClassHash": "f55e66db",
+      "declaringTypeKeys": [
+        "64e59b79ebfa47edf88dddba324fff09"
+      ],
+      "fieldHash": "bf818311",
+      "pathShape": "Field_747d9857.Field_bf818311",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "1ed46f626fba2577f740",
+      "concreteClassHash": "e312e661",
+      "concreteTypeKey": "b58758fc564ce2838c0af0c83417b1ff",
+      "declaringClassHash": "e312e661",
+      "declaringTypeKeys": [
+        "b58758fc564ce2838c0af0c83417b1ff"
+      ],
+      "fieldHash": "961e847f",
+      "pathShape": "Field_961e847f",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "7bdd5e6afb81d1cb8e88",
+      "concreteClassHash": "e312e661",
+      "concreteTypeKey": "b58758fc564ce2838c0af0c83417b1ff",
+      "declaringClassHash": "e312e661",
+      "declaringTypeKeys": [
+        "b58758fc564ce2838c0af0c83417b1ff"
+      ],
+      "fieldHash": "e364c67d",
+      "pathShape": "Field_e364c67d",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "f0167c5a17acc913d49a",
+      "concreteClassHash": "e312e661",
+      "concreteTypeKey": "b58758fc564ce2838c0af0c83417b1ff",
+      "declaringClassHash": "e312e661",
+      "declaringTypeKeys": [
+        "b58758fc564ce2838c0af0c83417b1ff"
+      ],
+      "fieldHash": "cb21304a",
+      "pathShape": "Field_cb21304a",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "538ec7802b7bd3276886",
+      "concreteClassHash": "e312e661",
+      "concreteTypeKey": "b58758fc564ce2838c0af0c83417b1ff",
+      "declaringClassHash": "e312e661",
+      "declaringTypeKeys": [
+        "b58758fc564ce2838c0af0c83417b1ff"
+      ],
+      "fieldHash": "5f31cb58",
+      "pathShape": "Field_5f31cb58",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "e8efc0feb87507607738",
+      "concreteClassHash": "921071e8",
+      "concreteTypeKey": "7e01edff50964b5955c0ba690a9ee8bc",
+      "declaringClassHash": "ca15f0c3",
+      "declaringTypeKeys": [
+        "3fb978e1c23bea7f475352d11e1016c5"
+      ],
+      "fieldHash": "18d8777e",
+      "pathShape": "Field_18d8777e",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "873168ecc52c87953151",
+      "concreteClassHash": "921071e8",
+      "concreteTypeKey": "7e01edff50964b5955c0ba690a9ee8bc",
+      "declaringClassHash": "58fba6be",
+      "declaringTypeKeys": [
+        "65fb610defbcb4d659be1e73eff8ae92"
+      ],
+      "fieldHash": "8ee32a15",
+      "pathShape": "Field_8ee32a15",
+      "reason": "Option text identifies sensitivity behavior, but neither text nor hashed SDK members name this scalar as minimum, maximum, default or step. Keep member meaning and units unknown."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "b2df100804ce09870495",
+      "concreteClassHash": "921071e8",
+      "concreteTypeKey": "7e01edff50964b5955c0ba690a9ee8bc",
+      "declaringClassHash": "58fba6be",
+      "declaringTypeKeys": [
+        "65fb610defbcb4d659be1e73eff8ae92"
+      ],
+      "fieldHash": "e2253f2b",
+      "pathShape": "Field_e2253f2b",
+      "reason": "Option text identifies sensitivity behavior, but neither text nor hashed SDK members name this scalar as minimum, maximum, default or step. Keep member meaning and units unknown."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "d4a205097cf9d648690c",
+      "concreteClassHash": "921071e8",
+      "concreteTypeKey": "7e01edff50964b5955c0ba690a9ee8bc",
+      "declaringClassHash": "58fba6be",
+      "declaringTypeKeys": [
+        "65fb610defbcb4d659be1e73eff8ae92"
+      ],
+      "fieldHash": "8cf424e7",
+      "pathShape": "Field_8cf424e7",
+      "reason": "Option text identifies sensitivity behavior, but neither text nor hashed SDK members name this scalar as minimum, maximum, default or step. Keep member meaning and units unknown."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "6fe4682c4afc3117ee53",
+      "concreteClassHash": "921071e8",
+      "concreteTypeKey": "7e01edff50964b5955c0ba690a9ee8bc",
+      "declaringClassHash": "58fba6be",
+      "declaringTypeKeys": [
+        "65fb610defbcb4d659be1e73eff8ae92"
+      ],
+      "fieldHash": "4276044b",
+      "pathShape": "Field_4276044b",
+      "reason": "Option text identifies sensitivity behavior, but neither text nor hashed SDK members name this scalar as minimum, maximum, default or step. Keep member meaning and units unknown."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "bdf3317bfc5f6e1dc0b6",
+      "concreteClassHash": "921071e8",
+      "concreteTypeKey": "7e01edff50964b5955c0ba690a9ee8bc",
+      "declaringClassHash": "8bf3afbe",
+      "declaringTypeKeys": [
+        "aeaff33f9f6bcde7bcfa4210350585e9"
+      ],
+      "fieldHash": "043d7a08",
+      "pathShape": "Field_89f9b447.Field_043d7a08",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "0648fd975e7d10f84a6e",
+      "concreteClassHash": "fe20bc72",
+      "concreteTypeKey": "f319d5bf1d1c398575525421a08b297b",
+      "declaringClassHash": "ca15f0c3",
+      "declaringTypeKeys": [
+        "3fb978e1c23bea7f475352d11e1016c5"
+      ],
+      "fieldHash": "18d8777e",
+      "pathShape": "Field_18d8777e",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "f848a18a82b9fad77ee5",
+      "concreteClassHash": "fe20bc72",
+      "concreteTypeKey": "f319d5bf1d1c398575525421a08b297b",
+      "declaringClassHash": "fa09b77d",
+      "declaringTypeKeys": [
+        "74326b3a84682c83acd2179bac35bbf3"
+      ],
+      "fieldHash": "8cf424e7",
+      "pathShape": "Field_8cf424e7",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "5edd177235515600221a",
+      "concreteClassHash": "fe20bc72",
+      "concreteTypeKey": "f319d5bf1d1c398575525421a08b297b",
+      "declaringClassHash": "8bf3afbe",
+      "declaringTypeKeys": [
+        "aeaff33f9f6bcde7bcfa4210350585e9"
+      ],
+      "fieldHash": "043d7a08",
+      "pathShape": "Field_89f9b447.Field_043d7a08",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "a98e3dac84882df0cc6b",
+      "concreteClassHash": "308c8da0",
+      "concreteTypeKey": "f91131371b234b97dab33d31ba776221",
+      "declaringClassHash": "ca15f0c3",
+      "declaringTypeKeys": [
+        "3fb978e1c23bea7f475352d11e1016c5"
+      ],
+      "fieldHash": "18d8777e",
+      "pathShape": "Field_18d8777e",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "7b02daa1fd2b9680e559",
+      "concreteClassHash": "308c8da0",
+      "concreteTypeKey": "f91131371b234b97dab33d31ba776221",
+      "declaringClassHash": "248a8ab0",
+      "declaringTypeKeys": [
+        "a5b8a2d108f07cccad0a5c9a3357cba3"
+      ],
+      "fieldHash": "97ea1523",
+      "pathShape": "Field_2c95d7b7.[].Field_97ea1523",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "f73fd4a1f33277d83db4",
+      "concreteClassHash": "308c8da0",
+      "concreteTypeKey": "f91131371b234b97dab33d31ba776221",
+      "declaringClassHash": "8bf3afbe",
+      "declaringTypeKeys": [
+        "aeaff33f9f6bcde7bcfa4210350585e9"
+      ],
+      "fieldHash": "043d7a08",
+      "pathShape": "Field_89f9b447.Field_043d7a08",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "4f6c3dbc3555ae6906ec",
+      "concreteClassHash": "850e9af6",
+      "concreteTypeKey": "07703237adb3f78837a297def51d0a67",
+      "declaringClassHash": "32461701",
+      "declaringTypeKeys": [
+        "7fa56977156924916709922cf25de749"
+      ],
+      "fieldHash": "c124c7d8",
+      "pathShape": "Field_c124c7d8",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "10c689d669f7ed9adc0b",
+      "concreteClassHash": "850e9af6",
+      "concreteTypeKey": "07703237adb3f78837a297def51d0a67",
+      "declaringClassHash": "32461701",
+      "declaringTypeKeys": [
+        "7fa56977156924916709922cf25de749"
+      ],
+      "fieldHash": "8cf424e7",
+      "pathShape": "Field_8cf424e7",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "5ca2f5be2d9ddd94e50a",
+      "concreteClassHash": "850e9af6",
+      "concreteTypeKey": "07703237adb3f78837a297def51d0a67",
+      "declaringClassHash": "c3afb200",
+      "declaringTypeKeys": [
+        "56ca871fc26d50b85fef0c5f56777f63"
+      ],
+      "fieldHash": "a524635f",
+      "pathShape": "Field_a524635f",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "10bfa5548172d1e88768",
+      "concreteClassHash": "850e9af6",
+      "concreteTypeKey": "07703237adb3f78837a297def51d0a67",
+      "declaringClassHash": "c3afb200",
+      "declaringTypeKeys": [
+        "56ca871fc26d50b85fef0c5f56777f63"
+      ],
+      "fieldHash": "e73c7944",
+      "pathShape": "Field_e73c7944",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "28f23cd2f328a6596615",
+      "concreteClassHash": "850e9af6",
+      "concreteTypeKey": "07703237adb3f78837a297def51d0a67",
+      "declaringClassHash": "850e9af6",
+      "declaringTypeKeys": [
+        "07703237adb3f78837a297def51d0a67"
+      ],
+      "fieldHash": "c06d0cbb",
+      "pathShape": "Field_c06d0cbb",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "field-role",
+      "familyId": "a7f21138f9c040c5fa10",
+      "concreteClassHash": "850e9af6",
+      "concreteTypeKey": "07703237adb3f78837a297def51d0a67",
+      "declaringClassHash": "850e9af6",
+      "declaringTypeKeys": [
+        "07703237adb3f78837a297def51d0a67"
+      ],
+      "fieldHash": "3ff76ddb",
+      "pathShape": "Field_3ff76ddb",
+      "reason": "No exact field role or native numeric consumer is established after current typed-body, SDK metadata, field-specific prior-work and UI/registry checks."
+    },
+    {
+      "kind": "native-composition",
+      "reason": "Selected-part and inline/shared render precedence, player option state, FOV projection axis and native zoom equation remain unconfirmed."
+    }
+  ],
+  "siteImpact": {
+    "implemented": false,
+    "proposedStats": [],
+    "conclusion": "No new numeric gameplay stat clears selected-part/native-consumer requirements. Existing generic optic identity/PiP-FOV proposal is not duplicated. Supported render source values may be retained as evidence details, not effective weapon values."
+  },
+  "atlasAssetIndex": [
+    {
+      "path": "Common/GameSetup/Options/Graphics/OptionEnablePiPZoom",
+      "format": "raw-ebx",
+      "sha256": "e348aae3400baa5d17dcf4429f86cdfa757c47704d435fa458b32ba4b0854c81",
+      "question": "Current PiP option body and outgoing owner",
+      "result": "useful",
+      "conclusion": "Parent-verified exact current captured option owner is included with all3 numeric/bool/enum members and its exact reset-owner target."
+    }
+  ]
+}

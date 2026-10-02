@@ -1,0 +1,394 @@
+{
+  "lead": "L1104",
+  "status": "complete",
+  "build": "1.4.3.5",
+  "question": "Do the three named hit registration, suppression and flinch routes have exact gameplay callers and same-owner known-answer semantic controls?",
+  "sourceFacts": {
+    "auditControl": {
+      "passed": true,
+      "kind": "documentary current owner hash equality only",
+      "checks": [
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b3\\raw\\Common\\FX\\Soldiers\\Logic\\PresEx_Suppression.ebx",
+          "recordedSha256": "49f07e9048e0e6e6d49fcbcc507fddc34f4f4f77b2e90019ec29326a2a4c531f",
+          "currentSha256": "49f07e9048e0e6e6d49fcbcc507fddc34f4f4f77b2e90019ec29326a2a4c531f",
+          "equal": true,
+          "role": "Suppression presentation owner identity only"
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Gameplay\\Soldier\\Glacier_Soldier.ebx",
+          "recordedSha256": "22e0ccf07219f8094eed17f57585041b0b075196c120b071fe8dd0870351bf19",
+          "currentSha256": "22e0ccf07219f8094eed17f57585041b0b075196c120b071fe8dd0870351bf19",
+          "equal": true,
+          "role": "Soldier animation hit-reaction and health-callback source owner identity only"
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_.300BLK_Carbine.ebx",
+          "recordedSha256": "8f2fcc8a198f32d5a2e261e91c74d73ba4cc647b8ca20e99290e0275d09f8d66",
+          "currentSha256": "8f2fcc8a198f32d5a2e261e91c74d73ba4cc647b8ca20e99290e0275d09f8d66",
+          "equal": true,
+          "role": "Exact retained base projectile owner identity only; no suppression or flinch roles"
+        }
+      ],
+      "semanticMeaningQualified": false
+    },
+    "controlDispositions": [
+      {
+        "mechanic": "hit registration",
+        "route": "Glacier_Soldier -> SoldierInteractions_AmmoHealthCallbackCondition; separate target/capsule/material context",
+        "fields": [
+          "Field_75e3292d",
+          "Field_2ae892f3"
+        ],
+        "control": {
+          "available": false,
+          "knownAnswer": null,
+          "missing": "Exact network hit acceptance, reconciliation or incoming damage commit operation and same-owner known-answer accepted/rejected-hit control."
+        },
+        "retainedIdentity": {
+          "owner": "Common/Gameplay/Soldier/Glacier_Soldier",
+          "objectIndex": 159,
+          "fieldPath": "/Field_75e3292d",
+          "targetImport": {
+            "fileGuid": "f1ba77d1-d252-11ef-b336-b799891f078e",
+            "classGuid": "0b498bfc-c19d-19e2-9d6f-34ad4ca9ec64"
+          },
+          "targetRoute": "Common/Gameplay/Expressions/Interactions/Soldier/SoldierInteractions_AmmoHealthCallbackCondition"
+        },
+        "tried": "Read the exact L842 callback import context, L828 closed source/caller proof audit and current site target/damage contracts. Verify current Glacier_Soldier owner hash.",
+        "stopReason": "Interaction callback identity does not identify a network hit acceptance or health commit operation. Capsule/material and site geometry controls cannot qualify hit registration.",
+        "reopenCondition": "Exact bullet collision or network event -> authoritative hit acceptance/reconciliation -> health commit caller chain, with a same-owner known-answer accepted/rejected-hit operation control.",
+        "siteDisposition": "The reviewed site paths classify impacts on an approximate target and calculate curve/zone damage and BTK. This is model geometry and arithmetic, not a verified native network hit-registration rule.",
+        "siteCode": [
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer\\sim\\target.js",
+            "sha256": "2ab9e293115c4c59ed25cfaeddc6a94060cce1bcd5652fca885d4edbf7265f32",
+            "line": 2,
+            "text": "// generated project asset based on the supplied in-game figure reference; hit"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer\\sim\\target.js",
+            "sha256": "2ab9e293115c4c59ed25cfaeddc6a94060cce1bcd5652fca885d4edbf7265f32",
+            "line": 68,
+            "text": "export function targetZoneAt(x, y) {"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer\\sim\\target.js",
+            "sha256": "2ab9e293115c4c59ed25cfaeddc6a94060cce1bcd5652fca885d4edbf7265f32",
+            "line": 107,
+            "text": "export function summarizeTargetImpacts(weapon, range, shotZones, health = 100) {"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer\\sim\\damage.js",
+            "sha256": "3c5e0c645c1cc8abc7e34f74a7345d33b284bbda8247c6c3a5e8feafbd857e78",
+            "line": 44,
+            "text": "export function damageAtRange(weapon, range) {"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer\\sim\\damage.js",
+            "sha256": "3c5e0c645c1cc8abc7e34f74a7345d33b284bbda8247c6c3a5e8feafbd857e78",
+            "line": 72,
+            "text": "export function bulletsToKillWithHits(damagePerShot, {"
+          }
+        ],
+        "status": "unqualified semantic control missing",
+        "rawChecks": [],
+        "rawChecksReason": "No mechanic operand extraction. Only documentary source identity/hash checks were made.",
+        "qualifiedNextCaller": false
+      },
+      {
+        "mechanic": "suppression",
+        "route": "Feature_Soldier_Suppression -> Common/FX/Soldiers/Logic/PresEx_Suppression -> compiled RID 3fd5a0c60db66055",
+        "fields": [
+          "Field_6e2bdf2b",
+          "Field_a2734e52",
+          "Field_aa4fa860"
+        ],
+        "control": {
+          "available": false,
+          "knownAnswer": null,
+          "missing": "Same-owner compiled operation or gameplay suppression-to-regeneration receiver/control. Presentation members and RID/preamble identities are structural controls only."
+        },
+        "retainedIdentity": {
+          "featureImport": {
+            "fileGuid": "446a766a-bb45-4a4d-9d00-91363d2bac6a",
+            "classGuid": "45b3f212-deca-4e19-91a0-4df766d8f218"
+          },
+          "presentationClass": "Class_f180827c",
+          "typeKey": "8928a45489e2d30978a602a27a6cd99e",
+          "compiledResource": "3fd5a0c60db66055"
+        },
+        "tried": "Read L848 exact feature/presentation identity, L853 unevaluated resource boundary and L799/L828 projectile field limits. Verify current presentation and available feature owner hashes. Inspect current selected-ammo regen calculation.",
+        "stopReason": "Wedge/vignette presentation ports and compiled resource identity do not qualify suppression amount, trigger, health regeneration penalty or active gameplay equation.",
+        "reopenCondition": "Exact gameplay suppression trigger/state -> health regeneration delay or rate receiver/caller operation with a same-owner known-answer effect control. A passing evaluator must prove assignment/operation semantics beyond the compiled resource preamble.",
+        "siteDisposition": "The reviewed attachment contract computes regeneration delay from a baseline plus selected ammo healthRegenDelayAddS. That arithmetic is not evidence of a suppression-triggered regeneration penalty. A native suppression penalty is not established by the reviewed model contract.",
+        "siteCode": [
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer\\sim\\applyAttachments.js",
+            "sha256": "18244f1e93f95b4557992754b2ba5a16998135446f64f47ba06838839bfab1fd",
+            "line": 504,
+            "text": "  const healthRegenDelayS = _ctx.HEALTH_REGEN_DELAY_S + (ammoType.healthRegenDelayAddS ?? 0);"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer\\sim\\applyAttachments.js",
+            "sha256": "18244f1e93f95b4557992754b2ba5a16998135446f64f47ba06838839bfab1fd",
+            "line": 653,
+            "text": "    _healthRegenDelayS:      healthRegenDelayS,"
+          }
+        ],
+        "status": "unqualified semantic control missing",
+        "rawChecks": [],
+        "rawChecksReason": "No mechanic operand extraction. Only documentary source identity/hash checks were made.",
+        "qualifiedNextCaller": false
+      },
+      {
+        "mechanic": "flinch",
+        "route": "Glacier_Soldier animation hit-distance import and Class_83f71877 local families; projectile Class_3d3dd0d2 candidate body",
+        "fields": [
+          "Field_a8c161e6.Field_957e5694.Field_23de5099",
+          "Field_538b9219",
+          "Class_83f71877",
+          "Class_3d3dd0d2"
+        ],
+        "control": {
+          "available": false,
+          "knownAnswer": null,
+          "missing": "Exact typed gameplay flinch effect owner, receiving aim/camera/weapon operation and same-owner known-answer effect control."
+        },
+        "retainedIdentity": {
+          "owner": "Common/Gameplay/Soldier/Glacier_Soldier",
+          "object": 80,
+          "class": "Class_0ebc0258",
+          "typeKey": "56a86b0588bbeeb0966f744d985bd662",
+          "fieldPath": "Field_a8c161e6.Field_957e5694.Field_23de5099",
+          "import": {
+            "fileGuid": "f7553bdb-7e78-4ad5-f755-3bdb7e784ad5",
+            "classGuid": "f7553bdb-7e78-4ad5-f755-3bdb7e784ad5"
+          },
+          "catalogPath": "Animations/Glacier/Global/Gamestates/FB.Hit.Distance.Float"
+        },
+        "tried": "Read L851 exact animation hit-distance import limit, L799 hash-only projectile body limit and L828 qualified source/consumer closure. Verify current Glacier_Soldier and retained projectile owner hashes. Inspect current target/damage contracts.",
+        "stopReason": "Animation distance identity and unnamed projectile fields do not identify a gameplay flinch amount, trigger or aim/camera effect. Typed layout or gravity controls cannot supply flinch semantics.",
+        "reopenCondition": "Exact incoming-hit or near-miss caller reaches a typed gameplay flinch receiver and active aim/camera/weapon effect operation, with an independent same-owner known-answer effect control.",
+        "siteDisposition": "The reviewed target/damage contracts classify modeled impacts and calculate damage. They do not establish a native flinch effect. No flinch amount or trigger is inferred from those calculations.",
+        "siteCode": [
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer\\sim\\target.js",
+            "sha256": "2ab9e293115c4c59ed25cfaeddc6a94060cce1bcd5652fca885d4edbf7265f32",
+            "line": 107,
+            "text": "export function summarizeTargetImpacts(weapon, range, shotZones, health = 100) {"
+          },
+          {
+            "path": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer\\sim\\damage.js",
+            "sha256": "3c5e0c645c1cc8abc7e34f74a7345d33b284bbda8247c6c3a5e8feafbd857e78",
+            "line": 72,
+            "text": "export function bulletsToKillWithHits(damagePerShot, {"
+          }
+        ],
+        "status": "unqualified semantic control missing",
+        "rawChecks": [],
+        "rawChecksReason": "No mechanic operand extraction. Only documentary source identity/hash checks were made.",
+        "qualifiedNextCaller": false
+      }
+    ],
+    "qualifiedNextCallerCount": 0
+  },
+  "inference": [
+    "Current exact owner hash equality preserves retained identity limits; it does not establish gameplay meaning.",
+    "Source mechanic controls, presentation/layout identities and site model contracts are separate."
+  ],
+  "unresolved": [
+    "Exact network hit acceptance, reconciliation or incoming damage commit operation and same-owner known-answer accepted/rejected-hit control.",
+    "Same-owner compiled operation or gameplay suppression-to-regeneration receiver/control. Presentation members and RID/preamble identities are structural controls only.",
+    "Exact typed gameplay flinch effect owner, receiving aim/camera/weapon operation and same-owner known-answer effect control."
+  ],
+  "siteImpact": "No change proposed. Current site target/damage and selected-ammo regeneration contracts remain distinct from native hit registration, suppression and flinch.",
+  "deadEnds": [
+    {
+      "mechanic": "hit registration",
+      "route": "Glacier_Soldier -> SoldierInteractions_AmmoHealthCallbackCondition; separate target/capsule/material context",
+      "fields": [
+        "Field_75e3292d",
+        "Field_2ae892f3"
+      ],
+      "tried": "Read the exact L842 callback import context, L828 closed source/caller proof audit and current site target/damage contracts. Verify current Glacier_Soldier owner hash.",
+      "stopReason": "Interaction callback identity does not identify a network hit acceptance or health commit operation. Capsule/material and site geometry controls cannot qualify hit registration.",
+      "reopenCondition": "Exact bullet collision or network event -> authoritative hit acceptance/reconciliation -> health commit caller chain, with a same-owner known-answer accepted/rejected-hit operation control."
+    },
+    {
+      "mechanic": "suppression",
+      "route": "Feature_Soldier_Suppression -> Common/FX/Soldiers/Logic/PresEx_Suppression -> compiled RID 3fd5a0c60db66055",
+      "fields": [
+        "Field_6e2bdf2b",
+        "Field_a2734e52",
+        "Field_aa4fa860"
+      ],
+      "tried": "Read L848 exact feature/presentation identity, L853 unevaluated resource boundary and L799/L828 projectile field limits. Verify current presentation and available feature owner hashes. Inspect current selected-ammo regen calculation.",
+      "stopReason": "Wedge/vignette presentation ports and compiled resource identity do not qualify suppression amount, trigger, health regeneration penalty or active gameplay equation.",
+      "reopenCondition": "Exact gameplay suppression trigger/state -> health regeneration delay or rate receiver/caller operation with a same-owner known-answer effect control. A passing evaluator must prove assignment/operation semantics beyond the compiled resource preamble."
+    },
+    {
+      "mechanic": "flinch",
+      "route": "Glacier_Soldier animation hit-distance import and Class_83f71877 local families; projectile Class_3d3dd0d2 candidate body",
+      "fields": [
+        "Field_a8c161e6.Field_957e5694.Field_23de5099",
+        "Field_538b9219",
+        "Class_83f71877",
+        "Class_3d3dd0d2"
+      ],
+      "tried": "Read L851 exact animation hit-distance import limit, L799 hash-only projectile body limit and L828 qualified source/consumer closure. Verify current Glacier_Soldier and retained projectile owner hashes. Inspect current target/damage contracts.",
+      "stopReason": "Animation distance identity and unnamed projectile fields do not identify a gameplay flinch amount, trigger or aim/camera effect. Typed layout or gravity controls cannot supply flinch semantics.",
+      "reopenCondition": "Exact incoming-hit or near-miss caller reaches a typed gameplay flinch receiver and active aim/camera/weapon effect operation, with an independent same-owner known-answer effect control."
+    }
+  ],
+  "evidence": {
+    "files": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-10-01-L799-projectile-ammo-frontier.json",
+        "sha256": "b832adeb8b7b78832b009e8b1614b6557ab30340db2a0020306a6d6c08147d3d"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-10-01-L828-ranked-source-route-audit.json",
+        "sha256": "5f1992a4109c9dba8b9ca21ae0cf0db51af888780bdcf19f28596e833fe06635"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-10-01-L848-detection-suppression-mode.json",
+        "sha256": "8368c57b250a2d3e07e692c22292755650d6ef09f921b5caa9f16babf7870d70"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-10-01-L853-soldier-resource-reader.json",
+        "sha256": "6d8b59643c3b428cd245be76dcadb57a589304913a3da7a0db69898f396ebaf4"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-10-01-L851-stance-ladder-hit-reaction.json",
+        "sha256": "edf201e1f9a738afc3110ed5a2a72bfec0d35782ada6a9114a990664ede38662"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-10-01-L842-survival-owner-atlas.json",
+        "sha256": "bc9e6547405ae1be50d4e837203e4cca7901e72ff43c67a52ed12b0df7abad0b"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\docs\\frosty\\WEAPONS.md",
+        "sha256": "5195107761cf9dc01a1ee5c28e2b1a04045d086951b950e76c201deb8adbb36a"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-records.py",
+        "sha256": "9d97dca4e7b8a422d872fc3d796f577842d0da7d6e35380fe0d3ca58f7acc62f"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T084200-0400-gunfight-mechanics\\L1104\\inspect.py",
+        "sha256": "7f507d62f2ef23befcd9d11adc4afee2c5db3396f019c640711b812449a85c50"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T084200-0400-gunfight-mechanics\\L1104\\finish.py",
+        "sha256": "e54e271456bfb6a82d9e747315a0d864181f37b89174d9c496895351ed7d1cf4"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T084200-0400-gunfight-mechanics\\L1104\\current-owner-hash-checks.json",
+        "sha256": "645390fc5fd04b86d77c1c6768975c8f0534ebe6ee8c608fe59a0daebe7ad7aa"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T084200-0400-gunfight-mechanics\\L1104\\dead-ends.json",
+        "sha256": "896e6cb78dbea58364456c768481bf4a941987275cb9f242ac2af869247bdbdb"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T084200-0400-gunfight-mechanics\\L1104\\site-contract-pointers.json",
+        "sha256": "d3831ec4935af0915e1eaf6d99e19880ad95eb49476fc6e74de705d5da0fb138"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T084200-0400-gunfight-mechanics\\L1104\\retained-targeted-hits.json",
+        "sha256": "a71a516fe1e3358a3981f5215e5c651fe3b274024d49214fa0ffd2939a2a8224"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer\\sim\\target.js",
+        "sha256": "2ab9e293115c4c59ed25cfaeddc6a94060cce1bcd5652fca885d4edbf7265f32"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer\\sim\\target.js",
+        "sha256": "2ab9e293115c4c59ed25cfaeddc6a94060cce1bcd5652fca885d4edbf7265f32"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer\\sim\\target.js",
+        "sha256": "2ab9e293115c4c59ed25cfaeddc6a94060cce1bcd5652fca885d4edbf7265f32"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer\\sim\\damage.js",
+        "sha256": "3c5e0c645c1cc8abc7e34f74a7345d33b284bbda8247c6c3a5e8feafbd857e78"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer\\sim\\damage.js",
+        "sha256": "3c5e0c645c1cc8abc7e34f74a7345d33b284bbda8247c6c3a5e8feafbd857e78"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer\\sim\\applyAttachments.js",
+        "sha256": "18244f1e93f95b4557992754b2ba5a16998135446f64f47ba06838839bfab1fd"
+      },
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer\\sim\\applyAttachments.js",
+        "sha256": "18244f1e93f95b4557992754b2ba5a16998135446f64f47ba06838839bfab1fd"
+      }
+    ],
+    "commands": [
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T084200-0400-gunfight-mechanics\\L1104\\inspect.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T084200-0400-gunfight-mechanics\\L1104"
+      },
+      {
+        "argv": [
+          "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T084200-0400-gunfight-mechanics\\L1104\\finish.py"
+        ],
+        "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T084200-0400-gunfight-mechanics\\L1104"
+      }
+    ]
+  },
+  "record": {
+    "v": 1,
+    "kind": "audit",
+    "date": "2026-10-01",
+    "build": "1.4.3.5",
+    "binding": "research",
+    "leads": [
+      {
+        "id": "L1104",
+        "title": "Hit registration suppression and flinch named-route limit audit",
+        "status": "exhausted",
+        "summary": "Three named route groups have no qualifying same-owner semantic control; current owner hashes and site contracts are pinned without numeric trace or absence claims.",
+        "reopenWhen": "Exact network/health or typed suppression/flinch gameplay caller and same-owner known-answer semantic operation control becomes available.",
+        "searched": [
+          "Exact retained L799/L828 weapon source/caller boundaries",
+          "Exact retained L848/L853 suppression presentation/resource boundaries",
+          "L851 typed soldier animation hit-distance boundary and L842 callback import context",
+          "Current sim target/damage/selected-ammo regeneration code contracts"
+        ]
+      }
+    ],
+    "run": {
+      "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T084200-0400-gunfight-mechanics",
+      "orchestrator": "GPT-6.1 Sol",
+      "workers": [
+        {
+          "lead": "L1104",
+          "model": "GPT-6.1 Sol Low"
+        }
+      ]
+    }
+  },
+  "parentReview": {
+    "review": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T084200-0400-gunfight-mechanics\\L1104\\parent-mechanical-review.json",
+      "sha256": "f477ec1efa02466d7f7bf39a4aa5df41d7035d19cc0abb0a105952e6b1e5e2b5"
+    },
+    "acceptedAs": "Unqualified-control route audit only. The expected missing-control flag is retained. No passing mechanic control, numeric trace or absence conclusion is claimed.",
+    "scope": {
+      "expected": 3,
+      "examined": 3
+    },
+    "rawMechanicOperands": 0,
+    "independentOwnerHashChecks": 3,
+    "sitePointerHashesMatch": true
+  }
+}

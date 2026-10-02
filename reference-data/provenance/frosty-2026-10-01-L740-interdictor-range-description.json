@@ -1,0 +1,181 @@
+{
+  "date": "2026-10-01",
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-10-01",
+    "build": "1.4.3.5",
+    "leads": [
+      {
+        "id": "L740",
+        "title": "Interdictor description peak-range conflict",
+        "status": "proposal",
+        "summary": "Current selected curve and EA 1.4.3.0 peak through 160 m; site and retained localized description end at150 m. Site numerical curve matches current raw.",
+        "reopenWhen": "Review description policy against the current curve; new curve/localization or native evidence changes the finding."
+      }
+    ],
+    "assets": [
+      {
+        "path": "Common/Hardware/Weapons/_Bullets/PD_.416Barrett",
+        "format": "raw-ebx",
+        "sha256": "5d685e3cf48356429f42a0d1504146a2f1658f306a2a20427455150909bf371d",
+        "question": "Selected normal-health peak interval versus displayed description",
+        "result": "useful",
+        "conclusion": "Selected tweakable and matching health curves both have100 damage at120 and160 m; fullfivepairs raw verified."
+      }
+    ],
+    "site": [
+      {
+        "pointer": "data/weapons.json:/[id=interdictor]/description",
+        "relation": "contradicts"
+      },
+      {
+        "pointer": "data/weapons.json:/[id=interdictor]/dmg",
+        "relation": "supports"
+      }
+    ],
+    "refs": [
+      "queue-proposals"
+    ],
+    "binding": "research",
+    "run": {
+      "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T001542-0400-patch-notes-coverage",
+      "orchestrator": "GPT-6.1 Sol High",
+      "workers": []
+    }
+  },
+  "question": "Does the Interdictor displayed peak-range upper bound conflict with its current selected source?",
+  "sourceFacts": {
+    "lead": "L740",
+    "status": "complete",
+    "control": {
+      "passed": true,
+      "sameOwner": "PD_.416Barrett selected standard curve, 120 m/100 damage"
+    },
+    "scope": {
+      "expected": 1,
+      "examined": 1
+    },
+    "rows": [
+      {
+        "siteWeaponId": "interdictor",
+        "route": "Common/Hardware/Weapons/_Bullets/PD_.416Barrett",
+        "rawPath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_.416Barrett.ebx",
+        "rawSha256": "5d685e3cf48356429f42a0d1504146a2f1658f306a2a20427455150909bf371d",
+        "selectedCurveGuid": "ba0c9abc-a912-4db1-9edd-15d3e588f8c3",
+        "healthCurveGuid": "d90eb3b5-db54-42a8-9c1a-6503ad013a68",
+        "curve": [
+          {
+            "r": 100.0,
+            "d": 80.0
+          },
+          {
+            "r": 120.0,
+            "d": 100.0
+          },
+          {
+            "r": 160.0,
+            "d": 100.0
+          },
+          {
+            "r": 180.0,
+            "d": 80.0
+          },
+          {
+            "r": 200.0,
+            "d": 80.0
+          }
+        ],
+        "siteCurve": [
+          {
+            "r": 100,
+            "d": 80,
+            "source": "Frosty"
+          },
+          {
+            "r": 120,
+            "d": 100,
+            "source": "Frosty"
+          },
+          {
+            "r": 160,
+            "d": 100,
+            "source": "Frosty"
+          },
+          {
+            "r": 180,
+            "d": 80,
+            "source": "Frosty"
+          },
+          {
+            "r": 200,
+            "d": 80,
+            "source": "Frosty"
+          }
+        ],
+        "siteDescriptionPeakRangeMetres": [
+          120,
+          150
+        ],
+        "currentCurvePeakRangeMetres": [
+          120,
+          160
+        ],
+        "siteDescriptionMatchesRetainedGameText": true,
+        "eaVersion": "1.4.3.0",
+        "eaUrl": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-4-3-0",
+        "eaPredictionPassed": "Own-word EA item EA-U22-I059 specifies 120–160 m; confirmed live main-text extraction."
+      }
+    ],
+    "sourceAssociation": {
+      "originalHead": 4892017,
+      "currentRawHead": 4909002,
+      "currentDescriptor": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+      "reusePath": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-30T232233-0400-site-audit-ammo\\L582\\l582-result.json",
+      "reuseSha256": "eee88d7d7fd28fd6d78ef92758ef231a69ab4712ef8576a028c6d387e6d89b65"
+    },
+    "siteImpact": "Possible stale description range upper bound 150 m conflicts with current numerical peak through 160 m. Current site curve equals current raw curve.",
+    "unresolved": [
+      "Native damage execution not measured.",
+      "Current localization itself retains the older 120–150 m wording; defect is presentation consistency, not a claim that the site failed to copy localization."
+    ]
+  },
+  "validation": {
+    "control": "Same-owner selected curve120 m/100 damage passed before consequential reads",
+    "operands": "20 parent raw operands, all passed; curve source hash equals L582 current raw",
+    "ea": "Official update1.4.3.0 specifies peak120–160 m; article item EA-U22-I059",
+    "prediction": "The comparison plot remains at100 damage through160 m while description says150 m; prediction passed by code/data and raw inspection, no recording."
+  },
+  "evidence": [
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T001542-0400-patch-notes-coverage\\L740\\lead.txt",
+      "sha256": "d083906e0a06d5097d923d68bc36f8314e6a18d78a1328b6366cce0434a64fe4"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T001542-0400-patch-notes-coverage\\L740\\control-manifest.json",
+      "sha256": "8788d27c0b6abd12e5b7553f190f6f9c7d55be685be56f580e5855508e9b9c00"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T001542-0400-patch-notes-coverage\\L740\\control-raw-check.json",
+      "sha256": "5b2f2a26c906d7156517aa56d00906dd346625fd1490549653a787d0735966d0"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T001542-0400-patch-notes-coverage\\L740\\operand-manifest.json",
+      "sha256": "4731e1830b85ed07c96e00f672efa5bc91c65d433c799ca77216d7ce2408fc8f"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T001542-0400-patch-notes-coverage\\L740\\parent-raw-check.json",
+      "sha256": "21c020274bc16a779dfa54391f654c9c9d968d20cfad861acae2cf774d6c393a"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T001542-0400-patch-notes-coverage\\L740\\l740-result.json",
+      "sha256": "f2b1250252ba6f4a05fc4a6633aa5471da46cce0604f224e0531543931502347"
+    }
+  ],
+  "inference": "Presentation consistency defect; current game localization also has older wording. This is not a new damage value mismatch.",
+  "unresolved": [
+    "Native damage execution not measured.",
+    "Current localization itself retains the older 120–150 m wording; defect is presentation consistency, not a claim that the site failed to copy localization."
+  ],
+  "decision": "Proposal only; no site edits."
+}

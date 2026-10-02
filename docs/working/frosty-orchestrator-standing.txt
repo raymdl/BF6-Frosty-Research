@@ -30,7 +30,8 @@ GAME BUILD (from 30 September 2026)
   No --catalog. Never export level materialgrid_win32 assets with FrostyCmd.
 
 READ FIRST
-- python scripts/frosty-records.py status (check must exit 0 before you start).
+- python scripts/frosty-records.py status. Before you start, check must show no errors
+  other than "[generated] out of date" (expected while parallel runs are open).
 - The previous run's handoff and review.md for your area (paths in the session prompt).
 - Your area's working doc in docs/working/, docs/working/frosty-worker-brief.txt,
   docs/working/frosty-worker-conventions.txt, docs/frosty/TOOLS.md "Worker run helpers"
@@ -79,12 +80,20 @@ WRITE-UP
   finding. In-game recordings follow the four-part rule in
   docs/working/BF6_CAPTURE_PRIORITIES.md; ask the operator first.
 - Keep serialized facts, inferred meaning and unresolved runtime behavior separate.
-  Write readable prose with normal spacing between words and numbers.
-- Close-out per lead: receipt, topic page, python scripts/frosty-records.py build, then
-  python scripts/frosty-records.py check, then commit locally in the research repo and
-  the generated files in the site repo. Other sessions run in parallel: stage only your
-  own paths and your own hunks of shared generated files, and leave other sessions'
+  Write readable prose with normal spacing between words and numbers: plain ASCII
+  spaces only (no narrow or no-break spaces, and never strip spaces from text).
+- Close-out per lead: receipt, topic page, python scripts/frosty-records.py
+  check-receipt <receipt>, then commit locally in the research repo. Other sessions run
+  in parallel: stage only your own paths and hunks, and leave other sessions'
   uncommitted changes in place.
+- Do not run frosty-records.py build and do not stage or commit generated files
+  (lead-index.json, site-evidence.json, asset-findings.json, FROSTY_QUEUE_CLOSED.md, or
+  the site repo's reference-data/frosty copies). Parallel builds from different
+  snapshots overwrite each other's entries (1 Oct 2026). The reviewer rebuilds them once
+  after all parallel runs close. "[generated] out of date" errors are expected meanwhile.
+- Keep large intermediates out of git: commit no file over 10 MB. Atlases, extraction
+  dumps and full raw-check lists stay in the run folder; the receipt cites their path and
+  SHA-256 and carries a summary plus the consequential raw checks.
 - Never change site data, simulation or UI. Never push.
 
 STOP AND HANDOFF

@@ -1,0 +1,299 @@
+{
+  "build": "1.4.3.5",
+  "head": 4909002,
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "lead": "L3150",
+  "status": "complete",
+  "question": "What UI preset records, text, fields and exact imports occur in the four fixed roots?",
+  "sourceFacts": {
+    "control": {
+      "description": "Object 26 Field_8a9d7d7b -> object 38 Field_3d34898a -> ECD2AB78 -> MAIN BATTLE TANK. UI text control only.",
+      "passed": true,
+      "rawChecks": [
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\UI\\Static\\Metadata\\UIVehicleArchetypeMetadata.ebx",
+          "rawSha256": "ffde820f6ea7f25c7916d30a5f884299a069f863a21be6b6040179a25698bc8d",
+          "offset": 1832,
+          "type": "i64",
+          "bytesHex": "e802000000000000",
+          "value": 744
+        },
+        {
+          "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\UI\\Static\\Metadata\\UIVehicleArchetypeMetadata.ebx",
+          "rawSha256": "ffde820f6ea7f25c7916d30a5f884299a069f863a21be6b6040179a25698bc8d",
+          "offset": 2608,
+          "type": "u32",
+          "bytesHex": "78abd2ec",
+          "value": 3973229432,
+          "expect": 3973229432,
+          "matches": true
+        }
+      ],
+      "stringTable": {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\fs_us_loc.strings.tsv",
+        "sha256": "1ec449fa2a12bc3d307bfa5878ee7d8c56af14fae65ea1f6c6286e85d98e7392",
+        "line": 101061,
+        "text": "ECD2AB78\tMAIN BATTLE TANK"
+      },
+      "ownerChain": [
+        {
+          "object": 26,
+          "localClassKey": "9b9c42a5efc21f07060d23aa9918083c",
+          "class": "Class_02be5e85"
+        },
+        {
+          "object": 38,
+          "localClassKey": "d0f48a75a98cf9b1c38ce774aa805b12",
+          "class": "Class_fbe1d3bc"
+        }
+      ],
+      "pointerEncoding": "Relative INT64 at 1832 resolves text object at 2576; decoded local reference is 38."
+    },
+    "counts": [
+      {
+        "asset": "Common/UI/Static/Metadata/UIVehicleLoadoutPresetMetadata",
+        "objectCount": 46,
+        "textRowCount": 15,
+        "importCount": 0
+      },
+      {
+        "asset": "Common/UI/MetaData/UIPlayerAbilityDescriptionMetadata",
+        "objectCount": 511,
+        "textRowCount": 102,
+        "importCount": 81
+      },
+      {
+        "asset": "Common/UI/Static/Metadata/UIVehicleMetadata",
+        "objectCount": 1,
+        "textRowCount": 0,
+        "importCount": 25
+      },
+      {
+        "asset": "Common/UI/Static/Metadata/UIVehicleArchetypeMetadata",
+        "objectCount": 61,
+        "textRowCount": 9,
+        "importCount": 9
+      }
+    ],
+    "presetShape": "15 text-bearing preset records; root literal Field_2c95d7b7 order retained. Class_e03acfe7 has inherited Field_1636b8bd key array and Field_55aded8d name, plus Field_fd698f51/Field_490f0dd0 text pointers; no imports in this asset.",
+    "imports": "115 import-table pairs retained with file GUID, object GUID, catalog path and raw checks in ui-census.json/raw-checks.json."
+  },
+  "inference": [
+    "Preset labels can describe intended configurations. They do not establish which preset is active or its default equipment."
+  ],
+  "unresolved": [
+    "UH60 door gunner minigun, RHIB OpenGunner HMG and MBT seat0 120mm default controls remain separate and unpassed in this lead.",
+    "Integer, enum, key-array and flag semantics remain hash-labelled unless UI text states meaning.",
+    "No exact per-seat ownership or default/unlock join is established by this bounded four-root census.",
+    "Decoder layoutAmbiguous markers are retained; local keys pin the selected current descriptors."
+  ],
+  "siteImpact": "No site change. UI labels and literal order do not prove defaults.",
+  "evidence": [
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T163631-0400-vehicle-seat-defaults\\L3150\\ui-census.json",
+      "sha256": "0a9540aa99415e39722bb75d6b48a797e5fcb876a9a5be5566c81765968f6cd5"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T163631-0400-vehicle-seat-defaults\\L3150\\ui-text.json",
+      "sha256": "ec6ee47c4215580543987744b285af4a14b70dcc7957c0526e0ff3352ed75358"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T163631-0400-vehicle-seat-defaults\\L3150\\schemas.json",
+      "sha256": "f1f16999ac26fe0a8d58859b87844d0799ee392577676f250ad82e8de06dc633"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T163631-0400-vehicle-seat-defaults\\L3150\\raw-checks.json",
+      "sha256": "cdf98565877c9eb6425e6a03523d14442e7f0af50d5b543c3da7ba2733f2c34b"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T163631-0400-vehicle-seat-defaults\\L3150\\raw-context.json",
+      "sha256": "2cd10ebbe2688438a91ef6c89909d9b9fa73ca681c97272d761fe4c7b4ff74a1"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T163631-0400-vehicle-seat-defaults\\L3150\\commands.json",
+      "sha256": "eed8fb15154b1add7207faeafa7229ea900bdda52d1bebe7a306c423de19f5e4"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T163631-0400-vehicle-seat-defaults\\L3150\\decode-0.json",
+      "sha256": "974966d6877a8f483c84961b2f4c359e6b96bda2fb001c61f37f72dcad5a622b"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T163631-0400-vehicle-seat-defaults\\L3150\\decode-1.json",
+      "sha256": "0c985848c3445dbee5e8f2c031bef18171610830dba5f50894a118a353d67d02"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T163631-0400-vehicle-seat-defaults\\L3150\\decode-2.json",
+      "sha256": "13e3aa77e0f75e5053c72767417f2565311fa0b770a36924f4fbfc733e7196b1"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T163631-0400-vehicle-seat-defaults\\L3150\\decode-3.json",
+      "sha256": "a26830b2c78991bc4c48c1d1e3de7156871d80ae31f0d28171830e8a16b456f7"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-ebx-decode.py",
+      "sha256": "6fdc0334efaee0fe6113b5c9db4973f1358f53ee65dfb94edbc22fb0bf07a727"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-ui-text.py",
+      "sha256": "e73075f7801b54764a6db707e515ee7f5a17630fb49f36a73bfe02eaa622cd56"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+      "sha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3"
+    },
+    {
+      "commands": [
+        {
+          "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "arguments": [
+            "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-ebx-decode.py",
+            "--descriptors",
+            "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\toolchain\\SharedTypeDescriptors.ebx",
+            "--ebx",
+            "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\UI\\Static\\Metadata\\UIVehicleLoadoutPresetMetadata.ebx",
+            "--out",
+            "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T163631-0400-vehicle-seat-defaults\\L3150\\decode-0.json"
+          ],
+          "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T163631-0400-vehicle-seat-defaults\\L3150"
+        },
+        {
+          "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "arguments": [
+            "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-ebx-decode.py",
+            "--descriptors",
+            "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\toolchain\\SharedTypeDescriptors.ebx",
+            "--ebx",
+            "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\UI\\MetaData\\UIPlayerAbilityDescriptionMetadata.ebx",
+            "--out",
+            "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T163631-0400-vehicle-seat-defaults\\L3150\\decode-1.json"
+          ],
+          "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T163631-0400-vehicle-seat-defaults\\L3150"
+        },
+        {
+          "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "arguments": [
+            "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-ebx-decode.py",
+            "--descriptors",
+            "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\toolchain\\SharedTypeDescriptors.ebx",
+            "--ebx",
+            "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\UI\\Static\\Metadata\\UIVehicleMetadata.ebx",
+            "--out",
+            "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T163631-0400-vehicle-seat-defaults\\L3150\\decode-2.json"
+          ],
+          "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T163631-0400-vehicle-seat-defaults\\L3150"
+        },
+        {
+          "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "arguments": [
+            "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-ebx-decode.py",
+            "--descriptors",
+            "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\toolchain\\SharedTypeDescriptors.ebx",
+            "--ebx",
+            "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\UI\\Static\\Metadata\\UIVehicleArchetypeMetadata.ebx",
+            "--out",
+            "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T163631-0400-vehicle-seat-defaults\\L3150\\decode-3.json"
+          ],
+          "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T163631-0400-vehicle-seat-defaults\\L3150"
+        },
+        {
+          "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "arguments": [
+            "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-ui-text.py",
+            "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\UI\\Static\\Metadata\\UIVehicleLoadoutPresetMetadata.ebx",
+            "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\UI\\MetaData\\UIPlayerAbilityDescriptionMetadata.ebx",
+            "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\UI\\Static\\Metadata\\UIVehicleMetadata.ebx",
+            "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\UI\\Static\\Metadata\\UIVehicleArchetypeMetadata.ebx",
+            "--descriptors",
+            "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\toolchain\\SharedTypeDescriptors.ebx",
+            "--strings",
+            "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\fs_us_loc.strings.tsv",
+            "--catalog",
+            "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\asset-catalog.json",
+            "--out",
+            "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T163631-0400-vehicle-seat-defaults\\L3150\\ui-text.json"
+          ],
+          "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T163631-0400-vehicle-seat-defaults\\L3150"
+        },
+        {
+          "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "arguments": [
+            "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+            "--manifest",
+            "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T163631-0400-vehicle-seat-defaults\\L3150\\raw-manifest.json",
+            "--out",
+            "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T163631-0400-vehicle-seat-defaults\\L3150\\raw-checks.json"
+          ],
+          "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T163631-0400-vehicle-seat-defaults\\L3150"
+        }
+      ],
+      "helperCommands": "run-census.py and build-census.py invoked as python <filename> in this lead directory; terminal summary-print errors occurred after all outputs were saved. No rerun or overwrite of those outputs."
+    }
+  ],
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-10-01",
+    "build": "1.4.3.5",
+    "binding": "research",
+    "leads": [
+      {
+        "id": "L3150",
+        "title": "Vehicle UI preset and slot census",
+        "status": "finding",
+        "summary": "Four UI roots retain 126 text-bearing rows and exact imports, but do not establish a seat default.",
+        "reopenWhen": "An exact controlled GUID/import/pointer join establishes seat ownership and passes the three default controls."
+      }
+    ],
+    "assets": [
+      {
+        "path": "Common/UI/Static/Metadata/UIVehicleLoadoutPresetMetadata",
+        "format": "raw-ebx",
+        "sha256": "4235293a1a487a5d3bf1b73f6265ba27c179b9337bc581b8ffce1f4299bf0983",
+        "question": "Fixed UI census",
+        "result": "useful",
+        "conclusion": "46 objects, 15 text rows and 0 exact import pairs retained; default meaning unresolved."
+      },
+      {
+        "path": "Common/UI/MetaData/UIPlayerAbilityDescriptionMetadata",
+        "format": "raw-ebx",
+        "sha256": "393af3d78e2e52851ee23fad8b4be3c8eec1d9d01bfdde0472c715b4fd876ab4",
+        "question": "Fixed UI census",
+        "result": "useful",
+        "conclusion": "511 objects, 102 text rows and 81 exact import pairs retained; default meaning unresolved."
+      },
+      {
+        "path": "Common/UI/Static/Metadata/UIVehicleMetadata",
+        "format": "raw-ebx",
+        "sha256": "5c74684722ec5d8818a61cb399cb8acbfcd5ffbe0afd41d1a41b8c76661235df",
+        "question": "Fixed UI census",
+        "result": "useful",
+        "conclusion": "1 objects, 0 text rows and 25 exact import pairs retained; default meaning unresolved."
+      },
+      {
+        "path": "Common/UI/Static/Metadata/UIVehicleArchetypeMetadata",
+        "format": "raw-ebx",
+        "sha256": "ffde820f6ea7f25c7916d30a5f884299a069f863a21be6b6040179a25698bc8d",
+        "question": "Fixed UI census",
+        "result": "useful",
+        "conclusion": "61 objects, 9 text rows and 9 exact import pairs retained; default meaning unresolved."
+      }
+    ]
+  },
+  "parentReview": {
+    "review": {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T163631-0400-vehicle-seat-defaults\\L3150\\parent-worker-review.json",
+      "sha256": "a51d2b79f342cfa7cf4ebd8af079f1e925084d296bf3e1211895c269dc4524af"
+    },
+    "consequentialRawReads": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\UI\\Static\\Metadata\\UIVehicleArchetypeMetadata.ebx",
+        "rawSha256": "ffde820f6ea7f25c7916d30a5f884299a069f863a21be6b6040179a25698bc8d",
+        "offset": 2608,
+        "type": "u32",
+        "bytesHex": "78abd2ec",
+        "value": 3973229432
+      }
+    ],
+    "controlScope": "UI/text or import controls remain separate from the three functional default controls. Failed default controls establish no negative gameplay findings."
+  }
+}

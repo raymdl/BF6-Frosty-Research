@@ -1,0 +1,182 @@
+{
+  "lead": "L745,L747,L748",
+  "status": "complete-route-qualification",
+  "build": "1.4.3.5",
+  "head": 4909002,
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "question": "Do exact melee, ping and movement-audio owners supply same-owner semantic controls?",
+  "control": {
+    "passed": false,
+    "notRun": true,
+    "reason": "No semantic damage/cadence, classifier/delay or stance-attenuation control qualified. Structural GUID checks are separate."
+  },
+  "sourceFacts": {
+    "qualificationOnly": true,
+    "inspectedOwnerCount": 17,
+    "structuralGuidReads": 6,
+    "entries": [
+      {
+        "lead": "L745",
+        "route": [
+          "Common/Hardware/Weapons/Melee/CombatKnife/WB_Melee_CombatKnife",
+          "Common/Gameplay/Soldier/Melee/Melee_Shared_WeaponFiring",
+          "Common/Gameplay/Soldier/Melee/SimEx_Melee",
+          "Common/Gameplay/Soldier/Melee/Affector_Melee_Damage"
+        ],
+        "fields": [
+          "MeleeAttackTimeDelay",
+          "ProhibitFireDelay",
+          "AffectedBlockTimeDelay",
+          "Field_95eed6ac",
+          "Field_72380a66",
+          "Field_ce8df685"
+        ],
+        "tried": "Exact WB/shared-firing/SimEx/affector chain, current nested declaring descriptor, FIELD_MAP and L846 role-control review.",
+        "stopReason": "Exact identity chain reaches ambiguous hash-only payload and compiled delay expressions. L846 has raw field inventory but no supported damage role control. No damage or attack interval is claimed.",
+        "reopenCondition": "A known-answer same-owner damage/cadence control and exact normal-hit/state selection; do not transfer roles from equal values or array order."
+      },
+      {
+        "lead": "L747",
+        "route": [
+          "Common/Gameplay/Ping/LPF_UtilityMessaging",
+          "Common/Gameplay/Ping/DiceEx_UtilityMessaging",
+          "Common/Gameplay/Ping/LPF_UtilityMessaging_OwnerGateExecutionLogic",
+          "Common/VO/Logic/Soldier/Comms/BF03_VO_Logic_Soldier_Comms_Ping_VoLogic_01"
+        ],
+        "fields": [
+          "CanSend",
+          "SameSquad",
+          "Ping",
+          "PingTarget",
+          "Ping_Sequencing",
+          "Ping_1P",
+          "Ping_3P"
+        ],
+        "tried": "Utility messaging and voice outputs did not identify classifier. Switched to exact InputConcepts_Soldier/InputConfiguration/InputMapping_Soldier; the inspected input bodies retain hashed fields/IDs without named danger/tap channel.",
+        "stopReason": "Messaging/voice port identities are not classifier or latency roles. No 0.333/0.15 number search or combined latency was used.",
+        "reopenCondition": "Exact named input classifier or delay declaration with field role and EA known-answer control; reverse its actual input/receiver."
+      },
+      {
+        "lead": "L748",
+        "route": [
+          "Common/Sound/Soldier/Movement/Logic/Shared/BF03_Soldier_Movement_Logic_Shared_Parent_PresEx_02",
+          "Common/Sound/Soldier/Movement/Logic/Shared/BF03_Soldier_Movement_Logic_Shared_Variables_MInterface_01",
+          "Common/Sound/Soldier/Movement/BF03_Soldier_Movement_Enemy_Config_01",
+          "Common/Sound/Soldier/Movement/BF03_Soldier_Movement_Shared_Patch_01"
+        ],
+        "fields": [
+          "Stance_TriggerOnIntChange",
+          "Crawl_TriggerOnBoolChange",
+          "WeaponCrawl_TriggerOnBoolChange",
+          "CrouchCooldown",
+          "Distance",
+          "IsInEarshot",
+          "Field_d56fbb5b",
+          "Field_5e11cb2a"
+        ],
+        "tried": "Initial sound root has no exact movement attenuation receiver. Changed to catalog movement state/recipient candidates, then followed the enemy config exact import to its shared patch.",
+        "stopReason": "Named movement states and earshot port names do not label attenuation/gain/radius fields. Exact shared patch body has hash-only node fields. No audibility radius or gain is claimed.",
+        "reopenCondition": "Exact same-owner named stance attenuation/gain/radius setting and its recipient control, or a validated consumer reader with a known-answer state."
+      }
+    ],
+    "parentStructuralRead": [
+      {
+        "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Melee\\CombatKnife\\WB_Melee_CombatKnife.ebx",
+        "rawSha256": "ada5cde3b1ef61857cc95304e81d1c4683f0563d88410a92d51758039caefaa0",
+        "offset": 2510,
+        "type": "guid",
+        "bytesHex": "00c9883686024b40858c10b1b6d0e367",
+        "value": "3688c900-0286-404b-858c-10b1b6d0e367",
+        "expect": "3688c900-0286-404b-858c-10b1b6d0e367",
+        "matches": true
+      }
+    ]
+  },
+  "inference": [],
+  "unresolved": [
+    "Exact identity chain reaches ambiguous hash-only payload and compiled delay expressions. L846 has raw field inventory but no supported damage role control. No damage or attack interval is claimed.",
+    "Messaging/voice port identities are not classifier or latency roles. No 0.333/0.15 number search or combined latency was used.",
+    "Named movement states and earshot port names do not label attenuation/gain/radius fields. Exact shared patch body has hash-only node fields. No audibility radius or gain is claimed."
+  ],
+  "siteImpact": "No mechanic value or change proposed. Missing typed semantic consumers do not establish native absence or zero effect.",
+  "evidence": [
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T084200-0400-gunfight-mechanics\\qualification-soldier\\qualification.json",
+      "sha256": "f61c859b112b942dae91e9ab8d3c7f63bb3ce050b9befa5defa2e615589331bc"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T084200-0400-gunfight-mechanics\\qualification-soldier\\summary.md",
+      "sha256": "00536c98f70e8a0e36428fd8f169586987ec138b2c8a9ac090fad453f074c5d1"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T084200-0400-gunfight-mechanics\\qualification-soldier\\dead-ends.json",
+      "sha256": "e3c37527534cebd7978a246cf2725b40cb54a1faf077b43cc933efd72c470679"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T084200-0400-gunfight-mechanics\\qualification-soldier\\structural-import-raw-checks.json",
+      "sha256": "f79c31c549aea40c31947ac9136e8d5635e0d967e183172b0f0b674656f0a552"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T084200-0400-gunfight-mechanics\\qualification-soldier\\parent-identity-manifest.json",
+      "sha256": "9226dbc94569c53197e6e5ae77b7b45b8ebe92b82753536524a5e65728973ed3"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T084200-0400-gunfight-mechanics\\qualification-soldier\\parent-identity-raw-check.json",
+      "sha256": "8d0ff96d6744af23669671743fbfd26594f6ce0ba3867a019b56f77cf4bc18f0"
+    }
+  ],
+  "reproduction": [
+    {
+      "argv": [
+        "python",
+        "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+        "--manifest",
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T084200-0400-gunfight-mechanics\\qualification-soldier\\parent-identity-manifest.json",
+        "--out",
+        "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T084200-0400-gunfight-mechanics\\qualification-soldier\\parent-identity-raw-check.json"
+      ],
+      "cwd": "C:\\Users\\royal\\Documents\\BF6 Frosty Research",
+      "toolSha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3"
+    }
+  ],
+  "record": {
+    "v": 1,
+    "kind": "audit",
+    "date": "2026-10-01",
+    "build": "1.4.3.5",
+    "binding": "research",
+    "leads": [
+      {
+        "id": "L745",
+        "title": "Melee damage and cadence route qualification",
+        "status": "finding",
+        "summary": "Exact identity chain reaches ambiguous hash-only payload and compiled delay expressions. L846 has raw field inventory but no supported damage role control. No damage or attack interval is claimed.",
+        "reopenWhen": "A known-answer same-owner damage/cadence control and exact normal-hit/state selection; do not transfer roles from equal values or array order."
+      },
+      {
+        "id": "L747",
+        "title": "Ping timing route qualification",
+        "status": "finding",
+        "summary": "Messaging/voice port identities are not classifier or latency roles. No 0.333/0.15 number search or combined latency was used.",
+        "reopenWhen": "Exact named input classifier or delay declaration with field role and EA known-answer control; reverse its actual input/receiver."
+      },
+      {
+        "id": "L748",
+        "title": "Sneaking audibility route qualification",
+        "status": "finding",
+        "summary": "Named movement states and earshot port names do not label attenuation/gain/radius fields. Exact shared patch body has hash-only node fields. No audibility radius or gain is claimed.",
+        "reopenWhen": "Exact same-owner named stance attenuation/gain/radius setting and its recipient control, or a validated consumer reader with a known-answer state."
+      }
+    ],
+    "run": {
+      "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T084200-0400-gunfight-mechanics",
+      "orchestrator": "GPT-6.1 Sol",
+      "workers": [
+        {
+          "lead": "qualification-soldier",
+          "model": "GPT-6.1 Sol Low"
+        }
+      ]
+    }
+  }
+}

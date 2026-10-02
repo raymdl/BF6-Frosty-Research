@@ -1,0 +1,397 @@
+{
+  "date": "2026-10-01",
+  "family": "BARRELS.velMult",
+  "build": {
+    "version": "1.4.3.5",
+    "head": 4909002,
+    "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1"
+  },
+  "assumptions": [
+    {
+      "id": "A01",
+      "source": "docs/data-flow/REGISTER.md:60",
+      "statement": "The site baseline combines versions and source/panel evidence. No file-wide current-build guarantee is assumed."
+    }
+  ],
+  "method": "Current site pointer/value join; only AG Coating costs are new current raw extraction. Other source rows retain their original Head and carry forward by equal raw SHA-256. No generators or in-game tests run.",
+  "rows": [
+    {
+      "pointer": "data/attachments.json:/BARRELS/1/velMult",
+      "catalog": "BARRELS",
+      "family": "velMult",
+      "choice": "basic",
+      "weapon": null,
+      "value": 1,
+      "result": "inactive-fallback",
+      "classification": null,
+      "priorEvidence": {
+        "sitePointer": "/BARRELS/1",
+        "attachment": "basic",
+        "siteFields": {
+          "velMult": 1,
+          "velTierMod": 0
+        },
+        "siteWeapons": [
+          "ak205",
+          "ak4d",
+          "b36a4",
+          "brod3",
+          "cz3a1",
+          "db12",
+          "drsiar",
+          "ef88",
+          "es57",
+          "ggh22",
+          "grtbc",
+          "grtcps",
+          "interdictor",
+          "kord6p67",
+          "ks18k",
+          "kv9",
+          "l115",
+          "l85a3",
+          "lmr27",
+          "m1014",
+          "m16a4",
+          "m2010esr",
+          "m277",
+          "m357trait",
+          "m39emr",
+          "m417a2",
+          "m433",
+          "m44",
+          "m45a1",
+          "m4a1",
+          "m87a1",
+          "miniscout",
+          "nvo228e",
+          "p18",
+          "pp19",
+          "psr",
+          "pw5a3",
+          "pw7a2",
+          "qbz192",
+          "rpk74m",
+          "rpkm",
+          "scw10",
+          "sg553r",
+          "sgx",
+          "sl9",
+          "sor300sc",
+          "sor556",
+          "sv98",
+          "svdm",
+          "svk86",
+          "tr7",
+          "umg40",
+          "usg90",
+          "vcr2",
+          "vz61"
+        ],
+        "wpmRoute": "Common/Hardware/Weapons/_WeaponModifiers/_Barrel/WPM_BRL_Basic_W10",
+        "wpmXmlSha256": "25aa059379e7d107717c3be859a5dfb419b70d2994d9c1a73caaf268d495f8ee",
+        "wpmCapture": {
+          "id": 21171,
+          "head": 4892017,
+          "raw_sha256": "265ddbec14b859227ed9e4d27bc08e14416f68a1bdd16f52696b6da0b5630a1a",
+          "descriptor_sha256": "91c9ea7c3dd830e34a78123c8bb7485e80eefdb18fc9c7ee41117971d23565c2",
+          "decode_status": "decoded"
+        },
+        "velocityEffects": [],
+        "assessment": "selected WPM has no imported MuzzleVelocity WME",
+        "tierRelation": {
+          "siteVelTierMod": 0,
+          "candidateDerivedTierValues": [],
+          "formula": "-log(source WME factor) / log(0.8)",
+          "status": "site-neutral-default-without-MuzzleVelocity-WME"
+        }
+      },
+      "note": "resolveBarrelVelocity uses present velTierMod=0 before velMult; this fallback does not affect displayed velocity."
+    },
+    {
+      "pointer": "data/attachments.json:/BARRELS/4/velMult",
+      "catalog": "BARRELS",
+      "family": "velMult",
+      "choice": "heavy",
+      "weapon": null,
+      "value": 1,
+      "result": "inactive-fallback",
+      "classification": null,
+      "priorEvidence": {
+        "sitePointer": "/BARRELS/4",
+        "attachment": "heavy",
+        "siteFields": {
+          "velMult": 1,
+          "velTierMod": 0
+        },
+        "siteWeapons": [
+          "ak205",
+          "ak4d",
+          "b36a4",
+          "drsiar",
+          "kord6p67",
+          "kts100",
+          "l110",
+          "l85a3",
+          "m121a2",
+          "m123k",
+          "m16a4",
+          "m240l",
+          "m250",
+          "m277",
+          "m60",
+          "pw7a2",
+          "rpk74m",
+          "rpkm",
+          "sl9",
+          "sor556",
+          "umg40",
+          "usg90"
+        ],
+        "wpmRoute": "Common/Hardware/Weapons/_WeaponModifiers/_Barrel/WPM_BRL_Heavy_W10",
+        "wpmXmlSha256": "953fb3c0f31852ac0cc61ea8d5ed05ebd80f45bd39e783a2578e4fb20da6c7e8",
+        "wpmCapture": {
+          "id": 21175,
+          "head": 4892017,
+          "raw_sha256": "5e30e47e12acc2d8bd0d5bfe0bb9be313b9c7ab2cb36098c34dd316edf232c34",
+          "descriptor_sha256": "91c9ea7c3dd830e34a78123c8bb7485e80eefdb18fc9c7ee41117971d23565c2",
+          "decode_status": "decoded"
+        },
+        "velocityEffects": [],
+        "assessment": "selected WPM has no imported MuzzleVelocity WME",
+        "tierRelation": {
+          "siteVelTierMod": 0,
+          "candidateDerivedTierValues": [],
+          "formula": "-log(source WME factor) / log(0.8)",
+          "status": "site-neutral-default-without-MuzzleVelocity-WME"
+        }
+      },
+      "note": "resolveBarrelVelocity uses present velTierMod=0 before velMult; this fallback does not affect displayed velocity."
+    },
+    {
+      "pointer": "data/attachments.json:/BARRELS/6/velMult",
+      "catalog": "BARRELS",
+      "family": "velMult",
+      "choice": "light",
+      "weapon": null,
+      "value": 1,
+      "result": "inactive-fallback",
+      "classification": null,
+      "priorEvidence": {
+        "sitePointer": "/BARRELS/6",
+        "attachment": "light",
+        "siteFields": {
+          "velMult": 1,
+          "velTierMod": 0
+        },
+        "siteWeapons": [
+          "ak205",
+          "b36a4",
+          "brod3",
+          "cz3a1",
+          "drsiar",
+          "ef88",
+          "es57",
+          "ggh22",
+          "grtbc",
+          "grtcps",
+          "interdictor",
+          "kord6p67",
+          "kv9",
+          "l110",
+          "l115",
+          "l85a3",
+          "lmr27",
+          "m16a4",
+          "m2010esr",
+          "m240l",
+          "m277",
+          "m433",
+          "m45a1",
+          "m4a1",
+          "m60",
+          "miniscout",
+          "nvo228e",
+          "p18",
+          "pp19",
+          "scw10",
+          "sg553r",
+          "sgx",
+          "sl9",
+          "sor300sc",
+          "sv98",
+          "svdm",
+          "tr7",
+          "umg40",
+          "usg90",
+          "vcr2"
+        ],
+        "wpmRoute": "Common/Hardware/Weapons/_WeaponModifiers/_Barrel/WPM_BRL_Fluted_W20",
+        "wpmXmlSha256": "561006916fbc8d5073670bcb4d4c289b1f309ad219383da00ca12dc74c94a713",
+        "wpmCapture": {
+          "id": 21173,
+          "head": 4892017,
+          "raw_sha256": "7d9219260047f90320a68c1abe53acdbd228855d3e156cae1182c0525144851d",
+          "descriptor_sha256": "91c9ea7c3dd830e34a78123c8bb7485e80eefdb18fc9c7ee41117971d23565c2",
+          "decode_status": "decoded"
+        },
+        "velocityEffects": [],
+        "assessment": "selected WPM has no imported MuzzleVelocity WME",
+        "tierRelation": {
+          "siteVelTierMod": 0,
+          "candidateDerivedTierValues": [],
+          "formula": "-log(source WME factor) / log(0.8)",
+          "status": "site-neutral-default-without-MuzzleVelocity-WME"
+        }
+      },
+      "note": "resolveBarrelVelocity uses present velTierMod=0 before velMult; this fallback does not affect displayed velocity."
+    },
+    {
+      "pointer": "data/attachments.json:/BARRELS/7/velMult",
+      "catalog": "BARRELS",
+      "family": "velMult",
+      "choice": "cryo",
+      "weapon": null,
+      "value": 1,
+      "result": "inactive-fallback",
+      "classification": null,
+      "priorEvidence": {
+        "sitePointer": "/BARRELS/7",
+        "attachment": "cryo",
+        "siteFields": {
+          "velMult": 1,
+          "velTierMod": 0
+        },
+        "siteWeapons": [
+          "ak205",
+          "ak4d",
+          "b36a4",
+          "ef88",
+          "kord6p67",
+          "l85a3",
+          "m16a4",
+          "m277",
+          "m417a2",
+          "nvo228e",
+          "pp19",
+          "pw5a3",
+          "pw7a2",
+          "qbz192",
+          "sl9",
+          "sor300sc",
+          "sor556",
+          "umg40",
+          "usg90"
+        ],
+        "wpmRoute": "Common/Hardware/Weapons/_WeaponModifiers/_Barrel/WPM_BRL_Treated_W20",
+        "wpmXmlSha256": "8581588f4ee5d30480ba458450ab26ce3ad7ca194c5e9c501f0eca24cf8ebc36",
+        "wpmCapture": {
+          "id": 21179,
+          "head": 4892017,
+          "raw_sha256": "a2d79bed4d4a44673fc5f82b6f1987d30210520968f079424659d5d16726494d",
+          "descriptor_sha256": "91c9ea7c3dd830e34a78123c8bb7485e80eefdb18fc9c7ee41117971d23565c2",
+          "decode_status": "decoded"
+        },
+        "velocityEffects": [],
+        "assessment": "selected WPM has no imported MuzzleVelocity WME",
+        "tierRelation": {
+          "siteVelTierMod": 0,
+          "candidateDerivedTierValues": [],
+          "formula": "-log(source WME factor) / log(0.8)",
+          "status": "site-neutral-default-without-MuzzleVelocity-WME"
+        }
+      },
+      "note": "resolveBarrelVelocity uses present velTierMod=0 before velMult; this fallback does not affect displayed velocity."
+    },
+    {
+      "pointer": "data/attachments.json:/BARRELS/10/velMult",
+      "catalog": "BARRELS",
+      "family": "velMult",
+      "choice": "vssm_suppressed",
+      "weapon": null,
+      "value": 1,
+      "result": "inactive-fallback",
+      "classification": null,
+      "priorEvidence": {
+        "sitePointer": "/BARRELS/10",
+        "attachment": "vssm_suppressed",
+        "siteFields": {
+          "velMult": 1,
+          "velTierMod": 0
+        },
+        "siteWeapons": [
+          "vssm"
+        ],
+        "wpmRoute": "Common/Hardware/Weapons/_WeaponModifiers/_Barrel/WPM_BRL_VSSMBasic_W10",
+        "wpmXmlSha256": "b67dd68dc6980e80c8329221f88f9a6422cb69ce73a213eef33a6e5c06cc9bc9",
+        "wpmCapture": {
+          "id": 21180,
+          "head": 4892017,
+          "raw_sha256": "093d4eeeb4c64fe6bc47cff3b26ace1f3b8a2235891e19b0f42c15d222e5e22f",
+          "descriptor_sha256": "91c9ea7c3dd830e34a78123c8bb7485e80eefdb18fc9c7ee41117971d23565c2",
+          "decode_status": "decoded"
+        },
+        "velocityEffects": [],
+        "assessment": "selected WPM has no imported MuzzleVelocity WME",
+        "tierRelation": {
+          "siteVelTierMod": 0,
+          "candidateDerivedTierValues": [],
+          "formula": "-log(source WME factor) / log(0.8)",
+          "status": "site-neutral-default-without-MuzzleVelocity-WME"
+        }
+      },
+      "note": "resolveBarrelVelocity uses present velTierMod=0 before velMult; this fallback does not affect displayed velocity."
+    },
+    {
+      "pointer": "data/attachments.json:/BARRELS/11/velMult",
+      "catalog": "BARRELS",
+      "family": "velMult",
+      "choice": "vssm_suppressed_asm",
+      "weapon": null,
+      "value": 1,
+      "result": "inactive-fallback",
+      "classification": null,
+      "priorEvidence": {
+        "sitePointer": "/BARRELS/11",
+        "attachment": "vssm_suppressed_asm",
+        "siteFields": {
+          "velMult": 1,
+          "velTierMod": 0
+        },
+        "siteWeapons": [
+          "vssm"
+        ],
+        "wpmRoute": "Common/Hardware/Weapons/_WeaponModifiers/_Barrel/WPM_BRL_VSSMNoPort_W10",
+        "wpmXmlSha256": "3f7ac34a5fcae7efe88de05f7dfbd8541a8691d936db25c8fd017a768facefd5",
+        "wpmCapture": {
+          "id": 21181,
+          "head": 4892017,
+          "raw_sha256": "f0614e71002b07d99470616f08d27a261b393ec88364291edea36cedb3d62087",
+          "descriptor_sha256": "91c9ea7c3dd830e34a78123c8bb7485e80eefdb18fc9c7ee41117971d23565c2",
+          "decode_status": "decoded"
+        },
+        "velocityEffects": [],
+        "assessment": "selected WPM has no imported MuzzleVelocity WME",
+        "tierRelation": {
+          "siteVelTierMod": 0,
+          "candidateDerivedTierValues": [],
+          "formula": "-log(source WME factor) / log(0.8)",
+          "status": "site-neutral-default-without-MuzzleVelocity-WME"
+        }
+      },
+      "note": "resolveBarrelVelocity uses present velTierMod=0 before velMult; this fallback does not affect displayed velocity."
+    }
+  ],
+  "limits": [
+    "No source route is a retained bounded result, with no new lead or source-zero claim.",
+    "Serialized configuration and arithmetic comparison do not prove native activation/composition.",
+    "Existing four SP suppressor minimap candidate differences (.10 versus .14) remain unresolved L47/L49 evidence, outside the eleven neutral minimap candidate leaves; no new material mismatch is inferred."
+  ],
+  "record": {
+    "v": 1,
+    "kind": "audit",
+    "date": "2026-10-01",
+    "build": "1.4.3.5",
+    "binding": "research"
+  }
+}
