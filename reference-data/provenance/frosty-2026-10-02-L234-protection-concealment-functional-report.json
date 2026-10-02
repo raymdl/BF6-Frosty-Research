@@ -1,0 +1,116 @@
+{
+  "lead": "L234",
+  "status": "finding",
+  "build": "mixed",
+  "head": "mixed: Head 4909002 current, Head 4892087 historical where stated",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "question": "What do the protection and concealment gadgets say, and what do their selected sources store?",
+  "runFolder": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T222612-0400-protection-concealment",
+  "evidenceClasses": [
+    "stored source value (selected export, own-wrapper or schema-controlled)",
+    "attributed UI statement",
+    "dated EA statement",
+    "hypothesis",
+    "effective runtime behaviour (never established here)"
+  ],
+  "descriptorSha256Historical": "99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640",
+  "runFiles": [
+    {
+      "file": "CURRENT_REPORT.md",
+      "sha256": "1f9d1b4510147447a309b4de18a3140e28040dff2594296fb61c960404028621"
+    },
+    {
+      "file": "current-handoff.json",
+      "sha256": "885603343e3057cb59b1ecc1bec693722437ebd2f3d43aab8e7b031626c04fab"
+    },
+    {
+      "file": "dated-primary-statements.json",
+      "sha256": "0faccea16a34af87baf31f73c40178545f2b090fb227d779b6700cf104849f36"
+    },
+    {
+      "file": "continuation-pass/parent-activation-chain-review.json",
+      "sha256": "d68d56a0f42f3ccc9d1c42acf0db9a4f2c1f07b90958bfbd1e2299766a7eec65"
+    },
+    {
+      "file": "parent-functional-ui-audit.json",
+      "sha256": "9fffd0fbfd288ffbeca85c48be00ed5cc531b44126466c337975c2a5b338016d"
+    },
+    {
+      "file": "RUN.md",
+      "sha256": "d1e360ca5c68c1454c9206fcb58acaca8d3bee7fa412a8cba87df05c38cf4a4a"
+    },
+    {
+      "file": "review.md",
+      "sha256": "cab7d2eafd536a4b4349e62defd50b7618608de10e661823c1ef7dfc32c937c0"
+    }
+  ],
+  "authoritative": "CURRENT_REPORT.md and current-handoff.json (2 Oct 00:17). blockers.json (1 Oct 22:49) is stale and contradicts them on the interception dispatch; see NOTE.md beside it. Not used here.",
+  "findings": [
+    {
+      "class": "stored source value",
+      "item": "MP-APS and EIDOS",
+      "statement": "VEH_Gadget_MPAPS object 38 and VEH_Gadget_EIDOS object 40 (Field_21804573) select feature exports cd6448fb-983e-4a7e-af60-b2f43abfe568 and 23a895ca-7b62-4094-8bfe-ceac4735d360; each feature object 1 (Field_a2734e52[0].Field_8cf424e7) selects the logic SimEx (files f8d46158-342c-428e-a1e9-7911ed0096f4 and c31d7e6a-44b5-4394-9290-8dc1bed201b4). Named AliveTimer tuple 5.0/0.0/50.0, MaxIntercepts 3/1/10 (tuple fields Field_42c8b257 / Field_c06d0cbb / Field_3ff76ddb, default/min/max roles unassigned), EIDOS Max Intercept Range 5.0/0.0/20.0 and Previous Targets state. Only the serialized association is closed on current bytes; stored slots 40/48 and the compiled feature boundaries are opaque, and \"3 effective intercepts\" or 5 s / 5 m are not claimed."
+    },
+    {
+      "class": "attributed UI statement",
+      "item": "MP-APS and EIDOS",
+      "statement": "UI 3F62B7B5 (MP-APS): larger projectiles including missiles, mortars and tank shells, up to 3 per activation window after initial detection. UI 67725988 (EIDOS / card-labelled GPDIS): thrown and launched grenades, up to 3 per detection-started window. The UI \"3\" and the stored MaxIntercepts 3 are a correspondence, not an execution control."
+    },
+    {
+      "class": "stored source value",
+      "item": "Hemostatic",
+      "statement": "Affector_AutoRegen_HemostaticSmoke RegenerationRate 12.5, RegenerationDelay 2.5, RegenerationAmount 0.0 (re-read by reviewer at offsets 192 and 208); enum member 2 qualified but unnamed; named roles pass the exact existing control/schema comparison."
+    },
+    {
+      "class": "attributed UI statement",
+      "item": "Hemostatic",
+      "statement": "UI 41BB4EBC: revival 2.2 s, regeneration 12.5 hp/s after 2.5 s, slower bleedout. The 12.5/2.5 match the stored values; 2.2 matches the Support squad-revive time in L232. Units and activation remain unproved."
+    },
+    {
+      "class": "stored source value",
+      "item": "Deployable Cover",
+      "statement": "Four named part associations (all Front); four f32 200.0 operands (DamageZones offsets 340/548/756/1028, re-read; no HP or total claimed); selected suppression -100 and explosive 0.5 candidates; ChannelBindings_Vehicle_Health (key ab89182cfe1957ed44a562cd880a91cf) seven pointers into ChannelList_Vehicle_Common (Vehicle Current Health, Normalized, Max Health, Armor current/max, Damage State, Is Wreck): vehicle-health channel names useful for the vehicles page. Zone health operation unproved."
+    },
+    {
+      "class": "attributed UI statement",
+      "item": "Smoke, M320 Smoke, Flashbang, Concussion, mask",
+      "statement": "UI 61638249 (Smoke Grenade: temporary concealment, clears infantry markers in radius), 3A7EE575 (M320 Smoke), 7D174130 (Flashbang: blindness scaled by proximity and line of sight), B8B7884E (Concussion: disorientation, temporary ADS/sprint prevention), 71DC2D9B (protective mask against VL-7 disorientation). Source selections and parameters are in CURRENT_REPORT.md; M320 Flash has no established standard-MP projectile selection; Armor: no standard multiplayer mechanic established."
+    },
+    {
+      "class": "dated EA statement",
+      "item": "Fixes",
+      "statement": "EA 1.1.2.0 (2025-11-18): Deployable Cover persistence after vehicle destruction fixed; MP-APS smoke propagation between friendlies fixed; GPDIS placement-preview interference fixed (snapshot sha256 8b4fea6ba46fd1a1786cb38f1c129f57ae01a26bcd6b4d35b58b83f083b291e4)."
+    }
+  ],
+  "evidenceVersion": "Current Head 4909002 and historical hotfix Head 4892087, each with its descriptor hash; current feature captures equal the historical files byte for byte; description text is from the saved 1.4.3.1 localization.",
+  "exclusions": "BR, Granite and Gauntlet mechanics and vehicle countermeasure implementations excluded.",
+  "limits": [
+    "Stored source values from selected exports, attributed UI text and dated EA statements only. No units, enum labels, sentinel meanings, equations, effective gameplay behaviour, default or active selection, multiplayer availability or station claim.",
+    "Registry defaults are not selected values: a selected own-wrapper value must not be replaced by, or averaged with, a registry or leaf default.",
+    "Source settings, UI statements, dated EA statements, hypotheses and runtime behaviour are separate evidence classes."
+  ],
+  "reviewerCheck": "Sonnet 5.5 review of 2 Oct 2026 (review.md in the run folder): raw bytes, value rows and file SHA-256 pins from the run packets were re-read with no real mismatch; controls were not re-run; no commit, push or shared-file edit by the run (both repos unchanged after 1 Oct 22:12).",
+  "siteImpact": "Foundation research for a future vehicles and gadgets version of the site; not tied to current site outputs. No site data, simulation or UI is changed or proposed.",
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-10-02",
+    "build": "mixed",
+    "leads": [
+      {
+        "id": "L234",
+        "title": "Deployable Cover, MP-APS, EIDOS, smoke, Hemostatic, flash/concussion and mask descriptions and source values",
+        "status": "finding",
+        "summary": "MP-APS and EIDOS select logic SimEx through a deployed-vehicle feature (serialized association only; compiled boundaries opaque); AliveTimer 5/0/50 and MaxIntercepts 3/1/10 match the UI \"up to 3\"; Hemostatic stores 12.5/2.5/0.0 matching UI 12.5 hp/s after 2.5 s; Deployable Cover has four 200.0 operands.",
+        "reopenWhen": "The dispatch from deployment to the selected volume and the compiled feature operations (RIDs 3ca94ebf63445fbd and ff4984bf5104a851), projectile predicates, units, the VL-7 blocking operation, or the cover health/zone operation."
+      }
+    ],
+    "assets": [],
+    "binding": "research",
+    "run": {
+      "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T222612-0400-protection-concealment",
+      "orchestrator": "GPT-6.1 Sol (parent)",
+      "workers": []
+    }
+  }
+}

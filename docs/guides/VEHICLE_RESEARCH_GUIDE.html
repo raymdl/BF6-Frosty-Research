@@ -1,0 +1,254 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Vehicle Research Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;600&family=Public+Sans:wght@400;600;700&display=swap">
+<style>
+:root{
+  --bg:#f2f5f7; --surface:#ffffff; --surface2:#e9eef2; --ink:#12202a; --muted:#4f5f6b; --line:#d3dbe1;
+  --accent:#0f6b86; --accent-ink:#ffffff; --accent-soft:#d9edf3;
+  --k-d-bg:#dbe9fd; --k-d-fg:#173a82;
+  --k-s-bg:#d3f3e4; --k-s-fg:#075a3f;
+  --k-i-bg:#fbeab8; --k-i-fg:#6d4300;
+  --k-e-bg:#e8e2fb; --k-e-fg:#45208f;
+  --k-g-bg:#e3e7eb; --k-g-fg:#34414c;
+  --warn-bg:#fff3d6; --warn-line:#e4bd62;
+  --f-head:'Barlow Condensed','Arial Narrow',Arial,sans-serif;
+  --f-body:'Public Sans','Segoe UI',system-ui,-apple-system,Arial,sans-serif;
+  --f-mono:'IBM Plex Mono',ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e1a22; --surface:#15242e; --surface2:#1c2f3b; --ink:#e5edf2; --muted:#9db0bd; --line:#2a3d4a;
+    --accent:#6cc4de; --accent-ink:#0e1a22; --accent-soft:#17323c;
+    --k-d-bg:#1d3a63; --k-d-fg:#c3dafc;
+    --k-s-bg:#0f4032; --k-s-fg:#a9efd0;
+    --k-i-bg:#4b3706; --k-i-fg:#fde6a1;
+    --k-e-bg:#34205f; --k-e-fg:#dcd3fb;
+    --k-g-bg:#2a3640; --k-g-fg:#c9d4dc;
+    --warn-bg:#3a2e12; --warn-line:#8a6a1f; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e1a22; --surface:#15242e; --surface2:#1c2f3b; --ink:#e5edf2; --muted:#9db0bd; --line:#2a3d4a;
+  --accent:#6cc4de; --accent-ink:#0e1a22; --accent-soft:#17323c;
+  --k-d-bg:#1d3a63; --k-d-fg:#c3dafc;
+  --k-s-bg:#0f4032; --k-s-fg:#a9efd0;
+  --k-i-bg:#4b3706; --k-i-fg:#fde6a1;
+  --k-e-bg:#34205f; --k-e-fg:#dcd3fb;
+  --k-g-bg:#2a3640; --k-g-fg:#c9d4dc;
+  --warn-bg:#3a2e12; --warn-line:#8a6a1f; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55}
+.wrap{max-width:880px;margin:0 auto;padding-inline:18px;padding-block:28px 64px}
+header.top{border-bottom:3px solid var(--accent);padding-bottom:18px;margin-bottom:22px}
+.kicker{display:inline-block;font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;background:var(--accent-soft);color:var(--accent);padding:3px 9px;border-radius:3px;margin-bottom:10px}
+h1{font-family:var(--f-head);font-weight:700;font-size:clamp(40px,8vw,64px);line-height:1;margin:0 0 8px;letter-spacing:.01em;text-wrap:balance}
+.sub{font-size:18px;color:var(--muted);margin:0;max-width:62ch}
+h2{font-family:var(--f-head);font-weight:700;font-size:clamp(28px,5vw,36px);margin:46px 0 6px;line-height:1.1;text-wrap:balance;scroll-margin-top:12px}
+h2 .count{font-family:var(--f-mono);font-size:13px;font-weight:400;color:var(--muted);margin-left:8px;letter-spacing:0}
+h3{font-family:var(--f-head);font-weight:700;font-size:25px;margin:0 0 8px;line-height:1.15;text-wrap:balance}
+.lede{color:var(--muted);margin:4px 0 16px;max-width:66ch}
+p{margin:0 0 12px;max-width:68ch}
+nav.jump{display:flex;flex-wrap:wrap;gap:6px 14px;margin:14px 0 0;padding:0;list-style:none;font-size:14px}
+nav.jump a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line)}
+nav.jump a:hover,nav.jump a:focus-visible{border-bottom-color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:18px 20px;margin:14px 0}
+.read-first{background:var(--surface);border:1px solid var(--line);border-left:6px solid var(--accent);border-radius:8px;padding:6px 22px 12px;margin-top:8px}
+.read-first ol{padding-left:22px;margin:10px 0}
+.read-first li{margin-bottom:12px;max-width:66ch}
+.read-first li strong{display:block;font-family:var(--f-head);font-size:21px;line-height:1.2}
+.legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px;margin:14px 0}
+.legend div{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:10px 12px;font-size:14px}
+.legend .pill{margin-bottom:6px}
+.pill{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.02em;padding:2px 8px;border-radius:3px;margin-right:9px;white-space:nowrap;vertical-align:1px}
+.k-d{background:var(--k-d-bg);color:var(--k-d-fg)}
+.k-s{background:var(--k-s-bg);color:var(--k-s-fg)}
+.k-i{background:var(--k-i-bg);color:var(--k-i-fg)}
+.k-e{background:var(--k-e-bg);color:var(--k-e-fg)}
+.k-g{background:var(--k-g-bg);color:var(--k-g-fg)}
+article.item{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:16px 20px 14px;margin:14px 0;scroll-margin-top:12px}
+.leads{font-family:var(--f-mono);font-size:11px;font-weight:400;color:var(--muted);margin-left:6px;letter-spacing:0;white-space:normal}
+blockquote.says{margin:6px 0 10px;padding:8px 12px;background:var(--surface2);border-radius:5px}
+blockquote.says p{margin:4px 0 0;font-style:italic}
+.facts{list-style:none;margin:8px 0;padding:0}
+.facts li{padding:6px 0;border-top:1px solid var(--line);display:flex;gap:0;align-items:baseline;flex-wrap:wrap}
+.facts li:first-child{border-top:0}
+.facts .pill{flex:0 0 auto}
+.ft{flex:1 1 280px;min-width:0}
+.note{font-size:14px;color:var(--muted)}
+.sure{margin:8px 0 6px}
+.lab{display:inline-block;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-right:8px;font-weight:600}
+.unk{margin:6px 0 0}
+.unk ul{margin:4px 0 0;padding-left:20px}
+.unk li{margin-bottom:2px}
+.tablewrap{overflow-x:auto;margin:10px 0;border:1px solid var(--line);border-radius:6px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th{font-family:var(--f-mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;text-align:left;color:var(--muted);background:var(--surface2);padding:8px 10px;white-space:nowrap}
+td{padding:7px 10px;border-top:1px solid var(--line);vertical-align:top}
+td:first-child{min-width:130px}
+td.num,table.nums td:not(:first-child){font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+details{margin:10px 0}
+details>summary{cursor:pointer;font-weight:600;color:var(--accent);padding:6px 0}
+.warn{background:var(--warn-bg);border:1px solid var(--warn-line);border-radius:6px;padding:10px 14px;margin:12px 0;font-size:15px}
+.match{display:grid;gap:10px;margin:12px 0}
+.match .row{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--k-s-fg);border-radius:6px;padding:10px 14px}
+.match h4{margin:0 0 6px;font-family:var(--f-head);font-size:21px}
+.match .pair{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px}
+.match .pair div{font-size:14px}
+.bars{margin:10px 0}
+.bars .brow{display:grid;grid-template-columns:130px 1fr 54px;gap:10px;align-items:center;margin:5px 0;font-size:14px}
+.bars .track{background:var(--surface2);height:16px;border-radius:3px;overflow:hidden}
+.bars .fill{display:block;height:100%;background:var(--accent)}
+.bars .val{font-family:var(--f-mono);text-align:right}
+.bars h4{margin:12px 0 2px;font-family:var(--f-head);font-size:19px}
+.qlist{counter-reset:q;list-style:none;padding:0;margin:12px 0}
+.qlist li{counter-increment:q;position:relative;padding:8px 0 8px 40px;border-top:1px solid var(--line)}
+.qlist li::before{content:counter(q);position:absolute;left:0;top:8px;width:28px;height:28px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font-family:var(--f-mono);font-size:13px;display:flex;align-items:center;justify-content:center}
+footer{margin-top:50px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+footer p{max-width:70ch}
+.small{font-size:13px;color:var(--muted)}
+@media (max-width:520px){
+  .bars .brow{grid-template-columns:96px 1fr 46px}
+  .card,article.item{padding-inline:14px}
+}
+@media (prefers-reduced-motion:no-preference){ html{scroll-behavior:smooth} }
+</style>
+<div class="wrap">
+<header class="top">
+<span class="kicker">Snapshot · 2 Oct 2026</span>
+<h1>Vehicles</h1>
+<p class="sub">What the Battlefield 6 game files say about vehicles, written for a reader who is not a specialist. This is research toward a possible vehicles section on the Analyzer. Nothing here has been tested in a match.</p>
+<nav class="jump"><a href="#first">Read this first</a><a href="#which">Which vehicles</a><a href="#types">Vehicle types</a><a href="#health">Health and repair</a><a href="#damage">Tank damage</a><a href="#projectiles">Missile and shell numbers</a><a href="#guns">Weapons by vehicle</a><a href="#seats">Seats and loadouts</a><a href="#utility">Smoke, flares, supply</a><a href="#open">Open questions</a></nav>
+</header>
+<section id="first"><h2>Read this first</h2>
+<div class="read-first"><ol>
+<li><strong>A stored number is a setting, not a proven stat.</strong>The game files hold a huge number of values. We can read them exactly. We usually cannot say what unit they use or what they do in a match. A tank gun with a stored "900" is not shown to fire 900 shots a minute.</li>
+<li><strong>Defaults can differ from what a weapon really uses.</strong>A registry default is a fallback value from a central table. An inherited default is a value a weapon picks up from a shared base type. A weapon's own value comes first, and even that may not be what plays out in a match. Example: the IFV missile stores its own damage as 250, while its registry default says 150.</li>
+<li><strong>The strongest evidence is a description that matches a stored value.</strong>When the game's own text says one thing and the files hold the same number, the two agree and we trust the reading more. It still does not prove units or effects. For vehicles we have no clean match of this kind yet. The nearest is the UH-60 helicopter: its card says 5 seats and the files hold five seat entries. That counts entries, not usable seats. The companion Gadget guide has four clean matches.</li>
+</ol></div>
+
+<div class="legend">
+<div><span class="pill k-d">Game description</span><br>What the game itself says on a card or menu. Quoted as written.</div>
+<div><span class="pill k-s">Stored game value</span><br>A number found in the game files. We read it exactly. It is a setting, not a proven stat.</div>
+<div><span class="pill k-i">Inherited default</span><br>A value a weapon picks up from a shared base type, or a fallback from a central table. May not be what the weapon really uses.</div>
+<div><span class="pill k-e">EA patch notes</span><br>A number from an official EA update article, with its version. It may be out of date for the saved game build.</div>
+<div><span class="pill k-g">Our guess</span><br>Our own reading. Shown so you can see the reasoning. Not tested.</div>
+</div>
+<p class="small"><strong>How sure</strong> means two things. First, did we read the number correctly from the game files. That is almost always yes, and we re-read many of them from the raw files. Second, do we know what the number does in a match. That is usually no.</p></section>
+<section id="which"><h2>Which vehicles we looked at</h2><p class="lede">The census found 41 vehicle families. 38 are real vehicle blueprints. The C-17 and the MD530 helicopter look like models only, and the Cheetah is a second name for the Gepard. Whether each one is playable in a given mode is not settled.</p>
+<div class="tablewrap"><table class=""><thead><tr><th>Group</th><th>Families</th></tr></thead><tbody><tr><td>Tanks and armoured</td><td>Abrams, Leopard, Bradley, CV90, AAV7A1, Gepard (also called Cheetah in customisation)</td></tr><tr><td>Cars and bikes</td><td>Couch, Flyer60, JLTV, Marauder, PTV, Quadbike, The Beast, Vector, two dirt bikes</td></tr><tr><td>Boats</td><td>CB90, Jet Ski, RHIB</td></tr><tr><td>Jets and plane drone</td><td>F-14, F-16, F-22, F/A-18F, JAS 39, Su-57, MQ-9</td></tr><tr><td>Helicopters</td><td>AH-64E, AH-6M, Eurocopter, MH-47, UH-60</td></tr><tr><td>Fixed guns and launchers</td><td>BGM-71 TOW, CWS remote station, GDF009, M2 machine gun, Phalanx, SSM battery</td></tr><tr><td>Drone</td><td>TRV150 (spectator support role)</td></tr></tbody></table></div>
+<p class="small">Source: vehicle census and coverage map, Head 4909002. Leads L3000, L3018.</p></section>
+<section id="types"><h2>What the game says about vehicle types</h2><p class="lede">These are the nine vehicle cards in the game menus. Each card is not yet matched to a specific vehicle in the files, so we cannot say which vehicles carry which card.</p>
+<div class="tablewrap"><table><thead><tr><th>Card</th><th>What the game says</th><th>Seats stated</th></tr></thead><tbody><tr><td>Main battle tank (MBT)</td><td><span class="pill k-d">Game description</span>Built for engaging enemy land vehicles but can also effectively combat enemy infantry.</td><td>2 seats</td></tr><tr><td>Infantry fighting vehicle (IFV)</td><td><span class="pill k-d">Game description</span>Effectively counters hostile infantry but has limited capability against heavy enemy armor.</td><td>6 seats</td></tr><tr><td>Light ground transport</td><td><span class="pill k-d">Game description</span>Designed for rapid battlefield traversal. Equipped with firepower to combat hostiles.</td><td>5 seats</td></tr><tr><td>Armored transport (ATP)</td><td><span class="pill k-d">Game description</span>Primarily for use in urban areas. Mine blast protection ensures optimal navigation through hostile territory.</td><td>4 seats</td></tr><tr><td>Mobile anti-air</td><td><span class="pill k-d">Game description</span>Capable of using dual autocannons and homing missiles to combat enemy aircraft.</td><td>1 seat</td></tr><tr><td>Attack helicopter</td><td><span class="pill k-d">Game description</span>Highly effective at engaging all ground targets, especially when both crew positions are manned.</td><td>2 seats</td></tr><tr><td>Transport helicopter</td><td><span class="pill k-d">Game description</span>This transport helicopter serves as a vital component in air assaults. Two side-mounted miniguns aid in self-defense.</td><td>5 seats</td></tr><tr><td>Attack jet</td><td><span class="pill k-d">Game description</span>A fast multirole attack aircraft specialized in engaging all ground targets, including vehicles and infantry.</td><td>1 seat</td></tr><tr><td>Fighter jet</td><td><span class="pill k-d">Game description</span>A stealth fighter that specializes in combating other air vehicles, with limited air-to-ground combat capabilities.</td><td>1 seat</td></tr></tbody></table></div>
+<article class="item">
+<h3>Loadout menu <span class="leads">L3023, L3150, L3254</span></h3>
+<ul class="facts"><li><span class="pill k-d">Game description</span><span class="ft">The loadout menu has three numbered loadouts, "LOADOUT 1", "LOADOUT 2" and "LOADOUT 3", for each of five vehicle types: anti-air, attack helicopter, APC, IFV and MBT. That is 15 presets. Their text describes a role. It does not name equipment.</span></li><li><span class="pill k-s">Stored game value</span><span class="ft">For the tank main gun, five ammunition options exist. The three presets point at MPAT, MPAT and HE shell for loadouts 1, 2 and 3.</span></li></ul>
+<p class="sure"><span class="lab">How sure</span> The text and the stored picks are read correctly. Whether LOADOUT 1 is the default is not shown. It is only the first entry in the list.</p>
+<div class="unk"><span class="lab">Still unknown</span><ul><li>Which loadout a player starts with.</li><li>Which cards belong to which vehicles.</li><li>Whether the seat counts on the cards match real usable seats.</li></ul></div>
+</article>
+</section>
+<section id="health"><h2>Health and repair</h2>
+<article class="item">
+<h3>Health and repair setting <span class="leads">L3001, L3024, L3034, L3203, L3304</span></h3>
+<ul class="facts"><li><span class="pill k-s">Stored game value</span><span class="ft">The CB90 boat stores MaxHealth 1000 and RepairRateModifier 1. We read both straight from its own entry and re-read them from the raw file.</span></li><li><span class="pill k-s">Stored game value</span><span class="ft">Vehicle-level health stored for tanks: Leopard 1200, Bradley 1000, CV90 1000, AAV7A1 1000. The Abrams stores 1200 at the vehicle level, and each of its armour parts stores 1000. Wreck parts store 100.</span></li><li><span class="pill k-s">Stored game value</span><span class="ft">Each tank has eight named parts: Front, Left, Right, Rear, two special parts and two wreck parts.</span></li><li><span class="pill k-i">Inherited default</span><span class="ft">For 35 vehicle families we use the same health names as the CB90, because their files share the same layout. Only the CB90 is confirmed directly. The AAV7A1, The Beast and the Jet Ski use a different layout and get no health names.</span></li><li><span class="pill k-g">Our guess</span><span class="ft">A repair modifier of 1 probably means "no change", but we have not found the repair rate it modifies.</span></li></ul>
+<p class="sure"><span class="lab">How sure</span> Numbers: solid. Meaning: unproven. We do not know the unit of 1000 or how parts and the vehicle total combine.</p>
+<div class="unk"><span class="lab">Still unknown</span><ul><li>How the stored health turns into hit points.</li><li>The repair rate, and what the modifier changes.</li><li>How part health and vehicle health work together.</li></ul></div>
+</article>
+</section>
+<section id="damage"><h2>Tank damage by direction</h2><p class="lede">Players know that hitting a tank from behind hurts it most. The game files hold curves that fit that, but we have not found the formula.</p>
+<article class="item">
+<h3>Direction curves and damage numbers <span class="leads">L3200, L3201, L3202, L3203, L3204, L3206, L3208</span></h3>
+<ul class="facts"><li><span class="pill k-s">Stored game value</span><span class="ft">Angle curves exist for tanks and infantry fighting vehicles. Rear is above side, and side is above front. The tank rear curve is flat at 3.2 between 76 and 104 degrees and falls to 1.0 at the edges. Only the Abrams and CV90 have these curves attached in the files we read. The Leopard, Bradley and AAV7A1 have none attached.</span></li><li><span class="pill k-e">EA patch notes</span><span class="ft">EA update notes give damage ranges against tanks, front to rear: RPG-7V2 188 to 500, M136 AT 207 to 550, 120 mm tank shell 244 to 650, attack helicopter heavy rockets 120 to 320, IFV light rockets 75 to 200. Flat amounts: IFV lock-guided missile 450, C-4 350, MBT-LAW 240.</span></li><li><span class="pill k-s">Stored game value</span><span class="ft">Stored damage on the weapons themselves: RPG-7V2 135, M136 AT 125, MBT-LAW 100, IFV missile 250, tank shell 150 at the start and 135 at the end.</span></li><li><span class="pill k-i">Inherited default</span><span class="ft">Registry defaults differ from those own values: RPG-7V2 default 125 against its own 135, tank shell default 130 against 150, IFV missile default 150 against 250. The own value is the one the weapon stores.</span></li><li><span class="pill k-g">Our guess</span><span class="ft">The pattern rear over side over front fits both the EA numbers and the curves. The sizes do not line up. Every EA range runs from its smallest to its largest by a ratio of about 2.67. The rear curve is 3.2 times the glancing value. Dividing 3.2 by 1.2 gives 2.67, which looks like a match but has no known reason.</span></li></ul>
+<p class="sure"><span class="lab">How sure</span> The curves are read correctly. The link between curves, stored damage and the EA numbers is a guess. No formula is proven.</p>
+<div class="unk"><span class="lab">Still unknown</span><ul><li>How the angle curve, part health and weapon damage combine.</li><li>Why the Abrams stores 1200 while the EA numbers assume a 1000-health tank.</li><li>Which side of the hit the angle is measured from.</li><li>Why a reported player test of side damage (375) is a little above what the curve gives (about 357).</li></ul></div>
+</article>
+<div class="bars"><h4>Tank curve (Abrams)</h4><div class="brow"><span>Front</span><span class="track"><span class="fill" style="width:32%"></span></span><span class="val">x1.1</span></div><div class="brow"><span>Side</span><span class="track"><span class="fill" style="width:56%"></span></span><span class="val">x1.9</span></div><div class="brow"><span>Rear</span><span class="track"><span class="fill" style="width:94%"></span></span><span class="val">x3.2</span></div><h4>Infantry fighting vehicle curve (CV90)</h4><div class="brow"><span>Front</span><span class="track"><span class="fill" style="width:48%"></span></span><span class="val">x1.64</span></div><div class="brow"><span>Side</span><span class="track"><span class="fill" style="width:76%"></span></span><span class="val">x2.6</span></div><div class="brow"><span>Rear</span><span class="track"><span class="fill" style="width:94%"></span></span><span class="val">x3.2</span></div><p class="small">Each bar is the highest multiplier on that curve. The armored-transport curve is a flat 1.0.</p></div>
+<p class="note">A test that would settle it: three square RPG hits to the side of an Abrams. The simple EA numbers predict a kill (3 x 375 is 1125). The curve reading predicts the tank survives (3 x 357 is 1071 against 1200). It has not been run.</p></section>
+<section id="projectiles"><h2>Missile and shell numbers</h2><p class="lede">Each projectile stores its own damage, blast and speed values. The tables show what is stored. None of it is proven as in-match damage.</p>
+<article class="item">
+<h3>Remote turret grenade launcher (Bradley and CV90) <span class="leads">L3013, L3304</span></h3>
+<ul class="facts"><li><span class="pill k-s">Stored game value</span><span class="ft">Direct hit damage 32 at the start and 32 at the end, between 15 and 350 in its falloff setting. Blast damage 70, inner blast radius 1, blast radius 4. Shockwave damage 1 with radius 7.5.</span></li><li><span class="pill k-s">Stored game value</span><span class="ft">The dud version of the shell stores blast damage 0, blast radius 5 and shockwave damage 0.</span></li><li><span class="pill k-s">Stored game value</span><span class="ft">Its gun stores a fire-rate setting of 325, a magazine setting of 5 and a magazines setting of 10.</span></li></ul>
+<p class="sure"><span class="lab">How sure</span> Numbers: solid, re-read from the raw file. Meaning: units unknown, and no total damage is proven.</p>
+<div class="unk"><span class="lab">Still unknown</span><ul><li>Whether direct plus blast add up to a total, and how.</li><li>The unit of the radii.</li><li>How the same shell behaves on other mounts that share it.</li></ul></div>
+</article>
+<article class="item">
+<h3>TOW2B and Hydra rockets <span class="leads">L3300, L3302</span></h3>
+<ul class="facts"><li><span class="pill k-s">Stored game value</span><span class="ft">TOW2B stores its own Damage 150, MaxSpeed 150 and Drag 0. Hydra70 stores Damage 15 and MaxSpeed 740.</span></li><li><span class="pill k-i">Inherited default</span><span class="ft">Both also carry an inherited launch speed: 350 for the TOW2B and 250 for the Hydra. These do not agree with their own MaxSpeed. The inherited speed may not drive flight at all.</span></li><li><span class="pill k-i">Inherited default</span><span class="ft">The air-vehicle TOW is a separate case. Its central table lists 120 and 20, while its own entry stores 90 and 0. The own entry is the one to read.</span></li></ul>
+<p class="sure"><span class="lab">How sure</span> Own values: solid. What the inherited values do: unknown.</p>
+<div class="unk"><span class="lab">Still unknown</span><ul><li>Which speed the missile actually flies at.</li><li>The unit of every speed and time value.</li></ul></div>
+</article>
+<article class="item">
+<h3>Guided missiles <span class="leads">L3301</span></h3>
+<ul class="facts"><li><span class="pill k-s">Stored game value</span><span class="ft">MBT guided shell, stationary TOW and AA aim-guided missile each store nine own fields. The tables below show them.</span></li><li><span class="pill k-s">Stored game value</span><span class="ft">Their minimum-blast-damage fields store 0 on the MBT guided shell and the AA missile. That is a stored zero, not proof of no minimum damage.</span></li><li><span class="pill k-g">Our guess</span><span class="ft">Guidance method is stored as the number 3 on two of them. We have no readable name for 3.</span></li></ul>
+<div class="unk"><span class="lab">Still unknown</span><ul><li>What guidance method 3 means.</li><li>The unit of the turn angles and times.</li></ul></div>
+</article>
+<div class="tablewrap"><table class="nums"><thead><tr><th>Setting</th><th>MBT guided</th><th>Stationary TOW</th><th>AA aim-guided</th></tr></thead><tbody><tr><td>Engine strength</td><td>150</td><td>50</td><td>50</td></tr><tr><td>Engine time to ignition</td><td>0.01</td><td>0.14</td><td>0.14</td></tr><tr><td>Engine time to live</td><td>1</td><td>3.95</td><td>3.95</td></tr><tr><td>Max turn angle</td><td>6</td><td>90</td><td>90</td></tr><tr><td>Min turn angle</td><td>-1</td><td>25</td><td>25</td></tr><tr><td>Turn angle multiplier</td><td>1</td><td>1.5</td><td>1.5</td></tr><tr><td>Time to activate guidance</td><td>0</td><td>0.165</td><td>0</td></tr><tr><td>Guidance method</td><td>3</td><td>not read</td><td>3</td></tr></tbody></table></div>
+<article class="item">
+<h3>Bombs, chaingun and other own-versus-default cases <span class="leads">L3300</span></h3>
+<ul class="facts"><li><span class="pill k-s">Stored game value</span><span class="ft">Rockeye bomb stores a blast value of 0. That value is not its total damage.</span></li><li><span class="pill k-i">Inherited default</span><span class="ft">GBU-39 central table says 240 while its own value is 200. The attack-helicopter chaingun table says 22 and 22 while its own value is 50 and 50.</span></li></ul>
+<p class="sure"><span class="lab">How sure</span> Each own value is read correctly. The lesson is to trust the own value over the table.</p>
+</article>
+<h3>Inherited launch speed and lifetime</h3><p>Thirty vehicle missile and shell types store a launch speed and a lifetime picked up from a shared base type. They are inherited defaults. We have not shown them to be the real launch speed or lifetime. All values were re-read from the raw files on 2 October.</p>
+<article class="item">
+<h3>What the inherited pair looks like <span class="leads">L3302</span></h3>
+<ul class="facts"><li><span class="pill k-i">Inherited default</span><span class="ft">Launch speed 350 appears on 20 types: every air-guided missile, every ground-guided missile and bomb, the Hellfire and the Spike, plus the AA high-velocity missile and the vehicle Stinger. Lifetimes differ: 15 on most air-guided types, 60 on the bombs, 10 on Maverick and Hellfire, 6 on the RBS70, 40 on the torpedo.</span></li><li><span class="pill k-i">Inherited default</span><span class="ft">Launch speed 250 and lifetime 1.35 appear on all five of APKWS, reduced APKWS, Hydra, reduced Hydra and Zuni. The five CB90 mortar shells store speed 0 and lifetime 30.</span></li><li><span class="pill k-g">Our guess</span><span class="ft">Because so many types share one value, this looks like a base-class default. The inherited pair may not drive flight for these projectiles.</span></li></ul>
+<p class="sure"><span class="lab">How sure</span> Numbers: solid. Meaning: unproven, and the guess above is only a guess.</p>
+<div class="unk"><span class="lab">Still unknown</span><ul><li>Whether the game uses these for anything.</li><li>The unit of both values.</li></ul></div>
+</article>
+<details><summary>Show all 30 types</summary><div class="tablewrap"><table class="nums"><thead><tr><th>Projectile</th><th>Inherited speed</th><th>Inherited lifetime</th></tr></thead><tbody><tr><td>Rockeye</td><td>350</td><td>60</td></tr><tr><td>GBU39</td><td>350</td><td>60</td></tr><tr><td>Mk82AIR</td><td>350</td><td>60</td></tr><tr><td>BunkerBuster</td><td>350</td><td>60</td></tr><tr><td>AGM88</td><td>350</td><td>15</td></tr><tr><td>AIM54</td><td>350</td><td>15</td></tr><tr><td>AIM7</td><td>350</td><td>15</td></tr><tr><td>AIM9X</td><td>350</td><td>15</td></tr><tr><td>AGM114 Hellfire</td><td>350</td><td>10</td></tr><tr><td>AGM65 Maverick</td><td>350</td><td>10</td></tr><tr><td>R73</td><td>350</td><td>15</td></tr><tr><td>RBS70</td><td>350</td><td>6</td></tr><tr><td>ATGM Homing Spike</td><td>350</td><td>15</td></tr><tr><td>Torped47</td><td>350</td><td>40</td></tr><tr><td>MBT GuidedMunition</td><td>350</td><td>4</td></tr><tr><td>TOW2B AirVehicle</td><td>350</td><td>11.5</td></tr><tr><td>TOW2B</td><td>350</td><td>8</td></tr><tr><td>AA Secondary AimGuided</td><td>350</td><td>11.5</td></tr><tr><td>AA Secondary HighVelocity</td><td>350</td><td>11.5</td></tr><tr><td>120mmMortar Airburst</td><td>0</td><td>30</td></tr><tr><td>120mmMortar Guided</td><td>0</td><td>30</td></tr><tr><td>120mmMortar HE</td><td>0</td><td>30</td></tr><tr><td>120mmMortar Illumination</td><td>0</td><td>30</td></tr><tr><td>120mmMortar Smoke</td><td>0</td><td>30</td></tr><tr><td>Stinger Vehicle</td><td>350</td><td>15</td></tr><tr><td>APKWS-II Reduced</td><td>250</td><td>1.35</td></tr><tr><td>APKWS-II</td><td>250</td><td>1.35</td></tr><tr><td>Hydra70 Reduced</td><td>250</td><td>1.35</td></tr><tr><td>Hydra70</td><td>250</td><td>1.35</td></tr><tr><td>Zuni</td><td>250</td><td>1.35</td></tr></tbody></table></div></details>
+<p class="small">Leads L3300, L3301, L3302. Registry defaults are never used in place of a stored own value.</p></section>
+<section id="guns"><h2>Weapons by vehicle</h2><p class="lede">These tables list the stored fire settings for each vehicle weapon. They use internal names from the files. The settings are labelled with what the file calls them. We do not know their units.</p>
+<div class="warn"><strong>Do not read these as stats.</strong> A fire-rate setting is not shown to be shots per minute. A magazines setting is not a count of spare magazines. A refill delay of 5 is not shown to be 5 seconds. A magazine of -1 has no known meaning.</div>
+<article class="item">
+<h3>How these settings were named <span class="leads">L3019, L3020, L3021, L3022, L3025, L3026, L3027, L3028, L3029, L640</span></h3>
+<ul class="facts"><li><span class="pill k-s">Stored game value</span><span class="ft">The names come from a control: an infantry weapon (the M4A1) whose same settings we can check. Where a vehicle weapon has the same layout, we use the same names.</span></li><li><span class="pill k-i">Inherited default</span><span class="ft">That borrowing is by layout only. A few weapons use a different layout and could not be named: the AAV7A1 SP guns, the Jet Ski and the MH-47.</span></li></ul>
+<p class="sure"><span class="lab">How sure</span> Names: reasonable where the layout matches. Meaning and units: unknown.</p>
+</article>
+<details><summary>Main battle tanks (Abrams, Leopard) and remote turrets</summary><div class="tablewrap"><table class="nums"><thead><tr><th>Weapon (internal name)</th><th>Fire-rate setting</th><th>Magazine setting</th><th>Magazines setting</th><th>Refill-delay setting</th><th>Launch-speed setting</th></tr></thead><tbody><tr><td>MBT CoaxLMG (firing object 3)</td><td>700</td><td>250</td><td>1</td><td>5</td><td>600</td></tr><tr><td>MBT CoaxHMG (firing object 3)</td><td>360</td><td>250</td><td>1</td><td>5</td><td>760</td></tr><tr><td>RWS AGL (firing object 1)</td><td>325</td><td>5</td><td>10</td><td>5</td><td>(0, 1.27, 100)</td></tr><tr><td>RWS LMG (firing object 5)</td><td>720</td><td>250</td><td>1</td><td>5</td><td>600</td></tr><tr><td>RWS HMG (firing object 3)</td><td>400</td><td>250</td><td>1</td><td>5</td><td>760</td></tr><tr><td>MBT 120mm (firing object 4)</td><td>900</td><td>1</td><td>20</td><td>14</td><td>560</td></tr></tbody></table></div></details>
+<details><summary>Infantry fighting vehicles and the AAV7A1 (Bradley, CV90, AAV7A1)</summary><div class="tablewrap"><table class="nums"><thead><tr><th>Weapon (internal name)</th><th>Fire-rate setting</th><th>Magazine setting</th><th>Magazines setting</th><th>Refill-delay setting</th><th>Launch-speed setting</th></tr></thead><tbody><tr><td>RWS AGL</td><td>325</td><td>5</td><td>10</td><td>5</td><td>(0, 1.27, 100)</td></tr><tr><td>RWS LMG</td><td>720</td><td>250</td><td>1</td><td>5</td><td>600</td></tr><tr><td>RWS HMG</td><td>400</td><td>250</td><td>1</td><td>5</td><td>760</td></tr><tr><td>IFV secondary Homing ATGM</td><td>150</td><td>1</td><td>6</td><td>20</td><td>80</td></tr><tr><td>IFV primary Canister</td><td>200</td><td>12</td><td>20</td><td>20</td><td>700</td></tr><tr><td>IFV secondary Light Rockets</td><td>300</td><td>2</td><td>4</td><td>20</td><td>120</td></tr><tr><td>IFV primary APFSDST</td><td>200</td><td>12</td><td>20</td><td>20</td><td>375</td></tr><tr><td>RWS Target Designator</td><td>550</td><td>-1</td><td>1</td><td>5</td><td>350</td></tr><tr><td>IFV secondary TOW</td><td>150</td><td>1</td><td>6</td><td>20</td><td>50</td></tr><tr><td>IFV primary HEAB</td><td>200</td><td>12</td><td>20</td><td>20</td><td>250</td></tr></tbody></table></div></details>
+<details><summary>Mobile anti-air (Gepard)</summary><div class="tablewrap"><table class="nums"><thead><tr><th>Weapon (internal name)</th><th>Fire-rate setting</th><th>Magazine setting</th><th>Magazines setting</th><th>Refill-delay setting</th><th>Launch-speed setting</th></tr></thead><tbody><tr><td>AA primary AAGP</td><td>600</td><td>6</td><td>28</td><td>8</td><td>850</td></tr><tr><td>AA primary AAAP</td><td>240</td><td>8</td><td>16</td><td>8</td><td>560</td></tr><tr><td>AA secondary Aim Guided Missile</td><td>120</td><td>2</td><td>3</td><td>16</td><td>50</td></tr><tr><td>AA primary AAHV</td><td>720</td><td>250</td><td>1</td><td>8</td><td>1175</td></tr><tr><td>AA secondary High Velocity Missile</td><td>60</td><td>4</td><td>2</td><td>16</td><td>117.5</td></tr><tr><td>AA secondary Anti Air Missile</td><td>120</td><td>2</td><td>2</td><td>16</td><td>20</td></tr></tbody></table></div></details>
+<details><summary>Cars (Flyer60, JLTV, Marauder, Vector)</summary><div class="tablewrap"><table class="nums"><thead><tr><th>Weapon (internal name)</th><th>Fire-rate setting</th><th>Magazine setting</th><th>Magazines setting</th><th>Refill-delay setting</th><th>Launch-speed setting</th></tr></thead><tbody><tr><td>Open Gunner HMG</td><td>500</td><td>250</td><td>1</td><td>5</td><td>760</td></tr><tr><td>RWS AGL</td><td>325</td><td>5</td><td>10</td><td>5</td><td>(0, 1.27, 100)</td></tr><tr><td>RWS LMG</td><td>720</td><td>250</td><td>1</td><td>5</td><td>600</td></tr><tr><td>RWS HMG</td><td>400</td><td>250</td><td>1</td><td>5</td><td>760</td></tr></tbody></table></div></details>
+<details><summary>Jets (F-14, F-16, F-22, F/A-18F, JAS 39, Su-57)</summary><div class="tablewrap"><table class="nums"><thead><tr><th>Weapon (internal name)</th><th>Fire-rate setting</th><th>Magazine setting</th><th>Magazines setting</th><th>Refill-delay setting</th><th>Launch-speed setting</th></tr></thead><tbody><tr><td>Airplane Passenger primary Semi Active Radar Missile</td><td>120</td><td>2</td><td>1</td><td>7.5</td><td>(0, -10, 0)</td></tr><tr><td>Airplane primary Cannon</td><td>1200</td><td>-1</td><td>-1</td><td>20</td><td>1100</td></tr><tr><td>Airplane secondary Air To Air Missile</td><td>120</td><td>2</td><td>1</td><td>10</td><td>20</td></tr><tr><td>Naval Fighter primary AIM54</td><td>150</td><td>1</td><td>4</td><td>20</td><td>(0, -10, 0)</td></tr><tr><td>Airplane Bomb Mk82 AIR</td><td>300</td><td>1</td><td>2</td><td>30</td><td>(0, -10, 0)</td></tr><tr><td>Airplane secondary Air To Ground Missile</td><td>18</td><td>1</td><td>2</td><td>15</td><td>40</td></tr><tr><td>Airplane secondary Light Rockets</td><td>300</td><td>7</td><td>2</td><td>14</td><td>360</td></tr><tr><td>Airplane Bomb GBU39</td><td>120</td><td>1</td><td>4</td><td>20</td><td>(0, -10, 0)</td></tr><tr><td>Airplane Bomb Bunker Buster</td><td>1200</td><td>1</td><td>2</td><td>10</td><td>(0, -10, 0)</td></tr><tr><td>Airplane Bomb Rockeye</td><td>1200</td><td>1</td><td>2</td><td>30</td><td>(0, -10, 0)</td></tr><tr><td>Airplane secondary Anti Radiation Missile</td><td>120</td><td>2</td><td>1</td><td>10</td><td>40</td></tr><tr><td>Airplane TVMissile</td><td>18</td><td>1</td><td>2</td><td>16</td><td>(0, -10, 5)</td></tr><tr><td>Multirole Plane primary Zuni Rockets</td><td>300</td><td>4</td><td>2</td><td>16</td><td>360</td></tr><tr><td>Airplane secondary Air To Air Missile R73</td><td>120</td><td>2</td><td>1</td><td>10</td><td>(0, -10, 20)</td></tr></tbody></table></div></details>
+<details><summary>Helicopters (AH-64E, AH-6M, Eurocopter and scout helicopters)</summary><div class="tablewrap"><table class="nums"><thead><tr><th>Weapon (internal name)</th><th>Fire-rate setting</th><th>Magazine setting</th><th>Magazines setting</th><th>Refill-delay setting</th><th>Launch-speed setting</th></tr></thead><tbody><tr><td>Attack Heli Passenger primary Chaingun</td><td>625</td><td>12</td><td>-1</td><td>8</td><td>805</td></tr><tr><td>Attack Heli Passenger secondary Locking Missile</td><td>18</td><td>1</td><td>4</td><td>20</td><td>20</td></tr><tr><td>Attack Heli primary Heavy Rockets</td><td>300</td><td>4</td><td>2</td><td>16</td><td>360</td></tr><tr><td>Attack Heli primary Light Rockets</td><td>300</td><td>12</td><td>2</td><td>18</td><td>360</td></tr><tr><td>Attack Heli primary Smart Rockets</td><td>300</td><td>7</td><td>2</td><td>14</td><td>180</td></tr><tr><td>Attack Heli secondary Air To Air Missile</td><td>120</td><td>2</td><td>1</td><td>10</td><td>20</td></tr><tr><td>Attack Heli secondary TOW</td><td>18</td><td>1</td><td>4</td><td>20</td><td>50</td></tr><tr><td>RWS Target Designator</td><td>550</td><td>-1</td><td>1</td><td>5</td><td>350</td></tr><tr><td>Scout Heli Passenger primary Thermal Scanner</td><td>3600</td><td>-1</td><td>1</td><td>5</td><td>350</td></tr><tr><td>Scout Heli Passenger secondary Directional Jammer</td><td>360</td><td>-1</td><td>1</td><td>5</td><td>350</td></tr><tr><td>Scout Heli primary GAU19</td><td>800</td><td>100</td><td>4</td><td>20</td><td>860</td></tr><tr><td>Scout Heli primary LR30</td><td>250</td><td>6</td><td>-1</td><td>20</td><td>265</td></tr><tr><td>Scout Heli primary Minigun</td><td>1800</td><td>100</td><td>4</td><td>20</td><td>700</td></tr><tr><td>Scout Heli secondary Air To Air Missile</td><td>120</td><td>2</td><td>1</td><td>10</td><td>20</td></tr><tr><td>Scout Heli secondary Hellfire</td><td>18</td><td>1</td><td>4</td><td>40</td><td>20</td></tr><tr><td>Scout Heli secondary Light Rockets</td><td>300</td><td>7</td><td>2</td><td>21</td><td>360</td></tr><tr><td>Scout Heli secondary Smart Rockets</td><td>300</td><td>4</td><td>2</td><td>16</td><td>360</td></tr></tbody></table></div></details>
+<details><summary>Boats (CB90, Jet Ski, RHIB)</summary><div class="tablewrap"><table class="nums"><thead><tr><th>Weapon (internal name)</th><th>Fire-rate setting</th><th>Magazine setting</th><th>Magazines setting</th><th>Refill-delay setting</th><th>Launch-speed setting</th></tr></thead><tbody><tr><td>MBT secondary Coax LMG</td><td>700</td><td>250</td><td>1</td><td>5</td><td>600</td></tr><tr><td>Patrol Boat Equipment Naval Mines</td><td>900</td><td>1</td><td>4</td><td>20</td><td>0</td></tr><tr><td>Patrol Boat Equipment Torped47</td><td>900</td><td>1</td><td>2</td><td>20</td><td>10</td></tr><tr><td>Patrol Boat Gunner primary 120mm Mortar Airburst</td><td>200</td><td>1</td><td>2</td><td>16</td><td>80</td></tr><tr><td>Patrol Boat Gunner primary 120mm Mortar Guided</td><td>200</td><td>1</td><td>2</td><td>16</td><td>80</td></tr><tr><td>Patrol Boat Gunner primary 120mm Mortar HE</td><td>200</td><td>2</td><td>7</td><td>8</td><td>80</td></tr><tr><td>Patrol Boat Gunner primary 120mm Mortar Illumination</td><td>200</td><td>1</td><td>2</td><td>16</td><td>80</td></tr><tr><td>Patrol Boat Gunner primary 120mm Mortar Smoke</td><td>200</td><td>1</td><td>2</td><td>16</td><td>80</td></tr><tr><td>Patrol Boat primary GAU19</td><td>1000</td><td>100</td><td>4</td><td>20</td><td>890</td></tr><tr><td>Patrol Boat primary M230 LF</td><td>200</td><td>12</td><td>-1</td><td>8</td><td>530</td></tr><tr><td>Patrol Boat secondary Mistral Missile</td><td>120</td><td>2</td><td>2</td><td>16</td><td>20</td></tr><tr><td>Patrol Boat secondary RBS70</td><td>150</td><td>1</td><td>6</td><td>20</td><td>50</td></tr><tr><td>Open Gunner HMG</td><td>500</td><td>250</td><td>1</td><td>5</td><td>760</td></tr></tbody></table></div></details>
+<details><summary>Fixed guns and launchers</summary><div class="tablewrap"><table class="nums"><thead><tr><th>Weapon (internal name)</th><th>Fire-rate setting</th><th>Magazine setting</th><th>Magazines setting</th><th>Refill-delay setting</th><th>Launch-speed setting</th></tr></thead><tbody><tr><td>Stationary TOW</td><td>150</td><td>1</td><td>-1</td><td>5</td><td>50</td></tr><tr><td>127 CWSCROWS HMG</td><td>500</td><td>150</td><td>1</td><td>5</td><td>800</td></tr><tr><td>CWSCROWS Spike</td><td>150</td><td>1</td><td>10</td><td>5</td><td>50</td></tr><tr><td>CWS AGL</td><td>150</td><td>30</td><td>1</td><td>5</td><td>(0, 1.27, 100)</td></tr><tr><td>Stationary Anti Air</td><td>720</td><td>-1</td><td>-1</td><td>8</td><td>1175</td></tr><tr><td>Open Gunner HMG</td><td>500</td><td>250</td><td>1</td><td>5</td><td>760</td></tr><tr><td>SAA primary 20mm Rotary Cannon</td><td>1200</td><td>-1</td><td>-1</td><td>20</td><td>1100</td></tr><tr><td>SSMBattery secondary Anti Air Missile</td><td>120</td><td>1</td><td>-1</td><td>10</td><td>20</td></tr></tbody></table></div></details>
+<details><summary>Transport helicopter (UH-60, MH-47)</summary><div class="tablewrap"><table class="nums"><thead><tr><th>Weapon (internal name)</th><th>Fire-rate setting</th><th>Magazine setting</th><th>Magazines setting</th><th>Refill-delay setting</th><th>Launch-speed setting</th></tr></thead><tbody><tr><td>Transport Heli Gunner Minigun</td><td>1800</td><td>100</td><td>4</td><td>20</td><td>700</td></tr></tbody></table></div></details>
+</section>
+<section id="seats"><h2>Seats and loadouts</h2>
+<article class="item">
+<h3>Seat entries <span class="leads">L3100, L3101, L3250, L3253, L3255, L3257</span></h3>
+<ul class="facts"><li><span class="pill k-d">Game description</span><span class="ft">The cards state seat counts: MBT 2, IFV 6, light transport 5, armored transport 4, anti-air 1, attack helicopter 2, transport helicopter 5, attack jet 1, fighter jet 1.</span></li><li><span class="pill k-s">Stored game value</span><span class="ft">The UH-60 stores five seat entries (numbered 0 to 4), matching the transport helicopter card. The CB90 stores two entry definitions; the second leads to five mortar guns.</span></li><li><span class="pill k-s">Stored game value</span><span class="ft">In total we mapped 36 vehicles and 92 seat or station definitions. 49 of those stations have no gun in the file.</span></li><li><span class="pill k-s">Stored game value</span><span class="ft">There are 166 loadout slot rows and 151 equipment options. For 79 options we can name the seat that owns them. 72 are unresolved.</span></li><li><span class="pill k-s">Stored game value</span><span class="ft">The 120 mm tank main gun is fixed and is not one of the loadout choices.</span></li></ul>
+<p class="sure"><span class="lab">How sure</span> Counts: solid. They are counts of entries in the files, not proof of usable seats or defaults.</p>
+<div class="unk"><span class="lab">Still unknown</span><ul><li>Which options a vehicle starts with.</li><li>Which seats players can actually use.</li><li>Which vehicle each card belongs to.</li><li>Which loadout recipes apply to which vehicle.</li></ul></div>
+</article>
+</section>
+<section id="utility"><h2>Smoke, flares and supply</h2>
+<article class="item">
+<h3>Vehicle countermeasures and lock-on <span class="leads">L3037, L3041, L3304</span></h3>
+<ul class="facts"><li><span class="pill k-s">Stored game value</span><span class="ft">Thermal smoke for infantry fighting vehicles, active protection for tanks (the Abrams is the example), and flares for attack helicopters all exist as named equipment with exact links to their vehicles.</span></li><li><span class="pill k-s">Stored game value</span><span class="ft">The remote turrets store three reload fields, MaxAmmoCountInWeapon, MinAmmoCountInWeapon and ReloadType, with the values -1, -1 and 1.</span></li><li><span class="pill k-e">EA patch notes</span><span class="ft">EA notes mention thermal smoke active time, a smoke screen cooldown and that laser designators affect locking range. We could not match them to stored fields.</span></li></ul>
+<p class="sure"><span class="lab">How sure</span> The equipment exists. How long it lasts, how many charges it has and what it does to locks are all unknown.</p>
+<div class="unk"><span class="lab">Still unknown</span><ul><li>Smoke duration, charges and cooldown.</li><li>What the three reload values mean.</li><li>How locking range and time are calculated.</li></ul></div>
+</article>
+<article class="item">
+<h3>Vehicle Supply Crate <span class="leads">L224, L233</span></h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>A pallet that resupplies ammunition for nearby friendly vehicles.</p></blockquote>
+<ul class="facts"><li><span class="pill k-s">Stored game value</span><span class="ft">Construction and pickup limits are separate stages. Stored settings: Auto Construct true, Time To Construct 0.6, Resupply Interval 5.0. The units are not known.</span></li></ul>
+<p class="sure"><span class="lab">How sure</span> Numbers: carried from an earlier check, not re-read in this round. Meaning: unproven.</p>
+<div class="unk"><span class="lab">Still unknown</span><ul><li>What it gives a vehicle and how fast.</li><li>What stops pickup.</li></ul></div>
+</article>
+<article class="item">
+<h3>Named health values <span class="leads">L234</span></h3>
+<ul class="facts"><li><span class="pill k-s">Stored game value</span><span class="ft">The game keeps named vehicle values for current health, max health, normalised health, armour current and max, damage state and a wreck flag. We have the names, not how they are used.</span></li></ul>
+</article>
+</section>
+<section id="open"><h2>Open questions</h2><ol class="qlist"><li>What unit does any stored vehicle number use, and which of them are real stats?</li><li>How do the angle curves, part health and weapon damage combine, and why does the Abrams store 1200 when the EA numbers assume 1000?</li><li>Do the inherited launch speeds and lifetimes drive flight, or are they unused base defaults?</li><li>What does guidance method 3 mean, and what are the reload values -1, -1 and 1?</li><li>Which vehicle does each of the nine cards belong to, and do the seat counts match real seats?</li><li>Which loadout and which options are the default for each vehicle?</li><li>How long do smoke, flares and active protection last, and how many charges do they have?</li><li>How does the repair rate relate to the stored repair modifier of 1?</li></ol></section>
+<footer>
+<p><strong>About this page.</strong> Snapshot dated 2 October 2026. It replaces the plain-English summary of 1 October. Numbers come from the saved game files at build 1.4.3.5 (Head 4909002) unless a line says otherwise, and from EA update notes with their versions. Sound, Battle Royale and Granite material are left out.</p>
+<p>Small print on each card lists the research lead numbers. Sources are the Frosty vehicle notes and the receipts for leads L3000 to L3304. No site data, simulation or interface has been changed.</p>
+</footer>
+</div>
+
+</body></html>

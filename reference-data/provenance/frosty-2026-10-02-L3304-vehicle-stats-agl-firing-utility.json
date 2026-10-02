@@ -1,0 +1,115 @@
+{
+  "lead": "L3304",
+  "status": "finding",
+  "build": "1.4.3.5",
+  "head": 4909002,
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "question": "What do the selected RWS AGL case and the vehicle firing, ammo, heat and utility sources store?",
+  "runFolder": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-02T022650Z-vehicle-stats",
+  "evidenceClasses": [
+    "stored source value (selected export, own-wrapper or schema-controlled)",
+    "attributed UI statement",
+    "dated EA statement",
+    "hypothesis",
+    "effective runtime behaviour (never established here)"
+  ],
+  "runFiles": [
+    {
+      "file": "HANDOFF.md",
+      "sha256": "7064ff7c5d0a5e9c09fbe0f3538ec6162b8a3525a314f2dd04f951e71f394fdf"
+    },
+    {
+      "file": "AGL_EVIDENCE_TABLE.md",
+      "sha256": "2e11dff7fb4eedb203e6d75ce869b6efb1418c64a09455f5f16a70c5bece3b18"
+    },
+    {
+      "file": "AGL_EVIDENCE_TABLE.json",
+      "sha256": "59cd8614966d5414e86f5b8d2cb1bcbbc5013e16ae0f4c33d3d960fd24bf19a4"
+    },
+    {
+      "file": "VEHICLE_FINDINGS.md",
+      "sha256": "baf3f2e8725e3e5903d37c99fc182b13c2eb30cb13099160da13741d2d6903a8"
+    },
+    {
+      "file": "parent-review.json",
+      "sha256": "e93e0ea7e0519e1db1300f7345907fd99eedfa55f4cbd4119edfb448e5c4dc9c"
+    },
+    {
+      "file": "parent-consequential-raw.json",
+      "sha256": "38918b8f414f82eccf29492f13ae18affcdadd97120de0ed8575145d596e22c9"
+    },
+    {
+      "file": "close-audit.json",
+      "sha256": "e6e24d95bc58fbab8dc0b91d7dcda3293f4c9ad0b12097ff451a5c3577361886"
+    },
+    {
+      "file": "deliverable-hashes.json",
+      "sha256": "6c47621160e6e2fe849e24b3cd3209fcd0c3089f43aa00eaa70ac7faf8726495"
+    },
+    {
+      "file": "review.md",
+      "sha256": "06dde6452db2bd125d57f35d00e8e8482f0fb70252b6b6f5331a225736755be1"
+    }
+  ],
+  "findings": [
+    {
+      "class": "stored source value",
+      "item": "RWS AGL (Bradley, CV90)",
+      "statement": "Bradley serialized seat candidate 1: 1 -> 89 -> 54 -> 14; CV90: 1 -> 84 -> 55 -> 16 (Class_3add1cc5 weapon components, key cec0878d38efc47fdc74a359d4d5852b); both select U_VEH_IFV_RWS_AGL object 0 and WF_Vehicles_RWS_AGL object 3 -> firing object 1 -> PB_Vehicle_AGL_Grenade object 1. Own registry wrapper names: direct DamageFalloffStart/End 15/350, StartDamage/EndDamage 32/32 (re-read at offsets 692/696), DamageMultiplier 1; primary explosion BlastDamage 70 (offset 1344, re-read), BlastRadius 4, InnerBlastRadius 1, MinimumBlastDamage 0, ShockwaveDamage 1, ShockwaveRadius 7.5; dud explosion BlastDamage 0, BlastRadius 5, ShockwaveDamage 0. RWS, stationary CWS and RWS-SP share the projectile import but remain separate firing owners; registry defaults are separate from these values; no 102/103 composed damage."
+    },
+    {
+      "class": "stored source value",
+      "item": "RWS AGL / HMG reload",
+      "statement": "MaxAmmoCountInWeapon, MinAmmoCountInWeapon and ReloadType transfer by exact Struct_b50f190f key f772f46b705664a5cadd2fc69f25df37 and member identity; both entries -1, -1, 1. Enum labels, sentinel semantics and the reload operation are unresolved. M27IAR OverHeat naming control passes for heat; heat operation unresolved."
+    },
+    {
+      "class": "stored source value",
+      "item": "Vehicle health, repair and supply receiving",
+      "statement": "CB90 own configured MaxHealth 1000 (offset 440, re-read) and RepairRateModifier 1; operation linking repair input to the health owner unresolved. Vehicle Supply Crate object 7 channel pointers, object 22 health-binding source and success-affector selection retained; producer bindings are not receiver controls."
+    },
+    {
+      "class": "stored source value",
+      "item": "Bradley IFV missile and RWS designator",
+      "statement": "Exact selected owners and immediate locking-state receiver identities; IFV Damage 250 control passes (PB_ATGM_Homing_Spike offset 868, re-read) while the registry default 150 remains separate."
+    },
+    {
+      "class": "source identity",
+      "item": "Smoke, MBT APS, AttackHeli flares",
+      "statement": "IFV Thermal Smoke Eq -> Ability/producer identities (same-owner smoke graph control passes); exact MBT APS producer chain (Abrams is the representative source context, no Bradley APS substituted); AttackHeli flares Eq -> U/Ability with mirrored CommonAir source graph, but canonical L3257 has no exact seat join for AH64E. Activation, timers, charges, cooldown units and lock effects unresolved."
+    }
+  ],
+  "notes": [
+    "Source build 1.4.3.5 / Head 4909002 is a saved pre-Season-5 baseline; L3013 keeps its original Head 4892087 label and its AGL raw hash equals the current copy. No live-version claim.",
+    "Serialized seat candidate indices are not usable seats; the operator gunner role is separate from the source entry index; the WF is a configured alternative; active equipment, recipe applicability and default selection remain unresolved.",
+    "Parent verification in the run: 158 selected raw reads, 414 selected grid reads, four pinned artifact hashes."
+  ],
+  "limits": [
+    "Stored source values from selected exports, attributed UI text and dated EA statements only. No units, enum labels, sentinel meanings, equations, effective gameplay behaviour, default or active selection, multiplayer availability or station claim.",
+    "Registry defaults are not selected values: a selected own-wrapper value must not be replaced by, or averaged with, a registry or leaf default.",
+    "Source settings, UI statements, dated EA statements, hypotheses and runtime behaviour are separate evidence classes."
+  ],
+  "reviewerCheck": "Sonnet 5.5 review of 2 Oct 2026 (review.md in the run folder): raw bytes, value rows and file SHA-256 pins from the run packets were re-read with no real mismatch; controls were not re-run; no commit, push or shared-file edit by the run (both repos unchanged after 1 Oct 22:12).",
+  "siteImpact": "Foundation research for a future vehicles and gadgets version of the site; not tied to current site outputs. No site data, simulation or UI is changed or proposed.",
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-10-02",
+    "build": "1.4.3.5",
+    "leads": [
+      {
+        "id": "L3304",
+        "title": "RWS AGL damage/splash source case and vehicle firing and utility findings",
+        "status": "finding",
+        "summary": "Selected Bradley and CV90 RWS AGL chains with own direct/explosion names: direct StartDamage/EndDamage 32/32 (falloff 15 to 350), primary BlastDamage 70, InnerBlastRadius 1, BlastRadius 4, ShockwaveDamage 1 (radius 7.5), dud blast 0 radius 5; plus reload discriminator members, CB90 MaxHealth 1000 and Bradley IFV missile Damage 250; no composed damage, units or equation established.",
+        "reopenWhen": "The exact validated runtime or compiled receiver operations listed in VEHICLE_FINDINGS.md and AGL_EVIDENCE_TABLE.md (a new tuple, route name or matching number alone does not reopen a route)."
+      }
+    ],
+    "assets": [],
+    "binding": "research",
+    "run": {
+      "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-02T022650Z-vehicle-stats",
+      "orchestrator": "GPT-6.1 Sol High (requested parent; the run could not verify the setting)",
+      "workers": []
+    }
+  }
+}

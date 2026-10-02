@@ -1,0 +1,125 @@
+{
+  "lead": "L232",
+  "status": "finding",
+  "build": "mixed",
+  "head": "mixed: Head 4909002 current, Head 4892087 historical where stated",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "question": "What do repair, defibrillator and squad-revive sources store, and can the compiled graph be read to name the operation?",
+  "runFolder": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T222559-0400-repair-revive",
+  "evidenceClasses": [
+    "stored source value (selected export, own-wrapper or schema-controlled)",
+    "attributed UI statement",
+    "dated EA statement",
+    "hypothesis",
+    "effective runtime behaviour (never established here)"
+  ],
+  "descriptorSha256Historical": "99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640",
+  "runFiles": [
+    {
+      "file": "handoff.md",
+      "sha256": "3a54d927e52ef9839f88df5d1aec93f3173aa470e78b225531b3f40da6b01257"
+    },
+    {
+      "file": "stat-tables.md",
+      "sha256": "c1899bb0eeaa3076c05f36668ba071bb8a336191c30773763d63ccd29bb01038"
+    },
+    {
+      "file": "parent-review.json",
+      "sha256": "b6b77af0561b50a67eb8be4be95ad49d0ef30d579f9ad5dbe1a73fd1c6a17ade"
+    },
+    {
+      "file": "parent-raw-checks.json",
+      "sha256": "328f8d78a9aa4a478c12c71ce04f9db833c333dffaa08e5bf6a71b82d37e52f6"
+    },
+    {
+      "file": "parent-modifier-review.json",
+      "sha256": "2e5cf2f4dbc33ef3a12eb31b2aeb38963733b963d164f78711ddf0ab2edca278"
+    },
+    {
+      "file": "parent-reader-review.json",
+      "sha256": "c91f14b67c737bddfb511aaeb769d0a45dccc25364d99c65ed8aca1277816560"
+    },
+    {
+      "file": "utility-reader/reader-control.md",
+      "sha256": "37c902b4ddf3382799cd4b0fea6687557ff261e92f9e7c2b4f0e45f704ba0f70"
+    },
+    {
+      "file": "dated-patch-statements.json",
+      "sha256": "72017b8dcd0800aeb4f97b544dec329d5e73966252e8b8fc31b2f3307200a578"
+    },
+    {
+      "file": "cleanup.json",
+      "sha256": "3960f531380115bd48bfa76ae0170695c1029aa5378b171135592e959256fb6e"
+    },
+    {
+      "file": "review.md",
+      "sha256": "8dc91f3c038c4c0adc03a8e2c2c39883ca539aedc5a447dd135d2913a7bec95f"
+    }
+  ],
+  "findings": [
+    {
+      "class": "stored source value",
+      "item": "Repair Tool",
+      "statement": "Named RepairTool_Range 2/0/10 selected by SimEx binding 0; Apply Damage / Repair Interval 0.10000000149011612/0.009999999776482582/1 (binding 1); vehicle-damage rank 3/0/6; named Repair Amount Per Second 40/0/250 (Field_42c8b257, offset 39572 of GRX_Gadgets_Glacier, f32 40.0, re-read by reviewer). Heat: HeatPerBullet 0.0142000000923872, HeatDropPerSecond 0.4000000059604645, OverHeatDropDelay 0.10000000149011612, OverHeatThreshold 0.15000000596046448, OverHeatPenaltyTime 0.5 (M27IAR own-wrapper naming control). Projectile Class_23637dce StartDamage/EndDamage 13/13, falloff 100/200. 40 is not verified health per second; configured heat is separate from repair rate and cooldown; DestroyGadget is selected but its IsDisarmingGadget invocation is unproved."
+    },
+    {
+      "class": "stored source value",
+      "item": "Defibrillator",
+      "statement": "13-row curve candidate, two six-entry revive affectors, separate damage affector (selects ordinary CT Defib_Damage, address 2792), Supercharge selects TraitSprintSpeedMultiplier without a proved setter formula. Current export review corrected the earlier selected-true IsReviving claim: selected true are FastSprintRequired, Defibrillator_ManuallyEquipped and CanReviveTeam_WithGadget; unselected IsReviving stores false."
+    },
+    {
+      "class": "dated EA statement",
+      "item": "Defibrillator charge",
+      "statement": "EA 1.2.3.0: 0.35 s minimum charge before revival, 1 s full charge (charge duration, not total interaction time). Not a measured Head 4909002 value. Other dated EA overheat/repair statements are in dated-patch-statements.json (15 entries; vehicle durability/repair ones excluded by the run)."
+    },
+    {
+      "class": "stored source value",
+      "item": "Squad revive",
+      "statement": "Named configured total-time 4.71999979019165 (Field at GRX_Glacier_Soldier offset 24244) and Support 2.200000047683716 (offset 22900), buffer 0.4000000059604645, both re-read by reviewer; provisional HealthRestored affector stores eleven values 100,90,80,75,70,60,50,40,30,25,20 (class rank 6/0 not equated to list slots); Regen selects named rate 10, delay 0, amount 0. Execution, units and composition unknown."
+    },
+    {
+      "class": "stored source value",
+      "item": "Recipient query",
+      "statement": "Recipient-list query exposes RootTransform, TeamId, SquadId and ReviverPlayerId with exact current channel joins; no proved predicate or gameplay reach."
+    },
+    {
+      "class": "method limit",
+      "item": "Compiled utility reader",
+      "statement": "L190 remains blocked. No qualified utility operation reader in the inspected inventory (L1001/L1002 enum and curve readers do not read the utility format; L1004 has no known operation result control). The run does not claim no reader exists anywhere."
+    }
+  ],
+  "openQuestions": [
+    "Squad file d0a2de18-a7b2-4c3c-9e87-aff6ddc8a180 and its two exact child GUIDs.",
+    "FasterRecharge selector owner aeb43f2c-3c7b-4056-a8f6-f965da671da3 (Killshot export/import control reproduced; no owner found in the historical index; no global absence claimed)."
+  ],
+  "evidenceVersion": "Saved utility sources Head 4892087; matching Head 4909002 copies are byte carry-forward, not new measurements. Repair caller provenance historical.",
+  "limits": [
+    "Stored source values from selected exports, attributed UI text and dated EA statements only. No units, enum labels, sentinel meanings, equations, effective gameplay behaviour, default or active selection, multiplayer availability or station claim.",
+    "Registry defaults are not selected values: a selected own-wrapper value must not be replaced by, or averaged with, a registry or leaf default.",
+    "Source settings, UI statements, dated EA statements, hypotheses and runtime behaviour are separate evidence classes."
+  ],
+  "reviewerCheck": "Sonnet 5.5 review of 2 Oct 2026 (review.md in the run folder): raw bytes, value rows and file SHA-256 pins from the run packets were re-read with no real mismatch; controls were not re-run; no commit, push or shared-file edit by the run (both repos unchanged after 1 Oct 22:12).",
+  "siteImpact": "Foundation research for a future vehicles and gadgets version of the site; not tied to current site outputs. No site data, simulation or UI is changed or proposed.",
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-10-02",
+    "build": "mixed",
+    "leads": [
+      {
+        "id": "L232",
+        "title": "Repair Tool, Defibrillator and Squad Revive configured values and UI/EA statements",
+        "status": "finding",
+        "summary": "Repair Tool range 2/0/10, repair/damage interval 0.1/0.01/1 and operand 40/0/250; Defibrillator curve and revive affectors; Squad revive total time 4.72 s (Support 2.2 s); the stored 40 is not verified health per second. No qualified utility operation reader exists in the inspected inventory (L190 stays blocked).",
+        "reopenWhen": "The registered query/list/health/rank/time/repair receivers, an independently known same-format operation control with held-out validation, the Squad file d0a2de18-a7b2-4c3c-9e87-aff6ddc8a180, or the FasterRecharge selector owner aeb43f2c-3c7b-4056-a8f6-f965da671da3."
+      }
+    ],
+    "assets": [],
+    "binding": "research",
+    "run": {
+      "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T222559-0400-repair-revive",
+      "orchestrator": "GPT-6.1 Sol (parent)",
+      "workers": []
+    }
+  }
+}

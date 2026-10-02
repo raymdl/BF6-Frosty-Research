@@ -1,0 +1,530 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Gadget Research Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;600&family=Public+Sans:wght@400;600;700&display=swap">
+<style>
+:root{
+  --bg:#f2f5f7; --surface:#ffffff; --surface2:#e9eef2; --ink:#12202a; --muted:#4f5f6b; --line:#d3dbe1;
+  --accent:#9a4f12; --accent-ink:#ffffff; --accent-soft:#f6e6d6;
+  --k-d-bg:#dbe9fd; --k-d-fg:#173a82;
+  --k-s-bg:#d3f3e4; --k-s-fg:#075a3f;
+  --k-i-bg:#fbeab8; --k-i-fg:#6d4300;
+  --k-e-bg:#e8e2fb; --k-e-fg:#45208f;
+  --k-g-bg:#e3e7eb; --k-g-fg:#34414c;
+  --warn-bg:#fff3d6; --warn-line:#e4bd62;
+  --f-head:'Barlow Condensed','Arial Narrow',Arial,sans-serif;
+  --f-body:'Public Sans','Segoe UI',system-ui,-apple-system,Arial,sans-serif;
+  --f-mono:'IBM Plex Mono',ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e1a22; --surface:#15242e; --surface2:#1c2f3b; --ink:#e5edf2; --muted:#9db0bd; --line:#2a3d4a;
+    --accent:#eba466; --accent-ink:#0e1a22; --accent-soft:#3c2916;
+    --k-d-bg:#1d3a63; --k-d-fg:#c3dafc;
+    --k-s-bg:#0f4032; --k-s-fg:#a9efd0;
+    --k-i-bg:#4b3706; --k-i-fg:#fde6a1;
+    --k-e-bg:#34205f; --k-e-fg:#dcd3fb;
+    --k-g-bg:#2a3640; --k-g-fg:#c9d4dc;
+    --warn-bg:#3a2e12; --warn-line:#8a6a1f; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e1a22; --surface:#15242e; --surface2:#1c2f3b; --ink:#e5edf2; --muted:#9db0bd; --line:#2a3d4a;
+  --accent:#eba466; --accent-ink:#0e1a22; --accent-soft:#3c2916;
+  --k-d-bg:#1d3a63; --k-d-fg:#c3dafc;
+  --k-s-bg:#0f4032; --k-s-fg:#a9efd0;
+  --k-i-bg:#4b3706; --k-i-fg:#fde6a1;
+  --k-e-bg:#34205f; --k-e-fg:#dcd3fb;
+  --k-g-bg:#2a3640; --k-g-fg:#c9d4dc;
+  --warn-bg:#3a2e12; --warn-line:#8a6a1f; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55}
+.wrap{max-width:880px;margin:0 auto;padding-inline:18px;padding-block:28px 64px}
+header.top{border-bottom:3px solid var(--accent);padding-bottom:18px;margin-bottom:22px}
+.kicker{display:inline-block;font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;background:var(--accent-soft);color:var(--accent);padding:3px 9px;border-radius:3px;margin-bottom:10px}
+h1{font-family:var(--f-head);font-weight:700;font-size:clamp(40px,8vw,64px);line-height:1;margin:0 0 8px;letter-spacing:.01em;text-wrap:balance}
+.sub{font-size:18px;color:var(--muted);margin:0;max-width:62ch}
+h2{font-family:var(--f-head);font-weight:700;font-size:clamp(28px,5vw,36px);margin:46px 0 6px;line-height:1.1;text-wrap:balance;scroll-margin-top:12px}
+h2 .count{font-family:var(--f-mono);font-size:13px;font-weight:400;color:var(--muted);margin-left:8px;letter-spacing:0}
+h3{font-family:var(--f-head);font-weight:700;font-size:25px;margin:0 0 8px;line-height:1.15;text-wrap:balance}
+.lede{color:var(--muted);margin:4px 0 16px;max-width:66ch}
+p{margin:0 0 12px;max-width:68ch}
+nav.jump{display:flex;flex-wrap:wrap;gap:6px 14px;margin:14px 0 0;padding:0;list-style:none;font-size:14px}
+nav.jump a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line)}
+nav.jump a:hover,nav.jump a:focus-visible{border-bottom-color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:18px 20px;margin:14px 0}
+.read-first{background:var(--surface);border:1px solid var(--line);border-left:6px solid var(--accent);border-radius:8px;padding:6px 22px 12px;margin-top:8px}
+.read-first ol{padding-left:22px;margin:10px 0}
+.read-first li{margin-bottom:12px;max-width:66ch}
+.read-first li strong{display:block;font-family:var(--f-head);font-size:21px;line-height:1.2}
+.legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px;margin:14px 0}
+.legend div{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:10px 12px;font-size:14px}
+.legend .pill{margin-bottom:6px}
+.pill{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.02em;padding:2px 8px;border-radius:3px;margin-right:9px;white-space:nowrap;vertical-align:1px}
+.k-d{background:var(--k-d-bg);color:var(--k-d-fg)}
+.k-s{background:var(--k-s-bg);color:var(--k-s-fg)}
+.k-i{background:var(--k-i-bg);color:var(--k-i-fg)}
+.k-e{background:var(--k-e-bg);color:var(--k-e-fg)}
+.k-g{background:var(--k-g-bg);color:var(--k-g-fg)}
+article.item{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:16px 20px 14px;margin:14px 0;scroll-margin-top:12px}
+.leads{font-family:var(--f-mono);font-size:11px;font-weight:400;color:var(--muted);margin-left:6px;letter-spacing:0;white-space:normal}
+blockquote.says{margin:6px 0 10px;padding:8px 12px;background:var(--surface2);border-radius:5px}
+blockquote.says p{margin:4px 0 0;font-style:italic}
+.facts{list-style:none;margin:8px 0;padding:0}
+.facts li{padding:6px 0;border-top:1px solid var(--line);display:flex;gap:0;align-items:baseline;flex-wrap:wrap}
+.facts li:first-child{border-top:0}
+.facts .pill{flex:0 0 auto}
+.ft{flex:1 1 280px;min-width:0}
+.note{font-size:14px;color:var(--muted)}
+.sure{margin:8px 0 6px}
+.lab{display:inline-block;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-right:8px;font-weight:600}
+.unk{margin:6px 0 0}
+.unk ul{margin:4px 0 0;padding-left:20px}
+.unk li{margin-bottom:2px}
+.tablewrap{overflow-x:auto;margin:10px 0;border:1px solid var(--line);border-radius:6px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th{font-family:var(--f-mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;text-align:left;color:var(--muted);background:var(--surface2);padding:8px 10px;white-space:nowrap}
+td{padding:7px 10px;border-top:1px solid var(--line);vertical-align:top}
+td:first-child{min-width:130px}
+td.num,table.nums td:not(:first-child){font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+details{margin:10px 0}
+details>summary{cursor:pointer;font-weight:600;color:var(--accent);padding:6px 0}
+.warn{background:var(--warn-bg);border:1px solid var(--warn-line);border-radius:6px;padding:10px 14px;margin:12px 0;font-size:15px}
+.match{display:grid;gap:10px;margin:12px 0}
+.match .row{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--k-s-fg);border-radius:6px;padding:10px 14px}
+.match h4{margin:0 0 6px;font-family:var(--f-head);font-size:21px}
+.match .pair{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px}
+.match .pair div{font-size:14px}
+.bars{margin:10px 0}
+.bars .brow{display:grid;grid-template-columns:130px 1fr 54px;gap:10px;align-items:center;margin:5px 0;font-size:14px}
+.bars .track{background:var(--surface2);height:16px;border-radius:3px;overflow:hidden}
+.bars .fill{display:block;height:100%;background:var(--accent)}
+.bars .val{font-family:var(--f-mono);text-align:right}
+.bars h4{margin:12px 0 2px;font-family:var(--f-head);font-size:19px}
+.qlist{counter-reset:q;list-style:none;padding:0;margin:12px 0}
+.qlist li{counter-increment:q;position:relative;padding:8px 0 8px 40px;border-top:1px solid var(--line)}
+.qlist li::before{content:counter(q);position:absolute;left:0;top:8px;width:28px;height:28px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font-family:var(--f-mono);font-size:13px;display:flex;align-items:center;justify-content:center}
+footer{margin-top:50px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+footer p{max-width:70ch}
+.small{font-size:13px;color:var(--muted)}
+@media (max-width:520px){
+  .bars .brow{grid-template-columns:96px 1fr 46px}
+  .card,article.item{padding-inline:14px}
+}
+@media (prefers-reduced-motion:no-preference){ html{scroll-behavior:smooth} }
+</style>
+<div class="wrap">
+<header class="top">
+<span class="kicker">Snapshot · 2 Oct 2026</span>
+<h1>Gadgets</h1>
+<p class="sub">What the Battlefield 6 game files and EA update notes say about gadgets, in plain English. This is research toward a possible gadgets section on the Analyzer. Nothing here has been tested in a match.</p>
+<nav class="jump"><a href="#first">Read this first</a><a href="#matches">Where text and numbers agree</a><a href="#heal">Healing and supply</a><a href="#protect">Protection and concealment</a><a href="#detect">Detection and marking</a><a href="#deploy">Deployables</a><a href="#launch">Launchers</a><a href="#boom">Grenades and mines</a><a href="#under">Underbarrels</a><a href="#open">Open questions</a></nav>
+</header>
+<section id="first"><h2>Read this first</h2>
+<div class="read-first"><ol>
+<li><strong>A stored number is a setting, not a proven stat.</strong>The game files hold a huge number of values. We can read them exactly. We usually cannot say what unit they use or what they do in a match. A stored "40" next to the Repair Tool is not shown to be 40 health per second.</li>
+<li><strong>Defaults can differ from what a gadget really uses.</strong>A registry default is a fallback value from a central table. An inherited default is a value a gadget picks up from a shared base type. A gadget's own value comes first. Example: the RPG-7V2 stores its own damage as 135, while its registry default says 125.</li>
+<li><strong>The strongest evidence is a description that matches a stored value.</strong>When the game's own text says a number and the files hold the same number, the two agree and we trust the reading more. We have four clean cases: Hemostatic regeneration, the 2.2 second revive, MP-APS "up to 3", and MTN-55 timing. The next section shows them. Agreement still does not prove units or effects.</li>
+</ol></div>
+
+<div class="legend">
+<div><span class="pill k-d">Game description</span><br>What the game itself says on a card or menu. Quoted as written.</div>
+<div><span class="pill k-s">Stored game value</span><br>A number found in the game files. We read it exactly. It is a setting, not a proven stat.</div>
+<div><span class="pill k-i">Inherited default</span><br>A value a weapon picks up from a shared base type, or a fallback from a central table. May not be what the weapon really uses.</div>
+<div><span class="pill k-e">EA patch notes</span><br>A number from an official EA update article, with its version. It may be out of date for the saved game build.</div>
+<div><span class="pill k-g">Our guess</span><br>Our own reading. Shown so you can see the reasoning. Not tested.</div>
+</div>
+<p class="small"><strong>How sure</strong> means two things. First, did we read the number correctly from the game files. That is almost always yes, and we re-read many of them from the raw files. Second, do we know what the number does in a match. That is usually no.</p></section>
+<section id="matches"><h2>Where text and numbers agree</h2><p class="lede">These are the best results in the research. In each one the game says a number in words and the files store the same number. Read the last line of each box for what is still not proven.</p>
+<div class="match"><div class="row"><h4>Hemostatic smoke: regeneration</h4><div class="pair"><div><span class="pill k-d">Game description</span><br>...provides 12.5hp/s health regen after 2.5s...</div><div><span class="pill k-s">Stored game value</span><br>Regeneration rate 12.5 and regeneration delay 2.5, with a third slot of 0.</div></div><p class="small" style="margin:8px 0 0">The units are still unproved, and the effect on a real soldier has not been observed.</p></div><div class="row"><h4>Revive time with Hemostatic</h4><div class="pair"><div><span class="pill k-d">Game description</span><br>...speeds up revival to 2.2s for all classes...</div><div><span class="pill k-s">Stored game value</span><br>The squad revive stores a Support time of 2.2. The normal total time is 4.72.</div></div><p class="small" style="margin:8px 0 0">The text says all classes, but the stored 2.2 sits in the Support entry.</p></div><div class="row"><h4>MP-APS and EIDOS: interceptions</h4><div class="pair"><div><span class="pill k-d">Game description</span><br>Can intercept up to three projectiles during a window of activation.</div><div><span class="pill k-s">Stored game value</span><br>Max intercepts is stored as 3, with 1 and 10 in the other two slots. Both gadgets store the same three numbers.</div></div><p class="small" style="margin:8px 0 0">Whether 3 is a limit per window, or something else, is a reading. The compiled logic is not read.</p></div><div class="row"><h4>Proximity Grenade (MTN-55): timing</h4><div class="pair"><div><span class="pill k-d">Game description</span><br>...scans for enemies once per second... marking their position... for a duration of two seconds.</div><div><span class="pill k-s">Stored game value</span><br>Pulse 1 and duration 2.</div></div><p class="small" style="margin:8px 0 0">Matching words and numbers is not a proof that those fields run the scan.</p></div></div>
+<div class="warn"><strong>One near miss.</strong> The Restock Allies ability says reviving teammates takes only 1.7 seconds. We found no stored 1.7. The squad revive stores 4.72 and 2.2. Where 1.7 comes from is an open question.</div></section>
+<section id="heal"><h2>Healing, supply and revive</h2>
+<article class="item">
+<h3>Defibrillator <span class="leads">L232</span></h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>This equipment can revive both squad members and teammates. Charge paddles for a short duration to revive a downed soldier with full health. Can also inflict damage on enemies.</p></blockquote>
+<ul class="facts"><li><span class="pill k-s">Stored game value</span><span class="ft">The files hold a 13-row curve and two revive effects with six entries each. A separate damage effect also exists, which fits the "can also inflict damage" line.</span></li><li><span class="pill k-e">EA patch notes</span><span class="ft">EA update 1.2.3.0 says a 0.35 second minimum charge before a revive and a 1 second full charge. That is charge time, not the whole revive.</span></li><li><span class="pill k-s">Stored game value</span><span class="ft">The Supercharge perk links to a sprint-speed effect. No formula is read.</span></li></ul>
+<p class="sure"><span class="lab">How sure</span> Wiring: solid. Charge times: only from EA notes, not measured on the saved build.</p>
+<div class="unk"><span class="lab">Still unknown</span><ul><li>How much health a revive gives and over what time.</li><li>How the curve is used.</li></ul></div>
+</article>
+<article class="item">
+<h3>Supply Pouch <span class="leads">L233, L229</span></h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>A single-use pouch to replenish ammo and medical supplies for the owner or their teammates. Fully restocks ammo capacity of the primary and secondary weapons and restores a portion of health.</p></blockquote>
+<ul class="facts"><li><span class="pill k-s">Stored game value</span><span class="ft">The pouch links to five effects: automatic replenish, gas mask resupply, night vision resupply, and ammo rows for the primary weapon and sidearm. A stored 60 may be a lifetime. That is not proven.</span></li><li><span class="pill k-e">EA patch notes</span><span class="ft">EA update 1.0.1.0: deployed pouches cannot be picked up, vehicle healing was removed, a pouch gives one extra C4, and healing happens over time.</span></li><li><span class="pill k-s">Stored game value</span><span class="ft">The pouch and the crate share one healing layout. One true-or-false flag is true for the pouch and false for the crate. We do not know what it does.</span></li></ul>
+<p class="sure"><span class="lab">How sure</span> Wiring: solid. Amounts and timing: unknown.</p>
+<div class="unk"><span class="lab">Still unknown</span><ul><li>How much health and ammo a pouch gives.</li><li>What the pouch-versus-crate flag does.</li><li>Whether the gas mask and night vision effects work.</li></ul></div>
+</article>
+<article class="item">
+<h3>Supply Crate <span class="leads">L233, L229</span></h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>Once dropped, the bag resupplies all nearby infantry with ammo for gadgets and weapons and regenerates health more efficiently, even when under fire.</p></blockquote>
+<ul class="facts"><li><span class="pill k-s">Stored game value</span><span class="ft">Picking it up leads to an enable step and a callback, and the callback links to a self speed-up effect. The crate shares a healing entry with the Medic Crate: two wrappers that store 0 and 20, a direct 2.5, and three false flags.</span></li></ul>
+<p class="sure"><span class="lab">How sure</span> Wiring: solid. Meaning of the numbers: unproven.</p>
+<div class="unk"><span class="lab">Still unknown</span><ul><li>The healing rate and how it changes under fire.</li><li>What 0, 20 and 2.5 are.</li></ul></div>
+</article>
+<article class="item">
+<h3>Medic Crate <span class="leads">L233</span></h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>Restores health to all nearby friendlies, healing any sustained damage.  Powerful squad survivability booster.</p></blockquote>
+<p class="note">Identity candidate: not confirmed as a multiplayer item. It shares its healing entry with the Supply Crate.</p>
+</article>
+<article class="item">
+<h3>Ammo Bag <span class="leads">L233</span></h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>A deployable bag that provides ammunition and medical supplies.</p></blockquote>
+<p class="note">Identity candidate: it shows the same name as the Supply Crate and is not confirmed as its own item.</p>
+</article>
+<article class="item">
+<h3>Vehicle Supply Crate <span class="leads">L233</span></h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>A pallet that resupplies ammunition for nearby friendly vehicles.</p></blockquote>
+<ul class="facts"><li><span class="pill k-s">Stored game value</span><span class="ft">Construction and pickup limits are separate stages. Stored settings: Auto Construct true, Time To Construct 0.6, Resupply Interval 5.0. Units unknown. These were carried from an earlier check and not re-read in this round.</span></li></ul>
+<p class="sure"><span class="lab">How sure</span> Numbers: carried forward. Meaning: unproven.</p>
+<div class="unk"><span class="lab">Still unknown</span><ul><li>What it gives a vehicle, and how fast.</li></ul></div>
+</article>
+<article class="item">
+<h3>Adrenaline Shot </h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>Temporarily boosts sprint speed while reducing explosive and incendiary damage. Also provides brief resistance to and clears the effects of Flash and Stun Grenades.</p></blockquote>
+</article>
+<article class="item">
+<h3>Repair Tool <span class="leads">L232, L228</span></h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>A blow torch to repair friendly vehicles and equipment. Can also damage enemy assets. Extended use will temporarily overheat the tool.</p></blockquote>
+<ul class="facts"><li><span class="pill k-s">Stored game value</span><span class="ft">Range setting 2, 0 and 10 in three slots. Repair interval 0.1, 0.01 and 1. Repair amount per second 40, 0 and 250 in three slots. Which slot is which is unknown.</span></li><li><span class="pill k-s">Stored game value</span><span class="ft">Heat settings: heat per bullet 0.0142, heat drop per second 0.4, overheat drop delay 0.1, overheat threshold 0.15, overheat penalty time 0.5.</span></li><li><span class="pill k-s">Stored game value</span><span class="ft">Its projectile stores damage 13 at the start and 13 at the end, with falloff between 100 and 200. Stored fire settings (partial): fire-rate setting 600, magazine setting -1, launch-speed setting 80. Reload values are not known.</span></li><li><span class="pill k-g">Our guess</span><span class="ft">The 40 may be the repair rate per second, but it is not shown to be health per second.</span></li></ul>
+<p class="sure"><span class="lab">How sure</span> Numbers: solid. The 40 and the units: unproven.</p>
+<div class="unk"><span class="lab">Still unknown</span><ul><li>The real repair rate and range.</li><li>How heat limits repair.</li><li>Whether repair and damage are separate actions.</li></ul></div>
+</article>
+<h3>Class abilities and perks</h3><p class="lede">These are not gadgets. They give the gadgets above their context.</p>
+<article class="item">
+<h3>Restock Allies (ActiveMedic) <span class="leads">L233</span></h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>Resupply and heal nearby friendly forces for 10 seconds. Reviving teammates takes only 1.7 seconds.</p></blockquote>
+<ul class="facts"><li><span class="pill k-s">Stored game value</span><span class="ft">Both Support loadout paths link to it. One Support path also links to a Crate Resupply Plus ability.</span></li><li><span class="pill k-s">Stored game value</span><span class="ft">No stored 1.7 was found. The squad revive stores a total time of 4.72 and a Support time of 2.2.</span></li></ul>
+<p class="sure"><span class="lab">How sure</span> Wiring: solid. The 10 seconds and the 1.7 are only text.</p>
+<div class="unk"><span class="lab">Still unknown</span><ul><li>Where 1.7 seconds comes from.</li><li>Whether the 10 seconds is stored anywhere.</li></ul></div>
+</article>
+<article class="item">
+<h3>Active Resupply <span class="leads">L220</span></h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>Press [special ability key] to drop a crate that instantly resupplies teammates once</p></blockquote>
+<p class="note">The text is recorded. Its stored values were not traced in this round.</p>
+</article>
+<article class="item">
+<h3>Hemostatic (smoke launcher upgrade) <span class="leads">L234, L229</span></h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>Smoke Grenade Launcher speeds up revival to 2.2s for all classes, provides 12.5hp/s health regen after 2.5s, and slows downed bleedout.</p></blockquote>
+<ul class="facts"><li><span class="pill k-s">Stored game value</span><span class="ft">The regeneration effect stores rate 12.5, delay 2.5 and amount 0.0. A fourth slot holds the number 2, which we cannot name.</span></li><li><span class="pill k-s">Stored game value</span><span class="ft">Another regeneration effect stores 30, 2.5 and 0 (FasterRegen). The after-revive effect stores 0, 0 and 0 inline and links to a rate of 10.</span></li></ul>
+<p class="sure"><span class="lab">How sure</span> Numbers match the text. Units and operation: unproven. This is one of the best matches we have.</p>
+<div class="unk"><span class="lab">Still unknown</span><ul><li>Whether the 12.5 is added, replaces, or multiplies the normal regeneration.</li><li>What the number 2 stands for.</li></ul></div>
+</article>
+<article class="item">
+<h3>Squad revive <span class="leads">L232</span></h3>
+<ul class="facts"><li><span class="pill k-s">Stored game value</span><span class="ft">Total time 4.72, Support 2.2, buffer 0.4. A health-restored list holds eleven values: 100, 90, 80, 75, 70, 60, 50, 40, 30, 25, 20. After a revive, regeneration is set to rate 10, delay 0 and amount 0.</span></li><li><span class="pill k-s">Stored game value</span><span class="ft">The target query exposes position, team, squad and the reviver. No rule for who is included was read.</span></li></ul>
+<p class="sure"><span class="lab">How sure</span> Numbers: solid. Mapping the eleven values to ranks or health: not done.</p>
+<div class="unk"><span class="lab">Still unknown</span><ul><li>What the eleven values apply to.</li><li>The unit of the times.</li><li>Who the revive can reach.</li></ul></div>
+</article>
+</section>
+<section id="protect"><h2>Protection and concealment</h2>
+<article class="item">
+<h3>MP-APS <span class="leads">L234</span></h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>Once set on the ground, this device tracks and destroys larger incoming projectiles such as missiles, mortar shells, and tank shells. Can intercept up to three projectiles during a window of activation that begins after the initial detection.</p></blockquote>
+<ul class="facts"><li><span class="pill k-s">Stored game value</span><span class="ft">Max intercepts 3, with 1 and 10 in the other slots. Alive timer 5.0, 0.0 and 50.0. The deployed vehicle links to a feature, and the feature links to the logic. Only that chain is closed. The compiled logic is not read.</span></li><li><span class="pill k-e">EA patch notes</span><span class="ft">EA update 1.1.2.0 fixed MP-APS smoke spreading between friendlies.</span></li></ul>
+<p class="sure"><span class="lab">How sure</span> Chain and numbers: solid. What 3 and 5.0 do: unproven. The "up to 3" text matches the stored 3.</p>
+<div class="unk"><span class="lab">Still unknown</span><ul><li>The size and shape of the area.</li><li>The recharge.</li><li>Which projectiles it picks.</li></ul></div>
+</article>
+<article class="item">
+<h3>EIDOS <span class="leads">L234</span></h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>Once set on the ground, the Grenade Intercept System tracks and destroys incoming projectiles such as hand-thrown and launched grenades. Can intercept up to three projectiles during a window of activation that begins after the initial detection.</p></blockquote>
+<ul class="facts"><li><span class="pill k-s">Stored game value</span><span class="ft">Max intercepts 3, 1 and 10. Max intercept range 5.0, 0.0 and 20.0. Alive timer 5.0, 0.0 and 50.0. It also keeps a list called Previous Targets.</span></li><li><span class="pill k-e">EA patch notes</span><span class="ft">EA update 1.1.2.0 fixed an interference problem with the GPDIS placement preview. GPDIS is another name on the card.</span></li></ul>
+<p class="sure"><span class="lab">How sure</span> Chain and numbers: solid. Units: unknown. The "up to three" text matches the stored 3.</p>
+<div class="unk"><span class="lab">Still unknown</span><ul><li>Whether the range 5.0 is metres.</li><li>How previous targets are used.</li></ul></div>
+</article>
+<article class="item">
+<h3>Deployable Cover <span class="leads">L234</span></h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>A reinforced ballistic shield to protect from projectiles and explosive damage. The shield can degrade from damage, so work with Engineers who can repair it and keep you in the fight.</p></blockquote>
+<ul class="facts"><li><span class="pill k-s">Stored game value</span><span class="ft">Four named parts, all Front, and four stored values of 200.0. A suppression value of -100 and an explosive value of 0.5 are candidates. The 200s are not a health total.</span></li><li><span class="pill k-e">EA patch notes</span><span class="ft">EA update 1.1.2.0 fixed cover persisting after its vehicle was destroyed.</span></li></ul>
+<p class="sure"><span class="lab">How sure</span> Numbers: solid. Meaning: unproven.</p>
+<div class="unk"><span class="lab">Still unknown</span><ul><li>How much damage it takes.</li><li>How the four parts combine.</li></ul></div>
+</article>
+<article class="item">
+<h3>Smoke Grenade <span class="leads">L234</span></h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>A grenade designed to create temporary smoke screens. Blocks ability to spot targets and clears spotted markers from all infantry inside the smoke radius.</p></blockquote>
+<ul class="facts"><li><span class="pill k-s">Stored game value</span><span class="ft">Its files link to logic that puts out fires and removes effects inside a volume. No radius or duration was read.</span></li></ul>
+<div class="unk"><span class="lab">Still unknown</span><ul><li>Size and length of the smoke.</li><li>How it blocks spotting.</li></ul></div>
+</article>
+<article class="item">
+<h3>M320 Smoke <span class="leads">L234</span></h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>Fires impact-triggered grenades designed to create temporary smoke screens. Blocks ability to spot targets and clears spotted markers from all infantry inside the smoke radius. Can be carried standalone or underslung on weapons with a Gadget Mount attachment for faster access.</p></blockquote>
+<ul class="facts"><li><span class="pill k-s">Stored game value</span><span class="ft">A standard group and a Hemostatic group of modifiers pick different payloads. The Hemostatic upgrade is described above.</span></li></ul>
+<div class="unk"><span class="lab">Still unknown</span><ul><li>How the impact becomes a smoke cloud.</li></ul></div>
+</article>
+<article class="item">
+<h3>Flashbang Grenade <span class="leads">L234</span></h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>This grenade emits an intense blast that temporarily blinds nearby enemies. Impairment scales with proximity and line of sight to the blast.</p></blockquote>
+<ul class="facts"><li><span class="pill k-s">Stored game value</span><span class="ft">Its linked logic uses a facing (look-at angle) filter.</span></li><li><span class="pill k-g">Our guess</span><span class="ft">That fits the "line of sight" wording. No numbers were read.</span></li></ul>
+<div class="unk"><span class="lab">Still unknown</span><ul><li>The distance curve and the length of the blindness.</li></ul></div>
+</article>
+<article class="item">
+<h3>Concussion Grenade <span class="leads">L234</span></h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>This grenade produces a concussive blast that disorients enemies, temporarily preventing ADS and sprint capabilities.</p></blockquote>
+<ul class="facts"><li><span class="pill k-s">Stored game value</span><span class="ft">Inputs for position, team and radius exist. Visual effect wrappers have duration, fade and intensity slots with no stored default.</span></li></ul>
+<div class="unk"><span class="lab">Still unknown</span><ul><li>The radius and how long the effect lasts.</li></ul></div>
+</article>
+<article class="item">
+<h3>Gas Mask <span class="leads">L234</span></h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>A multi-filter respirator that, when equipped, protects the wearer from the disorienting effects of VL-7 smoke.</p></blockquote>
+<p class="note">A second record, "GasMask Class Gadget", has the same text.</p>
+<ul class="facts"><li><span class="pill k-s">Stored game value</span><span class="ft">Both abilities link to the same feature. Named duration, recharge and consumption settings exist.</span></li></ul>
+<div class="unk"><span class="lab">Still unknown</span><ul><li>Whether it is a loadout item in standard multiplayer.</li><li>How it blocks the VL-7 effect.</li></ul></div>
+</article>
+<article class="item">
+<h3>Soft Armor </h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>Standard small-arms issue tactical vest insert. Provides base-line ballistic protection.</p></blockquote>
+<p class="note">No standard multiplayer armor mechanic was established. Availability is unclear.</p>
+</article>
+<article class="item">
+<h3>Ceramic Armor </h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>Standard small-arms issue tactical vest insert. Provides base-line ballistic protection.</p></blockquote>
+<p class="note">No standard multiplayer armor mechanic was established. Availability is unclear.</p>
+</article>
+</section>
+<section id="detect"><h2>Detection and marking</h2>
+<article class="item">
+<h3>T-UGS <span class="leads">L236</span></h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>This device spots nearby moving enemies, vehicles, and gadgets, marking their position in-world and on the minimap for all team members. Enemy infantry can remain undetected while moving in crouch or prone. The device emits a sound audible to hostiles.</p></blockquote>
+<ul class="facts"><li><span class="pill k-s">Stored game value</span><span class="ft">Spotting radius 15, duration 2, pulse delay 1.5, intel radius multiplier 1.5, shadow speed threshold 4. Vehicle and gadget flags are true.</span></li><li><span class="pill k-e">EA patch notes</span><span class="ft">EA notes: the owner dying no longer destroys the device, and spotting lasts after the owner respawns.</span></li><li><span class="pill k-g">Our guess</span><span class="ft">The speed threshold 4 may be the line between moving and crouching, which the text describes. Not shown.</span></li></ul>
+<p class="sure"><span class="lab">How sure</span> Numbers: solid. Meaning: unproven.</p>
+<div class="unk"><span class="lab">Still unknown</span><ul><li>What the filter numbers stand for.</li><li>How long marks last.</li><li>How many devices can be active.</li></ul></div>
+</article>
+<article class="item">
+<h3>Proximity Grenade (MTN-55) <span class="leads">L236</span></h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>This detector scans for enemies once per second within visible range of the device. Detected enemies will be spotted, marking their position in-world and on the minimap for a duration of two seconds.</p></blockquote>
+<ul class="facts"><li><span class="pill k-s">Stored game value</span><span class="ft">Spotting radius 7. Pulse 1 and duration 2. Spots vehicles but not gadgets, and line of sight is on.</span></li></ul>
+<p class="sure"><span class="lab">How sure</span> Matches the text on timing (see the box near the top). Units: unknown.</p>
+<div class="unk"><span class="lab">Still unknown</span><ul><li>Which part of the files owns the scan.</li><li>How it treats crouching or prone enemies.</li></ul></div>
+</article>
+<article class="item">
+<h3>Mobile Jammer <span class="leads">L236</span></h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>A portable electronic warfare device that, when active, temporarily disrupts the function of enemy equipment within its range. The device is audible when in use, and can be carried by the user or tossed as a diversion.</p></blockquote>
+<ul class="facts"><li><span class="pill k-s">Stored game value</span><span class="ft">Radius setting 10. Auto-replenish delay 45. Ammo 1, 1 and -1. A setting named NumJams is not a cap.</span></li></ul>
+<div class="unk"><span class="lab">Still unknown</span><ul><li>Which functions it turns off.</li><li>How long it lasts.</li></ul></div>
+</article>
+<article class="item">
+<h3>Drone (electronics disruption) <span class="leads">L236, L235</span></h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>A combat drone armed with an electronics disruption weapon, able to target gadgets through walls and destroy them without line of sight. Can be left hovering to automatically spot hostiles, marking their position in-world and on the minimap. Equipped with thermal vision for enhanced spotting.</p></blockquote>
+<ul class="facts"><li><span class="pill k-e">EA patch notes</span><span class="ft">EA update 1.3.2.0: close targets can be hit through walls, distant targets need line of sight. The in-game text above is worded differently and is newer.</span></li><li><span class="pill k-s">Stored game value</span><span class="ft">Candidate numbers: max distance 80, max angle 2.5, thresholds 12, 18 and 25. A destroy-gadget effect has unmapped 1000 values. No damage amount is proven.</span></li></ul>
+<p class="sure"><span class="lab">How sure</span> Numbers: solid. Roles: unknown.</p>
+<div class="unk"><span class="lab">Still unknown</span><ul><li>Which gadgets it can target.</li><li>How lock and reset work.</li><li>What the 1000 values mean.</li></ul></div>
+</article>
+<article class="item">
+<h3>Laser Designator (PLD) <span class="leads">L236</span></h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>The designator functions as binoculars for enhanced spotting and allows users to mark designate both vehicles and locations. Designated targets can be locked-on from further away and lose below-radar protection. Users can set the device to function autonomously and remotely access the designator at any point, which can rotate to provide a 360 degree field of view.</p></blockquote>
+<ul class="facts"><li><span class="pill k-s">Stored game value</span><span class="ft">Zoom distances 80, 180, 360 and 540, with angles 10, 3.75, 1.875 and 1.25. Duration candidates 5, 30 and 20. Mark target 15. Laser progress 0.5.</span></li><li><span class="pill k-e">EA patch notes</span><span class="ft">EA 1.3.1.0: a 20% lock-range benefit. Another EA note: designation time went from 20 to 9 seconds. Another: resupply starts after the deployed gadget is destroyed.</span></li><li><span class="pill k-g">Our guess</span><span class="ft">The EA 9 seconds and the stored 5, 30, 20 and 15 are four different numbers. We do not know which is the designation time.</span></li></ul>
+<p class="sure"><span class="lab">How sure</span> Numbers: solid. Mapping to the EA notes: not done.</p>
+<div class="unk"><span class="lab">Still unknown</span><ul><li>Which stored value is the designation timer.</li><li>What breaks a lock.</li></ul></div>
+</article>
+<article class="item">
+<h3>Tracer Dart Gun <span class="leads">L236, L230</span></h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>A gas-powered pistol that fires a magnetic dart which designates enemy vehicles or personnel. Designated targets can be locked-on from further away and lose below-radar protection.</p></blockquote>
+<ul class="facts"><li><span class="pill k-s">Stored game value</span><span class="ft">The dart effect has several settings with no stored default, including temporary disable, remove projectile, destroy, stop, valid and time to live. A blank default is not zero.</span></li><li><span class="pill k-i">Inherited default</span><span class="ft">The dart projectile is a different object. It carries an inherited launch speed of 350 and lifetime 20. That is not the same as the blank time to live above.</span></li><li><span class="pill k-e">EA patch notes</span><span class="ft">EA update 1.4.2.0: marked targets can be locked by launchers.</span></li></ul>
+<p class="sure"><span class="lab">How sure</span> Wiring: solid. No effect values were read.</p>
+<div class="unk"><span class="lab">Still unknown</span><ul><li>How long a mark lasts.</li><li>How the lock bonus is applied.</li></ul></div>
+</article>
+<article class="item">
+<h3>Hardware Suppression System (Lancet) <span class="leads">L231, L236</span></h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>When equipped, the Hardware Suppression System spots all nearby electronic and explosive gadgets as well as targets in the middle of a locked-on process. Take aim and activate the device to intercept missiles and destroy electronic gadgets, up to a total of three combined.</p></blockquote>
+<ul class="facts"><li><span class="pill k-s">Stored game value</span><span class="ft">The chain from the equipment to its ability, feature and track-and-destroy logic is closed on the current build. No numbers were read.</span></li></ul>
+<p class="sure"><span class="lab">How sure</span> Wiring: solid.</p>
+<div class="unk"><span class="lab">Still unknown</span><ul><li>The "up to three combined" in the text has no stored match yet.</li><li>Range and timing.</li></ul></div>
+</article>
+<article class="item">
+<h3>UAV drone </h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>UAV drone which spots enemy soldiers towards the direction you are looking at</p></blockquote>
+<p class="note">Availability unclear. Listed as ambiguous in the description census.</p>
+</article>
+</section>
+<section id="deploy"><h2>Deployables and utility</h2>
+<article class="item">
+<h3>Spawn Beacon <span class="leads">L235</span></h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>The beacon provides a single-use deploy point for the operator and each squad member. The device emits a constant sound audible to hostiles and becomes inactive after the owner uses it to deploy. In Small Scale Battles, squad member deployment is disabled.</p></blockquote>
+<ul class="facts"><li><span class="pill k-s">Stored game value</span><span class="ft">The ability leads to the beacon through an exact chain. Ammo is stored as 1, 1 and -1, and auto-replenish is true. That is a resource setting, not a count of beacons.</span></li></ul>
+<p class="sure"><span class="lab">How sure</span> Wiring: solid. Behaviour: only text.</p>
+<div class="unk"><span class="lab">Still unknown</span><ul><li>Deploy time, count limit and replacement.</li><li>What happens when the owner dies.</li></ul></div>
+</article>
+<article class="item">
+<h3>Assault Ladder <span class="leads">L235</span></h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>This equipment provides access to higher vantage points. Depending on the angle of placement, it can act as a bridge between buildings, or a ramp to help traverse obstacles on the battlefield.</p></blockquote>
+<ul class="facts"><li><span class="pill k-s">Stored game value</span><span class="ft">A separate mesh, physics set and config exist. One plain branch and three Assault branches exist, which are not three active ladders. A vector of 0.5, 3.84 and 0.25 has no known units. Two stored values, 30 and 6, are not proven cooldowns.</span></li></ul>
+<div class="unk"><span class="lab">Still unknown</span><ul><li>Placement rules and reach.</li><li>How the bridge or ramp use works.</li></ul></div>
+</article>
+<article class="item">
+<h3>EOD Bot <span class="leads">L235</span></h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>Remotely controllable robot with various capabilities, including repairing vehicles and equipment, arming and disarming M-COM explosives, remote M-COM explosive arming where the robot will self-destruct on completion of task, launching cluster munitions to clear an area of enemy gadgets, and placing Anti-Vehicle Mines.</p></blockquote>
+<ul class="facts"><li><span class="pill k-s">Stored game value</span><span class="ft">The ability list includes repair, mine, demining and objective arming. An aim range of -180 to 180 and -22 to 45, and a value of 75, are unnamed and have no known units.</span></li></ul>
+<div class="unk"><span class="lab">Still unknown</span><ul><li>Control range.</li><li>How objective arming completes.</li></ul></div>
+</article>
+<article class="item">
+<h3>Payload drone <span class="leads">L235</span></h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>Can be placed for use by eliminated squadmates</p></blockquote>
+<p class="note">Records marked SP are left out. We could not prove which payload drone settings apply in multiplayer.</p>
+</article>
+<article class="item">
+<h3>Recon drone <span class="leads">L235</span></h3>
+<ul class="facts"><li><span class="pill k-s">Stored game value</span><span class="ft">The drone stores lifetime branches and out-of-bounds branches, three battery-drain multipliers on attached projectiles, a maximum lifetime and an explosion-on-expiry setting. Nine parameters were read. No capacity or lifetime is proven.</span></li></ul>
+<div class="unk"><span class="lab">Still unknown</span><ul><li>How long it flies.</li><li>What happens out of bounds.</li></ul></div>
+</article>
+<article class="item">
+<h3>Night vision (NVG) <span class="leads">L235</span></h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>NVGs</p></blockquote>
+<p class="note">That one word is the whole text of both NVG records.</p>
+<ul class="facts"><li><span class="pill k-s">Stored game value</span><span class="ft">Maximum duration setting 51, with 1 and 99 beside it. Degradation start 0.25, with 0 and 1. Maximum exposure offset -2, with -10 and 0. Two captures resolved the relay and the lighting links.</span></li></ul>
+<p class="sure"><span class="lab">How sure</span> Numbers: solid, re-read from the raw file. Roles and units: unproven.</p>
+<div class="unk"><span class="lab">Still unknown</span><ul><li>What the three values in each set are.</li></ul></div>
+</article>
+<article class="item">
+<h3>Deployable Mortar <span class="leads">L645</span></h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>This man-portable indirect-fire weapon launches high-explosive shells designed to strike defensive positions and disperse infantry, or smoke shells to conceal troop movement. Aim via the minimap or manually. Once fired, the mortar will be spotted, marking its position in-world and on the enemy’s minimap. Weapon accuracy increases with continuous shots in the same location.</p></blockquote>
+<ul class="facts"><li><span class="pill k-s">Stored game value</span><span class="ft">Stored fire settings (partial): fire-rate setting 399.9, magazine setting 1, launch-speed setting 0. Reload values are not known.</span></li></ul>
+</article>
+<article class="item">
+<h3>Precision Strike </h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>A fully automated indirect-fire Weapon System. It can target, direct and adjust firing solutions for 120mm mortars. It's a force multiplier for small units that do not have heavy weapon or close air support.</p></blockquote>
+<p class="note">No stored numbers are recorded for this gadget on this page.</p>
+</article>
+</section>
+<section id="launch"><h2>Launchers</h2>
+<article class="item">
+<h3>RPG-7V2 <span class="leads">L3200, L645</span></h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>A launcher that fires impact-triggered unguided rockets. Delivers effective damage against structures and vehicles. Inflicts greater damage on the sides, top, and rear of vehicles where the armor is thinner.</p></blockquote>
+<ul class="facts"><li><span class="pill k-s">Stored game value</span><span class="ft">Own damage 135. Stored fire settings (partial): fire-rate setting 150, magazine setting 1, launch-speed setting 117.99. Reload values are not known.</span></li><li><span class="pill k-i">Inherited default</span><span class="ft">Its registry default is 125. The own value is the stored one.</span></li><li><span class="pill k-e">EA patch notes</span><span class="ft">EA notes give 188 against a tank front and 500 from the rear.</span></li></ul>
+<div class="unk"><span class="lab">Still unknown</span><ul><li>Total damage to vehicles and structures.</li></ul></div>
+</article>
+<article class="item">
+<h3>AT4 (M136) <span class="leads">L3204, L645</span></h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>An anti-vehicle launcher that allows the user to guide the missile to the target via the weapon’s crosshairs. Inflicts greater damage on the sides, top, and rear of vehicles where the armor is thinner.</p></blockquote>
+<ul class="facts"><li><span class="pill k-s">Stored game value</span><span class="ft">Stored damage 125. Stored fire settings (partial): fire-rate setting 300, magazine setting 1, launch-speed setting 30. Reload values are not known.</span></li><li><span class="pill k-e">EA patch notes</span><span class="ft">EA notes give 207 against a tank front and 550 from the rear.</span></li></ul>
+</article>
+<article class="item">
+<h3>MBT-LAW <span class="leads">L3204, L645</span></h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>An anti-tank missile system. Aim at the target and fire; the missile will then guide itself to the enemy vehicle and execute a top-down attack.</p></blockquote>
+<ul class="facts"><li><span class="pill k-s">Stored game value</span><span class="ft">Stored damage 100. Stored fire settings (partial): fire-rate setting 257, magazine setting 1, launch-speed setting 30. Reload values are not known.</span></li><li><span class="pill k-e">EA patch notes</span><span class="ft">EA notes give a flat 240 against tanks.</span></li></ul>
+</article>
+<article class="item">
+<h3>Javelin <span class="leads">L645</span></h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>A long-range anti-vehicle missile system. Requires lock-on before launch, after which the missile will engage automatic self-guidance. Capable of faster and longer range lock-ons for ground and air targets that have been marked with the Laser Designator or Tracer Dart.</p></blockquote>
+<ul class="facts"><li><span class="pill k-s">Stored game value</span><span class="ft">Stored fire settings (partial): fire-rate setting 300, magazine setting 1, launch-speed setting 10. Reload values are not known.</span></li></ul>
+</article>
+<article class="item">
+<h3>Panzerfaust 3 </h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>Anti-Vehicle Launcher</p></blockquote>
+<p class="note">The only text found is a label. Stored fire settings: fire-rate setting 257, magazine setting 1, launch-speed setting 162.</p>
+</article>
+<article class="item">
+<h3>Stinger <span class="leads">L230</span></h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>A man-portable air-defense system designed to target enemy aircraft. Requires lock-on before launch, after which missiles will self-guide to the target unless intercepted by countermeasures. Designated targets can be locked-on from further away and lose below-radar protection.</p></blockquote>
+<ul class="facts"><li><span class="pill k-s">Stored game value</span><span class="ft">Its own entries are zero. Using a known layout, the stored damage is 100, drag 0 and max speed 400.</span></li><li><span class="pill k-i">Inherited default</span><span class="ft">It also carries an inherited launch speed of 350 and lifetime 18.</span></li></ul>
+<div class="unk"><span class="lab">Still unknown</span><ul><li>The real flight speed.</li></ul></div>
+</article>
+<article class="item">
+<h3>IGLA <span class="leads">L230</span></h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>A man-portable air-defense system designed to target enemy aircraft. Requires lock-on before launch, after which the user must maintain target acquisition by tracking the aircraft with the weapon sight to preserve missile guidance. Missiles can reacquire targets mid-flight if tracking is lost or countermeasures are deployed.</p></blockquote>
+<ul class="facts"><li><span class="pill k-s">Stored game value</span><span class="ft">Own damage 100, drag 0, max speed 640, launch speed 500 and lifetime 40.</span></li><li><span class="pill k-i">Inherited default</span><span class="ft">A central table lists a max speed of 480. The own value is 640.</span></li></ul>
+</article>
+<article class="item">
+<h3>Drill Launcher </h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>A handheld launcher that fires breaching rounds which attach, and after a short delay, penetrate most destructible surfaces to deliver a blinding explosion on the other side. If the breaching round hits an enemy soldier, it will cause limited impact damage before triggering the same blinding explosion.</p></blockquote>
+</article>
+<article class="item">
+<h3>Airburst Incendiary Launcher <span class="leads">L230, L645</span></h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>Fires incendiary grenades a distance of 25m that explode mid-flight, producing an incendiary cloud that burns enemy targets. The cloud will block visibility and clear and prevent spotting.</p></blockquote>
+<ul class="facts"><li><span class="pill k-s">Stored game value</span><span class="ft">The first shell stores launch speed 250 and lifetime 0.25. The cloud object stores speed 0 and lifetime 5, which is not the burn time. Stored fire settings (partial): fire-rate setting 100, magazine setting 1, launch-speed setting 100. Reload values are not known.</span></li><li><span class="pill k-g">Our guess</span><span class="ft">The text says the grenade flies 25 m. We found no stored 25.</span></li></ul>
+<div class="unk"><span class="lab">Still unknown</span><ul><li>How long the fire burns.</li><li>Damage per tick and area.</li></ul></div>
+</article>
+</section>
+<section id="boom"><h2>Grenades, mines and explosives</h2>
+<article class="item">
+<h3>Frag Grenade </h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>Equipped with an impact-triggered time fuse, this grenade is ideal for targeting enemies behind cover. Deadly when close to blast radius.</p></blockquote>
+</article>
+<article class="item">
+<h3>MiniV40 Grenade </h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>A compact grenade that can be thrown further than the standard Frag but at the cost of less damage. Reduced weight means more can be carried.</p></blockquote>
+</article>
+<article class="item">
+<h3>Anti-Tank Grenade </h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>A grenade primarily for use against vehicles but will inflict damage on enemies caught in the blast. When thrown, it follows the trajectory of a typical grenade before releasing a parachute and dropping rapidly for a top attack.</p></blockquote>
+</article>
+<article class="item">
+<h3>Incendiary Grenade <span class="leads">L230</span></h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>A grenade that produces a brief blast radius of intense heat. Affected enemies will continue to burn for a short duration. Fire damage can be reduced by going prone.</p></blockquote>
+<ul class="facts"><li><span class="pill k-s">Stored game value</span><span class="ft">We read the stored Incendiary projectile as this grenade. It stores launch speed 300, lifetime 10 and damage multiplier 1. A minimum blast damage slot is absent from its seven-slot list.</span></li></ul>
+<div class="unk"><span class="lab">Still unknown</span><ul><li>The burn time and damage.</li></ul></div>
+</article>
+<article class="item">
+<h3>Throwing Knife <span class="leads">L645</span></h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>A lightweight balanced blade that will fly in a small arc to the target. Headshots deliver instant kills while non-fatal strikes delay health regeneration for 10 seconds.</p></blockquote>
+<ul class="facts"><li><span class="pill k-s">Stored game value</span><span class="ft">Stored fire settings (partial): fire-rate setting 550, magazine setting 1, launch-speed setting 44.97. Reload values are not known.</span></li></ul>
+</article>
+<article class="item">
+<h3>Decoy </h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>A dummy designed to draw the enemy's attention while you fire from a safer location. Taking up position near a friendly Sniper Decoy will hide your scope glint with its own. Replicates the stance of the owner when placed and is immediately spotted, marking its position in-world and on the enemy’s minimap.</p></blockquote>
+</article>
+<article class="item">
+<h3>C4 </h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>A bundle of high explosive charges that can be remote detonated after placement. Can cause massive destruction to structures, vehicles, and infantry.</p></blockquote>
+<ul class="facts"><li><span class="pill k-e">EA patch notes</span><span class="ft">EA notes give a flat 350 against tanks.</span></li></ul>
+</article>
+<article class="item">
+<h3>Claymore <span class="leads">L231</span></h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>A directional, anti-personnel fragmentation mine that is detonated via a tripwire firing system. Enemies moving past the mine at normal crouch or prone speed will not trigger the device.</p></blockquote>
+<ul class="facts"><li><span class="pill k-s">Stored game value</span><span class="ft">The projectile links to its fragment effect. No fragment numbers were read.</span></li></ul>
+</article>
+<article class="item">
+<h3>AT Mine <span class="leads">L231</span></h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>An anti-vehicle mine that detonates when armored vehicles pass over it. Place on the ground to arm. Cannot be stacked or positioned too close together.</p></blockquote>
+<ul class="facts"><li><span class="pill k-s">Stored game value</span><span class="ft">Older builds link the mine through its ability and feature to presentation and crosshair assets. Whether the current build matches is unproven.</span></li></ul>
+</article>
+<article class="item">
+<h3>PTKM-1R </h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>An anti-vehicle mine that locates targets in the immediate area via audio sensors. Once triggered, it launches an explosive payload and performs a top-down attack to strike armored vehicles where they are less protected.</p></blockquote>
+</article>
+<article class="item">
+<h3>M4 SLAM </h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>An anti-vehicle mine designed for ground and off-route placement. When nearby enemy vehicles trip the device's proximity sensor they are targeted with a high-velocity projectile.</p></blockquote>
+</article>
+</section>
+<section id="under"><h2>Underbarrel launchers and shotguns</h2>
+<article class="item">
+<h3>M320 HE </h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>Fires impact-triggered grenades designed for damaging structures and targeting infantry behind cover. Can be carried standalone or underslung on weapons with a Gadget Mount attachment for faster access.</p></blockquote>
+<p class="note">No stored numbers are recorded for this gadget on this page.</p>
+</article>
+<article class="item">
+<h3>M320 LVG </h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>Chambered in 40mm high explosive grenades, this weapon is ideal for taking out infantry. Can be carried standalone or underslung.</p></blockquote>
+<p class="note">No stored numbers are recorded for this gadget on this page.</p>
+</article>
+<article class="item">
+<h3>M320 Flash </h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>A grenade launcher firing rounds that burrow through surfaces and eject a flashbang on the other side.</p></blockquote>
+<p class="note">No standard multiplayer projectile was found for it.</p>
+</article>
+<article class="item">
+<h3>M320 Thermobaric </h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>Fires impact-triggered thermobaric grenades, ideal for targeting groups of hostiles. The blast delivers limited initial damage but stuns and burns enemies for a short duration. Can be carried standalone or underslung on weapons with a Gadget Mount attachment for faster access.</p></blockquote>
+<p class="note">No stored numbers are recorded for this gadget on this page.</p>
+</article>
+<article class="item">
+<h3>M26 Mass </h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>Chambered in 12-gauge buckshot rounds, the M26 is a bolt action close-range shotgun.</p></blockquote>
+<p class="note">No stored numbers are recorded for this gadget on this page.</p>
+</article>
+<article class="item">
+<h3>M26 Mass Dragonsbreath </h3>
+<blockquote class="says"><span class="pill k-d">Game description</span><p>A bolt action shotgun, chambered in 12-gauge incendiary buckshot rounds. Deals reduced impact damage but sets targets on fire and burns them for a short duration. Ground shots produce an area of fire that burns enemies for a short duration if entered.</p></blockquote>
+<p class="note">No stored numbers are recorded for this gadget on this page.</p>
+</article>
+</section>
+<section><h2>No real description yet</h2><p class="lede">These records exist, but the game text is only a label or is missing.</p><div class="tablewrap"><table class=""><thead><tr><th>Gadget</th><th>What the game text is</th></tr></thead><tbody><tr><td>M320 Ballistic Dart</td><td>only a label</td></tr><tr><td>Panzerfaust 3</td><td>only a label (above)</td></tr><tr><td>M26 Mass 12g Frag</td><td>text not found in the English strings</td></tr><tr><td>M26 Mass #4 Buck</td><td>text not found in the English strings</td></tr><tr><td>M26 Mass Flechette</td><td>text not found in the English strings</td></tr><tr><td>NVG MP</td><td>only the word "NVGs"</td></tr><tr><td>EOD ATMine, Demining Charge, PTKM, Repair Tool, Mini Lancet</td><td>only a label each</td></tr></tbody></table></div><p class="small">Left out on purpose: records labelled single-player, free-to-play or Battle Royale, the Portal gadget, and the call-in strike packages. Sound is out of scope.</p></section>
+<section id="open"><h2>Open questions</h2><ol class="qlist"><li>What unit does any stored gadget number use, and which are real stats?</li><li>Where does the ActiveMedic 1.7 second revive come from? No stored 1.7 was found.</li><li>Does the Hemostatic 12.5 add to normal regeneration, replace it, or multiply it?</li><li>What does the true-or-false flag that separates the Supply Pouch from the Supply Crate do?</li><li>What do the three numbers stored beside MP-APS and EIDOS interceptions stand for, and is the compiled logic readable?</li><li>Which stored value is the Laser Designator timer, given EA says 20 became 9 seconds?</li><li>What is the real repair rate of the Repair Tool?</li><li>Which file holds the missing Squad data, and who owns the FasterRecharge selector? Both were looked for and not found.</li><li>Do the Medic Crate and Ammo Bag exist as separate multiplayer items?</li></ol></section>
+<footer>
+<p><strong>About this page.</strong> Snapshot dated 2 October 2026. It replaces the plain-English summary of 1 October. Numbers come from the saved game files at build 1.4.3.5 (Head 4909002) unless a line says otherwise. In-game text is from client 1.4.3.1. EA notes are quoted with their versions. Sound, Battle Royale and Granite material are left out.</p>
+<p>Small print on each card lists the research lead numbers. Sources are the Frosty gadget notes and the receipts for leads L229 to L236 and the earlier gadget leads. No site data, simulation or interface has been changed.</p>
+</footer>
+</div>
+
+</body></html>

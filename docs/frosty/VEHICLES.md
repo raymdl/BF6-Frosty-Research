@@ -1,6 +1,8 @@
 # Vehicle comparison source evidence
 
-Vehicles are research for a possible future Analyzer section. Cosmetics, skins and artwork are excluded. Site implementation is not authorized.
+Vehicles are research for a possible future Analyzer section. Cosmetics, skins and artwork are excluded. Site implementation is not authorized. Gadgets are a separate game category with their own page, [Gadgets](GADGETS.md).
+
+Evidence classes stay apart on this page: a stored source value (read by exact owner, member, offset and hash), an inherited declared default, an attributed UI statement, a dated EA statement, a hypothesis, and effective runtime behaviour, which nothing here reaches. **Registry defaults are not selected values**: a selected export's own value is never replaced by, or averaged with, the registry or leaf default. Foundation research for a future vehicles and gadgets version of the site, not tied to current site outputs.
 
 ## Saved coverage merge and comparison map (L3018)
 
@@ -236,9 +238,9 @@ The current TSV contains APHEI Cannon ids `29F90E86` and `2A030C88`, plus 20mm A
 
 The [official patch notes](https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-4-3-5) state the APHEI/carrier restriction. Its exact APHEI weapon, projectile and carrier-specific serialized rule remain unresolved. No small exact missing UI target was identified for capture. Work stops at the owner gate after the one permitted lead. No carrier capture, damage/radius naming hunt, old-raw comparison, before/after claim or native runtime test was made.
 
-## Gadget and vehicle semantic transfer census (L640)
+## Vehicle semantic transfer census (L640)
 
-[L640](../../reference-data/provenance/frosty-2026-09-30-L640-transfer-census.json) inventories all 39 gadget comparison rows and 17 shared vehicle comparison rows, plus the per-family L3018 stat map. Exact class, descriptor key and field identity permit transfer of configured RateOfFire, MagazineCapacity, reload source fields and Shot.InitialSpeed components. Replenishment and reserve-count semantics remain unconfirmed on infantry and do not transfer. Gravity and drag transfer only for the exact infantry projectile schema consumed by `frosty-ballistics.py`. Other projectile owners retain their own field identities.
+[L640](../../reference-data/provenance/frosty-2026-09-30-L640-transfer-census.json) inventories 17 shared vehicle comparison rows and the per-family L3018 stat map. Its 39 gadget comparison rows are on the [gadget page](GADGETS.md#transfer-census-gadget-side-l640-l645-l648). Exact class, descriptor key and field identity permit transfer of configured RateOfFire, MagazineCapacity, reload source fields and Shot.InitialSpeed components. Replenishment and reserve-count semantics remain unconfirmed on infantry and do not transfer. Gravity and drag transfer only for the exact infantry projectile schema consumed by `frosty-ballistics.py`. Other projectile owners retain their own field identities.
 
 M4A1 and L115 extraction controls pass the established IEEE float32 precision contract for rate, capacity, reload, damage, velocity, gravity and drag. Literal float64 differences are listed in the run control file. Field meaning does not establish active/default loadouts, native timing selection, utility effects, target/material damage or guided flight. Season 5 durability and named AA/mine items are excluded. UI identity searches remain parked; unconfirmed; no recording planned.
 
@@ -256,7 +258,7 @@ All 23 official updates are read: 297 selected gadget/vehicle statements, includ
 
 L649 retains 17 UI mechanic quantities and separates 128 model/caliber/label tokens. The UI-to-gameplay joins remain unlinked. No exact version-matched EA/UI operand comparison is established, so no field meaning is promoted from these statements. The local build labels are 1.4.2.5, 1.4.3.0 and 1.4.3.5; most stated numeric updates predate the captured builds. Supporting later-source comparisons retain explicit version and selection limits. The launch and later ladder baselines differ; the mortar prompt says increased while its endpoints decrease. These are source-text issues, not native runtime findings.
 
-The 73 selected vehicle WF routes include all 69 controlled firing owners and four saved routes without such a profile. All 12 AA/scout owners are retained by L650 as **changes in Season 5**. L648 adds 15 selected gadget/underbarrel or source-only throwable owners, including Breaching Dart, M26 and M320 HE; unsupported AT/TB/Smoke selections remain explicit. C4, Claymore and M4 SLAM remain included. Durability and named Season 5 validation exclusions stay separate from extraction.
+The 73 selected vehicle WF routes include all 69 controlled firing owners and four saved routes without such a profile. All 12 AA/scout owners are retained by L650 as **changes in Season 5**. The gadget and underbarrel owners added by L648 are on the [gadget page](GADGETS.md#transfer-census-gadget-side-l640-l645-l648). Durability and named Season 5 validation exclusions stay separate from extraction.
 
 L649 corrects three L644 array boundaries: `Field_2ad7e688` has three local curve references and three null pointers; the referenced `Field_5279388d` arrays use the valid empty-array sentinel and decode `[]`. `Field_6008eb31` is null on all six owners. An empty curve is not a zero-damage conclusion. L651 adds receipt-local owner identities, reload-phase limits and the selected weapon damage-curve identity to the transfer census.
 
@@ -299,9 +301,9 @@ The parent independently rereads the controlled MBT primary firing scalar as 900
 The parent independently rereads a WingData Float32 operand as 1.2000000476837158 at offset 184, bytes `9a99993f`; the generic display value is 1.2. Canonical numeric values are `rawChecks[].value`. Three unresolved object imports on two Marauder ownership file GUIDs have no match in the current catalog. They remain exact source limits, not absent-mechanic claims. The atlas keeps previous and current examination states, exact evidence pointers, ambiguous layouts and reopen conditions. All source values are **pre-Season 5 baseline; meaning unconfirmed**. [Source atlas](../../../BF6%20Datamining/reports/weapon-analyzer-research/2026-10-01T011608-0400-vehicles-open-frontier/L3038/vehicle-field-atlas.json). No site data, simulation, UI or recording changed.
 
 <!-- gadget-vehicle-display-2026-10-01-start -->
-## Current run: displayable gadget and vehicle stats
+## Current run: displayable vehicle stats
 
-Run: `2026-10-01T084100-0400-gadget-vehicle-display`.
+Run: `2026-10-01T084100-0400-gadget-vehicle-display`. The gadget half of this run (L224-L228) is on the [gadget page](GADGETS.md#displayable-gadget-stats-l224-l228).
 
 ### L3041: high-impact vehicle meaning checks
 
@@ -1161,3 +1163,112 @@ All 1,124 capture routes passed. All 166 slot rows are byte-identical to the 1.4
 Verification passed for all 166 rows, 389 option references and 173 preset references, plus 36 raw re-reads for the two U-only joins. No site proposal is ready.
 
 [Receipt](../../reference-data/provenance/frosty-2026-10-01-L3257-vehicle-loadout-slots.json). Final table: `C:\Users\royal\Documents\BF6 Datamining\reports\weapon-analyzer-research\2026-10-01T-vehicle-loadout-slots-L3250\vehicle-slot-table.json`, SHA-256 `7491470cbacff5d2ccb83c52b144fe5218d09d659b4fe05520bd152b879eadcc`. Readable tables: `vehicle-slot-table.md` and `vehicle-slot-table.csv` in the same run folder.
+
+## Vehicle projectile and gun own-wrapper values (L3300, L3301)
+
+[L3300](../../reference-data/provenance/frosty-2026-10-02-L3300-vehicle-projectile-own-values.json) and [L3301](../../reference-data/provenance/frosty-2026-10-02-L3301-vehicle-receiver-supplements.json), Head 4909002, descriptor `4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1`. The overnight vehicle and gadget program traced 55 selected projectile owners: 54 have scoped source review, CRAM has a method stop, and none has full functional coverage. A selected source path does not prove activation, default loadout, effective damage, units, enum labels or an equation.
+
+Method: the exact vehicle, weapon, firing and projectile selection, plus the selected object's own registry wrapper, names its damage, blast and falloff fields. Where the own wrapper names a role it is an own value; where it does not, an exact current declaring-schema control can supply the name, and the value is then labelled a controlled schema name, not an own name. A control is transferred only when the exact owner key, member and type match; alternate declaring keys (CRAM, older IGLA) are refused.
+
+| Owner | Class | Values |
+|---|---|---|
+| PB_Missile_TOW2B | Stored source value | Own Damage 150, Drag 0, MaxSpeed 150 (offsets 868, 800, 684; two `Field_` hashes hold 150.0); blast six values. |
+| PB_Missile_TOW2B_AirVehicle | Stored source value | Own ten fields; the registry leaf 120 / 20 differs from the receiver 90 / 0 (the own receiver value is the one stored). |
+| PRJ_Missile_Hydra70 | Stored source value | Own Damage 15, Drag 0, MaxSpeed 740; local blast six values. |
+| IFV APFSDS | Stored source value | Five own-wrapper values; StartDamage 150 against registry default 130. Other APFSDS variants and registry defaults are separate. |
+| Guided missiles (MBT guided, stationary TOW, AA aim-guided) | Stored source value | Own nine fields each; own MinimumBlastDamage 0 / 0 (a serialized value only). EngineStrength 150 / 50 / 50, EngineTimeToLive 1 / 3.95 / 3.95, MaxTurnAngle 6 / 90 / 90, TurnAngleMultiplier 1 / 1.5 / 1.5. GuidanceMethod is numeric 3 with no readable label; UnderWaterDrag and FlightRegimeEnabled are own-name stops. |
+| Bombs (Rockeye, GBU39, BunkerBuster, Mk82AIR) | Stored source value | 29 own fields on the first three, nine on Mk82AIR. Rockeye blast 0 is not total damage; GBU39 leaf 240 against receiver 200. |
+| Rockets (Hellfire, APKWS, Zuni, reduced variants) | Stored source value | Own nine fields each on Hellfire, APKWS and Zuni, with own MinimumBlastDamage hash slots absent (no global absence claim); all 54 rocket receivers across the six rocket owners accepted. |
+| Guns (Phalanx, AttackHeli chaingun, M230LF, helicopter guns, coax and RWS, Gepard, light rockets, HMG-SP) | Stored source value | Own seven direct roles each, M230LF seven blast. Chaingun receiver 50 / 50 against leaf 22 / 22. Gepard registry leaves differ from receivers; precedence is unproved. |
+| CB90 mortars | Stored source value | Own three Missile roles each plus seven explosion roles on each selected Explosion object; Airburst has two explosion objects. 75 own-named typed receivers across the five owners. |
+
+The parent typed own-wrapper bindings are kept inside the review packets; the supervisor re-read raw bytes and hashes but did not independently reproduce every typed derivation.
+
+## Inherited InitialSpeed and TimeToLive (L3302)
+
+[L3302](../../reference-data/provenance/frosty-2026-10-02-L3302-inherited-projectile-speed-lifetime.json), Head 4909002. The 31 existing exact Missile owners store two inherited Projectile roles, `Field_0bf4f62b` InitialSpeed and `Field_5ef7b9a1` TimeToLive, declared in Class_990616ac (key `2d4898813df1638f89a026d45a64c3be`) at member offsets 144 and 148 (flags 304, type 19); they sit at file offsets 336 and 340 in the selected objects (Class_6a25e89d). All values are Float32. The table lists the 30 vehicle owners; the TracerDart gadget projectile (350 / 20) is on the [gadget page](GADGETS.md#gadget-projectiles-and-explosions-l230), and AGM84 stores 350 / 10.
+
+**Inherited declared default; not shown to be the effective launch speed/lifetime.** These are controlled current-schema source names, not each owner's own registry names; prior own-name stops remain.
+
+| Owner | Selected asset | InitialSpeed | TimeToLive | Acceptance |
+|---|---|---:|---:|---|
+| owner-02 | PB_Bomb_Rockeye | 350 | 60 | reviewer re-read |
+| owner-03 | PB_Bomb_GBU39 | 350 | 60 | reviewer re-read |
+| owner-04 | PB_Bomb_Mk82AIR | 350 | 60 | reviewer re-read |
+| owner-06 | PB_Bomb_BunkerBuster | 350 | 60 | reviewer re-read |
+| owner-09 | PB_Missile_AGM88 | 350 | 15 | reviewer re-read |
+| owner-10 | PBNS_Missile_AIM54 | 350 | 15 | reviewer re-read |
+| owner-11 | PBNS_Missile_AIM7 | 350 | 15 | reviewer re-read |
+| owner-12 | PBNS_Missile_AIM9X | 350 | 15 | reviewer re-read |
+| owner-13 | PB_Missile_AGM114_Hellfire | 350 | 10 | reviewer re-read |
+| owner-14 | PRJ_Missile_AGM65_Maverick | 350 | 10 | reviewer re-read |
+| owner-15 | PBNS_Missile_R73 | 350 | 15 | reviewer re-read |
+| owner-16 | PB_Missile_RBS70 | 350 | 6 | reviewer re-read |
+| owner-17 | PB_ATGM_Homing_Spike | 350 | 15 | run supervisor |
+| owner-18 | PB_Missile_Torped47 | 350 | 40 | reviewer re-read |
+| owner-19 | PB_Missile_MBT_GuidedMunition | 350 | 4 | reviewer re-read |
+| owner-20 | PB_Missile_TOW2B_AirVehicle | 350 | 11.5 | reviewer re-read |
+| owner-21 | PB_Missile_TOW2B | 350 | 8 | reviewer re-read |
+| owner-22 | PB_NS_Missile_AA_Secondary_AimGuided | 350 | 11.5 | reviewer re-read |
+| owner-23 | PB_NS_Missile_AA_Secondary_HighVelocity | 350 | 11.5 | run supervisor |
+| owner-24 | PB_120mmMortar_Airburst | 0 | 30 | run supervisor |
+| owner-25 | PB_120mmMortar_Guided | 0 | 30 | run supervisor |
+| owner-26 | PB_120mmMortar_HE | 0 | 30 | run supervisor |
+| owner-27 | PB_120mmMortar_Illumination | 0 | 30 | run supervisor |
+| owner-28 | PB_120mmMortar_Smoke | 0 | 30 | run supervisor |
+| owner-29 | PBNS_Stinger_Vehicle | 350 | 15 | run supervisor |
+| owner-30 | PRJ_Missile_APKWS-II_Reduced | 250 | 1.35000002 | reviewer re-read |
+| owner-31 | PRJ_Missile_APKWS-II | 250 | 1.35000002 | run supervisor |
+| owner-32 | PRJ_Missile_Hydra70_Reduced | 250 | 1.35000002 | reviewer re-read |
+| owner-33 | PRJ_Missile_Hydra70 | 250 | 1.35000002 | reviewer re-read |
+| owner-34 | PRJ_Missile_Zuni | 250 | 1.35000002 | reviewer re-read |
+
+Contrasts with the own wrappers: TOW2B own MaxSpeed 150 against inherited InitialSpeed 350; Hydra70 own MaxSpeed 740 against inherited 250. The same 350 appears on every air-guided, ground-guided and Hellfire owner and 250 / 1.35 on every APKWS, Hydra and Zuni owner, so the pair looks like a base-class default. That is a hypothesis, not a finding: the inherited pair may not drive actual flight for these projectiles.
+
+Acceptance: 18 of the 60 cells were supervisor-accepted in the run. The other 42 (air-guided 16, rockets 10, bombs and ground-guided 16) were parent-reviewed only; they were accepted as source values on a raw re-read of all 31 source files on 2 October 2026, and every stored value matched.
+
+## Vehicle caller and lifecycle chains (L3303)
+
+[L3303](../../reference-data/provenance/frosty-2026-10-02-L3303-vehicle-selection-and-caller-chains.json), Head 4909002. Exact current vehicle root, component and armament paths reach the selected WF weapon exports for the Gepard, for 26 coax and RWS paths (eight tank and car families) and for the five CB90 mortars. The CB90 paths below start at the accepted root 0 to 1 edge.
+
+| Mortar owner | Local path | WF weapon object |
+|---|---|---:|
+| 24 Airburst | 1 -> 59 -> 37 -> 5 | 4 |
+| 25 Guided | 1 -> 59 -> 37 -> 10 | 5 |
+| 26 HE | 1 -> 59 -> 40 -> 13 | 6 |
+| 27 Illumination | 1 -> 59 -> 37 -> 16 | 7 |
+| 28 Smoke | 1 -> 59 -> 37 -> 7 | 6 |
+
+The CB90 hull reaches its motion asset (exported root to object 17 through 1 / 60, then the MM export; labels Input Throttle and Speed exist, with no consumer or units), and the Vehicle Supply Crate reaches its feature (WB to VB root to object 26 through 1 / 24; the feature's local child holds an opaque ResourceRef RID). Own pointers on CRAM are null and its alternate declaring keys block the ordinary-bullet control, so CRAM has a method stop. These paths do not establish station names, availability, defaults, activation or runtime execution.
+
+## RWS AGL damage and vehicle firing and utility findings (L3304)
+
+[L3304](../../reference-data/provenance/frosty-2026-10-02-L3304-vehicle-stats-agl-firing-utility.json), Head 4909002 (a saved pre-Season 5 baseline; L3013 keeps its Head 4892087 label and its AGL raw hash equals the current copy).
+
+Selected chains: Bradley serialized seat candidate 1 is `1 -> 89 -> 54 -> 14` and CV90 is `1 -> 84 -> 55 -> 16`; both select `U_VEH_IFV_RWS_AGL` object 0 and `WF_Vehicles_RWS_AGL` object 3, then firing object 1 and `PB_Vehicle_AGL_Grenade` object 1. RWS, stationary CWS and RWS-SP share that projectile import but remain separate firing owners.
+
+| Channel | Named member | Value | Offset |
+|---|---|---:|---:|
+| Direct | DamageFalloffStartDistance / EndDistance | 15 / 350 | 700 / 704 |
+| Direct | StartDamage / EndDamage | 32 / 32 | 692 / 696 |
+| Direct | DamageMultiplier | 1 | 780 |
+| Primary explosion | BlastDamage | 70 | 1344 |
+| Primary explosion | InnerBlastRadius / BlastRadius | 1 / 4 | 1336 / 1360 |
+| Primary explosion | MinimumBlastDamage / ShockwaveDamage / ShockwaveRadius | 0 / 1 / 7.5 | 1352 / 1376 / 1380 |
+| Dud explosion | BlastDamage / BlastRadius / ShockwaveDamage | 0 / 5 / 0 | 1840 / 1856 / 1872 |
+
+No composed 102 or 103 damage, radius units or falloff equation is established; registry defaults are separate. Other findings from the same run, all stored source values:
+
+- RWS AGL and HMG reload discriminators MaxAmmoCountInWeapon, MinAmmoCountInWeapon and ReloadType (exact `Struct_b50f190f` key `f772f46b705664a5cadd2fc69f25df37`) all store -1 / -1 / 1. Enum labels, sentinel meaning and the reload operation are unresolved.
+- CB90 own configured MaxHealth 1000 (offset 440) and RepairRateModifier 1; the operation linking repair input to the health owner is unresolved.
+- Bradley IFV missile Damage 250 (control passes) against registry default 150, which stays separate.
+- IFV Thermal Smoke, MBT active protection (Abrams is the representative source context) and AttackHeli flares have exact Eq, Ability and producer identities; AH64E has no exact seat join in L3257. Activation, timers, charges and lock effects are unresolved.
+
+Serialized seat candidate indices are not usable seats, the operator gunner role is separate from the source entry index, the WF is a configured alternative, and active equipment, recipe applicability and default selection remain unresolved.
+
+## From the gadget runs: Vehicle Supply Crate and cover health channels
+
+Two gadget runs carry items that belong with vehicles. The rest of those runs is on the [gadget page](GADGETS.md).
+
+- **Vehicle Supply Crate lifecycle** ([L233](../../reference-data/provenance/frosty-2026-10-02-L233-healing-resupply-functional-dossiers.json)): separate construction and pickup-restriction stages. Named current GRX inputs VSC_Enable Auto Construct true, VSC_Time To Construct raw Float32 0.6000000238418579 and VSC_Resupply Interval 5.0; units and effective behaviour are unresolved. UI: a pallet that resupplies ammunition for nearby friendly vehicles.
+- **Vehicle health channels** ([L234](../../reference-data/provenance/frosty-2026-10-02-L234-protection-concealment-functional-report.json)): `ChannelBindings_Vehicle_Health` (key `ab89182cfe1957ed44a562cd880a91cf`) has seven pointers into `ChannelList_Vehicle_Common` naming Vehicle Current Health, Vehicle Health Normalized, Vehicle Max Health, VehicleArmor_CurrentArmor, VehicleArmor_MaxArmor, Vehicle Damage State and Vehicle Is Wreck. Deployable Cover's four 200.0 operands are not a health total.

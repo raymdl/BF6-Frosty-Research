@@ -1,0 +1,130 @@
+{
+  "lead": "L236",
+  "status": "finding",
+  "build": "mixed",
+  "head": "mixed: Head 4909002 current, Head 4892087 historical where stated",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "question": "What do the detection, jamming and designation gadgets state and configure?",
+  "runFolder": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-02T022617Z-detection-designation",
+  "evidenceClasses": [
+    "stored source value (selected export, own-wrapper or schema-controlled)",
+    "attributed UI statement",
+    "dated EA statement",
+    "hypothesis",
+    "effective runtime behaviour (never established here)"
+  ],
+  "descriptorSha256Historical": "99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640",
+  "runFiles": [
+    {
+      "file": "HANDOFF.md",
+      "sha256": "39c14497be3220a89df6c1efc0185f6c38fee024c3bed3aae15d68efda83a4bc"
+    },
+    {
+      "file": "REPORT_CURRENT.md",
+      "sha256": "8af3fe8dfbe2169b22e791017455498d3edd328a280719e69f2a288b0a130d53"
+    },
+    {
+      "file": "CONTINUATION_REVIEW.json",
+      "sha256": "c01883d4d0c85edd6fc62125332b11eb90a3cafab73d5298ab49b227e1e1f1dd"
+    },
+    {
+      "file": "FUNCTIONAL_REVIEW.json",
+      "sha256": "3efd05b0f4c43bbbb0b46250bb8449d281523306d2ef4f429bf13302ce5dbc48"
+    },
+    {
+      "file": "REVIEW.json",
+      "sha256": "b1c5599f72ffcbac5264a0703e2ca2f3d9c8b59dff55590b087d477a2948ef69"
+    },
+    {
+      "file": "STATE.md",
+      "sha256": "daf216a51ac74545a7038282eca640e60c8e42868b22cd1954ec3d968e4f90d1"
+    },
+    {
+      "file": "review.md",
+      "sha256": "796e459f996c79e27387a4d5c81e211d2260b125e9dc29655e2d77ff796f5924"
+    }
+  ],
+  "findings": [
+    {
+      "class": "attributed UI statement",
+      "item": "T-UGS",
+      "statement": "UI 37A814D7: spots moving enemies, vehicles and gadgets; crouching or prone infantry can evade; marks shown on team world and minimap."
+    },
+    {
+      "class": "stored source value",
+      "item": "T-UGS",
+      "statement": "Vehicle and gadget flags true; named SpottingRadius payload 15 (a 15.0 f32 re-read in GRX_Glacier_Soldier at offset 14740), duration 2, pulse delay 1.5, Intel radius multiplier 1.5, ShadowSpeedThreshold 4; WB Ammo 1/1/-1, replenish true/-1. Seven subsets of three query IDs are filter clues with unmapped ids; 75/-1/-1 operands are anonymous and separate from the named parameters. Units and consumers unproved."
+    },
+    {
+      "class": "dated EA statement",
+      "item": "T-UGS",
+      "statement": "Owner death no longer destroys the device and spotting persistence after owner respawn was improved (dated owner-death/respawn statements; see parent/ in the run)."
+    },
+    {
+      "class": "attributed UI statement",
+      "item": "MTN-55 / proximity",
+      "statement": "UI EE72583F: spots enemies within visible range, one scan per second, two-second mark, world and minimap marks; EA 1.3.1.5 describes enemy-soldier spotting reliability."
+    },
+    {
+      "class": "stored source value",
+      "item": "MTN-55 / proximity",
+      "statement": "Vehicles true, gadgets false, LOS true; named radius payload 7; pulse 1 and duration 2 as separate source clues. The UI timing and the source pulse/duration correspond but correspondence alone is not an execution control; primary owner selection remains a candidate."
+    },
+    {
+      "class": "stored source value",
+      "item": "Mobile Jammer",
+      "statement": "Radius float32 default 10, Ammo 1/1/-1, replenish true/-1, AutoReplenishDelay 45 (source only), NumJams is not a cap; UI 2C7891A8: active, carried or tossed, temporary effect on enemy equipment."
+    },
+    {
+      "class": "dated EA statement",
+      "item": "Drone gadget disruption",
+      "statement": "EA 1.3.2.0: close targets through walls, distant targets require line of sight, no threshold stated. Source primary-field candidates: max-distance 80, max-angle 2.5, thresholds 12/18/25; DestroyGadget affector has unmapped 1000 fields; no damage amount proved. UI 34F9718C."
+    },
+    {
+      "class": "stored source value",
+      "item": "PLD / Laser Designator / LTLMII",
+      "statement": "Zoom distance candidates 80/180/360/540, angles 10/3.75/1.875/1.25; duration candidates 5/30/20, MarkTarget 15, laser progress 0.5. Dated EA: 20% lock-range benefit (1.3.1.0), designation 20 -> 9 seconds, LTLMII resupply after destruction. The EA 9 s statement, the source 5/30/20 and MarkTarget 15 stay distinct. UI 8DE53FB4; card association ambiguous."
+    },
+    {
+      "class": "stored source value",
+      "item": "Tracer Dart affector",
+      "statement": "EnableLocalLocking, TemporarilyDisabled, RemoveProjectile, Destroy, Stop, Valid and TTL carry NULL defaults (no zero/false claim). UI 5F6B5F0A and EA 1.4.2.0 (marked targets can lock via launchers). Do not compare with the TracerDart projectile TimeToLive 20 in L230: different object."
+    },
+    {
+      "class": "attributed UI statement",
+      "item": "HSS / Lancet",
+      "statement": "UI 72DE420D (internal name Lancet, display DGMK4; no UI-to-gameplay join); selected equipment chain and ammo/modifier configuration recorded at Head 4892087. The current Head 4909002 chain is closed in L231."
+    }
+  ],
+  "exclusions": "Audio rows are excluded (T-UGS audio patch/ping routing, Jammer ActiveLoop/NewJamOneShot cues, Decoy sound configs): sound is out of scope for the vehicle and gadget research; the run keeps them as historical context only.",
+  "evidenceVersion": "UI is historical Head 4892087 card text; EA statements are dated and snapshot-pinned; current Head 4909002 parameter payloads match the saved declarations under their own descriptors.",
+  "limits": [
+    "Stored source values from selected exports, attributed UI text and dated EA statements only. No units, enum labels, sentinel meanings, equations, effective gameplay behaviour, default or active selection, multiplayer availability or station claim.",
+    "Registry defaults are not selected values: a selected own-wrapper value must not be replaced by, or averaged with, a registry or leaf default.",
+    "Source settings, UI statements, dated EA statements, hypotheses and runtime behaviour are separate evidence classes."
+  ],
+  "reviewerCheck": "Sonnet 5.5 review of 2 Oct 2026 (review.md in the run folder): raw bytes, value rows and file SHA-256 pins from the run packets were re-read with no real mismatch; controls were not re-run; no commit, push or shared-file edit by the run (both repos unchanged after 1 Oct 22:12).",
+  "siteImpact": "Foundation research for a future vehicles and gadgets version of the site; not tied to current site outputs. No site data, simulation or UI is changed or proposed.",
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-10-02",
+    "build": "mixed",
+    "leads": [
+      {
+        "id": "L236",
+        "title": "T-UGS, MTN-55, jammer, drone disruption, designator, Tracer Dart and decoy statements and configured values",
+        "status": "finding",
+        "summary": "T-UGS stores radius 15 / duration 2 / pulse delay 1.5 and MTN-55 radius 7 / pulse 1 / duration 2, which match the UI scan-once-per-second and two-second mark statements as a correspondence only; dated EA statements and designation timings are retained as separate classes. Audio rows are excluded.",
+        "reopenWhen": "Query-ID mappings, the owner selection for MTN-55 and Proximity, the acquisition/recipient/expiry operations, the lock and break receivers, or an incoming selected owner for AimSpotting."
+      }
+    ],
+    "assets": [],
+    "binding": "research",
+    "run": {
+      "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-02T022617Z-detection-designation",
+      "orchestrator": "GPT-6.1 Sol (parent)",
+      "workers": []
+    }
+  }
+}

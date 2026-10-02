@@ -1,0 +1,118 @@
+{
+  "lead": "L233",
+  "status": "finding",
+  "build": "mixed",
+  "head": "mixed: Head 4909002 current, Head 4892087 historical where stated",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "question": "What do the healing and resupply gadgets say about themselves, and what do their selected sources store?",
+  "runFolder": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T222607-0400-healing-resupply",
+  "evidenceClasses": [
+    "stored source value (selected export, own-wrapper or schema-controlled)",
+    "attributed UI statement",
+    "dated EA statement",
+    "hypothesis",
+    "effective runtime behaviour (never established here)"
+  ],
+  "descriptorSha256Historical": "99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640",
+  "runFiles": [
+    {
+      "file": "handoff.md",
+      "sha256": "81f37d318a53c6c556f93fa60dae14605017aef69715f542e14a303751082e7d"
+    },
+    {
+      "file": "functional-dossiers.md",
+      "sha256": "607bd59f986aa1e7afd7cda59fde631b0a78a032a38e43f335fe2b0a3e6e203a"
+    },
+    {
+      "file": "stat-table.json",
+      "sha256": "5b1de49bd6bd920272be124ffb4eb479009e47c55c4060de0e7cec15267c710d"
+    },
+    {
+      "file": "descriptions-ui.json",
+      "sha256": "c4ab5d348ae100f73b2f3e05a8b71a17b344961e7382cd1eef9ead4e95ca11c4"
+    },
+    {
+      "file": "dated-primary-statements.json",
+      "sha256": "e3101af1cd813a1ffc67b5e670644daa0d5232f3a4e2d6324b5ad6ef74427f0f"
+    },
+    {
+      "file": "parent-functional-review.json",
+      "sha256": "dbb7084546dcaf8cc48052116ade6405a8b27af0671b77aa8ab0cf53b3d85f96"
+    },
+    {
+      "file": "parent-worker-review.json",
+      "sha256": "6efb1bc2a291d0ac6cc0fa745c3aa9cb53562c8eac6f808373014162f2bc5d7c"
+    },
+    {
+      "file": "review.md",
+      "sha256": "f88defd286fee9d6a395a7244b7589021507a5269b7cc13e9914e546344b47fd"
+    }
+  ],
+  "findings": [
+    {
+      "class": "attributed UI statement",
+      "item": "Supply Pouch",
+      "statement": "UI CF806780: single-use pouch that replenishes ammo and medical supplies for the owner or teammates; fully restocks ammo capacity of the primary and secondary weapons and restores a portion of health."
+    },
+    {
+      "class": "stored source value",
+      "item": "Supply Pouch",
+      "statement": "Provider selects five exact effect entries (auto-replenish, GasMask and NVG resupply, three ammo rows to PrimaryWeapon/Sidearm); unnamed lifetime candidate 60 and UI-only 30/15 classified. Resource/mode applicability of the GasMask and NVG effects is unproved."
+    },
+    {
+      "class": "stored source value",
+      "item": "Supply Crate / Supply Bag",
+      "statement": "Crate pickup wiring reaches its enable and callback graphs (RIDs 4416c7136c35d68f, 0ec7446691fdd4a3); callback binds the self-speedup affector; general AmmoCrate selects PrimaryWeapon/Sidearm; crate parents select the MedicCrate healing affector (two null-reference/f32 wrappers with literals 0 and 20, a direct 2.5, three false flags; selector true flag selects the exact Ignore_Damage CT token, which is a configuration token, not damage immunity)."
+    },
+    {
+      "class": "attributed UI statement",
+      "item": "ActiveMedic (Restock Allies)",
+      "statement": "UI B29284A3 (client 1.4.3.1, Head 4892087): \"Resupply and heal nearby friendly forces for 10 seconds. Reviving teammates takes only 1.7 seconds.\" Both Support paths select ActiveMedic in slot 3; Support path 2 selects CrateResupplyPlus in slot 0; categories labelled Passive (common) and Callin/Ultimate; KST children store Boolean false with unknown polarity."
+    },
+    {
+      "class": "dated EA statement",
+      "item": "Pouch and crate rules",
+      "statement": "EA 1.0.1.0 (snapshot sha256 527e9be34463c74211debbbcd11a9dc83cf03854fecf13bd419d00f7b6b31711): deployed pouches cannot be picked up, vehicle healing removed, pouches grant one extra C4 as overstock and use repair-station-style over-time healing. Attributed historical rules, not current native proof."
+    },
+    {
+      "class": "stored source value",
+      "item": "Vehicle Supply Crate lifecycle",
+      "statement": "Separate construction and pickup-restriction stages. Named current GRX inputs VSC_Enable Auto Construct = true, VSC_Time To Construct raw Float32 0.6000000238418579, VSC_Resupply Interval = 5.0 (units and effective behaviour unresolved; carried from the L224 receipt, not re-read by the reviewer). Vehicle-side item: this finding belongs with vehicles in the docs."
+    }
+  ],
+  "openQuestions": [
+    "ActiveMedic UI says reviving takes only 1.7 seconds. No source value for 1.7 was found; the squad-revive source stores 4.72 s and Support 2.2 s (L232). Whether 1.7 comes from the ActiveMedic state is unresolved."
+  ],
+  "identityCandidates": "Standalone Medic Crate and Ammo Bag are identity candidates, not confirmed MP items (Ammo Bag displays Supply Bag like Supply Crate). Supply Drop has no substantive description and no proved relevant standard-MP incoming selection.",
+  "exclusions": "Granite five-payload entries, the Rifle/MG Granite setup branches, BR clauses and Portal-only quantities are excluded from this receipt; the exact empty client schematic and the exact loot-table capture are preserved in the run as excluded evidence.",
+  "evidenceVersion": "UI text is from client 1.4.3.1, Head 4892087; current source Head 4909002 where stated.",
+  "limits": [
+    "Stored source values from selected exports, attributed UI text and dated EA statements only. No units, enum labels, sentinel meanings, equations, effective gameplay behaviour, default or active selection, multiplayer availability or station claim.",
+    "Registry defaults are not selected values: a selected own-wrapper value must not be replaced by, or averaged with, a registry or leaf default.",
+    "Source settings, UI statements, dated EA statements, hypotheses and runtime behaviour are separate evidence classes."
+  ],
+  "reviewerCheck": "Sonnet 5.5 review of 2 Oct 2026 (review.md in the run folder): raw bytes, value rows and file SHA-256 pins from the run packets were re-read with no real mismatch; controls were not re-run; no commit, push or shared-file edit by the run (both repos unchanged after 1 Oct 22:12).",
+  "siteImpact": "Foundation research for a future vehicles and gadgets version of the site; not tied to current site outputs. No site data, simulation or UI is changed or proposed.",
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-10-02",
+    "build": "mixed",
+    "leads": [
+      {
+        "id": "L233",
+        "title": "Supply Pouch, Supply Crate, Medic and ActiveMedic descriptions, wiring and dated statements",
+        "status": "finding",
+        "summary": "Five gadget descriptions and three ability descriptions retained as attributed UI text with selected wiring: Pouch selects five effect entries, Crate pickup reaches enable and callback graphs, ActiveMedic is selected by both Support paths; Vehicle Supply Crate lifecycle inputs named. Excludes Granite/BR material.",
+        "reopenWhen": "The source operation and input binding for the VSC interval and construction, exact pouch health/timing/consumption and resource-priority receivers, the crate spatial query and pickup predicate, the ActiveMedic timed state, or a relevant MP caller for Supply Drop."
+      }
+    ],
+    "assets": [],
+    "binding": "research",
+    "run": {
+      "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T222607-0400-healing-resupply",
+      "orchestrator": "GPT-6.1 Sol (parent)",
+      "workers": []
+    }
+  }
+}

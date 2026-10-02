@@ -1,0 +1,85 @@
+{
+  "lead": "L229",
+  "status": "finding",
+  "build": "mixed",
+  "head": "mixed: Head 4909002 current, Head 4892087 historical where stated",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "question": "Do the gadget healing/regeneration effects share a schema, and does an exact control name the operation?",
+  "runFolder": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-02-vehicle-gadget-program",
+  "evidenceClasses": [
+    "stored source value (selected export, own-wrapper or schema-controlled)",
+    "attributed UI statement",
+    "dated EA statement",
+    "hypothesis",
+    "effective runtime behaviour (never established here)"
+  ],
+  "descriptorSha256Historical": "99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640",
+  "reviewPackets": [
+    {
+      "packet": "EFFECTS_COMPARISON_REVIEW.json",
+      "sha256": "2117fe62244fb0da0fdb1bab8742dc54b46b96fe2095d1e4a143d052fde313fd",
+      "scope": "Five stored-value checks supporting the cross-item effects comparison. No Boolean or enum operation is named."
+    },
+    {
+      "packet": "EFFECTS_ENUM_REVIEW.json",
+      "sha256": "ced7be49e2fac44312e89b09d9feff1cb607f05e5d7931faedabbad720aa8a52",
+      "scope": "Independent rerun of exact enum-key descriptor field references in two pinned snapshots; not an instance census or semantic control."
+    },
+    {
+      "packet": "HEALTH_SCHEMA_REVIEW.json",
+      "sha256": "2354cf6ae83c04eb58d4f5b420a2e5856ed062e9f496a3afa5b50280caac0286",
+      "scope": "Exact current descriptor inheritance comparison; not a current cover instance or health-value claim."
+    }
+  ],
+  "findings": [
+    {
+      "class": "stored source value",
+      "item": "Regeneration affectors",
+      "statement": "FasterRegen 30/2.5/0 (enum 0, Boolean false); Hemostatic 12.5/2.5/0 (enum 2, Boolean false); post-revive inline 0/0/0 (enum 0, Boolean true) importing named rate 10, PostRevive delay 0, amount 0; baseline named declarations 10/5/0. All share root key 12c2e0050200181dda3acd681d713afb and entry key 4c0e9affce5b0ddafd22b9f84a957a3e. Boolean and enum operations unnamed."
+    },
+    {
+      "class": "stored source value",
+      "item": "Pouch vs Crate healing",
+      "statement": "Selected Pouch and Crate healing share root key 3ee7f406b86151f14a9e86c1c739f345 and entry key 1c1c478ebbf923a9ac8ef7ae4b6e26c2; both store 0/20/2.5 candidates; Field_33d6811e is true for Pouch and false for Crate. The healing entry differs from regeneration; a common wrapper identity does not transfer field or Boolean meaning."
+    },
+    {
+      "class": "stored source value",
+      "item": "Cover and CB90 health",
+      "statement": "Cover and CB90 roots each declare their own Field_9040392c under different keys; their shared base does not. MaxHealth transfer is invalid."
+    }
+  ],
+  "notes": [
+    "Five stored-value checks across three files passed for the cross-item comparison; no Boolean or enum operation is named.",
+    "The enum-key census is a descriptor field-reference census, not an instance census or semantic control.",
+    "Missing: the Squad imported file d0a2de18-a7b2-4c3c-9e87-aff6ddc8a180 and the FasterRecharge selector owner aeb43f2c-3c7b-4056-a8f6-f965da671da3 (no new evidence in this run; see L232)."
+  ],
+  "limits": [
+    "Stored source values from selected exports, attributed UI text and dated EA statements only. No units, enum labels, sentinel meanings, equations, effective gameplay behaviour, default or active selection, multiplayer availability or station claim.",
+    "Registry defaults are not selected values: a selected own-wrapper value must not be replaced by, or averaged with, a registry or leaf default.",
+    "Source settings, UI statements, dated EA statements, hypotheses and runtime behaviour are separate evidence classes."
+  ],
+  "reviewerCheck": "Sonnet 5.5 review of 2 Oct 2026 (review.md in the run folder): raw bytes, value rows and file SHA-256 pins from the run packets were re-read with no real mismatch; controls were not re-run; no commit, push or shared-file edit by the run (both repos unchanged after 1 Oct 22:12).",
+  "siteImpact": "Foundation research for a future vehicles and gadgets version of the site; not tied to current site outputs. No site data, simulation or UI is changed or proposed.",
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-10-02",
+    "build": "mixed",
+    "leads": [
+      {
+        "id": "L229",
+        "title": "Gadget regeneration and healing effect schemas, enum keys and health ancestry",
+        "status": "finding",
+        "summary": "Regeneration and healing effects use distinct schemas; the exact regeneration enum-key typed-field census reproduces in current and historical descriptors with one entry owner each; the Pouch/Crate Boolean difference stays unnamed; Cover and CB90 each declare their own MaxHealth field.",
+        "reopenWhen": "A same-owner operation control (add/replace/multiply) or a typed reader for the enum and Boolean values."
+      }
+    ],
+    "assets": [],
+    "binding": "research",
+    "run": {
+      "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-02-vehicle-gadget-program",
+      "orchestrator": "GPT-6 Astra",
+      "workers": []
+    }
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "lead": "L235",
+  "status": "finding",
+  "build": "mixed",
+  "head": "mixed: Head 4909002 current, Head 4892087 historical where stated",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "question": "What do the deployable and lifecycle gadgets state and configure?",
+  "runFolder": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T222640-0400-deployment-lifecycle",
+  "evidenceClasses": [
+    "stored source value (selected export, own-wrapper or schema-controlled)",
+    "attributed UI statement",
+    "dated EA statement",
+    "hypothesis",
+    "effective runtime behaviour (never established here)"
+  ],
+  "descriptorSha256Historical": "99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640",
+  "runFiles": [
+    {
+      "file": "FUNCTIONAL_HANDOFF.md",
+      "sha256": "504bb050e72976212d1016a2c02c0dd54efa17528475dcca53142546e552b250"
+    },
+    {
+      "file": "REPORT.md",
+      "sha256": "71af0107d6b07f3e50993bbdd740abc3ee700432e86dd88bbece5e164efe00a3"
+    },
+    {
+      "file": "session-state.json",
+      "sha256": "86c8cf569d3212054c8b94d32a4e2dae5f7af79513f60a7f01920c836ff9693c"
+    },
+    {
+      "file": "description-coverage/coverage.md",
+      "sha256": "87f475f140540721f856144312c8a509d1a8cf263ec42b6054ea942b1abb4b2a"
+    },
+    {
+      "file": "description-coverage/gap-report.md",
+      "sha256": "62217efdfd8624a2adbfc429af620a7aab3e3e08d739661ffce20211ddeff231"
+    },
+    {
+      "file": "parent-review/raw-audit.json",
+      "sha256": "9a68c91ab0b1386729191d8666d98429a85d940a98aeae23eb4dc0f0d05e0f4f"
+    },
+    {
+      "file": "parent-review/functional-raw-audit.json",
+      "sha256": "f6f19f742de00b1abc8a1b6d23a528bfbf02b41c757d56f3aab64de42c084d60"
+    },
+    {
+      "file": "parent-review/file-hash-audit.json",
+      "sha256": "71788bbf8ed06159785d7d42c3c2b9b09942dc76cb8b2951436c148a90fc80e0"
+    },
+    {
+      "file": "review.md",
+      "sha256": "4fab248e162b29af988280ae87a38d4538ca0b5c144916d2d58c1c6cdc2d7805"
+    }
+  ],
+  "findings": [
+    {
+      "class": "attributed UI statement",
+      "item": "Spawn Beacon",
+      "statement": "UI 3A5A0145: single-use deploy point for the operator and each squad member; emits a constant sound audible to hostiles; becomes inactive after the owner deploys; in Small Scale Battles squad-member deployment is disabled. Inactive is not necessarily destroyed."
+    },
+    {
+      "class": "stored source value",
+      "item": "Spawn Beacon",
+      "statement": "Ability -> matching CUST -> WB -> selected firing/Shot -> base VEH export; typed Ammo capacity/magazines/initial 1/1/-1; AutoReplenishMagazine true, rounds -1 (a resource tuple, not an active count or unlimited uses); common blocking inputs include melee, health, revive, traversal and MP insertion channels; killswitch Boolean false has unproved polarity."
+    },
+    {
+      "class": "stored source value",
+      "item": "Ladder",
+      "statement": "Separate deployed mesh, physics and LadderConfig; one plain interaction branch versus three Assault branches including LadderTop (not three active ladders); geometry-like vector (0.5, 3.84, 0.249939) with no physical units; persistence exports with raw values 30 and 6 are not proved cooldowns. UI: higher vantage points; placement angle can enable bridge or ramp use."
+    },
+    {
+      "class": "stored source value",
+      "item": "Recon/common drone",
+      "statement": "Selected TimeToLive and OutOfBounds branches; three attached-projectile battery-drain multipliers, Drone_MaxLifetime, NormalizedRemainingLifetime, detonation on lifetime elapsed/destroyed and nearby-explosive inclusion/range; nine current parameter exports have exact operands but no proved capacity, equation or effective lifetime. Payload drone / SP rows (deployment operands 2.0 and 0.35, SP grenade import) are SP routes and not multiplayer evidence."
+    },
+    {
+      "class": "attributed UI statement",
+      "item": "EOD Bot",
+      "statement": "UI: remote robot for repair, objective arming/disarming and gadget disruption/deployment; self-destructs after remote M-COM arming completes. Source: ability list includes repair, mine, demining and objective arming; objective graph imports CanInteract, ArmingObjective, BlockEntry and resistance removal; aim tuple -180/180/-22/45, durability-like 75 are unnamed configured values with no units."
+    },
+    {
+      "class": "stored source value",
+      "item": "NVG",
+      "statement": "Current WB/client imports reach a captured relay and Subsurface lighting (two captures at Head 4909002 resolved the missing targets); relay declares NVG Activated, NoLongerSpectating, NVGsWasActive and degradation exposure compensation; common mutator Float32 triplets MaxDuration 51/1/99 (offset 30836), Degradation_Start% 0.25/0/1 (9892), MaxExposureOffset -2/-10/0 (23692) in MutatorDatabase_CH1_S02 (re-read by reviewer; roles and units unproved). UI for both NVG records is only \"NVGs\"."
+    },
+    {
+      "class": "attributed UI statement",
+      "item": "Description census",
+      "statement": "78 gadget UI records: 63 substantive claims, 12 label/stub texts, 3 missing IDs (M26 Mass 12g Frag EC2424E7, #4 Buck CCDE27D9, Flechette DDF29CD1 absent from recorded current English localization); operator scope 68 included, 5 ambiguous, 3 excluded, 2 mixed. The table largely duplicates reference-data/frosty/gadget-ui-metadata.json; availability is unproved for every record."
+    }
+  ],
+  "evidenceVersion": "Historical Head 4892087 (descriptor 99b49cfd...) and current Head 4909002; release controls retain Head 4892017; current byte equality is checked per asset.",
+  "limits": [
+    "Stored source values from selected exports, attributed UI text and dated EA statements only. No units, enum labels, sentinel meanings, equations, effective gameplay behaviour, default or active selection, multiplayer availability or station claim.",
+    "Registry defaults are not selected values: a selected own-wrapper value must not be replaced by, or averaged with, a registry or leaf default.",
+    "Source settings, UI statements, dated EA statements, hypotheses and runtime behaviour are separate evidence classes."
+  ],
+  "reviewerCheck": "Sonnet 5.5 review of 2 Oct 2026 (review.md in the run folder): raw bytes, value rows and file SHA-256 pins from the run packets were re-read with no real mismatch; controls were not re-run; no commit, push or shared-file edit by the run (both repos unchanged after 1 Oct 22:12).",
+  "siteImpact": "Foundation research for a future vehicles and gadgets version of the site; not tied to current site outputs. No site data, simulation or UI is changed or proposed.",
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-10-02",
+    "build": "mixed",
+    "leads": [
+      {
+        "id": "L235",
+        "title": "Spawn Beacon, Ladder, drones, EOD Bot and NVG lifecycle statements and configured values",
+        "status": "finding",
+        "summary": "UI-stated Beacon spawn-use rules, Ladder bridge/ramp use, EOD objective completion and self-destruction, drone lifetime and explosive interfaces, and NVG mutator values (MaxDuration 51/1/99, Degradation_Start 0.25/0/1, MaxExposureOffset -2/-10/0); effective timing, distance and lifecycle operations remain unresolved.",
+        "reopenWhen": "The native spawn-point registration/permission operations, ladder interaction and mesh interpretation, drone deploy/control/boundary operations with an incoming MP owner, EOD control and objective operations, or the NVG receiver."
+      }
+    ],
+    "assets": [],
+    "binding": "research",
+    "run": {
+      "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-01T222640-0400-deployment-lifecycle",
+      "orchestrator": "GPT-6.1 Sol (parent)",
+      "workers": []
+    }
+  }
+}
