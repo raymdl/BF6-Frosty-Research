@@ -1045,10 +1045,12 @@ The source review covers saved builds 1.4.2.5 and 1.4.3.0. See the
   select normal `GRM_Recoil_AMO_M10` (−1). Mini Scout binds both (−7).
   Variation does not change. Production follows these bindings; six steps as the
   intended rule for all snipers remains a hypothesis.
-- **L115 Standard Suppressor:** the normal suppressor selector is active, but its
-  GS has no corresponding hip-dispersion penalty binding. EF88 and M2010 ESR have
-  that binding. The research Hipfire checker excludes the penalty; the generic
-  production muzzle penalty remains a separate open correction (bug 12).
+- **L115 Standard Suppressor:** the selected source attachment/ability/action chain
+  reaches selector `276be3b0-2455-46b7-a85e-52c37aa5b3b8`. In the saved Head 4909067
+  GS owner, none of the 13 entries in the exact `Field_b53510be` container matches
+  that selector. The same-owner positive selector and the M2010 ESR Standard
+  Suppressor control both pass. This carries forward the retained source-binding
+  exception; it does not prove native absence, activation or a measured effect. See the [current binding receipt](../../reference-data/provenance/frosty-2026-10-04-L115-standard-suppressor-current-binding.json).
 - **L115 QD Grip Pod:** no moving-ADS penalty binding. Production uses zero.
   Light + Violet reads Mobility 54; adding the pod reads 58.
 - **18.5KS-K Slim Angled:** selects normal `U_WPM_BTM_Fast02_W25`, unlike the

@@ -1330,7 +1330,10 @@ lists `NumberOfBulletsPerBurst`, so the name is probable.
 
 ### Fire-mode selector source data (1.4.3.5, L600-L604)
 
-The planned selector now has source data for all 63 site weapons. New raw reads
+Source data for all 63 site weapons now feeds the implemented mode-selection,
+simulation and share-state code ([ab5a0d2](https://github.com/raymdl/BF6-Weapon-Analyzer/commit/ab5a0d265b692a0960957c78c71c5f4a8e1af5c4)).
+The selector row is currently hidden pending UI placement ([7a23b8c](https://github.com/raymdl/BF6-Weapon-Analyzer/commit/7a23b8cc21a34872526662d6eea8636cf72f5571)); the implementation remains.
+This software status does not establish native activation or composition. New raw reads
 use Head 4909002 and descriptor `4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1`.
 The run file `BF6 Datamining/reports/weapon-analyzer-research/2026-09-30T2323-0400-fire-modes/fire-modes.json` contains 110 rows, one per weapon and
 source mode. Each row keeps full float32 precision, source field paths, raw file

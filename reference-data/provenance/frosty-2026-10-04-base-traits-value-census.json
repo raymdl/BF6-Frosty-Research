@@ -1,0 +1,117 @@
+{
+  "lead": "Base-trait value census (LMG sprint penalty)",
+  "status": "complete",
+  "build": "1.4.3.5",
+  "question": "Does any current _BaseTraits asset (and any Soldier/Features asset it imports) store a weapon-class-conditioned operand, in particular an LMG sprint multiplier that the Support trait removes?",
+  "sourceFacts": [
+    "No. Across the 35 captured assets the only non-zero float operands are 48 values: identity transform diagonals (1.0) in the Ability assets, four neutral 1.0 multipliers in each of WM_EngineerBase and WM_Grenadier_Base, Mechanic overheat 0.5 (Stationaries) and 0.9 (Vehicles), CommandingPresenceRegen -1.0/3.5/-1.0, MedicalTriage healing 20.0 and 1.0, and SimEx_Ability_Mechanic_Base -1.0/-1.0/75.0 on two objects. There is no sprint multiplier and no weapon-class or LMG selector. Affector_MedicalTriageSprint and Affector_ForceCrawlspeed (Class_6bbe0eba) carry only a name, two identity tokens and a count of 1: no scalar. The 27 unique imported files all resolve to catalog routes and none is a Soldier/Features asset; they are other _BaseTraits files, config tables, killswitches, channels, ReservesF2P, HoldBreath and GRX_Glacier_Soldier.",
+    "Decoder returned the same scalar leaves it reads elsewhere: positive spans re-read from raw bytes for Healing 20.0, Overheat 0.5 and 0.9 and CommandingPresenceRegen 3.5 (each unique in its file). The 27 import GUIDs all resolve in the Head 4909067 catalog.",
+    "L847 and WEAPONS/SOLDIER notes already record that the inspected WPM_SupportTrait family does not establish a sprint exemption receiver, and that the sprint multipliers 2.05 and 1.857 are RootLayerLogic imports. This census adds that no _BaseTraits asset holds a competing operand."
+  ],
+  "inference": "No weapon-class-conditioned operand and no sprint multiplier is stored in the 35 captured _BaseTraits assets. This is absence within these assets only; it does not show that no LMG sprint penalty exists.",
+  "unresolved": [
+    "Absence within these 35 assets only: not a game-wide finding. The LMG sprint penalty, if it exists as authored data, is in compiled expression graphs or in an asset outside _BaseTraits.",
+    "The 36th route was not capturable.",
+    "Sprint affector tokens are identity only; no role or effect is claimed.",
+    "No gameplay measurement was made."
+  ],
+  "siteImpact": "No site change and no proposal: the site does not show sprint speed and no source operand was found.",
+  "reopenWhen": "A caller join or compiled-graph reader names an LMG-conditioned sprint operand, or a new build adds a base trait with a weapon-class selector.",
+  "evidence": [
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-04-overnight-continuation\\claude-base-traits-census\\result.json",
+      "sha256": "22b07c4a9bf9025a64e79b2da402abe4f77fa13db417db535ac0d88e4ef44935"
+    }
+  ],
+  "rawChecks": [
+    {
+      "label": "Affector_Healing_MedicalTriage.ebx f32 20.0",
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\base-traits-census-2026-10-04\\raw\\Common\\Gameplay\\InRoundProgression\\_BaseTraits\\MedicalTriage_Base\\Affector_Healing_MedicalTriage.ebx",
+      "offset": 192,
+      "bytesHex": "0000a041",
+      "type": "f32",
+      "value": 20.0
+    },
+    {
+      "label": "Affector_MechanicOverheat_Stationaries.ebx f32 0.5",
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\base-traits-census-2026-10-04\\raw\\Common\\Gameplay\\InRoundProgression\\_BaseTraits\\Mechanic_Base\\Affector_MechanicOverheat_Stationaries.ebx",
+      "offset": 148,
+      "bytesHex": "0000003f",
+      "type": "f32",
+      "value": 0.5
+    },
+    {
+      "label": "Affector_MechanicOverheat_Vehicles.ebx f32 0.9",
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\base-traits-census-2026-10-04\\raw\\Common\\Gameplay\\InRoundProgression\\_BaseTraits\\Mechanic_Base\\Affector_MechanicOverheat_Vehicles.ebx",
+      "offset": 148,
+      "bytesHex": "6666663f",
+      "type": "f32",
+      "value": 0.8999999761581421
+    },
+    {
+      "label": "Affector_CommandingPresenceRegen.ebx f32 3.5",
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\base-traits-census-2026-10-04\\raw\\Common\\Gameplay\\InRoundProgression\\_BaseTraits\\CommandingPresence\\Affector_CommandingPresenceRegen.ebx",
+      "offset": 192,
+      "bytesHex": "00006040",
+      "type": "f32",
+      "value": 3.5
+    }
+  ],
+  "record": {
+    "v": 1,
+    "kind": "audit",
+    "date": "2026-10-04",
+    "build": "1.4.3.5",
+    "assets": [
+      {
+        "path": "Common/Gameplay/InRoundProgression/_BaseTraits/MedicalTriage_Base/Affector_MedicalTriageSprint",
+        "format": "raw-ebx",
+        "sha256": "fd57207be3be9409daf8bfce3fc07434c8e50f8091c8b46a751c8831f89655c4",
+        "question": "Does any current _BaseTraits asset (and any Soldier/Features asset it imports) store a weapon-class-conditioned operand, in particular an LMG sprint multiplier that the Support trait removes?",
+        "result": "useful",
+        "conclusion": "Class_6bbe0eba record: name, two identity tokens and a count of 1; no scalar, no sprint multiplier."
+      },
+      {
+        "path": "Common/Gameplay/InRoundProgression/_BaseTraits/CombatEngineer_Base/Affector_ForceCrawlspeed",
+        "format": "raw-ebx",
+        "sha256": "d56f6261af5dbcbb1551d64738e00f15ed4a5a50e3bfc548f0a21819e5c4deab",
+        "question": "Does any current _BaseTraits asset (and any Soldier/Features asset it imports) store a weapon-class-conditioned operand, in particular an LMG sprint multiplier that the Support trait removes?",
+        "result": "useful",
+        "conclusion": "Class_6bbe0eba record: name, two identity tokens and a count of 1; no scalar."
+      },
+      {
+        "path": "Common/Gameplay/InRoundProgression/_BaseTraits/MedicalTriage_Base/Affector_Healing_MedicalTriage",
+        "format": "raw-ebx",
+        "sha256": "6df35ba4a4ce7abdbb1195c2cdf8da2f04e4c1d96a50691a0355af5db46d90e0",
+        "question": "Does any current _BaseTraits asset (and any Soldier/Features asset it imports) store a weapon-class-conditioned operand, in particular an LMG sprint multiplier that the Support trait removes?",
+        "result": "useful",
+        "conclusion": "Positive control: scalar 20.0 at offset 192 and 1.0; healing values, not a weapon-class operand."
+      },
+      {
+        "path": "Common/Gameplay/InRoundProgression/_BaseTraits/Mechanic_Base/Affector_MechanicOverheat_Stationaries",
+        "format": "raw-ebx",
+        "sha256": "c029717f1862311e8f29473ea8eec6481412fdfe56f5d6ca0922a7606a93e672",
+        "question": "Does any current _BaseTraits asset (and any Soldier/Features asset it imports) store a weapon-class-conditioned operand, in particular an LMG sprint multiplier that the Support trait removes?",
+        "result": "useful",
+        "conclusion": "Positive control: scalar 0.5 at offset 148."
+      },
+      {
+        "path": "Common/Gameplay/InRoundProgression/_BaseTraits/Mechanic_Base/Affector_MechanicOverheat_Vehicles",
+        "format": "raw-ebx",
+        "sha256": "8ef8f35e8a4437c506ce39eb82b4c0eec2ee596608b1446e8ba1751ab4fcd0c3",
+        "question": "Does any current _BaseTraits asset (and any Soldier/Features asset it imports) store a weapon-class-conditioned operand, in particular an LMG sprint multiplier that the Support trait removes?",
+        "result": "useful",
+        "conclusion": "Positive control: scalar 0.9 at offset 148."
+      },
+      {
+        "path": "Common/Gameplay/InRoundProgression/_BaseTraits/CommandingPresence/Affector_CommandingPresenceRegen",
+        "format": "raw-ebx",
+        "sha256": "4ec1b4ecdef6e1a303311ca57a8bee7197a96aac733bb3409d378effd4ca56ee",
+        "question": "Does any current _BaseTraits asset (and any Soldier/Features asset it imports) store a weapon-class-conditioned operand, in particular an LMG sprint multiplier that the Support trait removes?",
+        "result": "useful",
+        "conclusion": "Positive control: scalars -1.0, 3.5 (offset 192) and -1.0."
+      }
+    ],
+    "binding": "research"
+  }
+}

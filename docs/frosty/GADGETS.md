@@ -65,7 +65,9 @@ These are the gadget half of the 1 October display-stat run. They keep configure
 | Squad revive | Stored source value | Named total time 4.71999979019165 s and Support 2.200000047683716 s (`GRX_Glacier_Soldier`, offsets 24244 and 22900, re-read 2 October), buffer 0.4000000059604645. Provisional HealthRestored affector stores eleven values 100, 90, 80, 75, 70, 60, 50, 40, 30, 25, 20; class rank 6 / 0 is not equated with list slots. Regen selects named rate 10, delay 0, amount 0. |
 | Recipient query | Stored source value | Exposes RootTransform, TeamId, SquadId and ReviverPlayerId; no proved predicate, list operation or reach. |
 
-Open: the Squad file `d0a2de18-a7b2-4c3c-9e87-aff6ddc8a180` (two exact child GUIDs) and the FasterRecharge selector owner `aeb43f2c-3c7b-4056-a8f6-f965da671da3`. A Killshot export/import control reproduced; no owner was found in the historical index, and no global absence is claimed.
+Open: the Squad file `d0a2de18-a7b2-4c3c-9e87-aff6ddc8a180` (two exact child GUIDs) and the FasterRecharge selector owner `aeb43f2c-3c7b-4056-a8f6-f965da671da3`. A Killshot export/import control reproduced; no owner was found in the historical index, and no global absence is claimed. On 4 October 2026 none of the six retained catalogs (Heads 4420709 to 4909067) listed the Squad file GUID or the three other unresolved caller-table GUIDs, while two controls resolved in every catalog ([lookup receipt](../../reference-data/provenance/frosty-2026-10-04-squad-revive-file-guid-catalog-lookup.json)). With no catalog route a guarded capture cannot be requested; that is a lookup limit, not evidence the file is absent from the game.
+
+Operator description of revives (4 October 2026; not measured): Support can drag and revive any teammate to half health and has a buff that speeds up revives; Support's defibrillators revive to half health on a tap and to full health when fully charged; any class can drag and revive squadmates to half health.
 
 ## Regeneration and healing schemas (L229)
 
@@ -93,6 +95,8 @@ No operation control (add, replace or multiply) exists for any of these. Equal n
 | Pouch and crate rules | Dated EA statement | EA 1.0.1.0: deployed pouches cannot be picked up, vehicle healing removed, pouches grant one extra C4 as overstock and use repair-station-style over-time healing. |
 
 **Open question: the 1.7 s revive.** No source value for 1.7 was found. The squad-revive source stores 4.72 s and Support 2.2 s (L232). Whether the ActiveMedic state shortens the revive, and where 1.7 comes from, is unresolved.
+
+Ready prediction (not dispatched: revive time is not a site number today): a squad drag revive takes 4.72 s for a non-Support, 2.2 s for Support, and 1.7 s for Support with ActiveMedic active (1.7 from the UI text only). The check is frame counting on existing footage from the trusted creators, with no new recording request. Whether 4.72 s includes the 0.4 s buffer is unknown, so a footage check should report both readings.
 
 The Vehicle Supply Crate side of this run is on the [vehicle page](VEHICLES.md#from-the-gadget-runs-vehicle-supply-crate-and-cover-health-channels).
 
@@ -160,7 +164,8 @@ The Airburst and Incendiary primary explosion roots are the same nonexported cla
 
 - Lancet / HSS Equipment, Ability, Feature, TrackAndDestroy: three exact current pointer checks pass at Head 4909002 (two-owner safe capture, no failures). This closes the missing-current-owner gap the detection run left.
 - Claymore projectile to `SimEx_ClaymoreFrag`: exact source pointer, import pair and target export; no fragment behaviour.
-- AT Mine: historical chains at the older head; current catalog identities exist, but typed owner continuity is unproved.
+- AT Mine ([L237](../../reference-data/provenance/frosty-2026-10-04-L237-atmine-current-continuity.json)): ten historical selected owner, member, import, local and channel relationships retain source continuity. Five owners captured at Head 4909067 are byte-identical to their Head 4892087 inputs. The channel targets remain retained Head 4909002 collection inputs; the independent review also found them byte-identical to raw inputs pinned at Head 4892087. No fresh Head 4909067 channel capture is claimed. Activation, arming, recipients, damage, mine count and lifecycle behaviour remain unproved.
+- Deployable Mortar ([mapping receipt](../../reference-data/provenance/frosty-2026-10-04-deployable-mortar-continuity.json)): seven known selection checks retain continuity from WB through VB local objects 1, 48 and 50 to the exact FeatureEx export and its child ResourceRef `20827a2678e50d17`. WB and VB are saved Head 4909002 inputs; FeatureEx was captured at Head 4909067; each equals its own Head 4892087 historical raw input. The ResourceRef stays opaque; no standard-MP admission, placement, ownership, arming, removal, lifecycle operation or runtime behaviour is established.
 - Drones: two separate chains; the Recon-to-TRV150 variant join is unproved.
 - Proximity: an unknown-role Shot field reaches a SimEx detector dependency; the primary projectile object stays separate.
 - T-UGS and Proximity share the declared query-result type; parameter comparison covers eleven current detector values and keeps MTN-55 timing as a comparison clue only.

@@ -1,0 +1,175 @@
+{
+  "lead": "Vehicle passive-ability and EmergencyDamageControl chain mappings",
+  "status": "complete",
+  "build": "mixed",
+  "question": "Which authored ownership and identity relations exist between the MBT Enhanced Loading ability, the conditional-passive getter, and the Car EmergencyDamageControl chain?",
+  "sourceFacts": [
+    "MBT PassiveAbility_MBT_EnhancedLoading: root Field_5aec774f -> local1 (Class_e923016e); local1 Field_605f79af[1].Field_6b28f68f imports file b7212109-58ca-a203-bb87-d6d32dcc1cd0 / export 73625636-233e-4ba6-a83e-b6e3696c1212. The 32 bytes are identical to the getter binding1 selected import pair (A69/D41) and differ from binding2 (53ab0db2-...).",
+    "Getter binding 2 targets \"Vehicle Switchable Passive\" (DefaultCategorizationTags object 684), which the Enhanced Loading ability does not list.",
+    "Yes, at serialized identity level, with both file and export GUIDs matching at each of three cross-file boundaries: Ability_Car_EmergencyDamageControl (file fe677765-9e0a-4a3c-8be1-d17005f3e199, object 7003eec0...) Field_6cce2f25.Field_d2b8fc26 -> DiceFeature_Aircraft_Ability_EmergencyDamageControl (file 4c078e31..., export c7d65bd5...); that feature Field_d2b8fc26.Field_a07bc334 -> SimEx_Ability_EmergencyDamageControl (file b8f97855..., export 4bccea8b...); SimEx object 1 Field_a2734e52[1].Field_8cf424e7 -> Affector_EmergencyDamageControl_ExtraHeal (file 7b0a1035..., export 431b37d1...). SimEx entry [0] imports a different file (ff88e97d.../9b8f140a...), not examined.",
+    "Class_1486fe7f Field_95eed6ac[0].Field_77f58095: Field_e0b43a29.Field_6b28f68f imports GRX file 9c6f1ab1-1fa9-4ad9-a2d8-b1c6a160afb3 / export 22d26979-eceb-4843-ac29-fba7e6a1d18b with Field_043d7a08 0.0; Field_3202ac10 holds a null reference with Field_043d7a08 70.0; Field_8bba458c 2.0; three booleans false. Field roles and units are NOT established; whether 70.0 or 2.0 is a heal amount, rate, threshold or duration is unknown.",
+    "D44 and D46 share Head 4892087, descriptor 99b49cfd..., wrapper key 77d6463730dcde969d7d7581308ef6ef and nested key afb449bbfa24e2f0b52c207e35a31fd7: exact schema identity within one build. D41 has the same two keys under Head 4909067 / descriptor 4c28ad65...: a cross-build key match only, not build equivalence.",
+    "No. The generated SDK declares Class_e1eb77f0 (own key 62c016e2c829980775109117, TypeInfoGuid e216c062-29c8-0798-7510-9117bfa7f61b, EbxClassMeta namespace MotionMachineShared) with three properties: __Id (CString), Field_ef857f66 (PointerRef) and Field_8ca2d991 (PointerRef to Class_de66f14c, FieldIndex 1, Hash 0x8ca2d991 = -1935484527, offset 40). Member names are the hashed form; no name, direction or provider attribute exists. Immediate base Class_7074a5d5 adds only __Id and Field_bf1ccee0 (UInt32). Matches the A67 descriptor control (field 1787, offset 40, flags 48)."
+  ],
+  "inference": "Authored identity and ownership only. Nothing here establishes what the getter computes, state polarity, activation, the Enhanced Loading effect, the heal amount or health predicate, or Car versus Helicopter applicability.",
+  "unresolved": [
+    "Authored serialized identity only. Does not establish what the getter computes, state polarity, that the tag is evaluated at runtime, or any Enhanced Loading effect.",
+    "Ability file Head labelled via identical SHA256 only; the 1.4.3.5 copy was not freshly captured in this closeout.",
+    "Binding1 vs binding2 distinction is reviewed byte evidence only; binding2 is not connected to Enhanced Loading by this result.",
+    "Authored ownership chain only. Does not establish execution, activation, healed amount, health predicate or vehicle applicability.",
+    "Historical Head 4892087 files; current-head equality not checked.",
+    "Affector scalars 70.0 and 2.0 are unlabelled; no role claimed.",
+    "Key and size identity only; no semantic transfer between boat, Scout and passive bindings.",
+    "No raw game reads, reflection or new decode.",
+    "Worker model/effort not verified.",
+    "Absence of an SDK name is not evidence of absence of meaning: SDK member names are hash-labelled throughout.",
+    "No payload read; the DroneIndex name comes from A67/other evidence, not from this SDK member.",
+    "TRV150 DroneIndex direction and consumer remain unknown."
+  ],
+  "siteImpact": "No site change and no gameplay value established.",
+  "evidence": [
+    {
+      "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-04-overnight-continuation/claude-a71-d52-closeout/result.json",
+      "sha256": "3b5203147c6f4d7f04b99b72fd745bdf7ed58ca99181f3cb22f9178d4f7b8ca3"
+    },
+    {
+      "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-04-overnight-continuation/claude-a70-closeout/result.json",
+      "sha256": "8d2a4381670a362c529358b1d36a11a222f377b5bacf6ade15114a9cba667e31"
+    },
+    {
+      "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-04-overnight-continuation/claude-d48-d50-closeout/d48-result.json",
+      "sha256": "c769e5cbde4dc0c3b9e8242642ca25df023ed7f8dc8beb5e4c2d509d76d5b73e"
+    },
+    {
+      "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-04-overnight-continuation/claude-d48-d50-closeout/d50-result.json",
+      "sha256": "15d7941e7d36e99f3eb4efdbb096006ce7ddf73f75e981f4c5d806a55dba54c2"
+    }
+  ],
+  "rawChecks": [
+    {
+      "label": "MBT EnhancedLoading local1 Field_605f79af[1].Field_6b28f68f import: fileGuid+exportGuid (LE)",
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\PassiveAbilities\\MBT\\PassiveAbility_MBT_EnhancedLoading.ebx",
+      "offset": 794,
+      "bytesHex": "092121b7ca5803a2bb87d6d32dcc1cd0365662733e23a64ba83eb6e3696c1212"
+    },
+    {
+      "label": "Getter binding1 selected import: fileGuid+exportGuid (LE) [A69/D41 row0]",
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\overnight-conditional-passive-state-2026-10-04-root54\\raw\\Common\\Gameplay\\Vehicles\\Expressions\\DiceEx_Vehicle_GetConditionalPassiveAbilityState.ebx",
+      "offset": 2310,
+      "bytesHex": "092121b7ca5803a2bb87d6d32dcc1cd0365662733e23a64ba83eb6e3696c1212"
+    },
+    {
+      "label": "Getter binding2 selected import: fileGuid+exportGuid2 (LE) [A69 row1]",
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\overnight-conditional-passive-state-2026-10-04-root54\\raw\\Common\\Gameplay\\Vehicles\\Expressions\\DiceEx_Vehicle_GetConditionalPassiveAbilityState.ebx",
+      "offset": 2342,
+      "bytesHex": "092121b7ca5803a2bb87d6d32dcc1cd0b20dab536775974e8d74561dabda0023"
+    },
+    {
+      "label": "DefaultCategorizationTags object 214 export GUID (LE)",
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\GameSetup\\GameConfigurations\\DefaultCategorizationTags.ebx",
+      "offset": 11320,
+      "bytesHex": "365662733e23a64ba83eb6e3696c1212"
+    },
+    {
+      "label": "DefaultCategorizationTags object 684 export GUID (LE)",
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\GameSetup\\GameConfigurations\\DefaultCategorizationTags.ebx",
+      "offset": 36056,
+      "bytesHex": "b20dab536775974e8d74561dabda0023"
+    },
+    {
+      "label": "object 214 owned name text \"Vehicle Conditional Passive Ability\u0000\"",
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\GameSetup\\GameConfigurations\\DefaultCategorizationTags.ebx",
+      "offset": 70230,
+      "bytesHex": "56656869636c6520436f6e646974696f6e616c2050617373697665204162696c69747900"
+    },
+    {
+      "label": "object 684 owned name text \"Vehicle Switchable Passive\u0000\"",
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\GameSetup\\GameConfigurations\\DefaultCategorizationTags.ebx",
+      "offset": 72700,
+      "bytesHex": "56656869636c652053776974636861626c65205061737369766500"
+    },
+    {
+      "label": "Car Ability Field_6cce2f25.Field_d2b8fc26 -> DiceFeature",
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer2-2026-09-23\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\Car\\Ability_Car_EmergencyDamageControl.ebx",
+      "offset": 1246,
+      "bytesHex": "318e074c3b2518459bd370694b3db4d3d55bd6c710aa144e9a72d5a36593babf"
+    },
+    {
+      "label": "DiceFeature Field_d2b8fc26.Field_a07bc334 -> SimEx",
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer3-2026-09-23\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\Helicopter\\DiceFeature_Aircraft_Ability_EmergencyDamageControl.ebx",
+      "offset": 558,
+      "bytesHex": "5578f9b8ddca784dbaadd43efb9520d58beacc4b2ac681409bd525a50fdb519b"
+    },
+    {
+      "label": "SimEx Field_a2734e52[1].Field_8cf424e7 -> ExtraHeal affector",
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer4-2026-09-23\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\Helicopter\\SimEx_Ability_EmergencyDamageControl.ebx",
+      "offset": 1732,
+      "bytesHex": "35100a7b2995b5409c04fbebc4920fd6d1371b43a0221b48b421006a05b11e76"
+    }
+  ],
+  "record": {
+    "v": 1,
+    "kind": "mapping",
+    "date": "2026-10-04",
+    "build": "mixed",
+    "assets": [
+      {
+        "path": "Common/Hardware/Vehicles/_VehiclesCommon/Abilities/Car/Ability_Car_EmergencyDamageControl",
+        "format": "raw-ebx",
+        "sha256": "4b2888ec61bd65776062f799a8a19b46173f3139afaa39211c80c46fcfd908b2",
+        "question": "Does the Car EmergencyDamageControl ability select the feature/SimEx that binds the ExtraHeal affector?",
+        "result": "useful",
+        "conclusion": "Field_6cce2f25.Field_d2b8fc26 selects DiceFeature file 4c078e31 / export c7d65bd5 (exact pair)."
+      },
+      {
+        "path": "Common/Hardware/Vehicles/_VehiclesCommon/Abilities/Helicopter/DiceFeature_Aircraft_Ability_EmergencyDamageControl",
+        "format": "raw-ebx",
+        "sha256": "eb6e00f9ab7ef06a2a6d3d155d16072cdb51eb00314c7ce9134054ee9563c3f5",
+        "question": "Does the Car EmergencyDamageControl ability select the feature/SimEx that binds the ExtraHeal affector?",
+        "result": "useful",
+        "conclusion": "Field_d2b8fc26.Field_a07bc334 selects SimEx file b8f97855 / export 4bccea8b (exact pair)."
+      },
+      {
+        "path": "Common/Hardware/Vehicles/_VehiclesCommon/Abilities/Helicopter/SimEx_Ability_EmergencyDamageControl",
+        "format": "raw-ebx",
+        "sha256": "3b61d4fdd8b6f2b5394aafae6f84f53e36a21d842efceca07ea99cf324071cb9",
+        "question": "Does the Car EmergencyDamageControl ability select the feature/SimEx that binds the ExtraHeal affector?",
+        "result": "useful",
+        "conclusion": "Object 1 Field_a2734e52[1].Field_8cf424e7 selects the ExtraHeal affector file 7b0a1035 / export 431b37d1 (exact pair)."
+      },
+      {
+        "path": "Common/Hardware/Vehicles/_VehiclesCommon/Abilities/Helicopter/Affector_EmergencyDamageControl_ExtraHeal",
+        "format": "raw-ebx",
+        "sha256": "c8624318c31534ca734e37e1bf507556c1e42a428a39425e886bd3baa78924df",
+        "question": "Does the Car EmergencyDamageControl ability select the feature/SimEx that binds the ExtraHeal affector?",
+        "result": "useful",
+        "conclusion": "Affector body holds unlabelled scalars 70.0 and 2.0 and an import to GRX_Vehicles; roles and units unknown."
+      },
+      {
+        "path": "Common/Hardware/Vehicles/_VehiclesCommon/PassiveAbilities/MBT/PassiveAbility_MBT_EnhancedLoading",
+        "format": "raw-ebx",
+        "sha256": "0424b0a81e7ac88abc19847cbb69b575aa695c3de9ffed84855cb4958974f6df",
+        "question": "Do the MBT Enhanced Loading ability and the conditional-passive getter share the exact serialized tag identity?",
+        "result": "useful",
+        "conclusion": "Local1 Field_605f79af[1] imports DefaultCategorizationTags file b7212109 / export 73625636, byte-identical to getter binding 1."
+      },
+      {
+        "path": "Common/GameSetup/GameConfigurations/DefaultCategorizationTags",
+        "format": "raw-ebx",
+        "sha256": "dcc2ec7d2b6d8050bab656268492f8e1b93947b80bb7031a3a1b624a39f6c55b",
+        "question": "Do the MBT Enhanced Loading ability and the conditional-passive getter share the exact serialized tag identity?",
+        "result": "useful",
+        "conclusion": "Object 214 is \"Vehicle Conditional Passive Ability\"; object 684 is \"Vehicle Switchable Passive\"; file GUID b7212109."
+      },
+      {
+        "path": "Common/Gameplay/Vehicles/Expressions/DiceEx_Vehicle_GetConditionalPassiveAbilityState",
+        "format": "raw-ebx",
+        "sha256": "92b46ed2f9d89c45d00ed378bf00d9562b439fa88094dd0ad1de4d5a68e8d84f",
+        "question": "Do the MBT Enhanced Loading ability and the conditional-passive getter share the exact serialized tag identity?",
+        "result": "useful",
+        "conclusion": "Getter binding 1 import pair at 2310 equals the ability pair; binding 2 pair at 2342 targets object 684."
+      }
+    ],
+    "binding": "research"
+  }
+}

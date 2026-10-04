@@ -1,0 +1,56 @@
+{
+  "lead": "Squad revive file GUID catalog lookup",
+  "status": "complete",
+  "build": "mixed",
+  "question": "Can the missing Squad revive file d0a2de18-a7b2-4c3c-9e87-aff6ddc8a180 be routed from a catalog and captured safely?",
+  "sourceFacts": [
+    "No. None of the six retained asset catalogs (Heads 4420709 to 4909067) lists a file with GUID d0a2de18-a7b2-4c3c-9e87-aff6ddc8a180 in any of five string/byte-order forms, nor any GUID starting d0a2de18. The three other unresolved caller-table GUIDs are also absent from all six. Positive controls (DefaultCategorizationTags and GRX_Vehicles) resolve to their expected routes in every catalog. The two selected child export GUIDs are not file GUIDs in any catalog (expected: they are exports inside the missing file).",
+    "The capture script takes catalog routes, so there is no route to supply. No Frosty process or capture was started; the capture lock and build record were not touched."
+  ],
+  "inference": "The file cannot be routed from any retained catalog, so no capture was attempted. This is a lookup limit, not evidence that the file does not exist.",
+  "unresolved": [
+    "Absence from the EBX asset catalog is not proof the file does not exist in the game: it may live outside the EBX catalog or in a bundle Frosty does not list.",
+    "Catalogs are Frosty asset-record lists, not a game-wide index.",
+    "No claim about revive mechanics follows.",
+    "Revive mechanics (speed, health restored) remain as already recorded."
+  ],
+  "siteImpact": "No site change.",
+  "reopenWhen": "A catalog from a new build or a different Frosty listing resolves the GUID, or the file is found by another route (for example a caller-side path name).",
+  "evidence": [
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-04-overnight-continuation\\claude-squad-revive-guid-lookup\\result.json",
+      "sha256": "6d0b00253247e1de1ce1bcba5a86aaece3bfea734d92db1791d61ebc0ac6464f"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.2.5\\capture\\collection\\asset-catalog.json",
+      "sha256": "84b3b8c1916578b9b59613b3e0252842206da80e30dd98e4f8257ddda7e845a1"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\asset-catalog.json",
+      "sha256": "815ef184c8530d1d70a7a6d4c4793eb49e2372be6ca54325571e6b419c2addc5"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\pre-update-1.4.3.1-2026-09-29\\collection\\asset-catalog.json",
+      "sha256": "0461174af21f2faa8877afb12ea7e77dcff210aac9aba22f1ba4b86f45021315"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\1.4.3.5-check-2026-09-30\\collection\\asset-catalog.json",
+      "sha256": "545fb7dc8db862ad0015af63d33876216eafbd6be6ad7930e8fa756cf301b82d"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\asset-catalog.json",
+      "sha256": "0af8caa1fe9f91ac1653e548e5315f21383898a2240934b2f0919336425a6c7c"
+    },
+    {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\asset-catalog.json",
+      "sha256": "91315bc1878068f6720201943d7d4c5d156cd2062d70079cd3452bb764f9dacf"
+    }
+  ],
+  "record": {
+    "v": 1,
+    "kind": "audit",
+    "date": "2026-10-04",
+    "build": "mixed",
+    "binding": "research"
+  }
+}
