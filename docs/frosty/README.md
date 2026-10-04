@@ -14,6 +14,7 @@ what the hashed fields mean, how the assets link to site values, and what is sti
 | [Gadgets](GADGETS.md) | Gadget UI and EA statements, stored source values, repair, healing, protection, deployment and detection findings, gadget projectiles. |
 | [Tools](TOOLS.md) | FrostyCmd, safety rules, SDK and decoder, export coverage, per-build collection, generators. |
 | [Open questions](OPEN_QUESTIONS.md) | Everything still unresolved, with the suggested test. |
+| [Research practices](RESEARCH_PRACTICES.md) | How runs are planned, staffed, checked and recorded: principles, lessons learned, and the orchestrator, researcher, worker and reviewer roles. |
 
 Research status: [active source leads, proposals and parked questions](../working/FROSTY_RESEARCH_QUEUE.md).
 Gadget research for future site additions: [gadget leads and proposals](../working/GADGET_SITE_ADDITIONS.md).
