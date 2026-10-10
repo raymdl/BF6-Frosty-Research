@@ -1,0 +1,449 @@
+{
+ "lead": "L3373",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Read from saved raw captures; no export, no new capture."
+ },
+ "question": "After the machine gun velocity exception (L3371), does the registry-first rule hold for the other firing properties of vehicle weapons?",
+ "sourceFacts": {
+  "method": "Every WF_Vehicles_* firing file was decoded and the own RateOfFire (Field_f8822efa/Field_14c4a054), MagazineCapacity (Field_4cc9e2ed/Field_7f22bfb4) and HeatPerBullet (Field_72a2b562) read with raw offsets, then compared with the registry default of the row of the same name. Differences were set beside EA's 1.3.1.0 and 1.3.3.0 notes.",
+  "control": {
+   "description": "RateOfFire is equal in file and registry for 42 objects and MagazineCapacity for 46, including the tank cannon and the machine guns apart from the coaxial LMG.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\AA\\WF_Vehicles_AA_PrimaryWeapon_AAHV.ebx",
+     "rawSha256": "bd9a312b96254844320e38db004f78be60eda4947e66b0324b0d5db7a849cef4",
+     "offset": 1328,
+     "type": "f32",
+     "bytesHex": "31082c3d",
+     "value": 0.041999999433755875,
+     "expect": 0.042,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 256628,
+     "type": "f32",
+     "bytesHex": "bc74133d",
+     "value": 0.035999998450279236,
+     "expect": 0.036,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\AA\\WF_Vehicles_AA_SecondaryWeapon_AimGuidedMissile.ebx",
+     "rawSha256": "1338510d0d2800e70ebb0a51d471e68cc91a6b42e245f2ae9869bd96a0434c57",
+     "offset": 912,
+     "type": "i32",
+     "bytesHex": "02000000",
+     "value": 2,
+     "expect": 2,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 421260,
+     "type": "i32",
+     "bytesHex": "01000000",
+     "value": 1,
+     "expect": 1,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\Airplane\\WF_Vehicles_Airplane_Bomb_Mk82AIR.ebx",
+     "rawSha256": "d57df11a9eb8494a5ba481117b2233b8bc84476c376d7af537d8d9acbe984c79",
+     "offset": 1248,
+     "type": "f32",
+     "bytesHex": "00009643",
+     "value": 300.0,
+     "expect": 300.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 455948,
+     "type": "f32",
+     "bytesHex": "00009644",
+     "value": 1200.0,
+     "expect": 1200.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\IFV\\WF_Vehicles_IFV_PrimaryWeapon_APFSDST.ebx",
+     "rawSha256": "b67d73af08d8f35c3c321c112191f2e34f4283fc41601c721ae9e2ad379b68e3",
+     "offset": 1968,
+     "type": "f32",
+     "bytesHex": "00004843",
+     "value": 200.0,
+     "expect": 200.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 240436,
+     "type": "f32",
+     "bytesHex": "00002043",
+     "value": 160.0,
+     "expect": 160.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\IFV\\WF_Vehicles_IFV_PrimaryWeapon_APFSDST.ebx",
+     "rawSha256": "b67d73af08d8f35c3c321c112191f2e34f4283fc41601c721ae9e2ad379b68e3",
+     "offset": 2096,
+     "type": "i32",
+     "bytesHex": "0c000000",
+     "value": 12,
+     "expect": 12,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 21956,
+     "type": "i32",
+     "bytesHex": "0a000000",
+     "value": 10,
+     "expect": 10,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\IFV\\WF_Vehicles_IFV_PrimaryWeapon_Canister.ebx",
+     "rawSha256": "2648195bf5eb81bb066996ff8a3d4a74567a037eea7bf41eb46f71badfe4554d",
+     "offset": 1888,
+     "type": "f32",
+     "bytesHex": "00004843",
+     "value": 200.0,
+     "expect": 200.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 120900,
+     "type": "f32",
+     "bytesHex": "00007043",
+     "value": 240.0,
+     "expect": 240.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\IFV\\WF_Vehicles_IFV_PrimaryWeapon_Canister.ebx",
+     "rawSha256": "2648195bf5eb81bb066996ff8a3d4a74567a037eea7bf41eb46f71badfe4554d",
+     "offset": 2016,
+     "type": "i32",
+     "bytesHex": "0c000000",
+     "value": 12,
+     "expect": 12,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 43740,
+     "type": "i32",
+     "bytesHex": "10000000",
+     "value": 16,
+     "expect": 16,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\IFV\\WF_Vehicles_IFV_PrimaryWeapon_HEAB.ebx",
+     "rawSha256": "3acadbd4dc5f83c622f884e5e6a5582313225f2c6646d1ed1f4702dc8d78b8c8",
+     "offset": 1296,
+     "type": "f32",
+     "bytesHex": "00004843",
+     "value": 200.0,
+     "expect": 200.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 268580,
+     "type": "f32",
+     "bytesHex": "00003443",
+     "value": 180.0,
+     "expect": 180.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\MBT\\WF_Vehicles_MBT_SecondaryWeapon_CoaxLMG.ebx",
+     "rawSha256": "611b7853c6d26e58855b3bada87290c903982c840ad2e24c8a3143d6e13d4cb0",
+     "offset": 1600,
+     "type": "f32",
+     "bytesHex": "00002f44",
+     "value": 700.0,
+     "expect": 700.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 223284,
+     "type": "f32",
+     "bytesHex": "00003444",
+     "value": 720.0,
+     "expect": 720.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\ScoutHeli\\WF_Vehicles_ScoutHeli_Passenger_PrimaryWeapon_ThermalScanner.ebx",
+     "rawSha256": "cdd1b83bfad033eaf7558087b4618b39bc49a63828de98e481410d36b6805268",
+     "offset": 2448,
+     "type": "f32",
+     "bytesHex": "00006145",
+     "value": 3600.0,
+     "expect": 3600.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 490236,
+     "type": "f32",
+     "bytesHex": "00009643",
+     "value": 300.0,
+     "expect": 300.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\ScoutHeli\\WF_Vehicles_ScoutHeli_PrimaryWeapon_Minigun.ebx",
+     "rawSha256": "f087b42d506c5d7774208528b48e5a9bc0ec12cd897a4558bc6bc7556a58b9f2",
+     "offset": 1168,
+     "type": "f32",
+     "bytesHex": "7e73da3b",
+     "value": 0.006666599772870541,
+     "expect": 0.006667,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 203300,
+     "type": "f32",
+     "bytesHex": "54a2113c",
+     "value": 0.00888879969716072,
+     "expect": 0.008889,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 22,
+   "matched": 22,
+   "files": 10,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "rawchecks-L3373.json"
+  },
+  "dataset": "reference-data/frosty/vehicle-weapon-own-vs-registry.json",
+  "counts": {
+   "RateOfFire": {
+    "equal": 42,
+    "different": 6,
+    "noRow": 20
+   },
+   "MagazineCapacity": {
+    "equal": 46,
+    "different": 3,
+    "noRow": 19
+   },
+   "HeatPerBullet": {
+    "equal": 12,
+    "different": 2,
+    "noRow": 54
+   }
+  },
+  "different": [
+   {
+    "file": "WF_Vehicles_AA_PrimaryWeapon_AAHV",
+    "object": 4,
+    "property": "HeatPerBullet",
+    "own": 0.042,
+    "ownOffset": 1328,
+    "registryDefault": 0.036,
+    "ea": "1.3.3.0: heat per bullet 4.2% to 3.6%",
+    "ownEqualsEaOld": true,
+    "registryEqualsEaNew": true
+   },
+   {
+    "file": "WF_Vehicles_AA_SecondaryWeapon_AimGuidedMissile",
+    "object": 1,
+    "property": "MagazineCapacity",
+    "own": 2,
+    "ownOffset": 912,
+    "registryDefault": 1.0,
+    "ea": null,
+    "ownEqualsEaOld": false,
+    "registryEqualsEaNew": false
+   },
+   {
+    "file": "WF_Vehicles_Airplane_Bomb_Mk82AIR",
+    "object": 6,
+    "property": "RateOfFire",
+    "own": 300.0,
+    "ownOffset": 1248,
+    "registryDefault": 1200.0,
+    "ea": null,
+    "ownEqualsEaOld": false,
+    "registryEqualsEaNew": false
+   },
+   {
+    "file": "WF_Vehicles_IFV_PrimaryWeapon_APFSDST",
+    "object": 6,
+    "property": "RateOfFire",
+    "own": 200.0,
+    "ownOffset": 1968,
+    "registryDefault": 160.0,
+    "ea": "1.3.1.0: 200 to 120; 1.3.3.0: 120 to 160",
+    "ownEqualsEaOld": true,
+    "registryEqualsEaNew": true
+   },
+   {
+    "file": "WF_Vehicles_IFV_PrimaryWeapon_APFSDST",
+    "object": 6,
+    "property": "MagazineCapacity",
+    "own": 12,
+    "ownOffset": 2096,
+    "registryDefault": 10.0,
+    "ea": "1.3.1.0: 12 to 10",
+    "ownEqualsEaOld": true,
+    "registryEqualsEaNew": true
+   },
+   {
+    "file": "WF_Vehicles_IFV_PrimaryWeapon_Canister",
+    "object": 9,
+    "property": "RateOfFire",
+    "own": 200.0,
+    "ownOffset": 1888,
+    "registryDefault": 240.0,
+    "ea": "1.3.1.0: 200 to 240",
+    "ownEqualsEaOld": true,
+    "registryEqualsEaNew": true
+   },
+   {
+    "file": "WF_Vehicles_IFV_PrimaryWeapon_Canister",
+    "object": 9,
+    "property": "MagazineCapacity",
+    "own": 12,
+    "ownOffset": 2016,
+    "registryDefault": 16.0,
+    "ea": "1.3.1.0: 12 to 16",
+    "ownEqualsEaOld": true,
+    "registryEqualsEaNew": true
+   },
+   {
+    "file": "WF_Vehicles_IFV_PrimaryWeapon_HEAB",
+    "object": 2,
+    "property": "RateOfFire",
+    "own": 200.0,
+    "ownOffset": 1296,
+    "registryDefault": 180.0,
+    "ea": "1.3.1.0: 200 to 180",
+    "ownEqualsEaOld": true,
+    "registryEqualsEaNew": true
+   },
+   {
+    "file": "WF_Vehicles_MBT_SecondaryWeapon_CoaxLMG",
+    "object": 3,
+    "property": "RateOfFire",
+    "own": 700.0,
+    "ownOffset": 1600,
+    "registryDefault": 720.0,
+    "ea": null,
+    "ownEqualsEaOld": false,
+    "registryEqualsEaNew": false
+   },
+   {
+    "file": "WF_Vehicles_ScoutHeli_Passenger_PrimaryWeapon_ThermalScanner",
+    "object": 4,
+    "property": "RateOfFire",
+    "own": 3600.0,
+    "ownOffset": 2448,
+    "registryDefault": 300.0,
+    "ea": null,
+    "ownEqualsEaOld": false,
+    "registryEqualsEaNew": false
+   },
+   {
+    "file": "WF_Vehicles_ScoutHeli_PrimaryWeapon_Minigun",
+    "object": 3,
+    "property": "HeatPerBullet",
+    "own": 0.006667,
+    "ownOffset": 1168,
+    "registryDefault": 0.008889,
+    "ea": null,
+    "ownEqualsEaOld": false,
+    "registryEqualsEaNew": false
+   }
+  ]
+ },
+ "inference": [
+  "Six of the 11 differences have an EA figure (IFV AP, canister and HE rounds; High Velocity anti-air heat). In all six the registry default is EA's new number and the own value EA's old one. For these properties the registry-first rule of L3356 holds without exception.",
+  "The machine gun velocity of L3371 therefore stands alone as the case where the file is newer than the registry.",
+  "Five differences have no EA line: Aim-Guided Missile magazine (file 2, registry 1), Mk 82 bomb rate (300, 1200), coaxial LMG rate (700, 720), Thermal Scanner rate (3600, 300) and Scout Helicopter minigun heat per bullet (0.006667, 0.008889, that is 150 or 112 shots to overheat). By the rule the registry value is the current one; unconfirmed.",
+  "Most heat rows have no registry row (54 objects); for those the own value is the only source."
+ ],
+ "unresolved": [
+  "Scout Helicopter minigun: count shots to overheat (112 expected from the registry, 150 from the file).",
+  "Mobile anti-air Aim-Guided Missile: missiles per reload (1 or 2)."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-09-damage-rule-extension",
+  "artifacts": [
+   {
+    "file": "manifest-L3373.json",
+    "sha256": "15e352518b3b02f3a58cc3ede0f2a65d8fc5d5d43e3c4e5e9a264baac277bf1c"
+   },
+   {
+    "file": "rawchecks-L3373.json",
+    "sha256": "c659e91dc28bd000119cd274715fa23fd605fa5692e2e07557488b6d86a9fb8f"
+   },
+   {
+    "file": "ownsurvey.py",
+    "sha256": "ff58d3332c108bd78d856b2cf0c54000baa49a18f021185f12c5cf8f3e304a87"
+   },
+   {
+    "file": "ownsurvey.json",
+    "sha256": "4c0cb8c8a691f38850cfba3c63a9d1028612097d6d6eda908fd52a0589eac3c0"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-09",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L3373",
+    "title": "Rate of fire, magazine capacity and heat per bullet in file and registry for all vehicle weapons: 11 differences, and all six with an EA figure have the new value in the registry",
+    "status": "finding",
+    "summary": "Across all vehicle weapon files, rate of fire, magazine capacity and heat per bullet agree between file and registry except in 11 places. The six that EA's notes cover all have EA's new number in the registry and the old one in the file, so the registry-first rule holds for these properties; the machine gun velocity of L3371 is the lone exception. 22 raw-offset checks matched.",
+    "reopenWhen": "An in-game overheat count for the Scout Helicopter minigun.",
+    "statusNote": "Survey complete; five differences have no EA figure."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/ScoutHeli/WF_Vehicles_ScoutHeli_PrimaryWeapon_Minigun",
+    "format": "raw-ebx",
+    "sha256": "f087b42d506c5d7774208528b48e5a9bc0ec12cd897a4558bc6bc7556a58b9f2",
+    "question": "After the machine gun velocity exception (L3371), does the registry-first rule hold for the other firing properties of vehicle weapons?",
+    "result": "useful",
+    "conclusion": "Own heat per bullet 0.006667; registry default 0.008889."
+   }
+  ]
+ }
+}

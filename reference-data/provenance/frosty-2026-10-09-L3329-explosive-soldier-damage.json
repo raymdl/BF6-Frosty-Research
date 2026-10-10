@@ -1,0 +1,2967 @@
+{
+ "lead": "L3329",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Read from the saved raw capture with the L3207 cell reader and the EBX decoder; no export, no new capture."
+ },
+ "question": "What do stored blast damage, the material grid and the flak multipliers of L3315 give for explosive damage to a soldier?",
+ "sourceFacts": {
+  "method": "For each of 26 explosion objects the blast damage (registry default where a row exists, otherwise the asset's own value) and the explosion material were read, and Field_674633de for that material against the soldier materials 24, 25 and 26 of the hit-zone record. The product was multiplied by the three flak multipliers of L3315. EA's 1.3.1.0 and 1.3.3.0 statements about lethal radius and minimum explosive damage were compared with the registry radius rows.",
+  "control": {
+   "description": "EA: the aim-guided shell remains lethal within 2 m. Stored: blast damage 200, grid value 1, inner radius 1 m, radius 3 m; a straight-line falloff gives exactly 100 at 2 m. One control fits and one EA statement (HEAT-MP-T lethal radius 1.25 m) does not.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\MBT\\PD_Vehicles_MBT_AmmoTypes_HE.ebx",
+     "rawSha256": "0f4ffe732b5590e74ab225963bd9891d76218223677d8ccab19aab42fd555bc4",
+     "offset": 612,
+     "type": "f32",
+     "bytesHex": "0000dc42",
+     "value": 110.0,
+     "expect": 110.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\MBT\\PD_Vehicles_MBT_AmmoTypes_HE.ebx",
+     "rawSha256": "0f4ffe732b5590e74ab225963bd9891d76218223677d8ccab19aab42fd555bc4",
+     "offset": 336,
+     "type": "u32",
+     "bytesHex": "8000d007",
+     "value": 131072128,
+     "expect": 131072128,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\MBT\\PD_Vehicles_MBT_AmmoTypes_HE.ebx",
+     "rawSha256": "0f4ffe732b5590e74ab225963bd9891d76218223677d8ccab19aab42fd555bc4",
+     "offset": 1264,
+     "type": "f32",
+     "bytesHex": "0000f042",
+     "value": 120.0,
+     "expect": 120.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\MBT\\PD_Vehicles_MBT_AmmoTypes_HE.ebx",
+     "rawSha256": "0f4ffe732b5590e74ab225963bd9891d76218223677d8ccab19aab42fd555bc4",
+     "offset": 1168,
+     "type": "u32",
+     "bytesHex": "80152008",
+     "value": 136320384,
+     "expect": 136320384,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\MBT\\PD_Vehicles_MBT_AmmoTypes_MPAT.ebx",
+     "rawSha256": "753e798a1473f868e3768ea1c0cd9c8a424c9bfcde2bcb80ce21475edd3052a9",
+     "offset": 868,
+     "type": "f32",
+     "bytesHex": "00000743",
+     "value": 135.0,
+     "expect": 135.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\MBT\\PD_Vehicles_MBT_AmmoTypes_MPAT.ebx",
+     "rawSha256": "753e798a1473f868e3768ea1c0cd9c8a424c9bfcde2bcb80ce21475edd3052a9",
+     "offset": 592,
+     "type": "u32",
+     "bytesHex": "8000d007",
+     "value": 131072128,
+     "expect": 131072128,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\MBT\\PD_Vehicles_MBT_AmmoTypes_MPAT.ebx",
+     "rawSha256": "753e798a1473f868e3768ea1c0cd9c8a424c9bfcde2bcb80ce21475edd3052a9",
+     "offset": 1392,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\MBT\\PD_Vehicles_MBT_AmmoTypes_MPAT.ebx",
+     "rawSha256": "753e798a1473f868e3768ea1c0cd9c8a424c9bfcde2bcb80ce21475edd3052a9",
+     "offset": 1296,
+     "type": "u32",
+     "bytesHex": "80152008",
+     "value": 136320384,
+     "expect": 136320384,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Missile\\TOW2B\\PB_Missile_MBT_GuidedMunition.ebx",
+     "rawSha256": "209c624e85f4524c40f9c771b17b338fd3fe9a4ec802f8f56c28bbc103993e73",
+     "offset": 868,
+     "type": "f32",
+     "bytesHex": "0000fa42",
+     "value": 125.0,
+     "expect": 125.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Missile\\TOW2B\\PB_Missile_MBT_GuidedMunition.ebx",
+     "rawSha256": "209c624e85f4524c40f9c771b17b338fd3fe9a4ec802f8f56c28bbc103993e73",
+     "offset": 416,
+     "type": "u32",
+     "bytesHex": "8000f01a",
+     "value": 451936384,
+     "expect": 451936384,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Missile\\TOW2B\\PB_Missile_MBT_GuidedMunition.ebx",
+     "rawSha256": "209c624e85f4524c40f9c771b17b338fd3fe9a4ec802f8f56c28bbc103993e73",
+     "offset": 1760,
+     "type": "f32",
+     "bytesHex": "00004843",
+     "value": 200.0,
+     "expect": 200.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Missile\\TOW2B\\PB_Missile_MBT_GuidedMunition.ebx",
+     "rawSha256": "209c624e85f4524c40f9c771b17b338fd3fe9a4ec802f8f56c28bbc103993e73",
+     "offset": 1664,
+     "type": "u32",
+     "bytesHex": "80152008",
+     "value": 136320384,
+     "expect": 136320384,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\IFV\\PD_Vehicles_IFV_PrimaryWeapon_HEAB.ebx",
+     "rawSha256": "696122bd63f33fce281905f0ca8660dd93f7a3b5338a94270f2a9178f18a5e72",
+     "offset": 640,
+     "type": "f32",
+     "bytesHex": "00002042",
+     "value": 40.0,
+     "expect": 40.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\IFV\\PD_Vehicles_IFV_PrimaryWeapon_HEAB.ebx",
+     "rawSha256": "696122bd63f33fce281905f0ca8660dd93f7a3b5338a94270f2a9178f18a5e72",
+     "offset": 544,
+     "type": "u32",
+     "bytesHex": "80a11108",
+     "value": 135373184,
+     "expect": 135373184,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\IFV\\PD_Vehicles_IFV_PrimaryWeapon_HEAB.ebx",
+     "rawSha256": "696122bd63f33fce281905f0ca8660dd93f7a3b5338a94270f2a9178f18a5e72",
+     "offset": 1460,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\IFV\\PD_Vehicles_IFV_PrimaryWeapon_HEAB.ebx",
+     "rawSha256": "696122bd63f33fce281905f0ca8660dd93f7a3b5338a94270f2a9178f18a5e72",
+     "offset": 1184,
+     "type": "u32",
+     "bytesHex": "8038b01c",
+     "value": 481310848,
+     "expect": 481310848,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\IFV\\PD_Vehicles_IFV_PrimaryWeapon_MPLD.ebx",
+     "rawSha256": "edf714d9e7296b78e6cf9fdc61aa789329dad0bac179028fb1d8fc2a2b2faec5",
+     "offset": 656,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\IFV\\PD_Vehicles_IFV_PrimaryWeapon_MPLD.ebx",
+     "rawSha256": "edf714d9e7296b78e6cf9fdc61aa789329dad0bac179028fb1d8fc2a2b2faec5",
+     "offset": 376,
+     "type": "u32",
+     "bytesHex": "8038e007",
+     "value": 132135040,
+     "expect": 132135040,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\IFV\\PD_Vehicles_IFV_PrimaryWeapon_MPLD.ebx",
+     "rawSha256": "edf714d9e7296b78e6cf9fdc61aa789329dad0bac179028fb1d8fc2a2b2faec5",
+     "offset": 1204,
+     "type": "f32",
+     "bytesHex": "0000f041",
+     "value": 30.0,
+     "expect": 30.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\IFV\\PD_Vehicles_IFV_PrimaryWeapon_MPLD.ebx",
+     "rawSha256": "edf714d9e7296b78e6cf9fdc61aa789329dad0bac179028fb1d8fc2a2b2faec5",
+     "offset": 1120,
+     "type": "u32",
+     "bytesHex": "80a21108",
+     "value": 135373440,
+     "expect": 135373440,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\IFV\\PD_Vehicles_IFV_SecondaryWeapon_LightRockets.ebx",
+     "rawSha256": "df382463407d3d9c1dd4c0ed5848edde5802d2df5abb04aeb7d8c8cd3d34972e",
+     "offset": 676,
+     "type": "f32",
+     "bytesHex": "00004842",
+     "value": 50.0,
+     "expect": 50.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\IFV\\PD_Vehicles_IFV_SecondaryWeapon_LightRockets.ebx",
+     "rawSha256": "df382463407d3d9c1dd4c0ed5848edde5802d2df5abb04aeb7d8c8cd3d34972e",
+     "offset": 400,
+     "type": "u32",
+     "bytesHex": "8000d007",
+     "value": 131072128,
+     "expect": 131072128,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\IFV\\PD_Vehicles_IFV_SecondaryWeapon_LightRockets.ebx",
+     "rawSha256": "df382463407d3d9c1dd4c0ed5848edde5802d2df5abb04aeb7d8c8cd3d34972e",
+     "offset": 1200,
+     "type": "f32",
+     "bytesHex": "00005c42",
+     "value": 55.0,
+     "expect": 55.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\IFV\\PD_Vehicles_IFV_SecondaryWeapon_LightRockets.ebx",
+     "rawSha256": "df382463407d3d9c1dd4c0ed5848edde5802d2df5abb04aeb7d8c8cd3d34972e",
+     "offset": 1104,
+     "type": "u32",
+     "bytesHex": "80212008",
+     "value": 136323456,
+     "expect": 136323456,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Missile\\TOW2B\\PB_Missile_TOW2B.ebx",
+     "rawSha256": "da25296d96d4e29600e6b16239f62bca556558f359be5a9552693383841fa973",
+     "offset": 868,
+     "type": "f32",
+     "bytesHex": "00001643",
+     "value": 150.0,
+     "expect": 150.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Missile\\TOW2B\\PB_Missile_TOW2B.ebx",
+     "rawSha256": "da25296d96d4e29600e6b16239f62bca556558f359be5a9552693383841fa973",
+     "offset": 416,
+     "type": "u32",
+     "bytesHex": "8000e01a",
+     "value": 450887808,
+     "expect": 450887808,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Missile\\TOW2B\\PB_Missile_TOW2B.ebx",
+     "rawSha256": "da25296d96d4e29600e6b16239f62bca556558f359be5a9552693383841fa973",
+     "offset": 1760,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Missile\\TOW2B\\PB_Missile_TOW2B.ebx",
+     "rawSha256": "da25296d96d4e29600e6b16239f62bca556558f359be5a9552693383841fa973",
+     "offset": 1664,
+     "type": "u32",
+     "bytesHex": "80152008",
+     "value": 136320384,
+     "expect": 136320384,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Missile\\Spike\\PB_ATGM_Homing_Spike.ebx",
+     "rawSha256": "46fa12309b3c363321bb7938c7edfae14aa373302607050a756e9f829ba98f29",
+     "offset": 868,
+     "type": "f32",
+     "bytesHex": "00007a43",
+     "value": 250.0,
+     "expect": 250.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Missile\\Spike\\PB_ATGM_Homing_Spike.ebx",
+     "rawSha256": "46fa12309b3c363321bb7938c7edfae14aa373302607050a756e9f829ba98f29",
+     "offset": 416,
+     "type": "u32",
+     "bytesHex": "8000b028",
+     "value": 682623104,
+     "expect": 682623104,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Missile\\Spike\\PB_ATGM_Homing_Spike.ebx",
+     "rawSha256": "46fa12309b3c363321bb7938c7edfae14aa373302607050a756e9f829ba98f29",
+     "offset": 1472,
+     "type": "f32",
+     "bytesHex": "00003443",
+     "value": 180.0,
+     "expect": 180.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Missile\\Spike\\PB_ATGM_Homing_Spike.ebx",
+     "rawSha256": "46fa12309b3c363321bb7938c7edfae14aa373302607050a756e9f829ba98f29",
+     "offset": 1376,
+     "type": "u32",
+     "bytesHex": "8015a028",
+     "value": 681579904,
+     "expect": 681579904,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Rocket\\Hydra\\PRJ_Missile_Hydra70.ebx",
+     "rawSha256": "ef49b0803dde21d5f5ffb01a6c2730e14ec7c0f6e2999fb66a0b9c25cc971e44",
+     "offset": 868,
+     "type": "f32",
+     "bytesHex": "00007041",
+     "value": 15.0,
+     "expect": 15.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Rocket\\Hydra\\PRJ_Missile_Hydra70.ebx",
+     "rawSha256": "ef49b0803dde21d5f5ffb01a6c2730e14ec7c0f6e2999fb66a0b9c25cc971e44",
+     "offset": 416,
+     "type": "u32",
+     "bytesHex": "8000d007",
+     "value": 131072128,
+     "expect": 131072128,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Rocket\\Hydra\\PRJ_Missile_Hydra70.ebx",
+     "rawSha256": "ef49b0803dde21d5f5ffb01a6c2730e14ec7c0f6e2999fb66a0b9c25cc971e44",
+     "offset": 1760,
+     "type": "f32",
+     "bytesHex": "0000b442",
+     "value": 90.0,
+     "expect": 90.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Rocket\\Hydra\\PRJ_Missile_Hydra70.ebx",
+     "rawSha256": "ef49b0803dde21d5f5ffb01a6c2730e14ec7c0f6e2999fb66a0b9c25cc971e44",
+     "offset": 1664,
+     "type": "u32",
+     "bytesHex": "8021f024",
+     "value": 619716992,
+     "expect": 619716992,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Rocket\\APKWS\\PRJ_Missile_APKWS-II.ebx",
+     "rawSha256": "a930e824369d8112bfcc72b0e27182d7d4c7c3d560d362b5ca977e28aae9b2b6",
+     "offset": 868,
+     "type": "f32",
+     "bytesHex": "00007041",
+     "value": 15.0,
+     "expect": 15.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Rocket\\APKWS\\PRJ_Missile_APKWS-II.ebx",
+     "rawSha256": "a930e824369d8112bfcc72b0e27182d7d4c7c3d560d362b5ca977e28aae9b2b6",
+     "offset": 416,
+     "type": "u32",
+     "bytesHex": "8000e01a",
+     "value": 450887808,
+     "expect": 450887808,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Rocket\\APKWS\\PRJ_Missile_APKWS-II.ebx",
+     "rawSha256": "a930e824369d8112bfcc72b0e27182d7d4c7c3d560d362b5ca977e28aae9b2b6",
+     "offset": 1760,
+     "type": "f32",
+     "bytesHex": "0000b442",
+     "value": 90.0,
+     "expect": 90.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Rocket\\APKWS\\PRJ_Missile_APKWS-II.ebx",
+     "rawSha256": "a930e824369d8112bfcc72b0e27182d7d4c7c3d560d362b5ca977e28aae9b2b6",
+     "offset": 1664,
+     "type": "u32",
+     "bytesHex": "8021f024",
+     "value": 619716992,
+     "expect": 619716992,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Rocket\\Zuni\\PRJ_Missile_Zuni.ebx",
+     "rawSha256": "c39eb64ea6c969479ab4c04d1a091d80746ef359cf1fec5799349c09cd183c87",
+     "offset": 868,
+     "type": "f32",
+     "bytesHex": "00008c42",
+     "value": 70.0,
+     "expect": 70.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Rocket\\Zuni\\PRJ_Missile_Zuni.ebx",
+     "rawSha256": "c39eb64ea6c969479ab4c04d1a091d80746ef359cf1fec5799349c09cd183c87",
+     "offset": 416,
+     "type": "u32",
+     "bytesHex": "8000f01a",
+     "value": 451936384,
+     "expect": 451936384,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Rocket\\Zuni\\PRJ_Missile_Zuni.ebx",
+     "rawSha256": "c39eb64ea6c969479ab4c04d1a091d80746ef359cf1fec5799349c09cd183c87",
+     "offset": 1760,
+     "type": "f32",
+     "bytesHex": "0000f042",
+     "value": 120.0,
+     "expect": 120.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Rocket\\Zuni\\PRJ_Missile_Zuni.ebx",
+     "rawSha256": "c39eb64ea6c969479ab4c04d1a091d80746ef359cf1fec5799349c09cd183c87",
+     "offset": 1664,
+     "type": "u32",
+     "bytesHex": "8021f024",
+     "value": 619716992,
+     "expect": 619716992,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Missile\\Hellfire\\Art\\PB_Missile_AGM114_Hellfire.ebx",
+     "rawSha256": "cad58c03e44f64e421f4710b1b7d2e705b6f8e789b8de05fda587a92435afec8",
+     "offset": 868,
+     "type": "f32",
+     "bytesHex": "00001643",
+     "value": 150.0,
+     "expect": 150.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Missile\\Hellfire\\Art\\PB_Missile_AGM114_Hellfire.ebx",
+     "rawSha256": "cad58c03e44f64e421f4710b1b7d2e705b6f8e789b8de05fda587a92435afec8",
+     "offset": 416,
+     "type": "u32",
+     "bytesHex": "8000b028",
+     "value": 682623104,
+     "expect": 682623104,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Missile\\Hellfire\\Art\\PB_Missile_AGM114_Hellfire.ebx",
+     "rawSha256": "cad58c03e44f64e421f4710b1b7d2e705b6f8e789b8de05fda587a92435afec8",
+     "offset": 1824,
+     "type": "f32",
+     "bytesHex": "00003443",
+     "value": 180.0,
+     "expect": 180.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Missile\\Hellfire\\Art\\PB_Missile_AGM114_Hellfire.ebx",
+     "rawSha256": "cad58c03e44f64e421f4710b1b7d2e705b6f8e789b8de05fda587a92435afec8",
+     "offset": 1728,
+     "type": "u32",
+     "bytesHex": "8015a028",
+     "value": 681579904,
+     "expect": 681579904,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Missile\\Maverick\\PRJ_Missile_AGM65_Maverick.ebx",
+     "rawSha256": "c06f6188b9fe96c7b286d3804c71387441b188971172fdb7be36422d01327f00",
+     "offset": 868,
+     "type": "f32",
+     "bytesHex": "00001643",
+     "value": 150.0,
+     "expect": 150.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Missile\\Maverick\\PRJ_Missile_AGM65_Maverick.ebx",
+     "rawSha256": "c06f6188b9fe96c7b286d3804c71387441b188971172fdb7be36422d01327f00",
+     "offset": 416,
+     "type": "u32",
+     "bytesHex": "8000b028",
+     "value": 682623104,
+     "expect": 682623104,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Missile\\Maverick\\PRJ_Missile_AGM65_Maverick.ebx",
+     "rawSha256": "c06f6188b9fe96c7b286d3804c71387441b188971172fdb7be36422d01327f00",
+     "offset": 1616,
+     "type": "f32",
+     "bytesHex": "00003443",
+     "value": 180.0,
+     "expect": 180.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Missile\\Maverick\\PRJ_Missile_AGM65_Maverick.ebx",
+     "rawSha256": "c06f6188b9fe96c7b286d3804c71387441b188971172fdb7be36422d01327f00",
+     "offset": 1520,
+     "type": "u32",
+     "bytesHex": "8015a028",
+     "value": 681579904,
+     "expect": 681579904,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Bomb\\GBU39\\PB_Bomb_GBU39.ebx",
+     "rawSha256": "a9258b41ad7a0cf2acf8bba6fabab0048df5d1298c5f78b093acf73af8d2e9af",
+     "offset": 868,
+     "type": "f32",
+     "bytesHex": "00002042",
+     "value": 40.0,
+     "expect": 40.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Bomb\\GBU39\\PB_Bomb_GBU39.ebx",
+     "rawSha256": "a9258b41ad7a0cf2acf8bba6fabab0048df5d1298c5f78b093acf73af8d2e9af",
+     "offset": 416,
+     "type": "u32",
+     "bytesHex": "8000d007",
+     "value": 131072128,
+     "expect": 131072128,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Bomb\\GBU39\\PB_Bomb_GBU39.ebx",
+     "rawSha256": "a9258b41ad7a0cf2acf8bba6fabab0048df5d1298c5f78b093acf73af8d2e9af",
+     "offset": 1760,
+     "type": "f32",
+     "bytesHex": "00004843",
+     "value": 200.0,
+     "expect": 200.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Bomb\\GBU39\\PB_Bomb_GBU39.ebx",
+     "rawSha256": "a9258b41ad7a0cf2acf8bba6fabab0048df5d1298c5f78b093acf73af8d2e9af",
+     "offset": 1664,
+     "type": "u32",
+     "bytesHex": "8017500d",
+     "value": 223352704,
+     "expect": 223352704,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Bomb\\Mk82\\PB_Bomb_Mk82AIR.ebx",
+     "rawSha256": "609bcabdabbeed77dc9dbd6e608f386a4fd152f96ac8c214f979a31ab4d73fba",
+     "offset": 868,
+     "type": "f32",
+     "bytesHex": "00004842",
+     "value": 50.0,
+     "expect": 50.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Bomb\\Mk82\\PB_Bomb_Mk82AIR.ebx",
+     "rawSha256": "609bcabdabbeed77dc9dbd6e608f386a4fd152f96ac8c214f979a31ab4d73fba",
+     "offset": 416,
+     "type": "u32",
+     "bytesHex": "8000d007",
+     "value": 131072128,
+     "expect": 131072128,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Bomb\\Mk82\\PB_Bomb_Mk82AIR.ebx",
+     "rawSha256": "609bcabdabbeed77dc9dbd6e608f386a4fd152f96ac8c214f979a31ab4d73fba",
+     "offset": 1616,
+     "type": "f32",
+     "bytesHex": "0080a743",
+     "value": 335.0,
+     "expect": 335.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Bomb\\Mk82\\PB_Bomb_Mk82AIR.ebx",
+     "rawSha256": "609bcabdabbeed77dc9dbd6e608f386a4fd152f96ac8c214f979a31ab4d73fba",
+     "offset": 1520,
+     "type": "u32",
+     "bytesHex": "8017f025",
+     "value": 636491648,
+     "expect": 636491648,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Javelin\\PB_Javelin.ebx",
+     "rawSha256": "26ded649660436b43b24a0339a475685b6ae3d9d8127599f4eebeb4b8fc8d6cd",
+     "offset": 868,
+     "type": "f32",
+     "bytesHex": "00001643",
+     "value": 150.0,
+     "expect": 150.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Javelin\\PB_Javelin.ebx",
+     "rawSha256": "26ded649660436b43b24a0339a475685b6ae3d9d8127599f4eebeb4b8fc8d6cd",
+     "offset": 416,
+     "type": "u32",
+     "bytesHex": "8011b028",
+     "value": 682627456,
+     "expect": 682627456,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Javelin\\PB_Javelin.ebx",
+     "rawSha256": "26ded649660436b43b24a0339a475685b6ae3d9d8127599f4eebeb4b8fc8d6cd",
+     "offset": 2336,
+     "type": "f32",
+     "bytesHex": "0000fa42",
+     "value": 125.0,
+     "expect": 125.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Javelin\\PB_Javelin.ebx",
+     "rawSha256": "26ded649660436b43b24a0339a475685b6ae3d9d8127599f4eebeb4b8fc8d6cd",
+     "offset": 2240,
+     "type": "u32",
+     "bytesHex": "8015a028",
+     "value": 681579904,
+     "expect": 681579904,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\RPG7\\PB_NS_RPG.ebx",
+     "rawSha256": "571920dca13809eccf5f9567442d9144b0bc1b96a63a10265dffb2874b6f0581",
+     "offset": 868,
+     "type": "f32",
+     "bytesHex": "00000743",
+     "value": 135.0,
+     "expect": 135.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\RPG7\\PB_NS_RPG.ebx",
+     "rawSha256": "571920dca13809eccf5f9567442d9144b0bc1b96a63a10265dffb2874b6f0581",
+     "offset": 416,
+     "type": "u32",
+     "bytesHex": "8011d007",
+     "value": 131076480,
+     "expect": 131076480,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\RPG7\\PB_NS_RPG.ebx",
+     "rawSha256": "571920dca13809eccf5f9567442d9144b0bc1b96a63a10265dffb2874b6f0581",
+     "offset": 1760,
+     "type": "f32",
+     "bytesHex": "00008c42",
+     "value": 70.0,
+     "expect": 70.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\RPG7\\PB_NS_RPG.ebx",
+     "rawSha256": "571920dca13809eccf5f9567442d9144b0bc1b96a63a10265dffb2874b6f0581",
+     "offset": 1664,
+     "type": "u32",
+     "bytesHex": "80ca410a",
+     "value": 172083840,
+     "expect": 172083840,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\M136AT4\\PB_AT4.ebx",
+     "rawSha256": "775c391d7f2448ea02ff7674c7bf8c136fdcdb321814a761ccb3d9337fe70e15",
+     "offset": 868,
+     "type": "f32",
+     "bytesHex": "0000fa42",
+     "value": 125.0,
+     "expect": 125.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\M136AT4\\PB_AT4.ebx",
+     "rawSha256": "775c391d7f2448ea02ff7674c7bf8c136fdcdb321814a761ccb3d9337fe70e15",
+     "offset": 416,
+     "type": "u32",
+     "bytesHex": "8011e01a",
+     "value": 450892160,
+     "expect": 450892160,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\M136AT4\\PB_AT4.ebx",
+     "rawSha256": "775c391d7f2448ea02ff7674c7bf8c136fdcdb321814a761ccb3d9337fe70e15",
+     "offset": 2768,
+     "type": "f32",
+     "bytesHex": "00008c42",
+     "value": 70.0,
+     "expect": 70.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\M136AT4\\PB_AT4.ebx",
+     "rawSha256": "775c391d7f2448ea02ff7674c7bf8c136fdcdb321814a761ccb3d9337fe70e15",
+     "offset": 2672,
+     "type": "u32",
+     "bytesHex": "80caf128",
+     "value": 686934656,
+     "expect": 686934656,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\MBTLAW\\PB_MBTLAW.ebx",
+     "rawSha256": "31bbb108ea03a6433a70fc96b9b0c2ca2fe743cda4bb2cbb9f3bcecb102828ba",
+     "offset": 868,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\MBTLAW\\PB_MBTLAW.ebx",
+     "rawSha256": "31bbb108ea03a6433a70fc96b9b0c2ca2fe743cda4bb2cbb9f3bcecb102828ba",
+     "offset": 416,
+     "type": "u32",
+     "bytesHex": "8011b028",
+     "value": 682627456,
+     "expect": 682627456,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\MBTLAW\\PB_MBTLAW.ebx",
+     "rawSha256": "31bbb108ea03a6433a70fc96b9b0c2ca2fe743cda4bb2cbb9f3bcecb102828ba",
+     "offset": 2480,
+     "type": "f32",
+     "bytesHex": "0000a042",
+     "value": 80.0,
+     "expect": 80.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\MBTLAW\\PB_MBTLAW.ebx",
+     "rawSha256": "31bbb108ea03a6433a70fc96b9b0c2ca2fe743cda4bb2cbb9f3bcecb102828ba",
+     "offset": 2384,
+     "type": "u32",
+     "bytesHex": "80caa128",
+     "value": 681691776,
+     "expect": 681691776,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\IGLA\\PB_NS_IGLA.ebx",
+     "rawSha256": "91b1062d694603295dad42cecaaec90353f8fbedd5de244befd1be35a42097a7",
+     "offset": 868,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\IGLA\\PB_NS_IGLA.ebx",
+     "rawSha256": "91b1062d694603295dad42cecaaec90353f8fbedd5de244befd1be35a42097a7",
+     "offset": 416,
+     "type": "u32",
+     "bytesHex": "8011800b",
+     "value": 192942464,
+     "expect": 192942464,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\IGLA\\PB_NS_IGLA.ebx",
+     "rawSha256": "91b1062d694603295dad42cecaaec90353f8fbedd5de244befd1be35a42097a7",
+     "offset": 1760,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\IGLA\\PB_NS_IGLA.ebx",
+     "rawSha256": "91b1062d694603295dad42cecaaec90353f8fbedd5de244befd1be35a42097a7",
+     "offset": 1664,
+     "type": "u32",
+     "bytesHex": "8029900b",
+     "value": 193997184,
+     "expect": 193997184,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Stinger\\PB_NS_Stinger.ebx",
+     "rawSha256": "6e9f751e5927247da34d7240161ba1f6ea6f62c82b354e9d8b89a034b36f2cbd",
+     "offset": 868,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Stinger\\PB_NS_Stinger.ebx",
+     "rawSha256": "6e9f751e5927247da34d7240161ba1f6ea6f62c82b354e9d8b89a034b36f2cbd",
+     "offset": 416,
+     "type": "u32",
+     "bytesHex": "8011800b",
+     "value": 192942464,
+     "expect": 192942464,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Stinger\\PB_NS_Stinger.ebx",
+     "rawSha256": "6e9f751e5927247da34d7240161ba1f6ea6f62c82b354e9d8b89a034b36f2cbd",
+     "offset": 1760,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Stinger\\PB_NS_Stinger.ebx",
+     "rawSha256": "6e9f751e5927247da34d7240161ba1f6ea6f62c82b354e9d8b89a034b36f2cbd",
+     "offset": 1664,
+     "type": "u32",
+     "bytesHex": "8029900b",
+     "value": 193997184,
+     "expect": 193997184,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Throwables\\C4\\PNS_C4.ebx",
+     "rawSha256": "c56385fd5260b62da56f63d88021f0f44ce6dee573a3227546ea28cb985ecb1f",
+     "offset": 416,
+     "type": "u32",
+     "bytesHex": "807f4122",
+     "value": 574717824,
+     "expect": 574717824,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Throwables\\C4\\PNS_C4.ebx",
+     "rawSha256": "c56385fd5260b62da56f63d88021f0f44ce6dee573a3227546ea28cb985ecb1f",
+     "offset": 3136,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Throwables\\C4\\PNS_C4.ebx",
+     "rawSha256": "c56385fd5260b62da56f63d88021f0f44ce6dee573a3227546ea28cb985ecb1f",
+     "offset": 3040,
+     "type": "u32",
+     "bytesHex": "8015f005",
+     "value": 99620224,
+     "expect": 99620224,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Mines\\M4SLAM\\PB_M4SLAM.ebx",
+     "rawSha256": "2a2f2279d357278c7e901b6c2b483742e5881d71c0ba1bb1b7b5cb45fa44a6c4",
+     "offset": 416,
+     "type": "u32",
+     "bytesHex": "8002d008",
+     "value": 147849856,
+     "expect": 147849856,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Mines\\M4SLAM\\PB_M4SLAM.ebx",
+     "rawSha256": "2a2f2279d357278c7e901b6c2b483742e5881d71c0ba1bb1b7b5cb45fa44a6c4",
+     "offset": 3072,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Mines\\M4SLAM\\PB_M4SLAM.ebx",
+     "rawSha256": "2a2f2279d357278c7e901b6c2b483742e5881d71c0ba1bb1b7b5cb45fa44a6c4",
+     "offset": 2976,
+     "type": "u32",
+     "bytesHex": "8016b005",
+     "value": 95426176,
+     "expect": 95426176,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Mines\\ATMine\\PBNS_ATMine.ebx",
+     "rawSha256": "a41318ef04b07cc68543bbffd2862b9b29674c0ea53bf871c543e055294c7c4f",
+     "offset": 416,
+     "type": "u32",
+     "bytesHex": "8002d008",
+     "value": 147849856,
+     "expect": 147849856,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Mines\\ATMine\\PBNS_ATMine.ebx",
+     "rawSha256": "a41318ef04b07cc68543bbffd2862b9b29674c0ea53bf871c543e055294c7c4f",
+     "offset": 2576,
+     "type": "f32",
+     "bytesHex": "00009643",
+     "value": 300.0,
+     "expect": 300.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Mines\\ATMine\\PBNS_ATMine.ebx",
+     "rawSha256": "a41318ef04b07cc68543bbffd2862b9b29674c0ea53bf871c543e055294c7c4f",
+     "offset": 2480,
+     "type": "u32",
+     "bytesHex": "80150006",
+     "value": 100668800,
+     "expect": 100668800,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Misc\\EODBot\\Mines\\PB_NS_EODBot_Mines.ebx",
+     "rawSha256": "3c9e20e2772e6fbee26fb6190e6b401076cafd049168e6932ce97591616fddbe",
+     "offset": 416,
+     "type": "u32",
+     "bytesHex": "8002d008",
+     "value": 147849856,
+     "expect": 147849856,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Misc\\EODBot\\Mines\\PB_NS_EODBot_Mines.ebx",
+     "rawSha256": "3c9e20e2772e6fbee26fb6190e6b401076cafd049168e6932ce97591616fddbe",
+     "offset": 2576,
+     "type": "f32",
+     "bytesHex": "00001643",
+     "value": 150.0,
+     "expect": 150.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Misc\\EODBot\\Mines\\PB_NS_EODBot_Mines.ebx",
+     "rawSha256": "3c9e20e2772e6fbee26fb6190e6b401076cafd049168e6932ce97591616fddbe",
+     "offset": 2480,
+     "type": "u32",
+     "bytesHex": "80150006",
+     "value": 100668800,
+     "expect": 100668800,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PTKM1R_EFP.ebx",
+     "rawSha256": "09c32887741cc43c55a13540152675e62770e070b11269c14c525364b0a5a644",
+     "offset": 868,
+     "type": "f32",
+     "bytesHex": "00000000",
+     "value": 0.0,
+     "expect": 0.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PTKM1R_EFP.ebx",
+     "rawSha256": "09c32887741cc43c55a13540152675e62770e070b11269c14c525364b0a5a644",
+     "offset": 416,
+     "type": "u32",
+     "bytesHex": "8011000d",
+     "value": 218108288,
+     "expect": 218108288,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PTKM1R_EFP.ebx",
+     "rawSha256": "09c32887741cc43c55a13540152675e62770e070b11269c14c525364b0a5a644",
+     "offset": 1920,
+     "type": "f32",
+     "bytesHex": "00002043",
+     "value": 160.0,
+     "expect": 160.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PTKM1R_EFP.ebx",
+     "rawSha256": "09c32887741cc43c55a13540152675e62770e070b11269c14c525364b0a5a644",
+     "offset": 1824,
+     "type": "u32",
+     "bytesHex": "8029a028",
+     "value": 681585024,
+     "expect": 681585024,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 505492,
+     "type": "f32",
+     "bytesHex": "0000f042",
+     "value": 120.0,
+     "expect": 120.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 14804,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 411340,
+     "type": "f32",
+     "bytesHex": "0000a040",
+     "value": 5.0,
+     "expect": 5.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 169540,
+     "type": "f32",
+     "bytesHex": "00001040",
+     "value": 2.25,
+     "expect": 2.25,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 135132,
+     "type": "f32",
+     "bytesHex": "0000a041",
+     "value": 20.0,
+     "expect": 20.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 164764,
+     "type": "f32",
+     "bytesHex": "00000c43",
+     "value": 140.0,
+     "expect": 140.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 212844,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 264012,
+     "type": "f32",
+     "bytesHex": "0000a040",
+     "value": 5.0,
+     "expect": 5.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 10668,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 162924,
+     "type": "f32",
+     "bytesHex": "0000a041",
+     "value": 20.0,
+     "expect": 20.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 448948,
+     "type": "f32",
+     "bytesHex": "00000000",
+     "value": 0.0,
+     "expect": 0.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 338052,
+     "type": "f32",
+     "bytesHex": "00000040",
+     "value": 2.0,
+     "expect": 2.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 281428,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 95684,
+     "type": "f32",
+     "bytesHex": "00000243",
+     "value": 130.0,
+     "expect": 130.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 216220,
+     "type": "f32",
+     "bytesHex": "00000243",
+     "value": 130.0,
+     "expect": 130.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 459540,
+     "type": "f32",
+     "bytesHex": "00004843",
+     "value": 200.0,
+     "expect": 200.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 149764,
+     "type": "f32",
+     "bytesHex": "00004040",
+     "value": 3.0,
+     "expect": 3.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 193972,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 293036,
+     "type": "f32",
+     "bytesHex": "00000000",
+     "value": 0.0,
+     "expect": 0.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 337412,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 356748,
+     "type": "f32",
+     "bytesHex": "00004842",
+     "value": 50.0,
+     "expect": 50.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 431916,
+     "type": "f32",
+     "bytesHex": "00008840",
+     "value": 4.25,
+     "expect": 4.25,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 31412,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 265620,
+     "type": "f32",
+     "bytesHex": "00007041",
+     "value": 15.0,
+     "expect": 15.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 251572,
+     "type": "f32",
+     "bytesHex": "00004842",
+     "value": 50.0,
+     "expect": 50.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 497028,
+     "type": "f32",
+     "bytesHex": "00007041",
+     "value": 15.0,
+     "expect": 15.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 124804,
+     "type": "f32",
+     "bytesHex": "00004842",
+     "value": 50.0,
+     "expect": 50.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 17532,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 69204,
+     "type": "f32",
+     "bytesHex": "00008040",
+     "value": 4.0,
+     "expect": 4.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 187332,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 348916,
+     "type": "f32",
+     "bytesHex": "0000a041",
+     "value": 20.0,
+     "expect": 20.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 33316,
+     "type": "f32",
+     "bytesHex": "0000fa42",
+     "value": 125.0,
+     "expect": 125.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 217668,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 103060,
+     "type": "f32",
+     "bytesHex": "00008040",
+     "value": 4.0,
+     "expect": 4.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 1236,
+     "type": "f32",
+     "bytesHex": "0000e03f",
+     "value": 1.75,
+     "expect": 1.75,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 84956,
+     "type": "f32",
+     "bytesHex": "0000a041",
+     "value": 20.0,
+     "expect": 20.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 103156,
+     "type": "f32",
+     "bytesHex": "00001643",
+     "value": 150.0,
+     "expect": 150.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 311700,
+     "type": "f32",
+     "bytesHex": "00001643",
+     "value": 150.0,
+     "expect": 150.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 218668,
+     "type": "f32",
+     "bytesHex": "0000a040",
+     "value": 5.0,
+     "expect": 5.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 434876,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 471356,
+     "type": "f32",
+     "bytesHex": "00007041",
+     "value": 15.0,
+     "expect": 15.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 435972,
+     "type": "f32",
+     "bytesHex": "0000b442",
+     "value": 90.0,
+     "expect": 90.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 424964,
+     "type": "f32",
+     "bytesHex": "00009840",
+     "value": 4.75,
+     "expect": 4.75,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 193780,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 131572,
+     "type": "f32",
+     "bytesHex": "0000f041",
+     "value": 30.0,
+     "expect": 30.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 7948,
+     "type": "f32",
+     "bytesHex": "0000a042",
+     "value": 80.0,
+     "expect": 80.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 121892,
+     "type": "f32",
+     "bytesHex": "00009840",
+     "value": 4.75,
+     "expect": 4.75,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 60356,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 399612,
+     "type": "f32",
+     "bytesHex": "00008042",
+     "value": 64.0,
+     "expect": 64.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 109428,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 366076,
+     "type": "f32",
+     "bytesHex": "0000a840",
+     "value": 5.25,
+     "expect": 5.25,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 389316,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 208924,
+     "type": "f32",
+     "bytesHex": "00001643",
+     "value": 150.0,
+     "expect": 150.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 130276,
+     "type": "f32",
+     "bytesHex": "00001643",
+     "value": 150.0,
+     "expect": 150.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 104940,
+     "type": "f32",
+     "bytesHex": "6666d640",
+     "value": 6.699999809265137,
+     "expect": 6.7,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 5196,
+     "type": "f32",
+     "bytesHex": "00000040",
+     "value": 2.0,
+     "expect": 2.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 172436,
+     "type": "f32",
+     "bytesHex": "00001643",
+     "value": 150.0,
+     "expect": 150.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 170396,
+     "type": "f32",
+     "bytesHex": "00001643",
+     "value": 150.0,
+     "expect": 150.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 341756,
+     "type": "f32",
+     "bytesHex": "6666d640",
+     "value": 6.699999809265137,
+     "expect": 6.7,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 92884,
+     "type": "f32",
+     "bytesHex": "00000040",
+     "value": 2.0,
+     "expect": 2.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 183148,
+     "type": "f32",
+     "bytesHex": "00002042",
+     "value": 40.0,
+     "expect": 40.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 20484,
+     "type": "f32",
+     "bytesHex": "00007043",
+     "value": 240.0,
+     "expect": 240.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 80012,
+     "type": "f32",
+     "bytesHex": "0000e040",
+     "value": 7.0,
+     "expect": 7.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 191276,
+     "type": "f32",
+     "bytesHex": "00000040",
+     "value": 2.0,
+     "expect": 2.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 97364,
+     "type": "f32",
+     "bytesHex": "00004842",
+     "value": 50.0,
+     "expect": 50.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 135892,
+     "type": "f32",
+     "bytesHex": "0080a743",
+     "value": 335.0,
+     "expect": 335.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 264484,
+     "type": "f32",
+     "bytesHex": "00002041",
+     "value": 10.0,
+     "expect": 10.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 358660,
+     "type": "f32",
+     "bytesHex": "0000a040",
+     "value": 5.0,
+     "expect": 5.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 491172,
+     "type": "f32",
+     "bytesHex": "00005041",
+     "value": 13.0,
+     "expect": 13.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 252468,
+     "type": "f32",
+     "bytesHex": "0000a041",
+     "value": 20.0,
+     "expect": 20.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 303948,
+     "type": "f32",
+     "bytesHex": "00005041",
+     "value": 13.0,
+     "expect": 13.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 536756,
+     "type": "f32",
+     "bytesHex": "00000c43",
+     "value": 140.0,
+     "expect": 140.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 99948,
+     "type": "f32",
+     "bytesHex": "00001b43",
+     "value": 155.0,
+     "expect": 155.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 206924,
+     "type": "f32",
+     "bytesHex": "00008040",
+     "value": 4.0,
+     "expect": 4.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 685444,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 11228,
+     "type": "f32",
+     "bytesHex": "0000fa42",
+     "value": 125.0,
+     "expect": 125.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 682316,
+     "type": "f32",
+     "bytesHex": "00008c42",
+     "value": 70.0,
+     "expect": 70.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 271500,
+     "type": "f32",
+     "bytesHex": "0000c040",
+     "value": 6.0,
+     "expect": 6.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 452308,
+     "type": "f32",
+     "bytesHex": "00000040",
+     "value": 2.0,
+     "expect": 2.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 234156,
+     "type": "f32",
+     "bytesHex": "00000243",
+     "value": 130.0,
+     "expect": 130.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 4332,
+     "type": "f32",
+     "bytesHex": "00000000",
+     "value": 0.0,
+     "expect": 0.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 129716,
+     "type": "f32",
+     "bytesHex": "00000040",
+     "value": 2.0,
+     "expect": 2.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 253852,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 52548,
+     "type": "f32",
+     "bytesHex": "00004343",
+     "value": 195.0,
+     "expect": 195.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 425236,
+     "type": "f32",
+     "bytesHex": "00000040",
+     "value": 2.0,
+     "expect": 2.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 230980,
+     "type": "f32",
+     "bytesHex": "52b8fe3f",
+     "value": 1.9900000095367432,
+     "expect": 1.99,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 13170,
+   "matched": 13170,
+   "files": 30,
+   "tool": "scripts/frosty-raw-check.py --manifest (stored values: raw-checks.json; grid reads: all-grid-rawchecks.json)",
+   "artifact": "raw-checks.json"
+  },
+  "rows": [
+   {
+    "owner": "PD_Vehicles_MBT_AmmoTypes_HE",
+    "label": "120mm HEMP-T Rounds",
+    "blastDamage": 100.0,
+    "blastDamageSource": "registry default",
+    "blastRegistry": 100.0,
+    "blastOwn": 120.0,
+    "blastMaterial": 130,
+    "gridAbdomen": 1.0,
+    "gridHead": null,
+    "gridLimb": null,
+    "fullBlastOnSoldier": 100.0,
+    "withFlak": {
+     "Flak": 67.0,
+     "StanceFlak": 75.0,
+     "Flak_AdrenalineShot": 80.0
+    },
+    "BlastRadius": 5.0,
+    "InnerBlastRadius": 2.25,
+    "MinimumBlastDamage": 20.0,
+    "directDamage": 120.0,
+    "directGridHeadAbdomenLimb": [
+     1.0,
+     1.0,
+     1.0
+    ],
+    "killsFullHealthSoldierAtCentre": {
+     "noFlak": true,
+     "Flak": false,
+     "StanceFlak": false,
+     "Flak_AdrenalineShot": false
+    }
+   },
+   {
+    "owner": "PD_Vehicles_MBT_AmmoTypes_MPAT",
+    "label": "120mm HEAT-MP-T Rounds",
+    "blastDamage": 100.0,
+    "blastDamageSource": "registry default",
+    "blastRegistry": 100.0,
+    "blastOwn": 100.0,
+    "blastMaterial": 130,
+    "gridAbdomen": 1.0,
+    "gridHead": null,
+    "gridLimb": null,
+    "fullBlastOnSoldier": 100.0,
+    "withFlak": {
+     "Flak": 67.0,
+     "StanceFlak": 75.0,
+     "Flak_AdrenalineShot": 80.0
+    },
+    "BlastRadius": 5.0,
+    "InnerBlastRadius": 1.0,
+    "MinimumBlastDamage": 20.0,
+    "directDamage": 140.0,
+    "directGridHeadAbdomenLimb": [
+     1.0,
+     1.0,
+     1.0
+    ],
+    "killsFullHealthSoldierAtCentre": {
+     "noFlak": true,
+     "Flak": false,
+     "StanceFlak": false,
+     "Flak_AdrenalineShot": false
+    }
+   },
+   {
+    "owner": "PB_Missile_MBT_GuidedMunition",
+    "label": "MBT Aim-Guided Shell",
+    "blastDamage": 200.0,
+    "blastDamageSource": "registry default",
+    "blastRegistry": 200.0,
+    "blastOwn": 200.0,
+    "blastMaterial": 130,
+    "gridAbdomen": 1.0,
+    "gridHead": null,
+    "gridLimb": null,
+    "fullBlastOnSoldier": 200.0,
+    "withFlak": {
+     "Flak": 134.0,
+     "StanceFlak": 150.0,
+     "Flak_AdrenalineShot": 160.0
+    },
+    "BlastRadius": 3.0,
+    "InnerBlastRadius": 1.0,
+    "MinimumBlastDamage": 0.0,
+    "directDamage": 130.0,
+    "directGridHeadAbdomenLimb": [
+     1.0,
+     1.0,
+     1.0
+    ],
+    "killsFullHealthSoldierAtCentre": {
+     "noFlak": true,
+     "Flak": true,
+     "StanceFlak": true,
+     "Flak_AdrenalineShot": true
+    }
+   },
+   {
+    "owner": "PD_Vehicles_IFV_PrimaryWeapon_HEAB",
+    "label": "IFV HEI-T Rounds",
+    "blastDamage": 50.0,
+    "blastDamageSource": "registry default",
+    "blastRegistry": 50.0,
+    "blastOwn": 40.0,
+    "blastMaterial": 129,
+    "gridAbdomen": 1.0,
+    "gridHead": null,
+    "gridLimb": null,
+    "fullBlastOnSoldier": 50.0,
+    "withFlak": {
+     "Flak": 33.5,
+     "StanceFlak": 37.5,
+     "Flak_AdrenalineShot": 40.0
+    },
+    "BlastRadius": 4.25,
+    "InnerBlastRadius": 1.0,
+    "MinimumBlastDamage": 15.0,
+    "directDamage": 50.0,
+    "directGridHeadAbdomenLimb": [
+     1.0,
+     1.0,
+     1.0
+    ],
+    "killsFullHealthSoldierAtCentre": {
+     "noFlak": false,
+     "Flak": false,
+     "StanceFlak": false,
+     "Flak_AdrenalineShot": false
+    }
+   },
+   {
+    "owner": "PD_Vehicles_IFV_PrimaryWeapon_MPLD",
+    "label": "IFV MPLD round (no EA figure)",
+    "blastDamage": 30.0,
+    "blastDamageSource": "asset own value (no registry row)",
+    "blastRegistry": null,
+    "blastOwn": 30.0,
+    "blastMaterial": 129,
+    "gridAbdomen": 1.0,
+    "gridHead": null,
+    "gridLimb": null,
+    "fullBlastOnSoldier": 30.0,
+    "withFlak": {
+     "Flak": 20.1,
+     "StanceFlak": 22.5,
+     "Flak_AdrenalineShot": 24.0
+    },
+    "BlastRadius": null,
+    "InnerBlastRadius": null,
+    "MinimumBlastDamage": null,
+    "directDamage": 100.0,
+    "directGridHeadAbdomenLimb": [
+     1.0,
+     1.0,
+     1.0
+    ],
+    "killsFullHealthSoldierAtCentre": {
+     "noFlak": false,
+     "Flak": false,
+     "StanceFlak": false,
+     "Flak_AdrenalineShot": false
+    }
+   },
+   {
+    "owner": "PD_Vehicles_IFV_SecondaryWeapon_LightRockets",
+    "label": "IFV Light Rockets",
+    "blastDamage": 100.0,
+    "blastDamageSource": "registry default",
+    "blastRegistry": 100.0,
+    "blastOwn": 55.0,
+    "blastMaterial": 130,
+    "gridAbdomen": 1.0,
+    "gridHead": null,
+    "gridLimb": null,
+    "fullBlastOnSoldier": 100.0,
+    "withFlak": {
+     "Flak": 67.0,
+     "StanceFlak": 75.0,
+     "Flak_AdrenalineShot": 80.0
+    },
+    "BlastRadius": 4.0,
+    "InnerBlastRadius": 1.0,
+    "MinimumBlastDamage": 20.0,
+    "directDamage": 50.0,
+    "directGridHeadAbdomenLimb": [
+     1.0,
+     1.0,
+     1.0
+    ],
+    "killsFullHealthSoldierAtCentre": {
+     "noFlak": true,
+     "Flak": false,
+     "StanceFlak": false,
+     "Flak_AdrenalineShot": false
+    }
+   },
+   {
+    "owner": "PB_Missile_TOW2B",
+    "label": "IFV Aim-Guided Missile",
+    "blastDamage": 100.0,
+    "blastDamageSource": "registry default",
+    "blastRegistry": 100.0,
+    "blastOwn": 100.0,
+    "blastMaterial": 130,
+    "gridAbdomen": 1.0,
+    "gridHead": null,
+    "gridLimb": null,
+    "fullBlastOnSoldier": 100.0,
+    "withFlak": {
+     "Flak": 67.0,
+     "StanceFlak": 75.0,
+     "Flak_AdrenalineShot": 80.0
+    },
+    "BlastRadius": 4.0,
+    "InnerBlastRadius": 1.75,
+    "MinimumBlastDamage": 20.0,
+    "directDamage": 125.0,
+    "directGridHeadAbdomenLimb": [
+     1.0,
+     1.0,
+     1.0
+    ],
+    "killsFullHealthSoldierAtCentre": {
+     "noFlak": true,
+     "Flak": false,
+     "StanceFlak": false,
+     "Flak_AdrenalineShot": false
+    }
+   },
+   {
+    "owner": "PB_ATGM_Homing_Spike",
+    "label": "IFV Lock-Guided Missile",
+    "blastDamage": 150.0,
+    "blastDamageSource": "registry default",
+    "blastRegistry": 150.0,
+    "blastOwn": 180.0,
+    "blastMaterial": 650,
+    "gridAbdomen": 0.85,
+    "gridHead": null,
+    "gridLimb": null,
+    "fullBlastOnSoldier": 127.5,
+    "withFlak": {
+     "Flak": 85.425,
+     "StanceFlak": 95.625,
+     "Flak_AdrenalineShot": 102.0
+    },
+    "BlastRadius": 5.0,
+    "InnerBlastRadius": 1.0,
+    "MinimumBlastDamage": null,
+    "directDamage": 150.0,
+    "directGridHeadAbdomenLimb": [
+     1.0,
+     1.0,
+     1.0
+    ],
+    "killsFullHealthSoldierAtCentre": {
+     "noFlak": true,
+     "Flak": false,
+     "StanceFlak": false,
+     "Flak_AdrenalineShot": true
+    }
+   },
+   {
+    "owner": "PRJ_Missile_Hydra70",
+    "label": "Helicopter Light Rockets",
+    "blastDamage": 90.0,
+    "blastDamageSource": "registry default",
+    "blastRegistry": 90.0,
+    "blastOwn": 90.0,
+    "blastMaterial": 591,
+    "gridAbdomen": 1.0,
+    "gridHead": null,
+    "gridLimb": null,
+    "fullBlastOnSoldier": 90.0,
+    "withFlak": {
+     "Flak": 60.3,
+     "StanceFlak": 67.5,
+     "Flak_AdrenalineShot": 72.0
+    },
+    "BlastRadius": 4.75,
+    "InnerBlastRadius": 1.0,
+    "MinimumBlastDamage": null,
+    "directDamage": 15.0,
+    "directGridHeadAbdomenLimb": [
+     1.0,
+     1.0,
+     1.0
+    ],
+    "killsFullHealthSoldierAtCentre": {
+     "noFlak": false,
+     "Flak": false,
+     "StanceFlak": false,
+     "Flak_AdrenalineShot": false
+    }
+   },
+   {
+    "owner": "PRJ_Missile_APKWS-II",
+    "label": "Helicopter Aim-Guided Rockets",
+    "blastDamage": 80.0,
+    "blastDamageSource": "registry default",
+    "blastRegistry": 80.0,
+    "blastOwn": 90.0,
+    "blastMaterial": 591,
+    "gridAbdomen": 1.0,
+    "gridHead": null,
+    "gridLimb": null,
+    "fullBlastOnSoldier": 80.0,
+    "withFlak": {
+     "Flak": 53.6,
+     "StanceFlak": 60.0,
+     "Flak_AdrenalineShot": 64.0
+    },
+    "BlastRadius": 4.75,
+    "InnerBlastRadius": 1.0,
+    "MinimumBlastDamage": null,
+    "directDamage": 30.0,
+    "directGridHeadAbdomenLimb": [
+     1.0,
+     1.0,
+     1.0
+    ],
+    "killsFullHealthSoldierAtCentre": {
+     "noFlak": false,
+     "Flak": false,
+     "StanceFlak": false,
+     "Flak_AdrenalineShot": false
+    }
+   },
+   {
+    "owner": "PRJ_Missile_Zuni",
+    "label": "Attack Helicopter Heavy Rocket",
+    "blastDamage": 100.0,
+    "blastDamageSource": "registry default",
+    "blastRegistry": 100.0,
+    "blastOwn": 120.0,
+    "blastMaterial": 591,
+    "gridAbdomen": 1.0,
+    "gridHead": null,
+    "gridLimb": null,
+    "fullBlastOnSoldier": 100.0,
+    "withFlak": {
+     "Flak": 67.0,
+     "StanceFlak": 75.0,
+     "Flak_AdrenalineShot": 80.0
+    },
+    "BlastRadius": 5.25,
+    "InnerBlastRadius": 1.0,
+    "MinimumBlastDamage": null,
+    "directDamage": 64.0,
+    "directGridHeadAbdomenLimb": [
+     1.0,
+     1.0,
+     1.0
+    ],
+    "killsFullHealthSoldierAtCentre": {
+     "noFlak": true,
+     "Flak": false,
+     "StanceFlak": false,
+     "Flak_AdrenalineShot": false
+    }
+   },
+   {
+    "owner": "PB_Missile_AGM114_Hellfire",
+    "label": "Air-to-Ground Missiles",
+    "blastDamage": 150.0,
+    "blastDamageSource": "registry default",
+    "blastRegistry": 150.0,
+    "blastOwn": 180.0,
+    "blastMaterial": 650,
+    "gridAbdomen": 0.85,
+    "gridHead": null,
+    "gridLimb": null,
+    "fullBlastOnSoldier": 127.5,
+    "withFlak": {
+     "Flak": 85.425,
+     "StanceFlak": 95.625,
+     "Flak_AdrenalineShot": 102.0
+    },
+    "BlastRadius": 6.7,
+    "InnerBlastRadius": 2.0,
+    "MinimumBlastDamage": null,
+    "directDamage": 150.0,
+    "directGridHeadAbdomenLimb": [
+     1.0,
+     1.0,
+     1.0
+    ],
+    "killsFullHealthSoldierAtCentre": {
+     "noFlak": true,
+     "Flak": false,
+     "StanceFlak": false,
+     "Flak_AdrenalineShot": true
+    }
+   },
+   {
+    "owner": "PRJ_Missile_AGM65_Maverick",
+    "label": "AGM-65 missile (no EA figure)",
+    "blastDamage": 150.0,
+    "blastDamageSource": "registry default",
+    "blastRegistry": 150.0,
+    "blastOwn": 180.0,
+    "blastMaterial": 650,
+    "gridAbdomen": 0.85,
+    "gridHead": null,
+    "gridLimb": null,
+    "fullBlastOnSoldier": 127.5,
+    "withFlak": {
+     "Flak": 85.425,
+     "StanceFlak": 95.625,
+     "Flak_AdrenalineShot": 102.0
+    },
+    "BlastRadius": 6.7,
+    "InnerBlastRadius": 2.0,
+    "MinimumBlastDamage": null,
+    "directDamage": 150.0,
+    "directGridHeadAbdomenLimb": [
+     1.0,
+     1.0,
+     1.0
+    ],
+    "killsFullHealthSoldierAtCentre": {
+     "noFlak": true,
+     "Flak": false,
+     "StanceFlak": false,
+     "Flak_AdrenalineShot": true
+    }
+   },
+   {
+    "owner": "PB_Bomb_GBU39",
+    "label": "GBU-39 bomb (file name)",
+    "blastDamage": 240.0,
+    "blastDamageSource": "registry default",
+    "blastRegistry": 240.0,
+    "blastOwn": 200.0,
+    "blastMaterial": 213,
+    "gridAbdomen": 0.8,
+    "gridHead": null,
+    "gridLimb": null,
+    "fullBlastOnSoldier": 192.0,
+    "withFlak": {
+     "Flak": 128.64,
+     "StanceFlak": 144.0,
+     "Flak_AdrenalineShot": 153.6
+    },
+    "BlastRadius": 7.0,
+    "InnerBlastRadius": 2.0,
+    "MinimumBlastDamage": null,
+    "directDamage": 40.0,
+    "directGridHeadAbdomenLimb": [
+     1.0,
+     1.0,
+     1.0
+    ],
+    "killsFullHealthSoldierAtCentre": {
+     "noFlak": true,
+     "Flak": true,
+     "StanceFlak": true,
+     "Flak_AdrenalineShot": true
+    }
+   },
+   {
+    "owner": "PB_Bomb_Mk82AIR",
+    "label": "Mk82 bomb (file name)",
+    "blastDamage": 335.0,
+    "blastDamageSource": "registry default",
+    "blastRegistry": 335.0,
+    "blastOwn": 335.0,
+    "blastMaterial": 607,
+    "gridAbdomen": 0.8,
+    "gridHead": null,
+    "gridLimb": null,
+    "fullBlastOnSoldier": 268.0,
+    "withFlak": {
+     "Flak": 179.56,
+     "StanceFlak": 201.0,
+     "Flak_AdrenalineShot": 214.4
+    },
+    "BlastRadius": 10.0,
+    "InnerBlastRadius": 5.0,
+    "MinimumBlastDamage": null,
+    "directDamage": 50.0,
+    "directGridHeadAbdomenLimb": [
+     1.0,
+     1.0,
+     1.0
+    ],
+    "killsFullHealthSoldierAtCentre": {
+     "noFlak": true,
+     "Flak": true,
+     "StanceFlak": true,
+     "Flak_AdrenalineShot": true
+    }
+   },
+   {
+    "owner": "PB_Javelin",
+    "label": "MAS 148 Glaive",
+    "blastDamage": 155.0,
+    "blastDamageSource": "registry default",
+    "blastRegistry": 155.0,
+    "blastOwn": 125.0,
+    "blastMaterial": 650,
+    "gridAbdomen": 0.85,
+    "gridHead": null,
+    "gridLimb": null,
+    "fullBlastOnSoldier": 131.75,
+    "withFlak": {
+     "Flak": 88.2725,
+     "StanceFlak": 98.8125,
+     "Flak_AdrenalineShot": 105.4
+    },
+    "BlastRadius": 4.0,
+    "InnerBlastRadius": 1.0,
+    "MinimumBlastDamage": null,
+    "directDamage": 140.0,
+    "directGridHeadAbdomenLimb": [
+     1.0,
+     1.0,
+     1.0
+    ],
+    "killsFullHealthSoldierAtCentre": {
+     "noFlak": true,
+     "Flak": false,
+     "StanceFlak": false,
+     "Flak_AdrenalineShot": true
+    }
+   },
+   {
+    "owner": "PB_NS_RPG",
+    "label": "RPG-7V2",
+    "blastDamage": 70.0,
+    "blastDamageSource": "registry default",
+    "blastRegistry": 70.0,
+    "blastOwn": 70.0,
+    "blastMaterial": 164,
+    "gridAbdomen": 1.0,
+    "gridHead": null,
+    "gridLimb": null,
+    "fullBlastOnSoldier": 70.0,
+    "withFlak": {
+     "Flak": 46.9,
+     "StanceFlak": 52.5,
+     "Flak_AdrenalineShot": 56.0
+    },
+    "BlastRadius": 6.0,
+    "InnerBlastRadius": 2.0,
+    "MinimumBlastDamage": null,
+    "directDamage": 125.0,
+    "directGridHeadAbdomenLimb": [
+     1.0,
+     1.0,
+     1.0
+    ],
+    "killsFullHealthSoldierAtCentre": {
+     "noFlak": false,
+     "Flak": false,
+     "StanceFlak": false,
+     "Flak_AdrenalineShot": false
+    }
+   },
+   {
+    "owner": "PB_AT4",
+    "label": "M136 AT",
+    "blastDamage": 70.0,
+    "blastDamageSource": "asset own value (no registry row)",
+    "blastRegistry": null,
+    "blastOwn": 70.0,
+    "blastMaterial": 655,
+    "gridAbdomen": 1.0,
+    "gridHead": null,
+    "gridLimb": null,
+    "fullBlastOnSoldier": 70.0,
+    "withFlak": {
+     "Flak": 46.9,
+     "StanceFlak": 52.5,
+     "Flak_AdrenalineShot": 56.0
+    },
+    "BlastRadius": null,
+    "InnerBlastRadius": null,
+    "MinimumBlastDamage": null,
+    "directDamage": 125.0,
+    "directGridHeadAbdomenLimb": [
+     1.0,
+     1.0,
+     1.0
+    ],
+    "killsFullHealthSoldierAtCentre": {
+     "noFlak": false,
+     "Flak": false,
+     "StanceFlak": false,
+     "Flak_AdrenalineShot": false
+    }
+   },
+   {
+    "owner": "PB_MBTLAW",
+    "label": "MBT-LAW",
+    "blastDamage": 80.0,
+    "blastDamageSource": "asset own value (no registry row)",
+    "blastRegistry": null,
+    "blastOwn": 80.0,
+    "blastMaterial": 650,
+    "gridAbdomen": 0.85,
+    "gridHead": null,
+    "gridLimb": null,
+    "fullBlastOnSoldier": 68.0,
+    "withFlak": {
+     "Flak": 45.56,
+     "StanceFlak": 51.0,
+     "Flak_AdrenalineShot": 54.4
+    },
+    "BlastRadius": null,
+    "InnerBlastRadius": null,
+    "MinimumBlastDamage": null,
+    "directDamage": 100.0,
+    "directGridHeadAbdomenLimb": [
+     1.0,
+     1.0,
+     1.0
+    ],
+    "killsFullHealthSoldierAtCentre": {
+     "noFlak": false,
+     "Flak": false,
+     "StanceFlak": false,
+     "Flak_AdrenalineShot": false
+    }
+   },
+   {
+    "owner": "PB_NS_IGLA",
+    "label": "9K93 IGLA",
+    "blastDamage": 100.0,
+    "blastDamageSource": "asset own value (no registry row)",
+    "blastRegistry": null,
+    "blastOwn": 100.0,
+    "blastMaterial": 185,
+    "gridAbdomen": 0.6,
+    "gridHead": null,
+    "gridLimb": null,
+    "fullBlastOnSoldier": 60.0,
+    "withFlak": {
+     "Flak": 40.2,
+     "StanceFlak": 45.0,
+     "Flak_AdrenalineShot": 48.0
+    },
+    "BlastRadius": null,
+    "InnerBlastRadius": null,
+    "MinimumBlastDamage": null,
+    "directDamage": 100.0,
+    "directGridHeadAbdomenLimb": [
+     0.0,
+     1.0,
+     0.0
+    ],
+    "killsFullHealthSoldierAtCentre": {
+     "noFlak": false,
+     "Flak": false,
+     "StanceFlak": false,
+     "Flak_AdrenalineShot": false
+    }
+   },
+   {
+    "owner": "PB_NS_Stinger",
+    "label": "SLM-93A",
+    "blastDamage": 100.0,
+    "blastDamageSource": "asset own value (no registry row)",
+    "blastRegistry": null,
+    "blastOwn": 100.0,
+    "blastMaterial": 185,
+    "gridAbdomen": 0.6,
+    "gridHead": null,
+    "gridLimb": null,
+    "fullBlastOnSoldier": 60.0,
+    "withFlak": {
+     "Flak": 40.2,
+     "StanceFlak": 45.0,
+     "Flak_AdrenalineShot": 48.0
+    },
+    "BlastRadius": null,
+    "InnerBlastRadius": null,
+    "MinimumBlastDamage": null,
+    "directDamage": 100.0,
+    "directGridHeadAbdomenLimb": [
+     0.0,
+     1.0,
+     0.0
+    ],
+    "killsFullHealthSoldierAtCentre": {
+     "noFlak": false,
+     "Flak": false,
+     "StanceFlak": false,
+     "Flak_AdrenalineShot": false
+    }
+   },
+   {
+    "owner": "PNS_C4",
+    "label": "C-4",
+    "blastDamage": 100.0,
+    "blastDamageSource": "asset own value (no registry row)",
+    "blastRegistry": null,
+    "blastOwn": 100.0,
+    "blastMaterial": 95,
+    "gridAbdomen": 1.0,
+    "gridHead": null,
+    "gridLimb": null,
+    "fullBlastOnSoldier": 100.0,
+    "withFlak": {
+     "Flak": 67.0,
+     "StanceFlak": 75.0,
+     "Flak_AdrenalineShot": 80.0
+    },
+    "BlastRadius": null,
+    "InnerBlastRadius": null,
+    "MinimumBlastDamage": null,
+    "directDamage": 0.0,
+    "directGridHeadAbdomenLimb": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "killsFullHealthSoldierAtCentre": {
+     "noFlak": true,
+     "Flak": false,
+     "StanceFlak": false,
+     "Flak_AdrenalineShot": false
+    }
+   },
+   {
+    "owner": "PB_M4SLAM",
+    "label": "M4A1 SLAM (body)",
+    "blastDamage": 100.0,
+    "blastDamageSource": "asset own value (no registry row)",
+    "blastRegistry": null,
+    "blastOwn": 100.0,
+    "blastMaterial": 91,
+    "gridAbdomen": 0.4,
+    "gridHead": null,
+    "gridLimb": null,
+    "fullBlastOnSoldier": 40.0,
+    "withFlak": {
+     "Flak": 26.8,
+     "StanceFlak": 30.0,
+     "Flak_AdrenalineShot": 32.0
+    },
+    "BlastRadius": null,
+    "InnerBlastRadius": null,
+    "MinimumBlastDamage": null,
+    "directDamage": 0.0,
+    "directGridHeadAbdomenLimb": [
+     1.0,
+     1.0,
+     0.93
+    ],
+    "killsFullHealthSoldierAtCentre": {
+     "noFlak": false,
+     "Flak": false,
+     "StanceFlak": false,
+     "Flak_AdrenalineShot": false
+    }
+   },
+   {
+    "owner": "PBNS_ATMine",
+    "label": "M15 AV Mine",
+    "blastDamage": 195.0,
+    "blastDamageSource": "registry default",
+    "blastRegistry": 195.0,
+    "blastOwn": 300.0,
+    "blastMaterial": 96,
+    "gridAbdomen": 1.0,
+    "gridHead": null,
+    "gridLimb": null,
+    "fullBlastOnSoldier": 195.0,
+    "withFlak": {
+     "Flak": 130.65,
+     "StanceFlak": 146.25,
+     "Flak_AdrenalineShot": 156.0
+    },
+    "BlastRadius": 2.0,
+    "InnerBlastRadius": 1.99,
+    "MinimumBlastDamage": null,
+    "directDamage": 0.0,
+    "directGridHeadAbdomenLimb": [
+     1.0,
+     1.0,
+     0.93
+    ],
+    "killsFullHealthSoldierAtCentre": {
+     "noFlak": true,
+     "Flak": true,
+     "StanceFlak": true,
+     "Flak_AdrenalineShot": true
+    }
+   },
+   {
+    "owner": "PB_NS_EODBot_Mines",
+    "label": "EOD Bot mine",
+    "blastDamage": 150.0,
+    "blastDamageSource": "asset own value (no registry row)",
+    "blastRegistry": null,
+    "blastOwn": 150.0,
+    "blastMaterial": 96,
+    "gridAbdomen": 1.0,
+    "gridHead": null,
+    "gridLimb": null,
+    "fullBlastOnSoldier": 150.0,
+    "withFlak": {
+     "Flak": 100.5,
+     "StanceFlak": 112.5,
+     "Flak_AdrenalineShot": 120.0
+    },
+    "BlastRadius": null,
+    "InnerBlastRadius": null,
+    "MinimumBlastDamage": null,
+    "directDamage": 0.0,
+    "directGridHeadAbdomenLimb": [
+     1.0,
+     1.0,
+     0.93
+    ],
+    "killsFullHealthSoldierAtCentre": {
+     "noFlak": true,
+     "Flak": true,
+     "StanceFlak": true,
+     "Flak_AdrenalineShot": true
+    }
+   },
+   {
+    "owner": "PB_PRJ_PTKM1R_EFP",
+    "label": "PTKM-1R",
+    "blastDamage": 160.0,
+    "blastDamageSource": "asset own value (no registry row)",
+    "blastRegistry": null,
+    "blastOwn": 160.0,
+    "blastMaterial": 650,
+    "gridAbdomen": 0.85,
+    "gridHead": null,
+    "gridLimb": null,
+    "fullBlastOnSoldier": 136.0,
+    "withFlak": {
+     "Flak": 91.12,
+     "StanceFlak": 102.0,
+     "Flak_AdrenalineShot": 108.8
+    },
+    "BlastRadius": null,
+    "InnerBlastRadius": null,
+    "MinimumBlastDamage": null,
+    "directDamage": 0.0,
+    "directGridHeadAbdomenLimb": [
+     1.0,
+     1.0,
+     1.0
+    ],
+    "killsFullHealthSoldierAtCentre": {
+     "noFlak": true,
+     "Flak": false,
+     "StanceFlak": true,
+     "Flak_AdrenalineShot": true
+    }
+   }
+  ],
+  "officialStatements": [
+   {
+    "statement": "Aim-Guided Shells: remains lethal against soldiers within 2m (1.3.1.0)",
+    "owner": "PB_Missile_MBT_GuidedMunition",
+    "blastDamage": 200.0,
+    "gridAbdomen": 1.0,
+    "InnerBlastRadius": 1.0,
+    "BlastRadius": 3.0,
+    "linearFalloffAt2m": 100.0,
+    "fits": true,
+    "note": "200 x 1 falling in a straight line from the inner radius 1 m to 0 at the radius 3 m gives exactly 100 at 2 m. The straight-line falloff is an assumption."
+   },
+   {
+    "statement": "MBT 120mm HEAT-MP-T Rounds total blast radius increased from 4m to 5m, and lethal radius increased from 1m to 1.25m (1.3.3.0)",
+    "owner": "PD_Vehicles_MBT_AmmoTypes_MPAT",
+    "blastDamage": 100.0,
+    "gridAbdomen": 1.0,
+    "InnerBlastRadius": 1.0,
+    "BlastRadius": 5.0,
+    "MinimumBlastDamage": 20.0,
+    "fits": false,
+    "note": "Registry BlastRadius 5 equals EA's total radius. Registry InnerBlastRadius is 1, not 1.25, and 100 x 1 is lethal only inside the inner radius, so EA's lethal radius 1.25 is not reproduced."
+   },
+   {
+    "statement": "Most land vehicle explosive weapons now have a minimum explosive damage of 20% (1.3.1.0)",
+    "owner": "PD_Vehicles_MBT_AmmoTypes_MPAT",
+    "MinimumBlastDamage": 20.0,
+    "blastDamage": 100.0,
+    "fits": true,
+    "note": "Registry MinimumBlastDamage 20 against BlastDamage 100 for tank HE and HEAT-MP-T; whether the row is a percentage or a damage value is not separated by these two weapons."
+   }
+  ],
+  "dataset": "reference-data/frosty/explosive-soldier-damage.json"
+ },
+ "inference": [
+  "Explosions carry a damage value against the abdomen material only, so blast damage to a soldier is taken as blast damage x that value, the same for every body part.",
+  "Flak multipliers are applied as a further product (0.67, 0.75, 0.8). The stored values are not shown to be combined this way; this is the reading the field name supports (L3315).",
+  "The guided-shell statement supports blast damage x grid value with a falloff between the inner radius and the radius. The HEAT-MP-T lethal radius does not follow from the stored inner radius."
+ ],
+ "unresolved": [
+  "No in-game reading. Test: stand 1 m from a C-4 pack with and without the Flak upgrade; death and 67 expected.",
+  "Stacking of flak effects. Test: Flak while prone; 50.25 from a full C-4 blast if multiplied.",
+  "Falloff shape. Test: tank HE at 3 m and 4 m from a soldier; about 78 and 49 on a straight line with the 20 minimum.",
+  "HEAT-MP-T lethal radius 1.25 m against the stored inner radius 1. Test: the shell at 1.1 m from a full-health soldier.",
+  "Radius rows for launchers and C-4 are not in the registry; the assets' own radius fields are not named."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-09-damage-rule-extension",
+  "artifacts": [
+   {
+    "file": "core.json",
+    "sha256": "681425eb3b5736fda9c7d9dd85a34b4519ff218008c132cc283dab7f8d6ba6e2"
+   },
+   {
+    "file": "core.py",
+    "sha256": "3a80e100123b9cc59e132e0075a0d2c4ea08695c50c744bd6d94dfa28e192385"
+   },
+   {
+    "file": "extract.py",
+    "sha256": "0350a77b41b82ac121478aaad252154a4db0c299216076b7785a560d0e71a92a"
+   },
+   {
+    "file": "all.json",
+    "sha256": "b282b4fb0417554b1cea8c5060cc1b325aba745236a99a2d3b106af817360767"
+   },
+   {
+    "file": "all-grid-rawchecks.json",
+    "sha256": "dd9c8e305e340d353c104848a8956ef45f904d3d4d6ee86b1ff6f9d5d687e357"
+   },
+   {
+    "file": "vehicle-materials.json",
+    "sha256": "9f3e86e2e4d8e73ad1290df0dd66c27f2c4618ebac3d4410b026056d406e6df0"
+   },
+   {
+    "file": "vehicle-health.json",
+    "sha256": "ce9a12cfe241f380f5acb796275f981f7cdf48817cee6fe1427519cf7ae8baf3"
+   },
+   {
+    "file": "raw-check-manifest.json",
+    "sha256": "f973bc4c5acbf1caadf1a4aca612e81ebb77840e859d2bff7a1bc28a063134ad"
+   },
+   {
+    "file": "raw-checks.json",
+    "sha256": "9e77d9970d3c3405dc9264e0c8a8bce5403228489434953645ef1f7a6811f795"
+   },
+   {
+    "file": "ea-1-3-1-0.txt",
+    "sha256": "164104a0230d09e8d179f79b65a708c2c1d04244f06157ab8827d57b5443ad4d"
+   },
+   {
+    "file": "ea-1-3-3-0.txt",
+    "sha256": "f755dc18c8aad27471d33e8ba721cd377a24c5940957d23e9dd9e40a443e6b47"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-09",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L3329",
+    "title": "Explosive damage to soldiers from the material grid and the flak multipliers",
+    "status": "finding",
+    "summary": "For 26 explosions the grid stores a damage value against the soldier abdomen material only (1 for shells, rockets, C-4 and mines; 0.85 for top-attack warheads; 0.8 for bombs; 0.6 for anti-air missiles; 0.4 for the SLAM body). Blast damage times that value, times the L3315 flak multipliers, is tabulated as a prediction. EA's guided-shell lethal distance of 2 m is reproduced; the HEAT-MP-T lethal radius is not. 13170 raw reads matched.",
+    "reopenWhen": "An in-game blast damage reading on a soldier with and without flak.",
+    "statusNote": "Prediction from stored values; one EA statement fits, one does not; no in-game reading."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Game/GlacierMP/levels/mp_abbasid/mp_abbasid/materialgrid_win32",
+    "format": "raw-ebx",
+    "sha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+    "question": "What do stored blast damage, the material grid and the flak multipliers of L3315 give for explosive damage to a soldier?",
+    "result": "useful",
+    "conclusion": "Explosion materials have a Field_674633de value against soldier material 25 and no damage record against 24 and 26."
+   },
+   {
+    "path": "Game/GlacierMP/levels/mp_badlands/mp_badlands/materialgrid_win32",
+    "format": "raw-ebx",
+    "sha256": "b2ca0a2bde7aa7ebae1d0eea5880d59a72ab3a9f6a3f602e6d4fbec07498edec",
+    "question": "What do stored blast damage, the material grid and the flak multipliers of L3315 give for explosive damage to a soldier?",
+    "result": "useful",
+    "conclusion": "Explosion materials have a Field_674633de value against soldier material 25 and no damage record against 24 and 26."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/_Projectiles/Missile/Spike/PB_ATGM_Homing_Spike",
+    "format": "raw-ebx",
+    "sha256": "46fa12309b3c363321bb7938c7edfae14aa373302607050a756e9f829ba98f29",
+    "question": "What do stored blast damage, the material grid and the flak multipliers of L3315 give for explosive damage to a soldier?",
+    "result": "useful",
+    "conclusion": "Explosion material 650, blast damage 150 (registry default), grid value 0.85 against the abdomen material."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/_Projectiles/Missile/Hellfire/Art/PB_Missile_AGM114_Hellfire",
+    "format": "raw-ebx",
+    "sha256": "cad58c03e44f64e421f4710b1b7d2e705b6f8e789b8de05fda587a92435afec8",
+    "question": "What do stored blast damage, the material grid and the flak multipliers of L3315 give for explosive damage to a soldier?",
+    "result": "useful",
+    "conclusion": "Explosion material 650, blast damage 150 (registry default), grid value 0.85 against the abdomen material."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/_Projectiles/Missile/Maverick/PRJ_Missile_AGM65_Maverick",
+    "format": "raw-ebx",
+    "sha256": "c06f6188b9fe96c7b286d3804c71387441b188971172fdb7be36422d01327f00",
+    "question": "What do stored blast damage, the material grid and the flak multipliers of L3315 give for explosive damage to a soldier?",
+    "result": "useful",
+    "conclusion": "Explosion material 650, blast damage 150 (registry default), grid value 0.85 against the abdomen material."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/_Projectiles/Bomb/GBU39/PB_Bomb_GBU39",
+    "format": "raw-ebx",
+    "sha256": "a9258b41ad7a0cf2acf8bba6fabab0048df5d1298c5f78b093acf73af8d2e9af",
+    "question": "What do stored blast damage, the material grid and the flak multipliers of L3315 give for explosive damage to a soldier?",
+    "result": "useful",
+    "conclusion": "Explosion material 213, blast damage 240 (registry default), grid value 0.8 against the abdomen material."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/_Projectiles/Bomb/Mk82/PB_Bomb_Mk82AIR",
+    "format": "raw-ebx",
+    "sha256": "609bcabdabbeed77dc9dbd6e608f386a4fd152f96ac8c214f979a31ab4d73fba",
+    "question": "What do stored blast damage, the material grid and the flak multipliers of L3315 give for explosive damage to a soldier?",
+    "result": "useful",
+    "conclusion": "Explosion material 607, blast damage 335 (registry default), grid value 0.8 against the abdomen material."
+   },
+   {
+    "path": "Common/Hardware/Gadgets/Launchers/Javelin/PB_Javelin",
+    "format": "raw-ebx",
+    "sha256": "26ded649660436b43b24a0339a475685b6ae3d9d8127599f4eebeb4b8fc8d6cd",
+    "question": "What do stored blast damage, the material grid and the flak multipliers of L3315 give for explosive damage to a soldier?",
+    "result": "useful",
+    "conclusion": "Explosion material 650, blast damage 155 (registry default), grid value 0.85 against the abdomen material."
+   },
+   {
+    "path": "Common/Hardware/Gadgets/Launchers/MBTLAW/PB_MBTLAW",
+    "format": "raw-ebx",
+    "sha256": "31bbb108ea03a6433a70fc96b9b0c2ca2fe743cda4bb2cbb9f3bcecb102828ba",
+    "question": "What do stored blast damage, the material grid and the flak multipliers of L3315 give for explosive damage to a soldier?",
+    "result": "useful",
+    "conclusion": "Explosion material 650, blast damage 80 (asset own value (no registry row)), grid value 0.85 against the abdomen material."
+   },
+   {
+    "path": "Common/Hardware/Gadgets/Launchers/IGLA/PB_NS_IGLA",
+    "format": "raw-ebx",
+    "sha256": "91b1062d694603295dad42cecaaec90353f8fbedd5de244befd1be35a42097a7",
+    "question": "What do stored blast damage, the material grid and the flak multipliers of L3315 give for explosive damage to a soldier?",
+    "result": "useful",
+    "conclusion": "Explosion material 185, blast damage 100 (asset own value (no registry row)), grid value 0.6 against the abdomen material."
+   },
+   {
+    "path": "Common/Hardware/Gadgets/Launchers/Stinger/PB_NS_Stinger",
+    "format": "raw-ebx",
+    "sha256": "6e9f751e5927247da34d7240161ba1f6ea6f62c82b354e9d8b89a034b36f2cbd",
+    "question": "What do stored blast damage, the material grid and the flak multipliers of L3315 give for explosive damage to a soldier?",
+    "result": "useful",
+    "conclusion": "Explosion material 185, blast damage 100 (asset own value (no registry row)), grid value 0.6 against the abdomen material."
+   },
+   {
+    "path": "Common/Hardware/Gadgets/Mines/M4SLAM/PB_M4SLAM",
+    "format": "raw-ebx",
+    "sha256": "2a2f2279d357278c7e901b6c2b483742e5881d71c0ba1bb1b7b5cb45fa44a6c4",
+    "question": "What do stored blast damage, the material grid and the flak multipliers of L3315 give for explosive damage to a soldier?",
+    "result": "useful",
+    "conclusion": "Explosion material 91, blast damage 100 (asset own value (no registry row)), grid value 0.4 against the abdomen material."
+   },
+   {
+    "path": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PTKM1R_EFP",
+    "format": "raw-ebx",
+    "sha256": "09c32887741cc43c55a13540152675e62770e070b11269c14c525364b0a5a644",
+    "question": "What do stored blast damage, the material grid and the flak multipliers of L3315 give for explosive damage to a soldier?",
+    "result": "useful",
+    "conclusion": "Explosion material 650, blast damage 160 (asset own value (no registry row)), grid value 0.85 against the abdomen material."
+   }
+  ]
+ }
+}

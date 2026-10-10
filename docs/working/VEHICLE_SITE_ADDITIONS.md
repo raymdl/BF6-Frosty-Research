@@ -4,6 +4,449 @@
 
 Prepare comparison stats for a possible vehicle section. Vehicles remain outside the current weapon and attachment section. Cosmetics, skins and artwork are excluded. This work does not authorize site data, simulation or UI changes.
 
+## Vehicle screenshot evidence and next research paths (3 October 2026)
+
+The current local chat will orchestrate the next round. Dex has received the complete reference handoff. This section records all 137 screenshots: 13 category screens, 13 Customize screens, and 111 selection screens in eight vehicle folders. All 13 folders were reviewed. Repeated options remain individually indexed. The five folders with only overview screens are Attack Jet, Fighter Jet, Interceptor Jet, Light Ground Transport, and Transport Helicopter.
+
+Evidence: [screenshot index, SHA-256 hashes, UI summaries and proposed leads](../../reference-data/frosty/vehicle-loadout-screenshots-2026-10-03.json). Original images are in the sibling Weapon Analyzer repository at `reference-data/Vehicles Loadouts`. The index retains every relative filename. Descriptions below are faithful summaries of visible UI text, not fresh EBX decodes or verbatim full transcriptions.
+
+The capture date comes from the earlier screenshot filenames/rename record. No client build, archive Head, descriptor identity, map or game-mode identity is established by these images. Existing source comparisons refer to the saved 1.4.3.5 Head 4909002 work. No raw-hash carry-forward check was performed for this documentation pass.
+
+### Screenshot source-stage review (4 October 2026)
+
+All 58 screenshot questions have reviewed dispositions and method-specific evidence gaps with reopening conditions. The 137 screenshot hashes were checked. No new effective gameplay value or site change was accepted. Exact named declaration tuples and selected source relationships are retained separately from unknown field roles, units and operations. The screenshot build remains unknown.
+
+The complete stage handoff and per-question audit are `SCREENSHOT_STAGE_HANDOFF.md` and `SCREENSHOT_STAGE_AUDIT.json` in `C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-03-vehicle-screenshot-program/`. Final aircraft review resolves the remaining coverage tasks while preserving the Scout designation-role and Jet option/component gaps. These are limits of inspected methods, not global source exhaustion. The broader mechanics program continues.
+
+### Inherited projectile review (4 October 2026)
+
+The broader program accepted the 42 source fields that remained pending in the older vehicle/gadget program: 16 air-guided fields, 10 rocket fields and 16 bomb/ground-guided fields across 21 exact owners. Each pair is `InitialSpeed` and `TimeToLive`. Supervisor checks matched current raw hashes, file/export identity, unique five-class inherited declarations and all 42 stored FLOAT32 cells. The accepted IGLA naming control and AGM84 precedent were reused; previously accepted target and control scalar cells were not reread.
+
+The review is `INHERITED_PROJECTILE_SUPERVISOR_REVIEW.json` in the current program folder. It preserves exact values, bytes, identities, input hashes and the checker. This is acceptance of source names and stored values only. It establishes no units, effective launch speed or lifetime, activation, equation or runtime behavior. The older paused-program packets remain historical records; their pending status is superseded for these 42 cells by this review.
+
+### Orchestration and evidence rules
+
+The operator authorizes up to six separate researcher chats using `gpt-6.1-sol` at `low` effort. Each researcher may delegate narrow, bounded work to up to six parallel worker subagents using `gpt-6-luna` at `xhigh` effort, within that chat's available slots. Keep independent reads concurrent and captures, dependent work and conflicting edits sequential. The orchestrator owns lead allocation, direction checks, source review, replacements and final reconciliation. Do not fill slots without useful work.
+
+The research program is active. The operator expanded its objective beyond these screenshots: gain useful understanding of vehicle, gadget, weapon and attachment mechanics that could benefit the site. VS01-VS58 is the first stage. Continue Vehicle/Gadget work and useful weapon/attachment questions afterwards, prioritizing incorrect or assumed site values, missing effects or comparison stats, and source evidence that reduces uncertainty. Each new assignment must state the site benefit, exact question, prior coverage, bounded route and control. A stopped path needs new evidence or a different useful method before reopening.
+
+A 20-minute monitor checks the researcher chats, redirects unproductive paths, and starts the next useful work after closeout. It continues beyond the screenshot stage. Authoritative roster, review cursors and dispositions: `C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-03-vehicle-screenshot-program/PROGRAM_STATE.json`. Method and output rules: `RESEARCH_BRIEF.md` in the same folder. The six initial lanes cover ground modifiers, support persistence, helicopter upgrades, defense/sensing, armament selection and naval equipment/slots. The schedule does not guarantee token-cache retention.
+
+Researchers must message the orchestrator on completion with evidence paths, findings, limits, open questions and worker-stop confirmation. The operator explicitly authorizes these messages. Review starts when results arrive; the timer is a backup. At each check-in, compare actual work with the intended site benefit and send a specific correction if the path drifts.
+
+Initial bounded results and source samples are reviewed in `FIRST_GATE_SUPERVISOR_REVIEW.json` and `SECOND_GATE_SUPERVISOR_REVIEW.json` in the program folder. Selected Medbay, Combat Awareness, regeneration and antispotting declarations retain their exact names, GUIDs and three stored FLOAT32 words. The IFV and MBT delay affectors select the same MBT-named declaration export. These are source facts only: the tuple roles, units, active values and operations remain unresolved. Other reviewed paths retain method-specific stops, not claims of general exhaustion. No site mechanic or effective value is approved by this review.
+
+- UI descriptions, observed menu states, stored source values, proposed mechanisms and runtime behavior remain separate. No screenshot establishes exact gameplay values, source GUIDs, default activation or native execution.
+- These VS identifiers are a proposed worklist, not allocated Frosty L-numbers or closed leads. Work down the list, first checking the existing receipt and stop condition. Allocate an L-number only when starting a bounded source pass. No records build is needed for this UI-only planning update.
+- Start with existing captures and exact metadata identities. Names, images, caliber, shared labels, array order and matching numbers are search hints, not proof of ownership. Require an exact typed producer/consumer link and a known-answer control before assigning an effect.
+- Use the maintained research guide and current build guard before any new Frosty capture. Use one shared capture at a time. Keep standard multiplayer separate from campaign, AI and Granite. Do not repeat a closed broad metadata scan without a new exact target or selector.
+- A blocked lead must state the inspected route, missing evidence and reopening condition; then proceed to the next independent lead. Runtime tests or recordings need a separate operator request. This handoff does not authorize site changes, publishing or a push.
+- The captured Loadout 1 is a player/menu selection, not a factory default. The inspected card can differ from the equipped card. A locked card is not absent equipment; a grey overview card alone does not prove it is fixed. Duplicate Remote Weapon or Upgrade labels require slot ordinal plus seat.
+
+### Existing source work to reuse
+
+- L3023 and L3150-L3155 retain vehicle UI text, metadata and DBD definitions. UI property declarations did not establish a live producer or a gameplay/default join. The source metadata census already reached 28/28 Common/Hardware/Vehicles assets. Do not repeat that census because screenshots now exist.
+- L3100-L3112 and L3250-L3257 retain station controls and slot tables. The L3257 snapshot has 166 slot variants, 151 Eq records, 79 exact seat owners and 72 unresolved Eq owner joins; source counts are not playable-seat counts. All rootRecipeIdentityConfirmed flags were false. This documentation pass does not resolve those joins.
+- L3254 has exact MBT five-ammo producer/condition chains. UH-60 left/right miniguns, AH-64E gunner chaingun and Abrams coax LMG/HMG are existing controls.
+- L3303 has current saved caller paths for Gepard, 26 coax/RWS paths and five CB90 mortars. They do not establish menu selection or defaults. Its NavalMine alternate-schema limit remains.
+- L3304 has exact RWS AGL firing/projectile paths and separately named direct/blast values. It does not establish composed damage or radius units. IFV thermal smoke, MBT protection and AttackHeli flares have producer identities with activation/timer/charge limits.
+- L3033 left APHEI exact weapon/projectile and carrier selection unresolved. The Multirole screenshot supplies a UI description and option context, not that missing source link.
+
+### Category and captured slot inventory
+
+Seat counts and tags in this table are attributed UI text. The layout column records the captured selections, not defaults or a complete passenger-seat list.
+
+| Vehicle | UI seats | UI tags | Captured equipment layout |
+|---|---:|---|---|
+| ATP | 4 | Shielded Seats | Driver: Equipment 1 Emergency Repair; Upgrade Combat Awareness. Gunner: Remote Weapon HMG; Equipment 1 Countermeasures. Left Gunner and Right Gunner: Mounted Weapon Firing Port Weapon each. |
+| AttackHeli | 2 | Anti-Vehicle; Anti-Soldier | Driver: Primary Aim-Guided; Secondary Lock-Guided; Equipment 1 Flares; Equipment 2 Emergency Repair; Upgrade Thermal Optics; second Upgrade Radar System. Gunner: Remote Weapon Cannon; second Remote Weapon Lock-Guided. |
+| AttackJet | 1 | Anti-Vehicle; Anti-Soldier; Soft Target | Driver: Primary API Cannon; Secondary Lock-Guided; Equipment 1 Flares; Equipment 2 Bomb; Upgrade Radar System. |
+| FighterJet | 1 | Anti-Vehicle; Soft Target | Driver: Primary API Cannon; Secondary Lock-Guided; Equipment 1 Flares; Equipment 2 Bomb; Upgrade Radar System. |
+| IFV | 6 | Anti-Soldier | Driver: Primary High Explosive; Secondary Aim-Guided; Equipment 1 Thermal-Blocking; Equipment 2 Counter-Fire Radar; Upgrade Field Maintenance. Gunner: Remote Weapon LMG; Equipment 1 Countermeasures. |
+| InterceptorJet | 2 | Anti-Vehicle; Soft Target | Driver: Primary API Cannon; Secondary Lock-Guided; Equipment 1 Flares; Equipment 2 Sweep Stance. Gunner: Remote Weapon Aim-Guided; second Remote Weapon Active-Lock; Equipment 1 Flares. |
+| LightTransport | 5 | Open Seats; Transport | Gunner: Mounted Weapon Heavy Machine Gun. Other seats are not represented by equipment cards here. |
+| MBT | 2 | Anti-Vehicle; Hard Target | Driver: Primary Multi-Purpose; Alternate Ammo Aim-Guided; Secondary Coaxial LMG; Equipment 1 Thermal-Blocking; Upgrade Field Maintenance. Gunner: Remote Weapon LMG; Equipment 1 Countermeasures. |
+| AA | 1 | Shielded Seats | Driver: Primary Multi-Purpose; Secondary Lock-Guided; Equipment 1 Thermal-Blocking; Upgrade Systems Upgrade; second Upgrade Radar System. |
+| MultiroleJet | 2 | Anti-Vehicle; Anti-Soldier; Soft Target | Driver: Primary API Cannon; Secondary Lock-Guided; Equipment 1 Flares; Equipment 2 Heavy Rockets. Gunner: Remote Weapon Active-Lock; second Remote Weapon Bomb; Equipment 1 Flares. |
+| PatrolBoat | 2 | Anti-Vehicle; Anti-Soldier | Driver: Primary Cannon; Secondary Lock-Guided; Equipment 1 Thermal-Blocking; Equipment 2 Torpedo; Upgrade Deploy Ramp. Gunner: Remote Weapon High Explosive; second Remote Weapon IR Smoke. |
+| ScoutHeli | 4 | Reconnaissance | Driver: Primary Minigun; Secondary Light Rockets; Equipment 1 Flares; Equipment 2 Smoke Launcher; Upgrade Stabilizer; second Upgrade Radar System. Gunner: Remote Weapon Thermal Scanner; second Remote Weapon Target Designator. |
+| TransportHeli | 5 | Transport | Driver: Equipment 1 Flares; Equipment 2 Emergency Repair; Upgrade Improved Armor. Left Gunner and Right Gunner: Mounted Weapon Minigun each. |
+
+### Ordered research worklist
+
+VS01-VS29 prioritize conditions, receivers and utility effects. VS30-VS51 cover armament selection and projectile behavior. VS52-VS58 address identity, coverage and optional progression questions. The prerequisites in VS54 apply before source comparisons; its number is not a reason to defer build verification. Each item is still a proposal.
+
+#### VS01 - MBT Enhanced Loading Systems
+
+- **UI evidence:** Increases primary weapon rate of fire and improves secondary weapon heat recovery. Only active when countermeasures are not on cooldown.
+- **Next source question:** Find the exact countermeasure-ready condition, affected primary and secondary owners, rate-of-fire and heat-recovery modifiers, and transition when cooldown begins or ends. Do not substitute reload speed for either effect.
+- **Screenshot references:** `Main Battle Tank (MBT)/2_MBT_5_SelectDriverUpgrade_3_EnhancedLoading.png`.
+
+#### VS02 - AA Enhanced Loading Systems
+
+- **UI evidence:** Increases reload speed on both primary and secondary weapons. System deactivates when vehicle countermeasures are used.
+- **Next source question:** Trace both reload receivers, countermeasure-use deactivation, and reactivation condition. Compare with VS01 only after exact identity is known; its UI description differs.
+- **Screenshot references:** `Mobile Anti-Air (AA)/2_AA_4_SelectDriverUpgrade_3_EnhancedLoading.png`.
+
+#### VS03 - IFV Systems Upgrade
+
+- **UI evidence:** Faster cooldowns on equipment in slot 1; increased range and duration on equipment in slot 2.
+- **Next source question:** Resolve Equipment 1 and Equipment 2 separately. Trace cooldown, range, and duration receivers for each compatible option; do not apply one modifier to all equipment.
+- **Screenshot references:** `Infantry Fighting Vehicle (IFV)/2_IFV_5_SelectDriverUpgrade_5_SystemsUpgrade.png`.
+
+#### VS04 - AA Systems Upgrade
+
+- **UI evidence:** Faster cooldowns on all equipment and increased radar range.
+- **Next source question:** Find equipment cooldown scope and the radar-range receiver. Determine whether the fixed Radar System supplies the radar owner. Do not transfer the IFV description.
+- **Screenshot references:** `Mobile Anti-Air (AA)/2_AA_4_SelectDriverUpgrade_1_SystemsUpgrade.png`.
+
+#### VS05 - Emergency Repair and its health gate
+
+- **UI evidence:** ATP, Attack Helicopter, IFV, MBT, and AA selection screens say damaged vehicles can be repaired only in a low-health state.
+- **Next source question:** For each vehicle, trace the low-health threshold, activation predicate, repaired health owner, amount/rate, duration, charges, and cooldown. The Transport Helicopter overview also shows Emergency Repair, but supplies no description.
+- **Screenshot references:** 5 images indexed under `VS05` in the evidence JSON; examples: `Armored Transport (ATP)/2_ATP_1_SelectDriverEquipment1_1_EmergencyRepair.png`; `Attack Helicopter (Attack Heli)/2_AttackHeli_4_SelectDriverEquipment2_1_EmergencyRepair.png`.
+
+#### VS06 - Emergency Countermeasures and its health gate
+
+- **UI evidence:** IFV and MBT: substantially improves countermeasure recharge rate at low health.
+- **Next source question:** Find the health threshold, exact countermeasure owner, recharge operation, and recovery when health rises. Keep this distinct from Emergency Repair and Enhanced Loading.
+- **Screenshot references:** `Infantry Fighting Vehicle (IFV)/2_IFV_5_SelectDriverUpgrade_4_EmergencyCountermeasures.png`; `Main Battle Tank (MBT)/2_MBT_5_SelectDriverUpgrade_2_EmergencyCountermeasures.png`.
+
+#### VS07 - Field Maintenance
+
+- **UI evidence:** IFV and MBT: faster vehicle health recovery after taking damage; also gains ammunition faster.
+- **Next source question:** Separate health recovery delay/rate from ammunition replenishment delay/rate. Identify both receivers and the applicable damage-state conditions.
+- **Screenshot references:** `Infantry Fighting Vehicle (IFV)/2_IFV_5_SelectDriverUpgrade_2_FieldMaintenance.png`; `Main Battle Tank (MBT)/2_MBT_5_SelectDriverUpgrade_1_FieldMaintenance.png`.
+
+#### VS08 - ATP Integrated Medbay
+
+- **UI evidence:** Increases health regeneration of friendly soldiers within a radius. Remains active after all soldiers exit if they remain nearby.
+- **Next source question:** Trace team filter, radius, regeneration modifier, vehicle ownership, empty-vehicle persistence, distance cutoff, and shutdown on destruction or ownership change.
+- **Screenshot references:** `Armored Transport (ATP)/2_ATP_2_SelectDriverUpgrade_1_IntegratedMedbay.png`.
+
+#### VS09 - ATP Combat Awareness System
+
+- **UI evidence:** Hostiles remain spotted longer when they damage the vehicle or the owner's squadmates near it. Remains active after all soldiers exit but remain nearby.
+- **Next source question:** Find damage-event inputs, owner/squad filters, distance test, spotting duration, and empty-vehicle persistence. Distinguish vehicle damage from damage to a nearby squadmate.
+- **Screenshot references:** `Armored Transport (ATP)/2_ATP_2_SelectDriverUpgrade_3_CombatAwareness.png`.
+
+#### VS10 - Mobile Command Station: ATP versus IFV
+
+- **UI evidence:** Both increase capture rate while inside an objective's capture area. ATP explicitly says the effect remains active after everyone exits but remains nearby; the IFV description does not state that extension.
+- **Next source question:** Trace capture-volume condition and contribution operation. Test the ATP occupancy/proximity condition as a separate source question; do not infer IFV persistence from its omitted wording.
+- **Screenshot references:** `Armored Transport (ATP)/2_ATP_2_SelectDriverUpgrade_4_MobileCommand.png`; `Infantry Fighting Vehicle (IFV)/2_IFV_5_SelectDriverUpgrade_1_MobileCommand.png`.
+
+#### VS11 - Attack Helicopter Heavy Warheads
+
+- **UI evidence:** Increases the blast radius lethality of primary weapon payloads and ammunition capacity. Diminishes aircraft maneuverability.
+- **Next source question:** Find primary-only scope, blast-related modifiers, capacity receiver, and maneuverability penalty. The phrase blast radius lethality does not identify a particular radius/damage field or equation.
+- **Screenshot references:** `Attack Helicopter (Attack Heli)/2_AttackHeli_5_SelectDriverUpgrade_2_HeavyWarheads.png`.
+
+#### VS12 - Attack Helicopter Thermal Optics crosses seats
+
+- **UI evidence:** Located in Driver / Upgrade, but the description enables thermal vision for the attack helicopter gunner while zoomed.
+- **Next source question:** Trace driver-selected equipment to the gunner camera/optic receiver and zoom predicate. This is a useful control against assuming that the selecting seat receives the effect.
+- **Screenshot references:** `Attack Helicopter (Attack Heli)/2_AttackHeli_5_SelectDriverUpgrade_1_ThermalOptics.png`.
+
+#### VS13 - Helicopter Targeting Interference and speed gate
+
+- **UI evidence:** Slows enemy lock acquisition and clears the aircraft spotted marker sooner. Deactivates if the aircraft travels too slowly.
+- **Next source question:** Find speed threshold and units, lock and spotting receivers, activation hysteresis, and differences between Attack and Scout Helicopter owners.
+- **Screenshot references:** `Attack Helicopter (Attack Heli)/2_AttackHeli_5_SelectDriverUpgrade_3_Interference.png`; `Scout Helicopter (Scout Heli)/2_ScoutHeli_5_SelectDriverUpgrade_4_Interference.png`.
+
+#### VS14 - Attack Helicopter Target Detection System
+
+- **UI evidence:** Tracks and identifies enemy infantry and vehicles. The attack helicopter is more vulnerable to lock-on weapons while active.
+- **Next source question:** Trace detection targets/radius/duration and the simultaneous lock-vulnerability penalty; identify activation and shutdown conditions.
+- **Screenshot references:** `Attack Helicopter (Attack Heli)/2_AttackHeli_4_SelectDriverEquipment2_2_TargetDetection.png`.
+
+#### VS15 - Optimized Handling
+
+- **UI evidence:** Improves vehicle turning rate and aiming speed.
+- **Next source question:** Trace chassis turning and aiming/turret receivers separately for MBT and AA; establish the operation and units before reporting an effective speed.
+- **Screenshot references:** `Main Battle Tank (MBT)/2_MBT_5_SelectDriverUpgrade_4_OptimizedHandling.png`; `Mobile Anti-Air (AA)/2_AA_4_SelectDriverUpgrade_2_OptimizedHandling.png`.
+
+#### VS16 - Scout Helicopter Emergency Stabilizer
+
+- **UI evidence:** Reduces the effect of mobility hits, making the vehicle easier to control.
+- **Next source question:** Target the mobility-hit response, severity/duration and affected controls. Do not assume a normal-flight handling bonus.
+- **Screenshot references:** `Scout Helicopter (Scout Heli)/2_ScoutHeli_5_SelectDriverUpgrade_1_Stabilizer.png`.
+
+#### VS17 - Scout Helicopter Engine Upgrade
+
+- **UI evidence:** Faster acceleration and top speed at the cost of maneuverability.
+- **Next source question:** Trace acceleration, speed limit, and maneuverability receivers as three separate effects; identify the source operation for each.
+- **Screenshot references:** `Scout Helicopter (Scout Heli)/2_ScoutHeli_5_SelectDriverUpgrade_3_EngineUpgrade.png`.
+
+#### VS18 - Ground Targeting Jammer
+
+- **UI evidence:** Slows lock acquisition, clears the spotted marker sooner, and reduces heat signature in thermal imaging.
+- **Next source question:** Trace lock, spotting, and thermal-visibility receivers independently. Do not import the helicopter speed gate unless an exact chain establishes it.
+- **Screenshot references:** `Infantry Fighting Vehicle (IFV)/2_IFV_5_SelectDriverUpgrade_3_TargetingJammer.png`; `Mobile Anti-Air (AA)/2_AA_4_SelectDriverUpgrade_4_TargetingJammer.png`.
+
+#### VS19 - MBT Projectile Intercept System
+
+- **UI evidence:** Intercepts enemy missiles, shells, rockets, grenades, and bombs. Intercepts all projectiles during an activation window that starts after initial detection.
+- **Next source question:** Trace projectile-class/team filters, detection trigger, window timer, capacity, and cooldown. The word all is a UI claim, not a proved unlimited capacity or universal filter.
+- **Screenshot references:** `Main Battle Tank (MBT)/2_MBT_4_SelectDriverEquipment1_2_ProjectileIntercept.png`.
+
+#### VS20 - ATP Grenade Intercept System
+
+- **UI evidence:** Tracks and destroys projectiles such as hand-thrown and launched grenades. Can intercept up to three during an activation window after initial detection.
+- **Next source question:** Find the three-intercept counter, allowed projectile classes, detection/window timing, reset and cooldown. Compare with MBT protection without merging the two systems.
+- **Screenshot references:** `Armored Transport (ATP)/2_ATP_2_SelectDriverUpgrade_2_GrenadeIntercept.png`.
+
+#### VS21 - Gunner Mine Countermeasures
+
+- **UI evidence:** Detects mines and C-4, enabling the operator to activate countermeasures to destroy them.
+- **Next source question:** Trace detection, mine/C-4 eligibility, manual activation, destruction, radius, and charges/cooldown. IFV overview also shows Countermeasures, but has no selection description in this collection.
+- **Screenshot references:** `Armored Transport (ATP)/2_ATP_4_SelectGunnerEquipment1_2_Countermeasures.png`; `Main Battle Tank (MBT)/2_MBT_7_SelectGunnerEquipment1_2_Countermeasures.png`.
+
+#### VS22 - Thermal-Blocking Smoke damage and guidance effects
+
+- **UI evidence:** IFV, MBT, and AA: obscures the vehicle, disrupts incoming lock-on missile guidance, blocks spotting, and deals moderate damage to enemy infantry in the smoke radius.
+- **Next source question:** Trace smoke lifetime/radius, missile-guidance disruption, spotting control, and the enemy-infantry damage channel. Patrol Boat has an overview label only; do not transfer values to it.
+- **Screenshot references:** `Infantry Fighting Vehicle (IFV)/2_IFV_3_SelectDriverEquipment1_2_Thermal-Blocking.png`; `Main Battle Tank (MBT)/2_MBT_4_SelectDriverEquipment1_1_Thermal-Blocking.png`; `Mobile Anti-Air (AA)/2_AA_3_SelectDriverEquipment1_1_Thermal-Blocking.png`.
+
+#### VS23 - Smoke Generator, Smoke Wall Launcher, and Scout Smoke Launcher
+
+- **UI evidence:** ATP/IFV Smoke Generator emits continuously and can lay a wall while driving. ATP/MBT Smoke Wall Launcher fires multiple projectiles. Scout Smoke Launcher fires multiple grenades to form a cloud. Each says it blocks spotting and clears spotted markers from all infantry in the smoke radius.
+- **Next source question:** Separate emitter, projectile, and grenade deployment. Trace lifetime, radius, marker clearing and team scope; all infantry must not silently become friendly-only. These descriptions do not state the thermal-smoke damage effect.
+- **Screenshot references:** 5 images indexed under `VS23` in the evidence JSON; examples: `Armored Transport (ATP)/2_ATP_1_SelectDriverEquipment1_2_SmokeGenerator.png`; `Armored Transport (ATP)/2_ATP_4_SelectGunnerEquipment1_1_SmokeWall.png`.
+
+#### VS24 - IFV Proximity Threat Detector
+
+- **UI evidence:** Detects nearby enemy soldiers and vehicles and shows them on the minimap for a short duration.
+- **Next source question:** Find target filters, detection radius, refresh cadence, display duration, and recipients.
+- **Screenshot references:** `Infantry Fighting Vehicle (IFV)/2_IFV_4_SelectDriverEquipment2_1_ThreatDetector.png`.
+
+#### VS25 - IFV Counter-Fire Radar
+
+- **UI evidence:** Passively spots sources of incoming damage. Can be activated to extend spotting and designate spotted enemy vehicles.
+- **Next source question:** Separate passive damage-source spotting from active extension/designation. Trace target type, recipients, timers, and designation consumers.
+- **Screenshot references:** `Infantry Fighting Vehicle (IFV)/2_IFV_4_SelectDriverEquipment2_2_Counter-FireRadar.png`.
+
+#### VS26 - Scout dropped Motion Sensor
+
+- **UI evidence:** Dropped device embeds in the ground and shows nearby moving enemies, vehicles, and gadgets on team minimaps. Infantry can avoid detection while moving crouched or prone. Emits a sound audible to hostiles.
+- **Next source question:** Trace dropped-device lifecycle, ground placement, movement/stance and type filters, radius, team-wide recipients, duration, and sound event. Compare infantry sensor logic only after exact ownership is known.
+- **Screenshot references:** `Scout Helicopter (Scout Heli)/2_ScoutHeli_4_SelectDriverEquipment2_2_MotionSensor.png`.
+
+#### VS27 - Scout Tactical Data System
+
+- **UI evidence:** Enemies spotted by the Scout Helicopter's equipment and radar receive world and minimap markers for all team members, not only the user's squad.
+- **Next source question:** Trace radar/equipment input scope and squad-to-team recipient change; distinguish world markers from minimap markers and ordinary designation.
+- **Screenshot references:** `Scout Helicopter (Scout Heli)/2_ScoutHeli_5_SelectDriverUpgrade_2_TacticalDataSystem.png`.
+
+#### VS28 - Scout Target Designator
+
+- **UI evidence:** Marks vehicles and locations. Designated targets can be locked from farther away and lose below-radar protection.
+- **Next source question:** Trace designation token, vehicle/location distinction, target lifetime, compatible lock receivers, extended range, and below-radar override.
+- **Screenshot references:** `Scout Helicopter (Scout Heli)/2_ScoutHeli_8_SelectGunnerRemoteWeapon_1_TargetDesignator.png`.
+
+#### VS29 - Directional Jammer: Scout and Multirole Jet
+
+- **UI evidence:** Targets enemy handheld and vehicle-mounted devices to prevent lock-on against the equipped aircraft or other vehicles. Extended use temporarily overheats it.
+- **Next source question:** Find directional/line-of-sight and range tests, affected devices and protected targets, heat accumulation, overheat cutoff and recovery. Preserve separate owners for Scout and Jet.
+- **Screenshot references:** `Multirole Jet/2_MultiroleJet_5_SelectGunnerRemoteWeapon_1_DirectionalJammer.png`; `Scout Helicopter (Scout Heli)/2_ScoutHeli_8_SelectGunnerRemoteWeapon_2_DirectionalJammer.png`.
+
+#### VS30 - MBT five ammunition options and duplicate exclusion
+
+- **UI evidence:** Both Primary and Alternate Ammo show Multi-Purpose HE (120 mm HEAT-MP-T: infantry and armor), Armor-Piercing (120 mm APFSDS: heavy armor, no explosive charge), Anti-Personnel (120 mm canister: short/medium infantry use, ineffective against armor), High Explosive (120 mm HEMP-T: large fragmentation radius, less effective against armor), and Aim-Guided (120 mm guided munition: anti-vehicle crosshair guidance). Primary shows Aim-Guided blocked as already equipped elsewhere; Alternate Ammo shows Multi-Purpose blocked.
+- **Next source question:** Reuse the L3254 exact five-option condition chains. Trace which slot selects which condition, duplicate exclusion, switching, ammunition ownership, and each projectile channel. UI order is not factory default order.
+- **Screenshot references:** 10 images indexed under `VS30` in the evidence JSON; examples: `Main Battle Tank (MBT)/2_MBT_1_SelectDriverPrimary_1_Multi-Purpose.png`; `Main Battle Tank (MBT)/2_MBT_1_SelectDriverPrimary_2_Armor-Piercing.png`.
+
+#### VS31 - IFV three primary shell types
+
+- **UI evidence:** High Explosive / HEI-T targets infantry and unarmored vehicles, less effective against armor. Anti-Personnel / canister targets infantry at short/medium range and is ineffective against armor. Armor-Piercing / APDS targets heavy armor with no explosive charge and lower infantry effectiveness.
+- **Next source question:** Resolve exact primary alternatives and projectiles. Compare direct/blast/canister channels, target multipliers and cadence without treating qualitative UI wording as numbers.
+- **Screenshot references:** `Infantry Fighting Vehicle (IFV)/2_IFV_1_SelectDriverPrimary_1_HighExplosive.png`; `Infantry Fighting Vehicle (IFV)/2_IFV_1_SelectDriverPrimary_2_Anti-Personnel.png`; `Infantry Fighting Vehicle (IFV)/2_IFV_1_SelectDriverPrimary_3_Armor-Piercing.png`.
+
+#### VS32 - AA three primary shell types
+
+- **UI evidence:** 35 mm AAMP is anti-air and ineffective against armored ground vehicles. 35 mm AAHV is quick-firing for fast/light aircraft. 35 mm AAAP is slow-firing with high damage against armored targets and best against slow aircraft, yet also states ineffective against armored ground vehicles.
+- **Next source question:** Trace fire cadence, projectile speed, air/ground target filters and armor multipliers. Preserve the distinction between armored aircraft and armored ground vehicles; the Anti-Armor label alone is misleading.
+- **Screenshot references:** `Mobile Anti-Air (AA)/2_AA_1_SelectDriverPrimary_1_Multi-Purpose.png`; `Mobile Anti-Air (AA)/2_AA_1_SelectDriverPrimary_2_High-Velocity.png`; `Mobile Anti-Air (AA)/2_AA_1_SelectDriverPrimary_3_Anti-Armor.png`.
+
+#### VS33 - Coax and RWS LMG/HMG/AGL ownership
+
+- **UI evidence:** 7.62 mm LMG descriptions favor medium-range infantry and are less effective against light armor. .50 cal HMG favors long-range infantry and unarmored vehicles. RWS 40 mm AGL favors close-range infantry and unarmored targets. MBT lists HMG before LMG in the gunner menu; ATP/IFV list LMG first.
+- **Next source question:** Use L3303/L3304 exact caller and RWS AGL evidence to map each UI option to its distinct firing owner. Keep coax, RWS, stationary and SP owners separate; investigate reload, heat, replenishment and damage composition only through controlled receivers.
+- **Screenshot references:** 12 images indexed under `VS33` in the evidence JSON; examples: `Armored Transport (ATP)/2_ATP_3_SelectGunnerRemoteWeapon_1_LightMachineGun.png`; `Armored Transport (ATP)/2_ATP_3_SelectGunnerRemoteWeapon_2_HeavyMachineGun.png`.
+
+#### VS34 - Scout primary gun alternatives
+
+- **UI evidence:** 7.62 mm Minigun: rapid fire for infantry and lightly armored vehicles. 40 mm AGL: close-range infantry and unarmored targets. .50 cal Heavy Rotary MG: long-range infantry and unarmored vehicles.
+- **Next source question:** Resolve each Scout primary owner and projectile. Compare cadence, heat, replenishment and damage channels. Do not reuse RWS AGL/HMG values based on name or caliber.
+- **Screenshot references:** `Scout Helicopter (Scout Heli)/2_ScoutHeli_1_SelectDriverPrimary_1_Minigun.png`; `Scout Helicopter (Scout Heli)/2_ScoutHeli_1_SelectDriverPrimary_2_GrenadeLauncher.png`; `Scout Helicopter (Scout Heli)/2_ScoutHeli_1_SelectDriverPrimary_3_HeavyRotaryMG.png`.
+
+#### VS35 - Patrol Boat primary alternatives and suspect cannon description
+
+- **UI evidence:** .50 cal Heavy Rotary MG favors long-range infantry and unarmored vehicles. The 30 mm Cannon text literally calls it a helicopter-mounted fully automatic cannon effective against most targets, including tanks, although this is a Patrol Boat screen.
+- **Next source question:** Resolve the exact boat cannon and rotary-gun owners. Check whether the helicopter wording is shared/stale metadata; it does not prove shared gameplay assets or equivalent damage.
+- **Screenshot references:** `Patrol Boat/2_PatrolBoat_1_SelectDriverPrimary_1_HeavyRotaryMG.png`; `Patrol Boat/2_PatrolBoat_1_SelectDriverPrimary_2_Cannon.png`.
+
+#### VS36 - Light and heavy unguided rockets
+
+- **UI evidence:** Attack/Scout 70 mm FFAR Light Rockets: larger volleys with lower damage per projectile, suited to light vehicles and infantry. Attack 127 mm FFAR and Jet Heavy Rockets: smaller volleys with higher damage per projectile, including armored targets. IFV 127 mm Rockets says unguided and effective against almost all targets.
+- **Next source question:** Trace volley count, capacity, cadence, replenishment, projectile direct/blast channels, and vehicle-specific owners. Do not infer the IFV uses the same heavy-rocket values.
+- **Screenshot references:** 5 images indexed under `VS36` in the evidence JSON; examples: `Attack Helicopter (Attack Heli)/2_AttackHeli_1_SelectDriverPrimary_2_LightRockets.png`; `Attack Helicopter (Attack Heli)/2_AttackHeli_1_SelectDriverPrimary_3_HeavyRockets.png`.
+
+#### VS37 - Aim-Guided 70 mm rockets
+
+- **UI evidence:** 70 mm PGM rockets for infantry and light vehicles; guided via weapon crosshairs.
+- **Next source question:** Find guidance input, turn limits, projectile lifetime, compatible firing owners and damage channels; distinguish rockets from the missiles and shells with the same short label.
+- **Screenshot references:** `Attack Helicopter (Attack Heli)/2_AttackHeli_1_SelectDriverPrimary_1_Aim-Guided.png`; `Scout Helicopter (Scout Heli)/2_ScoutHeli_2_SelectDriverSecondary_2_Aim-Guided.png`.
+
+#### VS38 - Attack Helicopter secondary missiles
+
+- **UI evidence:** ALM-93 Lock-Guided: anti-air, prelaunch lock then self-guidance unless intercepted; faster and longer-range lock on Laser Designator/Tracer Dart targets. M41A7 TOW2 Aim-Guided: anti-tank crosshair guidance, also capable of locking designated/traced targets.
+- **Next source question:** Trace guidance mode selection, designation/Tracer Dart consumers, lock time/range, countermeasure response and target filters for each exact missile.
+- **Screenshot references:** `Attack Helicopter (Attack Heli)/2_AttackHeli_2_SelectDriverSecondary_1_Lock-Guided.png`; `Attack Helicopter (Attack Heli)/2_AttackHeli_2_SelectDriverSecondary_2_Aim-Guided.png`.
+
+#### VS39 - IFV secondary guided missiles
+
+- **UI evidence:** M41A7 TOW2 Aim-Guided says anti-vehicle crosshair guidance. MR Missile Lock-Guided says prelaunch lock, self-guidance, countermeasure vulnerability, and faster/longer locks on Laser Designator/Tracer Dart targets. The IFV TOW description omits the Attack Helicopter lock-on statement.
+- **Next source question:** Resolve each exact missile owner and mode. Check designation support through source evidence rather than either assuming it from the shared TOW label or treating omitted UI wording as proof of absence.
+- **Screenshot references:** `Infantry Fighting Vehicle (IFV)/2_IFV_2_SelectDriverSecondary_1_Aim-Guided.png`; `Infantry Fighting Vehicle (IFV)/2_IFV_2_SelectDriverSecondary_2_Lock-Guided.png`.
+
+#### VS40 - AA secondary missile variants
+
+- **UI evidence:** SLM-93A SPIRE Lock-Guided: anti-air prelaunch lock, self-guidance, countermeasure vulnerability; designation increases range and removes below-radar protection. SKR-70 Aim-Guided: maneuverable laser-guided missile aimed by crosshair, described as able to bypass countermeasures. R-84E High Velocity: larger aircraft, limited point-of-aim guidance, trades maneuverability for speed.
+- **Next source question:** Trace each guidance model, target filters, speed/turn parameters, designation and below-radar conditions, and countermeasure response. Do not equate High Velocity UI wording with a named serialized field.
+- **Screenshot references:** `Mobile Anti-Air (AA)/2_AA_2_SelectDriverSecondary_1_Lock-Guided.png`; `Mobile Anti-Air (AA)/2_AA_2_SelectDriverSecondary_2_Aim-Guided.png`; `Mobile Anti-Air (AA)/2_AA_2_SelectDriverSecondary_3_HighVelocity.png`.
+
+#### VS41 - Patrol Boat secondary AA missile variants
+
+- **UI evidence:** SKR-70 Aim-Guided: beam-riding, then pilots itself after manual guidance; immune to flares during manual guidance but vulnerable to countermeasures afterwards. SIROCCO 4 Lock-Guided: prelaunch lock then self-guidance; designation increases range and removes below-radar protection.
+- **Next source question:** Prioritize the SKR-70 manual-to-autonomous transition and phase-specific flare response. Compare with AA SKR-70 only through exact identities; its UI description is different.
+- **Screenshot references:** `Patrol Boat/2_PatrolBoat_2_SelectDriverSecondary_1_Aim-Guided.png`; `Patrol Boat/2_PatrolBoat_2_SelectDriverSecondary_3_Lock-Guided.png`.
+
+#### VS42 - Multirole API versus APHEI cannon
+
+- **UI evidence:** 20 mm API: Armor Piercing Incendiary, best against aircraft and light vehicles. 20 mm APHEI: Armor-Piercing High-Explosive Incendiary, effective against most targets but lower muzzle velocity makes fast targets harder to engage.
+- **Next source question:** Reopen L3033 only with a new exact text/selection-to-weapon link. Resolve projectile identity, speed and direct/blast channels. Screenshot availability does not prove a carrier/map restriction or unrestricted availability.
+- **Screenshot references:** `Multirole Jet/2_MultiroleJet_1_SelectDriverPrimary_1_APICannon.png`; `Multirole Jet/2_MultiroleJet_1_SelectDriverPrimary_2_APHEICannon.png`.
+
+#### VS43 - Multirole Lock-Guided AA missile
+
+- **UI evidence:** AIM-84 air-to-air missile: locks on or utilizes laser guidance to target any aircraft.
+- **Next source question:** Trace lock/laser mode selection, designation receiver and aircraft eligibility. Do not infer the same behavior as other Lock-Guided labels.
+- **Screenshot references:** `Multirole Jet/2_MultiroleJet_2_SelectDriverSecondary_1_Lock-Guided.png`.
+
+#### VS44 - Multirole Auto-Guided AA missile
+
+- **UI evidence:** HAM-88 anti-radiation missile homes on vehicles with anti-air missile systems. Damage temporarily jams struck targets. Effective against surface targets and slow aircraft.
+- **Next source question:** Trace anti-radiation eligibility, acquisition, homing, on-hit jamming, duration and recovery. Keep physical damage and temporary disabling effects separate.
+- **Screenshot references:** `Multirole Jet/2_MultiroleJet_2_SelectDriverSecondary_2_Auto-Guided.png`.
+
+#### VS45 - Multirole gunner Active-Lock AA missile
+
+- **UI evidence:** ARH-7 air-to-air missile requires the user to maintain sight lock until impact.
+- **Next source question:** Trace sustained-lock ownership, loss-of-sight behavior, guidance termination/reacquisition and gunner control. Do not derive fire-and-forget behavior from the ARH label.
+- **Screenshot references:** `Multirole Jet/2_MultiroleJet_5_SelectGunnerRemoteWeapon_2_Active-Lock.png`.
+
+#### VS46 - Multirole Anti-Armor Cluster Bomb
+
+- **UI evidence:** Dispenses numerous anti-armor submunitions over a target location.
+- **Next source question:** Find parent/child projectile identities, release count/spread, activation height/timing, target eligibility, and per-submunition versus total damage composition.
+- **Screenshot references:** `Multirole Jet/2_MultiroleJet_4_SelectDriverEquipment2_2_Cluster.png`.
+
+#### VS47 - Multirole gunner Bomb
+
+- **UI evidence:** 230 kg PGM guides itself to the targeting crosshair point at release and can penetrate subsurface structures.
+- **Next source question:** Trace release-time target sampling, subsequent guidance, collision/penetration and detonation. Do not assume continuous crosshair following.
+- **Screenshot references:** `Multirole Jet/2_MultiroleJet_6_SelectGunnerRemoteWeapon_1_Bomb.png`.
+
+#### VS48 - Multirole gunner Optical Missile
+
+- **UI evidence:** AGM-2000H/K precision munition controlled through an optical feed, allowing mid-flight adjustment; primarily for armored ground targets, with other stated uses against structures, infantry and aircraft.
+- **Next source question:** Trace camera/control handoff, mid-flight steering, lifetime/range, interruption conditions, projectile channels and target eligibility.
+- **Screenshot references:** `Multirole Jet/2_MultiroleJet_6_SelectGunnerRemoteWeapon_2_Optic-Guided.png`.
+
+#### VS49 - Patrol Boat Torpedo
+
+- **UI evidence:** Stern-launched wire-guided torpedo capable of very high damage to enemy watercraft.
+- **Next source question:** Trace launch transform, water movement, control input, guidance limits, target collision filter, lifetime and damage receiver.
+- **Screenshot references:** `Patrol Boat/2_PatrolBoat_4_SelectDriverEquipment2_1_Torpedo.png`.
+
+#### VS50 - Patrol Boat Naval Mine
+
+- **UI evidence:** Waterborne mine detonates on contact with watercraft.
+- **Next source question:** Find deployment, arming, watercraft/contact and team filters, persistence and explosion receiver. Respect the L3303 alternate-schema limit; do not read it as an ordinary bullet without a control.
+- **Screenshot references:** `Patrol Boat/2_PatrolBoat_4_SelectDriverEquipment2_2_NavalMine.png`.
+
+#### VS51 - Patrol Boat mortar options and two gunner slots
+
+- **UI evidence:** Overview shows one Gunner Remote Weapon slot with High Explosive and a second with IR Smoke. The second slot selection has IR Smoke Shell (obscures vision), HE Guided / 120 mm HEGM (locks Laser Designator/Tracer Dart targets), Airburst / 120 mm Mortar AB (bursts near aircraft, boats or ground), and Illumination / 120 mm Mortar ILL (parachute flare marks enemies below).
+- **Next source question:** Use L3303 five mortar paths as candidates, not UI joins. Resolve the two slots, fixed HE versus selectable second slot, smoke effect, designated guidance, proximity fuze target/ground tests, and illumination spotting/lifetime. Four selectable choices plus a displayed HE slot are not evidence that a fifth option is missing.
+- **Screenshot references:** 5 images indexed under `VS51` in the evidence JSON; examples: `Patrol Boat/1_PatrolBoat_CustomizePatrolBoat.png`; `Patrol Boat/2_PatrolBoat_7_SelectGunnerRemoteWeapon_1_IRSmoke.png`.
+
+#### VS52 - Seat counts, role labels and source station controls
+
+- **UI evidence:** UI seat counts: ATP 4; Attack Helicopter 2; Attack Jet 1; Fighter Jet 1; IFV 6; Interceptor Jet 2; Light Ground Transport 5; MBT 2; AA 1; Multirole Jet 2; Patrol Boat 2; Scout Helicopter 4; Transport Helicopter 5. Customization shows weapon/equipment roles, not every passenger seat.
+- **Next source question:** Compare UI category/seat roles with L3100-L3112 and L3250-L3257 exact source stations. Use UH-60 left/right miniguns, Attack Helicopter gunner, MBT coax and Light Transport gunner as controls. UI seat count is attributed text, not a universal count across variants/modes.
+- **Screenshot references:** 26 images indexed under `VS52` in the evidence JSON; examples: `Armored Transport (ATP)/0_ATP_CustomizeVehicles.png`; `Armored Transport (ATP)/1_ATP_CustomizeArmoredTransport.png`.
+
+#### VS53 - UI slot identity, fixed entries and captured selections
+
+- **UI evidence:** Screens separate Driver/Gunner roles, equipment slots, inspected versus equipped cards, locked items, and already-equipped-in-another-slot restrictions. Multiple Remote Weapon and Upgrade labels occur in one vehicle. Loadout 1 is selected in the captured overview screens.
+- **Next source question:** Match exact UI producer/slot IDs to equipment and source receivers. Preserve slot ordinal and seat. A grey card is a displayed state, not proof of an unusable seat or absent effect. Saved player Loadout 1 is not a factory default. Use the duplicate-exclusion control before generalizing it.
+- **Screenshot references:** 15 images indexed under `VS53` in the evidence JSON; examples: `Armored Transport (ATP)/1_ATP_CustomizeArmoredTransport.png`; `Attack Helicopter (Attack Heli)/1_AttackHeli_CustomizeAttackHelicopter.png`.
+
+#### VS54 - Build, faction, category and recipe applicability
+
+- **UI evidence:** Screens show vehicle categories and a Swap Faction control. Capture filenames in the prior rename manifest are dated 3 October 2026; the images do not identify archive Head or descriptor hash.
+- **Next source question:** Establish the captured client/build and faction/variant context before claiming source equivalence or an update delta. Test exact category-to-root and root-to-recipe selection only with a new typed selector. Keep standard multiplayer, campaign, AI and Granite variants separate.
+- **Screenshot references:** 26 images indexed under `VS54` in the evidence JSON; examples: `Armored Transport (ATP)/0_ATP_CustomizeVehicles.png`; `Armored Transport (ATP)/1_ATP_CustomizeArmoredTransport.png`.
+
+#### VS55 - Fixed/overview-only equipment and missing descriptions
+
+- **UI evidence:** Overview-only labels include Flares, Radar System, firing-port weapons, gunner Cannon and Lock-Guided, Thermal Scanner, Sweep Stance, Deploy Ramp, Improved Armor, fixed jet loadouts, and Transport Helicopter Emergency Repair/miniguns. Attack Helicopter Improved Armor selection separately says resistance against most infantry weapons.
+- **Next source question:** Find descriptions/owners for these exact slots using existing metadata before any small missing capture. Trace flare/lock-break timing, radar/scanner filters, Sweep Stance selection and armor resistance as separate questions. Do not borrow descriptions from another vehicle or treat missing selection screenshots as proof that an item cannot be selected.
+- **Screenshot references:** 13 images indexed under `VS55` in the evidence JSON; examples: `Armored Transport (ATP)/1_ATP_CustomizeArmoredTransport.png`; `Attack Helicopter (Attack Heli)/1_AttackHeli_CustomizeAttackHelicopter.png`.
+
+#### VS56 - Visible mastery unlock requirements
+
+- **UI evidence:** Visible locked cards state mastery thresholds; unlocked cards generally show Select or Equipped instead of the original requirement. These are captured account/UI states.
+- **Next source question:** If progression is in scope, map exact unlock rules and family IDs. Do not reconstruct missing requirements from card order. Keep this optional after functional leads; ask for additional evidence only if necessary.
+- **Screenshot references:** 37 images indexed under `VS56` in the evidence JSON; examples: `Attack Helicopter (Attack Heli)/2_AttackHeli_5_SelectDriverUpgrade_4_ImprovedArmor.png`; `Mobile Anti-Air (AA)/2_AA_1_SelectDriverPrimary_1_Multi-Purpose.png`.
+
+#### VS57 - Patrol Boat Deploy Ramp and spawn condition
+
+- **UI evidence:** Category description says the boat can act as a deploy point when its front ramp is lowered on shore. Overview shows Driver / Upgrade: Deploy Ramp.
+- **Next source question:** Trace ramp state, on-shore/grounding condition, spawn eligibility and team/squad permissions. Do not infer this behavior from boat presence alone.
+- **Screenshot references:** `Patrol Boat/0_PatrolBoat_CustomizeVehicles.png`; `Patrol Boat/1_PatrolBoat_CustomizePatrolBoat.png`.
+
+#### VS58 - Category protection tags and actual protection
+
+- **UI evidence:** Category tags include Shielded Seats (ATP, AA), Open Seats (Light Transport), Hard Target (MBT), and Soft Target (jets). ATP description mentions mine blast protection. Attack Helicopter Improved Armor says resistance against most infantry weapons.
+- **Next source question:** Treat these as UI claims. For useful comparisons, trace occupant protection, mine/blast handling and infantry-weapon armor filters through exact health/damage owners. Tags do not establish damage multipliers or directional armor.
+- **Screenshot references:** 9 images indexed under `VS58` in the evidence JSON; examples: `Armored Transport (ATP)/0_ATP_CustomizeVehicles.png`; `Attack Helicopter (Attack Heli)/2_AttackHeli_5_SelectDriverUpgrade_4_ImprovedArmor.png`.
+
+### Visible mastery thresholds
+
+These are only the requirements visible on locked cards. No threshold is inferred for cards already unlocked.
+
+- **AA:** High-Velocity primary: 3; Anti-Armor primary: 7; Emergency Repair: 12; Optimized Handling: 3; Enhanced Loading: 7; Targeting Jammer: 15.
+- **AttackHeli:** Improved Armor: 15.
+- **MultiroleJet:** Auto-Guided: 2; Cluster: 3; Directional Jammer: 5; Optic-Guided: 6.
+- **PatrolBoat:** Illumination: 9.
+- **ScoutHeli:** Heavy Rotary MG: 6; Aim-Guided rockets: 3; Motion Sensor: 7; Engine Upgrade: 5; Interference: 15; Directional Jammer: 7.
+
+### Important differences and gaps
+
+- MBT Enhanced Loading is described as primary fire rate plus secondary heat recovery; AA Enhanced Loading is described as reload speed on both weapons. IFV and AA Systems Upgrade also differ.
+- Driver-selected Attack Helicopter Thermal Optics explicitly targets the gunner. Selection seat and effect recipient cannot be assumed identical.
+- Attack Helicopter and IFV TOW descriptions differ. AA and Patrol Boat SKR-70 descriptions differ. ATP and IFV Mobile Command descriptions differ on empty-vehicle persistence. Keep every version attached to its vehicle/slot.
+- The boat Cannon description says helicopter-mounted. Preserve this as a UI discrepancy to investigate; do not silently correct it or infer a shared weapon.
+- The Patrol Boat has a displayed HE gunner slot plus four options for another gunner slot. The five source mortar owners need exact slot mapping, not an assumption of a missing screenshot.
+- The screenshots provide no full descriptions for several overview-only items. Missing text is an evidence gap, not permission to copy another vehicle's description. The collected menus are not proof of all faction, map, mode or seasonal variants.
+
+### Completion of this documentation pass
+
+All 137 original images are indexed by path and SHA-256. Every selection screenshot has at least one equipment-specific research direction. The original screenshots were not changed. No new Frosty capture, source-mechanic finding, formal lead closeout, gameplay test or site edit was made.
+
 ## Review before resuming
 
 Start with the comparison list below. The saved census and source profiles already cover all 46 exact blueprint roots. Do not repeat the census or launch general graph audits. A new lead must name an approved stat, named families, an exact selected route and a known-answer control.

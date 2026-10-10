@@ -1,0 +1,84 @@
+{
+ "officialSource": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-1-0",
+ "official": [
+  {
+   "item": "CSB IV EOD Bot Mine Layer",
+   "statement": "damage against tanks updated to 300",
+   "owner": "PB_NS_EODBot_Mines",
+   "property": "BlastDamage",
+   "registryDefault": null,
+   "ownValue": 150.0,
+   "ownFile": "Common/Hardware/Gadgets/Misc/EODBot/Mines/PB_NS_EODBot_Mines",
+   "ownFields": [
+    "Field_19861d8c"
+   ],
+   "ratioOfficialToOwn": 2.0,
+   "note": "No registry value row carries this owner's name, so the asset's 150 is the only stored number. It fixes the tank multiplier for a mine blast at 2."
+  },
+  {
+   "item": "M15 AV Mine",
+   "statement": "damage against tanks updated to 390",
+   "owner": "PBNS_ATMine",
+   "property": "BlastDamage",
+   "registryDefault": 195.0,
+   "ownValue": 300.0,
+   "ownFile": "Common/Hardware/Gadgets/Mines/ATMine/PBNS_ATMine",
+   "ownFields": [
+    "Field_19861d8c"
+   ],
+   "registryRow": "PBNS_ATMine.GhostedProjectileEntityData.MeshProjectileEntityData.ProjectileEntityData.Explosion.ExplosionEntityData.BlastDamage",
+   "registryTimes2": 390.0,
+   "ownTimes2": 600.0,
+   "matches": "registry"
+  },
+  {
+   "item": "PTKM-1R Acoustic Mine",
+   "statement": "now deals 480 damage against tanks",
+   "owner": "PB_PRJ_PTKM1R_EFP",
+   "property": "BlastDamage",
+   "registryDefault": null,
+   "ownValue": 160.0,
+   "ratioOfficialToOwn": 3.0,
+   "note": "Not a disputed pair; own value from L3307, not re-read here. The factor 3 is not traced to stored data."
+  },
+  {
+   "item": "M4A1 SLAM",
+   "statement": "damage against tanks ranges between 199 and 363",
+   "owner": "PB_M4SLAM_EFP",
+   "property": "StartDamage",
+   "registryDefault": 130.0,
+   "ownValue": 130.0,
+   "note": "Not a disputed pair; values from L3307, not re-read here. The range depends on where the tank is hit."
+  }
+ ],
+ "video": {
+  "url": "https://www.youtube.com/watch?v=gIoClOsLySI",
+  "title": "Battlefield 6 - How Engineer Mines Actually Work - Damage, Range, Positioning",
+  "channel": "GhostGaming",
+  "uploaded": "2025-11-09",
+  "kind": "third-party recorded in-game test against a main battle tank; numbers read from the auto-generated captions and from the transcript the user supplied",
+  "readings": [
+   {
+    "item": "M15 AV Mine",
+    "damage": 770,
+    "note": "same from any side; also when placed on top of the tank"
+   },
+   {
+    "item": "M4A1 SLAM",
+    "damage": {
+     "side": 262,
+     "front": 317,
+     "underside": 436
+    },
+    "note": "trigger range about 10 m"
+   },
+   {
+    "item": "PTKM-1R",
+    "damage": 476,
+    "note": "also spoken as 472 for a full hit; 162 on a partial hit; range between 55 and 60 m; needs line of sight"
+   }
+  ],
+  "limits": "Recorded before update 1.3.1.0, which restated all three damages. The readings are the earlier values and do not test the current build."
+ },
+ "laterNotes": "The repo's patch-note inventory lists no M15 or EOD Bot mine damage change after 1.3.1.0; 1.3.2.0 changes placement only (page read 9 October 2026)."
+}

@@ -1,0 +1,406 @@
+{
+ "lead": "L3371",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Read from saved raw captures; no export, no new capture."
+ },
+ "question": "L3335 found the registry velocity rows of the coaxial and remote machine guns unequal to EA's 1.3.1.0 figures (LMG 850 to 670, HMG 890 to 760). Do the files' own values settle it?",
+ "sourceFacts": {
+  "method": "The ten vehicle machine gun and minigun firing files were decoded and the own Shot.InitialSpeed z value (Field_32a99b9c inside the firing object) read with its raw offset, beside the registry default of '<file>.PrimaryFire.Shot.InitialSpeed.z'.",
+  "control": {
+   "description": "The two helicopter miniguns and the Scout Helicopter GAU-19 read the same value in file and registry (700, 700, 860).",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\MBT\\WF_Vehicles_MBT_SecondaryWeapon_CoaxHMG.ebx",
+     "rawSha256": "a3d2cdd806a902e02aaa559a066be6b468ad8c1c2e90f621bdf1afa61e48c642",
+     "offset": 624,
+     "type": "f32",
+     "bytesHex": "00003e44",
+     "value": 760.0,
+     "expect": 760.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 52668,
+     "type": "f32",
+     "bytesHex": "00805e44",
+     "value": 890.0,
+     "expect": 890.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\MBT\\WF_Vehicles_MBT_SecondaryWeapon_CoaxLMG.ebx",
+     "rawSha256": "611b7853c6d26e58855b3bada87290c903982c840ad2e24c8a3143d6e13d4cb0",
+     "offset": 1184,
+     "type": "f32",
+     "bytesHex": "00001644",
+     "value": 600.0,
+     "expect": 600.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 189964,
+     "type": "f32",
+     "bytesHex": "00403844",
+     "value": 737.0,
+     "expect": 737.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\PatrolBoat\\WF_Vehicles_PatrolBoat_PrimaryWeapon_GAU19.ebx",
+     "rawSha256": "564a557e3b48bb0870e780c97f401a6688be35fe3bd5b813c861f8ec9fc18c4c",
+     "offset": 784,
+     "type": "f32",
+     "bytesHex": "00805e44",
+     "value": 890.0,
+     "expect": 890.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\RWS\\WF_Vehicles_RWS_HMG.ebx",
+     "rawSha256": "7d14e7e408ccd497c1c21dff0836520ae9a880b11f2835482c4d8f1157df063c",
+     "offset": 464,
+     "type": "f32",
+     "bytesHex": "00003e44",
+     "value": 760.0,
+     "expect": 760.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 149860,
+     "type": "f32",
+     "bytesHex": "00805e44",
+     "value": 890.0,
+     "expect": 890.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\RWS\\WF_Vehicles_RWS_HMG-SP.ebx",
+     "rawSha256": "d06dc89a619e8c19858ea29c721e5a8d07b9f1a104c2e65702e21560cc2c4270",
+     "offset": 2384,
+     "type": "f32",
+     "bytesHex": "00805e44",
+     "value": 890.0,
+     "expect": 890.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 481340,
+     "type": "f32",
+     "bytesHex": "00805e44",
+     "value": 890.0,
+     "expect": 890.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\RWS\\WF_Vehicles_RWS_LMG.ebx",
+     "rawSha256": "1aa019ea7aee0341346d26fb54417cccae583f32a77c1c51e5ffcb08ca443416",
+     "offset": 784,
+     "type": "f32",
+     "bytesHex": "00001644",
+     "value": 600.0,
+     "expect": 600.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 49844,
+     "type": "f32",
+     "bytesHex": "00403844",
+     "value": 737.0,
+     "expect": 737.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\ScoutHeli\\WF_Vehicles_ScoutHeli_PrimaryWeapon_GAU19.ebx",
+     "rawSha256": "912823dc6fa55debb3e92ca8df7cd2745ab0b26aa9f30863471640a7ae5e9444",
+     "offset": 1744,
+     "type": "f32",
+     "bytesHex": "00005744",
+     "value": 860.0,
+     "expect": 860.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 112100,
+     "type": "f32",
+     "bytesHex": "00005744",
+     "value": 860.0,
+     "expect": 860.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\ScoutHeli\\WF_Vehicles_ScoutHeli_PrimaryWeapon_Minigun.ebx",
+     "rawSha256": "f087b42d506c5d7774208528b48e5a9bc0ec12cd897a4558bc6bc7556a58b9f2",
+     "offset": 496,
+     "type": "f32",
+     "bytesHex": "00002f44",
+     "value": 700.0,
+     "expect": 700.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 128428,
+     "type": "f32",
+     "bytesHex": "00002f44",
+     "value": 700.0,
+     "expect": 700.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\Shared\\WF_Vehicles_OpenGunner_HMG.ebx",
+     "rawSha256": "1d1be1c0ea852a99ce3a7daca9ca3ac4621102b0a6cf55d97d010fc9442756e3",
+     "offset": 2496,
+     "type": "f32",
+     "bytesHex": "00003e44",
+     "value": 760.0,
+     "expect": 760.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 217140,
+     "type": "f32",
+     "bytesHex": "00805e44",
+     "value": 890.0,
+     "expect": 890.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\TransportHeli\\WF_Vehicles_TransportHeli_Gunner_Minigun.ebx",
+     "rawSha256": "d66a0d4f1e5a45c039b9c1168bf2219bc59bc6a7b81e4ccacdf893dd1d8f6ab5",
+     "offset": 1488,
+     "type": "f32",
+     "bytesHex": "00002f44",
+     "value": 700.0,
+     "expect": 700.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 242932,
+     "type": "f32",
+     "bytesHex": "00002f44",
+     "value": 700.0,
+     "expect": 700.0,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 19,
+   "matched": 19,
+   "files": 11,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "rawchecks-L3371.json"
+  },
+  "dataset": "reference-data/frosty/vehicle-mg-velocity.json",
+  "officialSource": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-1-0",
+  "eaStatements": [
+   "Reduced muzzle velocity of RWS & Coaxial LMG from 850 to 670 m/s.",
+   "Reduced muzzle velocity of RWS & Coaxial HMG from 890 to 760 m/s."
+  ],
+  "rows": [
+   {
+    "file": "WF_Vehicles_MBT_SecondaryWeapon_CoaxHMG",
+    "object": 3,
+    "own": 760.0,
+    "ownOffset": 624,
+    "registryDefault": 890.0,
+    "eaOld": 890,
+    "eaNew": 760,
+    "ownEqualsEaNew": true,
+    "registryEqualsEaNew": false,
+    "registryEqualsEaOld": true
+   },
+   {
+    "file": "WF_Vehicles_MBT_SecondaryWeapon_CoaxLMG",
+    "object": 3,
+    "own": 600.0,
+    "ownOffset": 1184,
+    "registryDefault": 737.0,
+    "eaOld": 850,
+    "eaNew": 670,
+    "ownEqualsEaNew": false,
+    "registryEqualsEaNew": false,
+    "registryEqualsEaOld": false
+   },
+   {
+    "file": "WF_Vehicles_PatrolBoat_PrimaryWeapon_GAU19",
+    "object": 5,
+    "own": 890.0,
+    "ownOffset": 784,
+    "registryDefault": null,
+    "eaOld": null,
+    "eaNew": null,
+    "ownEqualsEaNew": false,
+    "registryEqualsEaNew": false,
+    "registryEqualsEaOld": false
+   },
+   {
+    "file": "WF_Vehicles_RWS_HMG",
+    "object": 3,
+    "own": 760.0,
+    "ownOffset": 464,
+    "registryDefault": 890.0,
+    "eaOld": 890,
+    "eaNew": 760,
+    "ownEqualsEaNew": true,
+    "registryEqualsEaNew": false,
+    "registryEqualsEaOld": true
+   },
+   {
+    "file": "WF_Vehicles_RWS_HMG-SP",
+    "object": 9,
+    "own": 890.0,
+    "ownOffset": 2384,
+    "registryDefault": 890.0,
+    "eaOld": null,
+    "eaNew": null,
+    "ownEqualsEaNew": false,
+    "registryEqualsEaNew": false,
+    "registryEqualsEaOld": false
+   },
+   {
+    "file": "WF_Vehicles_RWS_LMG",
+    "object": 5,
+    "own": 600.0,
+    "ownOffset": 784,
+    "registryDefault": 737.0,
+    "eaOld": 850,
+    "eaNew": 670,
+    "ownEqualsEaNew": false,
+    "registryEqualsEaNew": false,
+    "registryEqualsEaOld": false
+   },
+   {
+    "file": "WF_Vehicles_ScoutHeli_PrimaryWeapon_GAU19",
+    "object": 9,
+    "own": 860.0,
+    "ownOffset": 1744,
+    "registryDefault": 860.0,
+    "eaOld": null,
+    "eaNew": null,
+    "ownEqualsEaNew": false,
+    "registryEqualsEaNew": false,
+    "registryEqualsEaOld": false
+   },
+   {
+    "file": "WF_Vehicles_ScoutHeli_PrimaryWeapon_Minigun",
+    "object": 3,
+    "own": 700.0,
+    "ownOffset": 496,
+    "registryDefault": 700.0,
+    "eaOld": null,
+    "eaNew": null,
+    "ownEqualsEaNew": false,
+    "registryEqualsEaNew": false,
+    "registryEqualsEaOld": false
+   },
+   {
+    "file": "WF_Vehicles_OpenGunner_HMG",
+    "object": 10,
+    "own": 760.0,
+    "ownOffset": 2496,
+    "registryDefault": 890.0,
+    "eaOld": null,
+    "eaNew": null,
+    "ownEqualsEaNew": false,
+    "registryEqualsEaNew": false,
+    "registryEqualsEaOld": false
+   },
+   {
+    "file": "WF_Vehicles_TransportHeli_Gunner_Minigun",
+    "object": 5,
+    "own": 700.0,
+    "ownOffset": 1488,
+    "registryDefault": 700.0,
+    "eaOld": null,
+    "eaNew": null,
+    "ownEqualsEaNew": false,
+    "registryEqualsEaNew": false,
+    "registryEqualsEaOld": false
+   }
+  ]
+ },
+ "inference": [
+  "Heavy machine guns (coaxial, remote station and open gunner): the own value is 760, EA's figure after 1.3.1.0, and the registry default is 890, EA's figure before it. This is the reverse of the eight cases in L3356, where the registry held EA's new number. The single-player copy of the remote HMG holds 890 in both.",
+  "Light machine guns: own 600, registry 737, EA 670. Neither stored value equals EA's figure. 737 is 670 times 1.1 exactly; no stated change accounts for that factor, and it is noted only as arithmetic.",
+  "The rule 'where a registry row exists, use its default' (L3356) therefore has a known exception in this property. Until an in-game timing settles it, the site should not state a vehicle machine gun velocity as certain; for the HMG, 760 has EA's statement behind it.",
+  "A later EA note that changed these velocities again would also explain the rows, but the two notes on file (1.3.1.0 and 1.3.3.0) hold no such line."
+ ],
+ "unresolved": [
+  "Which velocity applies in a match. Test from L3335: fire the coaxial HMG at a wall 380 m away and time the flight (0.5 s means 760, 0.43 s means 890). For the LMG at 300 m: 0.5 s means 600, 0.45 s means 670, 0.41 s means 737.",
+  "EA notes after 1.3.3.0 are not on file."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-09-damage-rule-extension",
+  "artifacts": [
+   {
+    "file": "manifest-L3371.json",
+    "sha256": "6da27a54f62682b824d2dfad59ae981a5418c44d40d5453d31411b91f9726d14"
+   },
+   {
+    "file": "rawchecks-L3371.json",
+    "sha256": "de08fafbdd1406d23a7c52bf6025892582f149b368cff8a43920df4d6f43b7e8"
+   },
+   {
+    "file": "mgvel.py",
+    "sha256": "2b4eb1fb3df960071cccf3ee6f9cf56daef781d841883d3037b64da5005691e6"
+   },
+   {
+    "file": "mgvel.json",
+    "sha256": "eaca4d4a31d0f4fcf504015780b50f3cd6624c124886108063159b0e4d46aaff"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-09",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L3371",
+    "title": "Vehicle machine gun muzzle velocity: for the heavy machine guns the own value 760 is EA's new figure and the registry default 890 is EA's old one, an exception to the registry-first rule of L3356",
+    "status": "finding",
+    "summary": "For the vehicle heavy machine guns the file's own muzzle velocity is 760, EA's 1.3.1.0 figure, while the registry default is still 890, EA's old figure: the reverse of the registry-first rule of L3356. The light machine guns hold 600 (own) and 737 (registry) against EA's 670. Which applies in a match needs a timing test. 19 raw-offset checks matched.",
+    "reopenWhen": "An in-game bullet flight time for a coaxial machine gun, or a later EA note on these velocities.",
+    "statusNote": "Own and registry values read for ten files; neither source is shown to be the one in use."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/RWS/WF_Vehicles_RWS_HMG",
+    "format": "raw-ebx",
+    "sha256": "7d14e7e408ccd497c1c21dff0836520ae9a880b11f2835482c4d8f1157df063c",
+    "question": "L3335 found the registry velocity rows of the coaxial and remote machine guns unequal to EA's 1.3.1.0 figures (LMG 850 to 670, HMG 890 to 760). Do the files' own values settle it?",
+    "result": "useful",
+    "conclusion": "Own muzzle velocity 760, EA's 1.3.1.0 figure; registry default 890."
+   }
+  ]
+ }
+}

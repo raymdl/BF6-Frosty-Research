@@ -1,0 +1,149 @@
+{
+ "lead": "L3326",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Stored values from the newest saved raw copies; the in-game reading is user-reported and its build is not recorded."
+ },
+ "question": "Does an in-game RPG hit on a tank's rear read 500 (registry Damage 125) or 540 (the asset's own 135)?",
+ "sourceFacts": {
+  "method": "The user reported one in-game reading. It was compared with the L3323 rule evaluated twice: with the registry default of the RPG's Damage and with the asset's own value (Field_91bb7b5f, named Damage in L3200). The grid value 2 for the RPG's material against the tank target and the top factor 2 are from L3323 and L3324.",
+  "control": {
+   "description": "In-game reading 500 for an RPG hit on a tank's rear, reported by the user on 9 October 2026.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 11228,
+     "type": "f32",
+     "bytesHex": "0000fa42",
+     "value": 125.0,
+     "expect": 125.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\RPG7\\PB_NS_RPG.ebx",
+     "rawSha256": "571920dca13809eccf5f9567442d9144b0bc1b96a63a10265dffb2874b6f0581",
+     "offset": 868,
+     "type": "f32",
+     "bytesHex": "00000743",
+     "value": 135.0,
+     "expect": 135.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\RPG7\\PB_NS_RPG.ebx",
+     "rawSha256": "571920dca13809eccf5f9567442d9144b0bc1b96a63a10265dffb2874b6f0581",
+     "offset": 416,
+     "type": "u32",
+     "bytesHex": "8011d007",
+     "value": 131076480,
+     "expect": 131076480,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 3,
+   "matched": 3,
+   "files": 2,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "rpg-raw-checks.json"
+  },
+  "reading": {
+   "reportedBy": "the user (Ray), in this session",
+   "date": "2026-10-09",
+   "statement": "tank rear hit from rpg is 500dmg",
+   "weapon": "RPG-7V2",
+   "target": "tank, rear",
+   "damage": 500,
+   "notRecorded": [
+    "game build at the time of the reading (taken as the current live build)",
+    "tank type and its health before the hit",
+    "range and exact impact angle",
+    "match type",
+    "number of repeats",
+    "no recording was supplied"
+   ]
+  },
+  "prediction": {
+   "registry": {
+    "damage": 125.0,
+    "x grid 2 x factor 2": 500.0
+   },
+   "own": {
+    "damage": 135.0,
+    "x grid 2 x factor 2": 540.0
+   }
+  },
+  "dataset": "reference-data/frosty/in-game-rpg-tank-rear.json"
+ },
+ "inference": [
+  "The reading equals the registry prediction (125 x 2 x 2 = 500) and not the asset prediction (135 x 2 x 2 = 540). This is the first in-game reading for a disputed property and it follows the registry default.",
+  "It also equals the top of EA's 1.3.3.0 range for the RPG (188 to 500), so a rear hit takes the top hit-quality factor 2.",
+  "One user-reported reading, without a recording and without the conditions listed under notRecorded; it supports the registry rule and the damage rule, it does not prove them for other weapons."
+ ],
+ "unresolved": [
+  "The reading's conditions are not recorded. Test: repeat the rear hit on a full-health main battle tank at about 20 m in a private match, record it, and note the build.",
+  "Front and side values. Test: the same RPG on the tank's front and side; 188 is the stored low end.",
+  "Other disputed pairs. Test: one M15 mine under a full-health tank, 390 (registry) or 600 (own)."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-09-mine-material-grid",
+  "artifacts": [
+   {
+    "file": "rpg-evidence.json",
+    "sha256": "6bdefb171e3e440408dbd164ef038536bdb33682ede50fbb2e65df11ac895022"
+   },
+   {
+    "file": "rpg-raw-check-manifest.json",
+    "sha256": "f67718eab2b5bc63ad1f5ab601fef57d56f824bc0cf37b66ede8e5abbdc92b6b"
+   },
+   {
+    "file": "rpg-raw-checks.json",
+    "sha256": "1e15df228725dc2dcba710a8f21d090b2df59f2a18e5a6e84f4e53025a913c04"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-09",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L3326",
+    "title": "In-game reading: RPG on a tank's rear deals 500, the registry prediction",
+    "status": "finding",
+    "summary": "The user reported 500 damage for an RPG hit on a tank's rear. The L3323 rule gives 500 from the registry Damage 125 and 540 from the asset's own 135, so the reading follows the registry. It is one user-reported reading without a recording; build, tank type, range and health were not recorded. 3 raw-offset checks matched.",
+    "reopenWhen": "A recorded repeat that differs from 500, or readings for the front and side.",
+    "statusNote": "First in-game reading for a disputed property; user-reported, single, conditions not recorded."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Hardware/Gadgets/Launchers/RPG7/PB_NS_RPG",
+    "format": "raw-ebx",
+    "sha256": "571920dca13809eccf5f9567442d9144b0bc1b96a63a10265dffb2874b6f0581",
+    "question": "Does an in-game RPG hit on a tank's rear read 500 (registry Damage 125) or 540 (the asset's own 135)?",
+    "result": "useful",
+    "conclusion": "The RPG projectile stores its own Damage 135 and material 125; 135 would give 540."
+   },
+   {
+    "path": "Common/Hardware/Gadgets/GRX_Gadgets_Glacier",
+    "format": "raw-ebx",
+    "sha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+    "question": "Does an in-game RPG hit on a tank's rear read 500 (registry Damage 125) or 540 (the asset's own 135)?",
+    "result": "useful",
+    "conclusion": "The registry row for the RPG's Damage stores 125, which gives the reported 500."
+   }
+  ]
+ }
+}

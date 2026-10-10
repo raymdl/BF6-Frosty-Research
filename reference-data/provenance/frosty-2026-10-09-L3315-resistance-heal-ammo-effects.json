@@ -1,0 +1,269 @@
+{
+ "lead": "L3315",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\reports\\flak-resupply-affectors-2026-10-09",
+  "note": "Newest saved raw copy of each route under builds\\1.4.3.5; raw-checks.json pins each file hash."
+ },
+ "question": "What do the flak and other damage-resistance effects store, which damage do they apply to, and what do the healing and ammunition supply effects store?",
+ "sourceFacts": {
+  "method": "Thirteen unsaved flak, spotting and supply effect files were captured. Every decodable saved gameplay file (6,532) was scanned for objects of four effect classes: damage resistance (Class_7d3d8a5c, 7 objects), healing (Class_1486fe7f, 7), ammunition supply (Class_42da642c, 17) and auto replenish (Class_5da4abda, 2). Every scalar was read back at its raw offset. Each import inside those objects was matched against the instance GUIDs of all registry rows; nine imports resolve to a named registry row, which names the field that holds the import.",
+  "control": {
+   "description": "The multiplier and three flags of Affector_Flak, Affector_StanceFlak and Affector_Flak_AdrenalineShot.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\flak-resupply-affectors-2026-10-09\\raw\\Common\\Gameplay\\InRoundProgression\\Flak\\Affector_Flak.ebx",
+     "rawSha256": "f4410993f9ce7e8d1db76000a311d3dc3e02e5f13f0fcf55d07d6e94f459e1b3",
+     "offset": 200,
+     "type": "f32",
+     "bytesHex": "1f852b3f",
+     "value": 0.6700000166893005,
+     "expect": 0.67,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\flak-resupply-affectors-2026-10-09\\raw\\Common\\Gameplay\\InRoundProgression\\Flak\\Affector_Flak.ebx",
+     "rawSha256": "f4410993f9ce7e8d1db76000a311d3dc3e02e5f13f0fcf55d07d6e94f459e1b3",
+     "offset": 216,
+     "type": "bool",
+     "bytesHex": "01",
+     "value": true,
+     "expect": true,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\flak-resupply-affectors-2026-10-09\\raw\\Common\\Gameplay\\InRoundProgression\\Flak\\Affector_Flak.ebx",
+     "rawSha256": "f4410993f9ce7e8d1db76000a311d3dc3e02e5f13f0fcf55d07d6e94f459e1b3",
+     "offset": 168,
+     "type": "bool",
+     "bytesHex": "00",
+     "value": false,
+     "expect": false,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\flak-resupply-affectors-2026-10-09\\raw\\Common\\Gameplay\\InRoundProgression\\Flak\\Affector_Flak.ebx",
+     "rawSha256": "f4410993f9ce7e8d1db76000a311d3dc3e02e5f13f0fcf55d07d6e94f459e1b3",
+     "offset": 184,
+     "type": "bool",
+     "bytesHex": "00",
+     "value": false,
+     "expect": false,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b5\\raw\\Common\\Gameplay\\InRoundProgression\\StanceFlak\\Affector_StanceFlak.ebx",
+     "rawSha256": "72458d797c1d4903002ef5b52b97be2dc25128bb7c5d5f93015df94f3d0b8e46",
+     "offset": 192,
+     "type": "f32",
+     "bytesHex": "0000403f",
+     "value": 0.75,
+     "expect": 0.75,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b5\\raw\\Common\\Gameplay\\InRoundProgression\\StanceFlak\\Affector_StanceFlak.ebx",
+     "rawSha256": "72458d797c1d4903002ef5b52b97be2dc25128bb7c5d5f93015df94f3d0b8e46",
+     "offset": 208,
+     "type": "bool",
+     "bytesHex": "01",
+     "value": true,
+     "expect": true,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b5\\raw\\Common\\Gameplay\\InRoundProgression\\StanceFlak\\Affector_StanceFlak.ebx",
+     "rawSha256": "72458d797c1d4903002ef5b52b97be2dc25128bb7c5d5f93015df94f3d0b8e46",
+     "offset": 160,
+     "type": "bool",
+     "bytesHex": "00",
+     "value": false,
+     "expect": false,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b5\\raw\\Common\\Gameplay\\InRoundProgression\\StanceFlak\\Affector_StanceFlak.ebx",
+     "rawSha256": "72458d797c1d4903002ef5b52b97be2dc25128bb7c5d5f93015df94f3d0b8e46",
+     "offset": 176,
+     "type": "bool",
+     "bytesHex": "00",
+     "value": false,
+     "expect": false,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Misc\\AdrenalineShot\\Affector_Flak_AdrenalineShot.ebx",
+     "rawSha256": "15b90d5dcff364219ad056b14fdf00e9aad4f3cb28c04dd5d26d88f5f5e2160b",
+     "offset": 208,
+     "type": "f32",
+     "bytesHex": "cdcc4c3f",
+     "value": 0.800000011920929,
+     "expect": 0.8,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Misc\\AdrenalineShot\\Affector_Flak_AdrenalineShot.ebx",
+     "rawSha256": "15b90d5dcff364219ad056b14fdf00e9aad4f3cb28c04dd5d26d88f5f5e2160b",
+     "offset": 224,
+     "type": "bool",
+     "bytesHex": "01",
+     "value": true,
+     "expect": true,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Misc\\AdrenalineShot\\Affector_Flak_AdrenalineShot.ebx",
+     "rawSha256": "15b90d5dcff364219ad056b14fdf00e9aad4f3cb28c04dd5d26d88f5f5e2160b",
+     "offset": 176,
+     "type": "bool",
+     "bytesHex": "00",
+     "value": false,
+     "expect": false,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Misc\\AdrenalineShot\\Affector_Flak_AdrenalineShot.ebx",
+     "rawSha256": "15b90d5dcff364219ad056b14fdf00e9aad4f3cb28c04dd5d26d88f5f5e2160b",
+     "offset": 192,
+     "type": "bool",
+     "bytesHex": "00",
+     "value": false,
+     "expect": false,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 472,
+   "matched": 472,
+   "files": 35,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "raw-checks.json"
+  },
+  "fieldNames": {
+   "658381bd": "DamageReceivedMultiplier (named by the registry row imported into this field by the tank and IFV durability effects)",
+   "2c65377f": "ReduceRepairRate (named by the registry row imported into this field)",
+   "0a5e9034": "applies to explosive damage (name-only: true in Affector_EODBot_ExplosivesResistance, false in Affector_EODBot_BulletResistance)",
+   "ac6090d6": "applies to bullet damage (name-only: true in Affector_EODBot_BulletResistance, false in Affector_EODBot_ExplosivesResistance)",
+   "77f58095": "InitialHeal (named by the registry row imported by the medbay effect)",
+   "3202ac10": "HealOverTime (named by the registry row imported by the medbay effect)"
+  },
+  "dataset": "reference-data/frosty/effect-resistance-heal-ammo.json"
+ },
+ "inference": [
+  "Field_658381bd is a damage received multiplier because the tank and IFV durability effects fill it from the registry row named DamageRecievedMultiplier. On that reading Flak 0.67 means 33% less, Stance Flak 0.75 means 25% less and the adrenaline shot 0.8 means 20% less of the damage kinds the flags select.",
+  "The two damage flags are named from the two EOD bot files whose names say bullet and explosives; that is a name-only reading. On it, all three flak effects apply to explosive damage and not to bullets.",
+  "These effects show assets reading registry rows directly: the durability, medbay and emergency repair effects hold an import of the registry row in the value's place, with a zero or other fallback stored beside it. For such fields the registry row is the stored source of the value.",
+  "In the healing class the supply pouch, medic crate and medical triage effects all store 20 in the field named HealOverTime; another field stores 2.5, 2.5 and 1.0 and is unnamed.",
+  "In the ammunition class one unnamed integer stores 5 for bolt-action and shotgun crate effects and 20 for rifle, machine gun and sidearm crate effects; it may be a share of reserve ammunition or a round count."
+ ],
+ "unresolved": [
+  "Whether flak effects stack and which soldier state turns each on. Test: take one frag grenade at a fixed distance standing with and without the Flak upgrade and compare damage (stored 0.67), then repeat crouched or prone for Stance Flak (stored 0.75) and after an adrenaline shot (stored 0.8).",
+  "Whether flak covers vehicle shells, rockets and mines or only grenades. Test: repeat with a tank high-explosive shell at a fixed distance.",
+  "The unnamed healing field (2.5 or 1.0). Test: stand on a medic crate at 50 health and record health per second and any delay.",
+  "The unnamed ammunition integer (5 or 20). Test: stand on a supply crate with an empty rifle reserve and with an empty shotgun reserve and count rounds per supply tick.",
+  "75 of 84 imports in these objects do not resolve to a registry row; they point to other assets not traced here."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-09-resistance-heal-ammo-effects",
+  "artifacts": [
+   {
+    "file": "effects.json",
+    "sha256": "5186168083b0e136226a19967057557a9bd9f487b9acaa60b470b962dc176fd9"
+   },
+   {
+    "file": "classscan-resolved.json",
+    "sha256": "3f9bec05efb71b2ec0552f62384d0b24d17e7ea2e086338037543e04db5d02a7"
+   },
+   {
+    "file": "raw-check-manifest.json",
+    "sha256": "343c60a7fed5c3296ee0a59d2a94afb67a259fe38063fa900852ed5306c7d567"
+   },
+   {
+    "file": "raw-checks.json",
+    "sha256": "1ba3f95796a4c602b0715ac5038fdaf3cbbc2f2502e762a6adeade48ffacdfa1"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-09",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L3315",
+    "title": "Flak and damage-resistance effects, with healing and ammunition supply effects",
+    "status": "finding",
+    "summary": "Seven damage-resistance effects store a multiplier and damage-kind flags: Flak 0.67, Stance Flak 0.75, adrenaline shot 0.8 (explosive flag), EOD bot 0.65 bullets and 0.6 explosives, tank and IFV durability 0.85 from the registry. The multiplier field is named DamageReceivedMultiplier by a stored registry import. 472 raw-offset checks matched.",
+    "reopenWhen": "An in-game explosive damage comparison with and without flak, a type descriptor naming the flags, or a game update that changes an effect.",
+    "statusNote": "Multiplier name from a stored import; damage-kind flags by file name only; stacking and runtime use unconfirmed."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Gameplay/InRoundProgression/Flak/Affector_Flak",
+    "format": "raw-ebx",
+    "sha256": "f4410993f9ce7e8d1db76000a311d3dc3e02e5f13f0fcf55d07d6e94f459e1b3",
+    "question": "What do the flak and other damage-resistance effects store, which damage do they apply to, and what do the healing and ammunition supply effects store?",
+    "result": "useful",
+    "conclusion": "Damage received multiplier 0.67 with the explosive flag set and the bullet flag clear."
+   },
+   {
+    "path": "Common/Gameplay/InRoundProgression/StanceFlak/Affector_StanceFlak",
+    "format": "raw-ebx",
+    "sha256": "72458d797c1d4903002ef5b52b97be2dc25128bb7c5d5f93015df94f3d0b8e46",
+    "question": "What do the flak and other damage-resistance effects store, which damage do they apply to, and what do the healing and ammunition supply effects store?",
+    "result": "useful",
+    "conclusion": "Damage received multiplier 0.75 with the explosive flag set and the bullet flag clear."
+   },
+   {
+    "path": "Common/Hardware/Gadgets/Misc/AdrenalineShot/Affector_Flak_AdrenalineShot",
+    "format": "raw-ebx",
+    "sha256": "15b90d5dcff364219ad056b14fdf00e9aad4f3cb28c04dd5d26d88f5f5e2160b",
+    "question": "What do the flak and other damage-resistance effects store, which damage do they apply to, and what do the healing and ammunition supply effects store?",
+    "result": "useful",
+    "conclusion": "Damage received multiplier 0.8 with the explosive flag set and the bullet flag clear."
+   },
+   {
+    "path": "Common/Hardware/Gadgets/Misc/EODBot/Affector_EODBot_BulletResistance",
+    "format": "raw-ebx",
+    "sha256": "41482ba5bf69e274dc974ff2997443d92de707d4b50e2abda06cca318cb2ecbc",
+    "question": "What do the flak and other damage-resistance effects store, which damage do they apply to, and what do the healing and ammunition supply effects store?",
+    "result": "useful",
+    "conclusion": "Multiplier 0.65 with the bullet flag set and the explosive flag clear."
+   },
+   {
+    "path": "Common/Hardware/Gadgets/Misc/EODBot/Affector_EODBot_ExplosivesResistance",
+    "format": "raw-ebx",
+    "sha256": "316ac3aaa542b803d30b743629b8cd9e73a4729fd76f148f870d716905ca3f51",
+    "question": "What do the flak and other damage-resistance effects store, which damage do they apply to, and what do the healing and ammunition supply effects store?",
+    "result": "useful",
+    "conclusion": "Multiplier 0.6 with the explosive flag set and the bullet flag clear."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/_VehiclesCommon/PassiveAbilities/MBT/Affector_Vehicle_Abilities_MBT_Durability_DamageResistance",
+    "format": "raw-ebx",
+    "sha256": "68feb85e13c7ab8d9ad7c871404d1d8555d892b71aec8b7e149f26e422a93fbb",
+    "question": "What do the flak and other damage-resistance effects store, which damage do they apply to, and what do the healing and ammunition supply effects store?",
+    "result": "useful",
+    "conclusion": "The multiplier field imports registry row Passives_Vehicles_MBT_Durability_DamageRecievedMultiplier (0.85); both damage flags set; the third flag imports Passives_Vehicles_Shared_Durability_ReduceRepairRate."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/_VehiclesCommon/PassiveAbilities/APC/Affector_VEH_PassiveAbility_Medbay_Heal",
+    "format": "raw-ebx",
+    "sha256": "177595531e76ac1384e6c99048199a5294af4f162b687670089aba146e45c492",
+    "question": "What do the flak and other damage-resistance effects store, which damage do they apply to, and what do the healing and ammunition supply effects store?",
+    "result": "useful",
+    "conclusion": "Two fields import registry rows Passives_Vehicles_Medbay_InitialHeal (5) and Passives_Vehicles_Medbay_HealOverTime (20), which names them."
+   }
+  ]
+ }
+}

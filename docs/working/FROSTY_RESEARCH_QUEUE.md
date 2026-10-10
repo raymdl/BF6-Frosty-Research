@@ -6,6 +6,10 @@
 
 Vehicle research runs separately in [Vehicle research and potential Analyzer additions](VEHICLE_SITE_ADDITIONS.md). The operator authorized all-vehicle tracing on 29 September 2026; vehicle lead IDs start at L3000.
 
+On 3 October, the operator authorized a continuing [mechanics research program](VEHICLE_SITE_ADDITIONS.md#orchestration-and-evidence-rules) across vehicles, gadgets, weapons and attachments. The vehicle screenshot worklist is its first stage. Subsequent assignments must identify a potential site benefit and new evidence or method, reuse completed findings, and preserve unresolved source/runtime boundaries. The local orchestrator maintains the active roster and 20-minute supervision schedule.
+
+On 9 October 2026 the operator set this broad goal for vehicle and gadget research: **understand, from the game data, how every multiplayer vehicle, vehicle weapon, vehicle upgrade and gadget works, well enough that a future version of the site could show and compare them the way it does weapons and attachments.** For each item that means its identity and category (stat id, archetype, in-game name), what mounts or carries it, the stored values behind its damage, blast, projectile, ammunition, reload, cooldown, range, duration and durability, and which of those values a live match uses. The roster to cover is the game's own: the stat-category entries of L3306 (33 vehicles, 68 gadgets, 66 vehicle equipment items). Site implementation still needs separate authorization.
+
 Keep tracing Frosty source to find information that changes or explains Analyzer
 values. Priority order:
 

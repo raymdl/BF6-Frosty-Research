@@ -1,0 +1,194 @@
+{
+ "lead": "L3367",
+ "status": "exhausted",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Read from saved raw captures; no export, no new capture."
+ },
+ "question": "Is the value 50 in the Claymore's property list (L3366) specific to the Claymore, as a damage figure would be?",
+ "sourceFacts": {
+  "method": "The same property list (Class_1788e77e) was read in all 67 gadget projectile files that have one (name-hash and value pairs). Files holding the three values 30, 50 and 15 under the hashes 2b715869, 2b71592f and 2b7158ae were listed.",
+  "control": {
+   "description": "The AT mine, whose damage EA and the grid give as far above 50, holds the same three values under the same hashes.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Mines\\ATMine\\PBNS_ATMine.ebx",
+     "rawSha256": "a41318ef04b07cc68543bbffd2862b9b29674c0ea53bf871c543e055294c7c4f",
+     "offset": 9092,
+     "type": "f32",
+     "bytesHex": "00004842",
+     "value": 50.0,
+     "expect": 50.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Misc\\EODBot\\Mines\\PB_NS_EODBot_Mines.ebx",
+     "rawSha256": "3c9e20e2772e6fbee26fb6190e6b401076cafd049168e6932ce97591616fddbe",
+     "offset": 7820,
+     "type": "f32",
+     "bytesHex": "00004842",
+     "value": 50.0,
+     "expect": 50.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Proximity\\PBNS_ProximityGrenade.ebx",
+     "rawSha256": "45c00bbf7e52f4b6e5720511daa4b93ae411700668e4c42b490ff245f1b50bf3",
+     "offset": 9868,
+     "type": "f32",
+     "bytesHex": "00004842",
+     "value": 50.0,
+     "expect": 50.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Misc\\MobileJammer\\PBNS_MobileJammer.ebx",
+     "rawSha256": "d4ba6cd43dd17b4568bdd829fbe07ae49cfe4ceba6e72c19bea6f2b93e5875c8",
+     "offset": 9740,
+     "type": "f32",
+     "bytesHex": "00004842",
+     "value": 50.0,
+     "expect": 50.0,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 4,
+   "matched": 4,
+   "files": 4,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "rawchecks-L3367.json"
+  },
+  "filesWithPropertyList": 67,
+  "filesWithAllThree": [
+   "M18Claymore_Projectile",
+   "PBNS_ATMine",
+   "PBNS_MobileJammer",
+   "PBNS_ProximityGrenade",
+   "PB_M4SLAM",
+   "PB_M4SLAM_AntiTamper",
+   "PB_M4SLAM_SensorUpgrade",
+   "PB_NS_EODBot_Mines"
+  ],
+  "filesWithSome": {
+   "PBNS_M720A1": [
+    "2b715869"
+   ],
+   "PBNS_SupplyPouch_SupplySphere": [
+    "2b715869",
+    "2b7158ae"
+   ],
+   "PB_CallInStrike_M18SmokeMarker_KineticStrike": [
+    "2b715869"
+   ],
+   "PB_Decoy": [
+    "2b715869",
+    "2b71592f"
+   ],
+   "PB_PRJ_Artillery_155mmM795HE_SP_Beach": [
+    "2b715869"
+   ],
+   "PB_PRJ_M18SmokeMarker_AirStrike": [
+    "2b715869"
+   ],
+   "PB_SupplyCrate": [
+    "2b715869",
+    "2b71592f"
+   ],
+   "PB_SupplyCrate_FireSupport": [
+    "2b715869",
+    "2b71592f"
+   ],
+   "SupplyPouch_Projectile": [
+    "2b715869",
+    "2b7158ae"
+   ]
+  },
+  "hashes": {
+   "2b715869": 30.0,
+   "2b71592f": 50.0,
+   "2b7158ae": 15.0
+  }
+ },
+ "inference": [
+  "The three values are a shared setting carried by placed and thrown gadgets of quite different kinds (mines, a jammer, a proximity grenade; the decoy and supply crates carry two of them). They are not a damage figure, and the match between 50 and EA's Claymore fragmentation damage in L3366 is a coincidence.",
+  "L3366 is withdrawn. The Claymore's fragmentation damage (EA: 50) is not located: the blast object holds BlastDamage 1 and no registry row is named for it.",
+  "What the shared 30 / 50 / 15 setting does is not read; values of this size on mines, jammers and sensors would fit distances or durations."
+ ],
+ "unresolved": [
+  "Where the Claymore's fragmentation damage is stored. In-game test: health lost to an enemy Claymore at 1 m.",
+  "Meaning of the shared values 30, 50 and 15."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-09-damage-rule-extension",
+  "artifacts": [
+   {
+    "file": "manifest-L3367.json",
+    "sha256": "15d94eb190d428cc7009cb90324c30566ec0a82ca581a54d720550688c504644"
+   },
+   {
+    "file": "rawchecks-L3367.json",
+    "sha256": "a8562a5974d4ec17131e77cce43242fe2aa94935b36636a1d093c2b5462c42ca"
+   },
+   {
+    "file": "boxed-gadget-projectiles.json",
+    "sha256": "ecfaa3a21196df5dbc706f570579b66d2362310ea937bf3c44d7fe9e5035d7e6"
+   },
+   {
+    "file": "boxed.py",
+    "sha256": "2f7403d9c14c4c31df08dc35bb7ca119d284329a798a5a7c7b4f3ec2c8896872"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-09",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L3367",
+    "title": "Correction to L3366: the 30 / 50 / 15 values are shared by the AT mine, SLAM, EOD Bot mines, jammer and proximity grenade, so the Claymore's 50 is not its damage; the Claymore damage figure is not found",
+    "status": "exhausted",
+    "summary": "The 30 / 50 / 15 values that L3366 read in the Claymore file are also in the AT mine, the M4 SLAM, the EOD Bot mines, the mobile jammer and the proximity grenade, so they are a shared setting and not Claymore damage. L3366's match with EA's figure is withdrawn and the Claymore's damage remains unlocated. 4 raw-offset checks matched.",
+    "reopenWhen": "The property names are resolved, or a Claymore damage reading in game.",
+    "statusNote": "Dead end: Claymore fragmentation damage not found in the blast object, registry or property list.",
+    "searched": [
+     "M18Claymore_Projectile blast object (BlastDamage 1)",
+     "18 registry rows named M18Claymore_WB.*",
+     "property list Class_1788e77e of 67 gadget projectile files",
+     "SimEx_ClaymoreFrag and PRJ_SimEx_M18Claymore numeric fields"
+    ]
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Hardware/Gadgets/Mines/ATMine/PBNS_ATMine",
+    "format": "raw-ebx",
+    "sha256": "a41318ef04b07cc68543bbffd2862b9b29674c0ea53bf871c543e055294c7c4f",
+    "question": "Is the value 50 in the Claymore's property list (L3366) specific to the Claymore, as a damage figure would be?",
+    "result": "useful",
+    "conclusion": "Holds the same 30, 50, 15 values as the Claymore file."
+   },
+   {
+    "path": "Common/Hardware/Gadgets/PlacedExplosives/M18Claymore/M18Claymore_Projectile",
+    "format": "raw-ebx",
+    "sha256": "8e4cf92b1999983c1e8852a22db7042c4e106a5d53e09c16276427556ed6c193",
+    "question": "Is the value 50 in the Claymore's property list (L3366) specific to the Claymore, as a damage figure would be?",
+    "result": "inconclusive",
+    "conclusion": "Its 30, 50, 15 values are shared with other gadgets; no Claymore-specific damage value found."
+   }
+  ],
+  "supersedes": [
+   "frosty-2026-10-09-L3366-claymore-fragment-damage-50.json"
+  ]
+ }
+}

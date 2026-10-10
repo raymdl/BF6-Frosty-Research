@@ -1,0 +1,318 @@
+{
+ "lead": "L3314",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Compares saved registry files of builds 1.4.2.5, 1.4.3.0 and 1.4.3.5; raw-checks.json pins each file hash."
+ },
+ "question": "Where a registry default and an asset's own value differ, which one does a match use, and what stored evidence bears on it?",
+ "sourceFacts": {
+  "method": "Three things were read. (1) Registry structure: container rows of GRX_Vehicles and GRX_Gadgets_Glacier point to a small object holding a GUID string; that GUID was searched as a file or instance GUID in every decodable saved gameplay file. (2) Each row's integer Field_c124c7d8 was compared with a 32-bit hash of the row's own name (start 5381, multiply by 33, xor each byte). (3) The saved registry files of builds 1.4.2.5, 1.4.3.0 and 1.4.3.5 were compared row by row, and for each changed row the owning asset's own value was read in the builds where the asset is saved.",
+  "control": {
+   "description": "The scout helicopter minigun HeatPerBullet registry row in builds 1.4.2.5 and 1.4.3.0, and the VSSM InitialSpeed registry row in the same builds.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.2.5\\capture\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "d1efa74528523d870048c51e4d5365f27897692f5ed0a1d09154c63d90d75031",
+     "offset": 203300,
+     "type": "f32",
+     "bytesHex": "7e73da3b",
+     "value": 0.006666599772870541,
+     "expect": 0.006667,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "7be1c136b6b4de1c3071eca63c12b5affc714ff96c51bd1dbf3f38b1fc2580de",
+     "offset": 203300,
+     "type": "f32",
+     "bytesHex": "54a2113c",
+     "value": 0.00888879969716072,
+     "expect": 0.008889,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.2.5\\capture\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "1895f7bbbe1ffc7875f6334c2b8cd6451cc608bad00f826aedb0963a2fd95895",
+     "offset": 1917700,
+     "type": "f32",
+     "bytesHex": "00809743",
+     "value": 303.0,
+     "expect": 303.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1917700,
+     "type": "f32",
+     "bytesHex": "0080a043",
+     "value": 321.0,
+     "expect": 321.0,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 31,
+   "matched": 31,
+   "files": 12,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "raw-checks.json"
+  },
+  "registryLinks": {
+   "linkedRows": 315,
+   "distinctGuids": 96,
+   "guidsFoundAsInstanceGuid": 57,
+   "rowsOwnerEqualsFile": 219,
+   "rowsOwnerDiffersFromFile": 20
+  },
+  "nameHash": "Field_c124c7d8 equals the hash of the row's own name for every row tested (for example 4540 of 4540 in GRX_Vehicles and 20945 of 20945 in GRX_Weapons); it names the row, not an asset field.",
+  "changedRows": [
+   {
+    "registry": "GRX_Vehicles",
+    "builds": "1.4.2.5->1.4.3.0",
+    "row": "VB_VEH_Boat_CB90.ClearDisabledDamageThreshold",
+    "from": 240.0,
+    "to": 400.0
+   },
+   {
+    "registry": "GRX_Vehicles",
+    "builds": "1.4.2.5->1.4.3.0",
+    "row": "VB_VEH_Boat_CB90.DisabledDamageThreshold",
+    "from": 240.0,
+    "to": 400.0
+   },
+   {
+    "registry": "GRX_Vehicles",
+    "builds": "1.4.2.5->1.4.3.0",
+    "row": "VB_VEH_Boat_CB90.MaxHealth",
+    "from": 800.0,
+    "to": 1000.0
+   },
+   {
+    "registry": "GRX_Vehicles",
+    "builds": "1.4.2.5->1.4.3.0",
+    "row": "VB_VEH_Boat_CB90.RegenerationDelay",
+    "from": 10.0,
+    "to": 12.0
+   },
+   {
+    "registry": "GRX_Vehicles",
+    "builds": "1.4.2.5->1.4.3.0",
+    "row": "VB_VEH_Boat_CB90.RegenerationRate",
+    "from": 80.0,
+    "to": 100.0
+   },
+   {
+    "registry": "GRX_Vehicles",
+    "builds": "1.4.2.5->1.4.3.0",
+    "row": "WF_Vehicles_ScoutHeli_PrimaryWeapon_Minigun.PrimaryFire.OverHeat.HeatPerBullet",
+    "from": 0.006667,
+    "to": 0.008889
+   },
+   {
+    "registry": "GRX_Weapons",
+    "builds": "1.4.2.5->1.4.3.0",
+    "row": "GS_VSSM.Recoil.Unzoomed.RecoilAmount",
+    "from": 0.6787,
+    "to": 0.6834
+   },
+   {
+    "registry": "GRX_Weapons",
+    "builds": "1.4.2.5->1.4.3.0",
+    "row": "GS_VSSM.Recoil.Zoomed.RecoilAmount",
+    "from": 0.6787,
+    "to": 0.6834
+   },
+   {
+    "registry": "GRX_Weapons",
+    "builds": "1.4.2.5->1.4.3.0",
+    "row": "GS_VSSM.Recoil.Zoomed.RecoilDirectionVariation",
+    "from": 45.0,
+    "to": 45.400002
+   },
+   {
+    "registry": "GRX_Weapons",
+    "builds": "1.4.2.5->1.4.3.0",
+    "row": "VSSM_WB.WeaponEntityData.WeaponFiring.PrimaryFire.Shot.InitialSpeed.z",
+    "from": 303.0,
+    "to": 321.0
+   }
+  ],
+  "ownValues": [
+   {
+    "asset": "WF_Vehicles_ScoutHeli_PrimaryWeapon_Minigun",
+    "build": "1.4.3.0",
+    "field": "Field_72a2b562",
+    "value": 0.006667,
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer3-2026-09-23\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\ScoutHeli\\WF_Vehicles_ScoutHeli_PrimaryWeapon_Minigun.ebx",
+    "sha256": "f087b42d506c5d7774208528b48e5a9bc0ec12cd897a4558bc6bc7556a58b9f2"
+   },
+   {
+    "asset": "WF_Vehicles_ScoutHeli_PrimaryWeapon_Minigun",
+    "build": "1.4.3.5",
+    "field": "Field_72a2b562",
+    "value": 0.006667,
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\ScoutHeli\\WF_Vehicles_ScoutHeli_PrimaryWeapon_Minigun.ebx",
+    "sha256": "f087b42d506c5d7774208528b48e5a9bc0ec12cd897a4558bc6bc7556a58b9f2"
+   },
+   {
+    "asset": "VSSM_WB",
+    "build": "1.4.2.5",
+    "field": "Field_32a99b9c",
+    "value": 303.0,
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.2.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\VSSM\\VSSM_WB.ebx",
+    "sha256": "62233defbeec8b53baed648c6a4ef54491d2c9face07293a1bd352d33446decd"
+   },
+   {
+    "asset": "VSSM_WB",
+    "build": "1.4.3.0",
+    "field": "Field_32a99b9c",
+    "value": 321.0,
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\VSSM\\VSSM_WB.ebx",
+    "sha256": "5c5c2165c31058a94b8476775915260591bb7bbcb49c118e2bdae55115086336"
+   },
+   {
+    "asset": "VSSM_WB",
+    "build": "1.4.3.5",
+    "field": "Field_32a99b9c",
+    "value": 321.0,
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\VSSM\\VSSM_WB.ebx",
+    "sha256": "5c5c2165c31058a94b8476775915260591bb7bbcb49c118e2bdae55115086336"
+   },
+   {
+    "asset": "GS_VSSM",
+    "build": "1.4.2.5",
+    "field": "Field_22810b21",
+    "value": 0.6787,
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.2.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\VSSM\\GS_VSSM.ebx",
+    "sha256": "853044515fb75b0ba59ac982e20c3cd5967bc4180dae17e27d5aa31daf0514d2"
+   },
+   {
+    "asset": "GS_VSSM",
+    "build": "1.4.2.5",
+    "field": "Field_22810b21",
+    "value": 0.6787,
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.2.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\VSSM\\GS_VSSM.ebx",
+    "sha256": "853044515fb75b0ba59ac982e20c3cd5967bc4180dae17e27d5aa31daf0514d2"
+   },
+   {
+    "asset": "GS_VSSM",
+    "build": "1.4.3.0",
+    "field": "Field_22810b21",
+    "value": 0.6834,
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\VSSM\\GS_VSSM.ebx",
+    "sha256": "ae0dc64afb3df7e40bea4d58054266f1fa38146c235786efaa52a27bff94e5b3"
+   },
+   {
+    "asset": "GS_VSSM",
+    "build": "1.4.3.0",
+    "field": "Field_22810b21",
+    "value": 0.6834,
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\VSSM\\GS_VSSM.ebx",
+    "sha256": "ae0dc64afb3df7e40bea4d58054266f1fa38146c235786efaa52a27bff94e5b3"
+   },
+   {
+    "asset": "GS_VSSM",
+    "build": "1.4.3.5",
+    "field": "Field_22810b21",
+    "value": 0.6834,
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\VSSM\\GS_VSSM.ebx",
+    "sha256": "ae0dc64afb3df7e40bea4d58054266f1fa38146c235786efaa52a27bff94e5b3"
+   },
+   {
+    "asset": "GS_VSSM",
+    "build": "1.4.3.5",
+    "field": "Field_22810b21",
+    "value": 0.6834,
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\VSSM\\GS_VSSM.ebx",
+    "sha256": "ae0dc64afb3df7e40bea4d58054266f1fa38146c235786efaa52a27bff94e5b3"
+   }
+  ],
+  "dataset": "reference-data/frosty/registry-vs-asset-evidence.json"
+ },
+ "inference": [
+  "The registry addresses asset objects by stored instance GUID, so the join from a linked registry owner to its asset is a stored link, not only a name match. Value rows themselves carry no such link; they sit under a linked container row.",
+  "In the 1.4.3.0 update the VSSM registry rows and the VSSM assets' own values changed together (speed 303 to 321, recoil amount 0.6787 to 0.6834), so for those rows the registry default mirrors the asset.",
+  "In the same update the scout helicopter minigun HeatPerBullet registry row changed from 0.006667 to 0.008889 while the weapon asset saved for 1.4.3.0 and 1.4.3.5 still stores 0.006667. A balance change made in the registry alone would have no effect unless the game reads the registry, so this supports the registry default being the live value where the two differ. This is an inference from one case; the 1.4.2.5 copy of the asset is not saved, and no official note about this weapon was found in the docs.",
+  "A search of the docs and receipts found no official or in-game number equal to either side of any of the 73 differing pairs recorded in L3307."
+ ],
+ "unresolved": [
+  "Which side a match uses. Test: hold fire with the scout helicopter minigun from zero heat and count shots to overheat: about 112 if heat per bullet is 0.008889 (registry), about 150 if it is 0.006667 (asset), assuming heat runs 0 to 1; cooling during the burst lowers both counts by the same rule, so the ratio 0.75 is what to look for against an earlier recording or against the transport helicopter minigun (registry 0.006667).",
+  "A second discriminating test from L3307: detonate one anti-tank mine under a full-health tank and read the damage (registry BlastDamage 195, asset 300).",
+  "39 of the 96 linked GUIDs were not found in any decodable saved file; their assets are either not saved or not decodable.",
+  "What the other integers on a row (Field_a524635f, Field_e73c7944, Field_8cf424e7) encode; none equals a field-name hash of the owning asset.",
+  "Whether the CB90 rows that changed in 1.4.3.0 (health 800 to 1000) changed in the asset too; the 1.4.2.5 copy of the asset is not saved. The current asset stores 1000."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-09-registry-vs-asset",
+  "artifacts": [
+   {
+    "file": "summary.json",
+    "sha256": "81d1adadf17544fbcc9cb2f865759c21d4d4b8e543446b02a1957804039503c5"
+   },
+   {
+    "file": "builddiff.json",
+    "sha256": "aaedc42ec6495e0ea50e8fcf5f3de12756e315d7f7f24d1fb1fc969816d99497"
+   },
+   {
+    "file": "owncmp.json",
+    "sha256": "d85dcf941bc9485670720acb39453b755383904ffb64ff07d56386261a209d0d"
+   },
+   {
+    "file": "links.json",
+    "sha256": "03516d5f6bfffaf84e6c3fea1990620f53e83570d5f45942b1ed00385847be14"
+   },
+   {
+    "file": "raw-check-manifest.json",
+    "sha256": "2bc346c3614c993653b09be69a8d8b607c51b5d6dd2efb182c97262a4654f2c1"
+   },
+   {
+    "file": "raw-checks.json",
+    "sha256": "8e1b28568d350033b4e118ac412745e4c114d6b08733a0bfae21bd9d8c12d64b"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-09",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L3314",
+    "title": "Registry default or asset value: stored links and what changed across updates",
+    "status": "finding",
+    "summary": "Registry container rows address asset objects by stored instance GUID (57 of 96 GUIDs found in saved files). Across builds 1.4.2.5 to 1.4.3.5 ten registry rows changed; the VSSM rows changed together with the asset, while the scout helicopter minigun heat row changed in the registry only (0.006667 to 0.008889; asset still 0.006667). 31 raw-offset checks matched.",
+    "reopenWhen": "An in-game shots-to-overheat count for the scout helicopter minigun, an anti-tank mine damage reading, an official note naming one of the differing values, or a new build in which a registry row and its asset change separately.",
+    "statusNote": "Which side is live remains unproven; one registry-only change supports the registry."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/GameSetup/Tweakables/GameRemixer/GRX_Vehicles",
+    "format": "raw-ebx",
+    "sha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+    "question": "Where a registry default and an asset's own value differ, which one does a match use, and what stored evidence bears on it?",
+    "result": "useful",
+    "conclusion": "Scout helicopter minigun HeatPerBullet row stores 0.008889 (0.006667 in build 1.4.2.5); container rows hold GUID strings that are instance GUIDs of asset objects."
+   },
+   {
+    "path": "Common/GameSetup/Tweakables/GameRemixer/GRX_Weapons",
+    "format": "raw-ebx",
+    "sha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+    "question": "Where a registry default and an asset's own value differ, which one does a match use, and what stored evidence bears on it?",
+    "result": "useful",
+    "conclusion": "VSSM rows changed in 1.4.3.0 (InitialSpeed 303 to 321, RecoilAmount 0.6787 to 0.6834) together with the VSSM assets' own values."
+   }
+  ]
+ }
+}

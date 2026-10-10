@@ -1,0 +1,219 @@
+{
+ "lead": "L3333",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Read from saved raw captures; no export, no new capture."
+ },
+ "question": "Is the registry row PB_C4 BlastDamage 180 bound to the C-4 projectile, or is the asset's own 100 the only linked value?",
+ "sourceFacts": {
+  "method": "The build's asset catalog (467208 routes) was searched for a file named PB_C4. The C-4 weapon file's imports were resolved by file GUID to its projectile. The imports of PNS_C4 and of six other projectile files into the gadget registry file were resolved to registry row names by object GUID.",
+  "control": {
+   "description": "PB_NS_RPG imports 7 registry rows and PB_M4SLAM_EFP 6, all under their own owner name, as L3316 found for assets with registry-backed values; the same resolver finds none for PNS_C4.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Throwables\\C4\\PNS_C4.ebx",
+     "rawSha256": "c56385fd5260b62da56f63d88021f0f44ce6dee573a3227546ea28cb985ecb1f",
+     "offset": 416,
+     "type": "u32",
+     "bytesHex": "807f4122",
+     "value": 574717824,
+     "expect": 574717824,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Throwables\\C4\\PNS_C4.ebx",
+     "rawSha256": "c56385fd5260b62da56f63d88021f0f44ce6dee573a3227546ea28cb985ecb1f",
+     "offset": 3136,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Throwables\\C4\\PNS_C4.ebx",
+     "rawSha256": "c56385fd5260b62da56f63d88021f0f44ce6dee573a3227546ea28cb985ecb1f",
+     "offset": 3040,
+     "type": "u32",
+     "bytesHex": "8015f005",
+     "value": 99620224,
+     "expect": 99620224,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 90788,
+     "type": "f32",
+     "bytesHex": "00000000",
+     "value": 0.0,
+     "expect": 0.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 94596,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 149748,
+     "type": "f32",
+     "bytesHex": "00000000",
+     "value": 0.0,
+     "expect": 0.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 195924,
+     "type": "f32",
+     "bytesHex": "00003443",
+     "value": 180.0,
+     "expect": 180.0,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 7,
+   "matched": 7,
+   "files": 2,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "rawchecks-L3333.json"
+  },
+  "catalogRoutes": 467208,
+  "catalogSha256": "c822691c99d2fc823a3f80bd90025e60ea7c32731bf5782167196b925d7d4c9a",
+  "c4CatalogRoutesNamedP": [
+   "Common/Hardware/Gadgets/Throwables/C4/PNS_C4",
+   "Common/Hardware/Gadgets/Throwables/C4/PresEx_C4",
+   "Common/Hardware/Gadgets/Throwables/C4/PresEx_C4_UpdateDisplay",
+   "Common/Hardware/Gadgets/Throwables/C4/PRJ_PresEx_C4_VFX",
+   "Common/Hardware/Gadgets/Throwables/C4/PRJ_SimEx_C4",
+   "Common/Hardware/Gadgets/Throwables/C4/ProjectileFeature_C4"
+  ],
+  "pbC4RegistryRows": [
+   {
+    "row": "PB_C4.GhostedProjectileEntityData.MeshProjectileEntityData.ProjectileEntityData.InitialSpeed",
+    "default": 0.0
+   },
+   {
+    "row": "PB_C4.GhostedProjectileEntityData.MeshProjectileEntityData.ProjectileEntityData.Explosion.ExplosionEntityData.DamageMultiplier",
+    "default": 1.0
+   },
+   {
+    "row": "PB_C4.GhostedProjectileEntityData.MeshProjectileEntityData.ProjectileEntityData.TimeToLive",
+    "default": 0.0
+   },
+   {
+    "row": "PB_C4.GhostedProjectileEntityData.MeshProjectileEntityData.ProjectileEntityData.Explosion.ExplosionEntityData.BlastDamage",
+    "default": 180.0
+   }
+  ],
+  "registryImportsByFile": {
+   "PNS_C4": 0,
+   "WB_C4": 19,
+   "PB_AT4": 0,
+   "PB_MBTLAW": 0,
+   "PB_M4SLAM": 0,
+   "PB_NS_RPG": 7,
+   "PB_M4SLAM_EFP": 6
+  },
+  "weaponImport": "WB_C4 imports PNS_C4 objects 0 and 1"
+ },
+ "inference": [
+  "No file named PB_C4 exists in the catalog, and nothing saved imports the PB_C4 registry rows. They are taken to be leftovers of a renamed or removed projectile.",
+  "WB_C4, the C-4 weapon, imports PNS_C4, which imports no registry row. Its own BlastDamage 100 is the only value linked to the weapon, and it gives EA's 350 against tanks (L3327).",
+  "Projectiles that import registry rows under their own name (RPG, SLAM EFP) are the ones where the registry can override; the M136 AT, MBT-LAW, SLAM body and C-4 import none, which agrees with their own values reproducing EA's figures."
+ ],
+ "unresolved": [
+  "Not confirmed in game. Test: one C-4 pack on a full-health tank; 350 expected, 630 would mean the PB_C4 row is used after all.",
+  "Whether other registry owners are orphans in the same way was not surveyed."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-09-damage-rule-extension",
+  "artifacts": [
+   {
+    "file": "manifest-L3333.json",
+    "sha256": "f96003cfa5c71753f2819edf075f6f430e9f3d54faa826f8358e6dd2266cdb33"
+   },
+   {
+    "file": "rawchecks-L3333.json",
+    "sha256": "7ce2e66759afee130e88b045ebf198e4911fca3ed39834cdf6ad557c563cb142"
+   },
+   {
+    "file": "regimp.py",
+    "sha256": "d8c9c2f902f5e4d9ceba0897a4cc164453d3016ff245b161cddae8ee63c11152"
+   },
+   {
+    "file": "q.py",
+    "sha256": "0063cf978b512965ebe522e9ec9845f97ecf20d9e75bc9159a87de19456d8fd5"
+   },
+   {
+    "file": "imports-by-file.json",
+    "sha256": "a8ce3df0ddc36777c0b77db2b173a0a285f486f763cc8f1f36fd175582d0443a"
+   },
+   {
+    "file": "guid-index.json",
+    "sha256": "464a55fccc9dbab54e50130af5d05a971a2858607edb1b6f56defc0752a4ea62"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-09",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L3333",
+    "title": "C-4: the registry row PB_C4 belongs to no file in the game catalog; the C-4 weapon imports PNS_C4",
+    "status": "finding",
+    "summary": "The game catalog has no file named PB_C4; the C-4 weapon WB_C4 imports the projectile PNS_C4, which imports no registry row. The registry rows under PB_C4 (BlastDamage 180) are bound to nothing saved, so the asset's own 100 stands, giving EA's 350 against tanks. 7 raw-offset checks matched.",
+    "reopenWhen": "An in-game C-4 reading on a tank other than 350.",
+    "statusNote": "Settled from the catalog and stored imports; no in-game reading."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Hardware/Gadgets/Throwables/C4/PNS_C4",
+    "format": "raw-ebx",
+    "sha256": "c56385fd5260b62da56f63d88021f0f44ce6dee573a3227546ea28cb985ecb1f",
+    "question": "Is the registry row PB_C4 BlastDamage 180 bound to the C-4 projectile, or is the asset's own 100 the only linked value?",
+    "result": "useful",
+    "conclusion": "C-4 projectile: own BlastDamage 100, no import of any registry row."
+   },
+   {
+    "path": "Common/Hardware/Gadgets/Throwables/C4/WB_C4",
+    "format": "raw-ebx",
+    "sha256": "a0e6aa78bfb2fb177605c463520b2eacb40f0e7325fa503f1c0f06e391aff57e",
+    "question": "Is the registry row PB_C4 BlastDamage 180 bound to the C-4 projectile, or is the asset's own 100 the only linked value?",
+    "result": "useful",
+    "conclusion": "C-4 weapon: imports PNS_C4 objects 0 and 1 and 19 registry rows under WB_C4."
+   },
+   {
+    "path": "Common/Hardware/Gadgets/GRX_Gadgets_Glacier",
+    "format": "raw-ebx",
+    "sha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+    "question": "Is the registry row PB_C4 BlastDamage 180 bound to the C-4 projectile, or is the asset's own 100 the only linked value?",
+    "result": "useful",
+    "conclusion": "Registry rows under PB_C4 exist (BlastDamage 180); no saved file imports them."
+   }
+  ]
+ }
+}

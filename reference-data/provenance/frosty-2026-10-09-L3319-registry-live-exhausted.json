@@ -1,0 +1,127 @@
+{
+ "lead": "L3319",
+ "status": "exhausted",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Newest saved raw copy of each route under builds\\1.4.3.5; raw-checks.json pins each file hash."
+ },
+ "question": "Can saved game data or official notes prove, for the disputed properties that have no official number, which of the registry default and the asset's own value a live match uses?",
+ "sourceFacts": {
+  "method": "This records the end of the source-only search. Registry files of builds 1.4.2.5, 1.4.3.0 and 1.4.3.5 compared row by row: ten rows changed, one of them on the registry side only (L3314). All 31,501 decodable saved files walked for imports of registry rows: each owning asset imports its registry container, and no stored field says which number is read (L3316). The integers on each registry row tested against asset field-name hashes: none matches; one is a hash of the row's own name (L3314). EA's update notes 1.3.1.0, 1.3.3.0 and 1.4.3.0 read for numbers in the same unit as a disputed property: six properties on five weapons follow the registry, none the asset (L3317, L3318). The repo's docs, receipts and patch-note inventory searched for an official or in-game number equal to either side of the remaining pairs: none found. Game code is not in the saved data, so the load rule itself cannot be read.",
+  "control": {
+   "description": "The anti-tank mine BlastDamage pair that an in-game reading would separate: registry default 195 and the asset's own 300.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 52548,
+     "type": "f32",
+     "bytesHex": "00004343",
+     "value": 195.0,
+     "expect": 195.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Mines\\ATMine\\PBNS_ATMine.ebx",
+     "rawSha256": "a41318ef04b07cc68543bbffd2862b9b29674c0ea53bf871c543e055294c7c4f",
+     "offset": 2576,
+     "type": "f32",
+     "bytesHex": "00009643",
+     "value": 300.0,
+     "expect": 300.0,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 2,
+   "matched": 2,
+   "files": 2,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "raw-checks.json"
+  },
+  "searched": [
+   "Registry files of builds 1.4.2.5, 1.4.3.0 and 1.4.3.5 compared row by row: ten rows changed, one of them on the registry side only (L3314).",
+   "All 31,501 decodable saved files walked for imports of registry rows: each owning asset imports its registry container, and no stored field says which number is read (L3316).",
+   "The integers on each registry row tested against asset field-name hashes: none matches; one is a hash of the row's own name (L3314).",
+   "EA's update notes 1.3.1.0, 1.3.3.0 and 1.4.3.0 read for numbers in the same unit as a disputed property: six properties on five weapons follow the registry, none the asset (L3317, L3318).",
+   "The repo's docs, receipts and patch-note inventory searched for an official or in-game number equal to either side of the remaining pairs: none found.",
+   "Game code is not in the saved data, so the load rule itself cannot be read."
+  ],
+  "pairsWithoutOfficialNumber": 66,
+  "pairsWithOfficialNumber": 7
+ },
+ "inference": [
+  "Dead end for source-only research: nothing in the saved files or in EA's notes can establish the live value for the 66 disputed properties that have no official number. The working rule from L3318 (read the registry default) stands as the best-supported reading, not as a proof."
+ ],
+ "unresolved": [
+  "The live value for the 66 disputed properties without an official number. Test: place one anti-tank mine under a full-health tank in a private match and read the damage: 195 means the registry default is used, 300 means the asset's own value.",
+  "A second reading on a different kind of property would show the rule is general. Test: hit a full-health tank once with a Javelin from the front (registry Damage 140, own 150) or count scout helicopter minigun shots to overheat (L3317)."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-09-registry-live-exhausted",
+  "artifacts": [
+   {
+    "file": "exhausted.json",
+    "sha256": "5a994b963c16f60b950740051254e0f671d516c3466a08ccd9264828b574679e"
+   },
+   {
+    "file": "raw-check-manifest.json",
+    "sha256": "ff0961be8eb8c4b26aaa5687c152f347a4b54cd4c7c767466acb0b53ee1fa7b2"
+   },
+   {
+    "file": "raw-checks.json",
+    "sha256": "e8fb1cf418b9e5ba1e3af35a1bb4f01e91ca15681519e1160f047600535e1abe"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-09",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L3319",
+    "title": "Proof of the live value for disputed properties without an official number: source search exhausted",
+    "status": "exhausted",
+    "summary": "Dead end for source-only research. Registry history across three builds, imports in 31,501 files, row hashes and three sets of EA notes were searched; 7 disputed properties have an official number that follows the registry and 66 have none. No stored field or official statement can settle those; only an in-game reading can.",
+    "reopenWhen": "An in-game damage reading for a disputed property (anti-tank mine 195 or 300), or an official note stating one of the remaining values.",
+    "statusNote": "Source search exhausted; working rule is the registry default (L3318).",
+    "searched": [
+     "Registry files of builds 1.4.2.5, 1.4.3.0 and 1.4.3.5 compared row by row: ten rows changed, one of them on the registry side only (L3314).",
+     "All 31,501 decodable saved files walked for imports of registry rows: each owning asset imports its registry container, and no stored field says which number is read (L3316).",
+     "The integers on each registry row tested against asset field-name hashes: none matches; one is a hash of the row's own name (L3314).",
+     "EA's update notes 1.3.1.0, 1.3.3.0 and 1.4.3.0 read for numbers in the same unit as a disputed property: six properties on five weapons follow the registry, none the asset (L3317, L3318).",
+     "The repo's docs, receipts and patch-note inventory searched for an official or in-game number equal to either side of the remaining pairs: none found.",
+     "Game code is not in the saved data, so the load rule itself cannot be read."
+    ]
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Hardware/Gadgets/GRX_Gadgets_Glacier",
+    "format": "raw-ebx",
+    "sha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+    "question": "Can saved game data or official notes prove, for the disputed properties that have no official number, which of the registry default and the asset's own value a live match uses?",
+    "result": "useful",
+    "conclusion": "Registry row for the anti-tank mine BlastDamage stores 195; no stored field says whether it replaces the asset's value."
+   },
+   {
+    "path": "Common/Hardware/Gadgets/Mines/ATMine/PBNS_ATMine",
+    "format": "raw-ebx",
+    "sha256": "a41318ef04b07cc68543bbffd2862b9b29674c0ea53bf871c543e055294c7c4f",
+    "question": "Can saved game data or official notes prove, for the disputed properties that have no official number, which of the registry default and the asset's own value a live match uses?",
+    "result": "useful",
+    "conclusion": "The anti-tank mine asset's explosion object stores 300 and imports its registry container; nothing in it says which number is read."
+   }
+  ]
+ }
+}

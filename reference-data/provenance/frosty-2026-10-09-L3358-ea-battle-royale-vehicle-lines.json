@@ -1,0 +1,196 @@
+{
+ "lead": "L3358",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Read from saved raw captures; no export, no new capture."
+ },
+ "question": "Do the Battle Royale vehicle figures in EA's 1.3.1.0 notes (tank autospot 300 m, UH-79 health 1250 against 1500, minigun flat 20, dispersion 2.4) appear in stored data?",
+ "sourceFacts": {
+  "method": "Six EA lines were compared with registry rows found by name search over all 32,512 saved registry rows (patterns GraniteBR, UH60, Minigun, drone cooldown) and with the UH60 vehicle root health. Each value used was re-read at its raw offset.",
+  "control": {
+   "description": "The UH60 root health 1500 is the value recorded in L3346; EA names 1500 as the multiplayer health.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\UH60\\VB_VEH_Helicopter_UH60.ebx",
+     "rawSha256": "e82e813cba78d36ba89d859aae18f3bc34e0f0f727f2312d0e51fa0a30c54d97",
+     "offset": 440,
+     "type": "f32",
+     "bytesHex": "0080bb44",
+     "value": 1500.0,
+     "expect": 1500.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Game\\GlacierGranite\\GameSetup\\Tweakables\\GRX_Granite.ebx",
+     "rawSha256": "51cdcbe74151c009435a8849d43df42a49bf1acb4bd038728c9fd0130d1f7c81",
+     "offset": 11220,
+     "type": "f32",
+     "bytesHex": "00009643",
+     "value": 300.0,
+     "expect": 300.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 343492,
+     "type": "f32",
+     "bytesHex": "00000842",
+     "value": 34.0,
+     "expect": 34.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 383220,
+     "type": "f32",
+     "bytesHex": "0000a041",
+     "value": 20.0,
+     "expect": 20.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 498268,
+     "type": "f32",
+     "bytesHex": "00000000",
+     "value": 0.0,
+     "expect": 0.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 23660,
+     "type": "f32",
+     "bytesHex": "9a99993e",
+     "value": 0.30000001192092896,
+     "expect": 0.3,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 6,
+   "matched": 6,
+   "files": 3,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "rawchecks-L3358.json"
+  },
+  "officialSource": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-1-0",
+  "comparisons": [
+   {
+    "ea": "Tanks now autospot on the enemy minimap from up to 300m away.",
+    "stored": "GraniteBR_TankAutoSpotRadius",
+    "value": 300.0,
+    "result": "equal"
+   },
+   {
+    "ea": "UH-79 was using the Multiplayer health value of 1500 instead of the Battle Royale value of 1250.",
+    "stored": "VB_VEH_Helicopter_UH60 root health (Field_9040392c)",
+    "value": 1500,
+    "result": "multiplayer value equal; no stored 1250 found"
+   },
+   {
+    "ea": "UH-79 minigun bullets are now affected by armour and deal a flat 20 damage.",
+    "stored": "WF_Vehicles_TransportHeli_Gunner_Minigun StartDamage / EndDamage",
+    "value": "34 / 20",
+    "result": "multiplayer row only; its far damage is 20"
+   },
+   {
+    "ea": "UH-79 miniguns ... overheat penalty is now three times longer.",
+    "stored": "OverHeatPenaltyTime, HeatDropPerSecond",
+    "value": "0, 0.3",
+    "result": "multiplayer row only; penalty 0, so 'three times' cannot be read from it"
+   },
+   {
+    "ea": "Increased UH-79 minigun dispersion from 1.2 to 2.4 degrees.",
+    "stored": "none for the vehicle minigun",
+    "value": null,
+    "result": "no row"
+   },
+   {
+    "ea": "Increased the XFGM-6D Recon Drone cooldown from 120 seconds to 240 seconds.",
+    "stored": "none",
+    "value": null,
+    "result": "no row with 240 or 120 for the drone"
+   }
+  ],
+  "rowsWithUH60AndHealthOrBR": []
+ },
+ "inference": [
+  "The registry row GraniteBR_TankAutoSpotRadius holds EA's 300 m; it is a Battle Royale row (registry GRX_Granite) and says nothing about multiplayer.",
+  "EA confirms 1500 as the UH-79's multiplayer health, equal to the stored root health. This is a third EA-stated health after the tank's 1200 and the armoured transport's 800 (L3334).",
+  "The Battle Royale overrides (health 1250, minigun flat 20, dispersion 2.4, drone cooldown 240) have no registry row and were not found; they are most likely set in Battle Royale level or mode data that is not among the saved rows.",
+  "The multiplayer minigun row's far damage is 20, the same number EA gives as the flat Battle Royale damage; that is a correspondence only."
+ ],
+ "unresolved": [
+  "Where Battle Royale stores its vehicle overrides. Not needed for a multiplayer site.",
+  "Vehicle minigun dispersion has no registry row; the rows named GS_Minigun are a soldier weapon's (registry GRX_Weapons) and hold 1.2 and 2.4 among other values, which is not evidence for the vehicle gun."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-09-damage-rule-extension",
+  "artifacts": [
+   {
+    "file": "manifest-L3358.json",
+    "sha256": "1ef9fa2aa020baccd4484d57eb6b08e217d279dc3a07ee7b8c719c7ac94dc211"
+   },
+   {
+    "file": "rawchecks-L3358.json",
+    "sha256": "2a85e1cb999ded0d8ca5f7bd95f5e69806237083812768dcd67670922375737b"
+   },
+   {
+    "file": "ea-1-3-1-0.txt",
+    "sha256": "164104a0230d09e8d179f79b65a708c2c1d04244f06157ab8827d57b5443ad4d"
+   },
+   {
+    "file": "fieldfind-regen.json",
+    "sha256": "c42329db75b7287d0f15c053a8f708236965bf525c3d69d428fa7b9cd070b545"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-09",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L3358",
+    "title": "EA's Battle Royale vehicle lines against stored values: tank autospot radius 300 and the UH-79 multiplayer health 1500 match; the Battle Royale overrides have no row",
+    "status": "finding",
+    "summary": "Of six Battle Royale vehicle lines in EA's 1.3.1.0 notes, two meet stored values: the tank autospot radius row holds 300, and the UH-79's stored health 1500 is the figure EA calls its multiplayer health. The Battle Royale overrides (health 1250, minigun flat 20, dispersion 2.4, recon drone cooldown 240) have no registry row. 6 raw-offset checks matched.",
+    "reopenWhen": "A saved Battle Royale mode file with vehicle overrides.",
+    "statusNote": "Two matches; Battle Royale overrides not stored in the registry."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Game/GlacierGranite/GameSetup/Tweakables/GRX_Granite",
+    "format": "raw-ebx",
+    "sha256": "51cdcbe74151c009435a8849d43df42a49bf1acb4bd038728c9fd0130d1f7c81",
+    "question": "Do the Battle Royale vehicle figures in EA's 1.3.1.0 notes (tank autospot 300 m, UH-79 health 1250 against 1500, minigun flat 20, dispersion 2.4) appear in stored data?",
+    "result": "useful",
+    "conclusion": "GraniteBR_TankAutoSpotRadius default 300."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/Helicopter/UH60/VB_VEH_Helicopter_UH60",
+    "format": "raw-ebx",
+    "sha256": "e82e813cba78d36ba89d859aae18f3bc34e0f0f727f2312d0e51fa0a30c54d97",
+    "question": "Do the Battle Royale vehicle figures in EA's 1.3.1.0 notes (tank autospot 300 m, UH-79 health 1250 against 1500, minigun flat 20, dispersion 2.4) appear in stored data?",
+    "result": "useful",
+    "conclusion": "Root health 1500, EA's multiplayer value for the UH-79."
+   }
+  ]
+ }
+}

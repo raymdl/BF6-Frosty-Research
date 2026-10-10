@@ -1,0 +1,154 @@
+{
+ "lead": "L3313",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Newest saved raw copy of each route under builds\\1.4.3.5; raw-checks.json pins each file hash."
+ },
+ "question": "What heat, ammunition, rate of fire, reload and automatic replenish values does the vehicle registry store for each vehicle weapon, and what sustained-fire limits would follow from them?",
+ "sourceFacts": {
+  "method": "Every named value row of Common/GameSetup/Tweakables/GameRemixer/GRX_Vehicles was listed with the file offset of its default. Rows of weapon owners whose name ends in a heat, ammunition, rate of fire or reload property were selected and read back from the raw file at their offsets. Rows are registry defaults; own asset values are in L3307. The sustained-fire figures in the topic page are arithmetic on stored defaults and are labelled as inference.",
+  "control": {
+   "description": "First six selected rows, read back at their stored offsets.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 473764,
+     "type": "f32",
+     "bytesHex": "0000a040",
+     "value": 5.0,
+     "expect": 5.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 63264,
+     "type": "bool",
+     "bytesHex": "00",
+     "value": false,
+     "expect": false,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 293836,
+     "type": "i32",
+     "bytesHex": "ffffffff",
+     "value": -1,
+     "expect": -1,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 286836,
+     "type": "i32",
+     "bytesHex": "ffffffff",
+     "value": -1,
+     "expect": -1,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 440980,
+     "type": "i32",
+     "bytesHex": "ffffffff",
+     "value": -1,
+     "expect": -1,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 116324,
+     "type": "i32",
+     "bytesHex": "01000000",
+     "value": 1,
+     "expect": 1,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 701,
+   "matched": 701,
+   "files": 1,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "raw-checks.json"
+  },
+  "rows": 701,
+  "rowsNotOffsetChecked": 22,
+  "dataset": "reference-data/frosty/registry-vehicle-weapon-heat-ammo.json"
+ },
+ "inference": [
+  "If heat runs from 0 to 1 and each shot adds HeatPerBullet, a weapon overheats after 1 / HeatPerBullet shots of continuous fire, less the cooling during the burst; this scale is assumed, not stored.",
+  "If heat falls by HeatDropPerSecond per second, a full cool-down takes 1 / HeatDropPerSecond seconds after any stored delay.",
+  "OverHeatThreshold stores 0.01 or 0.1 for most owners, which reads as the heat level at which an overheated weapon can fire again rather than the level at which it overheats; this reading is from the value alone."
+ ],
+ "unresolved": [
+  "Heat scale and what OverHeatThreshold means. Test: hold fire with the tank coaxial heavy machine gun and count shots to overheat (20 if the scale is 0 to 1 with no cooling during fire), then time the lock-out and the return to zero heat (2 s at 0.5 per second).",
+  "Whether a match uses these defaults or the weapon assets' own values.",
+  "Meaning of AutoReplenishRounds -1 and of AutoReplenishDelay. Test: empty a vehicle weapon's reserve and time each returning round or magazine.",
+  "Rate of fire unit. Test: count shots in a 5 s burst of the scout helicopter GAU-19 from a recording.",
+  "Effect of the Enhanced Loading upgrade's heat rows (heat drop multiplier 1.3, overheated drop multiplier 1.1) on these figures.",
+  "Rows whose default is boxed or unreadable are listed in the dataset as not offset-checked."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-09-vehicle-weapon-heat-ammo",
+  "artifacts": [
+   {
+    "file": "rows.json",
+    "sha256": "ab32accd493d37d3fe1930e8ca6d5a0908725baf7632340e23efc806c971efb7"
+   },
+   {
+    "file": "table.md",
+    "sha256": "dea40b1758e38763e1d5fd53df2f3164d366d56210e40c66ea385491b9e9b7c9"
+   },
+   {
+    "file": "raw-check-manifest.json",
+    "sha256": "2f1854a45b8d6e03cb96a8be82def73df7fbfdfb9437c4e5b4d358307b9a65bf"
+   },
+   {
+    "file": "raw-checks.json",
+    "sha256": "e0174307871ff739f8b14e4d21e71d2698400e643fd3dd05e019d2b90d4c9a2c"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-09",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L3313",
+    "title": "Vehicle weapon heat, ammunition, reload and replenish rows in the vehicle registry",
+    "status": "finding",
+    "summary": "701 vehicle registry rows store weapon heat, ammunition, rate of fire, reload and automatic replenish values; 16 owners have heat rows (tank coaxial heavy machine gun 0.05 per bullet, 0.5 drop per second). Sustained-fire figures derived from them are inference. 701 raw-offset checks matched.",
+    "reopenWhen": "An in-game shots-to-overheat, cool-down or replenish timing, or a game update that changes a row.",
+    "statusNote": "Registry defaults only; heat scale, units and runtime use unconfirmed; derived figures are inference."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/GameSetup/Tweakables/GameRemixer/GRX_Vehicles",
+    "format": "raw-ebx",
+    "sha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+    "question": "What heat, ammunition, rate of fire, reload and automatic replenish values does the vehicle registry store for each vehicle weapon, and what sustained-fire limits would follow from them?",
+    "result": "useful",
+    "conclusion": "Heat rows exist for 16 weapon owners, for example the tank coaxial heavy machine gun (heat per bullet 0.05, heat drop per second 0.5), the anti-air high velocity gun (0.036, 0.5) and the scout helicopter GAU-19 (0.03125, 0.3). Ammunition rows (magazine capacity, magazines, auto replenish magazine, rounds and delay) exist for 55 owners, with rate of fire and reload rows beside them."
+   }
+  ]
+ }
+}

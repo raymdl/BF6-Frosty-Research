@@ -1,0 +1,2561 @@
+{
+ "lead": "L3328",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Read from the saved raw capture with the L3207 cell reader and the EBX decoder; no export, no new capture."
+ },
+ "question": "Which target material does each vehicle's damage-zone file store, and what grid values do the weapons have against the materials other than 119?",
+ "sourceFacts": {
+  "method": "Every saved file under Hardware/Vehicles whose name ends in _DamageZones was decoded and the material struct Field_c7584f55.Field_48288193 of each part object read; the upper 12 bits are the material ID (the Abrams control of L3201 reads 119 on six parts and 0 on two). The grid field Field_674633de was then read for 33 weapon files against each target material found, in both level grids.",
+  "control": {
+   "description": "Abrams DamageZones: six parts with material 119 and two with 0, as in L3201; RPG material 125 against 119 reads 2 as in L3205.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\Airplane\\F16\\VB_VEH_Airplane_F16_DamageZones.ebx",
+     "rawSha256": "89ac23304f24aa02804c9a4166131dfde836a509b81d0ac202988e72466d3e4a",
+     "offset": 372,
+     "type": "u32",
+     "bytesHex": "81468107",
+     "value": 125912705,
+     "expect": 125912705,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\Airplane\\F16\\VB_VEH_Airplane_F16_DamageZones.ebx",
+     "rawSha256": "89ac23304f24aa02804c9a4166131dfde836a509b81d0ac202988e72466d3e4a",
+     "offset": 580,
+     "type": "u32",
+     "bytesHex": "81468107",
+     "value": 125912705,
+     "expect": 125912705,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\Airplane\\F16\\VB_VEH_Airplane_F16_DamageZones.ebx",
+     "rawSha256": "89ac23304f24aa02804c9a4166131dfde836a509b81d0ac202988e72466d3e4a",
+     "offset": 788,
+     "type": "u32",
+     "bytesHex": "81468107",
+     "value": 125912705,
+     "expect": 125912705,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\Airplane\\F16\\VB_VEH_Airplane_F16_DamageZones.ebx",
+     "rawSha256": "89ac23304f24aa02804c9a4166131dfde836a509b81d0ac202988e72466d3e4a",
+     "offset": 996,
+     "type": "u32",
+     "bytesHex": "81468107",
+     "value": 125912705,
+     "expect": 125912705,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\Airplane\\F16\\VB_VEH_Airplane_F16_DamageZones.ebx",
+     "rawSha256": "89ac23304f24aa02804c9a4166131dfde836a509b81d0ac202988e72466d3e4a",
+     "offset": 1204,
+     "type": "u32",
+     "bytesHex": "81468107",
+     "value": 125912705,
+     "expect": 125912705,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\Airplane\\F16\\VB_VEH_Airplane_F16_DamageZones.ebx",
+     "rawSha256": "89ac23304f24aa02804c9a4166131dfde836a509b81d0ac202988e72466d3e4a",
+     "offset": 1412,
+     "type": "u32",
+     "bytesHex": "81468107",
+     "value": 125912705,
+     "expect": 125912705,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Airplane\\F22\\VB_VEH_Airplane_F22_DamageZones.ebx",
+     "rawSha256": "c6809c1396c9b2836ee202ebe8adbfc86720553f2078ce87a1e8e97364387aba",
+     "offset": 372,
+     "type": "u32",
+     "bytesHex": "81468107",
+     "value": 125912705,
+     "expect": 125912705,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Airplane\\F22\\VB_VEH_Airplane_F22_DamageZones.ebx",
+     "rawSha256": "c6809c1396c9b2836ee202ebe8adbfc86720553f2078ce87a1e8e97364387aba",
+     "offset": 580,
+     "type": "u32",
+     "bytesHex": "81468107",
+     "value": 125912705,
+     "expect": 125912705,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Airplane\\F22\\VB_VEH_Airplane_F22_DamageZones.ebx",
+     "rawSha256": "c6809c1396c9b2836ee202ebe8adbfc86720553f2078ce87a1e8e97364387aba",
+     "offset": 788,
+     "type": "u32",
+     "bytesHex": "81468107",
+     "value": 125912705,
+     "expect": 125912705,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Airplane\\F22\\VB_VEH_Airplane_F22_DamageZones.ebx",
+     "rawSha256": "c6809c1396c9b2836ee202ebe8adbfc86720553f2078ce87a1e8e97364387aba",
+     "offset": 996,
+     "type": "u32",
+     "bytesHex": "81468107",
+     "value": 125912705,
+     "expect": 125912705,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Airplane\\F22\\VB_VEH_Airplane_F22_DamageZones.ebx",
+     "rawSha256": "c6809c1396c9b2836ee202ebe8adbfc86720553f2078ce87a1e8e97364387aba",
+     "offset": 1204,
+     "type": "u32",
+     "bytesHex": "81468107",
+     "value": 125912705,
+     "expect": 125912705,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Airplane\\JAS39\\VB_VEH_Airplane_JAS39_DamageZones.ebx",
+     "rawSha256": "55d82306d43cb518b4d4006f62cfd3e779e86a468641faa67d5c1b6ef50486aa",
+     "offset": 372,
+     "type": "u32",
+     "bytesHex": "81468107",
+     "value": 125912705,
+     "expect": 125912705,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Airplane\\JAS39\\VB_VEH_Airplane_JAS39_DamageZones.ebx",
+     "rawSha256": "55d82306d43cb518b4d4006f62cfd3e779e86a468641faa67d5c1b6ef50486aa",
+     "offset": 580,
+     "type": "u32",
+     "bytesHex": "81468107",
+     "value": 125912705,
+     "expect": 125912705,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Airplane\\JAS39\\VB_VEH_Airplane_JAS39_DamageZones.ebx",
+     "rawSha256": "55d82306d43cb518b4d4006f62cfd3e779e86a468641faa67d5c1b6ef50486aa",
+     "offset": 788,
+     "type": "u32",
+     "bytesHex": "81468107",
+     "value": 125912705,
+     "expect": 125912705,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Airplane\\JAS39\\VB_VEH_Airplane_JAS39_DamageZones.ebx",
+     "rawSha256": "55d82306d43cb518b4d4006f62cfd3e779e86a468641faa67d5c1b6ef50486aa",
+     "offset": 996,
+     "type": "u32",
+     "bytesHex": "81468107",
+     "value": 125912705,
+     "expect": 125912705,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Airplane\\JAS39\\VB_VEH_SP_Assault_Airplane_JAS39_DamageZones.ebx",
+     "rawSha256": "658d801a65478dcf18d4e42fa0f801fc17cb3b9e6a97cb24f4700d98ce88bf71",
+     "offset": 372,
+     "type": "u32",
+     "bytesHex": "81478107",
+     "value": 125912961,
+     "expect": 125912961,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Airplane\\JAS39\\VB_VEH_SP_Assault_Airplane_JAS39_DamageZones.ebx",
+     "rawSha256": "658d801a65478dcf18d4e42fa0f801fc17cb3b9e6a97cb24f4700d98ce88bf71",
+     "offset": 580,
+     "type": "u32",
+     "bytesHex": "81478107",
+     "value": 125912961,
+     "expect": 125912961,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Airplane\\JAS39\\VB_VEH_SP_Assault_Airplane_JAS39_DamageZones.ebx",
+     "rawSha256": "658d801a65478dcf18d4e42fa0f801fc17cb3b9e6a97cb24f4700d98ce88bf71",
+     "offset": 788,
+     "type": "u32",
+     "bytesHex": "81478107",
+     "value": 125912961,
+     "expect": 125912961,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Airplane\\JAS39\\VB_VEH_SP_Assault_Airplane_JAS39_DamageZones.ebx",
+     "rawSha256": "658d801a65478dcf18d4e42fa0f801fc17cb3b9e6a97cb24f4700d98ce88bf71",
+     "offset": 996,
+     "type": "u32",
+     "bytesHex": "81478107",
+     "value": 125912961,
+     "expect": 125912961,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Airplane\\MQ9\\VB_VEH_Airplane_MQ9_DamageZones.ebx",
+     "rawSha256": "dac5d2a68d714e4ed80390b6364cf34eb99e17aad628d21779eaa3d29b9f5576",
+     "offset": 372,
+     "type": "u32",
+     "bytesHex": "8044910e",
+     "value": 244401280,
+     "expect": 244401280,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Airplane\\MQ9\\VB_VEH_Airplane_MQ9_DamageZones.ebx",
+     "rawSha256": "dac5d2a68d714e4ed80390b6364cf34eb99e17aad628d21779eaa3d29b9f5576",
+     "offset": 580,
+     "type": "u32",
+     "bytesHex": "8044910e",
+     "value": 244401280,
+     "expect": 244401280,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Airplane\\MQ9\\VB_VEH_Airplane_MQ9_DamageZones.ebx",
+     "rawSha256": "dac5d2a68d714e4ed80390b6364cf34eb99e17aad628d21779eaa3d29b9f5576",
+     "offset": 788,
+     "type": "u32",
+     "bytesHex": "8044910e",
+     "value": 244401280,
+     "expect": 244401280,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Airplane\\MQ9\\VB_VEH_Airplane_MQ9_DamageZones.ebx",
+     "rawSha256": "dac5d2a68d714e4ed80390b6364cf34eb99e17aad628d21779eaa3d29b9f5576",
+     "offset": 996,
+     "type": "u32",
+     "bytesHex": "8044910e",
+     "value": 244401280,
+     "expect": 244401280,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Airplane\\MQ9\\VB_VEH_Airplane_MQ9_DamageZones.ebx",
+     "rawSha256": "dac5d2a68d714e4ed80390b6364cf34eb99e17aad628d21779eaa3d29b9f5576",
+     "offset": 1204,
+     "type": "u32",
+     "bytesHex": "8044910e",
+     "value": 244401280,
+     "expect": 244401280,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Airplane\\MQ9\\VB_VEH_Airplane_MQ9_DamageZones.ebx",
+     "rawSha256": "dac5d2a68d714e4ed80390b6364cf34eb99e17aad628d21779eaa3d29b9f5576",
+     "offset": 1412,
+     "type": "u32",
+     "bytesHex": "8044910e",
+     "value": 244401280,
+     "expect": 244401280,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Airplane\\MQ9\\VB_VEH_Airplane_MQ9_DamageZones.ebx",
+     "rawSha256": "dac5d2a68d714e4ed80390b6364cf34eb99e17aad628d21779eaa3d29b9f5576",
+     "offset": 1620,
+     "type": "u32",
+     "bytesHex": "8044910e",
+     "value": 244401280,
+     "expect": 244401280,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Airplane\\MQ9\\VB_VEH_Airplane_MQ9_DamageZones.ebx",
+     "rawSha256": "dac5d2a68d714e4ed80390b6364cf34eb99e17aad628d21779eaa3d29b9f5576",
+     "offset": 1828,
+     "type": "u32",
+     "bytesHex": "8044910e",
+     "value": 244401280,
+     "expect": 244401280,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Airplane\\SU57\\VB_VEH_Airplane_SU57_DamageZones.ebx",
+     "rawSha256": "9deaa445aacdd746f8faedf8b1076869c0a105e1b8b2ed76bf2398683cf8ecd9",
+     "offset": 372,
+     "type": "u32",
+     "bytesHex": "81468107",
+     "value": 125912705,
+     "expect": 125912705,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Airplane\\SU57\\VB_VEH_Airplane_SU57_DamageZones.ebx",
+     "rawSha256": "9deaa445aacdd746f8faedf8b1076869c0a105e1b8b2ed76bf2398683cf8ecd9",
+     "offset": 580,
+     "type": "u32",
+     "bytesHex": "81468107",
+     "value": 125912705,
+     "expect": 125912705,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Airplane\\SU57\\VB_VEH_Airplane_SU57_DamageZones.ebx",
+     "rawSha256": "9deaa445aacdd746f8faedf8b1076869c0a105e1b8b2ed76bf2398683cf8ecd9",
+     "offset": 788,
+     "type": "u32",
+     "bytesHex": "81468107",
+     "value": 125912705,
+     "expect": 125912705,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Airplane\\SU57\\VB_VEH_Airplane_SU57_DamageZones.ebx",
+     "rawSha256": "9deaa445aacdd746f8faedf8b1076869c0a105e1b8b2ed76bf2398683cf8ecd9",
+     "offset": 996,
+     "type": "u32",
+     "bytesHex": "81468107",
+     "value": 125912705,
+     "expect": 125912705,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Airplane\\SU57\\VB_VEH_Airplane_SU57_DamageZones.ebx",
+     "rawSha256": "9deaa445aacdd746f8faedf8b1076869c0a105e1b8b2ed76bf2398683cf8ecd9",
+     "offset": 1204,
+     "type": "u32",
+     "bytesHex": "81468107",
+     "value": 125912705,
+     "expect": 125912705,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Boat\\CB90\\VB_VEH_Boat_CB90_DamageZones.ebx",
+     "rawSha256": "4ccc610183b064038983b697e2bdc2bffe08505134e129ca3f934cfa496e7e1c",
+     "offset": 372,
+     "type": "u32",
+     "bytesHex": "80399113",
+     "value": 328284544,
+     "expect": 328284544,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Boat\\CB90\\VB_VEH_Boat_CB90_DamageZones.ebx",
+     "rawSha256": "4ccc610183b064038983b697e2bdc2bffe08505134e129ca3f934cfa496e7e1c",
+     "offset": 580,
+     "type": "u32",
+     "bytesHex": "80399113",
+     "value": 328284544,
+     "expect": 328284544,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Boat\\VB_VEH_Boat_RHIB_DamageZones.ebx",
+     "rawSha256": "45343f0181ce9f4510ac6921d6d97135bb218e817b1c8ce7fad9ccb7db76416c",
+     "offset": 372,
+     "type": "u32",
+     "bytesHex": "813ca107",
+     "value": 128007297,
+     "expect": 128007297,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Boat\\VB_VEH_Boat_RHIB_DamageZones.ebx",
+     "rawSha256": "45343f0181ce9f4510ac6921d6d97135bb218e817b1c8ce7fad9ccb7db76416c",
+     "offset": 796,
+     "type": "u32",
+     "bytesHex": "813ca107",
+     "value": 128007297,
+     "expect": 128007297,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\Flyer60\\VB_VEH_Car_Flyer60_DamageZones.ebx",
+     "rawSha256": "e830d70b3f603e84f0afb55d7712f324078940381f3fecd69d29ad26984463ad",
+     "offset": 372,
+     "type": "u32",
+     "bytesHex": "8142a107",
+     "value": 128008833,
+     "expect": 128008833,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\Flyer60\\VB_VEH_Car_Flyer60_DamageZones.ebx",
+     "rawSha256": "e830d70b3f603e84f0afb55d7712f324078940381f3fecd69d29ad26984463ad",
+     "offset": 580,
+     "type": "u32",
+     "bytesHex": "8142a107",
+     "value": 128008833,
+     "expect": 128008833,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\Flyer60\\VB_VEH_Car_Flyer60_DamageZones.ebx",
+     "rawSha256": "e830d70b3f603e84f0afb55d7712f324078940381f3fecd69d29ad26984463ad",
+     "offset": 788,
+     "type": "u32",
+     "bytesHex": "8142a107",
+     "value": 128008833,
+     "expect": 128008833,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\Flyer60\\VB_VEH_Car_Flyer60_DamageZones.ebx",
+     "rawSha256": "e830d70b3f603e84f0afb55d7712f324078940381f3fecd69d29ad26984463ad",
+     "offset": 996,
+     "type": "u32",
+     "bytesHex": "8142a107",
+     "value": 128008833,
+     "expect": 128008833,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\Flyer60\\VB_VEH_Car_Flyer60_DamageZones.ebx",
+     "rawSha256": "e830d70b3f603e84f0afb55d7712f324078940381f3fecd69d29ad26984463ad",
+     "offset": 1204,
+     "type": "u32",
+     "bytesHex": "8142a107",
+     "value": 128008833,
+     "expect": 128008833,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\Flyer60\\VB_VEH_Car_Flyer60_DamageZones.ebx",
+     "rawSha256": "e830d70b3f603e84f0afb55d7712f324078940381f3fecd69d29ad26984463ad",
+     "offset": 1412,
+     "type": "u32",
+     "bytesHex": "8142a107",
+     "value": 128008833,
+     "expect": 128008833,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\Flyer60\\VB_VEH_Car_Flyer60_DamageZones.ebx",
+     "rawSha256": "e830d70b3f603e84f0afb55d7712f324078940381f3fecd69d29ad26984463ad",
+     "offset": 1620,
+     "type": "u32",
+     "bytesHex": "8142a107",
+     "value": 128008833,
+     "expect": 128008833,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\Flyer60\\VB_VEH_Car_Flyer60_DamageZones.ebx",
+     "rawSha256": "e830d70b3f603e84f0afb55d7712f324078940381f3fecd69d29ad26984463ad",
+     "offset": 1828,
+     "type": "u32",
+     "bytesHex": "8142a107",
+     "value": 128008833,
+     "expect": 128008833,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\Flyer60\\VB_VEH_Car_Flyer60_SP_DamageZones.ebx",
+     "rawSha256": "803601ad3c5549f984440455dcee30c1f842535475a1478569930ea1f4a3cb5c",
+     "offset": 372,
+     "type": "u32",
+     "bytesHex": "8143a107",
+     "value": 128009089,
+     "expect": 128009089,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\Flyer60\\VB_VEH_Car_Flyer60_SP_DamageZones.ebx",
+     "rawSha256": "803601ad3c5549f984440455dcee30c1f842535475a1478569930ea1f4a3cb5c",
+     "offset": 580,
+     "type": "u32",
+     "bytesHex": "8143a107",
+     "value": 128009089,
+     "expect": 128009089,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\Flyer60\\VB_VEH_Car_Flyer60_SP_DamageZones.ebx",
+     "rawSha256": "803601ad3c5549f984440455dcee30c1f842535475a1478569930ea1f4a3cb5c",
+     "offset": 788,
+     "type": "u32",
+     "bytesHex": "8143a107",
+     "value": 128009089,
+     "expect": 128009089,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\Flyer60\\VB_VEH_Car_Flyer60_SP_DamageZones.ebx",
+     "rawSha256": "803601ad3c5549f984440455dcee30c1f842535475a1478569930ea1f4a3cb5c",
+     "offset": 996,
+     "type": "u32",
+     "bytesHex": "8143a107",
+     "value": 128009089,
+     "expect": 128009089,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\JLTV\\VB_VEH_Car_JLTV_DamageZones.ebx",
+     "rawSha256": "76780b8cdda4769e2e4ec4964cfa01752d48bfba2cdca1ed4f049e88aa92fdc4",
+     "offset": 372,
+     "type": "u32",
+     "bytesHex": "813e7107",
+     "value": 124862081,
+     "expect": 124862081,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\JLTV\\VB_VEH_Car_JLTV_DamageZones.ebx",
+     "rawSha256": "76780b8cdda4769e2e4ec4964cfa01752d48bfba2cdca1ed4f049e88aa92fdc4",
+     "offset": 580,
+     "type": "u32",
+     "bytesHex": "813e7107",
+     "value": 124862081,
+     "expect": 124862081,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\JLTV\\VB_VEH_Car_JLTV_DamageZones.ebx",
+     "rawSha256": "76780b8cdda4769e2e4ec4964cfa01752d48bfba2cdca1ed4f049e88aa92fdc4",
+     "offset": 788,
+     "type": "u32",
+     "bytesHex": "813e7107",
+     "value": 124862081,
+     "expect": 124862081,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\JLTV\\VB_VEH_Car_JLTV_DamageZones.ebx",
+     "rawSha256": "76780b8cdda4769e2e4ec4964cfa01752d48bfba2cdca1ed4f049e88aa92fdc4",
+     "offset": 996,
+     "type": "u32",
+     "bytesHex": "813e7107",
+     "value": 124862081,
+     "expect": 124862081,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\JLTV\\VB_VEH_Car_JLTV_DamageZones.ebx",
+     "rawSha256": "76780b8cdda4769e2e4ec4964cfa01752d48bfba2cdca1ed4f049e88aa92fdc4",
+     "offset": 1204,
+     "type": "u32",
+     "bytesHex": "813e7107",
+     "value": 124862081,
+     "expect": 124862081,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\JLTV\\VB_VEH_Car_JLTV_DamageZones.ebx",
+     "rawSha256": "76780b8cdda4769e2e4ec4964cfa01752d48bfba2cdca1ed4f049e88aa92fdc4",
+     "offset": 1412,
+     "type": "u32",
+     "bytesHex": "813e7107",
+     "value": 124862081,
+     "expect": 124862081,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\JLTV\\VB_VEH_Car_JLTV_DamageZones.ebx",
+     "rawSha256": "76780b8cdda4769e2e4ec4964cfa01752d48bfba2cdca1ed4f049e88aa92fdc4",
+     "offset": 1620,
+     "type": "u32",
+     "bytesHex": "813e7107",
+     "value": 124862081,
+     "expect": 124862081,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\JLTV\\VB_VEH_Car_JLTV_DamageZones.ebx",
+     "rawSha256": "76780b8cdda4769e2e4ec4964cfa01752d48bfba2cdca1ed4f049e88aa92fdc4",
+     "offset": 1828,
+     "type": "u32",
+     "bytesHex": "813e7107",
+     "value": 124862081,
+     "expect": 124862081,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\JLTV\\VB_VEH_Car_JLTV_DamageZones.ebx",
+     "rawSha256": "76780b8cdda4769e2e4ec4964cfa01752d48bfba2cdca1ed4f049e88aa92fdc4",
+     "offset": 2036,
+     "type": "u32",
+     "bytesHex": "813e7107",
+     "value": 124862081,
+     "expect": 124862081,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\Marauder\\VB_VEH_Car_Marauder_DamageZones.ebx",
+     "rawSha256": "4bf73df0de805804dce70006d000a20da324162abad29743e55f1ac77d9d2b8b",
+     "offset": 372,
+     "type": "u32",
+     "bytesHex": "813e7107",
+     "value": 124862081,
+     "expect": 124862081,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\Marauder\\VB_VEH_Car_Marauder_DamageZones.ebx",
+     "rawSha256": "4bf73df0de805804dce70006d000a20da324162abad29743e55f1ac77d9d2b8b",
+     "offset": 580,
+     "type": "u32",
+     "bytesHex": "813e7107",
+     "value": 124862081,
+     "expect": 124862081,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\Marauder\\VB_VEH_Car_Marauder_DamageZones.ebx",
+     "rawSha256": "4bf73df0de805804dce70006d000a20da324162abad29743e55f1ac77d9d2b8b",
+     "offset": 788,
+     "type": "u32",
+     "bytesHex": "813e7107",
+     "value": 124862081,
+     "expect": 124862081,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\Marauder\\VB_VEH_Car_Marauder_DamageZones.ebx",
+     "rawSha256": "4bf73df0de805804dce70006d000a20da324162abad29743e55f1ac77d9d2b8b",
+     "offset": 996,
+     "type": "u32",
+     "bytesHex": "813e7107",
+     "value": 124862081,
+     "expect": 124862081,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\Marauder\\VB_VEH_Car_Marauder_DamageZones.ebx",
+     "rawSha256": "4bf73df0de805804dce70006d000a20da324162abad29743e55f1ac77d9d2b8b",
+     "offset": 1204,
+     "type": "u32",
+     "bytesHex": "813e7107",
+     "value": 124862081,
+     "expect": 124862081,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\Marauder\\VB_VEH_Car_Marauder_DamageZones.ebx",
+     "rawSha256": "4bf73df0de805804dce70006d000a20da324162abad29743e55f1ac77d9d2b8b",
+     "offset": 1412,
+     "type": "u32",
+     "bytesHex": "813e7107",
+     "value": 124862081,
+     "expect": 124862081,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\Marauder\\VB_VEH_Car_Marauder_DamageZones.ebx",
+     "rawSha256": "4bf73df0de805804dce70006d000a20da324162abad29743e55f1ac77d9d2b8b",
+     "offset": 1620,
+     "type": "u32",
+     "bytesHex": "813e7107",
+     "value": 124862081,
+     "expect": 124862081,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\Marauder\\VB_VEH_Car_Marauder_DamageZones.ebx",
+     "rawSha256": "4bf73df0de805804dce70006d000a20da324162abad29743e55f1ac77d9d2b8b",
+     "offset": 1828,
+     "type": "u32",
+     "bytesHex": "813e7107",
+     "value": 124862081,
+     "expect": 124862081,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\Marauder\\VB_VEH_Car_Marauder_DamageZones.ebx",
+     "rawSha256": "4bf73df0de805804dce70006d000a20da324162abad29743e55f1ac77d9d2b8b",
+     "offset": 2036,
+     "type": "u32",
+     "bytesHex": "813e7107",
+     "value": 124862081,
+     "expect": 124862081,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\PTV\\VB_VEH_Car_PTV_DamageZones.ebx",
+     "rawSha256": "b5c69453628503fdcaeacf2be3ea951d72359a4dc5f2fc1569a5304a0a219667",
+     "offset": 372,
+     "type": "u32",
+     "bytesHex": "8141b10b",
+     "value": 196166017,
+     "expect": 196166017,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\PTV\\VB_VEH_Car_PTV_DamageZones.ebx",
+     "rawSha256": "b5c69453628503fdcaeacf2be3ea951d72359a4dc5f2fc1569a5304a0a219667",
+     "offset": 580,
+     "type": "u32",
+     "bytesHex": "8141b10b",
+     "value": 196166017,
+     "expect": 196166017,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\PTV\\VB_VEH_Car_PTV_DamageZones.ebx",
+     "rawSha256": "b5c69453628503fdcaeacf2be3ea951d72359a4dc5f2fc1569a5304a0a219667",
+     "offset": 788,
+     "type": "u32",
+     "bytesHex": "8141b10b",
+     "value": 196166017,
+     "expect": 196166017,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\PTV\\VB_VEH_Car_PTV_DamageZones.ebx",
+     "rawSha256": "b5c69453628503fdcaeacf2be3ea951d72359a4dc5f2fc1569a5304a0a219667",
+     "offset": 996,
+     "type": "u32",
+     "bytesHex": "8141b10b",
+     "value": 196166017,
+     "expect": 196166017,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\PTV\\VB_VEH_Car_PTV_DamageZones.ebx",
+     "rawSha256": "b5c69453628503fdcaeacf2be3ea951d72359a4dc5f2fc1569a5304a0a219667",
+     "offset": 1204,
+     "type": "u32",
+     "bytesHex": "8141b10b",
+     "value": 196166017,
+     "expect": 196166017,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\PTV\\VB_VEH_Car_PTV_DamageZones.ebx",
+     "rawSha256": "b5c69453628503fdcaeacf2be3ea951d72359a4dc5f2fc1569a5304a0a219667",
+     "offset": 1412,
+     "type": "u32",
+     "bytesHex": "8141b10b",
+     "value": 196166017,
+     "expect": 196166017,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\PTV\\VB_VEH_Car_PTV_DamageZones.ebx",
+     "rawSha256": "b5c69453628503fdcaeacf2be3ea951d72359a4dc5f2fc1569a5304a0a219667",
+     "offset": 1620,
+     "type": "u32",
+     "bytesHex": "8141b10b",
+     "value": 196166017,
+     "expect": 196166017,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\PTV\\VB_VEH_Car_PTV_DamageZones.ebx",
+     "rawSha256": "b5c69453628503fdcaeacf2be3ea951d72359a4dc5f2fc1569a5304a0a219667",
+     "offset": 1828,
+     "type": "u32",
+     "bytesHex": "8141b10b",
+     "value": 196166017,
+     "expect": 196166017,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\QuadBike\\VB_VEH_Car_QuadBike_DamageZones.ebx",
+     "rawSha256": "763f552452071898e8fd1686d7fb4fb9b461a3267c69fab724120c223766bd4c",
+     "offset": 372,
+     "type": "u32",
+     "bytesHex": "8141b10b",
+     "value": 196166017,
+     "expect": 196166017,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\QuadBike\\VB_VEH_Car_QuadBike_DamageZones.ebx",
+     "rawSha256": "763f552452071898e8fd1686d7fb4fb9b461a3267c69fab724120c223766bd4c",
+     "offset": 580,
+     "type": "u32",
+     "bytesHex": "8141b10b",
+     "value": 196166017,
+     "expect": 196166017,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\QuadBike\\VB_VEH_Car_QuadBike_DamageZones.ebx",
+     "rawSha256": "763f552452071898e8fd1686d7fb4fb9b461a3267c69fab724120c223766bd4c",
+     "offset": 788,
+     "type": "u32",
+     "bytesHex": "8141b10b",
+     "value": 196166017,
+     "expect": 196166017,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\QuadBike\\VB_VEH_Car_QuadBike_DamageZones.ebx",
+     "rawSha256": "763f552452071898e8fd1686d7fb4fb9b461a3267c69fab724120c223766bd4c",
+     "offset": 996,
+     "type": "u32",
+     "bytesHex": "8141b10b",
+     "value": 196166017,
+     "expect": 196166017,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\QuadBike\\VB_VEH_Car_QuadBike_DamageZones.ebx",
+     "rawSha256": "763f552452071898e8fd1686d7fb4fb9b461a3267c69fab724120c223766bd4c",
+     "offset": 1204,
+     "type": "u32",
+     "bytesHex": "8141b10b",
+     "value": 196166017,
+     "expect": 196166017,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\QuadBike\\VB_VEH_Car_QuadBike_DamageZones.ebx",
+     "rawSha256": "763f552452071898e8fd1686d7fb4fb9b461a3267c69fab724120c223766bd4c",
+     "offset": 1412,
+     "type": "u32",
+     "bytesHex": "8141b10b",
+     "value": 196166017,
+     "expect": 196166017,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\TheBeast\\VB_VEH_Car_TheBeast_DamageZones.ebx",
+     "rawSha256": "5089c18f9ebe47acd41ff52a6f783dd27b978b87b3efcac8414bebc81b4216e7",
+     "offset": 372,
+     "type": "u32",
+     "bytesHex": "8143b107",
+     "value": 129057665,
+     "expect": 129057665,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\TheBeast\\VB_VEH_Car_TheBeast_DamageZones.ebx",
+     "rawSha256": "5089c18f9ebe47acd41ff52a6f783dd27b978b87b3efcac8414bebc81b4216e7",
+     "offset": 580,
+     "type": "u32",
+     "bytesHex": "8143b107",
+     "value": 129057665,
+     "expect": 129057665,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\TheBeast\\VB_VEH_Car_TheBeast_DamageZones.ebx",
+     "rawSha256": "5089c18f9ebe47acd41ff52a6f783dd27b978b87b3efcac8414bebc81b4216e7",
+     "offset": 788,
+     "type": "u32",
+     "bytesHex": "8143b107",
+     "value": 129057665,
+     "expect": 129057665,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\TheBeast\\VB_VEH_Car_TheBeast_DamageZones.ebx",
+     "rawSha256": "5089c18f9ebe47acd41ff52a6f783dd27b978b87b3efcac8414bebc81b4216e7",
+     "offset": 996,
+     "type": "u32",
+     "bytesHex": "8143b107",
+     "value": 129057665,
+     "expect": 129057665,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\Vector\\VB_VEH_Car_Vector_DamageZones.ebx",
+     "rawSha256": "f223279a535016b324c903146aa13390ec0f57bf3ba5efa2cad7574b02082954",
+     "offset": 372,
+     "type": "u32",
+     "bytesHex": "8142a107",
+     "value": 128008833,
+     "expect": 128008833,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\Vector\\VB_VEH_Car_Vector_DamageZones.ebx",
+     "rawSha256": "f223279a535016b324c903146aa13390ec0f57bf3ba5efa2cad7574b02082954",
+     "offset": 580,
+     "type": "u32",
+     "bytesHex": "8142a107",
+     "value": 128008833,
+     "expect": 128008833,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\Vector\\VB_VEH_Car_Vector_DamageZones.ebx",
+     "rawSha256": "f223279a535016b324c903146aa13390ec0f57bf3ba5efa2cad7574b02082954",
+     "offset": 788,
+     "type": "u32",
+     "bytesHex": "8142a107",
+     "value": 128008833,
+     "expect": 128008833,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\Vector\\VB_VEH_Car_Vector_DamageZones.ebx",
+     "rawSha256": "f223279a535016b324c903146aa13390ec0f57bf3ba5efa2cad7574b02082954",
+     "offset": 996,
+     "type": "u32",
+     "bytesHex": "8142a107",
+     "value": 128008833,
+     "expect": 128008833,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\Vector\\VB_VEH_Car_Vector_DamageZones.ebx",
+     "rawSha256": "f223279a535016b324c903146aa13390ec0f57bf3ba5efa2cad7574b02082954",
+     "offset": 1204,
+     "type": "u32",
+     "bytesHex": "8142a107",
+     "value": 128008833,
+     "expect": 128008833,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\Vector\\VB_VEH_Car_Vector_DamageZones.ebx",
+     "rawSha256": "f223279a535016b324c903146aa13390ec0f57bf3ba5efa2cad7574b02082954",
+     "offset": 1412,
+     "type": "u32",
+     "bytesHex": "8142a107",
+     "value": 128008833,
+     "expect": 128008833,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\Vector\\VB_VEH_Car_Vector_DamageZones.ebx",
+     "rawSha256": "f223279a535016b324c903146aa13390ec0f57bf3ba5efa2cad7574b02082954",
+     "offset": 1620,
+     "type": "u32",
+     "bytesHex": "8142a107",
+     "value": 128008833,
+     "expect": 128008833,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\Vector\\VB_VEH_Car_Vector_DamageZones.ebx",
+     "rawSha256": "f223279a535016b324c903146aa13390ec0f57bf3ba5efa2cad7574b02082954",
+     "offset": 1828,
+     "type": "u32",
+     "bytesHex": "8142a107",
+     "value": 128008833,
+     "expect": 128008833,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\Vector\\VB_VEH_Car_Vector_M05_CarChase_DamageZones.ebx",
+     "rawSha256": "fb7210e510b7060beb012f07a0fe30b9ff6ebb05abc80f2bd78eec786f8d9b5f",
+     "offset": 372,
+     "type": "u32",
+     "bytesHex": "8143a107",
+     "value": 128009089,
+     "expect": 128009089,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\Vector\\VB_VEH_Car_Vector_M05_CarChase_DamageZones.ebx",
+     "rawSha256": "fb7210e510b7060beb012f07a0fe30b9ff6ebb05abc80f2bd78eec786f8d9b5f",
+     "offset": 580,
+     "type": "u32",
+     "bytesHex": "8143a107",
+     "value": 128009089,
+     "expect": 128009089,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\Vector\\VB_VEH_Car_Vector_M05_CarChase_DamageZones.ebx",
+     "rawSha256": "fb7210e510b7060beb012f07a0fe30b9ff6ebb05abc80f2bd78eec786f8d9b5f",
+     "offset": 788,
+     "type": "u32",
+     "bytesHex": "8143a107",
+     "value": 128009089,
+     "expect": 128009089,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Car\\Vector\\VB_VEH_Car_Vector_M05_CarChase_DamageZones.ebx",
+     "rawSha256": "fb7210e510b7060beb012f07a0fe30b9ff6ebb05abc80f2bd78eec786f8d9b5f",
+     "offset": 996,
+     "type": "u32",
+     "bytesHex": "8143a107",
+     "value": 128009089,
+     "expect": 128009089,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\AH64E\\VB_VEH_Helicopter_AH64E_DamageZones.ebx",
+     "rawSha256": "efd0db41e5a7fccd3d1b1178c209618bc59769793fb8ee143d77c3a3a95a0624",
+     "offset": 372,
+     "type": "u32",
+     "bytesHex": "81459107",
+     "value": 126961025,
+     "expect": 126961025,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\AH64E\\VB_VEH_Helicopter_AH64E_DamageZones.ebx",
+     "rawSha256": "efd0db41e5a7fccd3d1b1178c209618bc59769793fb8ee143d77c3a3a95a0624",
+     "offset": 580,
+     "type": "u32",
+     "bytesHex": "81459107",
+     "value": 126961025,
+     "expect": 126961025,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\AH64E\\VB_VEH_Helicopter_AH64E_DamageZones.ebx",
+     "rawSha256": "efd0db41e5a7fccd3d1b1178c209618bc59769793fb8ee143d77c3a3a95a0624",
+     "offset": 788,
+     "type": "u32",
+     "bytesHex": "81459107",
+     "value": 126961025,
+     "expect": 126961025,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\AH64E\\VB_VEH_Helicopter_AH64E_DamageZones.ebx",
+     "rawSha256": "efd0db41e5a7fccd3d1b1178c209618bc59769793fb8ee143d77c3a3a95a0624",
+     "offset": 996,
+     "type": "u32",
+     "bytesHex": "81459107",
+     "value": 126961025,
+     "expect": 126961025,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\AH64E\\VB_VEH_Helicopter_AH64E_DamageZones.ebx",
+     "rawSha256": "efd0db41e5a7fccd3d1b1178c209618bc59769793fb8ee143d77c3a3a95a0624",
+     "offset": 1204,
+     "type": "u32",
+     "bytesHex": "81459107",
+     "value": 126961025,
+     "expect": 126961025,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\AH64E\\VB_VEH_Helicopter_AH64E_DamageZones.ebx",
+     "rawSha256": "efd0db41e5a7fccd3d1b1178c209618bc59769793fb8ee143d77c3a3a95a0624",
+     "offset": 1412,
+     "type": "u32",
+     "bytesHex": "80000000",
+     "value": 128,
+     "expect": 128,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\AH64E\\VB_VEH_Helicopter_AH64E_DamageZones.ebx",
+     "rawSha256": "efd0db41e5a7fccd3d1b1178c209618bc59769793fb8ee143d77c3a3a95a0624",
+     "offset": 1620,
+     "type": "u32",
+     "bytesHex": "81459107",
+     "value": 126961025,
+     "expect": 126961025,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\AH64E\\VB_VEH_Helicopter_AH64E_DamageZones.ebx",
+     "rawSha256": "efd0db41e5a7fccd3d1b1178c209618bc59769793fb8ee143d77c3a3a95a0624",
+     "offset": 1828,
+     "type": "u32",
+     "bytesHex": "81459107",
+     "value": 126961025,
+     "expect": 126961025,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\AH6M\\VB_VEH_Helicopter_AH6M_DamageZones.ebx",
+     "rawSha256": "d4c5ef1fddaaf77cb4a0026d7441ad8f1ddbc6ff3b6712f12d281883a9cc74a4",
+     "offset": 372,
+     "type": "u32",
+     "bytesHex": "81449107",
+     "value": 126960769,
+     "expect": 126960769,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\AH6M\\VB_VEH_Helicopter_AH6M_DamageZones.ebx",
+     "rawSha256": "d4c5ef1fddaaf77cb4a0026d7441ad8f1ddbc6ff3b6712f12d281883a9cc74a4",
+     "offset": 580,
+     "type": "u32",
+     "bytesHex": "81449107",
+     "value": 126960769,
+     "expect": 126960769,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\AH6M\\VB_VEH_Helicopter_AH6M_DamageZones.ebx",
+     "rawSha256": "d4c5ef1fddaaf77cb4a0026d7441ad8f1ddbc6ff3b6712f12d281883a9cc74a4",
+     "offset": 788,
+     "type": "u32",
+     "bytesHex": "81449107",
+     "value": 126960769,
+     "expect": 126960769,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\AH6M\\VB_VEH_Helicopter_AH6M_DamageZones.ebx",
+     "rawSha256": "d4c5ef1fddaaf77cb4a0026d7441ad8f1ddbc6ff3b6712f12d281883a9cc74a4",
+     "offset": 996,
+     "type": "u32",
+     "bytesHex": "81449107",
+     "value": 126960769,
+     "expect": 126960769,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\AH6M\\VB_VEH_Helicopter_AH6M_DamageZones.ebx",
+     "rawSha256": "d4c5ef1fddaaf77cb4a0026d7441ad8f1ddbc6ff3b6712f12d281883a9cc74a4",
+     "offset": 1204,
+     "type": "u32",
+     "bytesHex": "81449107",
+     "value": 126960769,
+     "expect": 126960769,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\AH6M\\VB_VEH_Helicopter_AH6M_DamageZones.ebx",
+     "rawSha256": "d4c5ef1fddaaf77cb4a0026d7441ad8f1ddbc6ff3b6712f12d281883a9cc74a4",
+     "offset": 1412,
+     "type": "u32",
+     "bytesHex": "81449107",
+     "value": 126960769,
+     "expect": 126960769,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\AH6M\\VB_VEH_Helicopter_AH6M_M05_SP_Cine_DamageZones.ebx",
+     "rawSha256": "bec53c498a78ba0ee5e34a4cf3f22e5d8175196932c7673a3cfb4c3e6575e99a",
+     "offset": 372,
+     "type": "u32",
+     "bytesHex": "81459107",
+     "value": 126961025,
+     "expect": 126961025,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\AH6M\\VB_VEH_Helicopter_AH6M_M05_SP_Cine_DamageZones.ebx",
+     "rawSha256": "bec53c498a78ba0ee5e34a4cf3f22e5d8175196932c7673a3cfb4c3e6575e99a",
+     "offset": 580,
+     "type": "u32",
+     "bytesHex": "81459107",
+     "value": 126961025,
+     "expect": 126961025,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\AH6M\\VB_VEH_Helicopter_AH6M_M05_SP_Cine_DamageZones.ebx",
+     "rawSha256": "bec53c498a78ba0ee5e34a4cf3f22e5d8175196932c7673a3cfb4c3e6575e99a",
+     "offset": 788,
+     "type": "u32",
+     "bytesHex": "81459107",
+     "value": 126961025,
+     "expect": 126961025,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\AH6M\\VB_VEH_Helicopter_AH6M_M05_SP_Cine_DamageZones.ebx",
+     "rawSha256": "bec53c498a78ba0ee5e34a4cf3f22e5d8175196932c7673a3cfb4c3e6575e99a",
+     "offset": 996,
+     "type": "u32",
+     "bytesHex": "81459107",
+     "value": 126961025,
+     "expect": 126961025,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\AH6M\\VB_VEH_Helicopter_AH6M_M05_SP_Cine_DamageZones.ebx",
+     "rawSha256": "bec53c498a78ba0ee5e34a4cf3f22e5d8175196932c7673a3cfb4c3e6575e99a",
+     "offset": 1204,
+     "type": "u32",
+     "bytesHex": "81459107",
+     "value": 126961025,
+     "expect": 126961025,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\AH6M\\VB_VEH_Helicopter_AH6M_M05_SP_Cine_DamageZones.ebx",
+     "rawSha256": "bec53c498a78ba0ee5e34a4cf3f22e5d8175196932c7673a3cfb4c3e6575e99a",
+     "offset": 1412,
+     "type": "u32",
+     "bytesHex": "81459107",
+     "value": 126961025,
+     "expect": 126961025,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\Eurocopter\\VB_VEH_Helicopter_Eurocopter_DamageZones.ebx",
+     "rawSha256": "571ebc376895c1c59c2faf2c8eb707c06544e3c4109406d21fdbb67fe16aeaec",
+     "offset": 372,
+     "type": "u32",
+     "bytesHex": "81459107",
+     "value": 126961025,
+     "expect": 126961025,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\Eurocopter\\VB_VEH_Helicopter_Eurocopter_DamageZones.ebx",
+     "rawSha256": "571ebc376895c1c59c2faf2c8eb707c06544e3c4109406d21fdbb67fe16aeaec",
+     "offset": 580,
+     "type": "u32",
+     "bytesHex": "80000000",
+     "value": 128,
+     "expect": 128,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\Eurocopter\\VB_VEH_Helicopter_Eurocopter_DamageZones.ebx",
+     "rawSha256": "571ebc376895c1c59c2faf2c8eb707c06544e3c4109406d21fdbb67fe16aeaec",
+     "offset": 788,
+     "type": "u32",
+     "bytesHex": "81459107",
+     "value": 126961025,
+     "expect": 126961025,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\Eurocopter\\VB_VEH_Helicopter_Eurocopter_DamageZones.ebx",
+     "rawSha256": "571ebc376895c1c59c2faf2c8eb707c06544e3c4109406d21fdbb67fe16aeaec",
+     "offset": 996,
+     "type": "u32",
+     "bytesHex": "81459107",
+     "value": 126961025,
+     "expect": 126961025,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\Eurocopter\\VB_VEH_Helicopter_Eurocopter_DamageZones.ebx",
+     "rawSha256": "571ebc376895c1c59c2faf2c8eb707c06544e3c4109406d21fdbb67fe16aeaec",
+     "offset": 1204,
+     "type": "u32",
+     "bytesHex": "81459107",
+     "value": 126961025,
+     "expect": 126961025,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\Eurocopter\\VB_VEH_Helicopter_Eurocopter_DamageZones.ebx",
+     "rawSha256": "571ebc376895c1c59c2faf2c8eb707c06544e3c4109406d21fdbb67fe16aeaec",
+     "offset": 1412,
+     "type": "u32",
+     "bytesHex": "81459107",
+     "value": 126961025,
+     "expect": 126961025,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\Eurocopter\\VB_VEH_Helicopter_Eurocopter_DamageZones.ebx",
+     "rawSha256": "571ebc376895c1c59c2faf2c8eb707c06544e3c4109406d21fdbb67fe16aeaec",
+     "offset": 1620,
+     "type": "u32",
+     "bytesHex": "81459107",
+     "value": 126961025,
+     "expect": 126961025,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\Eurocopter\\VB_VEH_Helicopter_Eurocopter_DamageZones.ebx",
+     "rawSha256": "571ebc376895c1c59c2faf2c8eb707c06544e3c4109406d21fdbb67fe16aeaec",
+     "offset": 1828,
+     "type": "u32",
+     "bytesHex": "81459107",
+     "value": 126961025,
+     "expect": 126961025,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\Eurocopter\\VB_VEH_Helicopter_Eurocopter_SP_DamageZones.ebx",
+     "rawSha256": "cfb47807a30df12a633dbb1c3d84ad3817eb1100776cca791470a266fef75499",
+     "offset": 372,
+     "type": "u32",
+     "bytesHex": "81469107",
+     "value": 126961281,
+     "expect": 126961281,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\Eurocopter\\VB_VEH_Helicopter_Eurocopter_SP_DamageZones.ebx",
+     "rawSha256": "cfb47807a30df12a633dbb1c3d84ad3817eb1100776cca791470a266fef75499",
+     "offset": 580,
+     "type": "u32",
+     "bytesHex": "81469107",
+     "value": 126961281,
+     "expect": 126961281,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\Eurocopter\\VB_VEH_Helicopter_Eurocopter_SP_DamageZones.ebx",
+     "rawSha256": "cfb47807a30df12a633dbb1c3d84ad3817eb1100776cca791470a266fef75499",
+     "offset": 788,
+     "type": "u32",
+     "bytesHex": "81469107",
+     "value": 126961281,
+     "expect": 126961281,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\Eurocopter\\VB_VEH_Helicopter_Eurocopter_SP_DamageZones.ebx",
+     "rawSha256": "cfb47807a30df12a633dbb1c3d84ad3817eb1100776cca791470a266fef75499",
+     "offset": 996,
+     "type": "u32",
+     "bytesHex": "81469107",
+     "value": 126961281,
+     "expect": 126961281,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\Eurocopter\\VB_VEH_Helicopter_Eurocopter_SP_DamageZones.ebx",
+     "rawSha256": "cfb47807a30df12a633dbb1c3d84ad3817eb1100776cca791470a266fef75499",
+     "offset": 1204,
+     "type": "u32",
+     "bytesHex": "81469107",
+     "value": 126961281,
+     "expect": 126961281,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\Eurocopter\\VB_VEH_Helicopter_Eurocopter_SP_DamageZones.ebx",
+     "rawSha256": "cfb47807a30df12a633dbb1c3d84ad3817eb1100776cca791470a266fef75499",
+     "offset": 1412,
+     "type": "u32",
+     "bytesHex": "81469107",
+     "value": 126961281,
+     "expect": 126961281,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\Eurocopter\\VB_VEH_Helicopter_Eurocopter_SP_DamageZones.ebx",
+     "rawSha256": "cfb47807a30df12a633dbb1c3d84ad3817eb1100776cca791470a266fef75499",
+     "offset": 1620,
+     "type": "u32",
+     "bytesHex": "80000000",
+     "value": 128,
+     "expect": 128,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\Eurocopter\\VB_VEH_Helicopter_Eurocopter_SP_DamageZones.ebx",
+     "rawSha256": "cfb47807a30df12a633dbb1c3d84ad3817eb1100776cca791470a266fef75499",
+     "offset": 1828,
+     "type": "u32",
+     "bytesHex": "81469107",
+     "value": 126961281,
+     "expect": 126961281,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\MH47\\VB_VEH_Helicopter_MH47_SP_DamageZones.ebx",
+     "rawSha256": "a50138e154f96c0a5060930d26422ff9ec3c3f6ee14f8f905ff3be983663e124",
+     "offset": 372,
+     "type": "u32",
+     "bytesHex": "81449107",
+     "value": 126960769,
+     "expect": 126960769,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\MH47\\VB_VEH_Helicopter_MH47_SP_DamageZones.ebx",
+     "rawSha256": "a50138e154f96c0a5060930d26422ff9ec3c3f6ee14f8f905ff3be983663e124",
+     "offset": 580,
+     "type": "u32",
+     "bytesHex": "81449107",
+     "value": 126960769,
+     "expect": 126960769,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\MH47\\VB_VEH_Helicopter_MH47_SP_DamageZones.ebx",
+     "rawSha256": "a50138e154f96c0a5060930d26422ff9ec3c3f6ee14f8f905ff3be983663e124",
+     "offset": 788,
+     "type": "u32",
+     "bytesHex": "81449107",
+     "value": 126960769,
+     "expect": 126960769,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\MH47\\VB_VEH_Helicopter_MH47_SP_DamageZones.ebx",
+     "rawSha256": "a50138e154f96c0a5060930d26422ff9ec3c3f6ee14f8f905ff3be983663e124",
+     "offset": 996,
+     "type": "u32",
+     "bytesHex": "81449107",
+     "value": 126960769,
+     "expect": 126960769,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\MH47\\VB_VEH_Helicopter_MH47_SP_DamageZones.ebx",
+     "rawSha256": "a50138e154f96c0a5060930d26422ff9ec3c3f6ee14f8f905ff3be983663e124",
+     "offset": 1204,
+     "type": "u32",
+     "bytesHex": "81449107",
+     "value": 126960769,
+     "expect": 126960769,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\MH47\\VB_VEH_Helicopter_MH47_SP_DamageZones.ebx",
+     "rawSha256": "a50138e154f96c0a5060930d26422ff9ec3c3f6ee14f8f905ff3be983663e124",
+     "offset": 1412,
+     "type": "u32",
+     "bytesHex": "81449107",
+     "value": 126960769,
+     "expect": 126960769,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\MH47\\VB_VEH_Helicopter_MH47_SP_DamageZones.ebx",
+     "rawSha256": "a50138e154f96c0a5060930d26422ff9ec3c3f6ee14f8f905ff3be983663e124",
+     "offset": 1620,
+     "type": "u32",
+     "bytesHex": "80000000",
+     "value": 128,
+     "expect": 128,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\UH60\\VB_VEH_Helicopter_UH60_DamageZones.ebx",
+     "rawSha256": "b40cb8112621b4749b7e0ef920d0fea1ba8fd43a06745896a67b7b5b11ecdc3b",
+     "offset": 372,
+     "type": "u32",
+     "bytesHex": "81439107",
+     "value": 126960513,
+     "expect": 126960513,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\UH60\\VB_VEH_Helicopter_UH60_DamageZones.ebx",
+     "rawSha256": "b40cb8112621b4749b7e0ef920d0fea1ba8fd43a06745896a67b7b5b11ecdc3b",
+     "offset": 580,
+     "type": "u32",
+     "bytesHex": "81439107",
+     "value": 126960513,
+     "expect": 126960513,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\UH60\\VB_VEH_Helicopter_UH60_DamageZones.ebx",
+     "rawSha256": "b40cb8112621b4749b7e0ef920d0fea1ba8fd43a06745896a67b7b5b11ecdc3b",
+     "offset": 788,
+     "type": "u32",
+     "bytesHex": "81439107",
+     "value": 126960513,
+     "expect": 126960513,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\UH60\\VB_VEH_Helicopter_UH60_DamageZones.ebx",
+     "rawSha256": "b40cb8112621b4749b7e0ef920d0fea1ba8fd43a06745896a67b7b5b11ecdc3b",
+     "offset": 996,
+     "type": "u32",
+     "bytesHex": "81439107",
+     "value": 126960513,
+     "expect": 126960513,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\UH60\\VB_VEH_Helicopter_UH60_DamageZones.ebx",
+     "rawSha256": "b40cb8112621b4749b7e0ef920d0fea1ba8fd43a06745896a67b7b5b11ecdc3b",
+     "offset": 1204,
+     "type": "u32",
+     "bytesHex": "80000000",
+     "value": 128,
+     "expect": 128,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\UH60\\VB_VEH_Helicopter_UH60_DamageZones.ebx",
+     "rawSha256": "b40cb8112621b4749b7e0ef920d0fea1ba8fd43a06745896a67b7b5b11ecdc3b",
+     "offset": 1412,
+     "type": "u32",
+     "bytesHex": "81439107",
+     "value": 126960513,
+     "expect": 126960513,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\UH60\\VB_VEH_Helicopter_UH60_DamageZones.ebx",
+     "rawSha256": "b40cb8112621b4749b7e0ef920d0fea1ba8fd43a06745896a67b7b5b11ecdc3b",
+     "offset": 1620,
+     "type": "u32",
+     "bytesHex": "81439107",
+     "value": 126960513,
+     "expect": 126960513,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\UH60\\VB_VEH_Helicopter_UH60_DamageZones.ebx",
+     "rawSha256": "b40cb8112621b4749b7e0ef920d0fea1ba8fd43a06745896a67b7b5b11ecdc3b",
+     "offset": 1828,
+     "type": "u32",
+     "bytesHex": "81439107",
+     "value": 126960513,
+     "expect": 126960513,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Motorcycle\\DirtBike01\\VB_VEH_Motorcycle_DirtBike01_DamageZones.ebx",
+     "rawSha256": "0ee9148cb80867abdd0931469bfae8dd99696d4e34f60c2c7974ff3a006afb82",
+     "offset": 372,
+     "type": "u32",
+     "bytesHex": "8141b10b",
+     "value": 196166017,
+     "expect": 196166017,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Motorcycle\\DirtBike02\\VB_VEH_Motorcycle_DirtBike02_DamageZones.ebx",
+     "rawSha256": "82acd584b0ee65e500c81f414a9ce4a66ec4947a0b098705700fb2b90bdf8b06",
+     "offset": 372,
+     "type": "u32",
+     "bytesHex": "8141b10b",
+     "value": 196166017,
+     "expect": 196166017,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Stationary\\CWS\\VB_VEH_Stationary_Turret_CROWS_DamageZones.ebx",
+     "rawSha256": "29e71adc230f8fdc167a36a15e0576769609621b3fd18110840cbd4ffd66d0b0",
+     "offset": 372,
+     "type": "u32",
+     "bytesHex": "81027007",
+     "value": 124781185,
+     "expect": 124781185,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Stationary\\CWS\\VB_VEH_Stationary_Turret_CROWS_DamageZones.ebx",
+     "rawSha256": "29e71adc230f8fdc167a36a15e0576769609621b3fd18110840cbd4ffd66d0b0",
+     "offset": 580,
+     "type": "u32",
+     "bytesHex": "81027007",
+     "value": 124781185,
+     "expect": 124781185,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Stationary\\CWS\\VB_VEH_Stationary_Turret_CROWS_DamageZones.ebx",
+     "rawSha256": "29e71adc230f8fdc167a36a15e0576769609621b3fd18110840cbd4ffd66d0b0",
+     "offset": 788,
+     "type": "u32",
+     "bytesHex": "81027007",
+     "value": 124781185,
+     "expect": 124781185,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Stationary\\CWS\\VB_VEH_Stationary_Turret_CROWS_DamageZones.ebx",
+     "rawSha256": "29e71adc230f8fdc167a36a15e0576769609621b3fd18110840cbd4ffd66d0b0",
+     "offset": 996,
+     "type": "u32",
+     "bytesHex": "81027007",
+     "value": 124781185,
+     "expect": 124781185,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Stationary\\GDF009\\VB_VEH_Stationary_GDF009_DamageZones.ebx",
+     "rawSha256": "4530153f0a775aa8b92cb182a65d2512fc94217082fcc9c153a915a7278315b5",
+     "offset": 372,
+     "type": "u32",
+     "bytesHex": "803b4107",
+     "value": 121715584,
+     "expect": 121715584,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Stationary\\GDF009\\VB_VEH_Stationary_GDF009_DamageZones.ebx",
+     "rawSha256": "4530153f0a775aa8b92cb182a65d2512fc94217082fcc9c153a915a7278315b5",
+     "offset": 580,
+     "type": "u32",
+     "bytesHex": "803b4107",
+     "value": 121715584,
+     "expect": 121715584,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Stationary\\GDF009\\VB_VEH_Stationary_GDF009_DamageZones.ebx",
+     "rawSha256": "4530153f0a775aa8b92cb182a65d2512fc94217082fcc9c153a915a7278315b5",
+     "offset": 788,
+     "type": "u32",
+     "bytesHex": "803b4107",
+     "value": 121715584,
+     "expect": 121715584,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Stationary\\M2MG\\VB_VEH_Stationary_M2MG_DamageZones.ebx",
+     "rawSha256": "6e0408c895c04ec3bf0ecb57fa6950d7bddfd1ac86006462fa7edbbd3b9e62b3",
+     "offset": 500,
+     "type": "u32",
+     "bytesHex": "80000000",
+     "value": 128,
+     "expect": 128,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Stationary\\Phalanx\\VB_VEH_Stationary_Phalanx_DamageZones.ebx",
+     "rawSha256": "d0237d809f023ab3a253bbdf4fa634c694ceeb402392fd4c0eb54baef1f50cd3",
+     "offset": 372,
+     "type": "u32",
+     "bytesHex": "813fb107",
+     "value": 129056641,
+     "expect": 129056641,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Stationary\\Phalanx\\VB_VEH_Stationary_Phalanx_SP_DamageZones.ebx",
+     "rawSha256": "ce779646f7a1b5accd5bfe9d5c19f29152245554740e51229d98f3a3a3b9c398",
+     "offset": 372,
+     "type": "u32",
+     "bytesHex": "80000000",
+     "value": 128,
+     "expect": 128,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Stationary\\Phalanx\\VB_VEH_Stationary_Phalanx_SP_DamageZones.ebx",
+     "rawSha256": "ce779646f7a1b5accd5bfe9d5c19f29152245554740e51229d98f3a3a3b9c398",
+     "offset": 580,
+     "type": "u32",
+     "bytesHex": "8140b107",
+     "value": 129056897,
+     "expect": 129056897,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\Tank\\AAV7A1\\VB_VEH_Tank_AAV7A1_DamageZones.ebx",
+     "rawSha256": "4fa08da2cef3789d22dd7e6da1ee505f33736ee6aca570293d904307599e8976",
+     "offset": 372,
+     "type": "u32",
+     "bytesHex": "80000000",
+     "value": 128,
+     "expect": 128,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\Tank\\AAV7A1\\VB_VEH_Tank_AAV7A1_DamageZones.ebx",
+     "rawSha256": "4fa08da2cef3789d22dd7e6da1ee505f33736ee6aca570293d904307599e8976",
+     "offset": 580,
+     "type": "u32",
+     "bytesHex": "813e7107",
+     "value": 124862081,
+     "expect": 124862081,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\Tank\\AAV7A1\\VB_VEH_Tank_AAV7A1_DamageZones.ebx",
+     "rawSha256": "4fa08da2cef3789d22dd7e6da1ee505f33736ee6aca570293d904307599e8976",
+     "offset": 788,
+     "type": "u32",
+     "bytesHex": "813e7107",
+     "value": 124862081,
+     "expect": 124862081,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\Tank\\AAV7A1\\VB_VEH_Tank_AAV7A1_DamageZones.ebx",
+     "rawSha256": "4fa08da2cef3789d22dd7e6da1ee505f33736ee6aca570293d904307599e8976",
+     "offset": 1060,
+     "type": "u32",
+     "bytesHex": "80000000",
+     "value": 128,
+     "expect": 128,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\Tank\\AAV7A1\\VB_VEH_Tank_AAV7A1_DamageZones.ebx",
+     "rawSha256": "4fa08da2cef3789d22dd7e6da1ee505f33736ee6aca570293d904307599e8976",
+     "offset": 1268,
+     "type": "u32",
+     "bytesHex": "813e7107",
+     "value": 124862081,
+     "expect": 124862081,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\Tank\\AAV7A1\\VB_VEH_Tank_AAV7A1_DamageZones.ebx",
+     "rawSha256": "4fa08da2cef3789d22dd7e6da1ee505f33736ee6aca570293d904307599e8976",
+     "offset": 1476,
+     "type": "u32",
+     "bytesHex": "813e7107",
+     "value": 124862081,
+     "expect": 124862081,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\Tank\\AAV7A1\\VB_VEH_Tank_AAV7A1_DamageZones.ebx",
+     "rawSha256": "4fa08da2cef3789d22dd7e6da1ee505f33736ee6aca570293d904307599e8976",
+     "offset": 1684,
+     "type": "u32",
+     "bytesHex": "813e7107",
+     "value": 124862081,
+     "expect": 124862081,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\Tank\\AAV7A1\\VB_VEH_Tank_AAV7A1_DamageZones.ebx",
+     "rawSha256": "4fa08da2cef3789d22dd7e6da1ee505f33736ee6aca570293d904307599e8976",
+     "offset": 1892,
+     "type": "u32",
+     "bytesHex": "813e7107",
+     "value": 124862081,
+     "expect": 124862081,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Tank\\Abrams\\VB_VEH_Tank_Abrams_DamageZones.ebx",
+     "rawSha256": "d6dc6d1e4b8d236c61c80fb4372360e6bb4854877e179ba26572741f15d20d1d",
+     "offset": 436,
+     "type": "u32",
+     "bytesHex": "813d7107",
+     "value": 124861825,
+     "expect": 124861825,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Tank\\Abrams\\VB_VEH_Tank_Abrams_DamageZones.ebx",
+     "rawSha256": "d6dc6d1e4b8d236c61c80fb4372360e6bb4854877e179ba26572741f15d20d1d",
+     "offset": 644,
+     "type": "u32",
+     "bytesHex": "813d7107",
+     "value": 124861825,
+     "expect": 124861825,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Tank\\Abrams\\VB_VEH_Tank_Abrams_DamageZones.ebx",
+     "rawSha256": "d6dc6d1e4b8d236c61c80fb4372360e6bb4854877e179ba26572741f15d20d1d",
+     "offset": 1084,
+     "type": "u32",
+     "bytesHex": "813d7107",
+     "value": 124861825,
+     "expect": 124861825,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Tank\\Abrams\\VB_VEH_Tank_Abrams_DamageZones.ebx",
+     "rawSha256": "d6dc6d1e4b8d236c61c80fb4372360e6bb4854877e179ba26572741f15d20d1d",
+     "offset": 1292,
+     "type": "u32",
+     "bytesHex": "80000000",
+     "value": 128,
+     "expect": 128,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Tank\\Abrams\\VB_VEH_Tank_Abrams_DamageZones.ebx",
+     "rawSha256": "d6dc6d1e4b8d236c61c80fb4372360e6bb4854877e179ba26572741f15d20d1d",
+     "offset": 1500,
+     "type": "u32",
+     "bytesHex": "80000000",
+     "value": 128,
+     "expect": 128,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Tank\\Abrams\\VB_VEH_Tank_Abrams_DamageZones.ebx",
+     "rawSha256": "d6dc6d1e4b8d236c61c80fb4372360e6bb4854877e179ba26572741f15d20d1d",
+     "offset": 1708,
+     "type": "u32",
+     "bytesHex": "813d7107",
+     "value": 124861825,
+     "expect": 124861825,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Tank\\Abrams\\VB_VEH_Tank_Abrams_DamageZones.ebx",
+     "rawSha256": "d6dc6d1e4b8d236c61c80fb4372360e6bb4854877e179ba26572741f15d20d1d",
+     "offset": 1916,
+     "type": "u32",
+     "bytesHex": "813d7107",
+     "value": 124861825,
+     "expect": 124861825,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Tank\\Abrams\\VB_VEH_Tank_Abrams_DamageZones.ebx",
+     "rawSha256": "d6dc6d1e4b8d236c61c80fb4372360e6bb4854877e179ba26572741f15d20d1d",
+     "offset": 2124,
+     "type": "u32",
+     "bytesHex": "813d7107",
+     "value": 124861825,
+     "expect": 124861825,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Tank\\Bradley\\VB_VEH_Tank_Bradley_DamageZones.ebx",
+     "rawSha256": "41996d0cecb213825a8b917957173fc131ce50a32c5d3dc817e80acc8f164dc2",
+     "offset": 372,
+     "type": "u32",
+     "bytesHex": "813e7107",
+     "value": 124862081,
+     "expect": 124862081,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Tank\\Bradley\\VB_VEH_Tank_Bradley_DamageZones.ebx",
+     "rawSha256": "41996d0cecb213825a8b917957173fc131ce50a32c5d3dc817e80acc8f164dc2",
+     "offset": 580,
+     "type": "u32",
+     "bytesHex": "813e7107",
+     "value": 124862081,
+     "expect": 124862081,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Tank\\Bradley\\VB_VEH_Tank_Bradley_DamageZones.ebx",
+     "rawSha256": "41996d0cecb213825a8b917957173fc131ce50a32c5d3dc817e80acc8f164dc2",
+     "offset": 788,
+     "type": "u32",
+     "bytesHex": "813e7107",
+     "value": 124862081,
+     "expect": 124862081,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Tank\\Bradley\\VB_VEH_Tank_Bradley_DamageZones.ebx",
+     "rawSha256": "41996d0cecb213825a8b917957173fc131ce50a32c5d3dc817e80acc8f164dc2",
+     "offset": 1228,
+     "type": "u32",
+     "bytesHex": "813e7107",
+     "value": 124862081,
+     "expect": 124862081,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Tank\\Bradley\\VB_VEH_Tank_Bradley_DamageZones.ebx",
+     "rawSha256": "41996d0cecb213825a8b917957173fc131ce50a32c5d3dc817e80acc8f164dc2",
+     "offset": 1436,
+     "type": "u32",
+     "bytesHex": "80000000",
+     "value": 128,
+     "expect": 128,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Tank\\Bradley\\VB_VEH_Tank_Bradley_DamageZones.ebx",
+     "rawSha256": "41996d0cecb213825a8b917957173fc131ce50a32c5d3dc817e80acc8f164dc2",
+     "offset": 1644,
+     "type": "u32",
+     "bytesHex": "80000000",
+     "value": 128,
+     "expect": 128,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Tank\\Bradley\\VB_VEH_Tank_Bradley_DamageZones.ebx",
+     "rawSha256": "41996d0cecb213825a8b917957173fc131ce50a32c5d3dc817e80acc8f164dc2",
+     "offset": 1852,
+     "type": "u32",
+     "bytesHex": "813e7107",
+     "value": 124862081,
+     "expect": 124862081,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Tank\\Bradley\\VB_VEH_Tank_Bradley_DamageZones.ebx",
+     "rawSha256": "41996d0cecb213825a8b917957173fc131ce50a32c5d3dc817e80acc8f164dc2",
+     "offset": 2124,
+     "type": "u32",
+     "bytesHex": "813e7107",
+     "value": 124862081,
+     "expect": 124862081,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Tank\\CV90\\VB_VEH_Tank_CV90_DamageZones.ebx",
+     "rawSha256": "d8f79a706040ff3537f4d6c76bbde7f8670a3ae882bb0ffea4ed57b4c7eefa12",
+     "offset": 372,
+     "type": "u32",
+     "bytesHex": "813e7107",
+     "value": 124862081,
+     "expect": 124862081,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Tank\\CV90\\VB_VEH_Tank_CV90_DamageZones.ebx",
+     "rawSha256": "d8f79a706040ff3537f4d6c76bbde7f8670a3ae882bb0ffea4ed57b4c7eefa12",
+     "offset": 580,
+     "type": "u32",
+     "bytesHex": "80000000",
+     "value": 128,
+     "expect": 128,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Tank\\CV90\\VB_VEH_Tank_CV90_DamageZones.ebx",
+     "rawSha256": "d8f79a706040ff3537f4d6c76bbde7f8670a3ae882bb0ffea4ed57b4c7eefa12",
+     "offset": 788,
+     "type": "u32",
+     "bytesHex": "813e7107",
+     "value": 124862081,
+     "expect": 124862081,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Tank\\CV90\\VB_VEH_Tank_CV90_DamageZones.ebx",
+     "rawSha256": "d8f79a706040ff3537f4d6c76bbde7f8670a3ae882bb0ffea4ed57b4c7eefa12",
+     "offset": 996,
+     "type": "u32",
+     "bytesHex": "813e7107",
+     "value": 124862081,
+     "expect": 124862081,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Tank\\CV90\\VB_VEH_Tank_CV90_DamageZones.ebx",
+     "rawSha256": "d8f79a706040ff3537f4d6c76bbde7f8670a3ae882bb0ffea4ed57b4c7eefa12",
+     "offset": 1204,
+     "type": "u32",
+     "bytesHex": "813e7107",
+     "value": 124862081,
+     "expect": 124862081,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Tank\\CV90\\VB_VEH_Tank_CV90_DamageZones.ebx",
+     "rawSha256": "d8f79a706040ff3537f4d6c76bbde7f8670a3ae882bb0ffea4ed57b4c7eefa12",
+     "offset": 1412,
+     "type": "u32",
+     "bytesHex": "813e7107",
+     "value": 124862081,
+     "expect": 124862081,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Tank\\CV90\\VB_VEH_Tank_CV90_DamageZones.ebx",
+     "rawSha256": "d8f79a706040ff3537f4d6c76bbde7f8670a3ae882bb0ffea4ed57b4c7eefa12",
+     "offset": 1684,
+     "type": "u32",
+     "bytesHex": "813e7107",
+     "value": 124862081,
+     "expect": 124862081,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Tank\\CV90\\VB_VEH_Tank_CV90_DamageZones.ebx",
+     "rawSha256": "d8f79a706040ff3537f4d6c76bbde7f8670a3ae882bb0ffea4ed57b4c7eefa12",
+     "offset": 2124,
+     "type": "u32",
+     "bytesHex": "80000000",
+     "value": 128,
+     "expect": 128,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Tank\\Gepard\\VB_VEH_Tank_Gepard_DamageZones.ebx",
+     "rawSha256": "24b5d1ca54217289b05c42088c4edbef746be08cc3756f6e87421b74cafbec38",
+     "offset": 372,
+     "type": "u32",
+     "bytesHex": "813f7107",
+     "value": 124862337,
+     "expect": 124862337,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Tank\\Gepard\\VB_VEH_Tank_Gepard_DamageZones.ebx",
+     "rawSha256": "24b5d1ca54217289b05c42088c4edbef746be08cc3756f6e87421b74cafbec38",
+     "offset": 580,
+     "type": "u32",
+     "bytesHex": "813f7107",
+     "value": 124862337,
+     "expect": 124862337,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Tank\\Gepard\\VB_VEH_Tank_Gepard_DamageZones.ebx",
+     "rawSha256": "24b5d1ca54217289b05c42088c4edbef746be08cc3756f6e87421b74cafbec38",
+     "offset": 788,
+     "type": "u32",
+     "bytesHex": "813f7107",
+     "value": 124862337,
+     "expect": 124862337,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Tank\\Gepard\\VB_VEH_Tank_Gepard_DamageZones.ebx",
+     "rawSha256": "24b5d1ca54217289b05c42088c4edbef746be08cc3756f6e87421b74cafbec38",
+     "offset": 1292,
+     "type": "u32",
+     "bytesHex": "80000000",
+     "value": 128,
+     "expect": 128,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Tank\\Gepard\\VB_VEH_Tank_Gepard_DamageZones.ebx",
+     "rawSha256": "24b5d1ca54217289b05c42088c4edbef746be08cc3756f6e87421b74cafbec38",
+     "offset": 1500,
+     "type": "u32",
+     "bytesHex": "813f7107",
+     "value": 124862337,
+     "expect": 124862337,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Tank\\Gepard\\VB_VEH_Tank_Gepard_DamageZones.ebx",
+     "rawSha256": "24b5d1ca54217289b05c42088c4edbef746be08cc3756f6e87421b74cafbec38",
+     "offset": 1708,
+     "type": "u32",
+     "bytesHex": "813f7107",
+     "value": 124862337,
+     "expect": 124862337,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Tank\\Gepard\\VB_VEH_Tank_Gepard_DamageZones.ebx",
+     "rawSha256": "24b5d1ca54217289b05c42088c4edbef746be08cc3756f6e87421b74cafbec38",
+     "offset": 1916,
+     "type": "u32",
+     "bytesHex": "813f7107",
+     "value": 124862337,
+     "expect": 124862337,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Tank\\Gepard\\VB_VEH_Tank_Gepard_DamageZones.ebx",
+     "rawSha256": "24b5d1ca54217289b05c42088c4edbef746be08cc3756f6e87421b74cafbec38",
+     "offset": 2124,
+     "type": "u32",
+     "bytesHex": "80000000",
+     "value": 128,
+     "expect": 128,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Tank\\Leopard\\VB_VEH_Tank_Leopard_DamageZones.ebx",
+     "rawSha256": "0750224b422559efc4dc59929dcea32a1bde9c2042851b07a888124b0e295dad",
+     "offset": 372,
+     "type": "u32",
+     "bytesHex": "80000000",
+     "value": 128,
+     "expect": 128,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Tank\\Leopard\\VB_VEH_Tank_Leopard_DamageZones.ebx",
+     "rawSha256": "0750224b422559efc4dc59929dcea32a1bde9c2042851b07a888124b0e295dad",
+     "offset": 580,
+     "type": "u32",
+     "bytesHex": "813d7107",
+     "value": 124861825,
+     "expect": 124861825,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Tank\\Leopard\\VB_VEH_Tank_Leopard_DamageZones.ebx",
+     "rawSha256": "0750224b422559efc4dc59929dcea32a1bde9c2042851b07a888124b0e295dad",
+     "offset": 788,
+     "type": "u32",
+     "bytesHex": "813d7107",
+     "value": 124861825,
+     "expect": 124861825,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Tank\\Leopard\\VB_VEH_Tank_Leopard_DamageZones.ebx",
+     "rawSha256": "0750224b422559efc4dc59929dcea32a1bde9c2042851b07a888124b0e295dad",
+     "offset": 996,
+     "type": "u32",
+     "bytesHex": "813d7107",
+     "value": 124861825,
+     "expect": 124861825,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Tank\\Leopard\\VB_VEH_Tank_Leopard_DamageZones.ebx",
+     "rawSha256": "0750224b422559efc4dc59929dcea32a1bde9c2042851b07a888124b0e295dad",
+     "offset": 1204,
+     "type": "u32",
+     "bytesHex": "813d7107",
+     "value": 124861825,
+     "expect": 124861825,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Tank\\Leopard\\VB_VEH_Tank_Leopard_DamageZones.ebx",
+     "rawSha256": "0750224b422559efc4dc59929dcea32a1bde9c2042851b07a888124b0e295dad",
+     "offset": 1644,
+     "type": "u32",
+     "bytesHex": "80000000",
+     "value": 128,
+     "expect": 128,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Tank\\Leopard\\VB_VEH_Tank_Leopard_DamageZones.ebx",
+     "rawSha256": "0750224b422559efc4dc59929dcea32a1bde9c2042851b07a888124b0e295dad",
+     "offset": 1852,
+     "type": "u32",
+     "bytesHex": "813d7107",
+     "value": 124861825,
+     "expect": 124861825,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Tank\\Leopard\\VB_VEH_Tank_Leopard_DamageZones.ebx",
+     "rawSha256": "0750224b422559efc4dc59929dcea32a1bde9c2042851b07a888124b0e295dad",
+     "offset": 2060,
+     "type": "u32",
+     "bytesHex": "813d7107",
+     "value": 124861825,
+     "expect": 124861825,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 13192,
+   "matched": 13192,
+   "files": 39,
+   "tool": "scripts/frosty-raw-check.py --manifest (stored values: raw-checks.json; grid reads: all-grid-rawchecks.json)",
+   "artifact": "raw-checks.json"
+  },
+  "byTargetMaterial": {
+   "116": [
+    "Stationary_GDF009"
+   ],
+   "119": [
+    "Car_JLTV",
+    "Car_Marauder",
+    "Stationary_Turret_CROWS",
+    "Tank_AAV7A1",
+    "Tank_Abrams",
+    "Tank_Bradley",
+    "Tank_CV90",
+    "Tank_Gepard",
+    "Tank_Leopard"
+   ],
+   "120": [
+    "Airplane_F16",
+    "Airplane_F22",
+    "Airplane_JAS39",
+    "SP_Assault_Airplane_JAS39",
+    "Airplane_SU57"
+   ],
+   "121": [
+    "Helicopter_AH64E",
+    "Helicopter_AH6M",
+    "Helicopter_AH6M_M05_SP_Cine",
+    "Helicopter_Eurocopter",
+    "Helicopter_Eurocopter_SP",
+    "Helicopter_MH47_SP",
+    "Helicopter_UH60"
+   ],
+   "122": [
+    "Boat_RHIB",
+    "Car_Flyer60",
+    "Car_Flyer60_SP",
+    "Car_Vector",
+    "Car_Vector_M05_CarChase"
+   ],
+   "123": [
+    "Car_TheBeast",
+    "Stationary_Phalanx",
+    "Stationary_Phalanx_SP"
+   ],
+   "187": [
+    "Car_PTV",
+    "Car_QuadBike",
+    "Motorcycle_DirtBike01",
+    "Motorcycle_DirtBike02"
+   ],
+   "233": [
+    "Airplane_MQ9"
+   ],
+   "313": [
+    "Boat_CB90"
+   ],
+   "None": [
+    "Stationary_M2MG"
+   ]
+  },
+  "dataset": "reference-data/frosty/vehicle-target-materials.json"
+ },
+ "inference": [
+  "IFVs, the AAV7A1, the Gepard, the JLTV and the Marauder use target material 119, the same grid column as the tanks; grid values read against 119 apply to them.",
+  "Helicopters use 121 and jets 120, which confirms from stored data the target split L3322 inferred from EA's numbers; the MQ-9 uses 233.",
+  "Light vehicles use 122, 187 or 123, with their own grid values. That the L3323 rule (damage x grid value) holds against them is an extension, not checked against any official figure."
+ ],
+ "unresolved": [
+  "Whether the tank hit-quality steps apply to other vehicles on material 119. Test: one RPG on a Bradley's rear, 500 if they do.",
+  "No official or in-game figure for the light materials. Test: one RPG on a Vector, 708.5 by the rule.",
+  "Target 313 (CB90) returned no value. Test: one RPG hit on a full-health CB90.",
+  "Vehicles without a saved DamageZones file are not covered."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-09-damage-rule-extension",
+  "artifacts": [
+   {
+    "file": "core.json",
+    "sha256": "681425eb3b5736fda9c7d9dd85a34b4519ff218008c132cc283dab7f8d6ba6e2"
+   },
+   {
+    "file": "core.py",
+    "sha256": "3a80e100123b9cc59e132e0075a0d2c4ea08695c50c744bd6d94dfa28e192385"
+   },
+   {
+    "file": "extract.py",
+    "sha256": "0350a77b41b82ac121478aaad252154a4db0c299216076b7785a560d0e71a92a"
+   },
+   {
+    "file": "all.json",
+    "sha256": "b282b4fb0417554b1cea8c5060cc1b325aba745236a99a2d3b106af817360767"
+   },
+   {
+    "file": "all-grid-rawchecks.json",
+    "sha256": "dd9c8e305e340d353c104848a8956ef45f904d3d4d6ee86b1ff6f9d5d687e357"
+   },
+   {
+    "file": "vehicle-materials.json",
+    "sha256": "9f3e86e2e4d8e73ad1290df0dd66c27f2c4618ebac3d4410b026056d406e6df0"
+   },
+   {
+    "file": "vehicle-health.json",
+    "sha256": "ce9a12cfe241f380f5acb796275f981f7cdf48817cee6fe1427519cf7ae8baf3"
+   },
+   {
+    "file": "raw-check-manifest.json",
+    "sha256": "f973bc4c5acbf1caadf1a4aca612e81ebb77840e859d2bff7a1bc28a063134ad"
+   },
+   {
+    "file": "raw-checks.json",
+    "sha256": "9e77d9970d3c3405dc9264e0c8a8bce5403228489434953645ef1f7a6811f795"
+   },
+   {
+    "file": "ea-1-3-1-0.txt",
+    "sha256": "164104a0230d09e8d179f79b65a708c2c1d04244f06157ab8827d57b5443ad4d"
+   },
+   {
+    "file": "ea-1-3-3-0.txt",
+    "sha256": "f755dc18c8aad27471d33e8ba721cd377a24c5940957d23e9dd9e40a443e6b47"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-09",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L3328",
+    "title": "Target materials of all vehicles, and grid values against light vehicles",
+    "status": "finding",
+    "summary": "All 37 saved vehicle damage-zone files store a target material: 119 for tanks, IFVs, AAV7A1, Gepard, JLTV, Marauder and the CROWS turret; 121 helicopters; 120 jets; 122, 187 and 123 for light vehicles; 313 for the CB90. Grid values for 33 weapon files were read against each. 13192 raw reads matched.",
+    "reopenWhen": "An in-game reading against an IFV or a light vehicle, or a readable cell for target 313.",
+    "statusNote": "Stored materials read for every saved vehicle; rule against non-tank materials unverified; target 313 unread."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Game/GlacierMP/levels/mp_abbasid/mp_abbasid/materialgrid_win32",
+    "format": "raw-ebx",
+    "sha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+    "question": "Which target material does each vehicle's damage-zone file store, and what grid values do the weapons have against the materials other than 119?",
+    "result": "useful",
+    "conclusion": "Cells for 33 weapon files against the target materials found store the Field_674633de values listed in the dataset; no value was read for target 313."
+   },
+   {
+    "path": "Game/GlacierMP/levels/mp_badlands/mp_badlands/materialgrid_win32",
+    "format": "raw-ebx",
+    "sha256": "b2ca0a2bde7aa7ebae1d0eea5880d59a72ab3a9f6a3f602e6d4fbec07498edec",
+    "question": "Which target material does each vehicle's damage-zone file store, and what grid values do the weapons have against the materials other than 119?",
+    "result": "useful",
+    "conclusion": "Cells for 33 weapon files against the target materials found store the Field_674633de values listed in the dataset; no value was read for target 313."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/Airplane/F16/VB_VEH_Airplane_F16_DamageZones",
+    "format": "raw-ebx",
+    "sha256": "89ac23304f24aa02804c9a4166131dfde836a509b81d0ac202988e72466d3e4a",
+    "question": "Which target material does each vehicle's damage-zone file store, and what grid values do the weapons have against the materials other than 119?",
+    "result": "useful",
+    "conclusion": "Part materials 120 x6."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/Airplane/F22/VB_VEH_Airplane_F22_DamageZones",
+    "format": "raw-ebx",
+    "sha256": "c6809c1396c9b2836ee202ebe8adbfc86720553f2078ce87a1e8e97364387aba",
+    "question": "Which target material does each vehicle's damage-zone file store, and what grid values do the weapons have against the materials other than 119?",
+    "result": "useful",
+    "conclusion": "Part materials 120 x5."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/Airplane/JAS39/VB_VEH_Airplane_JAS39_DamageZones",
+    "format": "raw-ebx",
+    "sha256": "55d82306d43cb518b4d4006f62cfd3e779e86a468641faa67d5c1b6ef50486aa",
+    "question": "Which target material does each vehicle's damage-zone file store, and what grid values do the weapons have against the materials other than 119?",
+    "result": "useful",
+    "conclusion": "Part materials 120 x4."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/Airplane/JAS39/VB_VEH_SP_Assault_Airplane_JAS39_DamageZones",
+    "format": "raw-ebx",
+    "sha256": "658d801a65478dcf18d4e42fa0f801fc17cb3b9e6a97cb24f4700d98ce88bf71",
+    "question": "Which target material does each vehicle's damage-zone file store, and what grid values do the weapons have against the materials other than 119?",
+    "result": "useful",
+    "conclusion": "Part materials 120 x4."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/Airplane/MQ9/VB_VEH_Airplane_MQ9_DamageZones",
+    "format": "raw-ebx",
+    "sha256": "dac5d2a68d714e4ed80390b6364cf34eb99e17aad628d21779eaa3d29b9f5576",
+    "question": "Which target material does each vehicle's damage-zone file store, and what grid values do the weapons have against the materials other than 119?",
+    "result": "useful",
+    "conclusion": "Part materials 233 x8."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/Airplane/SU57/VB_VEH_Airplane_SU57_DamageZones",
+    "format": "raw-ebx",
+    "sha256": "9deaa445aacdd746f8faedf8b1076869c0a105e1b8b2ed76bf2398683cf8ecd9",
+    "question": "Which target material does each vehicle's damage-zone file store, and what grid values do the weapons have against the materials other than 119?",
+    "result": "useful",
+    "conclusion": "Part materials 120 x5."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/Boat/CB90/VB_VEH_Boat_CB90_DamageZones",
+    "format": "raw-ebx",
+    "sha256": "4ccc610183b064038983b697e2bdc2bffe08505134e129ca3f934cfa496e7e1c",
+    "question": "Which target material does each vehicle's damage-zone file store, and what grid values do the weapons have against the materials other than 119?",
+    "result": "useful",
+    "conclusion": "Part materials 313 x2."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/Boat/VB_VEH_Boat_RHIB_DamageZones",
+    "format": "raw-ebx",
+    "sha256": "45343f0181ce9f4510ac6921d6d97135bb218e817b1c8ce7fad9ccb7db76416c",
+    "question": "Which target material does each vehicle's damage-zone file store, and what grid values do the weapons have against the materials other than 119?",
+    "result": "useful",
+    "conclusion": "Part materials 122 x2."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/Car/Flyer60/VB_VEH_Car_Flyer60_DamageZones",
+    "format": "raw-ebx",
+    "sha256": "e830d70b3f603e84f0afb55d7712f324078940381f3fecd69d29ad26984463ad",
+    "question": "Which target material does each vehicle's damage-zone file store, and what grid values do the weapons have against the materials other than 119?",
+    "result": "useful",
+    "conclusion": "Part materials 122 x8."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/Car/Flyer60/VB_VEH_Car_Flyer60_SP_DamageZones",
+    "format": "raw-ebx",
+    "sha256": "803601ad3c5549f984440455dcee30c1f842535475a1478569930ea1f4a3cb5c",
+    "question": "Which target material does each vehicle's damage-zone file store, and what grid values do the weapons have against the materials other than 119?",
+    "result": "useful",
+    "conclusion": "Part materials 122 x4."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/Car/JLTV/VB_VEH_Car_JLTV_DamageZones",
+    "format": "raw-ebx",
+    "sha256": "76780b8cdda4769e2e4ec4964cfa01752d48bfba2cdca1ed4f049e88aa92fdc4",
+    "question": "Which target material does each vehicle's damage-zone file store, and what grid values do the weapons have against the materials other than 119?",
+    "result": "useful",
+    "conclusion": "Part materials 119 x9."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/Car/Marauder/VB_VEH_Car_Marauder_DamageZones",
+    "format": "raw-ebx",
+    "sha256": "4bf73df0de805804dce70006d000a20da324162abad29743e55f1ac77d9d2b8b",
+    "question": "Which target material does each vehicle's damage-zone file store, and what grid values do the weapons have against the materials other than 119?",
+    "result": "useful",
+    "conclusion": "Part materials 119 x9."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/Car/PTV/VB_VEH_Car_PTV_DamageZones",
+    "format": "raw-ebx",
+    "sha256": "b5c69453628503fdcaeacf2be3ea951d72359a4dc5f2fc1569a5304a0a219667",
+    "question": "Which target material does each vehicle's damage-zone file store, and what grid values do the weapons have against the materials other than 119?",
+    "result": "useful",
+    "conclusion": "Part materials 187 x8."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/Car/QuadBike/VB_VEH_Car_QuadBike_DamageZones",
+    "format": "raw-ebx",
+    "sha256": "763f552452071898e8fd1686d7fb4fb9b461a3267c69fab724120c223766bd4c",
+    "question": "Which target material does each vehicle's damage-zone file store, and what grid values do the weapons have against the materials other than 119?",
+    "result": "useful",
+    "conclusion": "Part materials 187 x6."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/Car/TheBeast/VB_VEH_Car_TheBeast_DamageZones",
+    "format": "raw-ebx",
+    "sha256": "5089c18f9ebe47acd41ff52a6f783dd27b978b87b3efcac8414bebc81b4216e7",
+    "question": "Which target material does each vehicle's damage-zone file store, and what grid values do the weapons have against the materials other than 119?",
+    "result": "useful",
+    "conclusion": "Part materials 123 x4."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/Car/Vector/VB_VEH_Car_Vector_DamageZones",
+    "format": "raw-ebx",
+    "sha256": "f223279a535016b324c903146aa13390ec0f57bf3ba5efa2cad7574b02082954",
+    "question": "Which target material does each vehicle's damage-zone file store, and what grid values do the weapons have against the materials other than 119?",
+    "result": "useful",
+    "conclusion": "Part materials 122 x8."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/Car/Vector/VB_VEH_Car_Vector_M05_CarChase_DamageZones",
+    "format": "raw-ebx",
+    "sha256": "fb7210e510b7060beb012f07a0fe30b9ff6ebb05abc80f2bd78eec786f8d9b5f",
+    "question": "Which target material does each vehicle's damage-zone file store, and what grid values do the weapons have against the materials other than 119?",
+    "result": "useful",
+    "conclusion": "Part materials 122 x4."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/Helicopter/AH64E/VB_VEH_Helicopter_AH64E_DamageZones",
+    "format": "raw-ebx",
+    "sha256": "efd0db41e5a7fccd3d1b1178c209618bc59769793fb8ee143d77c3a3a95a0624",
+    "question": "Which target material does each vehicle's damage-zone file store, and what grid values do the weapons have against the materials other than 119?",
+    "result": "useful",
+    "conclusion": "Part materials 0 x1, 121 x7."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/Helicopter/AH6M/VB_VEH_Helicopter_AH6M_DamageZones",
+    "format": "raw-ebx",
+    "sha256": "d4c5ef1fddaaf77cb4a0026d7441ad8f1ddbc6ff3b6712f12d281883a9cc74a4",
+    "question": "Which target material does each vehicle's damage-zone file store, and what grid values do the weapons have against the materials other than 119?",
+    "result": "useful",
+    "conclusion": "Part materials 121 x6."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/Helicopter/AH6M/VB_VEH_Helicopter_AH6M_M05_SP_Cine_DamageZones",
+    "format": "raw-ebx",
+    "sha256": "bec53c498a78ba0ee5e34a4cf3f22e5d8175196932c7673a3cfb4c3e6575e99a",
+    "question": "Which target material does each vehicle's damage-zone file store, and what grid values do the weapons have against the materials other than 119?",
+    "result": "useful",
+    "conclusion": "Part materials 121 x6."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/Helicopter/Eurocopter/VB_VEH_Helicopter_Eurocopter_DamageZones",
+    "format": "raw-ebx",
+    "sha256": "571ebc376895c1c59c2faf2c8eb707c06544e3c4109406d21fdbb67fe16aeaec",
+    "question": "Which target material does each vehicle's damage-zone file store, and what grid values do the weapons have against the materials other than 119?",
+    "result": "useful",
+    "conclusion": "Part materials 0 x1, 121 x7."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/Helicopter/Eurocopter/VB_VEH_Helicopter_Eurocopter_SP_DamageZones",
+    "format": "raw-ebx",
+    "sha256": "cfb47807a30df12a633dbb1c3d84ad3817eb1100776cca791470a266fef75499",
+    "question": "Which target material does each vehicle's damage-zone file store, and what grid values do the weapons have against the materials other than 119?",
+    "result": "useful",
+    "conclusion": "Part materials 0 x1, 121 x7."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/Helicopter/MH47/VB_VEH_Helicopter_MH47_SP_DamageZones",
+    "format": "raw-ebx",
+    "sha256": "a50138e154f96c0a5060930d26422ff9ec3c3f6ee14f8f905ff3be983663e124",
+    "question": "Which target material does each vehicle's damage-zone file store, and what grid values do the weapons have against the materials other than 119?",
+    "result": "useful",
+    "conclusion": "Part materials 0 x1, 121 x6."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/Helicopter/UH60/VB_VEH_Helicopter_UH60_DamageZones",
+    "format": "raw-ebx",
+    "sha256": "b40cb8112621b4749b7e0ef920d0fea1ba8fd43a06745896a67b7b5b11ecdc3b",
+    "question": "Which target material does each vehicle's damage-zone file store, and what grid values do the weapons have against the materials other than 119?",
+    "result": "useful",
+    "conclusion": "Part materials 0 x1, 121 x7."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/Motorcycle/DirtBike01/VB_VEH_Motorcycle_DirtBike01_DamageZones",
+    "format": "raw-ebx",
+    "sha256": "0ee9148cb80867abdd0931469bfae8dd99696d4e34f60c2c7974ff3a006afb82",
+    "question": "Which target material does each vehicle's damage-zone file store, and what grid values do the weapons have against the materials other than 119?",
+    "result": "useful",
+    "conclusion": "Part materials 187 x1."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/Motorcycle/DirtBike02/VB_VEH_Motorcycle_DirtBike02_DamageZones",
+    "format": "raw-ebx",
+    "sha256": "82acd584b0ee65e500c81f414a9ce4a66ec4947a0b098705700fb2b90bdf8b06",
+    "question": "Which target material does each vehicle's damage-zone file store, and what grid values do the weapons have against the materials other than 119?",
+    "result": "useful",
+    "conclusion": "Part materials 187 x1."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/Stationary/CWS/VB_VEH_Stationary_Turret_CROWS_DamageZones",
+    "format": "raw-ebx",
+    "sha256": "29e71adc230f8fdc167a36a15e0576769609621b3fd18110840cbd4ffd66d0b0",
+    "question": "Which target material does each vehicle's damage-zone file store, and what grid values do the weapons have against the materials other than 119?",
+    "result": "useful",
+    "conclusion": "Part materials 119 x4."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/Stationary/GDF009/VB_VEH_Stationary_GDF009_DamageZones",
+    "format": "raw-ebx",
+    "sha256": "4530153f0a775aa8b92cb182a65d2512fc94217082fcc9c153a915a7278315b5",
+    "question": "Which target material does each vehicle's damage-zone file store, and what grid values do the weapons have against the materials other than 119?",
+    "result": "useful",
+    "conclusion": "Part materials 116 x3."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/Stationary/M2MG/VB_VEH_Stationary_M2MG_DamageZones",
+    "format": "raw-ebx",
+    "sha256": "6e0408c895c04ec3bf0ecb57fa6950d7bddfd1ac86006462fa7edbbd3b9e62b3",
+    "question": "Which target material does each vehicle's damage-zone file store, and what grid values do the weapons have against the materials other than 119?",
+    "result": "useful",
+    "conclusion": "Part materials 0 x1."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/Stationary/Phalanx/VB_VEH_Stationary_Phalanx_DamageZones",
+    "format": "raw-ebx",
+    "sha256": "d0237d809f023ab3a253bbdf4fa634c694ceeb402392fd4c0eb54baef1f50cd3",
+    "question": "Which target material does each vehicle's damage-zone file store, and what grid values do the weapons have against the materials other than 119?",
+    "result": "useful",
+    "conclusion": "Part materials 123 x1."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/Stationary/Phalanx/VB_VEH_Stationary_Phalanx_SP_DamageZones",
+    "format": "raw-ebx",
+    "sha256": "ce779646f7a1b5accd5bfe9d5c19f29152245554740e51229d98f3a3a3b9c398",
+    "question": "Which target material does each vehicle's damage-zone file store, and what grid values do the weapons have against the materials other than 119?",
+    "result": "useful",
+    "conclusion": "Part materials 0 x1, 123 x1."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/Tank/AAV7A1/VB_VEH_Tank_AAV7A1_DamageZones",
+    "format": "raw-ebx",
+    "sha256": "4fa08da2cef3789d22dd7e6da1ee505f33736ee6aca570293d904307599e8976",
+    "question": "Which target material does each vehicle's damage-zone file store, and what grid values do the weapons have against the materials other than 119?",
+    "result": "useful",
+    "conclusion": "Part materials 0 x2, 119 x6."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/Tank/Abrams/VB_VEH_Tank_Abrams_DamageZones",
+    "format": "raw-ebx",
+    "sha256": "d6dc6d1e4b8d236c61c80fb4372360e6bb4854877e179ba26572741f15d20d1d",
+    "question": "Which target material does each vehicle's damage-zone file store, and what grid values do the weapons have against the materials other than 119?",
+    "result": "useful",
+    "conclusion": "Part materials 0 x2, 119 x6."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/Tank/Bradley/VB_VEH_Tank_Bradley_DamageZones",
+    "format": "raw-ebx",
+    "sha256": "41996d0cecb213825a8b917957173fc131ce50a32c5d3dc817e80acc8f164dc2",
+    "question": "Which target material does each vehicle's damage-zone file store, and what grid values do the weapons have against the materials other than 119?",
+    "result": "useful",
+    "conclusion": "Part materials 0 x2, 119 x6."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/Tank/CV90/VB_VEH_Tank_CV90_DamageZones",
+    "format": "raw-ebx",
+    "sha256": "d8f79a706040ff3537f4d6c76bbde7f8670a3ae882bb0ffea4ed57b4c7eefa12",
+    "question": "Which target material does each vehicle's damage-zone file store, and what grid values do the weapons have against the materials other than 119?",
+    "result": "useful",
+    "conclusion": "Part materials 0 x2, 119 x6."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/Tank/Gepard/VB_VEH_Tank_Gepard_DamageZones",
+    "format": "raw-ebx",
+    "sha256": "24b5d1ca54217289b05c42088c4edbef746be08cc3756f6e87421b74cafbec38",
+    "question": "Which target material does each vehicle's damage-zone file store, and what grid values do the weapons have against the materials other than 119?",
+    "result": "useful",
+    "conclusion": "Part materials 0 x2, 119 x6."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/Tank/Leopard/VB_VEH_Tank_Leopard_DamageZones",
+    "format": "raw-ebx",
+    "sha256": "0750224b422559efc4dc59929dcea32a1bde9c2042851b07a888124b0e295dad",
+    "question": "Which target material does each vehicle's damage-zone file store, and what grid values do the weapons have against the materials other than 119?",
+    "result": "useful",
+    "conclusion": "Part materials 0 x2, 119 x6."
+   }
+  ]
+ }
+}

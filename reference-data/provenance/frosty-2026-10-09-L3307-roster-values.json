@@ -1,0 +1,295 @@
+{
+ "lead": "L3307",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\reports\\vehicle-unlock-assets-2026-10-09",
+  "note": "Values come from the newest saved raw copy of each route under builds\\1.4.3.5; roster-values.json names the file for every value and raw-checks.json pins each file's hash."
+ },
+ "question": "For each of the 167 vehicle, gadget and vehicle equipment stat entries, what does saved game data store: identity, category, carriers, and damage, blast, projectile, ammo, reload, cooldown, range, duration and durability values?",
+ "sourceFacts": {
+  "method": "scripts/frosty-roster-values.py: read the three Categorization rosters; find the object whose GUID is in each entry's GUID list and every other saved file containing one; walk pointers (eight steps) from the defining object, from all objects of files naming only that entry, and from the objects of shared files that import it; record damage, blast and projectile fields with offsets; join named registry rows by owner name equal to a reached file name, and by a hand-reviewed name table; record other plain numbers of carrier files by field hash.",
+  "control": {
+   "description": "Sample of the raw-offset checks: three roster entry GUIDs, four MBT APFSDS projectile fields and three GRX_Vehicles registry defaults.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-category-links-2026-10-09\\raw\\Persistence\\StatCategories\\StatCategorization\\Categorization_Vehicles.ebx",
+     "rawSha256": "9001639a989e5ee5628d43629fb296ac7a027a19061d9476a75d57b22b4aa41f",
+     "offset": 88,
+     "type": "guid",
+     "bytesHex": "01f4e7517176394aad226284d1257de8",
+     "value": "51e7f401-7671-4a39-ad22-6284d1257de8",
+     "expect": "51e7f401-7671-4a39-ad22-6284d1257de8",
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-category-links-2026-10-09\\raw\\Persistence\\StatCategories\\StatCategorization\\Categorization_Vehicles.ebx",
+     "rawSha256": "9001639a989e5ee5628d43629fb296ac7a027a19061d9476a75d57b22b4aa41f",
+     "offset": 184,
+     "type": "guid",
+     "bytesHex": "0b91156c7987724ebbe26f461f72c6e9",
+     "value": "6c15910b-8779-4e72-bbe2-6f461f72c6e9",
+     "expect": "6c15910b-8779-4e72-bbe2-6f461f72c6e9",
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-category-links-2026-10-09\\raw\\Persistence\\StatCategories\\StatCategorization\\Categorization_Vehicles.ebx",
+     "rawSha256": "9001639a989e5ee5628d43629fb296ac7a027a19061d9476a75d57b22b4aa41f",
+     "offset": 280,
+     "type": "guid",
+     "bytesHex": "0c74304cb50a6e4eae38d92d25be3730",
+     "value": "4c30740c-0ab5-4e6e-ae38-d92d25be3730",
+     "expect": "4c30740c-0ab5-4e6e-ae38-d92d25be3730",
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\MBT\\PD_Vehicles_MBT_AmmoTypes_APFSDS.ebx",
+     "rawSha256": "7691af1a66fde798e856baeb8b5717d852adc7b4673b5b954b3067915f28f24f",
+     "offset": 424,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\MBT\\PD_Vehicles_MBT_AmmoTypes_APFSDS.ebx",
+     "rawSha256": "7691af1a66fde798e856baeb8b5717d852adc7b4673b5b954b3067915f28f24f",
+     "offset": 432,
+     "type": "f32",
+     "bytesHex": "00000000",
+     "value": 0.0,
+     "expect": 0.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\MBT\\PD_Vehicles_MBT_AmmoTypes_APFSDS.ebx",
+     "rawSha256": "7691af1a66fde798e856baeb8b5717d852adc7b4673b5b954b3067915f28f24f",
+     "offset": 448,
+     "type": "f32",
+     "bytesHex": "00000040",
+     "value": 2.0,
+     "expect": 2.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\MBT\\PD_Vehicles_MBT_AmmoTypes_APFSDS.ebx",
+     "rawSha256": "7691af1a66fde798e856baeb8b5717d852adc7b4673b5b954b3067915f28f24f",
+     "offset": 464,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 70596,
+     "type": "f32",
+     "bytesHex": "00000040",
+     "value": 2.0,
+     "expect": 2.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 84860,
+     "type": "f32",
+     "bytesHex": "00009041",
+     "value": 18.0,
+     "expect": 18.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 96452,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 11854,
+   "matched": 11854,
+   "files": 470,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "raw-checks.json"
+  },
+  "counts": {
+   "items": {
+    "vehicle": 33,
+    "gadget": 68,
+    "vehicleEquipment": 66
+   },
+   "withDefinition": {
+    "vehicle": 31,
+    "gadget": 63,
+    "vehicleEquipment": 64
+   },
+   "withOwnValues": {
+    "vehicle": 31,
+    "gadget": 60,
+    "vehicleEquipment": 42
+   },
+   "withRegistryRows": {
+    "vehicle": 30,
+    "gadget": 44,
+    "vehicleEquipment": 60
+   },
+   "withDisplayName": {
+    "vehicle": 24,
+    "gadget": 53,
+    "vehicleEquipment": 58
+   },
+   "noValueOfAnyKind": [
+    "veh_air_mh350",
+    "veh_breacher",
+    "gad_ubl_gl_smoke",
+    "gad_ubl_gl_he",
+    "gad_ubl_gl_tb",
+    "gad_ubsg_buck",
+    "gad_ubsg_slug",
+    "veheq_upg_imparm",
+    "veheq_eq_airrevive",
+    "vehec_wp_30revcan"
+   ],
+   "filesDecoded": 6425,
+   "decodeFailures": [
+    {
+     "route": "Common/Hardware/Gadgets/Misc/Drone/SP_SwitchbladeDrone/Affector_Damage_SP_Drone_Switchblade_Blast",
+     "error": "IndexError: list index out of range"
+    },
+    {
+     "route": "Common/Hardware/Gadgets/Misc/Drone/SP_SwitchbladeDrone/Affector_Damage_SP_Drone_Switchblade_Impact",
+     "error": "IndexError: list index out of range"
+    },
+    {
+     "route": "Common/Hardware/Gadgets/Throwables/Incendiary/Affector_Damage_Exit_Crouched_IncendiaryGrenade",
+     "error": "IndexError: list index out of range"
+    }
+   ],
+   "registryVsOwn": {
+    "differingOwnerProperties": 73,
+    "artifact": "registry-vs-own.json"
+   }
+  },
+  "dataset": "reference-data/frosty/roster-values.json"
+ },
+ "inference": [
+  "Registry rows joined by owner name or by the name table are name matches, not asset references.",
+  "Display names for gadgets and vehicle equipment are name-table joins to UI records; no saved non-UI file contains a vehicle UI record GUID."
+ ],
+ "unresolved": [
+  "Which of a registry default and an asset's own value a live match uses where they differ (73 owner properties).",
+  "Units and runtime use of every stored value.",
+  "Entries with no value of any kind: veh_air_mh350, veh_breacher, gad_ubl_gl_smoke, gad_ubl_gl_he, gad_ubl_gl_tb, gad_ubsg_buck, gad_ubsg_slug, veheq_upg_imparm, veheq_eq_airrevive, vehec_wp_30revcan. See docs/working/ROSTER_VALUES.md for what was searched.",
+  "Names of the unnamed carrier fields (carrierUnnamed)."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-09-roster-values\\run12",
+  "artifacts": [
+   {
+    "file": "roster.json",
+    "sha256": "7587a98b56dec44cc83ca884dff38440c6827d8097ad2319dfc683f452293522"
+   },
+   {
+    "file": "roster-compact.json",
+    "sha256": "e5912a624dc6b830310b7d5a67a2495932f95f2ae6589d50dee07f7a07743030"
+   },
+   {
+    "file": "raw-check-manifest.json",
+    "sha256": "5c81a2d2cd77df4ae372657de3e9929e464d21abf4dcaa7a4817d8b6a792a169"
+   },
+   {
+    "file": "raw-checks.json",
+    "sha256": "8819290101fffa39b3e0a0b5315377c2d5835bcbd773758ad3b446062586d9f7"
+   },
+   {
+    "file": "summary.json",
+    "sha256": "ded7141368764761aeb8b26a9172103ad404c36d6d586d0dc5171f7e53707f83"
+   },
+   {
+    "file": "file-imports.json",
+    "sha256": "4d7808e44e63cb5b599127d23989eb7365d38dfe815373a9cb69b92cf787b486"
+   },
+   {
+    "file": "registry-vs-own.json",
+    "sha256": "cf90097f1339c8a5026f5c86cf8664b02fb2d5f0f027207e26c76897d4558148"
+   },
+   {
+    "file": "tables.md",
+    "sha256": "76b726ecde0298f6f4d07f23df9b33383aa98dc67ed3ef1be1b09572390d3763"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-09",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L3307",
+    "title": "Stored values for every vehicle, gadget and vehicle equipment stat entry",
+    "status": "finding",
+    "summary": "All 167 roster entries traced from stat id to carrier files and stored values; 157 of 167 have at least one stored value, 11854 raw-offset checks matched, and 73 owner properties differ between registry default and own value.",
+    "reopenWhen": "A game update changes a roster, a registry or a carrier file; an in-game test settles registry default against own value; or assets appear for an entry that has none.",
+    "statusNote": "Source values only; units, runtime use and all name-table joins are unconfirmed."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Persistence/StatCategories/StatCategorization/Categorization_Vehicles",
+    "format": "raw-ebx",
+    "sha256": "9001639a989e5ee5628d43629fb296ac7a027a19061d9476a75d57b22b4aa41f",
+    "question": "For each of the 167 vehicle, gadget and vehicle equipment stat entries, what does saved game data store: identity, category, carriers, and damage, blast, projectile, ammo, reload, cooldown, range, duration and durability values?",
+    "result": "useful",
+    "conclusion": "33 entries; 31 have a defining object in a saved file."
+   },
+   {
+    "path": "Persistence/StatCategories/StatCategorization/Categorization_Gadgets",
+    "format": "raw-ebx",
+    "sha256": "4beaf227138ef373f5dcd95afc9480e7d19d3062e6e66f67bfd678d17b705cab",
+    "question": "For each of the 167 vehicle, gadget and vehicle equipment stat entries, what does saved game data store: identity, category, carriers, and damage, blast, projectile, ammo, reload, cooldown, range, duration and durability values?",
+    "result": "useful",
+    "conclusion": "68 entries; 63 have a defining object in a saved file."
+   },
+   {
+    "path": "Persistence/StatCategories/StatCategorization/Categorization_Vehicles_Equipment",
+    "format": "raw-ebx",
+    "sha256": "358bdaa703043ed12832ccbbb69f795a2fcfc174bff8cf4368fb646a898a18c5",
+    "question": "For each of the 167 vehicle, gadget and vehicle equipment stat entries, what does saved game data store: identity, category, carriers, and damage, blast, projectile, ammo, reload, cooldown, range, duration and durability values?",
+    "result": "useful",
+    "conclusion": "66 entries; 52 have a defining object; the rest are named only by carrier files."
+   },
+   {
+    "path": "Common/Hardware/Gadgets/GRX_Gadgets_Glacier",
+    "format": "raw-ebx",
+    "sha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+    "question": "For each of the 167 vehicle, gadget and vehicle equipment stat entries, what does saved game data store: identity, category, carriers, and damage, blast, projectile, ammo, reload, cooldown, range, duration and durability values?",
+    "result": "useful",
+    "conclusion": "Named registry rows joined to gadget entries by owner name or name table."
+   },
+   {
+    "path": "Common/GameSetup/Tweakables/GameRemixer/GRX_Vehicles",
+    "format": "raw-ebx",
+    "sha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+    "question": "For each of the 167 vehicle, gadget and vehicle equipment stat entries, what does saved game data store: identity, category, carriers, and damage, blast, projectile, ammo, reload, cooldown, range, duration and durability values?",
+    "result": "useful",
+    "conclusion": "Named registry rows joined to vehicle and vehicle equipment entries by owner name or name table."
+   }
+  ]
+ }
+}

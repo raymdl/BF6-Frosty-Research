@@ -1,0 +1,1324 @@
+{
+ "lead": "L3354",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Read from saved raw captures; no export, no new capture."
+ },
+ "question": "What active and recharge times do the vehicle abilities store (flares, smoke, active protection, emergency repair), and which own fields hold them?",
+ "sourceFacts": {
+  "method": "Every registry row Ability_*.ActiveTime and Ability_*.RechargeTime was read (20 abilities). For the 19 abilities whose file is saved, the ability object (Class_4918a771) was read for Field_143f8e7a and Field_bcfe8c70 and compared with the rows.",
+  "control": {
+   "description": "Field_143f8e7a equals the registry ActiveTime on 14 saved abilities and Field_bcfe8c70 equals RechargeTime on 14, which names the two fields.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 209452,
+     "type": "f32",
+     "bytesHex": "cdcccc3e",
+     "value": 0.4000000059604645,
+     "expect": 0.4,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 292940,
+     "type": "f32",
+     "bytesHex": "0000a041",
+     "value": 20.0,
+     "expect": 20.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\APC\\Ability_APC_ExplosivesDetectionDetonationSystem.ebx",
+     "rawSha256": "4d7455006a7ff19ef5704c5c3682cb1bc8c249dd0ce1bda9d8eb2bb2e99f3c38",
+     "offset": 380,
+     "type": "f32",
+     "bytesHex": "cdcccc3d",
+     "value": 0.10000000149011612,
+     "expect": 0.1,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\APC\\Ability_APC_ExplosivesDetectionDetonationSystem.ebx",
+     "rawSha256": "4d7455006a7ff19ef5704c5c3682cb1bc8c249dd0ce1bda9d8eb2bb2e99f3c38",
+     "offset": 388,
+     "type": "f32",
+     "bytesHex": "00000000",
+     "value": 0.0,
+     "expect": 0.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\APC\\Ability_APC_ExplosivesDetectionDetonationSystem.ebx",
+     "rawSha256": "4d7455006a7ff19ef5704c5c3682cb1bc8c249dd0ce1bda9d8eb2bb2e99f3c38",
+     "offset": 396,
+     "type": "f32",
+     "bytesHex": "0000a041",
+     "value": 20.0,
+     "expect": 20.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\APC\\Ability_APC_ExplosivesDetectionDetonationSystem.ebx",
+     "rawSha256": "4d7455006a7ff19ef5704c5c3682cb1bc8c249dd0ce1bda9d8eb2bb2e99f3c38",
+     "offset": 400,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 174148,
+     "type": "f32",
+     "bytesHex": "0000f041",
+     "value": 30.0,
+     "expect": 30.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 326380,
+     "type": "f32",
+     "bytesHex": "0000803e",
+     "value": 0.25,
+     "expect": 0.25,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\APC\\Ability_APC_Passenger_SmokeLauncher.ebx",
+     "rawSha256": "1149e9aff3245fe50133475d99469a9eb9af3abad73bb1a01097be01033aa872",
+     "offset": 380,
+     "type": "f32",
+     "bytesHex": "0000803e",
+     "value": 0.25,
+     "expect": 0.25,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\APC\\Ability_APC_Passenger_SmokeLauncher.ebx",
+     "rawSha256": "1149e9aff3245fe50133475d99469a9eb9af3abad73bb1a01097be01033aa872",
+     "offset": 388,
+     "type": "f32",
+     "bytesHex": "00000000",
+     "value": 0.0,
+     "expect": 0.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\APC\\Ability_APC_Passenger_SmokeLauncher.ebx",
+     "rawSha256": "1149e9aff3245fe50133475d99469a9eb9af3abad73bb1a01097be01033aa872",
+     "offset": 396,
+     "type": "f32",
+     "bytesHex": "0000f041",
+     "value": 30.0,
+     "expect": 30.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\APC\\Ability_APC_Passenger_SmokeLauncher.ebx",
+     "rawSha256": "1149e9aff3245fe50133475d99469a9eb9af3abad73bb1a01097be01033aa872",
+     "offset": 400,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 32652,
+     "type": "f32",
+     "bytesHex": "00004041",
+     "value": 12.0,
+     "expect": 12.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 380332,
+     "type": "f32",
+     "bytesHex": "0000a041",
+     "value": 20.0,
+     "expect": 20.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 146804,
+     "type": "f32",
+     "bytesHex": "00007041",
+     "value": 15.0,
+     "expect": 15.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 195412,
+     "type": "f32",
+     "bytesHex": "6666e63f",
+     "value": 1.7999999523162842,
+     "expect": 1.8,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\AttackHeli\\Ability_AttackHeli_Countermeasure_Flares.ebx",
+     "rawSha256": "9a441338516e7b78346b629da5c03444db36fde7b1f0fc9d197078790a81b45f",
+     "offset": 380,
+     "type": "f32",
+     "bytesHex": "6666e63f",
+     "value": 1.7999999523162842,
+     "expect": 1.8,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\AttackHeli\\Ability_AttackHeli_Countermeasure_Flares.ebx",
+     "rawSha256": "9a441338516e7b78346b629da5c03444db36fde7b1f0fc9d197078790a81b45f",
+     "offset": 388,
+     "type": "f32",
+     "bytesHex": "00000000",
+     "value": 0.0,
+     "expect": 0.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\AttackHeli\\Ability_AttackHeli_Countermeasure_Flares.ebx",
+     "rawSha256": "9a441338516e7b78346b629da5c03444db36fde7b1f0fc9d197078790a81b45f",
+     "offset": 396,
+     "type": "f32",
+     "bytesHex": "00007041",
+     "value": 15.0,
+     "expect": 15.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\AttackHeli\\Ability_AttackHeli_Countermeasure_Flares.ebx",
+     "rawSha256": "9a441338516e7b78346b629da5c03444db36fde7b1f0fc9d197078790a81b45f",
+     "offset": 400,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 12892,
+     "type": "f32",
+     "bytesHex": "00007041",
+     "value": 15.0,
+     "expect": 15.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 350052,
+     "type": "f32",
+     "bytesHex": "0000c841",
+     "value": 25.0,
+     "expect": 25.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\AttackHeli\\Ability_AttackHeli_GroundTargetDetection.ebx",
+     "rawSha256": "3bb04a515ce9355d43a6c7be66c72eccd8d0c2b3979b1349bcbeee22c91968f8",
+     "offset": 380,
+     "type": "f32",
+     "bytesHex": "00007041",
+     "value": 15.0,
+     "expect": 15.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\AttackHeli\\Ability_AttackHeli_GroundTargetDetection.ebx",
+     "rawSha256": "3bb04a515ce9355d43a6c7be66c72eccd8d0c2b3979b1349bcbeee22c91968f8",
+     "offset": 388,
+     "type": "f32",
+     "bytesHex": "cdcccc3d",
+     "value": 0.10000000149011612,
+     "expect": 0.1,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\AttackHeli\\Ability_AttackHeli_GroundTargetDetection.ebx",
+     "rawSha256": "3bb04a515ce9355d43a6c7be66c72eccd8d0c2b3979b1349bcbeee22c91968f8",
+     "offset": 396,
+     "type": "f32",
+     "bytesHex": "0000c841",
+     "value": 25.0,
+     "expect": 25.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\AttackHeli\\Ability_AttackHeli_GroundTargetDetection.ebx",
+     "rawSha256": "3bb04a515ce9355d43a6c7be66c72eccd8d0c2b3979b1349bcbeee22c91968f8",
+     "offset": 400,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 243604,
+     "type": "f32",
+     "bytesHex": "00007041",
+     "value": 15.0,
+     "expect": 15.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 396828,
+     "type": "f32",
+     "bytesHex": "6666e63f",
+     "value": 1.7999999523162842,
+     "expect": 1.8,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\AttackPlane\\Ability_AttackPlane_Countermeasure_Flares.ebx",
+     "rawSha256": "67a18666975ac0a44cf051c1ab21dd577f82ec567ed0b1a90da34db86c8c6960",
+     "offset": 380,
+     "type": "f32",
+     "bytesHex": "6666e63f",
+     "value": 1.7999999523162842,
+     "expect": 1.8,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\AttackPlane\\Ability_AttackPlane_Countermeasure_Flares.ebx",
+     "rawSha256": "67a18666975ac0a44cf051c1ab21dd577f82ec567ed0b1a90da34db86c8c6960",
+     "offset": 388,
+     "type": "f32",
+     "bytesHex": "00000000",
+     "value": 0.0,
+     "expect": 0.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\AttackPlane\\Ability_AttackPlane_Countermeasure_Flares.ebx",
+     "rawSha256": "67a18666975ac0a44cf051c1ab21dd577f82ec567ed0b1a90da34db86c8c6960",
+     "offset": 396,
+     "type": "f32",
+     "bytesHex": "00007041",
+     "value": 15.0,
+     "expect": 15.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\AttackPlane\\Ability_AttackPlane_Countermeasure_Flares.ebx",
+     "rawSha256": "67a18666975ac0a44cf051c1ab21dd577f82ec567ed0b1a90da34db86c8c6960",
+     "offset": 400,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 223572,
+     "type": "f32",
+     "bytesHex": "00002041",
+     "value": 10.0,
+     "expect": 10.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 323556,
+     "type": "f32",
+     "bytesHex": "00007041",
+     "value": 15.0,
+     "expect": 15.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\IFV\\Ability_CV90_AdvancedThreatDetectionSystem.ebx",
+     "rawSha256": "e28b41f10ac5fd012fa0df2a51b4f4979937e53599012263b1df17c46a96ab15",
+     "offset": 380,
+     "type": "f32",
+     "bytesHex": "0000a041",
+     "value": 20.0,
+     "expect": 20.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\IFV\\Ability_CV90_AdvancedThreatDetectionSystem.ebx",
+     "rawSha256": "e28b41f10ac5fd012fa0df2a51b4f4979937e53599012263b1df17c46a96ab15",
+     "offset": 388,
+     "type": "f32",
+     "bytesHex": "cdcccc3d",
+     "value": 0.10000000149011612,
+     "expect": 0.1,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\IFV\\Ability_CV90_AdvancedThreatDetectionSystem.ebx",
+     "rawSha256": "e28b41f10ac5fd012fa0df2a51b4f4979937e53599012263b1df17c46a96ab15",
+     "offset": 396,
+     "type": "f32",
+     "bytesHex": "0000a041",
+     "value": 20.0,
+     "expect": 20.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\IFV\\Ability_CV90_AdvancedThreatDetectionSystem.ebx",
+     "rawSha256": "e28b41f10ac5fd012fa0df2a51b4f4979937e53599012263b1df17c46a96ab15",
+     "offset": 400,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 169348,
+     "type": "f32",
+     "bytesHex": "0000f041",
+     "value": 30.0,
+     "expect": 30.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 390132,
+     "type": "f32",
+     "bytesHex": "0000803e",
+     "value": 0.25,
+     "expect": 0.25,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\IFV\\Ability_CV90_Passenger_SmokeLauncher.ebx",
+     "rawSha256": "b263b68ecced82f0629336fcd4b62cc0723bb20194929fc09a694d91c7e07b6c",
+     "offset": 380,
+     "type": "f32",
+     "bytesHex": "0000803e",
+     "value": 0.25,
+     "expect": 0.25,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\IFV\\Ability_CV90_Passenger_SmokeLauncher.ebx",
+     "rawSha256": "b263b68ecced82f0629336fcd4b62cc0723bb20194929fc09a694d91c7e07b6c",
+     "offset": 388,
+     "type": "f32",
+     "bytesHex": "00000000",
+     "value": 0.0,
+     "expect": 0.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\IFV\\Ability_CV90_Passenger_SmokeLauncher.ebx",
+     "rawSha256": "b263b68ecced82f0629336fcd4b62cc0723bb20194929fc09a694d91c7e07b6c",
+     "offset": 396,
+     "type": "f32",
+     "bytesHex": "0000f041",
+     "value": 30.0,
+     "expect": 30.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\IFV\\Ability_CV90_Passenger_SmokeLauncher.ebx",
+     "rawSha256": "b263b68ecced82f0629336fcd4b62cc0723bb20194929fc09a694d91c7e07b6c",
+     "offset": 400,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 37180,
+     "type": "f32",
+     "bytesHex": "0000a041",
+     "value": 20.0,
+     "expect": 20.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 178964,
+     "type": "f32",
+     "bytesHex": "00004041",
+     "value": 12.0,
+     "expect": 12.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\IFV\\Ability_CV90_ProximityDetectionSystem.ebx",
+     "rawSha256": "ff4fad4557061d9f301d6b25ff38a587976e0a7ea80b0927b939d1b6b3005637",
+     "offset": 380,
+     "type": "f32",
+     "bytesHex": "0000a041",
+     "value": 20.0,
+     "expect": 20.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\IFV\\Ability_CV90_ProximityDetectionSystem.ebx",
+     "rawSha256": "ff4fad4557061d9f301d6b25ff38a587976e0a7ea80b0927b939d1b6b3005637",
+     "offset": 388,
+     "type": "f32",
+     "bytesHex": "00000000",
+     "value": 0.0,
+     "expect": 0.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\IFV\\Ability_CV90_ProximityDetectionSystem.ebx",
+     "rawSha256": "ff4fad4557061d9f301d6b25ff38a587976e0a7ea80b0927b939d1b6b3005637",
+     "offset": 396,
+     "type": "f32",
+     "bytesHex": "0000a041",
+     "value": 20.0,
+     "expect": 20.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\IFV\\Ability_CV90_ProximityDetectionSystem.ebx",
+     "rawSha256": "ff4fad4557061d9f301d6b25ff38a587976e0a7ea80b0927b939d1b6b3005637",
+     "offset": 400,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 192388,
+     "type": "f32",
+     "bytesHex": "0000c041",
+     "value": 24.0,
+     "expect": 24.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 342180,
+     "type": "f32",
+     "bytesHex": "cdcccc3e",
+     "value": 0.4000000059604645,
+     "expect": 0.4,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\Car\\Ability_Car_EmergencyDamageControl.ebx",
+     "rawSha256": "4b2888ec61bd65776062f799a8a19b46173f3139afaa39211c80c46fcfd908b2",
+     "offset": 380,
+     "type": "f32",
+     "bytesHex": "cdcccc3e",
+     "value": 0.4000000059604645,
+     "expect": 0.4,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\Car\\Ability_Car_EmergencyDamageControl.ebx",
+     "rawSha256": "4b2888ec61bd65776062f799a8a19b46173f3139afaa39211c80c46fcfd908b2",
+     "offset": 388,
+     "type": "f32",
+     "bytesHex": "00002041",
+     "value": 10.0,
+     "expect": 10.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\Car\\Ability_Car_EmergencyDamageControl.ebx",
+     "rawSha256": "4b2888ec61bd65776062f799a8a19b46173f3139afaa39211c80c46fcfd908b2",
+     "offset": 396,
+     "type": "f32",
+     "bytesHex": "0000f041",
+     "value": 30.0,
+     "expect": 30.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\Car\\Ability_Car_EmergencyDamageControl.ebx",
+     "rawSha256": "4b2888ec61bd65776062f799a8a19b46173f3139afaa39211c80c46fcfd908b2",
+     "offset": 400,
+     "type": "f32",
+     "bytesHex": "0000c03f",
+     "value": 1.5,
+     "expect": 1.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 240340,
+     "type": "f32",
+     "bytesHex": "6666e63f",
+     "value": 1.7999999523162842,
+     "expect": 1.8,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 474484,
+     "type": "f32",
+     "bytesHex": "00007041",
+     "value": 15.0,
+     "expect": 15.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\FighterPlane\\Ability_FighterPlane_Countermeasure_Flares.ebx",
+     "rawSha256": "896f4000cc5adef9175ba82c1a67ca717af3c37419015df3910c9ab2cf5d84d4",
+     "offset": 380,
+     "type": "f32",
+     "bytesHex": "6666e63f",
+     "value": 1.7999999523162842,
+     "expect": 1.8,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\FighterPlane\\Ability_FighterPlane_Countermeasure_Flares.ebx",
+     "rawSha256": "896f4000cc5adef9175ba82c1a67ca717af3c37419015df3910c9ab2cf5d84d4",
+     "offset": 388,
+     "type": "f32",
+     "bytesHex": "00000000",
+     "value": 0.0,
+     "expect": 0.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\FighterPlane\\Ability_FighterPlane_Countermeasure_Flares.ebx",
+     "rawSha256": "896f4000cc5adef9175ba82c1a67ca717af3c37419015df3910c9ab2cf5d84d4",
+     "offset": 396,
+     "type": "f32",
+     "bytesHex": "00007041",
+     "value": 15.0,
+     "expect": 15.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\FighterPlane\\Ability_FighterPlane_Countermeasure_Flares.ebx",
+     "rawSha256": "896f4000cc5adef9175ba82c1a67ca717af3c37419015df3910c9ab2cf5d84d4",
+     "offset": 400,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 139100,
+     "type": "f32",
+     "bytesHex": "0000c041",
+     "value": 24.0,
+     "expect": 24.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 237260,
+     "type": "f32",
+     "bytesHex": "cdcccc3e",
+     "value": 0.4000000059604645,
+     "expect": 0.4,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\Helicopter\\Ability_Helicopter_EmergencyDamageControl.ebx",
+     "rawSha256": "b0aeef9c20b577ef80b661ee98d338ffe0161ee2017d2404bb22b40d067da5c6",
+     "offset": 380,
+     "type": "f32",
+     "bytesHex": "cdcccc3e",
+     "value": 0.4000000059604645,
+     "expect": 0.4,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\Helicopter\\Ability_Helicopter_EmergencyDamageControl.ebx",
+     "rawSha256": "b0aeef9c20b577ef80b661ee98d338ffe0161ee2017d2404bb22b40d067da5c6",
+     "offset": 388,
+     "type": "f32",
+     "bytesHex": "00002041",
+     "value": 10.0,
+     "expect": 10.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\Helicopter\\Ability_Helicopter_EmergencyDamageControl.ebx",
+     "rawSha256": "b0aeef9c20b577ef80b661ee98d338ffe0161ee2017d2404bb22b40d067da5c6",
+     "offset": 396,
+     "type": "f32",
+     "bytesHex": "0000f041",
+     "value": 30.0,
+     "expect": 30.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\Helicopter\\Ability_Helicopter_EmergencyDamageControl.ebx",
+     "rawSha256": "b0aeef9c20b577ef80b661ee98d338ffe0161ee2017d2404bb22b40d067da5c6",
+     "offset": 400,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 110756,
+     "type": "f32",
+     "bytesHex": "0000a040",
+     "value": 5.0,
+     "expect": 5.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 150860,
+     "type": "f32",
+     "bytesHex": "00000042",
+     "value": 32.0,
+     "expect": 32.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\MBT\\Ability_MBT_ActiveProtectionSystem.ebx",
+     "rawSha256": "3ffdbf70e4f62363ee15011e53ae1f677ae629c3b4f35bf4ec85b4aa3e2ff3fb",
+     "offset": 380,
+     "type": "f32",
+     "bytesHex": "00008040",
+     "value": 4.0,
+     "expect": 4.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\MBT\\Ability_MBT_ActiveProtectionSystem.ebx",
+     "rawSha256": "3ffdbf70e4f62363ee15011e53ae1f677ae629c3b4f35bf4ec85b4aa3e2ff3fb",
+     "offset": 388,
+     "type": "f32",
+     "bytesHex": "cdcc0c3f",
+     "value": 0.550000011920929,
+     "expect": 0.55,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\MBT\\Ability_MBT_ActiveProtectionSystem.ebx",
+     "rawSha256": "3ffdbf70e4f62363ee15011e53ae1f677ae629c3b4f35bf4ec85b4aa3e2ff3fb",
+     "offset": 396,
+     "type": "f32",
+     "bytesHex": "00000042",
+     "value": 32.0,
+     "expect": 32.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\MBT\\Ability_MBT_ActiveProtectionSystem.ebx",
+     "rawSha256": "3ffdbf70e4f62363ee15011e53ae1f677ae629c3b4f35bf4ec85b4aa3e2ff3fb",
+     "offset": 400,
+     "type": "f32",
+     "bytesHex": "0000c03f",
+     "value": 1.5,
+     "expect": 1.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 20004,
+     "type": "f32",
+     "bytesHex": "0000a041",
+     "value": 20.0,
+     "expect": 20.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 61124,
+     "type": "f32",
+     "bytesHex": "cdcccc3e",
+     "value": 0.4000000059604645,
+     "expect": 0.4,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\MBT\\Ability_MBT_ExplosivesDetectionDetonationSystem.ebx",
+     "rawSha256": "f379689422593b70b8d995377bc75bf8fbb9425a9244e6370cea50d8e403759e",
+     "offset": 380,
+     "type": "f32",
+     "bytesHex": "cdcccc3e",
+     "value": 0.4000000059604645,
+     "expect": 0.4,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\MBT\\Ability_MBT_ExplosivesDetectionDetonationSystem.ebx",
+     "rawSha256": "f379689422593b70b8d995377bc75bf8fbb9425a9244e6370cea50d8e403759e",
+     "offset": 388,
+     "type": "f32",
+     "bytesHex": "00000000",
+     "value": 0.0,
+     "expect": 0.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\MBT\\Ability_MBT_ExplosivesDetectionDetonationSystem.ebx",
+     "rawSha256": "f379689422593b70b8d995377bc75bf8fbb9425a9244e6370cea50d8e403759e",
+     "offset": 396,
+     "type": "f32",
+     "bytesHex": "0000a041",
+     "value": 20.0,
+     "expect": 20.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\MBT\\Ability_MBT_ExplosivesDetectionDetonationSystem.ebx",
+     "rawSha256": "f379689422593b70b8d995377bc75bf8fbb9425a9244e6370cea50d8e403759e",
+     "offset": 400,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 119,
+   "matched": 119,
+   "files": 20,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "rawchecks-L3354.json"
+  },
+  "dataset": "reference-data/frosty/vehicle-ability-times.json",
+  "officialSource": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-1-0",
+  "fields": {
+   "Class_4918a771.Field_143f8e7a": "ActiveTime",
+   "Class_4918a771.Field_bcfe8c70": "RechargeTime"
+  },
+  "rows": [
+   {
+    "ability": "Ability_APC_ExplosivesDetectionDetonationSystem",
+    "fileSaved": true,
+    "activeTime": {
+     "registry": 0.4,
+     "own": 0.1
+    },
+    "rechargeTime": {
+     "registry": 20.0,
+     "own": 20.0
+    },
+    "Field_85c11a9b": 0.0,
+    "Field_6652f9a6": 1.0
+   },
+   {
+    "ability": "Ability_APC_Passenger_SmokeLauncher",
+    "fileSaved": true,
+    "activeTime": {
+     "registry": 0.25,
+     "own": 0.25
+    },
+    "rechargeTime": {
+     "registry": 30.0,
+     "own": 30.0
+    },
+    "Field_85c11a9b": 0.0,
+    "Field_6652f9a6": 1.0
+   },
+   {
+    "ability": "Ability_APC_ProximityDetectionSystem",
+    "fileSaved": false,
+    "activeTime": {
+     "registry": 12.0,
+     "own": null
+    },
+    "rechargeTime": {
+     "registry": 20.0,
+     "own": null
+    },
+    "Field_85c11a9b": null,
+    "Field_6652f9a6": null
+   },
+   {
+    "ability": "Ability_AttackHeli_Countermeasure_Flares",
+    "fileSaved": true,
+    "activeTime": {
+     "registry": 1.8,
+     "own": 1.8
+    },
+    "rechargeTime": {
+     "registry": 15.0,
+     "own": 15.0
+    },
+    "Field_85c11a9b": 0.0,
+    "Field_6652f9a6": 1.0
+   },
+   {
+    "ability": "Ability_AttackHeli_GroundTargetDetection",
+    "fileSaved": true,
+    "activeTime": {
+     "registry": 15.0,
+     "own": 15.0
+    },
+    "rechargeTime": {
+     "registry": 25.0,
+     "own": 25.0
+    },
+    "Field_85c11a9b": 0.1,
+    "Field_6652f9a6": 1.0
+   },
+   {
+    "ability": "Ability_AttackPlane_Countermeasure_Flares",
+    "fileSaved": true,
+    "activeTime": {
+     "registry": 1.8,
+     "own": 1.8
+    },
+    "rechargeTime": {
+     "registry": 15.0,
+     "own": 15.0
+    },
+    "Field_85c11a9b": 0.0,
+    "Field_6652f9a6": 1.0
+   },
+   {
+    "ability": "Ability_CV90_AdvancedThreatDetectionSystem",
+    "fileSaved": true,
+    "activeTime": {
+     "registry": 10.0,
+     "own": 20.0
+    },
+    "rechargeTime": {
+     "registry": 15.0,
+     "own": 20.0
+    },
+    "Field_85c11a9b": 0.1,
+    "Field_6652f9a6": 1.0
+   },
+   {
+    "ability": "Ability_CV90_Passenger_SmokeLauncher",
+    "fileSaved": true,
+    "activeTime": {
+     "registry": 0.25,
+     "own": 0.25
+    },
+    "rechargeTime": {
+     "registry": 30.0,
+     "own": 30.0
+    },
+    "Field_85c11a9b": 0.0,
+    "Field_6652f9a6": 1.0
+   },
+   {
+    "ability": "Ability_CV90_ProximityDetectionSystem",
+    "fileSaved": true,
+    "activeTime": {
+     "registry": 12.0,
+     "own": 20.0
+    },
+    "rechargeTime": {
+     "registry": 20.0,
+     "own": 20.0
+    },
+    "Field_85c11a9b": 0.0,
+    "Field_6652f9a6": 1.0
+   },
+   {
+    "ability": "Ability_Car_EmergencyDamageControl",
+    "fileSaved": true,
+    "activeTime": {
+     "registry": 0.4,
+     "own": 0.4
+    },
+    "rechargeTime": {
+     "registry": 24.0,
+     "own": 30.0
+    },
+    "Field_85c11a9b": 10.0,
+    "Field_6652f9a6": 1.5
+   },
+   {
+    "ability": "Ability_FighterPlane_Countermeasure_Flares",
+    "fileSaved": true,
+    "activeTime": {
+     "registry": 1.8,
+     "own": 1.8
+    },
+    "rechargeTime": {
+     "registry": 15.0,
+     "own": 15.0
+    },
+    "Field_85c11a9b": 0.0,
+    "Field_6652f9a6": 1.0
+   },
+   {
+    "ability": "Ability_Helicopter_EmergencyDamageControl",
+    "fileSaved": true,
+    "activeTime": {
+     "registry": 0.4,
+     "own": 0.4
+    },
+    "rechargeTime": {
+     "registry": 24.0,
+     "own": 30.0
+    },
+    "Field_85c11a9b": 10.0,
+    "Field_6652f9a6": 1.0
+   },
+   {
+    "ability": "Ability_MBT_ActiveProtectionSystem",
+    "fileSaved": true,
+    "activeTime": {
+     "registry": 5.0,
+     "own": 4.0
+    },
+    "rechargeTime": {
+     "registry": 32.0,
+     "own": 32.0
+    },
+    "Field_85c11a9b": 0.55,
+    "Field_6652f9a6": 1.5
+   },
+   {
+    "ability": "Ability_MBT_ExplosivesDetectionDetonationSystem",
+    "fileSaved": true,
+    "activeTime": {
+     "registry": 0.4,
+     "own": 0.4
+    },
+    "rechargeTime": {
+     "registry": 20.0,
+     "own": 20.0
+    },
+    "Field_85c11a9b": 0.0,
+    "Field_6652f9a6": 1.0
+   },
+   {
+    "ability": "Ability_MBT_SwitchAmmo",
+    "fileSaved": true,
+    "activeTime": {
+     "registry": 0.0,
+     "own": 0.0
+    },
+    "rechargeTime": {
+     "registry": 0.5,
+     "own": 0.5
+    },
+    "Field_85c11a9b": 0.5,
+    "Field_6652f9a6": 1.0
+   },
+   {
+    "ability": "Ability_ScoutHeli_Countermeasure_Flares",
+    "fileSaved": true,
+    "activeTime": {
+     "registry": 1.8,
+     "own": 1.8
+    },
+    "rechargeTime": {
+     "registry": 15.0,
+     "own": 15.0
+    },
+    "Field_85c11a9b": 0.0,
+    "Field_6652f9a6": 1.0
+   },
+   {
+    "ability": "Ability_UH60_Countermeasure_Flares",
+    "fileSaved": true,
+    "activeTime": {
+     "registry": 1.8,
+     "own": 1.8
+    },
+    "rechargeTime": {
+     "registry": 15.0,
+     "own": 15.0
+    },
+    "Field_85c11a9b": 0.0,
+    "Field_6652f9a6": 1.0
+   },
+   {
+    "ability": "Ability_Vehicle_RWS_ActiveMissileWarningAndKillSystem",
+    "fileSaved": true,
+    "activeTime": {
+     "registry": 3.6,
+     "own": 3.6
+    },
+    "rechargeTime": {
+     "registry": 20.0,
+     "own": 20.0
+    },
+    "Field_85c11a9b": 0.0,
+    "Field_6652f9a6": 1.0
+   },
+   {
+    "ability": "Ability_Vehicle_SmokeScreen",
+    "fileSaved": true,
+    "activeTime": {
+     "registry": 8.1,
+     "own": 8.1
+    },
+    "rechargeTime": {
+     "registry": 16.0,
+     "own": 20.0
+    },
+    "Field_85c11a9b": 0.1,
+    "Field_6652f9a6": 1.5
+   },
+   {
+    "ability": "Ability_Vehicle_ThermalSmoke",
+    "fileSaved": true,
+    "activeTime": {
+     "registry": 10.0,
+     "own": 7.0
+    },
+    "rechargeTime": {
+     "registry": 16.0,
+     "own": 20.0
+    },
+    "Field_85c11a9b": 0.1,
+    "Field_6652f9a6": 1.5
+   }
+  ],
+  "disputed": [
+   {
+    "ability": "Ability_APC_ExplosivesDetectionDetonationSystem",
+    "fileSaved": true,
+    "activeTime": {
+     "registry": 0.4,
+     "own": 0.1
+    },
+    "rechargeTime": {
+     "registry": 20.0,
+     "own": 20.0
+    },
+    "Field_85c11a9b": 0.0,
+    "Field_6652f9a6": 1.0
+   },
+   {
+    "ability": "Ability_CV90_AdvancedThreatDetectionSystem",
+    "fileSaved": true,
+    "activeTime": {
+     "registry": 10.0,
+     "own": 20.0
+    },
+    "rechargeTime": {
+     "registry": 15.0,
+     "own": 20.0
+    },
+    "Field_85c11a9b": 0.1,
+    "Field_6652f9a6": 1.0
+   },
+   {
+    "ability": "Ability_CV90_ProximityDetectionSystem",
+    "fileSaved": true,
+    "activeTime": {
+     "registry": 12.0,
+     "own": 20.0
+    },
+    "rechargeTime": {
+     "registry": 20.0,
+     "own": 20.0
+    },
+    "Field_85c11a9b": 0.0,
+    "Field_6652f9a6": 1.0
+   },
+   {
+    "ability": "Ability_Car_EmergencyDamageControl",
+    "fileSaved": true,
+    "activeTime": {
+     "registry": 0.4,
+     "own": 0.4
+    },
+    "rechargeTime": {
+     "registry": 24.0,
+     "own": 30.0
+    },
+    "Field_85c11a9b": 10.0,
+    "Field_6652f9a6": 1.5
+   },
+   {
+    "ability": "Ability_Helicopter_EmergencyDamageControl",
+    "fileSaved": true,
+    "activeTime": {
+     "registry": 0.4,
+     "own": 0.4
+    },
+    "rechargeTime": {
+     "registry": 24.0,
+     "own": 30.0
+    },
+    "Field_85c11a9b": 10.0,
+    "Field_6652f9a6": 1.0
+   },
+   {
+    "ability": "Ability_MBT_ActiveProtectionSystem",
+    "fileSaved": true,
+    "activeTime": {
+     "registry": 5.0,
+     "own": 4.0
+    },
+    "rechargeTime": {
+     "registry": 32.0,
+     "own": 32.0
+    },
+    "Field_85c11a9b": 0.55,
+    "Field_6652f9a6": 1.5
+   },
+   {
+    "ability": "Ability_Vehicle_SmokeScreen",
+    "fileSaved": true,
+    "activeTime": {
+     "registry": 8.1,
+     "own": 8.1
+    },
+    "rechargeTime": {
+     "registry": 16.0,
+     "own": 20.0
+    },
+    "Field_85c11a9b": 0.1,
+    "Field_6652f9a6": 1.5
+   },
+   {
+    "ability": "Ability_Vehicle_ThermalSmoke",
+    "fileSaved": true,
+    "activeTime": {
+     "registry": 10.0,
+     "own": 7.0
+    },
+    "rechargeTime": {
+     "registry": 16.0,
+     "own": 20.0
+    },
+    "Field_85c11a9b": 0.1,
+    "Field_6652f9a6": 1.5
+   }
+  ],
+  "thermalSmokeInfantryDamageMP": {
+   "Ability_ThermalSmoke_InfantryDamage_MP.DamageInterval": 0.5,
+   "Ability_ThermalSmoke_InfantryDamage_MP.InitialDamage": 25.0,
+   "Ability_ThermalSmoke_InfantryDamage_MP.DamageToDealPerSecond": 12.0
+  },
+  "eaComparisons": [
+   "Smoke Screen cooldown 20 to 16 s: Ability_Vehicle_SmokeScreen.RechargeTime 16 (L3344)",
+   "Projectile Intercept System activation 0.55 s: Field_85c11a9b of the tank ability (L3343)"
+  ]
+ },
+ "inference": [
+  "Countermeasure flares on every aircraft: active 1.8 s, recharge 15 s. Emergency repair (car and helicopter rows): active 0.4 s, recharge 24 s by the registry.",
+  "Disputed pairs, where the registry default and the own value differ: Ability_APC_ExplosivesDetectionDetonationSystem active 0.4 (own 0.1), recharge 20; Ability_CV90_AdvancedThreatDetectionSystem active 10 (own 20), recharge 15 (own 20); Ability_CV90_ProximityDetectionSystem active 12 (own 20), recharge 20; Ability_Car_EmergencyDamageControl active 0.4, recharge 24 (own 30); Ability_Helicopter_EmergencyDamageControl active 0.4, recharge 24 (own 30); Ability_MBT_ActiveProtectionSystem active 5 (own 4), recharge 32; Ability_Vehicle_SmokeScreen active 8.1, recharge 16 (own 20); Ability_Vehicle_ThermalSmoke active 10 (own 7), recharge 16 (own 20). By the pattern of L3327 and L3339 the registry default is the one in use, which is not verified for abilities.",
+  "Thermal smoke's damage to infantry (EA 1.3.1.0: 'moderate damage to nearby enemy infantry who remain within the cloud') is stored as DamageInterval 0.5, DamageToDealPerSecond 12, InitialDamage 25.",
+  "Field_85c11a9b is 0.55 on the tank's active protection (EA's activation time) but 10 on the emergency repair ability, so it is not simply 'activation time'; it stays unnamed."
+ ],
+ "unresolved": [
+  "Registry or own value for the disputed abilities. Test: time the tank's active protection window (5 s by registry, 4 s by own) and the emergency repair cooldown (24 s or 30 s).",
+  "EA's 1.3.3.0 'Emergency Countermeasures cooldown acceleration 1.5x' and 'Emergency Repair pause on damage 2 s' were not matched to a named row.",
+  "Thermal smoke damage: 25 at once then 12 per second in 0.5 s steps is a reading of three row names; test by standing in enemy thermal smoke for 4 s."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-09-damage-rule-extension",
+  "artifacts": [
+   {
+    "file": "manifest-L3354.json",
+    "sha256": "bd29283066b591cd95bffc97d67388c8e91b1139d768c7a79999e4496cdb5728"
+   },
+   {
+    "file": "rawchecks-L3354.json",
+    "sha256": "88895d51a23c86b60885a3aed8f383f5e06cb9a3982f15ad2fc1416d4f620bf6"
+   },
+   {
+    "file": "fieldfind-abilities.json",
+    "sha256": "3ce90024959348da4cc5e379a57b47fb515d5b5d2685340cbd4d215331998756"
+   },
+   {
+    "file": "fieldfind.py",
+    "sha256": "51b443e49c3043f524e485e8c2232d4ff4792a9a0cc15f73ef0ec44ec6e7fab9"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-09",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L3354",
+    "title": "Vehicle ability active and recharge times: registry rows for 20 abilities, with the own fields named and the disputed pairs listed",
+    "status": "finding",
+    "summary": "The registry holds active and recharge times for 20 vehicle abilities: flares 1.8 s active and 15 s recharge on every aircraft, emergency repair 0.4 s and 24 s, smoke screen 8.1 s and 16 s, thermal smoke 10 s and 16 s, tank active protection 5 s and 32 s. The own fields are Field_143f8e7a (ActiveTime) and Field_bcfe8c70 (RechargeTime); 8 abilities store an own value that differs from the registry. Thermal smoke damage to infantry is stored as 25 initial and 12 per second. 119 raw-offset checks matched.",
+    "reopenWhen": "A timed ability window or cooldown in game.",
+    "statusNote": "Registry defaults and own values read; which applies for disputed abilities unverified."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Hardware/Vehicles/_VehiclesCommon/Abilities/APC/Ability_APC_ExplosivesDetectionDetonationSystem",
+    "format": "raw-ebx",
+    "sha256": "4d7455006a7ff19ef5704c5c3682cb1bc8c249dd0ce1bda9d8eb2bb2e99f3c38",
+    "question": "What active and recharge times do the vehicle abilities store (flares, smoke, active protection, emergency repair), and which own fields hold them?",
+    "result": "useful",
+    "conclusion": "Own ActiveTime 0.1 and RechargeTime 20; registry 0.4 and 20."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/_VehiclesCommon/Abilities/IFV/Ability_CV90_AdvancedThreatDetectionSystem",
+    "format": "raw-ebx",
+    "sha256": "e28b41f10ac5fd012fa0df2a51b4f4979937e53599012263b1df17c46a96ab15",
+    "question": "What active and recharge times do the vehicle abilities store (flares, smoke, active protection, emergency repair), and which own fields hold them?",
+    "result": "useful",
+    "conclusion": "Own ActiveTime 20 and RechargeTime 20; registry 10 and 15."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/_VehiclesCommon/Abilities/IFV/Ability_CV90_ProximityDetectionSystem",
+    "format": "raw-ebx",
+    "sha256": "ff4fad4557061d9f301d6b25ff38a587976e0a7ea80b0927b939d1b6b3005637",
+    "question": "What active and recharge times do the vehicle abilities store (flares, smoke, active protection, emergency repair), and which own fields hold them?",
+    "result": "useful",
+    "conclusion": "Own ActiveTime 20 and RechargeTime 20; registry 12 and 20."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/_VehiclesCommon/Abilities/Car/Ability_Car_EmergencyDamageControl",
+    "format": "raw-ebx",
+    "sha256": "4b2888ec61bd65776062f799a8a19b46173f3139afaa39211c80c46fcfd908b2",
+    "question": "What active and recharge times do the vehicle abilities store (flares, smoke, active protection, emergency repair), and which own fields hold them?",
+    "result": "useful",
+    "conclusion": "Own ActiveTime 0.4 and RechargeTime 30; registry 0.4 and 24."
+   }
+  ]
+ }
+}

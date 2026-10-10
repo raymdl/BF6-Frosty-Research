@@ -1,0 +1,2714 @@
+{
+ "lead": "L3380",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Read from saved raw captures; no export, no new capture."
+ },
+ "question": "What names the soldier-style target materials that L3370 and L3374 could not attribute, and what selects the 'against armor' material 579?",
+ "sourceFacts": {
+  "method": "All affector files with Armor in the name were decoded (affdump.py). Those of class Class_99b2c2df hold a list of material pairs (Field_4a94515c, Field_465fa50b) and a kind value; those of class Class_79520af1 hold entries of an integer, an amount and a factor. Every material the pairs name was read against five sample bullet materials in both level grids. A corrected file search (matusers2.py: every saved raw root, low byte 0x80 or 0x81) replaced the search used in L3370 and L3374, which covered three raw roots only and required the low 20 bits to equal 0x80.",
+  "control": {
+   "description": "The soldier file's packed materials 579 and 587 read as in L3370, and material 579 holds 0.84 / 0.91 / 0.67 against automatic, DMR and bolt-action bullets as EA's 1.3.3.0 notes state for the chest against armor.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Gameplay\\Soldier\\Glacier_Soldier.ebx",
+     "rawSha256": "22e0ccf07219f8094eed17f57585041b0b075196c120b071fe8dd0870351bf19",
+     "offset": 11604,
+     "type": "i32",
+     "bytesHex": "80003024",
+     "value": 607125632,
+     "expect": 607125632,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Gameplay\\Soldier\\Glacier_Soldier.ebx",
+     "rawSha256": "22e0ccf07219f8094eed17f57585041b0b075196c120b071fe8dd0870351bf19",
+     "offset": 11584,
+     "type": "i32",
+     "bytesHex": "8000b024",
+     "value": 615514240,
+     "expect": 615514240,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_CeramicArmorUpgrade.ebx",
+     "rawSha256": "a17a3a38a04dd9387b88bc1b510d0e9f89499101401bdc04f5fe40e1c3ef609e",
+     "offset": 180,
+     "type": "i32",
+     "bytesHex": "80003024",
+     "value": 607125632,
+     "expect": 607125632,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_CeramicArmorUpgrade.ebx",
+     "rawSha256": "a17a3a38a04dd9387b88bc1b510d0e9f89499101401bdc04f5fe40e1c3ef609e",
+     "offset": 176,
+     "type": "i32",
+     "bytesHex": "8000e00e",
+     "value": 249561216,
+     "expect": 249561216,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_CeramicArmorUpgrade.ebx",
+     "rawSha256": "a17a3a38a04dd9387b88bc1b510d0e9f89499101401bdc04f5fe40e1c3ef609e",
+     "offset": 188,
+     "type": "i32",
+     "bytesHex": "808a4124",
+     "value": 608275072,
+     "expect": 608275072,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_CeramicArmorUpgrade.ebx",
+     "rawSha256": "a17a3a38a04dd9387b88bc1b510d0e9f89499101401bdc04f5fe40e1c3ef609e",
+     "offset": 184,
+     "type": "i32",
+     "bytesHex": "81eff00e",
+     "value": 250670977,
+     "expect": 250670977,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_CeramicArmorUpgrade.ebx",
+     "rawSha256": "a17a3a38a04dd9387b88bc1b510d0e9f89499101401bdc04f5fe40e1c3ef609e",
+     "offset": 196,
+     "type": "i32",
+     "bytesHex": "808b4124",
+     "value": 608275328,
+     "expect": 608275328,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_CeramicArmorUpgrade.ebx",
+     "rawSha256": "a17a3a38a04dd9387b88bc1b510d0e9f89499101401bdc04f5fe40e1c3ef609e",
+     "offset": 192,
+     "type": "i32",
+     "bytesHex": "80244112",
+     "value": 306259072,
+     "expect": 306259072,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_CeramicArmorUpgrade.ebx",
+     "rawSha256": "a17a3a38a04dd9387b88bc1b510d0e9f89499101401bdc04f5fe40e1c3ef609e",
+     "offset": 204,
+     "type": "i32",
+     "bytesHex": "80000000",
+     "value": 128,
+     "expect": 128,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_CeramicArmorUpgrade.ebx",
+     "rawSha256": "a17a3a38a04dd9387b88bc1b510d0e9f89499101401bdc04f5fe40e1c3ef609e",
+     "offset": 200,
+     "type": "i32",
+     "bytesHex": "81a4f10e",
+     "value": 250717313,
+     "expect": 250717313,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_CeramicArmorUpgrade.ebx",
+     "rawSha256": "a17a3a38a04dd9387b88bc1b510d0e9f89499101401bdc04f5fe40e1c3ef609e",
+     "offset": 212,
+     "type": "i32",
+     "bytesHex": "80000000",
+     "value": 128,
+     "expect": 128,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_CeramicArmorUpgrade.ebx",
+     "rawSha256": "a17a3a38a04dd9387b88bc1b510d0e9f89499101401bdc04f5fe40e1c3ef609e",
+     "offset": 208,
+     "type": "i32",
+     "bytesHex": "81a2f10e",
+     "value": 250716801,
+     "expect": 250716801,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_CeramicArmorUpgrade.ebx",
+     "rawSha256": "a17a3a38a04dd9387b88bc1b510d0e9f89499101401bdc04f5fe40e1c3ef609e",
+     "offset": 112,
+     "type": "i32",
+     "bytesHex": "02000000",
+     "value": 2,
+     "expect": 2,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_CeramicArmorUpgrade_EffectiveHealth.ebx",
+     "rawSha256": "8aac04b6bc5d0f863cf80b0ef37115689091d1260c84f5c3ae083aac8ad01a5f",
+     "offset": 180,
+     "type": "i32",
+     "bytesHex": "8000b024",
+     "value": 615514240,
+     "expect": 615514240,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_CeramicArmorUpgrade_EffectiveHealth.ebx",
+     "rawSha256": "8aac04b6bc5d0f863cf80b0ef37115689091d1260c84f5c3ae083aac8ad01a5f",
+     "offset": 176,
+     "type": "i32",
+     "bytesHex": "8000a024",
+     "value": 614465664,
+     "expect": 614465664,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_CeramicArmorUpgrade_EffectiveHealth.ebx",
+     "rawSha256": "8aac04b6bc5d0f863cf80b0ef37115689091d1260c84f5c3ae083aac8ad01a5f",
+     "offset": 188,
+     "type": "i32",
+     "bytesHex": "80003024",
+     "value": 607125632,
+     "expect": 607125632,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_CeramicArmorUpgrade_EffectiveHealth.ebx",
+     "rawSha256": "8aac04b6bc5d0f863cf80b0ef37115689091d1260c84f5c3ae083aac8ad01a5f",
+     "offset": 184,
+     "type": "i32",
+     "bytesHex": "80003024",
+     "value": 607125632,
+     "expect": 607125632,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_CeramicArmorUpgrade_EffectiveHealth.ebx",
+     "rawSha256": "8aac04b6bc5d0f863cf80b0ef37115689091d1260c84f5c3ae083aac8ad01a5f",
+     "offset": 196,
+     "type": "i32",
+     "bytesHex": "808a4124",
+     "value": 608275072,
+     "expect": 608275072,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_CeramicArmorUpgrade_EffectiveHealth.ebx",
+     "rawSha256": "8aac04b6bc5d0f863cf80b0ef37115689091d1260c84f5c3ae083aac8ad01a5f",
+     "offset": 192,
+     "type": "i32",
+     "bytesHex": "80ef4024",
+     "value": 608235392,
+     "expect": 608235392,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_CeramicArmorUpgrade_EffectiveHealth.ebx",
+     "rawSha256": "8aac04b6bc5d0f863cf80b0ef37115689091d1260c84f5c3ae083aac8ad01a5f",
+     "offset": 204,
+     "type": "i32",
+     "bytesHex": "808b5124",
+     "value": 609323904,
+     "expect": 609323904,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_CeramicArmorUpgrade_EffectiveHealth.ebx",
+     "rawSha256": "8aac04b6bc5d0f863cf80b0ef37115689091d1260c84f5c3ae083aac8ad01a5f",
+     "offset": 200,
+     "type": "i32",
+     "bytesHex": "80245124",
+     "value": 609297536,
+     "expect": 609297536,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_CeramicArmorUpgrade_EffectiveHealth.ebx",
+     "rawSha256": "8aac04b6bc5d0f863cf80b0ef37115689091d1260c84f5c3ae083aac8ad01a5f",
+     "offset": 212,
+     "type": "i32",
+     "bytesHex": "80a54124",
+     "value": 608281984,
+     "expect": 608281984,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_CeramicArmorUpgrade_EffectiveHealth.ebx",
+     "rawSha256": "8aac04b6bc5d0f863cf80b0ef37115689091d1260c84f5c3ae083aac8ad01a5f",
+     "offset": 208,
+     "type": "i32",
+     "bytesHex": "80a44124",
+     "value": 608281728,
+     "expect": 608281728,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_CeramicArmorUpgrade_EffectiveHealth.ebx",
+     "rawSha256": "8aac04b6bc5d0f863cf80b0ef37115689091d1260c84f5c3ae083aac8ad01a5f",
+     "offset": 220,
+     "type": "i32",
+     "bytesHex": "80a34124",
+     "value": 608281472,
+     "expect": 608281472,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_CeramicArmorUpgrade_EffectiveHealth.ebx",
+     "rawSha256": "8aac04b6bc5d0f863cf80b0ef37115689091d1260c84f5c3ae083aac8ad01a5f",
+     "offset": 216,
+     "type": "i32",
+     "bytesHex": "80a24124",
+     "value": 608281216,
+     "expect": 608281216,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_CeramicArmorUpgrade_EffectiveHealth.ebx",
+     "rawSha256": "8aac04b6bc5d0f863cf80b0ef37115689091d1260c84f5c3ae083aac8ad01a5f",
+     "offset": 112,
+     "type": "i32",
+     "bytesHex": "02000000",
+     "value": 2,
+     "expect": 2,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_CeramicArmorUpgrade_ExtraDurability.ebx",
+     "rawSha256": "715dc4da6cd15058c55323be7833fe6c612d0bc78ec7d0ba546d355ae5cf02b4",
+     "offset": 180,
+     "type": "i32",
+     "bytesHex": "8000d018",
+     "value": 416284800,
+     "expect": 416284800,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_CeramicArmorUpgrade_ExtraDurability.ebx",
+     "rawSha256": "715dc4da6cd15058c55323be7833fe6c612d0bc78ec7d0ba546d355ae5cf02b4",
+     "offset": 176,
+     "type": "i32",
+     "bytesHex": "8000d01b",
+     "value": 466616448,
+     "expect": 466616448,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_CeramicArmorUpgrade_ExtraDurability.ebx",
+     "rawSha256": "715dc4da6cd15058c55323be7833fe6c612d0bc78ec7d0ba546d355ae5cf02b4",
+     "offset": 188,
+     "type": "i32",
+     "bytesHex": "808bb118",
+     "value": 414288768,
+     "expect": 414288768,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_CeramicArmorUpgrade_ExtraDurability.ebx",
+     "rawSha256": "715dc4da6cd15058c55323be7833fe6c612d0bc78ec7d0ba546d355ae5cf02b4",
+     "offset": 184,
+     "type": "i32",
+     "bytesHex": "80f0201c",
+     "value": 471920768,
+     "expect": 471920768,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_CeramicArmorUpgrade_ExtraDurability.ebx",
+     "rawSha256": "715dc4da6cd15058c55323be7833fe6c612d0bc78ec7d0ba546d355ae5cf02b4",
+     "offset": 196,
+     "type": "i32",
+     "bytesHex": "808cc118",
+     "value": 415337600,
+     "expect": 415337600,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_CeramicArmorUpgrade_ExtraDurability.ebx",
+     "rawSha256": "715dc4da6cd15058c55323be7833fe6c612d0bc78ec7d0ba546d355ae5cf02b4",
+     "offset": 192,
+     "type": "i32",
+     "bytesHex": "8025111c",
+     "value": 470885760,
+     "expect": 470885760,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_CeramicArmorUpgrade_ExtraDurability.ebx",
+     "rawSha256": "715dc4da6cd15058c55323be7833fe6c612d0bc78ec7d0ba546d355ae5cf02b4",
+     "offset": 204,
+     "type": "i32",
+     "bytesHex": "80a6b118",
+     "value": 414295680,
+     "expect": 414295680,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_CeramicArmorUpgrade_ExtraDurability.ebx",
+     "rawSha256": "715dc4da6cd15058c55323be7833fe6c612d0bc78ec7d0ba546d355ae5cf02b4",
+     "offset": 200,
+     "type": "i32",
+     "bytesHex": "80a5211c",
+     "value": 471967104,
+     "expect": 471967104,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_CeramicArmorUpgrade_ExtraDurability.ebx",
+     "rawSha256": "715dc4da6cd15058c55323be7833fe6c612d0bc78ec7d0ba546d355ae5cf02b4",
+     "offset": 212,
+     "type": "i32",
+     "bytesHex": "80a4b118",
+     "value": 414295168,
+     "expect": 414295168,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_CeramicArmorUpgrade_ExtraDurability.ebx",
+     "rawSha256": "715dc4da6cd15058c55323be7833fe6c612d0bc78ec7d0ba546d355ae5cf02b4",
+     "offset": 208,
+     "type": "i32",
+     "bytesHex": "80a3211c",
+     "value": 471966592,
+     "expect": 471966592,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_CeramicArmorUpgrade_ExtraDurability.ebx",
+     "rawSha256": "715dc4da6cd15058c55323be7833fe6c612d0bc78ec7d0ba546d355ae5cf02b4",
+     "offset": 112,
+     "type": "i32",
+     "bytesHex": "02000000",
+     "value": 2,
+     "expect": 2,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_CeramicArmorUpgrade_ExtraProtection.ebx",
+     "rawSha256": "dfa9bd8b6e637f9ec74b3497921a90a4a3edeedeba6e78be8e1a0d724e7b2fd2",
+     "offset": 180,
+     "type": "i32",
+     "bytesHex": "8000d018",
+     "value": 416284800,
+     "expect": 416284800,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_CeramicArmorUpgrade_ExtraProtection.ebx",
+     "rawSha256": "dfa9bd8b6e637f9ec74b3497921a90a4a3edeedeba6e78be8e1a0d724e7b2fd2",
+     "offset": 176,
+     "type": "i32",
+     "bytesHex": "8000f01b",
+     "value": 468713600,
+     "expect": 468713600,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_CeramicArmorUpgrade_ExtraProtection.ebx",
+     "rawSha256": "dfa9bd8b6e637f9ec74b3497921a90a4a3edeedeba6e78be8e1a0d724e7b2fd2",
+     "offset": 188,
+     "type": "i32",
+     "bytesHex": "808bb118",
+     "value": 414288768,
+     "expect": 414288768,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_CeramicArmorUpgrade_ExtraProtection.ebx",
+     "rawSha256": "dfa9bd8b6e637f9ec74b3497921a90a4a3edeedeba6e78be8e1a0d724e7b2fd2",
+     "offset": 184,
+     "type": "i32",
+     "bytesHex": "80f0301c",
+     "value": 472969344,
+     "expect": 472969344,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_CeramicArmorUpgrade_ExtraProtection.ebx",
+     "rawSha256": "dfa9bd8b6e637f9ec74b3497921a90a4a3edeedeba6e78be8e1a0d724e7b2fd2",
+     "offset": 196,
+     "type": "i32",
+     "bytesHex": "808cc118",
+     "value": 415337600,
+     "expect": 415337600,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_CeramicArmorUpgrade_ExtraProtection.ebx",
+     "rawSha256": "dfa9bd8b6e637f9ec74b3497921a90a4a3edeedeba6e78be8e1a0d724e7b2fd2",
+     "offset": 192,
+     "type": "i32",
+     "bytesHex": "8025911e",
+     "value": 512828800,
+     "expect": 512828800,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_CeramicArmorUpgrade_ExtraProtection.ebx",
+     "rawSha256": "dfa9bd8b6e637f9ec74b3497921a90a4a3edeedeba6e78be8e1a0d724e7b2fd2",
+     "offset": 204,
+     "type": "i32",
+     "bytesHex": "80a6b118",
+     "value": 414295680,
+     "expect": 414295680,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_CeramicArmorUpgrade_ExtraProtection.ebx",
+     "rawSha256": "dfa9bd8b6e637f9ec74b3497921a90a4a3edeedeba6e78be8e1a0d724e7b2fd2",
+     "offset": 200,
+     "type": "i32",
+     "bytesHex": "80a5311c",
+     "value": 473015680,
+     "expect": 473015680,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_CeramicArmorUpgrade_ExtraProtection.ebx",
+     "rawSha256": "dfa9bd8b6e637f9ec74b3497921a90a4a3edeedeba6e78be8e1a0d724e7b2fd2",
+     "offset": 212,
+     "type": "i32",
+     "bytesHex": "80a4b118",
+     "value": 414295168,
+     "expect": 414295168,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_CeramicArmorUpgrade_ExtraProtection.ebx",
+     "rawSha256": "dfa9bd8b6e637f9ec74b3497921a90a4a3edeedeba6e78be8e1a0d724e7b2fd2",
+     "offset": 208,
+     "type": "i32",
+     "bytesHex": "80a3311c",
+     "value": 473015168,
+     "expect": 473015168,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_CeramicArmorUpgrade_ExtraProtection.ebx",
+     "rawSha256": "dfa9bd8b6e637f9ec74b3497921a90a4a3edeedeba6e78be8e1a0d724e7b2fd2",
+     "offset": 112,
+     "type": "i32",
+     "bytesHex": "02000000",
+     "value": 2,
+     "expect": 2,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_FiringRange_TargetCeramicArmor.ebx",
+     "rawSha256": "c5d1c60c40e082a326644c6b0bb04b8d5d879dd6d57bdf38f75d4877bfbd84f5",
+     "offset": 176,
+     "type": "i32",
+     "bytesHex": "80000000",
+     "value": 128,
+     "expect": 128,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_FiringRange_TargetCeramicArmor.ebx",
+     "rawSha256": "c5d1c60c40e082a326644c6b0bb04b8d5d879dd6d57bdf38f75d4877bfbd84f5",
+     "offset": 172,
+     "type": "i32",
+     "bytesHex": "80033000",
+     "value": 3146624,
+     "expect": 3146624,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_FiringRange_TargetCeramicArmor.ebx",
+     "rawSha256": "c5d1c60c40e082a326644c6b0bb04b8d5d879dd6d57bdf38f75d4877bfbd84f5",
+     "offset": 184,
+     "type": "i32",
+     "bytesHex": "808aa118",
+     "value": 413239936,
+     "expect": 413239936,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_FiringRange_TargetCeramicArmor.ebx",
+     "rawSha256": "c5d1c60c40e082a326644c6b0bb04b8d5d879dd6d57bdf38f75d4877bfbd84f5",
+     "offset": 180,
+     "type": "i32",
+     "bytesHex": "80033000",
+     "value": 3146624,
+     "expect": 3146624,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_FiringRange_TargetCeramicArmor.ebx",
+     "rawSha256": "c5d1c60c40e082a326644c6b0bb04b8d5d879dd6d57bdf38f75d4877bfbd84f5",
+     "offset": 192,
+     "type": "i32",
+     "bytesHex": "808bb118",
+     "value": 414288768,
+     "expect": 414288768,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_FiringRange_TargetCeramicArmor.ebx",
+     "rawSha256": "c5d1c60c40e082a326644c6b0bb04b8d5d879dd6d57bdf38f75d4877bfbd84f5",
+     "offset": 188,
+     "type": "i32",
+     "bytesHex": "80033000",
+     "value": 3146624,
+     "expect": 3146624,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_FiringRange_TargetCeramicArmor.ebx",
+     "rawSha256": "c5d1c60c40e082a326644c6b0bb04b8d5d879dd6d57bdf38f75d4877bfbd84f5",
+     "offset": 200,
+     "type": "i32",
+     "bytesHex": "80a5511a",
+     "value": 441558400,
+     "expect": 441558400,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_FiringRange_TargetCeramicArmor.ebx",
+     "rawSha256": "c5d1c60c40e082a326644c6b0bb04b8d5d879dd6d57bdf38f75d4877bfbd84f5",
+     "offset": 196,
+     "type": "i32",
+     "bytesHex": "80033000",
+     "value": 3146624,
+     "expect": 3146624,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_FiringRange_TargetCeramicArmor.ebx",
+     "rawSha256": "c5d1c60c40e082a326644c6b0bb04b8d5d879dd6d57bdf38f75d4877bfbd84f5",
+     "offset": 208,
+     "type": "i32",
+     "bytesHex": "80a3311a",
+     "value": 439460736,
+     "expect": 439460736,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_FiringRange_TargetCeramicArmor.ebx",
+     "rawSha256": "c5d1c60c40e082a326644c6b0bb04b8d5d879dd6d57bdf38f75d4877bfbd84f5",
+     "offset": 204,
+     "type": "i32",
+     "bytesHex": "80033000",
+     "value": 3146624,
+     "expect": 3146624,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_FiringRange_TargetCeramicArmor.ebx",
+     "rawSha256": "c5d1c60c40e082a326644c6b0bb04b8d5d879dd6d57bdf38f75d4877bfbd84f5",
+     "offset": 112,
+     "type": "i32",
+     "bytesHex": "02000000",
+     "value": 2,
+     "expect": 2,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_FiringRange_TargetSoftArmor.ebx",
+     "rawSha256": "e075071c9550aa4827a35a8fecd15a5428374f073a3b2e55b69cec5a1246098e",
+     "offset": 176,
+     "type": "i32",
+     "bytesHex": "80000000",
+     "value": 128,
+     "expect": 128,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_FiringRange_TargetSoftArmor.ebx",
+     "rawSha256": "e075071c9550aa4827a35a8fecd15a5428374f073a3b2e55b69cec5a1246098e",
+     "offset": 172,
+     "type": "i32",
+     "bytesHex": "80033000",
+     "value": 3146624,
+     "expect": 3146624,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_FiringRange_TargetSoftArmor.ebx",
+     "rawSha256": "e075071c9550aa4827a35a8fecd15a5428374f073a3b2e55b69cec5a1246098e",
+     "offset": 184,
+     "type": "i32",
+     "bytesHex": "808aa118",
+     "value": 413239936,
+     "expect": 413239936,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_FiringRange_TargetSoftArmor.ebx",
+     "rawSha256": "e075071c9550aa4827a35a8fecd15a5428374f073a3b2e55b69cec5a1246098e",
+     "offset": 180,
+     "type": "i32",
+     "bytesHex": "80033000",
+     "value": 3146624,
+     "expect": 3146624,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_FiringRange_TargetSoftArmor.ebx",
+     "rawSha256": "e075071c9550aa4827a35a8fecd15a5428374f073a3b2e55b69cec5a1246098e",
+     "offset": 192,
+     "type": "i32",
+     "bytesHex": "808bb118",
+     "value": 414288768,
+     "expect": 414288768,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_FiringRange_TargetSoftArmor.ebx",
+     "rawSha256": "e075071c9550aa4827a35a8fecd15a5428374f073a3b2e55b69cec5a1246098e",
+     "offset": 188,
+     "type": "i32",
+     "bytesHex": "80033000",
+     "value": 3146624,
+     "expect": 3146624,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_FiringRange_TargetSoftArmor.ebx",
+     "rawSha256": "e075071c9550aa4827a35a8fecd15a5428374f073a3b2e55b69cec5a1246098e",
+     "offset": 200,
+     "type": "i32",
+     "bytesHex": "80a5511a",
+     "value": 441558400,
+     "expect": 441558400,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_FiringRange_TargetSoftArmor.ebx",
+     "rawSha256": "e075071c9550aa4827a35a8fecd15a5428374f073a3b2e55b69cec5a1246098e",
+     "offset": 196,
+     "type": "i32",
+     "bytesHex": "80033000",
+     "value": 3146624,
+     "expect": 3146624,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_FiringRange_TargetSoftArmor.ebx",
+     "rawSha256": "e075071c9550aa4827a35a8fecd15a5428374f073a3b2e55b69cec5a1246098e",
+     "offset": 208,
+     "type": "i32",
+     "bytesHex": "80a3311a",
+     "value": 439460736,
+     "expect": 439460736,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_FiringRange_TargetSoftArmor.ebx",
+     "rawSha256": "e075071c9550aa4827a35a8fecd15a5428374f073a3b2e55b69cec5a1246098e",
+     "offset": 204,
+     "type": "i32",
+     "bytesHex": "80033000",
+     "value": 3146624,
+     "expect": 3146624,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_FiringRange_TargetSoftArmor.ebx",
+     "rawSha256": "e075071c9550aa4827a35a8fecd15a5428374f073a3b2e55b69cec5a1246098e",
+     "offset": 112,
+     "type": "i32",
+     "bytesHex": "01000000",
+     "value": 1,
+     "expect": 1,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\SoftArmor\\Affector_SoftArmorUpgrade.ebx",
+     "rawSha256": "f1dcc58b7c7b52ade05a094438eb536dea5eabcb3d954cb8faaee653d789c185",
+     "offset": 180,
+     "type": "i32",
+     "bytesHex": "80003024",
+     "value": 607125632,
+     "expect": 607125632,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\SoftArmor\\Affector_SoftArmorUpgrade.ebx",
+     "rawSha256": "f1dcc58b7c7b52ade05a094438eb536dea5eabcb3d954cb8faaee653d789c185",
+     "offset": 176,
+     "type": "i32",
+     "bytesHex": "80003024",
+     "value": 607125632,
+     "expect": 607125632,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\SoftArmor\\Affector_SoftArmorUpgrade.ebx",
+     "rawSha256": "f1dcc58b7c7b52ade05a094438eb536dea5eabcb3d954cb8faaee653d789c185",
+     "offset": 112,
+     "type": "i32",
+     "bytesHex": "01000000",
+     "value": 1,
+     "expect": 1,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\SoftArmor\\Affector_SoftArmorUpgrade_EffectiveHealth.ebx",
+     "rawSha256": "6f9ef6c627ddb62cc9b4fd03a66ab1e2ccdd75315373197acaaaab6ae04f697e",
+     "offset": 180,
+     "type": "i32",
+     "bytesHex": "8000b024",
+     "value": 615514240,
+     "expect": 615514240,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\SoftArmor\\Affector_SoftArmorUpgrade_EffectiveHealth.ebx",
+     "rawSha256": "6f9ef6c627ddb62cc9b4fd03a66ab1e2ccdd75315373197acaaaab6ae04f697e",
+     "offset": 176,
+     "type": "i32",
+     "bytesHex": "8000b024",
+     "value": 615514240,
+     "expect": 615514240,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\SoftArmor\\Affector_SoftArmorUpgrade_EffectiveHealth.ebx",
+     "rawSha256": "6f9ef6c627ddb62cc9b4fd03a66ab1e2ccdd75315373197acaaaab6ae04f697e",
+     "offset": 188,
+     "type": "i32",
+     "bytesHex": "80003024",
+     "value": 607125632,
+     "expect": 607125632,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\SoftArmor\\Affector_SoftArmorUpgrade_EffectiveHealth.ebx",
+     "rawSha256": "6f9ef6c627ddb62cc9b4fd03a66ab1e2ccdd75315373197acaaaab6ae04f697e",
+     "offset": 184,
+     "type": "i32",
+     "bytesHex": "80003024",
+     "value": 607125632,
+     "expect": 607125632,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\SoftArmor\\Affector_SoftArmorUpgrade_EffectiveHealth.ebx",
+     "rawSha256": "6f9ef6c627ddb62cc9b4fd03a66ab1e2ccdd75315373197acaaaab6ae04f697e",
+     "offset": 196,
+     "type": "i32",
+     "bytesHex": "808a4124",
+     "value": 608275072,
+     "expect": 608275072,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\SoftArmor\\Affector_SoftArmorUpgrade_EffectiveHealth.ebx",
+     "rawSha256": "6f9ef6c627ddb62cc9b4fd03a66ab1e2ccdd75315373197acaaaab6ae04f697e",
+     "offset": 192,
+     "type": "i32",
+     "bytesHex": "808a4124",
+     "value": 608275072,
+     "expect": 608275072,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\SoftArmor\\Affector_SoftArmorUpgrade_EffectiveHealth.ebx",
+     "rawSha256": "6f9ef6c627ddb62cc9b4fd03a66ab1e2ccdd75315373197acaaaab6ae04f697e",
+     "offset": 204,
+     "type": "i32",
+     "bytesHex": "808b5124",
+     "value": 609323904,
+     "expect": 609323904,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 202,
+   "matched": 202,
+   "files": 16,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "rawchecks-L3380.json"
+  },
+  "dataset": "reference-data/frosty/armor-material-swaps.json",
+  "officialSource": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-3-0",
+  "soldierFile": {
+   "route": "Common/Gameplay/Soldier/Glacier_Soldier",
+   "chestArmorCandidate": 579,
+   "headCandidate": 587
+  },
+  "swapAffectors": [
+   {
+    "file": "Affector_CeramicArmorUpgrade",
+    "kind_c1051df5": 2,
+    "pairs": [
+     {
+      "first": 579,
+      "second": 238
+     },
+     {
+      "first": 580,
+      "second": 239
+     },
+     {
+      "first": 580,
+      "second": 292
+     },
+     {
+      "first": 0,
+      "second": 239
+     },
+     {
+      "first": 0,
+      "second": 239
+     }
+    ]
+   },
+   {
+    "file": "Affector_CeramicArmorUpgrade_EffectiveHealth",
+    "kind_c1051df5": 2,
+    "pairs": [
+     {
+      "first": 587,
+      "second": 586
+     },
+     {
+      "first": 579,
+      "second": 579
+     },
+     {
+      "first": 580,
+      "second": 580
+     },
+     {
+      "first": 581,
+      "second": 581
+     },
+     {
+      "first": 580,
+      "second": 580
+     },
+     {
+      "first": 580,
+      "second": 580
+     }
+    ]
+   },
+   {
+    "file": "Affector_CeramicArmorUpgrade_ExtraDurability",
+    "kind_c1051df5": 2,
+    "pairs": [
+     {
+      "first": 397,
+      "second": 445
+     },
+     {
+      "first": 395,
+      "second": 450
+     },
+     {
+      "first": 396,
+      "second": 449
+     },
+     {
+      "first": 395,
+      "second": 450
+     },
+     {
+      "first": 395,
+      "second": 450
+     }
+    ]
+   },
+   {
+    "file": "Affector_CeramicArmorUpgrade_ExtraProtection",
+    "kind_c1051df5": 2,
+    "pairs": [
+     {
+      "first": 397,
+      "second": 447
+     },
+     {
+      "first": 395,
+      "second": 451
+     },
+     {
+      "first": 396,
+      "second": 489
+     },
+     {
+      "first": 395,
+      "second": 451
+     },
+     {
+      "first": 395,
+      "second": 451
+     }
+    ]
+   },
+   {
+    "file": "Affector_FiringRange_TargetCeramicArmor",
+    "kind_c1051df5": 2,
+    "pairs": [
+     {
+      "first": 0,
+      "second": 3
+     },
+     {
+      "first": 394,
+      "second": 3
+     },
+     {
+      "first": 395,
+      "second": 3
+     },
+     {
+      "first": 421,
+      "second": 3
+     },
+     {
+      "first": 419,
+      "second": 3
+     }
+    ]
+   },
+   {
+    "file": "Affector_FiringRange_TargetSoftArmor",
+    "kind_c1051df5": 1,
+    "pairs": [
+     {
+      "first": 0,
+      "second": 3
+     },
+     {
+      "first": 394,
+      "second": 3
+     },
+     {
+      "first": 395,
+      "second": 3
+     },
+     {
+      "first": 421,
+      "second": 3
+     },
+     {
+      "first": 419,
+      "second": 3
+     }
+    ]
+   },
+   {
+    "file": "Affector_SoftArmorUpgrade",
+    "kind_c1051df5": 1,
+    "pairs": [
+     {
+      "first": 579,
+      "second": 579
+     }
+    ]
+   },
+   {
+    "file": "Affector_SoftArmorUpgrade_EffectiveHealth",
+    "kind_c1051df5": 1,
+    "pairs": [
+     {
+      "first": 587,
+      "second": 587
+     },
+     {
+      "first": 579,
+      "second": 579
+     },
+     {
+      "first": 580,
+      "second": 580
+     },
+     {
+      "first": 581,
+      "second": 581
+     },
+     {
+      "first": 580,
+      "second": 580
+     },
+     {
+      "first": 580,
+      "second": 580
+     }
+    ]
+   },
+   {
+    "file": "Affector_SoftArmorUpgrade_ExtraDurability",
+    "kind_c1051df5": 1,
+    "pairs": [
+     {
+      "first": 397,
+      "second": 446
+     },
+     {
+      "first": 395,
+      "second": 452
+     },
+     {
+      "first": 396,
+      "second": 454
+     },
+     {
+      "first": 395,
+      "second": 452
+     },
+     {
+      "first": 395,
+      "second": 452
+     }
+    ]
+   },
+   {
+    "file": "Affector_SoftArmorUpgrade_ExtraProtection",
+    "kind_c1051df5": 1,
+    "pairs": [
+     {
+      "first": 397,
+      "second": 448
+     },
+     {
+      "first": 395,
+      "second": 453
+     },
+     {
+      "first": 396,
+      "second": 488
+     },
+     {
+      "first": 395,
+      "second": 453
+     },
+     {
+      "first": 395,
+      "second": 453
+     }
+    ]
+   }
+  ],
+  "amountAffectors": [
+   {
+    "file": "Affector_Gadget_CeramicArmor",
+    "entries": [
+     {
+      "int_b92ca2a0": 1,
+      "float_8722eb07": 121.0,
+      "float_c5b7d700": 0.5
+     },
+     {
+      "int_b92ca2a0": 1,
+      "float_8722eb07": 242.0,
+      "float_c5b7d700": 0.5
+     },
+     {
+      "int_b92ca2a0": 2,
+      "float_8722eb07": 40.0,
+      "float_c5b7d700": 0.5
+     },
+     {
+      "int_b92ca2a0": 2,
+      "float_8722eb07": 80.0,
+      "float_c5b7d700": 0.5
+     },
+     {
+      "int_b92ca2a0": 1,
+      "float_8722eb07": 40.0,
+      "float_c5b7d700": 0.5
+     },
+     {
+      "int_b92ca2a0": 1,
+      "float_8722eb07": 80.0,
+      "float_c5b7d700": 0.5
+     }
+    ]
+   },
+   {
+    "file": "Affector_Gadget_CeramicArmor_Full",
+    "entries": [
+     {
+      "int_b92ca2a0": 1,
+      "float_8722eb07": 80.0,
+      "float_c5b7d700": 0.5
+     },
+     {
+      "int_b92ca2a0": 1,
+      "float_8722eb07": 80.0,
+      "float_c5b7d700": 0.5
+     },
+     {
+      "int_b92ca2a0": 1,
+      "float_8722eb07": 80.0,
+      "float_c5b7d700": 0.5
+     }
+    ]
+   },
+   {
+    "file": "Affector_Gadget_SoldierArmorVestTier",
+    "entries": [
+     {
+      "int_b92ca2a0": 1,
+      "float_8722eb07": 0.0,
+      "float_c5b7d700": 0.5
+     },
+     {
+      "int_b92ca2a0": 1,
+      "float_8722eb07": 40.0,
+      "float_c5b7d700": 0.5
+     },
+     {
+      "int_b92ca2a0": 2,
+      "float_8722eb07": 0.0,
+      "float_c5b7d700": 0.5
+     },
+     {
+      "int_b92ca2a0": 2,
+      "float_8722eb07": 40.0,
+      "float_c5b7d700": 0.5
+     },
+     {
+      "int_b92ca2a0": 2,
+      "float_8722eb07": 80.0,
+      "float_c5b7d700": 0.5
+     },
+     {
+      "int_b92ca2a0": 1,
+      "float_8722eb07": 0.0,
+      "float_c5b7d700": 0.5
+     },
+     {
+      "int_b92ca2a0": 1,
+      "float_8722eb07": 40.0,
+      "float_c5b7d700": 0.5
+     },
+     {
+      "int_b92ca2a0": 1,
+      "float_8722eb07": 80.0,
+      "float_c5b7d700": 0.5
+     }
+    ]
+   },
+   {
+    "file": "Affector_Gadget_SoftArmor",
+    "entries": [
+     {
+      "int_b92ca2a0": 1,
+      "float_8722eb07": 242.0,
+      "float_c5b7d700": 0.5
+     },
+     {
+      "int_b92ca2a0": 1,
+      "float_8722eb07": 242.0,
+      "float_c5b7d700": 0.5
+     },
+     {
+      "int_b92ca2a0": -1,
+      "float_8722eb07": 242.0,
+      "float_c5b7d700": 0.5
+     },
+     {
+      "int_b92ca2a0": 1,
+      "float_8722eb07": 40.0,
+      "float_c5b7d700": 0.5
+     },
+     {
+      "int_b92ca2a0": -1,
+      "float_8722eb07": 242.0,
+      "float_c5b7d700": 0.5
+     }
+    ]
+   }
+  ],
+  "gridValues": {
+   "3": {
+    "276": {
+     "scalar": null,
+     "array": null
+    },
+    "498": {
+     "scalar": null,
+     "array": null
+    },
+    "290": {
+     "scalar": null,
+     "array": null
+    },
+    "275": {
+     "scalar": null,
+     "array": null
+    },
+    "279": {
+     "scalar": null,
+     "array": null
+    }
+   },
+   "238": {
+    "276": {
+     "scalar": 3.0,
+     "array": [
+      3.0
+     ]
+    },
+    "498": {
+     "scalar": 3.8,
+     "array": [
+      3.8
+     ]
+    },
+    "290": {
+     "scalar": 4.0,
+     "array": [
+      4.0
+     ]
+    },
+    "275": {
+     "scalar": 2.51,
+     "array": [
+      2.51
+     ]
+    },
+    "279": {
+     "scalar": 1.475,
+     "array": [
+      1.475
+     ]
+    }
+   },
+   "239": {
+    "276": {
+     "scalar": 0.48,
+     "array": [
+      0.48
+     ]
+    },
+    "498": {
+     "scalar": 0.475,
+     "array": [
+      0.475
+     ]
+    },
+    "290": {
+     "scalar": 0.5,
+     "array": [
+      0.5
+     ]
+    },
+    "275": {
+     "scalar": 0.43,
+     "array": [
+      0.43
+     ]
+    },
+    "279": {
+     "scalar": 0.48,
+     "array": [
+      0.48
+     ]
+    }
+   },
+   "292": {
+    "276": {
+     "scalar": 0.52,
+     "array": [
+      0.48,
+      0.648,
+      0.816,
+      0.816,
+      1.2
+     ]
+    },
+    "498": {
+     "scalar": 1.354,
+     "array": [
+      0.475,
+      0.64125,
+      0.8075,
+      0.9975,
+      1.1875
+     ]
+    },
+    "290": {
+     "scalar": 0.9,
+     "array": [
+      0.5,
+      0.675,
+      0.85,
+      1.05,
+      1.25
+     ]
+    },
+    "275": {
+     "scalar": 0.8,
+     "array": [
+      0.43,
+      0.5805,
+      0.731,
+      0.903,
+      1.075
+     ]
+    },
+    "279": {
+     "scalar": 0.48,
+     "array": [
+      0.48,
+      0.48,
+      0.48,
+      0.48,
+      0.48
+     ]
+    }
+   },
+   "394": {
+    "276": {
+     "scalar": 0.74,
+     "array": [
+      0.74
+     ]
+    },
+    "498": {
+     "scalar": 0.85,
+     "array": [
+      0.85
+     ]
+    },
+    "290": {
+     "scalar": 0.99,
+     "array": [
+      0.583
+     ]
+    },
+    "275": {
+     "scalar": 0.74,
+     "array": [
+      0.74
+     ]
+    },
+    "279": {
+     "scalar": 0.48,
+     "array": [
+      0.48
+     ]
+    }
+   },
+   "395": {
+    "276": {
+     "scalar": 0.52,
+     "array": [
+      0.74,
+      0.999,
+      1.258,
+      1.554,
+      1.85
+     ]
+    },
+    "498": {
+     "scalar": 1.45,
+     "array": [
+      0.85,
+      1.475,
+      1.445,
+      1.785,
+      2.125
+     ]
+    },
+    "290": {
+     "scalar": 1.7,
+     "array": [
+      0.583,
+      0.78705,
+      0.9911,
+      1.2243,
+      1.4575
+     ]
+    },
+    "275": {
+     "scalar": 0.8,
+     "array": [
+      0.74,
+      0.999,
+      1.258,
+      1.554,
+      1.85
+     ]
+    },
+    "279": {
+     "scalar": 0.48,
+     "array": [
+      0.48,
+      0.48,
+      0.48,
+      0.48,
+      0.48
+     ]
+    }
+   },
+   "396": {
+    "276": {
+     "scalar": 1.0,
+     "array": null
+    },
+    "498": {
+     "scalar": 1.0,
+     "array": null
+    },
+    "290": {
+     "scalar": 1.0,
+     "array": null
+    },
+    "275": {
+     "scalar": 1.0,
+     "array": null
+    },
+    "279": {
+     "scalar": 1.0,
+     "array": null
+    }
+   },
+   "397": {
+    "276": {
+     "scalar": null,
+     "array": null
+    },
+    "498": {
+     "scalar": null,
+     "array": null
+    },
+    "290": {
+     "scalar": null,
+     "array": null
+    },
+    "275": {
+     "scalar": null,
+     "array": null
+    },
+    "279": {
+     "scalar": null,
+     "array": null
+    }
+   },
+   "419": {
+    "276": {
+     "scalar": 1.0,
+     "array": [
+      1.0
+     ]
+    },
+    "498": {
+     "scalar": 1.0,
+     "array": [
+      1.0
+     ]
+    },
+    "290": {
+     "scalar": 1.0,
+     "array": [
+      0.583
+     ]
+    },
+    "275": {
+     "scalar": 1.0,
+     "array": [
+      1.0
+     ]
+    },
+    "279": {
+     "scalar": 1.0,
+     "array": [
+      1.0
+     ]
+    }
+   },
+   "421": {
+    "276": {
+     "scalar": 1.0,
+     "array": [
+      1.0
+     ]
+    },
+    "498": {
+     "scalar": 1.0,
+     "array": [
+      1.0
+     ]
+    },
+    "290": {
+     "scalar": 0.8,
+     "array": [
+      0.583
+     ]
+    },
+    "275": {
+     "scalar": 1.0,
+     "array": [
+      1.0
+     ]
+    },
+    "279": {
+     "scalar": 1.0,
+     "array": [
+      1.0
+     ]
+    }
+   },
+   "445": {
+    "276": {
+     "scalar": 1.0,
+     "array": null
+    },
+    "498": {
+     "scalar": 1.0,
+     "array": null
+    },
+    "290": {
+     "scalar": 1.0,
+     "array": null
+    },
+    "275": {
+     "scalar": 1.0,
+     "array": null
+    },
+    "279": {
+     "scalar": 1.0,
+     "array": null
+    }
+   },
+   "446": {
+    "276": {
+     "scalar": 1.0,
+     "array": null
+    },
+    "498": {
+     "scalar": 1.0,
+     "array": null
+    },
+    "290": {
+     "scalar": 1.0,
+     "array": null
+    },
+    "275": {
+     "scalar": 1.0,
+     "array": null
+    },
+    "279": {
+     "scalar": 1.0,
+     "array": null
+    }
+   },
+   "447": {
+    "276": {
+     "scalar": 1.0,
+     "array": null
+    },
+    "498": {
+     "scalar": 1.0,
+     "array": null
+    },
+    "290": {
+     "scalar": 1.0,
+     "array": null
+    },
+    "275": {
+     "scalar": 1.0,
+     "array": null
+    },
+    "279": {
+     "scalar": 1.0,
+     "array": null
+    }
+   },
+   "448": {
+    "276": {
+     "scalar": 1.0,
+     "array": null
+    },
+    "498": {
+     "scalar": 1.0,
+     "array": null
+    },
+    "290": {
+     "scalar": 1.0,
+     "array": null
+    },
+    "275": {
+     "scalar": 1.0,
+     "array": null
+    },
+    "279": {
+     "scalar": 1.0,
+     "array": null
+    }
+   },
+   "449": {
+    "276": {
+     "scalar": 1.0,
+     "array": null
+    },
+    "498": {
+     "scalar": 1.0,
+     "array": null
+    },
+    "290": {
+     "scalar": 1.0,
+     "array": null
+    },
+    "275": {
+     "scalar": 1.0,
+     "array": null
+    },
+    "279": {
+     "scalar": 1.0,
+     "array": null
+    }
+   },
+   "450": {
+    "276": {
+     "scalar": 1.0,
+     "array": null
+    },
+    "498": {
+     "scalar": 1.0,
+     "array": null
+    },
+    "290": {
+     "scalar": 1.0,
+     "array": null
+    },
+    "275": {
+     "scalar": 1.0,
+     "array": null
+    },
+    "279": {
+     "scalar": 1.0,
+     "array": null
+    }
+   },
+   "451": {
+    "276": {
+     "scalar": 1.0,
+     "array": null
+    },
+    "498": {
+     "scalar": 1.0,
+     "array": null
+    },
+    "290": {
+     "scalar": 1.0,
+     "array": null
+    },
+    "275": {
+     "scalar": 1.0,
+     "array": null
+    },
+    "279": {
+     "scalar": 1.0,
+     "array": null
+    }
+   },
+   "452": {
+    "276": {
+     "scalar": 1.0,
+     "array": null
+    },
+    "498": {
+     "scalar": 1.0,
+     "array": null
+    },
+    "290": {
+     "scalar": 1.0,
+     "array": null
+    },
+    "275": {
+     "scalar": 1.0,
+     "array": null
+    },
+    "279": {
+     "scalar": 1.0,
+     "array": null
+    }
+   },
+   "453": {
+    "276": {
+     "scalar": 1.0,
+     "array": null
+    },
+    "498": {
+     "scalar": 1.0,
+     "array": null
+    },
+    "290": {
+     "scalar": 1.0,
+     "array": null
+    },
+    "275": {
+     "scalar": 1.0,
+     "array": null
+    },
+    "279": {
+     "scalar": 1.0,
+     "array": null
+    }
+   },
+   "454": {
+    "276": {
+     "scalar": 1.0,
+     "array": null
+    },
+    "498": {
+     "scalar": 1.0,
+     "array": null
+    },
+    "290": {
+     "scalar": 1.0,
+     "array": null
+    },
+    "275": {
+     "scalar": 1.0,
+     "array": null
+    },
+    "279": {
+     "scalar": 1.0,
+     "array": null
+    }
+   },
+   "488": {
+    "276": {
+     "scalar": 1.0,
+     "array": null
+    },
+    "498": {
+     "scalar": 1.0,
+     "array": null
+    },
+    "290": {
+     "scalar": 1.0,
+     "array": null
+    },
+    "275": {
+     "scalar": 1.0,
+     "array": null
+    },
+    "279": {
+     "scalar": 1.0,
+     "array": null
+    }
+   },
+   "489": {
+    "276": {
+     "scalar": 1.0,
+     "array": null
+    },
+    "498": {
+     "scalar": 1.0,
+     "array": null
+    },
+    "290": {
+     "scalar": 1.0,
+     "array": null
+    },
+    "275": {
+     "scalar": 1.0,
+     "array": null
+    },
+    "279": {
+     "scalar": 1.0,
+     "array": null
+    }
+   },
+   "579": {
+    "276": {
+     "scalar": 0.84,
+     "array": [
+      0.84
+     ]
+    },
+    "498": {
+     "scalar": 0.91,
+     "array": [
+      0.91
+     ]
+    },
+    "290": {
+     "scalar": 0.67,
+     "array": [
+      0.67
+     ]
+    },
+    "275": {
+     "scalar": 1.0,
+     "array": [
+      1.0
+     ]
+    },
+    "279": {
+     "scalar": 1.0,
+     "array": [
+      1.0
+     ]
+    }
+   },
+   "580": {
+    "276": {
+     "scalar": 0.0,
+     "array": [
+      0.0
+     ]
+    },
+    "498": {
+     "scalar": 0.0,
+     "array": [
+      0.0
+     ]
+    },
+    "290": {
+     "scalar": 0.0,
+     "array": [
+      0.0
+     ]
+    },
+    "275": {
+     "scalar": 0.0,
+     "array": [
+      0.0
+     ]
+    },
+    "279": {
+     "scalar": 0.0,
+     "array": [
+      0.0
+     ]
+    }
+   },
+   "581": {
+    "276": {
+     "scalar": 0.0,
+     "array": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "498": {
+     "scalar": 0.0,
+     "array": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "290": {
+     "scalar": 0.0,
+     "array": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "275": {
+     "scalar": 0.0,
+     "array": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "279": {
+     "scalar": 0.0,
+     "array": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+     ]
+    }
+   },
+   "586": {
+    "276": {
+     "scalar": 1.34,
+     "array": [
+      1.0,
+      1.34,
+      1.5,
+      1.75,
+      1.8,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.4,
+      1.57,
+      1.8,
+      1.8
+     ]
+    },
+    "498": {
+     "scalar": 1.5,
+     "array": [
+      1.0,
+      1.34,
+      1.5,
+      1.75,
+      1.8,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.4,
+      1.57,
+      1.8,
+      1.8
+     ]
+    },
+    "290": {
+     "scalar": 1.75,
+     "array": [
+      1.0,
+      1.34,
+      1.5,
+      1.75,
+      1.8,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.4,
+      1.57,
+      1.8,
+      1.8
+     ]
+    },
+    "275": {
+     "scalar": 1.34,
+     "array": [
+      1.0,
+      1.34,
+      1.5,
+      1.75,
+      1.8,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.4,
+      1.57,
+      1.8,
+      1.8
+     ]
+    },
+    "279": {
+     "scalar": 1.0,
+     "array": [
+      1.0,
+      1.34,
+      1.5,
+      1.75,
+      1.8,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.4,
+      1.57,
+      1.8,
+      1.8
+     ]
+    }
+   },
+   "587": {
+    "276": {
+     "scalar": 1.34,
+     "array": [
+      1.0,
+      1.34,
+      1.5,
+      1.75,
+      1.8,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.4,
+      1.57,
+      1.8,
+      1.8
+     ]
+    },
+    "498": {
+     "scalar": 1.5,
+     "array": [
+      1.0,
+      1.34,
+      1.5,
+      1.75,
+      1.8,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.4,
+      1.57,
+      1.8,
+      1.8
+     ]
+    },
+    "290": {
+     "scalar": 2.25,
+     "array": [
+      1.0,
+      2.25,
+      2.25,
+      2.25,
+      3.0
+     ]
+    },
+    "275": {
+     "scalar": 1.34,
+     "array": [
+      1.0,
+      1.34,
+      1.5,
+      1.75,
+      1.8,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.4,
+      1.57,
+      1.8,
+      1.8
+     ]
+    },
+    "279": {
+     "scalar": 1.0,
+     "array": [
+      1.0,
+      1.34,
+      1.5,
+      1.75,
+      1.8,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.4,
+      1.57,
+      1.8,
+      1.8
+     ]
+    }
+   }
+  },
+  "material579": [
+   {
+    "material": 275,
+    "array": 1.0,
+    "scalar": 1.0
+   },
+   {
+    "material": 276,
+    "array": 0.84,
+    "scalar": 0.84
+   },
+   {
+    "material": 277,
+    "array": 0.84,
+    "scalar": 0.84
+   },
+   {
+    "material": 278,
+    "array": 0.84,
+    "scalar": 0.84
+   },
+   {
+    "material": 279,
+    "array": 1.0,
+    "scalar": 1.0
+   },
+   {
+    "material": 286,
+    "array": 1.0,
+    "scalar": 1.0
+   },
+   {
+    "material": 290,
+    "array": 0.67,
+    "scalar": 0.67
+   },
+   {
+    "material": 291,
+    "array": 0.91,
+    "scalar": 0.91
+   },
+   {
+    "material": 351,
+    "array": 0.67,
+    "scalar": 0.67
+   },
+   {
+    "material": 491,
+    "array": 1.0,
+    "scalar": 1.0
+   },
+   {
+    "material": 492,
+    "array": 0.84,
+    "scalar": 0.84
+   },
+   {
+    "material": 493,
+    "array": 0.84,
+    "scalar": 0.84
+   },
+   {
+    "material": 494,
+    "array": 0.84,
+    "scalar": 0.84
+   },
+   {
+    "material": 496,
+    "array": 0.84,
+    "scalar": 0.84
+   },
+   {
+    "material": 497,
+    "array": 0.84,
+    "scalar": 0.84
+   },
+   {
+    "material": 498,
+    "array": 0.91,
+    "scalar": 0.91
+   },
+   {
+    "material": 499,
+    "array": 1.0,
+    "scalar": 1.0
+   },
+   {
+    "material": 621,
+    "array": 0.84,
+    "scalar": 0.7353
+   },
+   {
+    "material": 784,
+    "array": 1.0,
+    "scalar": 1.0
+   },
+   {
+    "material": 288,
+    "array": 0.84,
+    "scalar": 0.84
+   },
+   {
+    "material": 289,
+    "array": 0.84,
+    "scalar": 0.84
+   }
+  ],
+  "material587": [
+   {
+    "material": 275,
+    "table": [
+     1.0,
+     1.34,
+     1.5,
+     1.75,
+     1.8,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.4,
+     1.57,
+     1.8,
+     1.8
+    ]
+   },
+   {
+    "material": 276,
+    "table": [
+     1.0,
+     1.34,
+     1.5,
+     1.75,
+     1.8,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.4,
+     1.57,
+     1.8,
+     1.8
+    ]
+   },
+   {
+    "material": 277,
+    "table": [
+     1.0,
+     1.34,
+     1.5,
+     1.75,
+     1.8,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.4,
+     1.57,
+     1.8,
+     1.8
+    ]
+   },
+   {
+    "material": 278,
+    "table": [
+     1.0,
+     1.34,
+     1.5,
+     1.75,
+     1.8,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.4,
+     1.57,
+     1.8,
+     1.8
+    ]
+   },
+   {
+    "material": 279,
+    "table": [
+     1.0,
+     1.34,
+     1.5,
+     1.75,
+     1.8,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.4,
+     1.57,
+     1.8,
+     1.8
+    ]
+   },
+   {
+    "material": 286,
+    "table": [
+     1.0,
+     1.34,
+     1.5,
+     1.75,
+     1.8,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.4,
+     1.57,
+     1.8,
+     1.8
+    ]
+   },
+   {
+    "material": 290,
+    "table": [
+     1.0,
+     2.25,
+     2.25,
+     2.25,
+     3.0
+    ]
+   },
+   {
+    "material": 291,
+    "table": [
+     1.0,
+     1.34,
+     1.5,
+     1.75,
+     1.8,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.4,
+     1.57,
+     1.8,
+     1.8
+    ]
+   },
+   {
+    "material": 351,
+    "table": [
+     1.0,
+     2.25,
+     2.25,
+     2.25,
+     3.0
+    ]
+   },
+   {
+    "material": 491,
+    "table": [
+     1.0,
+     1.34,
+     1.5,
+     1.75,
+     1.8,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.4,
+     1.57,
+     1.8,
+     1.8
+    ]
+   },
+   {
+    "material": 492,
+    "table": [
+     1.0,
+     1.34,
+     1.5,
+     1.75,
+     1.8,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.4,
+     1.57,
+     1.8,
+     1.8
+    ]
+   },
+   {
+    "material": 493,
+    "table": [
+     1.0,
+     1.34,
+     1.5,
+     1.75,
+     1.8,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.4,
+     1.57,
+     1.8,
+     1.8
+    ]
+   },
+   {
+    "material": 494,
+    "table": [
+     1.0,
+     1.34,
+     1.5,
+     1.75,
+     1.8,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.4,
+     1.57,
+     1.8,
+     1.8
+    ]
+   },
+   {
+    "material": 496,
+    "table": [
+     1.0,
+     1.34,
+     1.5,
+     1.75,
+     1.8,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.4,
+     1.57,
+     1.8,
+     1.8
+    ]
+   },
+   {
+    "material": 497,
+    "table": [
+     1.0,
+     1.34,
+     1.5,
+     1.75,
+     1.8,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.4,
+     1.57,
+     1.8,
+     1.8
+    ]
+   },
+   {
+    "material": 498,
+    "table": [
+     1.0,
+     1.34,
+     1.5,
+     1.75,
+     1.8,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.4,
+     1.57,
+     1.8,
+     1.8
+    ]
+   },
+   {
+    "material": 499,
+    "table": [
+     1.0,
+     1.34,
+     1.5,
+     1.75,
+     1.8,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.4,
+     1.57,
+     1.8,
+     1.8
+    ]
+   },
+   {
+    "material": 621,
+    "table": [
+     1.0,
+     1.34,
+     1.5,
+     1.75,
+     1.8,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.4,
+     1.57,
+     1.8,
+     1.8
+    ]
+   },
+   {
+    "material": 784,
+    "table": [
+     1.0,
+     2.25,
+     2.25,
+     2.25,
+     3.0
+    ]
+   },
+   {
+    "material": 288,
+    "table": [
+     1.0,
+     1.34,
+     1.5,
+     1.75,
+     1.8,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.4,
+     1.57,
+     1.8,
+     1.8
+    ]
+   },
+   {
+    "material": 289,
+    "table": [
+     1.0,
+     1.34,
+     1.5,
+     1.75,
+     1.8,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.4,
+     1.57,
+     1.8,
+     1.8
+    ]
+   }
+  ],
+  "correction": "L3370 said no other saved file names 579 or 587, and L3374 said no saved file names 13 further target materials. Both statements came from an incomplete search. The armor affectors name 579, 587, 586, 580, 581, 238, 239, 292, 394, 395, 419 and 421. Materials 74, 418, 420, 535 and 536 remain without a decoded user.",
+  "searchFilesNow": 31529
+ },
+ "inference": [
+  "Armor changes which material a hit is scored against. The soldier file gives 579 and 587; the soft armor affector maps 579 to 579 (no change) and its 'effective health' variant keeps 587, while the ceramic armor affector maps 579 to 238 and the ceramic variant maps head 587 to 586. That the first material of a pair is replaced by the second is read from this structure; the field names are hashes.",
+  "With soft armor the values are those of L3370: chest 0.84 / 0.91 / 0.67 (EA's 'against armor' line) and a head table with 2.25 for bolt-action bullets. With ceramic armor the head material 586 holds 1.75 for bolt-action bullets instead of 2.25, so ceramic armor lowers the bolt-action headshot; and the chest material 238 holds values above 1 (3.0 automatic, 3.8 DMR, 4.0 bolt-action), which cannot be damage to health and reads as damage to the plate. That last reading is a guess.",
+  "The firing range targets use the same mechanism (394, 395, 419, 421 mapped to material 3).",
+  "The amount affectors hold 40, 80, 121 and 242 with a factor 0.5. 40 and 80 fit armor amounts per vest tier; 121 and 242 (twice 121) are unexplained. None is recorded as an armor value.",
+  "Which game modes grant these upgrades is not in these files; EA's line sits in the general gunplay section."
+ ],
+ "unresolved": [
+  "Armor amount per plate and what 121 / 242 mean. Test in a mode with armor: one assault rifle bullet to the chest of an armored enemy, reading health and armor lost.",
+  "Bolt-action headshot on an armored enemy: 2.25 times with soft armor, 1.75 with ceramic, by this reading.",
+  "Materials 74, 418, 420, 535 and 536 still have no decoded user."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-09-damage-rule-extension",
+  "artifacts": [
+   {
+    "file": "manifest-L3380.json",
+    "sha256": "91d57d286df5bf198bf0b9b43b45b88b341eee38376216b2532026d7d103a20a"
+   },
+   {
+    "file": "rawchecks-L3380.json",
+    "sha256": "3b22d3d9799222e1f7f971dcc277fb74a3974b0b15b67863931fc591f831be1e"
+   },
+   {
+    "file": "affdump.py",
+    "sha256": "54c37d62c10ab3ceb918a045ec7492e51573fe856d564d4939c6a1879e0abbde"
+   },
+   {
+    "file": "affdump-armor.json",
+    "sha256": "73aff3675364106b28c0343e7c538847ad4223c2d05cfd449143a5e1cded5c87"
+   },
+   {
+    "file": "matusers2.py",
+    "sha256": "a9887ceb37291c2c265e0239aef674bdd26caef40b4ea70635b99b42da98284d"
+   },
+   {
+    "file": "matusers2.json",
+    "sha256": "0aeb28ebee3b4de8bfd2e1a9226ed50d9f807d0fb78ef449468df5d4513b0a62"
+   },
+   {
+    "file": "armor-materials.json",
+    "sha256": "0c15761353f47a98e4308a61da8b8189b5dfc28cb27ba77cf4811c5db67b87cc"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-09",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L3380",
+    "title": "Soldier armor is stored as material swaps: armor affectors name the chest material 579 and head material 587 and map them to other materials; this replaces L3370 and withdraws the dead end L3374",
+    "status": "finding",
+    "summary": "Soldier armor is stored as material swaps. The soldier file names a chest material 579 (EA's against-armor values 0.84 / 0.91 / 0.67) and a head material 587 (bolt-action 2.25); the ceramic armor affectors map them to 238 and 586 (bolt-action head 1.75), the soft armor affectors leave them. This replaces L3370's statement that nothing else names these materials and withdraws the dead end L3374, whose file search was incomplete. Armor amounts 40 and 80 appear in the vest affectors but are not confirmed. 202 raw-offset checks matched.",
+    "reopenWhen": "An in-game damage reading on an armored soldier.",
+    "statusNote": "Swap tables and grid values read; direction of the swap and the amounts are candidates."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Hardware/Gadgets/Misc/CeramicArmor/Affector_CeramicArmorUpgrade",
+    "format": "raw-ebx",
+    "sha256": "a17a3a38a04dd9387b88bc1b510d0e9f89499101401bdc04f5fe40e1c3ef609e",
+    "question": "What names the soldier-style target materials that L3370 and L3374 could not attribute, and what selects the 'against armor' material 579?",
+    "result": "useful",
+    "conclusion": "Pairs 579 to 238, 580 to 239, 580 to 292; kind 2."
+   },
+   {
+    "path": "Common/Gameplay/Soldier/Glacier_Soldier",
+    "format": "raw-ebx",
+    "sha256": "22e0ccf07219f8094eed17f57585041b0b075196c120b071fe8dd0870351bf19",
+    "question": "What names the soldier-style target materials that L3370 and L3374 could not attribute, and what selects the 'against armor' material 579?",
+    "result": "useful",
+    "conclusion": "Names materials 579 and 587."
+   }
+  ],
+  "supersedes": [
+   "frosty-2026-10-09-L3370-soldier-armor-materials-579-587.json",
+   "frosty-2026-10-09-L3374-unidentified-soldier-style-target-materials.json"
+  ]
+ }
+}

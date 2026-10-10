@@ -297,3 +297,401 @@ Current named local objects use `Class_3038efcc.Field_b6657270` as exact enum de
 
 The final enum method tests exact retained UI choice/value bindings. Current widget-to-zeroing DBD pointers, exported GUIDs and local keys pass the source identity control. The selected enum 536 UI array is empty, and its retained UI text list has zero records. Five selected spotting reset entries store exact INT32 values 0, 0 and 31; they are not established named enum choices. No complete named UI choice/value mapping exists in the inspected selected artifacts. This scoped limit does not establish absence elsewhere. Missing contracts and exact reopen conditions are in the two result rows. No zeroing or spotting enum meaning is promoted. See the [receipt](../../reference-data/provenance/frosty-2026-10-01-L1008-ui-enum-binding-control.json).
 <!-- native-semantics:L1008:end -->
+
+## L3309 - Spotting and detection registry values (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3309-spotting-detection.json). Dataset: `reference-data/frosty/registry-spotting-detection.json` (212 rows, each default read back at its raw offset). These are registry defaults from `GRX_Glacier_Soldier`; meaning is read from the row name, and units and use in a match are unconfirmed.
+
+| Row | Default | Min | Max |
+|---|---|---|---|
+| `TimeToSpot` | 0.5 | 0.1 | 3 |
+| `SpottingFoV` | 7.5 | 2 | 55 |
+| `SpottingDistanceHip` | 10 | 5 | 30 |
+| `SpottingDistanceZoom` | 100 | 15 | 300 |
+| `SpottingDistanceVehicle` | 100 | 0 | 999 |
+| `HipfireSpottingEnabled` | false | | |
+| `DefaultSpotDuration` | 5 | 1 | 60 |
+| `SpotDuration` | 2.5 | 0 | 0 |
+| `VehicleSpotDuration` | 30 | 1 | 60 |
+| `GadgetSpotDuration` | 20 | 1 | 9999 |
+| `DamageSpot_Duration` | 8 | 0 | 100 |
+| `SpotOnFireDuration` | 0.4 | 0.1 | 10 |
+| `AdvancedSpotRangeMultiplier` | 1.33 | 1.1 | 1.5 |
+| `AdvancedSpotAngleMultiplier` | 1.1 | 1.05 | 1.25 |
+| `AdvancedSpotBaseTime` | 0.25 | 0.1 | 1.5 |
+| `AdvancedSpotDurationIncrease` | 3 | 0 | 7 |
+| `TrackerBaseSpottingDurationMulti` | 1.25 | 1 | 10 |
+| `TrackerBaseSpottedDurationMulti` | 0.66 | 0.001 | 1 |
+| `AmbushTrainingSpotResistance` | 4 | 0 | 8 |
+| `ThermalSignature_Standing_Min` / `Crouched_Min` / `Prone_Min` | 0.5 / 0.25 / 0.1 | | |
+| `IntelUpgradeSensorRadiusMultiplier` | 1.5 | | |
+| `ImprovedJammerRadiusMulti` | 2 | | |
+
+`GRX_Characters` also stores drone and sensor rows (`DroneControlledSpottingCylinder_*` height 100, top radius 12.5, spot duration 6, cycle 0.35; `MovementSensor_Radius` 25; `Pulse - Radius` 60). That registry also holds rows named for earlier-game specialists, so these may be leftovers; they are in the dataset but should not be read as current recon drone values.
+
+Open, with the test that would settle each:
+
+- Use and units: look at a stationary enemy from 90 m and 110 m while zoomed and note whether a marker appears (stored 100) and after how long (stored 0.5); then break line of sight and time the marker (stored 5, vehicles 30, gadgets 20).
+- Which trait or field upgrade applies the `AdvancedSpot`, `Tracker`, `Bloodhound`, `Ripple`, `Ruthless` and `Despicable` rows: no stored link was traced.
+- Seven `Q...Spot_Duration` rows store no readable default and are not recorded.
+
+## L3311 - Soldier rule values in the soldier registry (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3311-soldier-rules.json). Dataset: `reference-data/frosty/registry-soldier-rules.json` (171 rows, each default read back at its raw offset). Registry defaults from `GRX_Glacier_Soldier`, leaving out the spotting rows of L3309 and screen-effect rows. Meaning is read from row names; units and use in a match are unconfirmed. Earlier sections already record the revive, regeneration and sprint rows; they are repeated here only as part of the full list.
+
+| Row | Default | Min | Max |
+|---|---|---|---|
+| `SuppressionResistance` | 0.75 | 0 | 1 |
+| `InfantrySupportSuppressionResistance` | 0.75 | 0 | 1 |
+| `InfantrySupportRadius` | 10 | 5 | 15 |
+| `KillshotSuppressionResistance` | 0.25 | 0.1 | 0.5 |
+| `UnbreakableSuppressionResistance` | 0.25 | 0 | 1 |
+| `SuppressionMasteryReduction` | 0.75 | 0 | 1 |
+| `ReviveTotalTime` | 4.72 | 0 | 8 |
+| `Support_ReviveTotalTime` | 2.2 | 0 | 8 |
+| `MedicalTriageTimeReduction` | 0.5 | 0 | 0 |
+| `MedicalTriageDefibReduction` | 0.5 | 0 | 1 |
+| `ActiveReviveTimeReduction` | 0.7 | 0.5 | 1.5 |
+| `ResilientDownedDurationMultiplier` | 0.5 | 0 | 1 |
+| `RegenerationDelay` | 5 | 0 | 30 |
+| `RegenerationRate` | 10 | 0 | 1000 |
+| `DefaultStandSprintTopSpeedMultiplier` | 1.857 | 1 | 3 |
+| `FastSprintTopSpeedMultiplier` | 2.05 | 1 | 3 |
+| `Slide.CooldownDuration` | 1 | 0 | 10 |
+| `CombatDive.CooldownDuration` | 2.5 | 0 | 10 |
+| `DraggingSpeedModifier` | 1.2 | 0 | 5 |
+| `Mortar_VolleyCount` | 2 | 1 | 32 |
+| `Mortar_ShellCountPerVolley` | 2 | 1 | 32 |
+| `Mortar_TimeBetweenShells` | 1 | 0 | 60 |
+| `Mortar_TimeBetweenVolleys` | 4 | 0 | 60 |
+| `Mortar_FireDelay` | 3 | 0 | 60 |
+| `Mortar_DispersionRadius` | 8 | 0 | 200 |
+| `ArtilleryMasteryMortarReload` | 0.75 | 0.5 | 0.9 |
+| `SupplyCratePlusMortarReload` | 0.835 | 0.5 | 0.9 |
+| `Artillery_IncreaseShellCountPerVolley` | 1.25 | 1 | 5 |
+| `PointmanBase_RespawnMags` | 3 | 0 | 20 |
+| `ImproviserRadius` | 25 | 5 | 75 |
+| `ImproviserSprintIncrease` | 1.1 | 1 | 1.2 |
+| `SERETrainingSprintIncrease` | 1.1 | 1 | 1.2 |
+| `ConcealedRescueCooldown` | 40 | 0 | 60 |
+| `ScapegoatCooldown` | 30 | 0 | 60 |
+| `ScapegoatHealthThreshold` | 45 | 0 | 100 |
+| `Provider_MP_LowAmmo_Primary` | 0.25 | 0.001 | 1 |
+| `AmmoPassiveRequestLimit` | 0.5 | 0 | 0 |
+| `HealingPassiveRequestLimit` | 70 | 0 | 0 |
+| `Melee MaxDistance` | 2.5 | 0 | 3 |
+| `Zipline_TravelSpeed` | 6.5 | 1 | 10 |
+| `Swimming_SwimVelocity` | 3.33 | 0 | 5 |
+| `Swimming_SwimSprintVelocity` | 7.65 | 0 | 10 |
+
+Class and kit links: many rows are named after traits or field upgrades (Suppression Mastery, Medical Triage, Artillery Mastery, Improviser, SERE Training, Concealed Rescue, Scapegoat, Pointman). The name is the only link. No stored pointer from a class, kit, trait or upgrade asset to a row was found: no saved file contains the kit node identifiers of the `Category_Kits` tree, the catalog has no trait or signature asset under a kit or class path, and the `KitLimitationGroup` files hold spawner groups only. This search is recorded as a dead end.
+
+Open, with the test that would settle each:
+
+- Which trait or upgrade reads each row: time a revive with and without Medical Triage (stored reduction 0.5 on a Support base of 2.2).
+- Suppression resistance meaning (share removed or share kept): record sway or regeneration delay under fire with and without the upgrade whose row stores 0.75.
+- Mortar pattern: fire once, count shells and volleys and time the gaps (stored 2 volleys of 2 shells, 1.0 and 4.0).
+- Sprint multipliers: time a 50 m sprint with default and fast sprint (stored 1.857 and 2.05; no base speed is stored beside them).
+
+## L3315 - Flak and damage-resistance effects (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3315-resistance-heal-ammo-effects.json). Dataset: `reference-data/frosty/effect-resistance-heal-ammo.json`. Every saved object of the damage-resistance effect class (`Class_7d3d8a5c`, seven objects) was read, each scalar checked at its raw offset. This extends the earlier note that Flak and Stance Flak store 0.67 and 0.75 in an unnamed field.
+
+| Effect file | Multiplier `Field_658381bd` | Explosive flag `Field_0a5e9034` | Bullet flag `Field_ac6090d6` |
+|---|---|---|---|
+| `Affector_Flak` | 0.67 | true | false |
+| `Affector_StanceFlak` | 0.75 | true | false |
+| `Affector_Flak_AdrenalineShot` | 0.8 | true | false |
+| `Affector_EODBot_ExplosivesResistance` | 0.6 | true | false |
+| `Affector_EODBot_BulletResistance` | 0.65 | false | true |
+| `Affector_Vehicle_Abilities_MBT_Durability_DamageResistance` | registry row `Passives_Vehicles_MBT_Durability_DamageRecievedMultiplier` (0.85) | true | true |
+| `Affector_Vehicle_Abilities_IFV_Durability_DamageResistance` | registry row `Passives_Vehicles_IFV_Durability_DamageRecievedMultiplier` (0.85) | true | true |
+
+How the names were reached:
+
+- **Multiplier: stored link.** The tank and IFV durability effects hold, in place of the value, an import of the registry row named `DamageRecievedMultiplier`. That names `Field_658381bd` as a damage received multiplier. On that reading Flak takes 33% off, Stance Flak 25% and the adrenaline shot 20% (inference).
+- **Flags: name only.** The two EOD bot files are named for bullets and explosives and differ only in which flag is set. On that reading all three flak effects apply to explosive damage and not to bullets.
+- A third flag, `Field_2c65377f`, imports the registry row `Passives_Vehicles_Shared_Durability_ReduceRepairRate` in the vehicle effects and is false elsewhere.
+
+These effects also show an asset reading the registry directly: the value slot holds a pointer to the registry row, with a fallback number beside it. For such fields the registry row is the stored source (see L3314 in `docs/working/ROSTER_VALUES.md`).
+
+Open, with the test that would settle each:
+
+- Size and stacking: take one frag grenade at a fixed distance with and without the Flak upgrade (stored 0.67), then crouched or prone for Stance Flak (0.75), then after an adrenaline shot (0.8), then with two at once.
+- Scope: repeat with a tank high-explosive shell to see whether flak covers vehicle explosives.
+- Which soldier state or upgrade turns each effect on was not traced.
+
+## L3329 - Explosive damage to soldiers from the material grid and the flak multipliers (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3329-explosive-soldier-damage.json). Dataset: `reference-data/frosty/explosive-soldier-damage.json`. This applies the vehicle damage rule of L3323 (`docs/frosty/VEHICLES.md`) to soldier targets and combines it with the flak multipliers of L3315. It is a prediction from stored values; no in-game reading confirms it.
+
+What is stored:
+
+- Each explosion's material has a grid cell with a damage value against the soldier abdomen material (25) only. Against the head (24) and limb (26) materials the cell holds no damage record. So a blast is taken to use one value for the whole soldier (inference).
+- The projectile materials of shells, rockets and missiles read 1 against head, abdomen and limb, so a direct hit is taken to deal the stored direct damage (the anti-air missiles read 0 against head and limb).
+- Values are equal in the Abbasid and Badlands grids.
+
+Full blast is blast damage times the grid value, as inside the inner radius. The flak columns multiply by the stored L3315 values; that the game multiplies them this way is an inference.
+
+| Item | Blast damage | Blast material | Grid value, abdomen (25) | Full blast on a soldier | With Flak (0.67) | With Stance Flak (0.75) | After adrenaline shot (0.8) | Inner / outer radius (registry) |
+|---|---|---|---|---|---|---|---|---|
+| 120mm HEMP-T Rounds | 100 (registry) | 130 | 1 | 100 | 67 | 75 | 80 | 2.25 / 5 m |
+| 120mm HEAT-MP-T Rounds | 100 (registry) | 130 | 1 | 100 | 67 | 75 | 80 | 1 / 5 m |
+| MBT Aim-Guided Shell | 200 (registry) | 130 | 1 | 200 | 134 | 150 | 160 | 1 / 3 m |
+| IFV HEI-T Rounds | 50 (registry) | 129 | 1 | 50 | 33.5 | 37.5 | 40 | 1 / 4.25 m |
+| IFV MPLD round (no EA figure) | 30 (own) | 129 | 1 | 30 | 20.1 | 22.5 | 24 | not stored in the registry |
+| IFV Light Rockets | 100 (registry) | 130 | 1 | 100 | 67 | 75 | 80 | 1 / 4 m |
+| IFV Aim-Guided Missile | 100 (registry) | 130 | 1 | 100 | 67 | 75 | 80 | 1.75 / 4 m |
+| IFV Lock-Guided Missile | 150 (registry) | 650 | 0.85 | 127.5 | 85.425 | 95.625 | 102 | 1 / 5 m |
+| Helicopter Light Rockets | 90 (registry) | 591 | 1 | 90 | 60.3 | 67.5 | 72 | 1 / 4.75 m |
+| Helicopter Aim-Guided Rockets | 80 (registry) | 591 | 1 | 80 | 53.6 | 60 | 64 | 1 / 4.75 m |
+| Attack Helicopter Heavy Rocket | 100 (registry) | 591 | 1 | 100 | 67 | 75 | 80 | 1 / 5.25 m |
+| Air-to-Ground Missiles | 150 (registry) | 650 | 0.85 | 127.5 | 85.425 | 95.625 | 102 | 2 / 6.7 m |
+| AGM-65 missile (no EA figure) | 150 (registry) | 650 | 0.85 | 127.5 | 85.425 | 95.625 | 102 | 2 / 6.7 m |
+| GBU-39 bomb (file name) | 240 (registry) | 213 | 0.8 | 192 | 128.64 | 144 | 153.6 | 2 / 7 m |
+| Mk82 bomb (file name) | 335 (registry) | 607 | 0.8 | 268 | 179.56 | 201 | 214.4 | 5 / 10 m |
+| MAS 148 Glaive | 155 (registry) | 650 | 0.85 | 131.75 | 88.2725 | 98.8125 | 105.4 | 1 / 4 m |
+| RPG-7V2 | 70 (registry) | 164 | 1 | 70 | 46.9 | 52.5 | 56 | 2 / 6 m |
+| M136 AT | 70 (own) | 655 | 1 | 70 | 46.9 | 52.5 | 56 | not stored in the registry |
+| MBT-LAW | 80 (own) | 650 | 0.85 | 68 | 45.56 | 51 | 54.4 | not stored in the registry |
+| 9K93 IGLA | 100 (own) | 185 | 0.6 | 60 | 40.2 | 45 | 48 | not stored in the registry |
+| SLM-93A | 100 (own) | 185 | 0.6 | 60 | 40.2 | 45 | 48 | not stored in the registry |
+| C-4 | 100 (own) | 95 | 1 | 100 | 67 | 75 | 80 | not stored in the registry |
+| M4A1 SLAM (body) | 100 (own) | 91 | 0.4 | 40 | 26.8 | 30 | 32 | not stored in the registry |
+| M15 AV Mine | 195 (registry) | 96 | 1 | 195 | 130.65 | 146.25 | 156 | 1.99 / 2 m |
+| EOD Bot mine | 150 (own) | 96 | 1 | 150 | 100.5 | 112.5 | 120 | not stored in the registry |
+| PTKM-1R | 160 (own) | 650 | 0.85 | 136 | 91.12 | 102 | 108.8 | not stored in the registry |
+
+A full-health soldier (100) at the centre of the blast is killed where the figure is 100 or more. On these numbers Flak (0.67) turns a tank shell, C-4, a light rocket or a heavy rocket from lethal to survivable; the guided shell, the bombs, the M15 and the EOD Bot mine stay lethal.
+
+Compared with EA's statements about soldiers:
+
+- Fits: EA's 1.3.1.0 notes say the tank's aim-guided shell remains lethal within 2 m. Blast damage 200 x 1, falling in a straight line from the inner radius 1 m to the radius 3 m, is exactly 100 at 2 m. The straight-line falloff is an assumption.
+- Fits: the notes give land vehicle explosives a minimum explosive damage of 20%; the registry stores `MinimumBlastDamage` 20 for tank HE and HEAT-MP-T (blast damage 100).
+- Does not fit: the 1.3.3.0 notes give HEAT-MP-T a total radius of 5 m and a lethal radius of 1.25 m. The registry stores `BlastRadius` 5 and `InnerBlastRadius` 1, and 100 x 1 is lethal only inside the inner radius.
+
+Still open, with the test that would settle each:
+
+- The operation. Stand 1 m from a C-4 pack at full health with no flak: death (100) expected; repeat with the Flak upgrade: 67 expected.
+- Stacking. The same with Flak while prone (0.67 and 0.75 together): 50.25 if multiplied.
+- Grid values below 1. One MBT-LAW impact at a teammate's feet in a private match: 68 expected (80 x 0.85).
+- Falloff shape. A tank HE shell at 3 m and at 4 m from a soldier: a straight line from 100 at 2.25 m to 20 at 5 m gives about 78 and 49.
+- HEAT-MP-T lethal radius. The same shell at 1.1 m: death means the lethal radius is wider than the stored inner radius 1.
+
+## L3350 - Soldier registry rows not recorded before (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3350-soldier-registry-global-rows.json). Dataset: `reference-data/frosty/soldier-registry-global-rows.json`. `GRX_Glacier_Soldier` has 238 rows without an owner prefix; 163 of them were not named anywhere in the docs. All are in the dataset with default, minimum and maximum. These are registry defaults: the row name is the only description, units are implied by the name, and nothing here shows which mode reads a row.
+
+Rows matching `Revive / Melee / ThermalSignature / Spot / Mortar / Zipline / FallDamage / Regeneration / Health` (51 of 163):
+
+| Row | Default | Min | Max |
+|---|---|---|---|
+| `AssaultEngineerRecon_CanReviveTeam` | False | none | none |
+| `DraggingReviveTimeMovingModifier` | 1 | 0 | 1 |
+| `FallDamage Buffer Delay` | 0.4 | 0 | 3 |
+| `Gauntlet_AssaultReconEngineer_ReviveHealthRank` | 6 | 0 | 10 |
+| `Gauntlet_Support_ReviveHealthRank` | 6 | 0 | 10 |
+| `Granite_AssaultReconEngineer_ReviveHealthRank` | 6 | 0 | 10 |
+| `Granite_DraggingReviveTimeMovingModifier` | 1 | 0 | 1 |
+| `Granite_ReviveHealthRank` | 6 | 0 | 10 |
+| `Granite_ReviveTotalTime` | 4.72 | 0 | 8 |
+| `Granite_Support_ReviveHealthRank` | 6 | 0 | 10 |
+| `Granite_Support_ReviveTotalTime` | 2.2 | 0 | 8 |
+| `ManDownSpottingAllowed` | True | none | none |
+| `Melee Attack Angle` | 25 | 0 | 60 |
+| `Melee bash align distance` | 1.5 | 0 | 3 |
+| `Melee MinDistance` | -0.1 | -1 | -0.1 |
+| `Melee takedown Offset - NORMAL` | -15 | -60 | 90 |
+| `Melee takedown Offset - Sniper/shotgun` | -28 | -60 | 90 |
+| `Melee_NoTarget_Bullet_Distance` | 0 | 0 | 10 |
+| `MeleeSecondChance_Angle` | 25 | 0 | 30 |
+| `MeleeSecondChance_MaxDistance` | 2 | 0 | 3 |
+| `MeleeSecondChance_MaxDistance_InAir` | 2 | 0 | 3 |
+| `Mortar_RangeingShotCount` | 0 | 0 | 32 |
+| `Mortar_RangeingShotDelay` | 1.5 | 0 | 60 |
+| `Mortar_RangeingTimeBetweenShots` | 1 | 0 | 60 |
+| `Mortar_TimeBetweenShellsVariation` | 0.333 | 0 | 60 |
+| `MP_AssaultReconEngineer_ReviveHealthRank` | 6 | 0 | 10 |
+| `MP_Support_ReviveHealthRank` | 0 | 0 | 10 |
+| `PostRevive_RegenerationDuration` | 0 | 0 | 15 |
+| `RevivePauseBeforeDecayTime` | 1 | 0 | 0 |
+| `ReviveProcessDecayRate` | 1 | 0 | 0 |
+| `RippleSpotMinimapEnabled` | True | none | none |
+| `RippleSpotOcclusionEnabled` | False | none | none |
+| `RippleSpotWorldEnabled` | False | none | none |
+| `Soldier_InWorld_Enemy_LocalSpottingRadius` | 10 | 0 | 0 |
+| `SpotOverlayWhileSwimming` | True | none | none |
+| `Swimming_AllowDragAndReviveUnderWater` | True | none | none |
+| `ThermalSignature_Crouched_Min` | 0.25 | 0 | 1 |
+| `ThermalSignature_InPsyGas` | 0.025 | 0 | 1 |
+| `ThermalSignature_InWater_Max` | 0.6 | 0 | 1 |
+| `ThermalSignature_InWater_Min` | 0.1 | 0 | 1 |
+| `ThermalSignature_Mandown_Max` | 0.1 | 0 | 1 |
+| `ThermalSignature_Prone_Min` | 0.1 | 0 | 1 |
+| `ThermalSignature_Underwater_Max` | 0.4 | 0 | 1 |
+| `Triage_ReviveHealthRank` | 0 | 0 | 10 |
+| `Zipline_CharacterTraitSpeedScaleOnRope` | 1.25 | 1 | 2 |
+| `Zipline_FastTravelSpeed` | 12.5 | 1 | 20 |
+| `Zipline_LauncherMovementGain` | 10 | 1 | 20 |
+| `Zipline_LauncherTravelSpeed` | 15 | 1 | 20 |
+| `Zipline_LauncherVerticalLift` | 25 | 1 | 60 |
+| `Zipline_MinimumAttachTime` | 0.5 | 0 | 3 |
+| `Zipline_MovementGain` | 3 | 1 | 15 |
+
+152 raw-offset checks matched.
+
+## L3370 - Soldier materials 579 and 587: the 'against armor' values (9 October 2026)
+
+> Replaced by L3380 below. The statement here that no saved file names these materials came from an incomplete file search; the armor affectors name them.
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3370-soldier-armor-materials-579-587.json). Dataset: `reference-data/frosty/soldier-armor-materials.json`. EA's [1.3.3.0 notes](https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-3-0) give a chest multiplier 'against armor' of 0.84 (automatic), 0.91 (DMR) and 0.67 (sniper). L3362 could not place them: the chest material 115 reads 1.0.
+
+`Common/Gameplay/Soldier/Glacier_Soldier` object 55 (`Class_041026f6`) holds two packed materials, 579 and 587, and no other saved file names either. Material 579, both level grids:
+
+| Array value | Scalar | Projectile materials |
+|---|---|---|
+| 0.67 | 0.67 | 290, 351 |
+| 0.84 | 0.7353 | 621 |
+| 0.84 | 0.84 | 276, 277, 278, 492, 493, 494, 496, 497, 288, 289 |
+| 0.91 | 0.91 | 291, 498 |
+| 1 | 1 | 275, 279, 286, 491, 499, 784 |
+
+- 579 is the only target material with the 0.84 / 0.91 / 0.67 set; here the scalar equals the array.
+- 587 is a head table equal to the normal one except for bolt-action bullets (290, 351, 784): `[1, 2.25, 2.25, 2.25, 3]`, so 2.25 at the bolt-action index 3 instead of 1.75.
+- That 579 is the armored chest is a correspondence with EA's lines; the fields naming it are hashes and what selects it is not read.
+
+64 raw-offset checks matched.
+
+Test: in a mode with armor plates, one rifle bullet to the chest of a plated and of an unplated enemy at the same range.
+
+## L3374 - Dead end: 13 unidentified target materials with soldier-style arrays (9 October 2026)
+
+> Replaced by L3380 below. The statement here that no saved file names these materials came from an incomplete file search; the armor affectors name them.
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3374-unidentified-soldier-style-target-materials.json). Dataset: `reference-data/frosty/unidentified-target-materials.json`. Beyond the player soldier's materials (24, 115, 25, 26; and 579, 587 of L3370), these target materials have a multiplier array against bullets. Single values, or for tables the entries at index 1 / 2 / 3 / 11:
+
+| Target material | automatic (276) | DMR (498) | bolt-action (290) | pistol (275) | shotgun (279) |
+|---|---|---|---|---|---|
+| 74 | 1 | 1 | 0.67 | 1 | 1 |
+| 238 | 3 | 3.8 | 4 | 2.51 | 1.475 |
+| 239 | 0.48 | 0.475 | 0.5 | 0.43 | 0.48 |
+| 292 | table: 0.648 / 0.816 / 0.816 | table: 0.64125 / 0.8075 / 0.9975 | table: 0.675 / 0.85 / 1.05 | table: 0.5805 / 0.731 / 0.903 | table: 0.48 / 0.48 / 0.48 |
+| 394 | 0.74 | 0.85 | 0.583 | 0.74 | 0.48 |
+| 395 | table: 0.999 / 1.258 / 1.554 | table: 1.475 / 1.445 / 1.785 | table: 0.78705 / 0.9911 / 1.2243 | table: 0.999 / 1.258 / 1.554 | table: 0.48 / 0.48 / 0.48 |
+| 418 | 1 | 1 | 0.5 | 1 | 1 |
+| 419 | 1 | 1 | 0.583 | 1 | 1 |
+| 420 | 1 | 1 | 0.5 | 1 | 1 |
+| 421 | 1 | 1 | 0.583 | 1 | 1 |
+| 535 | table: 1.34 / 1.5 / 1.75 / 1.4 | table: 3 / 3.777 / 4.666 | table: 2.777 / 3.333 / 3.333 | table: 1.34 / 1.5 / 1.75 / 1.4 | table: 1.34 / 1.5 / 1.75 / 1.4 |
+| 536 | 0.84 | 2.2223 | 2.223 | 1 | 1 |
+| 586 | table: 1.34 / 1.5 / 1.75 / 1.4 | table: 1.34 / 1.5 / 1.75 / 1.4 | table: 1.34 / 1.5 / 1.75 / 1.4 | table: 1.34 / 1.5 / 1.75 / 1.4 | table: 1.34 / 1.5 / 1.75 / 1.4 |
+
+No saved file names any of them (47,686 files searched) and the bone collision file uses only 24, 115, 25 and 26. What they belong to is not readable from the capture. 89 raw-offset checks matched.
+
+## L3380 - Armor is stored as material swaps (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3380-armor-upgrade-material-swaps.json). Dataset: `reference-data/frosty/armor-material-swaps.json`. Replaces L3370 and withdraws L3374 above: their file search was incomplete (three raw roots, low bits required to equal 0x80). Armor affectors do name these materials.
+
+Swap affectors (`Class_99b2c2df`; kind 1 soft, 2 ceramic):
+
+| Affector file | Kind | Pairs (first to second) |
+|---|---|---|
+| `Affector_CeramicArmorUpgrade` | 2 | 579 to 238, 580 to 239, 580 to 292, 0 to 239, 0 to 239 |
+| `Affector_CeramicArmorUpgrade_EffectiveHealth` | 2 | 587 to 586, 579 to 579, 580 to 580, 581 to 581, 580 to 580, 580 to 580 |
+| `Affector_CeramicArmorUpgrade_ExtraDurability` | 2 | 397 to 445, 395 to 450, 396 to 449, 395 to 450, 395 to 450 |
+| `Affector_CeramicArmorUpgrade_ExtraProtection` | 2 | 397 to 447, 395 to 451, 396 to 489, 395 to 451, 395 to 451 |
+| `Affector_FiringRange_TargetCeramicArmor` | 2 | 0 to 3, 394 to 3, 395 to 3, 421 to 3, 419 to 3 |
+| `Affector_FiringRange_TargetSoftArmor` | 1 | 0 to 3, 394 to 3, 395 to 3, 421 to 3, 419 to 3 |
+| `Affector_SoftArmorUpgrade` | 1 | 579 to 579 |
+| `Affector_SoftArmorUpgrade_EffectiveHealth` | 1 | 587 to 587, 579 to 579, 580 to 580, 581 to 581, 580 to 580, 580 to 580 |
+| `Affector_SoftArmorUpgrade_ExtraDurability` | 1 | 397 to 446, 395 to 452, 396 to 454, 395 to 452, 395 to 452 |
+| `Affector_SoftArmorUpgrade_ExtraProtection` | 1 | 397 to 448, 395 to 453, 396 to 488, 395 to 453, 395 to 453 |
+
+Grid values of the materials named, single value or table entries 1 / 2 / 3 / 11:
+
+| Target material | automatic (276) | DMR (498) | bolt-action (290) | pistol (275) | shotgun (279) |
+|---|---|---|---|---|---|
+| 3 | no array, scalar - | no array, scalar - | no array, scalar - | no array, scalar - | no array, scalar - |
+| 238 | 3 | 3.8 | 4 | 2.51 | 1.475 |
+| 239 | 0.48 | 0.475 | 0.5 | 0.43 | 0.48 |
+| 292 | table 0.648/0.816/0.816 | table 0.6412/0.8075/0.9975 | table 0.675/0.85/1.05 | table 0.5805/0.731/0.903 | table 0.48/0.48/0.48 |
+| 394 | 0.74 | 0.85 | 0.583 | 0.74 | 0.48 |
+| 395 | table 0.999/1.258/1.554 | table 1.475/1.445/1.785 | table 0.7871/0.9911/1.2243 | table 0.999/1.258/1.554 | table 0.48/0.48/0.48 |
+| 396 | no array, scalar 1 | no array, scalar 1 | no array, scalar 1 | no array, scalar 1 | no array, scalar 1 |
+| 397 | no array, scalar - | no array, scalar - | no array, scalar - | no array, scalar - | no array, scalar - |
+| 419 | 1 | 1 | 0.583 | 1 | 1 |
+| 421 | 1 | 1 | 0.583 | 1 | 1 |
+| 445 | no array, scalar 1 | no array, scalar 1 | no array, scalar 1 | no array, scalar 1 | no array, scalar 1 |
+| 446 | no array, scalar 1 | no array, scalar 1 | no array, scalar 1 | no array, scalar 1 | no array, scalar 1 |
+| 447 | no array, scalar 1 | no array, scalar 1 | no array, scalar 1 | no array, scalar 1 | no array, scalar 1 |
+| 448 | no array, scalar 1 | no array, scalar 1 | no array, scalar 1 | no array, scalar 1 | no array, scalar 1 |
+| 449 | no array, scalar 1 | no array, scalar 1 | no array, scalar 1 | no array, scalar 1 | no array, scalar 1 |
+| 450 | no array, scalar 1 | no array, scalar 1 | no array, scalar 1 | no array, scalar 1 | no array, scalar 1 |
+| 451 | no array, scalar 1 | no array, scalar 1 | no array, scalar 1 | no array, scalar 1 | no array, scalar 1 |
+| 452 | no array, scalar 1 | no array, scalar 1 | no array, scalar 1 | no array, scalar 1 | no array, scalar 1 |
+| 453 | no array, scalar 1 | no array, scalar 1 | no array, scalar 1 | no array, scalar 1 | no array, scalar 1 |
+| 454 | no array, scalar 1 | no array, scalar 1 | no array, scalar 1 | no array, scalar 1 | no array, scalar 1 |
+| 488 | no array, scalar 1 | no array, scalar 1 | no array, scalar 1 | no array, scalar 1 | no array, scalar 1 |
+| 489 | no array, scalar 1 | no array, scalar 1 | no array, scalar 1 | no array, scalar 1 | no array, scalar 1 |
+| 579 | 0.84 | 0.91 | 0.67 | 1 | 1 |
+| 580 | 0 | 0 | 0 | 0 | 0 |
+| 581 | table 0/0/0 | table 0/0/0 | table 0/0/0 | table 0/0/0 | table 0/0/0 |
+| 586 | table 1.34/1.5/1.75/1.4 | table 1.34/1.5/1.75/1.4 | table 1.34/1.5/1.75/1.4 | table 1.34/1.5/1.75/1.4 | table 1.34/1.5/1.75/1.4 |
+| 587 | table 1.34/1.5/1.75/1.4 | table 1.34/1.5/1.75/1.4 | table 2.25/2.25/2.25 | table 1.34/1.5/1.75/1.4 | table 1.34/1.5/1.75/1.4 |
+
+Amount affectors (`Class_79520af1`):
+
+| Affector file | Entries: integer / amount / factor |
+|---|---|
+| `Affector_Gadget_CeramicArmor` | 1 / 121 / 0.5, 1 / 242 / 0.5, 2 / 40 / 0.5, 2 / 80 / 0.5, 1 / 40 / 0.5, 1 / 80 / 0.5 |
+| `Affector_Gadget_CeramicArmor_Full` | 1 / 80 / 0.5, 1 / 80 / 0.5, 1 / 80 / 0.5 |
+| `Affector_Gadget_SoldierArmorVestTier` | 1 / 0 / 0.5, 1 / 40 / 0.5, 2 / 0 / 0.5, 2 / 40 / 0.5, 2 / 80 / 0.5, 1 / 0 / 0.5, 1 / 40 / 0.5, 1 / 80 / 0.5 |
+| `Affector_Gadget_SoftArmor` | 1 / 242 / 0.5, 1 / 242 / 0.5, -1 / 242 / 0.5, 1 / 40 / 0.5, -1 / 242 / 0.5 |
+
+- Soldier file: chest candidate 579 (EA's [1.3.3.0](https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-3-0) 'against armor' 0.84 / 0.91 / 0.67), head candidate 587 (bolt-action 2.25).
+- Ceramic armor maps 579 to 238 and 587 to 586 (bolt-action head 1.75). Soft armor keeps both.
+- The direction of a pair (first replaced by second) and the meaning of 40 / 80 / 121 / 242 are candidates; field names are hashes.
+- Still without a user: 74, 418, 420, 535, 536.
+
+202 raw-offset checks matched.
+
+Test: one rifle bullet to the chest of an armored enemy, reading health and armor lost; one bolt-action headshot on an armored enemy.
+
+## L3381 - Damage affectors: field names and stored values (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3381-damage-affector-fields-and-values.json). Dataset: `reference-data/frosty/damage-affectors.json`. Class `Class_14965f9f` (the fire affectors of L3379 in GADGETS.md use it too). Registry rows named after the defibrillator affector and the Thermal Smoke infantry damage name three fields: `Field_72380a66` InitialDamage, `Field_ce8df685` DamageInterval, `Field_093fdee2` DamageToDealPerSecond.
+
+| Affector file | Entry | InitialDamage | DamageInterval | DamageToDealPerSecond | Material | Stages (integer / float) |
+|---|---|---|---|---|---|---|
+| `Affector_Melee_Damage` | 0 | 35 | 0.5 | 0 | 274 | - |
+| `Affector_Melee_Damage` | 1 | 60 | 0.5 | 0 | 274 | - |
+| `Affector_Melee_Damage` | 2 | 1500 | 0.1 | 0 | 274 | - |
+| `Affector_Melee_Damage` | 3 | 70 | 0.5 | 0 | 274 | - |
+| `Affector_Damage_Defibrillator` | 0 | 50 | 0 | 0 | 100 | - |
+| `Affector_Damage_Defibrillator` | 1 | 60 | 0 | 0 | 100 | - |
+| `Affector_Damage_Defibrillator` | 2 | 70 | 0 | 0 | 100 | - |
+| `Affector_Damage_Defibrillator` | 3 | 80 | 0 | 0 | 100 | - |
+| `Affector_Damage_Defibrillator` | 4 | 90 | 0 | 0 | 100 | - |
+| `Affector_Damage_Defibrillator` | 5 | 100 | 0 | 0 | 100 | - |
+| `Affector_PsyGas_Damage` | 0 | 0 | 0.5 | 24 | 169 | - |
+| `Affector_ThermalSmoke_InfantryDamage` | 0 | 12 | 0.5 | 12 | 169 | - |
+| `Affector_ThermalSmoke_InfantryDamage` | 1 | 25 | 0.25 | 12 | - | - |
+| `Affector_VelocityDamage` | 0 | 0 | 0 | 0 | - | - |
+| `Affector_VelocityDamage` | 1 | 25 | 0 | 0 | - | - |
+| `Affector_VelocityDamage` | 2 | 50 | 0.5 | 0 | - | - |
+| `Affector_VelocityDamage` | 3 | 75 | 0.5 | 0 | - | - |
+| `Affector_VelocityDamage` | 4 | 100 | 0.5 | 0 | - | - |
+| `Affector_VelocityDamage` | 5 | 999 | 0.5 | 100 | - | - |
+| `Affector_Damage_M26Dragonbreath` | 0 | 0 | 0.1 | 1 | 169 | 3 / 5, 2 / 2, 4 / 1 |
+| `Affector_Damage_M26Dragonbreath` | 1 | 0 | 0.1 | 1 | 169 | 3 / 2, 2 / 1 |
+| `Affector_Damage_Afterburner` | 0 | 0 | 0.1 | 1 | 169 | 8 / 5, 7 / 6.5, 5 / 7 |
+
+- Melee: 35 / 60 / 70 and a 1500 takedown; which swing uses which is not read.
+- Defibrillator: 50 to 100 in six steps (the registry holds the same rows).
+- Gas: 24 per second at a 0.5 interval. Thermal Smoke against infantry: registry 25 initial, 12 per second, 0.5 interval.
+- Collision: steps 0, 25, 50, 75, 100, 999; thresholds not in this file.
+- Stage lists (Dragon's Breath, afterburner, fire) remain unnamed.
+
+75 raw-offset checks matched.
+
+Tests: one knife swing front and back; defibrillator on an enemy uncharged and charged; health lost per second in gas.

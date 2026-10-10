@@ -1,0 +1,307 @@
+{
+ "lead": "L3318",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Newest saved raw copy of each route under builds\\1.4.3.5; raw-checks.json pins each file hash."
+ },
+ "question": "Do numbers stated in EA's update notes equal the registry default or the asset's own value for properties where the two differ?",
+ "sourceFacts": {
+  "method": "EA's update notes 1.3.1.0 and 1.3.3.0 (URLs in each case, read 9 October 2026) were read for numbers that are stated in the same unit as a stored property and that fall on one of the 73 properties where registry default and own value differ (L3307). Each official item was joined to a registry owner by name. Registry defaults and own values were read back at their raw offsets; the own value was located in the explosion object (Class_9966532d) for radii and the projectile object (Class_23637dce) for damage.",
+  "control": {
+   "description": "Registry default and own value of the first case (Hydra 70 BlastRadius).",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 424964,
+     "type": "f32",
+     "bytesHex": "00009840",
+     "value": 4.75,
+     "expect": 4.75,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Rocket\\Hydra\\PRJ_Missile_Hydra70.ebx",
+     "rawSha256": "ef49b0803dde21d5f5ffb01a6c2730e14ec7c0f6e2999fb66a0b9c25cc971e44",
+     "offset": 1776,
+     "type": "f32",
+     "bytesHex": "00009040",
+     "value": 4.5,
+     "expect": 4.5,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 22,
+   "matched": 22,
+   "files": 8,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "raw-checks.json"
+  },
+  "cases": [
+   {
+    "owner": "PRJ_Missile_Hydra70",
+    "property": "BlastRadius",
+    "officialItem": "Helicopter Light Rocket",
+    "officialStatement": "area of effect 5 to 4.75 m",
+    "officialNumber": 4.75,
+    "multiplier": 1,
+    "source": "https://www.ea.com/games/battlefield/redsec/news/battlefield-6-game-update-1-3-1-0",
+    "registryRow": "PRJ_Missile_Hydra70.MissileEntityData.GhostedProjectileEntityData.MeshProjectileEntityData.ProjectileEntityData.Explosion.ExplosionEntityData.BlastRadius",
+    "registryDefault": 4.75,
+    "ownValue": 4.5,
+    "ownFile": "Common/Hardware/Vehicles/_Projectiles/Rocket/Hydra/PRJ_Missile_Hydra70",
+    "registryTimesMultiplier": 4.75,
+    "ownTimesMultiplier": 4.5,
+    "matches": "registry",
+    "ownField": [
+     "Field_33f3a8ab"
+    ],
+    "ownObjectClass": "Class_9966532d",
+    "ownFileSha256": "ef49b0803dde21d5f5ffb01a6c2730e14ec7c0f6e2999fb66a0b9c25cc971e44"
+   },
+   {
+    "owner": "PRJ_Missile_APKWS-II",
+    "property": "BlastRadius",
+    "officialItem": "Helicopter Smart Rocket",
+    "officialStatement": "area of effect 5 to 4.75 m",
+    "officialNumber": 4.75,
+    "multiplier": 1,
+    "source": "https://www.ea.com/games/battlefield/redsec/news/battlefield-6-game-update-1-3-1-0",
+    "registryRow": "PRJ_Missile_APKWS-II.MissileEntityData.GhostedProjectileEntityData.MeshProjectileEntityData.ProjectileEntityData.Explosion.ExplosionEntityData.BlastRadius",
+    "registryDefault": 4.75,
+    "ownValue": 4.5,
+    "ownFile": "Common/Hardware/Vehicles/_Projectiles/Rocket/APKWS/PRJ_Missile_APKWS-II",
+    "registryTimesMultiplier": 4.75,
+    "ownTimesMultiplier": 4.5,
+    "matches": "registry",
+    "ownField": [
+     "Field_33f3a8ab"
+    ],
+    "ownObjectClass": "Class_9966532d",
+    "ownFileSha256": "a930e824369d8112bfcc72b0e27182d7d4c7c3d560d362b5ca977e28aae9b2b6"
+   },
+   {
+    "owner": "PRJ_Missile_Zuni",
+    "property": "BlastRadius",
+    "officialItem": "Helicopter Heavy Rocket",
+    "officialStatement": "area of effect 5.5 to 5.25 m",
+    "officialNumber": 5.25,
+    "multiplier": 1,
+    "source": "https://www.ea.com/games/battlefield/redsec/news/battlefield-6-game-update-1-3-1-0",
+    "registryRow": "PRJ_Missile_Zuni.MissileEntityData.GhostedProjectileEntityData.MeshProjectileEntityData.ProjectileEntityData.Explosion.ExplosionEntityData.BlastRadius",
+    "registryDefault": 5.25,
+    "ownValue": 7.0,
+    "ownFile": "Common/Hardware/Vehicles/_Projectiles/Rocket/Zuni/PRJ_Missile_Zuni",
+    "registryTimesMultiplier": 5.25,
+    "ownTimesMultiplier": 7.0,
+    "matches": "registry",
+    "ownField": [
+     "Field_33f3a8ab"
+    ],
+    "ownObjectClass": "Class_9966532d",
+    "ownFileSha256": "c39eb64ea6c969479ab4c04d1a091d80746ef359cf1fec5799349c09cd183c87"
+   },
+   {
+    "owner": "PD_Vehicles_MBT_AmmoTypes_HE",
+    "property": "InnerBlastRadius",
+    "officialItem": "120mm HEMP-T",
+    "officialStatement": "inner blast radius 2 to 2.25 m",
+    "officialNumber": 2.25,
+    "multiplier": 1,
+    "source": "https://www.ea.com/games/battlefield/redsec/news/battlefield-6-game-update-1-3-1-0",
+    "registryRow": "PD_Vehicles_MBT_AmmoTypes_HE.BulletEntityData.MeshProjectileEntityData.ProjectileEntityData.Explosion.ExplosionEntityData.InnerBlastRadius",
+    "registryDefault": 2.25,
+    "ownValue": 1.0,
+    "ownFile": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/MBT/PD_Vehicles_MBT_AmmoTypes_HE",
+    "registryTimesMultiplier": 2.25,
+    "ownTimesMultiplier": 1.0,
+    "matches": "registry",
+    "ownField": [
+     "Field_3ef01f58",
+     "Field_658381bd",
+     "Field_835b1f77",
+     "Field_95e340fe",
+     "Field_a97573a1",
+     "Field_f30832df"
+    ],
+    "ownObjectClass": "Class_9966532d",
+    "ownFileSha256": "0f4ffe732b5590e74ab225963bd9891d76218223677d8ccab19aab42fd555bc4",
+    "ownFieldNote": "Six fields of the explosion object store 1.0, so the offset checks do not single out the inner blast radius field; the own value 1.0 for InnerBlastRadius is the named value recorded in L3307."
+   },
+   {
+    "owner": "PD_Vehicles_AA_PrimaryWeapon_AAHV",
+    "property": "StartDamage",
+    "officialItem": "Mobile AA High Velocity ammo",
+    "officialStatement": "damage to helicopters 48 to 52 and to jets 60 to 65",
+    "officialNumber": 52,
+    "multiplier": 4,
+    "source": "https://www.ea.com/games/battlefield/redsec/news/battlefield-6-game-update-1-3-3-0",
+    "registryRow": "PD_Vehicles_AA_PrimaryWeapon_AAHV.BulletEntityData.StartDamage",
+    "registryDefault": 13.0,
+    "ownValue": 12.0,
+    "ownFile": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/AA/PD_Vehicles_AA_PrimaryWeapon_AAHV",
+    "registryTimesMultiplier": 52.0,
+    "ownTimesMultiplier": 48.0,
+    "matches": "registry",
+    "ownField": [
+     "Field_94869d67",
+     "Field_bc7acc94"
+    ],
+    "ownObjectClass": "Class_23637dce",
+    "ownFileSha256": "a60a1061eae76db9a7ef10f7d198753dd6c4e7b3e0e8b12090c5437fa74f4f87"
+   },
+   {
+    "owner": "PD_Vehicles_AA_PrimaryWeapon_AAAP",
+    "property": "StartDamage",
+    "officialItem": "Mobile AA Armour Piercing ammo",
+    "officialStatement": "damage to aircraft 160 to 200",
+    "officialNumber": 200,
+    "multiplier": 10,
+    "source": "https://www.ea.com/games/battlefield/redsec/news/battlefield-6-game-update-1-3-3-0",
+    "registryRow": "PD_Vehicles_AA_PrimaryWeapon_AAAP.BulletEntityData.StartDamage",
+    "registryDefault": 20.0,
+    "ownValue": 57.0,
+    "ownFile": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/AA/PD_Vehicles_AA_PrimaryWeapon_AAAP",
+    "registryTimesMultiplier": 200.0,
+    "ownTimesMultiplier": 570.0,
+    "matches": "registry",
+    "ownField": [
+     "Field_94869d67",
+     "Field_bc7acc94"
+    ],
+    "ownObjectClass": "Class_23637dce",
+    "ownFileSha256": "7d455868b9e5d2a46faa4f1be9984714ec2294adaddeda0072490fec4c5fab26"
+   },
+   {
+    "owner": "PD_Vehicles_AA_PrimaryWeapon_AAGP",
+    "property": "StartDamage",
+    "officialItem": "Mobile AA General Purpose ammo",
+    "officialStatement": "damage to aircraft 110 to 130",
+    "officialNumber": 130,
+    "multiplier": 10,
+    "source": "https://www.ea.com/games/battlefield/redsec/news/battlefield-6-game-update-1-3-3-0",
+    "registryRow": "PD_Vehicles_AA_PrimaryWeapon_AAGP.BulletEntityData.StartDamage",
+    "registryDefault": 13.0,
+    "ownValue": 32.0,
+    "ownFile": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/AA/PD_Vehicles_AA_PrimaryWeapon_AAGP",
+    "registryTimesMultiplier": 130.0,
+    "ownTimesMultiplier": 320.0,
+    "matches": "registry",
+    "ownField": [
+     "Field_94869d67",
+     "Field_bc7acc94"
+    ],
+    "ownObjectClass": "Class_23637dce",
+    "ownFileSha256": "e38f1a47be43a69b19da9d362fc4df69a315afc712a81c4cbae96673d341709e"
+   }
+  ],
+  "dataset": "reference-data/frosty/registry-official-number-matches.json"
+ },
+ "inference": [
+  "Four radii that EA states in metres equal the registry default exactly and differ from the asset's own value: helicopter light rocket 4.75 (Hydra 70: registry 4.75, own 4.5), smart rocket 4.75 (APKWS: 4.75, 4.5), heavy rocket 5.25 (Zuni: 5.25, 7) and tank HE inner blast radius 2.25 (registry 2.25, own 1). No multiplier is involved.",
+  "Anti-air high velocity ammunition: EA states damage to helicopters went from 48 to 52 and to jets from 60 to 65. Registry StartDamage 13 gives 52 and 65 with multipliers 4 and 5; the asset's own 12 gives 48 and 60, EA's old values. The asset holds the pre-change number and the registry the current one.",
+  "Anti-air armour piercing and general purpose: EA states 200 and 130 against aircraft; registry 20 and 13 fit with a multiplier of 10, own 57 and 32 fit no round multiplier. The multiplier is unexplained, so these two are weaker.",
+  "With L3317 this gives six properties on five weapons where an official number follows the registry default and not the asset, and none found the other way. The registry default is therefore taken as the live value where the two differ; this rests on official statements and stored values, with item-to-owner joins by name.",
+  "The joins of EA item names to registry owners (light rocket to Hydra 70, smart rocket to APKWS, heavy rocket to Zuni, HEMP-T to the tank HE ammunition type) are name-only."
+ ],
+ "unresolved": [
+  "A direct in-game reading for one disputed damage value. Test: one anti-tank mine under a full-health tank (registry BlastDamage 195, own 300), or the scout helicopter minigun shots-to-overheat count of L3317.",
+  "EA's notes are from updates 1.3.1.0 and 1.3.3.0; a later unannounced change could have moved a value. Test: fire one heavy rocket at flat ground and measure the damage radius against a teammate at 5 m and 6 m (stored 5.25 registry, 7 own).",
+  "The remaining disputed properties have no official number; the conclusion is extended to them as the working rule.",
+  "The damage multipliers 4, 5 and 10 against aircraft are not traced to stored data here.",
+  "For the tank HE inner blast radius the own field is identified by L3307's name, not by a unique value in the object."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-09-registry-official-numbers",
+  "artifacts": [
+   {
+    "file": "cases.json",
+    "sha256": "68e4f44a53e0a256fb595cf415b43d193df8172bbe0d152eaa558ee8cb8bdd41"
+   },
+   {
+    "file": "raw-check-manifest.json",
+    "sha256": "2bb9a09d67f2dc89fc66094c7100c1ec96c2cf481a85c86d781c5c06f6deecaa"
+   },
+   {
+    "file": "raw-checks.json",
+    "sha256": "248c0fbaaa274e84c41dad54c4df97068a7aa4580d4a767818738bb562674054"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-09",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L3318",
+    "title": "Official numbers follow the registry default, not the asset value, on disputed properties",
+    "status": "finding",
+    "summary": "EA-stated radii equal the registry default and not the asset's own value for the Hydra 70 (4.75), APKWS (4.75), Zuni (5.25) and tank HE inner radius (2.25); anti-air high velocity damage follows the registry 13 while the asset's 12 reproduces EA's old values. No case was found the other way. The registry default is taken as the live value where the two differ. 22 raw-offset checks matched.",
+    "reopenWhen": "An in-game reading that contradicts a registry default, or an official number that equals an asset's own value where the registry differs.",
+    "statusNote": "Official statements matched to stored values; item-to-owner joins by name; no in-game control."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/GameSetup/Tweakables/GameRemixer/GRX_Vehicles",
+    "format": "raw-ebx",
+    "sha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+    "question": "Do numbers stated in EA's update notes equal the registry default or the asset's own value for properties where the two differ?",
+    "result": "useful",
+    "conclusion": "Registry defaults equal EA's stated values: Hydra and APKWS BlastRadius 4.75, Zuni BlastRadius 5.25, tank HE InnerBlastRadius 2.25; anti-air high velocity StartDamage 13."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/_Projectiles/Rocket/Hydra/PRJ_Missile_Hydra70",
+    "format": "raw-ebx",
+    "sha256": "ef49b0803dde21d5f5ffb01a6c2730e14ec7c0f6e2999fb66a0b9c25cc971e44",
+    "question": "Do numbers stated in EA's update notes equal the registry default or the asset's own value for properties where the two differ?",
+    "result": "useful",
+    "conclusion": "Own BlastRadius stores 4.5; EA states area of effect 5 to 4.75 m for Helicopter Light Rocket; the registry default is 4.75."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/_Projectiles/Rocket/APKWS/PRJ_Missile_APKWS-II",
+    "format": "raw-ebx",
+    "sha256": "a930e824369d8112bfcc72b0e27182d7d4c7c3d560d362b5ca977e28aae9b2b6",
+    "question": "Do numbers stated in EA's update notes equal the registry default or the asset's own value for properties where the two differ?",
+    "result": "useful",
+    "conclusion": "Own BlastRadius stores 4.5; EA states area of effect 5 to 4.75 m for Helicopter Smart Rocket; the registry default is 4.75."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/_Projectiles/Rocket/Zuni/PRJ_Missile_Zuni",
+    "format": "raw-ebx",
+    "sha256": "c39eb64ea6c969479ab4c04d1a091d80746ef359cf1fec5799349c09cd183c87",
+    "question": "Do numbers stated in EA's update notes equal the registry default or the asset's own value for properties where the two differ?",
+    "result": "useful",
+    "conclusion": "Own BlastRadius stores 7.0; EA states area of effect 5.5 to 5.25 m for Helicopter Heavy Rocket; the registry default is 5.25."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/MBT/PD_Vehicles_MBT_AmmoTypes_HE",
+    "format": "raw-ebx",
+    "sha256": "0f4ffe732b5590e74ab225963bd9891d76218223677d8ccab19aab42fd555bc4",
+    "question": "Do numbers stated in EA's update notes equal the registry default or the asset's own value for properties where the two differ?",
+    "result": "useful",
+    "conclusion": "Own InnerBlastRadius stores 1.0; EA states inner blast radius 2 to 2.25 m for 120mm HEMP-T; the registry default is 2.25."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/AA/PD_Vehicles_AA_PrimaryWeapon_AAHV",
+    "format": "raw-ebx",
+    "sha256": "a60a1061eae76db9a7ef10f7d198753dd6c4e7b3e0e8b12090c5437fa74f4f87",
+    "question": "Do numbers stated in EA's update notes equal the registry default or the asset's own value for properties where the two differ?",
+    "result": "useful",
+    "conclusion": "Own StartDamage stores 12.0; EA states damage to helicopters 48 to 52 and to jets 60 to 65 for Mobile AA High Velocity ammo; the registry default is 13.0."
+   }
+  ]
+ }
+}

@@ -1,0 +1,576 @@
+{
+ "lead": "L3385",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Read from saved raw captures; no export, no new capture."
+ },
+ "question": "What damage does the Repair Tool (and EOD Bot) do to enemy vehicles, and how does it scale by vehicle type?",
+ "sourceFacts": {
+  "method": "Affector_RepairToolDamageVehicle and Affector_EODBot_DamageVehicle (Class_14965f9f, fields named in L3381) were decoded with raw offsets. Their material 479 was read against three vehicle target materials in both level grids. The registry rows 'RepairTool_Damage Vehicle Rank', its Battle Royale row, the apply interval and the anti-repair rows were read with raw offsets.",
+  "control": {
+   "description": "Both files hold the same seven InitialDamage values and the same material; both level grids give the same scalars.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Affector_RepairToolDamageVehicle.ebx",
+     "rawSha256": "58cf700ab27e338e31d4b64cf3bec1534abe004d021336041664ec5d9a2925ae",
+     "offset": 164,
+     "type": "f32",
+     "bytesHex": "00002041",
+     "value": 10.0,
+     "expect": 10.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Affector_RepairToolDamageVehicle.ebx",
+     "rawSha256": "58cf700ab27e338e31d4b64cf3bec1534abe004d021336041664ec5d9a2925ae",
+     "offset": 204,
+     "type": "i32",
+     "bytesHex": "80c5f01d",
+     "value": 502318464,
+     "expect": 502318464,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Affector_RepairToolDamageVehicle.ebx",
+     "rawSha256": "58cf700ab27e338e31d4b64cf3bec1534abe004d021336041664ec5d9a2925ae",
+     "offset": 244,
+     "type": "f32",
+     "bytesHex": "0000a040",
+     "value": 5.0,
+     "expect": 5.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Affector_RepairToolDamageVehicle.ebx",
+     "rawSha256": "58cf700ab27e338e31d4b64cf3bec1534abe004d021336041664ec5d9a2925ae",
+     "offset": 284,
+     "type": "i32",
+     "bytesHex": "80c5f01d",
+     "value": 502318464,
+     "expect": 502318464,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Affector_RepairToolDamageVehicle.ebx",
+     "rawSha256": "58cf700ab27e338e31d4b64cf3bec1534abe004d021336041664ec5d9a2925ae",
+     "offset": 324,
+     "type": "f32",
+     "bytesHex": "0000f040",
+     "value": 7.5,
+     "expect": 7.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Affector_RepairToolDamageVehicle.ebx",
+     "rawSha256": "58cf700ab27e338e31d4b64cf3bec1534abe004d021336041664ec5d9a2925ae",
+     "offset": 364,
+     "type": "i32",
+     "bytesHex": "80c5f01d",
+     "value": 502318464,
+     "expect": 502318464,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Affector_RepairToolDamageVehicle.ebx",
+     "rawSha256": "58cf700ab27e338e31d4b64cf3bec1534abe004d021336041664ec5d9a2925ae",
+     "offset": 404,
+     "type": "f32",
+     "bytesHex": "00004841",
+     "value": 12.5,
+     "expect": 12.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Affector_RepairToolDamageVehicle.ebx",
+     "rawSha256": "58cf700ab27e338e31d4b64cf3bec1534abe004d021336041664ec5d9a2925ae",
+     "offset": 444,
+     "type": "i32",
+     "bytesHex": "80c5f01d",
+     "value": 502318464,
+     "expect": 502318464,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Affector_RepairToolDamageVehicle.ebx",
+     "rawSha256": "58cf700ab27e338e31d4b64cf3bec1534abe004d021336041664ec5d9a2925ae",
+     "offset": 484,
+     "type": "f32",
+     "bytesHex": "00007041",
+     "value": 15.0,
+     "expect": 15.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Affector_RepairToolDamageVehicle.ebx",
+     "rawSha256": "58cf700ab27e338e31d4b64cf3bec1534abe004d021336041664ec5d9a2925ae",
+     "offset": 524,
+     "type": "i32",
+     "bytesHex": "80c5f01d",
+     "value": 502318464,
+     "expect": 502318464,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Affector_RepairToolDamageVehicle.ebx",
+     "rawSha256": "58cf700ab27e338e31d4b64cf3bec1534abe004d021336041664ec5d9a2925ae",
+     "offset": 564,
+     "type": "f32",
+     "bytesHex": "00008c41",
+     "value": 17.5,
+     "expect": 17.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Affector_RepairToolDamageVehicle.ebx",
+     "rawSha256": "58cf700ab27e338e31d4b64cf3bec1534abe004d021336041664ec5d9a2925ae",
+     "offset": 604,
+     "type": "i32",
+     "bytesHex": "80c5f01d",
+     "value": 502318464,
+     "expect": 502318464,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Affector_RepairToolDamageVehicle.ebx",
+     "rawSha256": "58cf700ab27e338e31d4b64cf3bec1534abe004d021336041664ec5d9a2925ae",
+     "offset": 644,
+     "type": "f32",
+     "bytesHex": "0000a041",
+     "value": 20.0,
+     "expect": 20.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Affector_RepairToolDamageVehicle.ebx",
+     "rawSha256": "58cf700ab27e338e31d4b64cf3bec1534abe004d021336041664ec5d9a2925ae",
+     "offset": 684,
+     "type": "i32",
+     "bytesHex": "80c5f01d",
+     "value": 502318464,
+     "expect": 502318464,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\EODBot\\Repair\\Logic\\Affector_EODBot_DamageVehicle.ebx",
+     "rawSha256": "a5a2964d2c811cce64e2ad2dcc35d5dd4f847b9f02c29304d48fc066703f7d84",
+     "offset": 164,
+     "type": "f32",
+     "bytesHex": "00002041",
+     "value": 10.0,
+     "expect": 10.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\EODBot\\Repair\\Logic\\Affector_EODBot_DamageVehicle.ebx",
+     "rawSha256": "a5a2964d2c811cce64e2ad2dcc35d5dd4f847b9f02c29304d48fc066703f7d84",
+     "offset": 204,
+     "type": "i32",
+     "bytesHex": "80c5f01d",
+     "value": 502318464,
+     "expect": 502318464,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\EODBot\\Repair\\Logic\\Affector_EODBot_DamageVehicle.ebx",
+     "rawSha256": "a5a2964d2c811cce64e2ad2dcc35d5dd4f847b9f02c29304d48fc066703f7d84",
+     "offset": 244,
+     "type": "f32",
+     "bytesHex": "0000a040",
+     "value": 5.0,
+     "expect": 5.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\EODBot\\Repair\\Logic\\Affector_EODBot_DamageVehicle.ebx",
+     "rawSha256": "a5a2964d2c811cce64e2ad2dcc35d5dd4f847b9f02c29304d48fc066703f7d84",
+     "offset": 284,
+     "type": "i32",
+     "bytesHex": "80c5f01d",
+     "value": 502318464,
+     "expect": 502318464,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\EODBot\\Repair\\Logic\\Affector_EODBot_DamageVehicle.ebx",
+     "rawSha256": "a5a2964d2c811cce64e2ad2dcc35d5dd4f847b9f02c29304d48fc066703f7d84",
+     "offset": 324,
+     "type": "f32",
+     "bytesHex": "0000f040",
+     "value": 7.5,
+     "expect": 7.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\EODBot\\Repair\\Logic\\Affector_EODBot_DamageVehicle.ebx",
+     "rawSha256": "a5a2964d2c811cce64e2ad2dcc35d5dd4f847b9f02c29304d48fc066703f7d84",
+     "offset": 364,
+     "type": "i32",
+     "bytesHex": "80c5f01d",
+     "value": 502318464,
+     "expect": 502318464,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\EODBot\\Repair\\Logic\\Affector_EODBot_DamageVehicle.ebx",
+     "rawSha256": "a5a2964d2c811cce64e2ad2dcc35d5dd4f847b9f02c29304d48fc066703f7d84",
+     "offset": 404,
+     "type": "f32",
+     "bytesHex": "00004841",
+     "value": 12.5,
+     "expect": 12.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\EODBot\\Repair\\Logic\\Affector_EODBot_DamageVehicle.ebx",
+     "rawSha256": "a5a2964d2c811cce64e2ad2dcc35d5dd4f847b9f02c29304d48fc066703f7d84",
+     "offset": 444,
+     "type": "i32",
+     "bytesHex": "80c5f01d",
+     "value": 502318464,
+     "expect": 502318464,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\EODBot\\Repair\\Logic\\Affector_EODBot_DamageVehicle.ebx",
+     "rawSha256": "a5a2964d2c811cce64e2ad2dcc35d5dd4f847b9f02c29304d48fc066703f7d84",
+     "offset": 484,
+     "type": "f32",
+     "bytesHex": "00007041",
+     "value": 15.0,
+     "expect": 15.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\EODBot\\Repair\\Logic\\Affector_EODBot_DamageVehicle.ebx",
+     "rawSha256": "a5a2964d2c811cce64e2ad2dcc35d5dd4f847b9f02c29304d48fc066703f7d84",
+     "offset": 524,
+     "type": "i32",
+     "bytesHex": "80c5f01d",
+     "value": 502318464,
+     "expect": 502318464,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\EODBot\\Repair\\Logic\\Affector_EODBot_DamageVehicle.ebx",
+     "rawSha256": "a5a2964d2c811cce64e2ad2dcc35d5dd4f847b9f02c29304d48fc066703f7d84",
+     "offset": 564,
+     "type": "f32",
+     "bytesHex": "00008c41",
+     "value": 17.5,
+     "expect": 17.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\EODBot\\Repair\\Logic\\Affector_EODBot_DamageVehicle.ebx",
+     "rawSha256": "a5a2964d2c811cce64e2ad2dcc35d5dd4f847b9f02c29304d48fc066703f7d84",
+     "offset": 604,
+     "type": "i32",
+     "bytesHex": "80c5f01d",
+     "value": 502318464,
+     "expect": 502318464,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\EODBot\\Repair\\Logic\\Affector_EODBot_DamageVehicle.ebx",
+     "rawSha256": "a5a2964d2c811cce64e2ad2dcc35d5dd4f847b9f02c29304d48fc066703f7d84",
+     "offset": 644,
+     "type": "f32",
+     "bytesHex": "0000a041",
+     "value": 20.0,
+     "expect": 20.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\EODBot\\Repair\\Logic\\Affector_EODBot_DamageVehicle.ebx",
+     "rawSha256": "a5a2964d2c811cce64e2ad2dcc35d5dd4f847b9f02c29304d48fc066703f7d84",
+     "offset": 684,
+     "type": "i32",
+     "bytesHex": "80c5f01d",
+     "value": 502318464,
+     "expect": 502318464,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 649828,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 184964,
+     "type": "f32",
+     "bytesHex": "0000a03f",
+     "value": 1.25,
+     "expect": 1.25,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 521124,
+     "type": "f32",
+     "bytesHex": "00000040",
+     "value": 2.0,
+     "expect": 2.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 205204,
+     "type": "i32",
+     "bytesHex": "03000000",
+     "value": 3,
+     "expect": 3,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 16708,
+     "type": "i32",
+     "bytesHex": "05000000",
+     "value": 5,
+     "expect": 5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 584508,
+     "type": "f32",
+     "bytesHex": "cdcccc3d",
+     "value": 0.10000000149011612,
+     "expect": 0.1,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 281044,
+     "type": "f32",
+     "bytesHex": "00003442",
+     "value": 45.0,
+     "expect": 45.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 716932,
+     "type": "f32",
+     "bytesHex": "0000f041",
+     "value": 30.0,
+     "expect": 30.0,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 36,
+   "matched": 36,
+   "files": 4,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "rawchecks-L3385.json"
+  },
+  "dataset": "reference-data/frosty/repair-tool-vehicle-damage-affector.json",
+  "affectors": {
+   "Affector_RepairToolDamageVehicle": [
+    {
+     "index": 0,
+     "InitialDamage": 10.0,
+     "DamageInterval": 0.0,
+     "material": 479
+    },
+    {
+     "index": 1,
+     "InitialDamage": 5.0,
+     "DamageInterval": 0.0,
+     "material": 479
+    },
+    {
+     "index": 2,
+     "InitialDamage": 7.5,
+     "DamageInterval": 0.0,
+     "material": 479
+    },
+    {
+     "index": 3,
+     "InitialDamage": 12.5,
+     "DamageInterval": 0.0,
+     "material": 479
+    },
+    {
+     "index": 4,
+     "InitialDamage": 15.0,
+     "DamageInterval": 0.0,
+     "material": 479
+    },
+    {
+     "index": 5,
+     "InitialDamage": 17.5,
+     "DamageInterval": 0.0,
+     "material": 479
+    },
+    {
+     "index": 6,
+     "InitialDamage": 20.0,
+     "DamageInterval": 0.0,
+     "material": 479
+    }
+   ],
+   "Affector_EODBot_DamageVehicle": [
+    {
+     "index": 0,
+     "InitialDamage": 10.0,
+     "DamageInterval": 0.0,
+     "material": 479
+    },
+    {
+     "index": 1,
+     "InitialDamage": 5.0,
+     "DamageInterval": 0.0,
+     "material": 479
+    },
+    {
+     "index": 2,
+     "InitialDamage": 7.5,
+     "DamageInterval": 0.0,
+     "material": 479
+    },
+    {
+     "index": 3,
+     "InitialDamage": 12.5,
+     "DamageInterval": 0.0,
+     "material": 479
+    },
+    {
+     "index": 4,
+     "InitialDamage": 15.0,
+     "DamageInterval": 0.0,
+     "material": 479
+    },
+    {
+     "index": 5,
+     "InitialDamage": 17.5,
+     "DamageInterval": 0.0,
+     "material": 479
+    },
+    {
+     "index": 6,
+     "InitialDamage": 20.0,
+     "DamageInterval": 0.0,
+     "material": 479
+    }
+   ]
+  },
+  "material": 479,
+  "gridAgainst": {
+   "tank / IFV": 1.0,
+   "helicopter": 1.25,
+   "light vehicle": 2.0
+  },
+  "registryRows": [
+   {
+    "row": "RepairTool_Damage Vehicle Rank",
+    "default": 3.0,
+    "copies": 1
+   },
+   {
+    "row": "RepairTool_BR_Damage Vehicle Rank",
+    "default": 5.0,
+    "copies": 1
+   },
+   {
+    "row": "RepairTool_Apply Damage/ Repair Interval",
+    "default": 0.1,
+    "copies": 1
+   },
+   {
+    "row": "RepairTool_ActiveRepair_AntiRepair Amount Per Second",
+    "default": 45.0,
+    "copies": 1
+   },
+   {
+    "row": "RepairTool_ActiveRepairBR_AntiRepair Amount Per Second",
+    "default": 30.0,
+    "copies": 1
+   }
+  ],
+  "candidateSelected": {
+   "multiplayerRank3": 12.5,
+   "battleRoyaleRank5": 17.5
+  }
+ },
+ "inference": [
+  "If the registry's 'Damage Vehicle Rank' selects the affector entry by index, multiplayer uses entry 3 (12.5) and Battle Royale entry 5 (17.5). The link from the rank row to the entry index is by name and meaning, not a followed reference, so this is a candidate.",
+  "If one application happens every 'Apply Damage/ Repair Interval' of 0.1 s, entry 3 gives 125 per second against a tank, 156 against a helicopter and 250 against a light vehicle. That is about twice the repair rate of 60 per second and would destroy a 1200 health tank in under 10 s, which is high; the damage may instead apply at a slower tick. The per-application figures are stored; the per-second figures are not.",
+  "The grid gives the tool 1.25 against helicopters and 2 against light vehicles, relative to a tank.",
+  "The registry's anti-repair rows (45 per second, 30 in Battle Royale) are separate rows and are not this damage."
+ ],
+ "unresolved": [
+  "Repair Tool damage per second against an enemy tank (125 expected if entry 3 applies every 0.1 s).",
+  "Whether the rank row indexes the entries from 0."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-09-damage-rule-extension",
+  "artifacts": [
+   {
+    "file": "manifest-L3385.json",
+    "sha256": "9de94e365bc59aa7edf18a3bd291268c6185d1af160545be5fad7fd22f752528"
+   },
+   {
+    "file": "rawchecks-L3385.json",
+    "sha256": "8cddc1c6bfe04f3aa018748140d5da09c0e19e12384882ed2ce13f8d8c29cb44"
+   },
+   {
+    "file": "affdump.py",
+    "sha256": "54c37d62c10ab3ceb918a045ec7492e51573fe856d564d4939c6a1879e0abbde"
+   },
+   {
+    "file": "affdump-vehrepair.json",
+    "sha256": "1e706ec5c6cb0e688bc42420fa7e210598f46bc22d9802798eb07f96e237301a"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-09",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L3385",
+    "title": "Repair Tool and EOD Bot damage to vehicles: seven-entry affector (10, 5, 7.5, 12.5, 15, 17.5, 20) on material 479, with registry rank rows 3 (multiplayer) and 5 (Battle Royale)",
+    "status": "finding",
+    "summary": "Repair Tool and EOD Bot damage to vehicles is a seven-entry affector: 10, 5, 7.5, 12.5, 15, 17.5 and 20 per application on material 479, which the grid scales by 1 against tanks, 1.25 against helicopters and 2 against light vehicles. The registry sets the damage rank to 3 in multiplayer and 5 in Battle Royale, pointing at 12.5 and 17.5 if the rank is the entry index. The rate per second needs an in-game reading. 36 raw-offset checks matched.",
+    "reopenWhen": "An in-game reading of Repair Tool damage per second to an enemy vehicle.",
+    "statusNote": "Entries, material and grid read; entry selection and tick rate are candidates."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Hardware/Gadgets/Tools/Repair/Affector_RepairToolDamageVehicle",
+    "format": "raw-ebx",
+    "sha256": "58cf700ab27e338e31d4b64cf3bec1534abe004d021336041664ec5d9a2925ae",
+    "question": "What damage does the Repair Tool (and EOD Bot) do to enemy vehicles, and how does it scale by vehicle type?",
+    "result": "useful",
+    "conclusion": "InitialDamage entries 10, 5, 7.5, 12.5, 15, 17.5, 20 on material 479."
+   }
+  ]
+ }
+}

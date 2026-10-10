@@ -1,0 +1,155 @@
+{
+ "lead": "L3312",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Newest saved raw copy of each route under builds\\1.4.3.5; raw-checks.json pins each file hash."
+ },
+ "question": "What active and recharge times, passive upgrade sizes, detection radii, radar ranges and repair rules does the vehicle registry store for vehicle abilities and upgrades?",
+ "sourceFacts": {
+  "method": "Every named value row of Common/GameSetup/Tweakables/GameRemixer/GRX_Vehicles was listed with the file offset of its default. Rows whose name starts with an ability, passive, radar or repair prefix were selected and read back from the raw file at their offsets. Rows are registry defaults; own asset values for the same abilities are in L3307.",
+  "control": {
+   "description": "First six selected rows, read back at their stored offsets.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 303356,
+     "type": "f32",
+     "bytesHex": "00002f43",
+     "value": 175.0,
+     "expect": 175.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 276956,
+     "type": "f32",
+     "bytesHex": "00001042",
+     "value": 36.0,
+     "expect": 36.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 331524,
+     "type": "f32",
+     "bytesHex": "0000e040",
+     "value": 7.0,
+     "expect": 7.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 387612,
+     "type": "f32",
+     "bytesHex": "0000c841",
+     "value": 25.0,
+     "expect": 25.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 209452,
+     "type": "f32",
+     "bytesHex": "cdcccc3e",
+     "value": 0.4000000059604645,
+     "expect": 0.4,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 292940,
+     "type": "f32",
+     "bytesHex": "0000a041",
+     "value": 20.0,
+     "expect": 20.0,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 185,
+   "matched": 185,
+   "files": 1,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "raw-checks.json"
+  },
+  "rows": 185,
+  "rowsNotOffsetChecked": 0,
+  "dataset": "reference-data/frosty/registry-vehicle-abilities-passives.json"
+ },
+ "inference": [
+  "Row names are the registry's own; what each controls is read from the name only.",
+  "Multipliers are read as scaling the named quantity (0.85 as 15% less damage received, 0.6 as 40% shorter or longer lock time depending on direction); the direction is not stored.",
+  "Repaired Health Threshold Level 1 to 4 (80, 295, 395, 495) with Repair Exhaustion Recovery Rate 6 look like a rule that slows repeated repairs; the rule itself was not traced."
+ ],
+ "unresolved": [
+  "Whether a match uses these defaults or the ability assets' own values where they differ.",
+  "Recharge start point. Test: time each ability from activation to ready and from end of effect to ready (flares stored 1.8 active, 15 recharge; active protection 5 and 32).",
+  "Direction of lock-time multipliers. Test: time an enemy lock on an IFV with and without the antispotting upgrade (stored 0.6) and on a helicopter with and without anti-radar (stored 0.7).",
+  "Regeneration units. Test: damage a tank with the regeneration upgrade, stay out of combat and record delay before health rises (stored 9.5) and health gained per second (stored 132, unit unknown).",
+  "Repair exhaustion. Test: repair a tank continuously through several damage cycles and record repair speed after each of the stored thresholds 80, 295, 395, 495.",
+  "Below-radar heights. Test: fly a helicopter at 20 m and 30 m and a jet at 45 m and 55 m above ground and check whether a lock can start (stored 25 and 50).",
+  "Rows whose default is boxed or unreadable are listed in the dataset as not offset-checked."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-09-vehicle-abilities-passives",
+  "artifacts": [
+   {
+    "file": "rows.json",
+    "sha256": "b698102f3b1093ac35e83f3ef900096d6aedcb1e88fb934364d56a7a6e2396c8"
+   },
+   {
+    "file": "table.md",
+    "sha256": "873a72d8c82b2ab06a661c2bc6d85df8109938011605ca1e492041ca194a02c0"
+   },
+   {
+    "file": "raw-check-manifest.json",
+    "sha256": "acbeb00f80ce3557e6d746e02ef75bcbba63671ab2993342c6533a4884083a61"
+   },
+   {
+    "file": "raw-checks.json",
+    "sha256": "f01419fbd18a1b5d2193527363386555b613f260ae9301a940ecc4c8efefce93"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-09",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L3312",
+    "title": "Vehicle ability timings, passive upgrade effects and radar rules in the vehicle registry",
+    "status": "finding",
+    "summary": "185 vehicle registry rows store ability active and recharge times (flares 1.8 / 15, active protection 5 / 32, smoke 8.1 / 16), passive upgrade sizes (damage multiplier 0.85, regeneration 132 after 9.5, enhanced loading 1.35), detection radii and radar rules (max range 700, below-radar 25 and 50). 185 raw-offset checks matched.",
+    "reopenWhen": "An in-game ability timing or upgrade effect measurement, or a game update that changes a row.",
+    "statusNote": "Registry defaults only; meaning from row names; units, multiplier direction and runtime use unconfirmed."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/GameSetup/Tweakables/GameRemixer/GRX_Vehicles",
+    "format": "raw-ebx",
+    "sha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+    "question": "What active and recharge times, passive upgrade sizes, detection radii, radar ranges and repair rules does the vehicle registry store for vehicle abilities and upgrades?",
+    "result": "useful",
+    "conclusion": "Active / recharge: flares 1.8 / 15 (lockable again after 2.75); tank active protection 5 / 32; smoke screen 8.1 / 16; thermal smoke 10 / 16; emergency repair 0.4 / 24 with extra healing 50; explosives detection 0.4 / 20, radius 30; proximity detection 12 / 20, radius 30 (upgrade 1.3); threat detection 10 / 15; ground target detection 15 / 25, cone 250 by 70. Passives: regeneration 132 (tank) and 110 (IFV) after 9.5; durability damage multiplier 0.85; medbay 5 then 20 every 0.9 within 12.5; mobile trophy 3 charges, 10 per charge, radius 13.5; antispotting spot time 0.75, lock time 0.6 (0.7 for aircraft); enhanced loading reload 1.35 (tank) and 1.5 / 1.25 (anti-air) below health 0.6. Radar: air and ground max range 700, tick 1; below-radar height 25 helicopter, 50 jet."
+   }
+  ]
+ }
+}

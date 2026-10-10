@@ -242,6 +242,20 @@ stubs and three missing descriptions remain explicit exclusions. No game
 tests were performed. M26 Slug versus buckshot text is recorded as a source
 contradiction, without repair.
 
+### Operator scope clarification and EOD screenshot (4 October 2026)
+
+The operator supplied an EOD Bot screenshot and availability notes for all 15 missing or placeholder description rows. The EOD Bot paragraph exactly matches the decoded `22FB3FF1` description already retained for UI object 270. The screenshot also shows `EOD BOT` and `CSB IV`. Its game build and capture date are not established. The [evidence index](../../reference-data/frosty/gadget-ui-operator-evidence-2026-10-04/index.json) retains the screenshot hash, exact paragraph, metadata identities and attributed classifications.
+
+| Operator classification | Records |
+| --- | --- |
+| Not currently in multiplayer | M26 MASS 12g Frag, M26 MASS #4 Buck, M26 MASS Flechette, M320 Ballistic Dart, Panzerfaust 3 |
+| Time-limited event; not currently regular multiplayer | NVG MP |
+| Use EOD Bot parent description as context | EOD ATMine, EOD Demining Charge, EOD PTKM, EOD Repair Tool, EOD Mini Lancet |
+| Single player | SP Payload Drone - Grenade, SP NVGs |
+| RedSec only | PsyGas Artillery Strike call-in, JAGM call-in |
+
+These statements account for all three missing and 12 placeholder rows in the saved inventory. Do not count them as 15 independent current regular-MP gadget description gaps. Keep their original strings and missing IDs: the operator classifications do not change the decoded 78-record count or prove source admission rules. The EOD paragraph supplies parent UI context, not a separate capability or blueprint link for each of its five subrecords. Full current playable-gadget coverage remains unproven.
+
 ### Gadget reverse identity search (L222)
 
 [L222](../../reference-data/provenance/frosty-2026-09-30-L222-gadget-reverse-ui-identity.json)

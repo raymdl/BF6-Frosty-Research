@@ -1,0 +1,1450 @@
+{
+ "lead": "L3386",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Read from saved raw captures; no export, no new capture."
+ },
+ "question": "What do the Repair Tool's affector files and registry rows hold for repairing and damaging vehicles, and is there a stored rule for several repairers at once?",
+ "sourceFacts": {
+  "method": "As L3385 (Affector_RepairToolDamageVehicle, Affector_EODBot_DamageVehicle, material 479 against three vehicle materials, registry rank rows), plus Affector_RepairTool_HealVehicle, Affector_VehicleRepair (Class_98f08d8b) and the registry's repair and anti-repair per-second rows, each with raw offsets.",
+  "control": {
+   "description": "All eight populated entries of Affector_VehicleRepair hold the same seven-row table; both damage affectors hold the same seven values.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Affector_RepairToolDamageVehicle.ebx",
+     "rawSha256": "58cf700ab27e338e31d4b64cf3bec1534abe004d021336041664ec5d9a2925ae",
+     "offset": 164,
+     "type": "f32",
+     "bytesHex": "00002041",
+     "value": 10.0,
+     "expect": 10.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Affector_RepairToolDamageVehicle.ebx",
+     "rawSha256": "58cf700ab27e338e31d4b64cf3bec1534abe004d021336041664ec5d9a2925ae",
+     "offset": 204,
+     "type": "i32",
+     "bytesHex": "80c5f01d",
+     "value": 502318464,
+     "expect": 502318464,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Affector_RepairToolDamageVehicle.ebx",
+     "rawSha256": "58cf700ab27e338e31d4b64cf3bec1534abe004d021336041664ec5d9a2925ae",
+     "offset": 244,
+     "type": "f32",
+     "bytesHex": "0000a040",
+     "value": 5.0,
+     "expect": 5.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Affector_RepairToolDamageVehicle.ebx",
+     "rawSha256": "58cf700ab27e338e31d4b64cf3bec1534abe004d021336041664ec5d9a2925ae",
+     "offset": 284,
+     "type": "i32",
+     "bytesHex": "80c5f01d",
+     "value": 502318464,
+     "expect": 502318464,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Affector_RepairToolDamageVehicle.ebx",
+     "rawSha256": "58cf700ab27e338e31d4b64cf3bec1534abe004d021336041664ec5d9a2925ae",
+     "offset": 324,
+     "type": "f32",
+     "bytesHex": "0000f040",
+     "value": 7.5,
+     "expect": 7.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Affector_RepairToolDamageVehicle.ebx",
+     "rawSha256": "58cf700ab27e338e31d4b64cf3bec1534abe004d021336041664ec5d9a2925ae",
+     "offset": 364,
+     "type": "i32",
+     "bytesHex": "80c5f01d",
+     "value": 502318464,
+     "expect": 502318464,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Affector_RepairToolDamageVehicle.ebx",
+     "rawSha256": "58cf700ab27e338e31d4b64cf3bec1534abe004d021336041664ec5d9a2925ae",
+     "offset": 404,
+     "type": "f32",
+     "bytesHex": "00004841",
+     "value": 12.5,
+     "expect": 12.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Affector_RepairToolDamageVehicle.ebx",
+     "rawSha256": "58cf700ab27e338e31d4b64cf3bec1534abe004d021336041664ec5d9a2925ae",
+     "offset": 444,
+     "type": "i32",
+     "bytesHex": "80c5f01d",
+     "value": 502318464,
+     "expect": 502318464,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Affector_RepairToolDamageVehicle.ebx",
+     "rawSha256": "58cf700ab27e338e31d4b64cf3bec1534abe004d021336041664ec5d9a2925ae",
+     "offset": 484,
+     "type": "f32",
+     "bytesHex": "00007041",
+     "value": 15.0,
+     "expect": 15.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Affector_RepairToolDamageVehicle.ebx",
+     "rawSha256": "58cf700ab27e338e31d4b64cf3bec1534abe004d021336041664ec5d9a2925ae",
+     "offset": 524,
+     "type": "i32",
+     "bytesHex": "80c5f01d",
+     "value": 502318464,
+     "expect": 502318464,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Affector_RepairToolDamageVehicle.ebx",
+     "rawSha256": "58cf700ab27e338e31d4b64cf3bec1534abe004d021336041664ec5d9a2925ae",
+     "offset": 564,
+     "type": "f32",
+     "bytesHex": "00008c41",
+     "value": 17.5,
+     "expect": 17.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Affector_RepairToolDamageVehicle.ebx",
+     "rawSha256": "58cf700ab27e338e31d4b64cf3bec1534abe004d021336041664ec5d9a2925ae",
+     "offset": 604,
+     "type": "i32",
+     "bytesHex": "80c5f01d",
+     "value": 502318464,
+     "expect": 502318464,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Affector_RepairToolDamageVehicle.ebx",
+     "rawSha256": "58cf700ab27e338e31d4b64cf3bec1534abe004d021336041664ec5d9a2925ae",
+     "offset": 644,
+     "type": "f32",
+     "bytesHex": "0000a041",
+     "value": 20.0,
+     "expect": 20.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Affector_RepairToolDamageVehicle.ebx",
+     "rawSha256": "58cf700ab27e338e31d4b64cf3bec1534abe004d021336041664ec5d9a2925ae",
+     "offset": 684,
+     "type": "i32",
+     "bytesHex": "80c5f01d",
+     "value": 502318464,
+     "expect": 502318464,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\EODBot\\Repair\\Logic\\Affector_EODBot_DamageVehicle.ebx",
+     "rawSha256": "a5a2964d2c811cce64e2ad2dcc35d5dd4f847b9f02c29304d48fc066703f7d84",
+     "offset": 164,
+     "type": "f32",
+     "bytesHex": "00002041",
+     "value": 10.0,
+     "expect": 10.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\EODBot\\Repair\\Logic\\Affector_EODBot_DamageVehicle.ebx",
+     "rawSha256": "a5a2964d2c811cce64e2ad2dcc35d5dd4f847b9f02c29304d48fc066703f7d84",
+     "offset": 204,
+     "type": "i32",
+     "bytesHex": "80c5f01d",
+     "value": 502318464,
+     "expect": 502318464,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\EODBot\\Repair\\Logic\\Affector_EODBot_DamageVehicle.ebx",
+     "rawSha256": "a5a2964d2c811cce64e2ad2dcc35d5dd4f847b9f02c29304d48fc066703f7d84",
+     "offset": 244,
+     "type": "f32",
+     "bytesHex": "0000a040",
+     "value": 5.0,
+     "expect": 5.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\EODBot\\Repair\\Logic\\Affector_EODBot_DamageVehicle.ebx",
+     "rawSha256": "a5a2964d2c811cce64e2ad2dcc35d5dd4f847b9f02c29304d48fc066703f7d84",
+     "offset": 284,
+     "type": "i32",
+     "bytesHex": "80c5f01d",
+     "value": 502318464,
+     "expect": 502318464,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\EODBot\\Repair\\Logic\\Affector_EODBot_DamageVehicle.ebx",
+     "rawSha256": "a5a2964d2c811cce64e2ad2dcc35d5dd4f847b9f02c29304d48fc066703f7d84",
+     "offset": 324,
+     "type": "f32",
+     "bytesHex": "0000f040",
+     "value": 7.5,
+     "expect": 7.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\EODBot\\Repair\\Logic\\Affector_EODBot_DamageVehicle.ebx",
+     "rawSha256": "a5a2964d2c811cce64e2ad2dcc35d5dd4f847b9f02c29304d48fc066703f7d84",
+     "offset": 364,
+     "type": "i32",
+     "bytesHex": "80c5f01d",
+     "value": 502318464,
+     "expect": 502318464,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\EODBot\\Repair\\Logic\\Affector_EODBot_DamageVehicle.ebx",
+     "rawSha256": "a5a2964d2c811cce64e2ad2dcc35d5dd4f847b9f02c29304d48fc066703f7d84",
+     "offset": 404,
+     "type": "f32",
+     "bytesHex": "00004841",
+     "value": 12.5,
+     "expect": 12.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\EODBot\\Repair\\Logic\\Affector_EODBot_DamageVehicle.ebx",
+     "rawSha256": "a5a2964d2c811cce64e2ad2dcc35d5dd4f847b9f02c29304d48fc066703f7d84",
+     "offset": 444,
+     "type": "i32",
+     "bytesHex": "80c5f01d",
+     "value": 502318464,
+     "expect": 502318464,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\EODBot\\Repair\\Logic\\Affector_EODBot_DamageVehicle.ebx",
+     "rawSha256": "a5a2964d2c811cce64e2ad2dcc35d5dd4f847b9f02c29304d48fc066703f7d84",
+     "offset": 484,
+     "type": "f32",
+     "bytesHex": "00007041",
+     "value": 15.0,
+     "expect": 15.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\EODBot\\Repair\\Logic\\Affector_EODBot_DamageVehicle.ebx",
+     "rawSha256": "a5a2964d2c811cce64e2ad2dcc35d5dd4f847b9f02c29304d48fc066703f7d84",
+     "offset": 524,
+     "type": "i32",
+     "bytesHex": "80c5f01d",
+     "value": 502318464,
+     "expect": 502318464,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\EODBot\\Repair\\Logic\\Affector_EODBot_DamageVehicle.ebx",
+     "rawSha256": "a5a2964d2c811cce64e2ad2dcc35d5dd4f847b9f02c29304d48fc066703f7d84",
+     "offset": 564,
+     "type": "f32",
+     "bytesHex": "00008c41",
+     "value": 17.5,
+     "expect": 17.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\EODBot\\Repair\\Logic\\Affector_EODBot_DamageVehicle.ebx",
+     "rawSha256": "a5a2964d2c811cce64e2ad2dcc35d5dd4f847b9f02c29304d48fc066703f7d84",
+     "offset": 604,
+     "type": "i32",
+     "bytesHex": "80c5f01d",
+     "value": 502318464,
+     "expect": 502318464,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\EODBot\\Repair\\Logic\\Affector_EODBot_DamageVehicle.ebx",
+     "rawSha256": "a5a2964d2c811cce64e2ad2dcc35d5dd4f847b9f02c29304d48fc066703f7d84",
+     "offset": 644,
+     "type": "f32",
+     "bytesHex": "0000a041",
+     "value": 20.0,
+     "expect": 20.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\EODBot\\Repair\\Logic\\Affector_EODBot_DamageVehicle.ebx",
+     "rawSha256": "a5a2964d2c811cce64e2ad2dcc35d5dd4f847b9f02c29304d48fc066703f7d84",
+     "offset": 684,
+     "type": "i32",
+     "bytesHex": "80c5f01d",
+     "value": 502318464,
+     "expect": 502318464,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 649828,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 184964,
+     "type": "f32",
+     "bytesHex": "0000a03f",
+     "value": 1.25,
+     "expect": 1.25,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 521124,
+     "type": "f32",
+     "bytesHex": "00000040",
+     "value": 2.0,
+     "expect": 2.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 205204,
+     "type": "i32",
+     "bytesHex": "03000000",
+     "value": 3,
+     "expect": 3,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 16708,
+     "type": "i32",
+     "bytesHex": "05000000",
+     "value": 5,
+     "expect": 5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 584508,
+     "type": "f32",
+     "bytesHex": "cdcccc3d",
+     "value": 0.10000000149011612,
+     "expect": 0.1,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 281044,
+     "type": "f32",
+     "bytesHex": "00003442",
+     "value": 45.0,
+     "expect": 45.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 716932,
+     "type": "f32",
+     "bytesHex": "0000f041",
+     "value": 30.0,
+     "expect": 30.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Logic\\Affector_RepairTool_HealVehicle.ebx",
+     "rawSha256": "4d32f8fcb2073cf891a71f679899a3713e34b7790ef7b341e1a9ce0613845a31",
+     "offset": 168,
+     "type": "f32",
+     "bytesHex": "00002040",
+     "value": 2.5,
+     "expect": 2.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Logic\\Affector_RepairTool_HealVehicle.ebx",
+     "rawSha256": "4d32f8fcb2073cf891a71f679899a3713e34b7790ef7b341e1a9ce0613845a31",
+     "offset": 216,
+     "type": "f32",
+     "bytesHex": "0000a040",
+     "value": 5.0,
+     "expect": 5.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Logic\\Affector_RepairTool_HealVehicle.ebx",
+     "rawSha256": "4d32f8fcb2073cf891a71f679899a3713e34b7790ef7b341e1a9ce0613845a31",
+     "offset": 264,
+     "type": "f32",
+     "bytesHex": "0000f040",
+     "value": 7.5,
+     "expect": 7.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Logic\\Affector_RepairTool_HealVehicle.ebx",
+     "rawSha256": "4d32f8fcb2073cf891a71f679899a3713e34b7790ef7b341e1a9ce0613845a31",
+     "offset": 312,
+     "type": "f32",
+     "bytesHex": "00002041",
+     "value": 10.0,
+     "expect": 10.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Logic\\Affector_RepairTool_HealVehicle.ebx",
+     "rawSha256": "4d32f8fcb2073cf891a71f679899a3713e34b7790ef7b341e1a9ce0613845a31",
+     "offset": 360,
+     "type": "f32",
+     "bytesHex": "00004841",
+     "value": 12.5,
+     "expect": 12.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Logic\\Affector_RepairTool_HealVehicle.ebx",
+     "rawSha256": "4d32f8fcb2073cf891a71f679899a3713e34b7790ef7b341e1a9ce0613845a31",
+     "offset": 408,
+     "type": "f32",
+     "bytesHex": "00007041",
+     "value": 15.0,
+     "expect": 15.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Logic\\Affector_RepairTool_HealVehicle.ebx",
+     "rawSha256": "4d32f8fcb2073cf891a71f679899a3713e34b7790ef7b341e1a9ce0613845a31",
+     "offset": 456,
+     "type": "f32",
+     "bytesHex": "00008c41",
+     "value": 17.5,
+     "expect": 17.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Logic\\Affector_RepairTool_HealVehicle.ebx",
+     "rawSha256": "4d32f8fcb2073cf891a71f679899a3713e34b7790ef7b341e1a9ce0613845a31",
+     "offset": 504,
+     "type": "f32",
+     "bytesHex": "0000a041",
+     "value": 20.0,
+     "expect": 20.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Logic\\Affector_VehicleRepair.ebx",
+     "rawSha256": "d39e5746ff58ac4bf33062f5008267d629daad964808ffa200246235043f25f1",
+     "offset": 160,
+     "type": "i32",
+     "bytesHex": "02000000",
+     "value": 2,
+     "expect": 2,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Logic\\Affector_VehicleRepair.ebx",
+     "rawSha256": "d39e5746ff58ac4bf33062f5008267d629daad964808ffa200246235043f25f1",
+     "offset": 156,
+     "type": "f32",
+     "bytesHex": "0000403f",
+     "value": 0.75,
+     "expect": 0.75,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Logic\\Affector_VehicleRepair.ebx",
+     "rawSha256": "d39e5746ff58ac4bf33062f5008267d629daad964808ffa200246235043f25f1",
+     "offset": 168,
+     "type": "i32",
+     "bytesHex": "03000000",
+     "value": 3,
+     "expect": 3,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Logic\\Affector_VehicleRepair.ebx",
+     "rawSha256": "d39e5746ff58ac4bf33062f5008267d629daad964808ffa200246235043f25f1",
+     "offset": 164,
+     "type": "f32",
+     "bytesHex": "e17a143f",
+     "value": 0.5799999833106995,
+     "expect": 0.58,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Logic\\Affector_VehicleRepair.ebx",
+     "rawSha256": "d39e5746ff58ac4bf33062f5008267d629daad964808ffa200246235043f25f1",
+     "offset": 176,
+     "type": "i32",
+     "bytesHex": "04000000",
+     "value": 4,
+     "expect": 4,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Logic\\Affector_VehicleRepair.ebx",
+     "rawSha256": "d39e5746ff58ac4bf33062f5008267d629daad964808ffa200246235043f25f1",
+     "offset": 172,
+     "type": "f32",
+     "bytesHex": "0000003f",
+     "value": 0.5,
+     "expect": 0.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Logic\\Affector_VehicleRepair.ebx",
+     "rawSha256": "d39e5746ff58ac4bf33062f5008267d629daad964808ffa200246235043f25f1",
+     "offset": 184,
+     "type": "i32",
+     "bytesHex": "05000000",
+     "value": 5,
+     "expect": 5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Logic\\Affector_VehicleRepair.ebx",
+     "rawSha256": "d39e5746ff58ac4bf33062f5008267d629daad964808ffa200246235043f25f1",
+     "offset": 180,
+     "type": "f32",
+     "bytesHex": "cdcccc3e",
+     "value": 0.4000000059604645,
+     "expect": 0.4,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Logic\\Affector_VehicleRepair.ebx",
+     "rawSha256": "d39e5746ff58ac4bf33062f5008267d629daad964808ffa200246235043f25f1",
+     "offset": 192,
+     "type": "i32",
+     "bytesHex": "06000000",
+     "value": 6,
+     "expect": 6,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Logic\\Affector_VehicleRepair.ebx",
+     "rawSha256": "d39e5746ff58ac4bf33062f5008267d629daad964808ffa200246235043f25f1",
+     "offset": 188,
+     "type": "f32",
+     "bytesHex": "c3f5a83e",
+     "value": 0.33000001311302185,
+     "expect": 0.33,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Logic\\Affector_VehicleRepair.ebx",
+     "rawSha256": "d39e5746ff58ac4bf33062f5008267d629daad964808ffa200246235043f25f1",
+     "offset": 200,
+     "type": "i32",
+     "bytesHex": "07000000",
+     "value": 7,
+     "expect": 7,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Logic\\Affector_VehicleRepair.ebx",
+     "rawSha256": "d39e5746ff58ac4bf33062f5008267d629daad964808ffa200246235043f25f1",
+     "offset": 196,
+     "type": "f32",
+     "bytesHex": "295c8f3e",
+     "value": 0.2800000011920929,
+     "expect": 0.28,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Logic\\Affector_VehicleRepair.ebx",
+     "rawSha256": "d39e5746ff58ac4bf33062f5008267d629daad964808ffa200246235043f25f1",
+     "offset": 208,
+     "type": "i32",
+     "bytesHex": "08000000",
+     "value": 8,
+     "expect": 8,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Logic\\Affector_VehicleRepair.ebx",
+     "rawSha256": "d39e5746ff58ac4bf33062f5008267d629daad964808ffa200246235043f25f1",
+     "offset": 204,
+     "type": "f32",
+     "bytesHex": "0000803e",
+     "value": 0.25,
+     "expect": 0.25,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Logic\\Affector_VehicleRepair.ebx",
+     "rawSha256": "d39e5746ff58ac4bf33062f5008267d629daad964808ffa200246235043f25f1",
+     "offset": 676,
+     "type": "f32",
+     "bytesHex": "cdcc4c3f",
+     "value": 0.800000011920929,
+     "expect": 0.8,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Logic\\Affector_VehicleRepair.ebx",
+     "rawSha256": "d39e5746ff58ac4bf33062f5008267d629daad964808ffa200246235043f25f1",
+     "offset": 724,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Logic\\Affector_VehicleRepair.ebx",
+     "rawSha256": "d39e5746ff58ac4bf33062f5008267d629daad964808ffa200246235043f25f1",
+     "offset": 772,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Logic\\Affector_VehicleRepair.ebx",
+     "rawSha256": "d39e5746ff58ac4bf33062f5008267d629daad964808ffa200246235043f25f1",
+     "offset": 820,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Logic\\Affector_VehicleRepair.ebx",
+     "rawSha256": "d39e5746ff58ac4bf33062f5008267d629daad964808ffa200246235043f25f1",
+     "offset": 868,
+     "type": "f32",
+     "bytesHex": "cdcc4c3f",
+     "value": 0.800000011920929,
+     "expect": 0.8,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Logic\\Affector_VehicleRepair.ebx",
+     "rawSha256": "d39e5746ff58ac4bf33062f5008267d629daad964808ffa200246235043f25f1",
+     "offset": 916,
+     "type": "f32",
+     "bytesHex": "cdcc4c3f",
+     "value": 0.800000011920929,
+     "expect": 0.8,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Logic\\Affector_VehicleRepair.ebx",
+     "rawSha256": "d39e5746ff58ac4bf33062f5008267d629daad964808ffa200246235043f25f1",
+     "offset": 964,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Logic\\Affector_VehicleRepair.ebx",
+     "rawSha256": "d39e5746ff58ac4bf33062f5008267d629daad964808ffa200246235043f25f1",
+     "offset": 1012,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Logic\\Affector_VehicleRepair.ebx",
+     "rawSha256": "d39e5746ff58ac4bf33062f5008267d629daad964808ffa200246235043f25f1",
+     "offset": 1060,
+     "type": "f32",
+     "bytesHex": "cdcc4c3f",
+     "value": 0.800000011920929,
+     "expect": 0.8,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Logic\\Affector_VehicleRepair.ebx",
+     "rawSha256": "d39e5746ff58ac4bf33062f5008267d629daad964808ffa200246235043f25f1",
+     "offset": 1108,
+     "type": "f32",
+     "bytesHex": "cdcc4c3f",
+     "value": 0.800000011920929,
+     "expect": 0.8,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Logic\\Affector_VehicleRepair.ebx",
+     "rawSha256": "d39e5746ff58ac4bf33062f5008267d629daad964808ffa200246235043f25f1",
+     "offset": 1156,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Logic\\Affector_VehicleRepair.ebx",
+     "rawSha256": "d39e5746ff58ac4bf33062f5008267d629daad964808ffa200246235043f25f1",
+     "offset": 1204,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Logic\\Affector_VehicleRepair.ebx",
+     "rawSha256": "d39e5746ff58ac4bf33062f5008267d629daad964808ffa200246235043f25f1",
+     "offset": 1252,
+     "type": "f32",
+     "bytesHex": "cdcc4c3f",
+     "value": 0.800000011920929,
+     "expect": 0.8,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Logic\\Affector_VehicleRepair.ebx",
+     "rawSha256": "d39e5746ff58ac4bf33062f5008267d629daad964808ffa200246235043f25f1",
+     "offset": 1300,
+     "type": "f32",
+     "bytesHex": "cdcc4c3f",
+     "value": 0.800000011920929,
+     "expect": 0.8,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Logic\\Affector_VehicleRepair.ebx",
+     "rawSha256": "d39e5746ff58ac4bf33062f5008267d629daad964808ffa200246235043f25f1",
+     "offset": 1348,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Logic\\Affector_VehicleRepair.ebx",
+     "rawSha256": "d39e5746ff58ac4bf33062f5008267d629daad964808ffa200246235043f25f1",
+     "offset": 1396,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 39572,
+     "type": "f32",
+     "bytesHex": "00002042",
+     "value": 40.0,
+     "expect": 40.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 679964,
+     "type": "f32",
+     "bytesHex": "00007042",
+     "value": 60.0,
+     "expect": 60.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 433700,
+     "type": "f32",
+     "bytesHex": "0000f041",
+     "value": 30.0,
+     "expect": 30.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 151684,
+     "type": "f32",
+     "bytesHex": "00007042",
+     "value": 60.0,
+     "expect": 60.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 246612,
+     "type": "f32",
+     "bytesHex": "0000f041",
+     "value": 30.0,
+     "expect": 30.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 202548,
+     "type": "f32",
+     "bytesHex": "00007041",
+     "value": 15.0,
+     "expect": 15.0,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 81,
+   "matched": 81,
+   "files": 6,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "rawchecks-L3386.json"
+  },
+  "dataset": "reference-data/frosty/repair-tool-affectors-and-stacking-table.json",
+  "damageAffectors": {
+   "Affector_RepairToolDamageVehicle": [
+    {
+     "index": 0,
+     "InitialDamage": 10.0,
+     "DamageInterval": 0.0,
+     "material": 479
+    },
+    {
+     "index": 1,
+     "InitialDamage": 5.0,
+     "DamageInterval": 0.0,
+     "material": 479
+    },
+    {
+     "index": 2,
+     "InitialDamage": 7.5,
+     "DamageInterval": 0.0,
+     "material": 479
+    },
+    {
+     "index": 3,
+     "InitialDamage": 12.5,
+     "DamageInterval": 0.0,
+     "material": 479
+    },
+    {
+     "index": 4,
+     "InitialDamage": 15.0,
+     "DamageInterval": 0.0,
+     "material": 479
+    },
+    {
+     "index": 5,
+     "InitialDamage": 17.5,
+     "DamageInterval": 0.0,
+     "material": 479
+    },
+    {
+     "index": 6,
+     "InitialDamage": 20.0,
+     "DamageInterval": 0.0,
+     "material": 479
+    }
+   ],
+   "Affector_EODBot_DamageVehicle": [
+    {
+     "index": 0,
+     "InitialDamage": 10.0,
+     "DamageInterval": 0.0,
+     "material": 479
+    },
+    {
+     "index": 1,
+     "InitialDamage": 5.0,
+     "DamageInterval": 0.0,
+     "material": 479
+    },
+    {
+     "index": 2,
+     "InitialDamage": 7.5,
+     "DamageInterval": 0.0,
+     "material": 479
+    },
+    {
+     "index": 3,
+     "InitialDamage": 12.5,
+     "DamageInterval": 0.0,
+     "material": 479
+    },
+    {
+     "index": 4,
+     "InitialDamage": 15.0,
+     "DamageInterval": 0.0,
+     "material": 479
+    },
+    {
+     "index": 5,
+     "InitialDamage": 17.5,
+     "DamageInterval": 0.0,
+     "material": 479
+    },
+    {
+     "index": 6,
+     "InitialDamage": 20.0,
+     "DamageInterval": 0.0,
+     "material": 479
+    }
+   ]
+  },
+  "damageMaterial": 479,
+  "gridAgainst": {
+   "tank / IFV": 1.0,
+   "helicopter": 1.25,
+   "light vehicle": 2.0
+  },
+  "healEntries_77f58095": [
+   2.5,
+   5.0,
+   7.5,
+   10.0,
+   12.5,
+   15.0,
+   17.5,
+   20.0
+  ],
+  "vehicleRepairEntries": [
+   {
+    "index": 0,
+    "value_9f3374a0": 1.0,
+    "value_0528bc34": 0.8,
+    "material": 479,
+    "table": [
+     [
+      2,
+      0.75
+     ],
+     [
+      3,
+      0.58
+     ],
+     [
+      4,
+      0.5
+     ],
+     [
+      5,
+      0.4
+     ],
+     [
+      6,
+      0.33
+     ],
+     [
+      7,
+      0.28
+     ],
+     [
+      8,
+      0.25
+     ]
+    ]
+   },
+   {
+    "index": 1,
+    "value_9f3374a0": 1.0,
+    "value_0528bc34": 1.0,
+    "material": 479,
+    "table": [
+     [
+      2,
+      0.75
+     ],
+     [
+      3,
+      0.58
+     ],
+     [
+      4,
+      0.5
+     ],
+     [
+      5,
+      0.4
+     ],
+     [
+      6,
+      0.33
+     ],
+     [
+      7,
+      0.28
+     ],
+     [
+      8,
+      0.25
+     ]
+    ]
+   },
+   {
+    "index": 2,
+    "value_9f3374a0": 0.0,
+    "value_0528bc34": 1.0,
+    "material": 479,
+    "table": []
+   },
+   {
+    "index": 3,
+    "value_9f3374a0": 0.0,
+    "value_0528bc34": 1.0,
+    "material": 479,
+    "table": []
+   },
+   {
+    "index": 4,
+    "value_9f3374a0": 1.0,
+    "value_0528bc34": 0.8,
+    "material": 479,
+    "table": [
+     [
+      2,
+      0.75
+     ],
+     [
+      3,
+      0.58
+     ],
+     [
+      4,
+      0.5
+     ],
+     [
+      5,
+      0.4
+     ],
+     [
+      6,
+      0.33
+     ],
+     [
+      7,
+      0.28
+     ],
+     [
+      8,
+      0.25
+     ]
+    ]
+   },
+   {
+    "index": 5,
+    "value_9f3374a0": 1.0,
+    "value_0528bc34": 0.8,
+    "material": 479,
+    "table": [
+     [
+      2,
+      0.75
+     ],
+     [
+      3,
+      0.58
+     ],
+     [
+      4,
+      0.5
+     ],
+     [
+      5,
+      0.4
+     ],
+     [
+      6,
+      0.33
+     ],
+     [
+      7,
+      0.28
+     ],
+     [
+      8,
+      0.25
+     ]
+    ]
+   },
+   {
+    "index": 6,
+    "value_9f3374a0": 0.0,
+    "value_0528bc34": 1.0,
+    "material": 479,
+    "table": []
+   },
+   {
+    "index": 7,
+    "value_9f3374a0": 0.0,
+    "value_0528bc34": 1.0,
+    "material": 479,
+    "table": []
+   },
+   {
+    "index": 8,
+    "value_9f3374a0": 1.0,
+    "value_0528bc34": 0.8,
+    "material": 479,
+    "table": [
+     [
+      2,
+      0.75
+     ],
+     [
+      3,
+      0.58
+     ],
+     [
+      4,
+      0.5
+     ],
+     [
+      5,
+      0.4
+     ],
+     [
+      6,
+      0.33
+     ],
+     [
+      7,
+      0.28
+     ],
+     [
+      8,
+      0.25
+     ]
+    ]
+   },
+   {
+    "index": 9,
+    "value_9f3374a0": 1.0,
+    "value_0528bc34": 0.8,
+    "material": 479,
+    "table": [
+     [
+      2,
+      0.75
+     ],
+     [
+      3,
+      0.58
+     ],
+     [
+      4,
+      0.5
+     ],
+     [
+      5,
+      0.4
+     ],
+     [
+      6,
+      0.33
+     ],
+     [
+      7,
+      0.28
+     ],
+     [
+      8,
+      0.25
+     ]
+    ]
+   },
+   {
+    "index": 10,
+    "value_9f3374a0": 0.0,
+    "value_0528bc34": 1.0,
+    "material": 479,
+    "table": []
+   },
+   {
+    "index": 11,
+    "value_9f3374a0": 0.0,
+    "value_0528bc34": 1.0,
+    "material": 479,
+    "table": []
+   },
+   {
+    "index": 12,
+    "value_9f3374a0": 1.0,
+    "value_0528bc34": 0.8,
+    "material": 479,
+    "table": [
+     [
+      2,
+      0.75
+     ],
+     [
+      3,
+      0.58
+     ],
+     [
+      4,
+      0.5
+     ],
+     [
+      5,
+      0.4
+     ],
+     [
+      6,
+      0.33
+     ],
+     [
+      7,
+      0.28
+     ],
+     [
+      8,
+      0.25
+     ]
+    ]
+   },
+   {
+    "index": 13,
+    "value_9f3374a0": 1.0,
+    "value_0528bc34": 0.8,
+    "material": 479,
+    "table": [
+     [
+      2,
+      0.75
+     ],
+     [
+      3,
+      0.58
+     ],
+     [
+      4,
+      0.5
+     ],
+     [
+      5,
+      0.4
+     ],
+     [
+      6,
+      0.33
+     ],
+     [
+      7,
+      0.28
+     ],
+     [
+      8,
+      0.25
+     ]
+    ]
+   },
+   {
+    "index": 14,
+    "value_9f3374a0": 0.0,
+    "value_0528bc34": 1.0,
+    "material": 479,
+    "table": []
+   },
+   {
+    "index": 15,
+    "value_9f3374a0": 0.0,
+    "value_0528bc34": 1.0,
+    "material": 479,
+    "table": []
+   }
+  ],
+  "stackingTable": [
+   [
+    2,
+    0.75
+   ],
+   [
+    3,
+    0.58
+   ],
+   [
+    4,
+    0.5
+   ],
+   [
+    5,
+    0.4
+   ],
+   [
+    6,
+    0.33
+   ],
+   [
+    7,
+    0.28
+   ],
+   [
+    8,
+    0.25
+   ]
+  ],
+  "registryRows": [
+   {
+    "row": "RepairTool_Damage Vehicle Rank",
+    "default": 3.0,
+    "copies": 1
+   },
+   {
+    "row": "RepairTool_BR_Damage Vehicle Rank",
+    "default": 5.0,
+    "copies": 1
+   },
+   {
+    "row": "RepairTool_Apply Damage/ Repair Interval",
+    "default": 0.1,
+    "copies": 1
+   },
+   {
+    "row": "RepairTool_ActiveRepair_AntiRepair Amount Per Second",
+    "default": 45.0,
+    "copies": 1
+   },
+   {
+    "row": "RepairTool_ActiveRepairBR_AntiRepair Amount Per Second",
+    "default": 30.0,
+    "copies": 1
+   },
+   {
+    "row": "RepairTool_Default_Repair Amount Per Second",
+    "default": 40.0,
+    "copies": 1
+   },
+   {
+    "row": "RepairTool_ActiveRepair_Repair Amount Per Second",
+    "default": 60.0,
+    "copies": 1
+   },
+   {
+    "row": "RepairTool_DefaultBR_Repair Amount Per Second",
+    "default": 30.0,
+    "copies": 1
+   },
+   {
+    "row": "RepairTool_ActiveRepairBR_Repair Amount Per Second",
+    "default": 60.0,
+    "copies": 1
+   },
+   {
+    "row": "RepairTool_Default_AntiRepair Amount Per Second",
+    "default": 30.0,
+    "copies": 1
+   },
+   {
+    "row": "RepairTool_DefaultBR_AntiRepair Amount Per Second",
+    "default": 15.0,
+    "copies": 1
+   },
+   {
+    "row": "RepairTool_Range",
+    "default": 2.0,
+    "copies": 1
+   }
+  ],
+  "correctionToL3385": "L3385 stated that the registry's anti-repair rows are not the Repair Tool's damage to vehicles. Nothing stored supports that; what 'AntiRepair Amount Per Second' applies to is not read."
+ },
+ "inference": [
+  "Stacking table: counts 2 to 8 with multipliers 0.75, 0.58, 0.5, 0.4, 0.33, 0.28, 0.25. Count times multiplier is 1.5, 1.74, then 2 from four upward, which fits a per-source multiplier that caps the combined repair of several repairers at about twice one repairer. The field names are hashes, so 'number of simultaneous repairers' is a candidate reading.",
+  "The registry gives repair as 40 per second (60 with the active-repair upgrade; 30 and 60 in Battle Royale) on a 0.1 s apply interval, and 'AntiRepair' as 30 per second (45 with the upgrade; 15 and 30 in Battle Royale). Whether 'AntiRepair' is the damage dealt to enemy vehicles, or something else, is not read.",
+  "Damage entries 10, 5, 7.5, 12.5, 15, 17.5, 20 and heal entries 2.5 to 20 are rank tables. The registry's 'Damage Vehicle Rank' 3 and 5 point at 12.5 and 17.5 if the rank is the entry index (candidate, joined by name). No heal rank row was found, and no heal entry equals 40 or 60 times 0.1, so the per-second rows and the entries are different quantities or one of them is unused.",
+  "Eight entries of Affector_VehicleRepair carry no table and 0 in Field_9f3374a0; the others carry 1 and, in all but one, 0.8 in Field_0528bc34. What distinguishes the 16 entries is not read.",
+  "Grid for the tool's material 479: 1 against tanks and IFVs, 1.25 against helicopters, 2 against light vehicles."
+ ],
+ "unresolved": [
+  "Repair rate with one and with two repairers on the same tank (40 per second and 60 combined expected if the table is per repairer).",
+  "Repair Tool damage per second against an enemy tank (30 if 'AntiRepair' is that damage; 125 if entry 3 applies every 0.1 s)."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-09-damage-rule-extension",
+  "artifacts": [
+   {
+    "file": "manifest-L3386.json",
+    "sha256": "f98b52c8e46249523d0f19e4bc363555b88aca17432f83341377ac029adf1466"
+   },
+   {
+    "file": "rawchecks-L3386.json",
+    "sha256": "040725adb076507f40e8a5a851ecf09e6104af2274b4bc6a45cc88ca48f412b4"
+   },
+   {
+    "file": "affdump.py",
+    "sha256": "54c37d62c10ab3ceb918a045ec7492e51573fe856d564d4939c6a1879e0abbde"
+   },
+   {
+    "file": "affdump-vehrepair.json",
+    "sha256": "1e706ec5c6cb0e688bc42420fa7e210598f46bc22d9802798eb07f96e237301a"
+   },
+   {
+    "file": "affdump-soldiermisc.json",
+    "sha256": "cc0642e52a324427ec7da8c173d394cbc99a77cd226e9297bdbee7002c530413"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-09",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L3386",
+    "title": "Repair Tool affectors: vehicle damage entries, heal entries 2.5 to 20, and a stacking table that scales each of 2 to 8 sources by 0.75 down to 0.25 (replaces L3385)",
+    "status": "finding",
+    "summary": "The Repair Tool's stored values: repair 40 per second (60 upgraded) and 'AntiRepair' 30 (45) in the registry; a vehicle damage rank table 10 to 20 and a heal rank table 2.5 to 20 in affectors; and a stacking table that scales each of 2 to 8 sources by 0.75 down to 0.25, so combined repair tops out near twice one repairer. Which figure is the damage to enemy vehicles is not settled; L3385's statement that the anti-repair rows are not that damage is withdrawn. 81 raw-offset checks matched.",
+    "reopenWhen": "In-game repair timings with one and two repairers, or a Repair Tool damage reading on an enemy vehicle.",
+    "statusNote": "Values read; field meanings and entry selection are candidates."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Hardware/Gadgets/Tools/Repair/Logic/Affector_VehicleRepair",
+    "format": "raw-ebx",
+    "sha256": "d39e5746ff58ac4bf33062f5008267d629daad964808ffa200246235043f25f1",
+    "question": "What do the Repair Tool's affector files and registry rows hold for repairing and damaging vehicles, and is there a stored rule for several repairers at once?",
+    "result": "useful",
+    "conclusion": "Stacking table 2 to 8 with multipliers 0.75 to 0.25 on material 479."
+   },
+   {
+    "path": "Common/Hardware/Gadgets/Tools/Repair/Logic/Affector_RepairTool_HealVehicle",
+    "format": "raw-ebx",
+    "sha256": "4d32f8fcb2073cf891a71f679899a3713e34b7790ef7b341e1a9ce0613845a31",
+    "question": "What do the Repair Tool's affector files and registry rows hold for repairing and damaging vehicles, and is there a stored rule for several repairers at once?",
+    "result": "useful",
+    "conclusion": "Heal entries 2.5 to 20."
+   }
+  ],
+  "supersedes": [
+   "L3385"
+  ]
+ }
+}

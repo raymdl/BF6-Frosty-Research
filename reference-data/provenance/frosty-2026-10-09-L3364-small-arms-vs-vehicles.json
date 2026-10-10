@@ -1,0 +1,2097 @@
+{
+ "lead": "L3364",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Read from saved raw captures; no export, no new capture."
+ },
+ "question": "What do infantry bullets do to each vehicle class in the material grid, and does the grid hold the 'damage table' that ROSTER_VALUES.md suspected behind the Improved Armor passive?",
+ "sourceFacts": {
+  "method": "For the 19 infantry bullet materials and four vehicle gun materials, every scalar record (Class_d4177d69.Field_674633de) against helicopter (121), jet (120), armour (119), light vehicle (122, 187) target materials was read in two level grids with its record key (smallarms.py). The Improved Armor affector file was decoded and its packed material read (upper 12 bits = material ID), and the same bullets were read against that material.",
+  "control": {
+   "description": "Both level grids agree on every record. Vehicle target cells have no multiplier array (L3363 check), so the scalar is the value in use; the launcher figures EA states were reproduced from these scalars in L3323.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-remaining-producers1\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\PassiveAbilities\\AttackHeli\\Affector_Vehicle_Passive_AttackHeli_ImprovedArmor.ebx",
+     "rawSha256": "c116926c3abbd9cf3a6b54d4234bfcb9ce7defe2f5de50ba0c6e3cefb8534a85",
+     "offset": 148,
+     "type": "u32",
+     "bytesHex": "8000c01f",
+     "value": 532676736,
+     "expect": 532676736,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 644348,
+     "type": "f32",
+     "bytesHex": "0ad7233e",
+     "value": 0.1599999964237213,
+     "expect": 0.16,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 3891344,
+     "type": "i32",
+     "bytesHex": "00000000",
+     "value": 0,
+     "expect": 0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 502348,
+     "type": "f32",
+     "bytesHex": "295c0f3f",
+     "value": 0.5600000023841858,
+     "expect": 0.56,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 3891360,
+     "type": "i32",
+     "bytesHex": "02000000",
+     "value": 2,
+     "expect": 2,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 627004,
+     "type": "f32",
+     "bytesHex": "9a99993e",
+     "value": 0.30000001192092896,
+     "expect": 0.3,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 595916,
+     "type": "f32",
+     "bytesHex": "00000000",
+     "value": 0.0,
+     "expect": 0.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 556396,
+     "type": "f32",
+     "bytesHex": "00000000",
+     "value": 0.0,
+     "expect": 0.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 218692,
+     "type": "f32",
+     "bytesHex": "b81e053e",
+     "value": 0.12999999523162842,
+     "expect": 0.13,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 372908,
+     "type": "f32",
+     "bytesHex": "cdcc0c3f",
+     "value": 0.550000011920929,
+     "expect": 0.55,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 490636,
+     "type": "f32",
+     "bytesHex": "0000803e",
+     "value": 0.25,
+     "expect": 0.25,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 3909704,
+     "type": "i32",
+     "bytesHex": "00000000",
+     "value": 0,
+     "expect": 0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 613444,
+     "type": "f32",
+     "bytesHex": "6666263f",
+     "value": 0.6499999761581421,
+     "expect": 0.65,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 3909720,
+     "type": "i32",
+     "bytesHex": "02000000",
+     "value": 2,
+     "expect": 2,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 523636,
+     "type": "f32",
+     "bytesHex": "0000003f",
+     "value": 0.5,
+     "expect": 0.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 402476,
+     "type": "f32",
+     "bytesHex": "00000000",
+     "value": 0.0,
+     "expect": 0.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 375292,
+     "type": "f32",
+     "bytesHex": "00000000",
+     "value": 0.0,
+     "expect": 0.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 620116,
+     "type": "f32",
+     "bytesHex": "3333333e",
+     "value": 0.17499999701976776,
+     "expect": 0.175,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 269492,
+     "type": "f32",
+     "bytesHex": "0000003f",
+     "value": 0.5,
+     "expect": 0.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 322268,
+     "type": "f32",
+     "bytesHex": "cdcccc3e",
+     "value": 0.4000000059604645,
+     "expect": 0.4,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 3928104,
+     "type": "i32",
+     "bytesHex": "00000000",
+     "value": 0,
+     "expect": 0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 327524,
+     "type": "f32",
+     "bytesHex": "cdcc4c3f",
+     "value": 0.800000011920929,
+     "expect": 0.8,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 3928120,
+     "type": "i32",
+     "bytesHex": "02000000",
+     "value": 2,
+     "expect": 2,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 174428,
+     "type": "f32",
+     "bytesHex": "3333333f",
+     "value": 0.699999988079071,
+     "expect": 0.7,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 356244,
+     "type": "f32",
+     "bytesHex": "00000000",
+     "value": 0.0,
+     "expect": 0.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 132716,
+     "type": "f32",
+     "bytesHex": "0000803e",
+     "value": 0.25,
+     "expect": 0.25,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 242636,
+     "type": "f32",
+     "bytesHex": "3333b33e",
+     "value": 0.3499999940395355,
+     "expect": 0.35,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 116388,
+     "type": "f32",
+     "bytesHex": "0000003f",
+     "value": 0.5,
+     "expect": 0.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 618548,
+     "type": "f32",
+     "bytesHex": "9a99193f",
+     "value": 0.6000000238418579,
+     "expect": 0.6,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 3946504,
+     "type": "i32",
+     "bytesHex": "00000000",
+     "value": 0,
+     "expect": 0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 333604,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 3946520,
+     "type": "i32",
+     "bytesHex": "02000000",
+     "value": 2,
+     "expect": 2,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 456084,
+     "type": "f32",
+     "bytesHex": "cdcc4c3f",
+     "value": 0.800000011920929,
+     "expect": 0.8,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 213924,
+     "type": "f32",
+     "bytesHex": "00000000",
+     "value": 0.0,
+     "expect": 0.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 411628,
+     "type": "f32",
+     "bytesHex": "0000003f",
+     "value": 0.5,
+     "expect": 0.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 373476,
+     "type": "f32",
+     "bytesHex": "3333333f",
+     "value": 0.699999988079071,
+     "expect": 0.7,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 603588,
+     "type": "f32",
+     "bytesHex": "0000003f",
+     "value": 0.5,
+     "expect": 0.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 535324,
+     "type": "f32",
+     "bytesHex": "00000000",
+     "value": 0.0,
+     "expect": 0.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 508164,
+     "type": "f32",
+     "bytesHex": "0000803e",
+     "value": 0.25,
+     "expect": 0.25,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 416260,
+     "type": "f32",
+     "bytesHex": "0000003f",
+     "value": 0.5,
+     "expect": 0.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 87460,
+     "type": "f32",
+     "bytesHex": "0000003f",
+     "value": 0.5,
+     "expect": 0.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 446404,
+     "type": "f32",
+     "bytesHex": "00000000",
+     "value": 0.0,
+     "expect": 0.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 520644,
+     "type": "f32",
+     "bytesHex": "cdcc4c3f",
+     "value": 0.800000011920929,
+     "expect": 0.8,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 4025416,
+     "type": "i32",
+     "bytesHex": "00000000",
+     "value": 0,
+     "expect": 0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 492788,
+     "type": "f32",
+     "bytesHex": "cdcc4c3f",
+     "value": 0.800000011920929,
+     "expect": 0.8,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 4025432,
+     "type": "i32",
+     "bytesHex": "02000000",
+     "value": 2,
+     "expect": 2,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 574412,
+     "type": "f32",
+     "bytesHex": "3333333f",
+     "value": 0.699999988079071,
+     "expect": 0.7,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 290012,
+     "type": "f32",
+     "bytesHex": "00000000",
+     "value": 0.0,
+     "expect": 0.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 412692,
+     "type": "f32",
+     "bytesHex": "0000803e",
+     "value": 0.25,
+     "expect": 0.25,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 340292,
+     "type": "f32",
+     "bytesHex": "9a99993f",
+     "value": 1.2000000476837158,
+     "expect": 1.2,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 166748,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 370740,
+     "type": "f32",
+     "bytesHex": "9a99193f",
+     "value": 0.6000000238418579,
+     "expect": 0.6,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 4044680,
+     "type": "i32",
+     "bytesHex": "00000000",
+     "value": 0,
+     "expect": 0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 4044696,
+     "type": "i32",
+     "bytesHex": "02000000",
+     "value": 2,
+     "expect": 2,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 134012,
+     "type": "f32",
+     "bytesHex": "cdcc4c3f",
+     "value": 0.800000011920929,
+     "expect": 0.8,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 92356,
+     "type": "f32",
+     "bytesHex": "00000000",
+     "value": 0.0,
+     "expect": 0.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 151620,
+     "type": "f32",
+     "bytesHex": "0000003f",
+     "value": 0.5,
+     "expect": 0.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 439988,
+     "type": "f32",
+     "bytesHex": "0000c03f",
+     "value": 1.5,
+     "expect": 1.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 127852,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 110980,
+     "type": "f32",
+     "bytesHex": "cdcccc3e",
+     "value": 0.4000000059604645,
+     "expect": 0.4,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 4063824,
+     "type": "i32",
+     "bytesHex": "00000000",
+     "value": 0,
+     "expect": 0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 234652,
+     "type": "f32",
+     "bytesHex": "cdcc4c3f",
+     "value": 0.800000011920929,
+     "expect": 0.8,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 4063840,
+     "type": "i32",
+     "bytesHex": "02000000",
+     "value": 2,
+     "expect": 2,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 402388,
+     "type": "f32",
+     "bytesHex": "3333333f",
+     "value": 0.699999988079071,
+     "expect": 0.7,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 593780,
+     "type": "f32",
+     "bytesHex": "00000000",
+     "value": 0.0,
+     "expect": 0.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 578612,
+     "type": "f32",
+     "bytesHex": "cdcc0c3f",
+     "value": 0.550000011920929,
+     "expect": 0.55,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 492540,
+     "type": "f32",
+     "bytesHex": "9a99193f",
+     "value": 0.6000000238418579,
+     "expect": 0.6,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 246004,
+     "type": "f32",
+     "bytesHex": "0000003f",
+     "value": 0.5,
+     "expect": 0.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 609548,
+     "type": "f32",
+     "bytesHex": "cdcccc3e",
+     "value": 0.4000000059604645,
+     "expect": 0.4,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 4082736,
+     "type": "i32",
+     "bytesHex": "00000000",
+     "value": 0,
+     "expect": 0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 174884,
+     "type": "f32",
+     "bytesHex": "cdcc4c3f",
+     "value": 0.800000011920929,
+     "expect": 0.8,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 4082752,
+     "type": "i32",
+     "bytesHex": "02000000",
+     "value": 2,
+     "expect": 2,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 571284,
+     "type": "f32",
+     "bytesHex": "3333333f",
+     "value": 0.699999988079071,
+     "expect": 0.7,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 234564,
+     "type": "f32",
+     "bytesHex": "0000003f",
+     "value": 0.5,
+     "expect": 0.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 616652,
+     "type": "f32",
+     "bytesHex": "6666263f",
+     "value": 0.6499999761581421,
+     "expect": 0.65,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 635956,
+     "type": "f32",
+     "bytesHex": "0000003f",
+     "value": 0.5,
+     "expect": 0.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 275252,
+     "type": "f32",
+     "bytesHex": "6666663f",
+     "value": 0.8999999761581421,
+     "expect": 0.9,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 570324,
+     "type": "f32",
+     "bytesHex": "9a99d93f",
+     "value": 1.7000000476837158,
+     "expect": 1.7,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 131980,
+     "type": "f32",
+     "bytesHex": "00000000",
+     "value": 0.0,
+     "expect": 0.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+     "offset": 323604,
+     "type": "f32",
+     "bytesHex": "0000003f",
+     "value": 0.5,
+     "expect": 0.5,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 116,
+   "matched": 116,
+   "files": 2,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "rawchecks-L3364.json"
+  },
+  "dataset": "reference-data/frosty/small-arms-vs-vehicles.json",
+  "targets": {
+   "121": "helicopters",
+   "120": "jets",
+   "119": "tanks, IFVs, armoured transports, anti-air",
+   "122": "Flyer 60, Vector, RHIB",
+   "187": "PTV, quad, dirt bikes",
+   "508": "material named by the Improved Armor affector"
+  },
+  "rows": [
+   {
+    "material": 275,
+    "bulletFiles": [
+     "PD_.40SW",
+     "PD_.45ACP",
+     "PD_57x28mm",
+     "PD_9x19mm"
+    ],
+    "values": {
+     "121": [
+      {
+       "key": 0,
+       "value": 0.16
+      },
+      {
+       "key": 2,
+       "value": 0.56
+      }
+     ],
+     "120": [
+      {
+       "key": 0,
+       "value": 0.3
+      }
+     ],
+     "119": [
+      {
+       "key": 0,
+       "value": 0.0
+      }
+     ],
+     "122": [
+      {
+       "key": 0,
+       "value": 0.0
+      }
+     ],
+     "187": [
+      {
+       "key": 0,
+       "value": 0.13
+      }
+     ],
+     "508": [
+      {
+       "key": 0,
+       "value": 0.55
+      }
+     ]
+    }
+   },
+   {
+    "material": 276,
+    "bulletFiles": [
+     "PD_.300BLK_Carbine",
+     "PD_545x39mm_Carbine",
+     "PD_556x45mmNATO_Carbine",
+     "PD_58x42mm_Carbine",
+     "PD_762x39mm_Carbine",
+     "PD_9x39mm_Match",
+     "PD_9x39mm_Semi"
+    ],
+    "values": {
+     "121": [
+      {
+       "key": 0,
+       "value": 0.25
+      },
+      {
+       "key": 2,
+       "value": 0.65
+      }
+     ],
+     "120": [
+      {
+       "key": 0,
+       "value": 0.5
+      }
+     ],
+     "119": [
+      {
+       "key": 0,
+       "value": 0.0
+      }
+     ],
+     "122": [
+      {
+       "key": 0,
+       "value": 0.0
+      }
+     ],
+     "187": [
+      {
+       "key": 0,
+       "value": 0.175
+      }
+     ],
+     "508": [
+      {
+       "key": 0,
+       "value": 0.5
+      }
+     ]
+    }
+   },
+   {
+    "material": 277,
+    "bulletFiles": [
+     "PD_545x39mm",
+     "PD_556x45mmNATO",
+     "PD_762x39mm"
+    ],
+    "values": {
+     "121": [
+      {
+       "key": 0,
+       "value": 0.4
+      },
+      {
+       "key": 2,
+       "value": 0.8
+      }
+     ],
+     "120": [
+      {
+       "key": 0,
+       "value": 0.7
+      }
+     ],
+     "119": [
+      {
+       "key": 0,
+       "value": 0.0
+      }
+     ],
+     "122": [
+      {
+       "key": 0,
+       "value": 0.25
+      }
+     ],
+     "187": [
+      {
+       "key": 0,
+       "value": 0.35
+      }
+     ],
+     "508": [
+      {
+       "key": 0,
+       "value": 0.5
+      }
+     ]
+    }
+   },
+   {
+    "material": 278,
+    "bulletFiles": [
+     "PD_545x39mm_MG",
+     "PD_556x45mmNATO_MG",
+     "PD_762x39mm_MG"
+    ],
+    "values": {
+     "121": [
+      {
+       "key": 0,
+       "value": 0.6
+      },
+      {
+       "key": 2,
+       "value": 1.0
+      }
+     ],
+     "120": [
+      {
+       "key": 0,
+       "value": 0.8
+      }
+     ],
+     "119": [
+      {
+       "key": 0,
+       "value": 0.0
+      }
+     ],
+     "122": [
+      {
+       "key": 0,
+       "value": 0.5
+      }
+     ],
+     "187": [
+      {
+       "key": 0,
+       "value": 0.7
+      }
+     ],
+     "508": [
+      {
+       "key": 0,
+       "value": 0.5
+      }
+     ]
+    }
+   },
+   {
+    "material": 279,
+    "bulletFiles": [
+     "PD_12gaNo00Buck275_Pump",
+     "PD_12gaNo00Buck275_Semi",
+     "PD_12gaNo00Buck300_Pump",
+     "PD_12gaNo00Buck300_Semi",
+     "PD_12gaNo01Buck275_Pump",
+     "PD_12gaNo01Buck275_Semi",
+     "PD_12gaNo01Buck300_Pump",
+     "PD_12gaNo01Buck300_Semi"
+    ],
+    "values": {
+     "121": [
+      {
+       "key": 0,
+       "value": 0.0
+      }
+     ],
+     "120": [
+      {
+       "key": 0,
+       "value": 0.0
+      }
+     ],
+     "119": [
+      {
+       "key": 0,
+       "value": 0.0
+      }
+     ],
+     "122": [
+      {
+       "key": 0,
+       "value": 0.25
+      }
+     ],
+     "187": [
+      {
+       "key": 0,
+       "value": 0.5
+      }
+     ],
+     "508": [
+      {
+       "key": 0,
+       "value": 0.5
+      }
+     ]
+    }
+   },
+   {
+    "material": 286,
+    "bulletFiles": [
+     "PD_12gaSlug275_Pump",
+     "PD_12gaSlug275_Semi",
+     "PD_12gaSlug300_Pump",
+     "PD_12gaSlug300_Semi"
+    ],
+    "values": {
+     "121": [
+      {
+       "key": 0,
+       "value": 0.0
+      }
+     ],
+     "120": [
+      {
+       "key": 0,
+       "value": 0.0
+      }
+     ],
+     "119": [
+      {
+       "key": 0,
+       "value": 0.0
+      }
+     ],
+     "122": [
+      {
+       "key": 0,
+       "value": 0.25
+      }
+     ],
+     "187": [
+      {
+       "key": 0,
+       "value": 0.5
+      }
+     ],
+     "508": [
+      {
+       "key": 0,
+       "value": 0.5
+      }
+     ]
+    }
+   },
+   {
+    "material": 288,
+    "bulletFiles": [
+     "PD_Vehicles_MBT_SecondaryWeapon_CoaxLMG",
+     "PD_Vehicles_RWS_LMG"
+    ],
+    "values": {
+     "121": [
+      {
+       "key": 0,
+       "value": 0.8
+      },
+      {
+       "key": 2,
+       "value": 0.8
+      }
+     ],
+     "120": [
+      {
+       "key": 0,
+       "value": 0.7
+      }
+     ],
+     "119": [
+      {
+       "key": 0,
+       "value": 0.0
+      }
+     ],
+     "122": [
+      {
+       "key": 0,
+       "value": 0.25
+      }
+     ],
+     "187": [
+      {
+       "key": 0,
+       "value": 1.2
+      }
+     ],
+     "508": [
+      {
+       "key": 0,
+       "value": 1.0
+      }
+     ]
+    }
+   },
+   {
+    "material": 289,
+    "bulletFiles": [
+     "PD_Vehicles_MBT_SecondaryWeapon_CoaxHMG",
+     "PD_Vehicles_RWS_HMG",
+     "PD_Vehicles_MBT_AmmoTypes_Canister"
+    ],
+    "values": {
+     "121": [
+      {
+       "key": 0,
+       "value": 0.6
+      },
+      {
+       "key": 2,
+       "value": 1.0
+      }
+     ],
+     "120": [
+      {
+       "key": 0,
+       "value": 0.8
+      }
+     ],
+     "119": [
+      {
+       "key": 0,
+       "value": 0.0
+      }
+     ],
+     "122": [
+      {
+       "key": 0,
+       "value": 0.5
+      }
+     ],
+     "187": [
+      {
+       "key": 0,
+       "value": 1.5
+      }
+     ],
+     "508": [
+      {
+       "key": 0,
+       "value": 1.0
+      }
+     ]
+    }
+   },
+   {
+    "material": 290,
+    "bulletFiles": [
+     "PD_.300WinMag",
+     "PD_.300WinMag_Match",
+     "PD_.338LapuaMagnum2",
+     "PD_.338LapuaMagnum2_Match",
+     "PD_.338NormaMagnum",
+     "PD_.338NormaMagnum_Match",
+     "PD_762x54mmR_Bolt",
+     "PD_762x54mmR_Bolt_Match"
+    ],
+    "values": {
+     "121": [
+      {
+       "key": 0,
+       "value": 0.4
+      },
+      {
+       "key": 2,
+       "value": 0.8
+      }
+     ],
+     "120": [
+      {
+       "key": 0,
+       "value": 0.7
+      }
+     ],
+     "119": [
+      {
+       "key": 0,
+       "value": 0.0
+      }
+     ],
+     "122": [
+      {
+       "key": 0,
+       "value": 0.55
+      }
+     ],
+     "187": [
+      {
+       "key": 0,
+       "value": 0.6
+      }
+     ],
+     "508": [
+      {
+       "key": 0,
+       "value": 0.5
+      }
+     ]
+    }
+   },
+   {
+    "material": 291,
+    "bulletFiles": [
+     "PD_556x45mmNATO_Semi"
+    ],
+    "values": {
+     "121": [
+      {
+       "key": 0,
+       "value": 0.4
+      },
+      {
+       "key": 2,
+       "value": 0.8
+      }
+     ],
+     "120": [
+      {
+       "key": 0,
+       "value": 0.7
+      }
+     ],
+     "119": [
+      {
+       "key": 0,
+       "value": 0.0
+      }
+     ],
+     "122": [
+      {
+       "key": 0,
+       "value": 0.5
+      }
+     ],
+     "187": [
+      {
+       "key": 0,
+       "value": 0.65
+      }
+     ],
+     "508": [
+      {
+       "key": 0,
+       "value": 0.5
+      }
+     ]
+    }
+   },
+   {
+    "material": 340,
+    "bulletFiles": [
+     "PD_Vehicles_IFV_PrimaryWeapon_Canister"
+    ],
+    "values": {
+     "121": [
+      {
+       "key": 0,
+       "value": 0.9
+      }
+     ],
+     "120": [
+      {
+       "key": 0,
+       "value": 1.7
+      }
+     ],
+     "119": [
+      {
+       "key": 0,
+       "value": 0.0
+      }
+     ],
+     "122": [
+      {
+       "key": 0,
+       "value": 0.5
+      }
+     ],
+     "187": [
+      {
+       "key": 0,
+       "value": 1.0
+      }
+     ],
+     "508": [
+      {
+       "key": 0,
+       "value": 1.0
+      }
+     ]
+    }
+   },
+   {
+    "material": 351,
+    "bulletFiles": [
+     "PD_556x45mmNATO_Bolt"
+    ],
+    "values": {
+     "121": [
+      {
+       "key": 0,
+       "value": 0.4
+      },
+      {
+       "key": 2,
+       "value": 0.8
+      }
+     ],
+     "120": [
+      {
+       "key": 0,
+       "value": 0.7
+      }
+     ],
+     "119": [
+      {
+       "key": 0,
+       "value": 0.0
+      }
+     ],
+     "122": [
+      {
+       "key": 0,
+       "value": 0.55
+      }
+     ],
+     "187": [
+      {
+       "key": 0,
+       "value": 0.6
+      }
+     ],
+     "508": [
+      {
+       "key": 0,
+       "value": 0.5
+      }
+     ]
+    }
+   },
+   {
+    "material": 491,
+    "bulletFiles": [
+     "PD_.357Magnum",
+     "PD_.44Magnum"
+    ],
+    "values": {
+     "121": [
+      {
+       "key": 0,
+       "value": 0.16
+      },
+      {
+       "key": 2,
+       "value": 0.56
+      }
+     ],
+     "120": [
+      {
+       "key": 0,
+       "value": 0.3
+      }
+     ],
+     "119": [
+      {
+       "key": 0,
+       "value": 0.0
+      }
+     ],
+     "122": [
+      {
+       "key": 0,
+       "value": 0.0
+      }
+     ],
+     "187": [
+      {
+       "key": 0,
+       "value": 0.13
+      }
+     ],
+     "508": [
+      {
+       "key": 0,
+       "value": 0.55
+      }
+     ]
+    }
+   },
+   {
+    "material": 492,
+    "bulletFiles": [
+     "PD_46x30_PDW",
+     "PD_57x28mm_PDW"
+    ],
+    "values": {
+     "121": [
+      {
+       "key": 0,
+       "value": 0.16
+      },
+      {
+       "key": 2,
+       "value": 0.56
+      }
+     ],
+     "120": [
+      {
+       "key": 0,
+       "value": 0.3
+      }
+     ],
+     "119": [
+      {
+       "key": 0,
+       "value": 0.0
+      }
+     ],
+     "122": [
+      {
+       "key": 0,
+       "value": 0.4
+      }
+     ],
+     "187": [
+      {
+       "key": 0,
+       "value": 0.25
+      }
+     ],
+     "508": [
+      {
+       "key": 0,
+       "value": 0.5
+      }
+     ]
+    }
+   },
+   {
+    "material": 493,
+    "bulletFiles": [
+     "PD_.40SW_PDW",
+     "PD_10x25mm_PDW",
+     "PD_32ACP_PDW",
+     "PD_9x19mm_PDW"
+    ],
+    "values": {
+     "121": [
+      {
+       "key": 0,
+       "value": 0.16
+      },
+      {
+       "key": 2,
+       "value": 0.56
+      }
+     ],
+     "120": [
+      {
+       "key": 0,
+       "value": 0.3
+      }
+     ],
+     "119": [
+      {
+       "key": 0,
+       "value": 0.0
+      }
+     ],
+     "122": [
+      {
+       "key": 0,
+       "value": 0.4
+      }
+     ],
+     "187": [
+      {
+       "key": 0,
+       "value": 0.25
+      }
+     ],
+     "508": [
+      {
+       "key": 0,
+       "value": 0.5
+      }
+     ]
+    }
+   },
+   {
+    "material": 494,
+    "bulletFiles": [
+     "PD_68x51mm_Carbine",
+     "PD_762x51mmNATO_Carbine"
+    ],
+    "values": {
+     "121": [
+      {
+       "key": 0,
+       "value": 0.25
+      },
+      {
+       "key": 2,
+       "value": 0.65
+      }
+     ],
+     "120": [
+      {
+       "key": 0,
+       "value": 0.5
+      }
+     ],
+     "119": [
+      {
+       "key": 0,
+       "value": 0.0
+      }
+     ],
+     "122": [
+      {
+       "key": 0,
+       "value": 0.0
+      }
+     ],
+     "187": [
+      {
+       "key": 0,
+       "value": 0.175
+      }
+     ],
+     "508": [
+      {
+       "key": 0,
+       "value": 0.5
+      }
+     ]
+    }
+   },
+   {
+    "material": 496,
+    "bulletFiles": [
+     "PD_762x51mmNATO",
+     "PD_762x51mmNATO_MG"
+    ],
+    "values": {
+     "121": [
+      {
+       "key": 0,
+       "value": 0.4
+      },
+      {
+       "key": 2,
+       "value": 0.8
+      }
+     ],
+     "120": [
+      {
+       "key": 0,
+       "value": 0.7
+      }
+     ],
+     "119": [
+      {
+       "key": 0,
+       "value": 0.0
+      }
+     ],
+     "122": [
+      {
+       "key": 0,
+       "value": 0.25
+      }
+     ],
+     "187": [
+      {
+       "key": 0,
+       "value": 0.35
+      }
+     ],
+     "508": [
+      {
+       "key": 0,
+       "value": 0.5
+      }
+     ]
+    }
+   },
+   {
+    "material": 497,
+    "bulletFiles": [
+     "PD_68x51mm_MG"
+    ],
+    "values": {
+     "121": [
+      {
+       "key": 0,
+       "value": 0.6
+      },
+      {
+       "key": 2,
+       "value": 1.0
+      }
+     ],
+     "120": [
+      {
+       "key": 0,
+       "value": 0.8
+      }
+     ],
+     "119": [
+      {
+       "key": 0,
+       "value": 0.0
+      }
+     ],
+     "122": [
+      {
+       "key": 0,
+       "value": 0.5
+      }
+     ],
+     "187": [
+      {
+       "key": 0,
+       "value": 0.7
+      }
+     ],
+     "508": [
+      {
+       "key": 0,
+       "value": 0.5
+      }
+     ]
+    }
+   },
+   {
+    "material": 498,
+    "bulletFiles": [
+     "PD_.338LapuaMagnum_Semi",
+     "PD_.338LapuaMagnum_Semi_Match",
+     "PD_762x51mmNATO_Semi",
+     "PD_762x51mmNATO_Semi_Match",
+     "PD_762x54mmR_Semi",
+     "PD_762x54mmR_Semi_Match"
+    ],
+    "values": {
+     "121": [
+      {
+       "key": 0,
+       "value": 0.4
+      },
+      {
+       "key": 2,
+       "value": 0.8
+      }
+     ],
+     "120": [
+      {
+       "key": 0,
+       "value": 0.7
+      }
+     ],
+     "119": [
+      {
+       "key": 0,
+       "value": 0.0
+      }
+     ],
+     "122": [
+      {
+       "key": 0,
+       "value": 0.5
+      }
+     ],
+     "187": [
+      {
+       "key": 0,
+       "value": 0.65
+      }
+     ],
+     "508": [
+      {
+       "key": 0,
+       "value": 0.5
+      }
+     ]
+    }
+   },
+   {
+    "material": 499,
+    "bulletFiles": [
+     "PD_12gaFlechette275_Pump",
+     "PD_12gaFlechette275_Semi",
+     "PD_12gaFlechette300_Pump",
+     "PD_12gaFlechette300_Semi"
+    ],
+    "values": {
+     "121": [
+      {
+       "key": 0,
+       "value": 0.0
+      }
+     ],
+     "120": [
+      {
+       "key": 0,
+       "value": 0.0
+      }
+     ],
+     "119": [
+      {
+       "key": 0,
+       "value": 0.0
+      }
+     ],
+     "122": [
+      {
+       "key": 0,
+       "value": 0.25
+      }
+     ],
+     "187": [
+      {
+       "key": 0,
+       "value": 0.5
+      }
+     ],
+     "508": [
+      {
+       "key": 0,
+       "value": 0.5
+      }
+     ]
+    }
+   },
+   {
+    "material": 606,
+    "bulletFiles": [
+     "WF_Vehicles_Airplane_PrimaryWeapon_Cannon"
+    ],
+    "values": {
+     "121": [
+      {
+       "key": 0,
+       "value": 1.06
+      }
+     ],
+     "120": [
+      {
+       "key": 0,
+       "value": 2.15
+      }
+     ],
+     "119": [
+      {
+       "key": 0,
+       "value": 0.3
+      }
+     ],
+     "122": [
+      {
+       "key": 0,
+       "value": 1.25
+      }
+     ],
+     "187": [
+      {
+       "key": 0,
+       "value": 2.6
+      }
+     ],
+     "508": []
+    }
+   },
+   {
+    "material": 621,
+    "bulletFiles": [
+     "PD_556x45mmNATO_Minigun"
+    ],
+    "values": {
+     "121": [
+      {
+       "key": 0,
+       "value": 0.4
+      },
+      {
+       "key": 2,
+       "value": 0.8
+      }
+     ],
+     "120": [
+      {
+       "key": 0,
+       "value": 0.7
+      }
+     ],
+     "119": [
+      {
+       "key": 0,
+       "value": 0.0
+      }
+     ],
+     "122": [
+      {
+       "key": 0,
+       "value": 0.25
+      }
+     ],
+     "187": [
+      {
+       "key": 0,
+       "value": 1.2
+      }
+     ],
+     "508": [
+      {
+       "key": 0,
+       "value": 1.0
+      }
+     ]
+    }
+   },
+   {
+    "material": 784,
+    "bulletFiles": [
+     "PD_.416Barrett",
+     "PD_.416Barrett_Match"
+    ],
+    "values": {
+     "121": [
+      {
+       "key": 0,
+       "value": 0.4
+      },
+      {
+       "key": 2,
+       "value": 0.8
+      }
+     ],
+     "120": [
+      {
+       "key": 0,
+       "value": 0.7
+      }
+     ],
+     "119": [
+      {
+       "key": 0,
+       "value": 0.0
+      }
+     ],
+     "122": [
+      {
+       "key": 0,
+       "value": 0.55
+      }
+     ],
+     "187": [
+      {
+       "key": 0,
+       "value": 0.6
+      }
+     ],
+     "508": [
+      {
+       "key": 0,
+       "value": 0.5
+      }
+     ]
+    }
+   }
+  ],
+  "twoRecordsAgainstHelicopters": [
+   275,
+   276,
+   277,
+   278,
+   288,
+   289,
+   290,
+   291,
+   351,
+   491,
+   492,
+   493,
+   494,
+   496,
+   497,
+   498,
+   621,
+   784
+  ],
+  "oneRecordAgainstHelicopters": [
+   279,
+   286,
+   340,
+   499,
+   606
+  ],
+  "zeroAgainstArmour": [
+   275,
+   276,
+   277,
+   278,
+   279,
+   286,
+   288,
+   289,
+   290,
+   291,
+   340,
+   351,
+   491,
+   492,
+   493,
+   494,
+   496,
+   497,
+   498,
+   499,
+   621,
+   784
+  ],
+  "improvedArmorAffector": {
+   "file": "Affector_Vehicle_Passive_AttackHeli_ImprovedArmor",
+   "class": "Class_0158d180",
+   "packedMaterial": 532676736,
+   "materialId": 508,
+   "lowBits": 128
+  },
+  "uiText": "Attack Helicopter Improved Armor: resistance against most infantry weapons (VEHICLE_SITE_ADDITIONS.md)",
+  "ea": "1.3.1.0: Transport Helicopter has Improved Armor by default, reducing the amount of damage taken from small arms fire",
+  "officialSource": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-1-0"
+ },
+ "inference": [
+  "No infantry bullet damages tanks, IFVs, armoured transports or anti-air vehicles: grid value 0 for all 19 materials. Only the jet cannon's material has a value there (0.3).",
+  "Against jets the values are 0.3 (pistol and PDW bullets), 0.5 (carbine), 0.7 (rifle, DMR, sniper) and 0.8 (machine gun); shotguns 0.",
+  "Against helicopters every rifle-calibre and pistol-calibre material holds two records with keys 0 and 2, the second 0.4 higher (0.16 / 0.56, 0.25 / 0.65, 0.4 / 0.8, 0.6 / 1.0). Earlier leads (L3338, L3357) recorded the key 0 value for vehicle machine guns against helicopters; the key 2 value is the alternative. What selects the key is not read.",
+  "The Improved Armor affector holds one packed material, ID 508. Against material 508 infantry bullets hold 0.5 (pistol 0.55), vehicle machine guns and miniguns 1.0, and the jet cannon has no record. That fits the UI text 'resistance against most infantry weapons' if 508 is applied as an extra factor; how it combines with the helicopter record is not read.",
+  "So the 'damage table' suspected in ROSTER_VALUES.md exists in the grid in two candidate forms (the key 2 record and the material 508 column); stored data does not say which the passive uses."
+ ],
+ "unresolved": [
+  "Which helicopter record applies without the passive, and what the passive changes. Test: one assault rifle bullet (known damage at that range) on a Scout Helicopter and on an Attack Helicopter with Improved Armor, reading the vehicle health lost each time. A 25-damage bullet gives 10 (0.4), 20 (0.8), 5 (0.4 x 0.5) or 10 (0.8 x 0.5).",
+  "The selector for record keys 0 and 2 (an ammunition step, a vehicle state, or the passive)."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-09-damage-rule-extension",
+  "artifacts": [
+   {
+    "file": "manifest-L3364.json",
+    "sha256": "c0892cd7dec1f45c32877043031885a0d99708c0c811535f06baa78e9756cc66"
+   },
+   {
+    "file": "rawchecks-L3364.json",
+    "sha256": "035321718cfc440d0ff73182d7cd67523b2ff2404da3229bb04efe1a3cdde23a"
+   },
+   {
+    "file": "smallarms.py",
+    "sha256": "347669b4ebc8037915123a655d75e1370df5fe67e92ace8c483101a43edbbd5e"
+   },
+   {
+    "file": "smallarms-vehicle-cells.json",
+    "sha256": "d6afdfb99739a622be7b5d65ed2d320c3494fa77d16b916ae3fc8d1ee394ae23"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-09",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L3364",
+    "title": "Small-arms bullets against vehicles: grid values per vehicle class, two keyed records against helicopters, and the material the Improved Armor passive names",
+    "status": "finding",
+    "summary": "Infantry bullets store 0 against armoured vehicles, 0.3 to 0.8 against jets and two keyed values against helicopters (0.16 / 0.56 for pistol calibres up to 0.6 / 1.0 for machine guns). The Improved Armor passive's affector names material 508, against which infantry bullets store 0.5 and vehicle machine guns 1.0. Which helicopter record applies and how the passive combines is left for an in-game reading. 116 raw-offset checks matched.",
+    "reopenWhen": "An in-game damage reading of small arms on a helicopter with and without Improved Armor.",
+    "statusNote": "Values recorded; selection between the two helicopter records unread."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Hardware/Vehicles/_VehiclesCommon/PassiveAbilities/AttackHeli/Affector_Vehicle_Passive_AttackHeli_ImprovedArmor",
+    "format": "raw-ebx",
+    "sha256": "c116926c3abbd9cf3a6b54d4234bfcb9ce7defe2f5de50ba0c6e3cefb8534a85",
+    "question": "What do infantry bullets do to each vehicle class in the material grid, and does the grid hold the 'damage table' that ROSTER_VALUES.md suspected behind the Improved Armor passive?",
+    "result": "useful",
+    "conclusion": "Holds one packed material, ID 508."
+   },
+   {
+    "path": "Game/GlacierMP/levels/mp_abbasid/mp_abbasid/materialgrid_win32",
+    "format": "raw-ebx",
+    "sha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+    "question": "What do infantry bullets do to each vehicle class in the material grid, and does the grid hold the 'damage table' that ROSTER_VALUES.md suspected behind the Improved Armor passive?",
+    "result": "useful",
+    "conclusion": "Infantry bullets: 0 against armour, two keyed records against helicopters, 0.5 against material 508."
+   }
+  ]
+ }
+}

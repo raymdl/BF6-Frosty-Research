@@ -1,0 +1,800 @@
+{
+ "lead": "L3338",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Read from saved raw captures; no export, no new capture."
+ },
+ "question": "What do the vehicle machine guns store for damage against soldiers and vehicles, and do the tank coaxial guns use the same bullet files as the remote weapon stations EA changed in 1.3.1.0?",
+ "sourceFacts": {
+  "method": "For seven machine-gun bullet files the registry StartDamage, EndDamage and falloff rows, the asset's own damage fields and the bullet material were read; the material grid value (Field_674633de) was read against soldier head, abdomen and limb and five vehicle target materials in two level grids. The weapon file to bullet file link was read from stored imports.",
+  "control": {
+   "description": "PD_Vehicles_RWS_LMG EndDamage 19 and PD_Vehicles_RWS_HMG EndDamage 24 equal EA's 1.3.1.0 figures (L3335). Registry and own damage are equal for all seven files; Abbasid and Badlands grid values are equal.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 439116,
+     "type": "f32",
+     "bytesHex": "00004842",
+     "value": 50.0,
+     "expect": 50.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 265100,
+     "type": "f32",
+     "bytesHex": "0000f041",
+     "value": 30.0,
+     "expect": 30.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 495172,
+     "type": "f32",
+     "bytesHex": "0000c841",
+     "value": 25.0,
+     "expect": 25.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 278220,
+     "type": "f32",
+     "bytesHex": "00009642",
+     "value": 75.0,
+     "expect": 75.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\MBT\\PD_Vehicles_MBT_SecondaryWeapon_CoaxHMG.ebx",
+     "rawSha256": "019ef7fb54284fc4392761b680630cd9a3f6b5041214192014b85d40670f09df",
+     "offset": 740,
+     "type": "f32",
+     "bytesHex": "00004842",
+     "value": 50.0,
+     "expect": 50.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\MBT\\PD_Vehicles_MBT_SecondaryWeapon_CoaxHMG.ebx",
+     "rawSha256": "019ef7fb54284fc4392761b680630cd9a3f6b5041214192014b85d40670f09df",
+     "offset": 744,
+     "type": "f32",
+     "bytesHex": "0000f041",
+     "value": 30.0,
+     "expect": 30.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\MBT\\PD_Vehicles_MBT_SecondaryWeapon_CoaxHMG.ebx",
+     "rawSha256": "019ef7fb54284fc4392761b680630cd9a3f6b5041214192014b85d40670f09df",
+     "offset": 464,
+     "type": "u32",
+     "bytesHex": "80511012",
+     "value": 303059328,
+     "expect": 303059328,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 274700,
+     "type": "f32",
+     "bytesHex": "00000c42",
+     "value": 35.0,
+     "expect": 35.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 217380,
+     "type": "f32",
+     "bytesHex": "0000a841",
+     "value": 21.0,
+     "expect": 21.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 145020,
+     "type": "f32",
+     "bytesHex": "0000a041",
+     "value": 20.0,
+     "expect": 20.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 235948,
+     "type": "f32",
+     "bytesHex": "00009642",
+     "value": 75.0,
+     "expect": 75.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\MBT\\PD_Vehicles_MBT_SecondaryWeapon_CoaxLMG.ebx",
+     "rawSha256": "8733cdceca2a1df225d5bc6097af362a6f8738b6645873661c96a17527f9340a",
+     "offset": 612,
+     "type": "f32",
+     "bytesHex": "00000c42",
+     "value": 35.0,
+     "expect": 35.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\MBT\\PD_Vehicles_MBT_SecondaryWeapon_CoaxLMG.ebx",
+     "rawSha256": "8733cdceca2a1df225d5bc6097af362a6f8738b6645873661c96a17527f9340a",
+     "offset": 616,
+     "type": "f32",
+     "bytesHex": "0000a841",
+     "value": 21.0,
+     "expect": 21.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\MBT\\PD_Vehicles_MBT_SecondaryWeapon_CoaxLMG.ebx",
+     "rawSha256": "8733cdceca2a1df225d5bc6097af362a6f8738b6645873661c96a17527f9340a",
+     "offset": 336,
+     "type": "u32",
+     "bytesHex": "80260012",
+     "value": 301999744,
+     "expect": 301999744,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 350580,
+     "type": "f32",
+     "bytesHex": "00004842",
+     "value": 50.0,
+     "expect": 50.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 403396,
+     "type": "f32",
+     "bytesHex": "0000c041",
+     "value": 24.0,
+     "expect": 24.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 379124,
+     "type": "f32",
+     "bytesHex": "0000c841",
+     "value": 25.0,
+     "expect": 25.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 288396,
+     "type": "f32",
+     "bytesHex": "00009642",
+     "value": 75.0,
+     "expect": 75.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\RWS\\PD_Vehicles_RWS_HMG.ebx",
+     "rawSha256": "6493ba0a31bdc5153f70b0a0a3d35f88ac0b218480c4a7597bb8c06274d16046",
+     "offset": 676,
+     "type": "f32",
+     "bytesHex": "00004842",
+     "value": 50.0,
+     "expect": 50.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\RWS\\PD_Vehicles_RWS_HMG.ebx",
+     "rawSha256": "6493ba0a31bdc5153f70b0a0a3d35f88ac0b218480c4a7597bb8c06274d16046",
+     "offset": 680,
+     "type": "f32",
+     "bytesHex": "0000c041",
+     "value": 24.0,
+     "expect": 24.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\RWS\\PD_Vehicles_RWS_HMG.ebx",
+     "rawSha256": "6493ba0a31bdc5153f70b0a0a3d35f88ac0b218480c4a7597bb8c06274d16046",
+     "offset": 400,
+     "type": "u32",
+     "bytesHex": "80511012",
+     "value": 303059328,
+     "expect": 303059328,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 170964,
+     "type": "f32",
+     "bytesHex": "00001042",
+     "value": 36.0,
+     "expect": 36.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 366220,
+     "type": "f32",
+     "bytesHex": "00009841",
+     "value": 19.0,
+     "expect": 19.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 456484,
+     "type": "f32",
+     "bytesHex": "0000c841",
+     "value": 25.0,
+     "expect": 25.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 209772,
+     "type": "f32",
+     "bytesHex": "00007042",
+     "value": 60.0,
+     "expect": 60.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\RWS\\PD_Vehicles_RWS_LMG.ebx",
+     "rawSha256": "702c3f05b2e1093a01284b938984d21cb12109daf28f9313f45f12889f7987d5",
+     "offset": 612,
+     "type": "f32",
+     "bytesHex": "00001042",
+     "value": 36.0,
+     "expect": 36.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\RWS\\PD_Vehicles_RWS_LMG.ebx",
+     "rawSha256": "702c3f05b2e1093a01284b938984d21cb12109daf28f9313f45f12889f7987d5",
+     "offset": 616,
+     "type": "f32",
+     "bytesHex": "00009841",
+     "value": 19.0,
+     "expect": 19.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\RWS\\PD_Vehicles_RWS_LMG.ebx",
+     "rawSha256": "702c3f05b2e1093a01284b938984d21cb12109daf28f9313f45f12889f7987d5",
+     "offset": 336,
+     "type": "u32",
+     "bytesHex": "80260012",
+     "value": 301999744,
+     "expect": 301999744,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 492844,
+     "type": "f32",
+     "bytesHex": "00000842",
+     "value": 34.0,
+     "expect": 34.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 451756,
+     "type": "f32",
+     "bytesHex": "00009041",
+     "value": 18.0,
+     "expect": 18.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 30020,
+     "type": "f32",
+     "bytesHex": "00002042",
+     "value": 40.0,
+     "expect": 40.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 76100,
+     "type": "f32",
+     "bytesHex": "0000f042",
+     "value": 120.0,
+     "expect": 120.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\ScoutHeli\\WF_Vehicles_ScoutHeli_PrimaryWeapon_Minigun.ebx",
+     "rawSha256": "f087b42d506c5d7774208528b48e5a9bc0ec12cd897a4558bc6bc7556a58b9f2",
+     "offset": 2532,
+     "type": "f32",
+     "bytesHex": "00000842",
+     "value": 34.0,
+     "expect": 34.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\ScoutHeli\\WF_Vehicles_ScoutHeli_PrimaryWeapon_Minigun.ebx",
+     "rawSha256": "f087b42d506c5d7774208528b48e5a9bc0ec12cd897a4558bc6bc7556a58b9f2",
+     "offset": 2536,
+     "type": "f32",
+     "bytesHex": "00009041",
+     "value": 18.0,
+     "expect": 18.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\ScoutHeli\\WF_Vehicles_ScoutHeli_PrimaryWeapon_Minigun.ebx",
+     "rawSha256": "f087b42d506c5d7774208528b48e5a9bc0ec12cd897a4558bc6bc7556a58b9f2",
+     "offset": 2256,
+     "type": "u32",
+     "bytesHex": "8026d026",
+     "value": 651175552,
+     "expect": 651175552,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 343492,
+     "type": "f32",
+     "bytesHex": "00000842",
+     "value": 34.0,
+     "expect": 34.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 383220,
+     "type": "f32",
+     "bytesHex": "0000a041",
+     "value": 20.0,
+     "expect": 20.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 364628,
+     "type": "f32",
+     "bytesHex": "00004843",
+     "value": 200.0,
+     "expect": 200.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 384300,
+     "type": "f32",
+     "bytesHex": "0000fa43",
+     "value": 500.0,
+     "expect": 500.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\TransportHeli\\WF_Vehicles_TransportHeli_Gunner_Minigun.ebx",
+     "rawSha256": "d66a0d4f1e5a45c039b9c1168bf2219bc59bc6a7b81e4ccacdf893dd1d8f6ab5",
+     "offset": 612,
+     "type": "f32",
+     "bytesHex": "00000842",
+     "value": 34.0,
+     "expect": 34.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\TransportHeli\\WF_Vehicles_TransportHeli_Gunner_Minigun.ebx",
+     "rawSha256": "d66a0d4f1e5a45c039b9c1168bf2219bc59bc6a7b81e4ccacdf893dd1d8f6ab5",
+     "offset": 616,
+     "type": "f32",
+     "bytesHex": "0000a041",
+     "value": 20.0,
+     "expect": 20.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\TransportHeli\\WF_Vehicles_TransportHeli_Gunner_Minigun.ebx",
+     "rawSha256": "d66a0d4f1e5a45c039b9c1168bf2219bc59bc6a7b81e4ccacdf893dd1d8f6ab5",
+     "offset": 336,
+     "type": "u32",
+     "bytesHex": "8026d026",
+     "value": 651175552,
+     "expect": 651175552,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 154916,
+     "type": "f32",
+     "bytesHex": "00004842",
+     "value": 50.0,
+     "expect": 50.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 15900,
+     "type": "f32",
+     "bytesHex": "0000c041",
+     "value": 24.0,
+     "expect": 24.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 161876,
+     "type": "f32",
+     "bytesHex": "00003442",
+     "value": 45.0,
+     "expect": 45.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 419260,
+     "type": "f32",
+     "bytesHex": "00000743",
+     "value": 135.0,
+     "expect": 135.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\ScoutHeli\\WF_Vehicles_ScoutHeli_PrimaryWeapon_GAU19.ebx",
+     "rawSha256": "912823dc6fa55debb3e92ca8df7cd2745ab0b26aa9f30863471640a7ae5e9444",
+     "offset": 612,
+     "type": "f32",
+     "bytesHex": "00004842",
+     "value": 50.0,
+     "expect": 50.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\ScoutHeli\\WF_Vehicles_ScoutHeli_PrimaryWeapon_GAU19.ebx",
+     "rawSha256": "912823dc6fa55debb3e92ca8df7cd2745ab0b26aa9f30863471640a7ae5e9444",
+     "offset": 616,
+     "type": "f32",
+     "bytesHex": "0000c041",
+     "value": 24.0,
+     "expect": 24.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\ScoutHeli\\WF_Vehicles_ScoutHeli_PrimaryWeapon_GAU19.ebx",
+     "rawSha256": "912823dc6fa55debb3e92ca8df7cd2745ab0b26aa9f30863471640a7ae5e9444",
+     "offset": 336,
+     "type": "u32",
+     "bytesHex": "80511012",
+     "value": 303059328,
+     "expect": 303059328,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 5633,
+   "matched": 5633,
+   "files": 10,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "rawchecks-L3338.json"
+  },
+  "dataset": "reference-data/frosty/vehicle-machine-gun-damage.json",
+  "rows": [
+   {
+    "weapon": "Tank coaxial HMG",
+    "bulletFile": "PD_Vehicles_MBT_SecondaryWeapon_CoaxHMG",
+    "weaponFile": "WF_Vehicles_MBT_SecondaryWeapon_CoaxHMG",
+    "weaponImportsBulletFile": true,
+    "materialId": 289,
+    "startDamage": 50.0,
+    "endDamage": 30.0,
+    "damageFalloffStartDistance": 25.0,
+    "damageFalloffEndDistance": 75.0,
+    "grid": {
+     "24": 1.34,
+     "25": 1.0,
+     "26": 1.0,
+     "119": 0.0,
+     "121": 0.6,
+     "120": 0.8,
+     "122": 0.5,
+     "187": 1.5
+    },
+    "bodyShotsToKill100": {
+     "close": 2,
+     "far": 4
+    },
+    "headDamage": {
+     "close": 67.0,
+     "far": 40.2
+    }
+   },
+   {
+    "weapon": "Tank coaxial LMG",
+    "bulletFile": "PD_Vehicles_MBT_SecondaryWeapon_CoaxLMG",
+    "weaponFile": "WF_Vehicles_MBT_SecondaryWeapon_CoaxLMG",
+    "weaponImportsBulletFile": true,
+    "materialId": 288,
+    "startDamage": 35.0,
+    "endDamage": 21.0,
+    "damageFalloffStartDistance": 20.0,
+    "damageFalloffEndDistance": 75.0,
+    "grid": {
+     "24": 1.34,
+     "25": 1.0,
+     "26": 1.0,
+     "119": 0.0,
+     "121": 0.8,
+     "120": 0.7,
+     "122": 0.25,
+     "187": 1.2
+    },
+    "bodyShotsToKill100": {
+     "close": 3,
+     "far": 5
+    },
+    "headDamage": {
+     "close": 46.9,
+     "far": 28.14
+    }
+   },
+   {
+    "weapon": "Remote weapon station HMG",
+    "bulletFile": "PD_Vehicles_RWS_HMG",
+    "weaponFile": "WF_Vehicles_RWS_HMG",
+    "weaponImportsBulletFile": true,
+    "materialId": 289,
+    "startDamage": 50.0,
+    "endDamage": 24.0,
+    "damageFalloffStartDistance": 25.0,
+    "damageFalloffEndDistance": 75.0,
+    "grid": {
+     "24": 1.34,
+     "25": 1.0,
+     "26": 1.0,
+     "119": 0.0,
+     "121": 0.6,
+     "120": 0.8,
+     "122": 0.5,
+     "187": 1.5
+    },
+    "bodyShotsToKill100": {
+     "close": 2,
+     "far": 5
+    },
+    "headDamage": {
+     "close": 67.0,
+     "far": 32.16
+    }
+   },
+   {
+    "weapon": "Remote weapon station LMG",
+    "bulletFile": "PD_Vehicles_RWS_LMG",
+    "weaponFile": "WF_Vehicles_RWS_LMG",
+    "weaponImportsBulletFile": true,
+    "materialId": 288,
+    "startDamage": 36.0,
+    "endDamage": 19.0,
+    "damageFalloffStartDistance": 25.0,
+    "damageFalloffEndDistance": 60.0,
+    "grid": {
+     "24": 1.34,
+     "25": 1.0,
+     "26": 1.0,
+     "119": 0.0,
+     "121": 0.8,
+     "120": 0.7,
+     "122": 0.25,
+     "187": 1.2
+    },
+    "bodyShotsToKill100": {
+     "close": 3,
+     "far": 6
+    },
+    "headDamage": {
+     "close": 48.24,
+     "far": 25.46
+    }
+   },
+   {
+    "weapon": "Scout helicopter minigun",
+    "bulletFile": "WF_Vehicles_ScoutHeli_PrimaryWeapon_Minigun",
+    "weaponFile": null,
+    "weaponImportsBulletFile": null,
+    "materialId": 621,
+    "startDamage": 34.0,
+    "endDamage": 18.0,
+    "damageFalloffStartDistance": 40.0,
+    "damageFalloffEndDistance": 120.0,
+    "grid": {
+     "24": 1.34,
+     "25": 1.0,
+     "26": 1.0,
+     "119": 0.0,
+     "121": 0.4,
+     "120": 0.7,
+     "122": 0.25,
+     "187": 1.2
+    },
+    "bodyShotsToKill100": {
+     "close": 3,
+     "far": 6
+    },
+    "headDamage": {
+     "close": 45.56,
+     "far": 24.12
+    }
+   },
+   {
+    "weapon": "Transport helicopter minigun",
+    "bulletFile": "WF_Vehicles_TransportHeli_Gunner_Minigun",
+    "weaponFile": null,
+    "weaponImportsBulletFile": null,
+    "materialId": 621,
+    "startDamage": 34.0,
+    "endDamage": 20.0,
+    "damageFalloffStartDistance": 200.0,
+    "damageFalloffEndDistance": 500.0,
+    "grid": {
+     "24": 1.34,
+     "25": 1.0,
+     "26": 1.0,
+     "119": 0.0,
+     "121": 0.4,
+     "120": 0.7,
+     "122": 0.25,
+     "187": 1.2
+    },
+    "bodyShotsToKill100": {
+     "close": 3,
+     "far": 5
+    },
+    "headDamage": {
+     "close": 45.56,
+     "far": 26.8
+    }
+   },
+   {
+    "weapon": "Scout helicopter GAU-19",
+    "bulletFile": "WF_Vehicles_ScoutHeli_PrimaryWeapon_GAU19",
+    "weaponFile": null,
+    "weaponImportsBulletFile": null,
+    "materialId": 289,
+    "startDamage": 50.0,
+    "endDamage": 24.0,
+    "damageFalloffStartDistance": 45.0,
+    "damageFalloffEndDistance": 135.0,
+    "grid": {
+     "24": 1.34,
+     "25": 1.0,
+     "26": 1.0,
+     "119": 0.0,
+     "121": 0.6,
+     "120": 0.8,
+     "122": 0.5,
+     "187": 1.5
+    },
+    "bodyShotsToKill100": {
+     "close": 2,
+     "far": 5
+    },
+    "headDamage": {
+     "close": 67.0,
+     "far": 32.16
+    }
+   }
+  ],
+  "soldierHealthAssumed": 100,
+  "rwsUsers": "WF_Vehicles_RWS_HMG and WF_Vehicles_RWS_LMG are imported by Abrams, Leopard, Bradley, CV90, JLTV and Marauder",
+  "coaxUsers": "WF_Vehicles_MBT_SecondaryWeapon_CoaxHMG by Abrams and Leopard; CoaxLMG by Abrams, Leopard and CB90"
+ },
+ "inference": [
+  "Every machine gun here has grid value 0 against target material 119: they deal no damage to tanks, IFVs, armoured transports or the anti-air vehicle.",
+  "Against soldiers the grid value is 1.34 on the head and 1 on abdomen and limbs for all seven, so damage to the body is the stored damage and headshots multiply by 1.34.",
+  "The tank coaxial weapon files import their own bullet files, which hold minimum damage 30 (HMG) and 21 (LMG) and LMG falloff 20 to 75 m. Those are EA's values from before 1.3.1.0. The remote weapon station files hold the new values (24, 19, 25 to 60 m). EA's note says the change applies to both.",
+  "Body shots to kill assume 100 health and no armour; they are arithmetic on stored values, not readings."
+ ],
+ "unresolved": [
+  "Whether the tank coaxial guns use 30 / 21 or 24 / 19 at range. Test: coaxial LMG body shots on a full-health soldier beyond 75 m: 5 shots to kill means 21, 6 means 19.",
+  "Headshot multiplier 1.34. Test: one coaxial HMG headshot at close range on a full-health soldier should leave 33 health (67 damage).",
+  "Soldier health 100 and the shape of the falloff between the two distances are not read here."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-09-damage-rule-extension",
+  "artifacts": [
+   {
+    "file": "manifest-L3338.json",
+    "sha256": "bb163b04d2caac1d1abaca8e23047d8a39b3a788c0d35cb0a16fd07962b7f09f"
+   },
+   {
+    "file": "rawchecks-L3338.json",
+    "sha256": "b3becaa62a8f071c5930ea0a6147e14fa1002d0f2824f90f69392e3a0cd02303"
+   },
+   {
+    "file": "mg.json",
+    "sha256": "d3b1cb19bbb6ca2b810162d439782d660299690367975c66682a3e4c0570b062"
+   },
+   {
+    "file": "extract.py",
+    "sha256": "0350a77b41b82ac121478aaad252154a4db0c299216076b7785a560d0e71a92a"
+   },
+   {
+    "file": "mg-grid-rawchecks.json",
+    "sha256": "2c3b4d8dc0a1248eb2a6332d2dd48df7833496b54eee390a2642bd6d05c848b7"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-09",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L3338",
+    "title": "Vehicle machine guns: stored damage against soldiers and vehicles, and the tank coaxial bullet files still hold EA's pre-1.3.1.0 minimum damage",
+    "status": "finding",
+    "summary": "Seven vehicle machine-gun bullet files were read. All deal nothing to target material 119 (tanks, IFVs, transports, anti-air), 1.34 times damage to the head and stored damage to the body. The tank coaxial weapons import their own bullet files, which still hold EA's pre-1.3.1.0 minimum damage (HMG 30, LMG 21); the remote weapon station files hold the new 24 and 19. 5633 raw-offset checks matched.",
+    "reopenWhen": "A counted soldier kill with a tank coaxial gun at range.",
+    "statusNote": "Stored values and imports read; which minimum damage the coaxial guns use in game is open."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/MBT/PD_Vehicles_MBT_SecondaryWeapon_CoaxLMG",
+    "format": "raw-ebx",
+    "sha256": "8733cdceca2a1df225d5bc6097af362a6f8738b6645873661c96a17527f9340a",
+    "question": "What do the vehicle machine guns store for damage against soldiers and vehicles, and do the tank coaxial guns use the same bullet files as the remote weapon stations EA changed in 1.3.1.0?",
+    "result": "useful",
+    "conclusion": "Tank coaxial LMG bullet file holds minimum damage 21 and falloff 20 to 75 m, EA's values from before 1.3.1.0."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/RWS/PD_Vehicles_RWS_LMG",
+    "format": "raw-ebx",
+    "sha256": "702c3f05b2e1093a01284b938984d21cb12109daf28f9313f45f12889f7987d5",
+    "question": "What do the vehicle machine guns store for damage against soldiers and vehicles, and do the tank coaxial guns use the same bullet files as the remote weapon stations EA changed in 1.3.1.0?",
+    "result": "useful",
+    "conclusion": "Remote weapon station LMG bullet file holds minimum damage 19 and falloff 25 to 60 m, EA's 1.3.1.0 values; material 288 has grid value 0 against target 119."
+   }
+  ]
+ }
+}

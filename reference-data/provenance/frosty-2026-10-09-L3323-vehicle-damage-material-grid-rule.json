@@ -1,0 +1,830 @@
+{
+ "lead": "L3323",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Abbasid level material grid read from the saved raw capture with the L3207 cell reader; no export, no new capture."
+ },
+ "question": "Do registry damage values and material-grid values reproduce EA's 1.3.1.0 damage figures against tanks, helicopters and jets for direct-hit vehicle weapons?",
+ "sourceFacts": {
+  "method": "For each weapon the registry default of the projectile's direct damage and of its explosion's blast damage was taken, with the material ID stored on each object. Field_674633de was read for each material against targets 119, 121 and 120 and combined by the rule in the dataset, then compared with every figure EA states for that weapon in the 1.3.1.0 notes.",
+  "control": {
+   "description": "Six weapons reproduce all four EA figures (tank low, tank high, helicopters, jets) exactly: 24 numbers.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 505492,
+     "type": "f32",
+     "bytesHex": "0000f042",
+     "value": 120.0,
+     "expect": 120.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\MBT\\PD_Vehicles_MBT_AmmoTypes_HE.ebx",
+     "rawSha256": "0f4ffe732b5590e74ab225963bd9891d76218223677d8ccab19aab42fd555bc4",
+     "offset": 336,
+     "type": "u32",
+     "bytesHex": "8000d007",
+     "value": 131072128,
+     "expect": 131072128,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 14804,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\MBT\\PD_Vehicles_MBT_AmmoTypes_HE.ebx",
+     "rawSha256": "0f4ffe732b5590e74ab225963bd9891d76218223677d8ccab19aab42fd555bc4",
+     "offset": 1168,
+     "type": "u32",
+     "bytesHex": "80152008",
+     "value": 136320384,
+     "expect": 136320384,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 164764,
+     "type": "f32",
+     "bytesHex": "00000c43",
+     "value": 140.0,
+     "expect": 140.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\MBT\\PD_Vehicles_MBT_AmmoTypes_MPAT.ebx",
+     "rawSha256": "753e798a1473f868e3768ea1c0cd9c8a424c9bfcde2bcb80ce21475edd3052a9",
+     "offset": 592,
+     "type": "u32",
+     "bytesHex": "8000d007",
+     "value": 131072128,
+     "expect": 131072128,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 212844,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\MBT\\PD_Vehicles_MBT_AmmoTypes_MPAT.ebx",
+     "rawSha256": "753e798a1473f868e3768ea1c0cd9c8a424c9bfcde2bcb80ce21475edd3052a9",
+     "offset": 1296,
+     "type": "u32",
+     "bytesHex": "80152008",
+     "value": 136320384,
+     "expect": 136320384,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 124804,
+     "type": "f32",
+     "bytesHex": "00004842",
+     "value": 50.0,
+     "expect": 50.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\IFV\\PD_Vehicles_IFV_SecondaryWeapon_LightRockets.ebx",
+     "rawSha256": "df382463407d3d9c1dd4c0ed5848edde5802d2df5abb04aeb7d8c8cd3d34972e",
+     "offset": 400,
+     "type": "u32",
+     "bytesHex": "8000d007",
+     "value": 131072128,
+     "expect": 131072128,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 17532,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\IFV\\PD_Vehicles_IFV_SecondaryWeapon_LightRockets.ebx",
+     "rawSha256": "df382463407d3d9c1dd4c0ed5848edde5802d2df5abb04aeb7d8c8cd3d34972e",
+     "offset": 1104,
+     "type": "u32",
+     "bytesHex": "80212008",
+     "value": 136323456,
+     "expect": 136323456,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 471356,
+     "type": "f32",
+     "bytesHex": "00007041",
+     "value": 15.0,
+     "expect": 15.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Rocket\\Hydra\\PRJ_Missile_Hydra70.ebx",
+     "rawSha256": "ef49b0803dde21d5f5ffb01a6c2730e14ec7c0f6e2999fb66a0b9c25cc971e44",
+     "offset": 416,
+     "type": "u32",
+     "bytesHex": "8000d007",
+     "value": 131072128,
+     "expect": 131072128,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 435972,
+     "type": "f32",
+     "bytesHex": "0000b442",
+     "value": 90.0,
+     "expect": 90.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Rocket\\Hydra\\PRJ_Missile_Hydra70.ebx",
+     "rawSha256": "ef49b0803dde21d5f5ffb01a6c2730e14ec7c0f6e2999fb66a0b9c25cc971e44",
+     "offset": 1664,
+     "type": "u32",
+     "bytesHex": "8021f024",
+     "value": 619716992,
+     "expect": 619716992,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 131572,
+     "type": "f32",
+     "bytesHex": "0000f041",
+     "value": 30.0,
+     "expect": 30.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Rocket\\APKWS\\PRJ_Missile_APKWS-II.ebx",
+     "rawSha256": "a930e824369d8112bfcc72b0e27182d7d4c7c3d560d362b5ca977e28aae9b2b6",
+     "offset": 416,
+     "type": "u32",
+     "bytesHex": "8000e01a",
+     "value": 450887808,
+     "expect": 450887808,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 7948,
+     "type": "f32",
+     "bytesHex": "0000a042",
+     "value": 80.0,
+     "expect": 80.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Rocket\\APKWS\\PRJ_Missile_APKWS-II.ebx",
+     "rawSha256": "a930e824369d8112bfcc72b0e27182d7d4c7c3d560d362b5ca977e28aae9b2b6",
+     "offset": 1664,
+     "type": "u32",
+     "bytesHex": "8021f024",
+     "value": 619716992,
+     "expect": 619716992,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 337412,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\IFV\\PD_Vehicles_IFV_PrimaryWeapon_APFSDS.ebx",
+     "rawSha256": "be8f0552d75df86b44cc30dcaba6d07289b3f7db92d92b02df8bfc3b2dde3e0c",
+     "offset": 400,
+     "type": "u32",
+     "bytesHex": "807ec11c",
+     "value": 482442880,
+     "expect": 482442880,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 399612,
+     "type": "f32",
+     "bytesHex": "00008042",
+     "value": 64.0,
+     "expect": 64.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Rocket\\Zuni\\PRJ_Missile_Zuni.ebx",
+     "rawSha256": "c39eb64ea6c969479ab4c04d1a091d80746ef359cf1fec5799349c09cd183c87",
+     "offset": 416,
+     "type": "u32",
+     "bytesHex": "8000f01a",
+     "value": 451936384,
+     "expect": 451936384,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 109428,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Rocket\\Zuni\\PRJ_Missile_Zuni.ebx",
+     "rawSha256": "c39eb64ea6c969479ab4c04d1a091d80746ef359cf1fec5799349c09cd183c87",
+     "offset": 1664,
+     "type": "u32",
+     "bytesHex": "8021f024",
+     "value": 619716992,
+     "expect": 619716992,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 95684,
+     "type": "f32",
+     "bytesHex": "00000243",
+     "value": 130.0,
+     "expect": 130.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\MBT\\PD_Vehicles_MBT_AmmoTypes_APFSDS.ebx",
+     "rawSha256": "7691af1a66fde798e856baeb8b5717d852adc7b4673b5b954b3067915f28f24f",
+     "offset": 912,
+     "type": "u32",
+     "bytesHex": "8021f01a",
+     "value": 451944832,
+     "expect": 451944832,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 448948,
+     "type": "f32",
+     "bytesHex": "00000000",
+     "value": 0.0,
+     "expect": 0.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\MBT\\PD_Vehicles_MBT_AmmoTypes_APFSDS.ebx",
+     "rawSha256": "7691af1a66fde798e856baeb8b5717d852adc7b4673b5b954b3067915f28f24f",
+     "offset": 336,
+     "type": "u32",
+     "bytesHex": "80000000",
+     "value": 128,
+     "expect": 128,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 11228,
+     "type": "f32",
+     "bytesHex": "0000fa42",
+     "value": 125.0,
+     "expect": 125.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\RPG7\\PB_NS_RPG.ebx",
+     "rawSha256": "571920dca13809eccf5f9567442d9144b0bc1b96a63a10265dffb2874b6f0581",
+     "offset": 416,
+     "type": "u32",
+     "bytesHex": "8011d007",
+     "value": 131076480,
+     "expect": 131076480,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 682316,
+     "type": "f32",
+     "bytesHex": "00008c42",
+     "value": 70.0,
+     "expect": 70.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\RPG7\\PB_NS_RPG.ebx",
+     "rawSha256": "571920dca13809eccf5f9567442d9144b0bc1b96a63a10265dffb2874b6f0581",
+     "offset": 1664,
+     "type": "u32",
+     "bytesHex": "80ca410a",
+     "value": 172083840,
+     "expect": 172083840,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 1400,
+   "matched": 1400,
+   "files": 12,
+   "tool": "scripts/frosty-raw-check.py (registry and material values: direct-raw-checks.json; grid reads: direct-grid-rawchecks.json)",
+   "artifact": "direct-raw-checks.json"
+  },
+  "rule": {
+   "tank": "damage = stored direct damage x grid value (target 119) x a hit-quality factor from 0.75 to 2; EA's low figure is the product x 0.75 rounded up, the high figure the product x 2",
+   "aircraft": "damage = stored direct damage x grid value + stored blast damage x grid value for the blast material (targets 121 helicopters, 120 jets), capped at 1000 for jets in EA's notes",
+   "blastOnly": "mines (L3321): stored blast damage x grid value, no hit-quality factor"
+  },
+  "fullMatches": [
+   {
+    "officialItem": "120mm HEMP-T Rounds",
+    "owner": "PD_Vehicles_MBT_AmmoTypes_HE",
+    "directProperty": "StartDamage",
+    "directRegistry": 120.0,
+    "directMaterial": 125,
+    "directGrid": {
+     "119": 2.0,
+     "121": 9.0,
+     "120": 10.0
+    },
+    "blastRegistry": 100.0,
+    "blastMaterial": 130,
+    "blastGrid": {
+     "119": 0.0,
+     "121": 1.0,
+     "120": 2.0
+    },
+    "predicted": {
+     "tankLow": 180,
+     "tankHigh": 480.0,
+     "helicopters": 1180.0,
+     "jets": 1000.0
+    },
+    "official": {
+     "tankLow": 180,
+     "tankHigh": 480,
+     "helicopters": 1180,
+     "jets": 1000
+    },
+    "jetsUncapped": 1400.0,
+    "equal": {
+     "tankLow": true,
+     "tankHigh": true,
+     "helicopters": true,
+     "jets": true
+    }
+   },
+   {
+    "officialItem": "120mm HEAT-MP-T Rounds",
+    "owner": "PD_Vehicles_MBT_AmmoTypes_MPAT",
+    "directProperty": "StartDamage",
+    "directRegistry": 140.0,
+    "directMaterial": 125,
+    "directGrid": {
+     "119": 2.0,
+     "121": 9.0,
+     "120": 10.0
+    },
+    "blastRegistry": 100.0,
+    "blastMaterial": 130,
+    "blastGrid": {
+     "119": 0.0,
+     "121": 1.0,
+     "120": 2.0
+    },
+    "predicted": {
+     "tankLow": 210,
+     "tankHigh": 560.0,
+     "helicopters": 1360.0,
+     "jets": 1000.0
+    },
+    "official": {
+     "tankLow": 210,
+     "tankHigh": 560,
+     "helicopters": 1360,
+     "jets": 1000
+    },
+    "jetsUncapped": 1600.0,
+    "equal": {
+     "tankLow": true,
+     "tankHigh": true,
+     "helicopters": true,
+     "jets": true
+    }
+   },
+   {
+    "officialItem": "IFV Light Rockets",
+    "owner": "PD_Vehicles_IFV_SecondaryWeapon_LightRockets",
+    "directProperty": "StartDamage",
+    "directRegistry": 50.0,
+    "directMaterial": 125,
+    "directGrid": {
+     "119": 2.0,
+     "121": 9.0,
+     "120": 10.0
+    },
+    "blastRegistry": 100.0,
+    "blastMaterial": 130,
+    "blastGrid": {
+     "119": 0.0,
+     "121": 1.0,
+     "120": 2.0
+    },
+    "predicted": {
+     "tankLow": 75,
+     "tankHigh": 200.0,
+     "helicopters": 550.0,
+     "jets": 700.0
+    },
+    "official": {
+     "tankLow": 75,
+     "tankHigh": 200,
+     "helicopters": 550,
+     "jets": 700
+    },
+    "jetsUncapped": 700.0,
+    "equal": {
+     "tankLow": true,
+     "tankHigh": true,
+     "helicopters": true,
+     "jets": true
+    }
+   },
+   {
+    "officialItem": "Helicopter Light Rockets",
+    "owner": "PRJ_Missile_Hydra70",
+    "directProperty": "Damage",
+    "directRegistry": 15.0,
+    "directMaterial": 125,
+    "directGrid": {
+     "119": 2.0,
+     "121": 9.0,
+     "120": 10.0
+    },
+    "blastRegistry": 90.0,
+    "blastMaterial": 591,
+    "blastGrid": {
+     "119": 0.0,
+     "121": 1.0,
+     "120": 2.0
+    },
+    "predicted": {
+     "tankLow": 23,
+     "tankHigh": 60.0,
+     "helicopters": 225.0,
+     "jets": 330.0
+    },
+    "official": {
+     "tankLow": 23,
+     "tankHigh": 60,
+     "helicopters": 225,
+     "jets": 330
+    },
+    "jetsUncapped": 330.0,
+    "equal": {
+     "tankLow": true,
+     "tankHigh": true,
+     "helicopters": true,
+     "jets": true
+    }
+   },
+   {
+    "officialItem": "Helicopter Aim-Guided Rockets",
+    "owner": "PRJ_Missile_APKWS-II",
+    "directProperty": "Damage",
+    "directRegistry": 30.0,
+    "directMaterial": 430,
+    "directGrid": {
+     "119": 2.2,
+     "121": 8.0,
+     "120": 10.0
+    },
+    "blastRegistry": 80.0,
+    "blastMaterial": 591,
+    "blastGrid": {
+     "119": 0.0,
+     "121": 1.0,
+     "120": 2.0
+    },
+    "predicted": {
+     "tankLow": 50,
+     "tankHigh": 132.0,
+     "helicopters": 320.0,
+     "jets": 460.0
+    },
+    "official": {
+     "tankLow": 50,
+     "tankHigh": 132,
+     "helicopters": 320,
+     "jets": 460
+    },
+    "jetsUncapped": 460.0,
+    "equal": {
+     "tankLow": true,
+     "tankHigh": true,
+     "helicopters": true,
+     "jets": true
+    }
+   },
+   {
+    "officialItem": "IFV AP shells",
+    "owner": "PD_Vehicles_IFV_PrimaryWeapon_APFSDS",
+    "directProperty": "StartDamage",
+    "directRegistry": 100.0,
+    "directMaterial": 460,
+    "directGrid": {
+     "119": 0.3,
+     "121": 1.0,
+     "120": 1.0
+    },
+    "blastRegistry": null,
+    "blastMaterial": null,
+    "blastGrid": null,
+    "predicted": {
+     "tankLow": 23,
+     "tankHigh": 60.0,
+     "helicopters": 100.0,
+     "jets": 100.0
+    },
+    "official": {
+     "tankLow": 23,
+     "tankHigh": 60,
+     "helicopters": 100,
+     "jets": 100
+    },
+    "jetsUncapped": 100.0,
+    "equal": {
+     "tankLow": true,
+     "tankHigh": true,
+     "helicopters": true,
+     "jets": true
+    }
+   }
+  ],
+  "notMatching": [
+   {
+    "officialItem": "Helicopter Heavy Rockets",
+    "owner": "PRJ_Missile_Zuni",
+    "directProperty": "Damage",
+    "directRegistry": 64.0,
+    "directMaterial": 431,
+    "directGrid": {
+     "119": 2.5,
+     "121": 4.0,
+     "120": 5.0
+    },
+    "blastRegistry": 100.0,
+    "blastMaterial": 591,
+    "blastGrid": {
+     "119": 0.0,
+     "121": 1.0,
+     "120": 2.0
+    },
+    "predicted": {
+     "tankLow": 120,
+     "tankHigh": 320.0,
+     "helicopters": 356.0,
+     "jets": 520.0
+    },
+    "official": {
+     "tankLow": 94,
+     "tankHigh": 250,
+     "helicopters": 300,
+     "jets": 450
+    },
+    "jetsUncapped": 520.0,
+    "equal": {
+     "tankLow": false,
+     "tankHigh": false,
+     "helicopters": false,
+     "jets": false
+    }
+   },
+   {
+    "officialItem": "120mm APFSDS Rounds",
+    "owner": "PD_Vehicles_MBT_AmmoTypes_APFSDS",
+    "directProperty": "StartDamage",
+    "directRegistry": 130.0,
+    "directMaterial": 431,
+    "directGrid": {
+     "119": 2.5,
+     "121": 4.0,
+     "120": 5.0
+    },
+    "blastRegistry": 0.0,
+    "blastMaterial": 0,
+    "blastGrid": {
+     "119": 0.0,
+     "121": 0.0,
+     "120": 0.0
+    },
+    "predicted": {
+     "tankLow": 244,
+     "tankHigh": 650.0,
+     "helicopters": 520.0,
+     "jets": 650.0
+    },
+    "official": {
+     "tankLow": 282,
+     "tankHigh": 750,
+     "helicopters": 600,
+     "jets": 750
+    },
+    "jetsUncapped": 650.0,
+    "equal": {
+     "tankLow": false,
+     "tankHigh": false,
+     "helicopters": false,
+     "jets": false
+    }
+   },
+   {
+    "officialItem": "RPG",
+    "owner": "PB_NS_RPG",
+    "directProperty": "Damage",
+    "directRegistry": 125.0,
+    "directMaterial": 125,
+    "directGrid": {
+     "119": 2.0,
+     "121": 9.0,
+     "120": 10.0
+    },
+    "blastRegistry": 70.0,
+    "blastMaterial": 164,
+    "blastGrid": {
+     "119": 0.0,
+     "121": 0.0,
+     "120": 0.0
+    },
+    "predicted": {
+     "tankLow": 188,
+     "tankHigh": 500.0,
+     "helicopters": 1125.0,
+     "jets": 1000.0
+    },
+    "official": {
+     "tankLow": 173,
+     "tankHigh": 460,
+     "helicopters": 1035,
+     "jets": 1000
+    },
+    "jetsUncapped": 1250.0,
+    "equal": {
+     "tankLow": false,
+     "tankHigh": false,
+     "helicopters": false,
+     "jets": true
+    }
+   }
+  ],
+  "dataset": "reference-data/frosty/vehicle-damage-material-grid-rule.json"
+ },
+ "inference": [
+  "Against tanks, EA's range for a direct-hit weapon is registry direct damage times the grid value times 0.75 (rounded up) to times 2. This is exact for six weapons. The top factor 2 equals Field_7fa53094, stored as 2 in every cell read; that the field is the cap is an inference from the equal value.",
+  "Against helicopters and jets there is no such factor: EA's figure is direct damage times its grid value plus blast damage times the blast material's grid value, exact for the same six weapons, with jets capped at 1000.",
+  "Mines (L3321) are the blast-only case of the same rule. The registry default is the number that fits in every case, which supports L3318.",
+  "The mobile anti-air figures of L3322 are twice what this rule gives for aircraft (26, 32.5, 100, 65 against 52, 65, 200, 130). They are the one group that does not fit; that factor stays untraced."
+ ],
+ "unresolved": [
+  "The hit-quality factor between 0.75 and 2 is not tied to the stored angle curves of L3201. Test: fire tank HE at a tank's front, side and rear from 20 m and read the damage; 180 and 480 are the stored extremes.",
+  "The mobile anti-air factor 2. Test: one high velocity rocket hit on a full-health helicopter; 26 means EA counts a pair, 52 means a further multiplier exists.",
+  "Heavy Rockets, RPG and tank APFSDS fit only with earlier damage values. Test: one RPG hit on a tank's rear on the current build should read 500 (125 x 2 x 2); one tank APFSDS hit on a tank's rear should read 650.",
+  "Only the Abbasid grid was read for these cells. Test: repeat one tank HE rear hit on a second map; 480 on both confirms the grid values are shared."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-09-mine-material-grid",
+  "artifacts": [
+   {
+    "file": "direct-evidence.json",
+    "sha256": "bd7564e41b99acd99d41eebd3bfb17acb35d2054a47ab2488cc9e4a3188fd176"
+   },
+   {
+    "file": "direct.json",
+    "sha256": "f5e880ce04e7c9b41f7ab30bfeb6aa80a591a23d989a5829f9a71024d92869c2"
+   },
+   {
+    "file": "direct-grid-rawchecks.json",
+    "sha256": "a04de0d328b6e9222026f78e71ce626b309b2983450e274ee6da84b2ff878873"
+   },
+   {
+    "file": "direct-raw-check-manifest.json",
+    "sha256": "74b2f039e77a7a2800d8312a97185d7e3389c572112ae2a5d0b08b718b933061"
+   },
+   {
+    "file": "direct-raw-checks.json",
+    "sha256": "87530ec8362f53076ff6f0471274e75b0cad08b151aa51f5ac214c5a553e2b15"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-09",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L3323",
+    "title": "EA's vehicle damage figures follow registry damage times the material-grid value",
+    "status": "finding",
+    "summary": "For six direct-hit vehicle weapons, registry damage and the material grid reproduce all four EA 1.3.1.0 figures exactly (24 numbers): against tanks the product times 0.75 to 2, against aircraft direct damage times its grid value plus blast damage times its grid value. Three more weapons fit with earlier damage values. Mobile anti-air figures are twice the rule and stay unexplained. 1400 raw reads matched.",
+    "reopenWhen": "A current-build damage reading that differs from the rule, or stored evidence for the hit-quality factor or the anti-air factor 2.",
+    "statusNote": "24 official numbers reproduced; hit-quality factor and anti-air factor not traced; joins by name; one grid read."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Game/GlacierMP/levels/mp_abbasid/mp_abbasid/materialgrid_win32",
+    "format": "raw-ebx",
+    "sha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+    "question": "Do registry damage values and material-grid values reproduce EA's 1.3.1.0 damage figures against tanks, helicopters and jets for direct-hit vehicle weapons?",
+    "result": "useful",
+    "conclusion": "Cells for the weapons' materials against targets 119, 121 and 120 store the Field_674633de values listed in the dataset."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/MBT/PD_Vehicles_MBT_AmmoTypes_HE",
+    "format": "raw-ebx",
+    "sha256": "0f4ffe732b5590e74ab225963bd9891d76218223677d8ccab19aab42fd555bc4",
+    "question": "Do registry damage values and material-grid values reproduce EA's 1.3.1.0 damage figures against tanks, helicopters and jets for direct-hit vehicle weapons?",
+    "result": "useful",
+    "conclusion": "Projectile material 125, explosion material 130."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/MBT/PD_Vehicles_MBT_AmmoTypes_MPAT",
+    "format": "raw-ebx",
+    "sha256": "753e798a1473f868e3768ea1c0cd9c8a424c9bfcde2bcb80ce21475edd3052a9",
+    "question": "Do registry damage values and material-grid values reproduce EA's 1.3.1.0 damage figures against tanks, helicopters and jets for direct-hit vehicle weapons?",
+    "result": "useful",
+    "conclusion": "Projectile material 125, explosion material 130."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/IFV/PD_Vehicles_IFV_SecondaryWeapon_LightRockets",
+    "format": "raw-ebx",
+    "sha256": "df382463407d3d9c1dd4c0ed5848edde5802d2df5abb04aeb7d8c8cd3d34972e",
+    "question": "Do registry damage values and material-grid values reproduce EA's 1.3.1.0 damage figures against tanks, helicopters and jets for direct-hit vehicle weapons?",
+    "result": "useful",
+    "conclusion": "Projectile material 125, explosion material 130."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/_Projectiles/Rocket/Hydra/PRJ_Missile_Hydra70",
+    "format": "raw-ebx",
+    "sha256": "ef49b0803dde21d5f5ffb01a6c2730e14ec7c0f6e2999fb66a0b9c25cc971e44",
+    "question": "Do registry damage values and material-grid values reproduce EA's 1.3.1.0 damage figures against tanks, helicopters and jets for direct-hit vehicle weapons?",
+    "result": "useful",
+    "conclusion": "Projectile material 125, explosion material 591."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/_Projectiles/Rocket/APKWS/PRJ_Missile_APKWS-II",
+    "format": "raw-ebx",
+    "sha256": "a930e824369d8112bfcc72b0e27182d7d4c7c3d560d362b5ca977e28aae9b2b6",
+    "question": "Do registry damage values and material-grid values reproduce EA's 1.3.1.0 damage figures against tanks, helicopters and jets for direct-hit vehicle weapons?",
+    "result": "useful",
+    "conclusion": "Projectile material 430, explosion material 591."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/IFV/PD_Vehicles_IFV_PrimaryWeapon_APFSDS",
+    "format": "raw-ebx",
+    "sha256": "be8f0552d75df86b44cc30dcaba6d07289b3f7db92d92b02df8bfc3b2dde3e0c",
+    "question": "Do registry damage values and material-grid values reproduce EA's 1.3.1.0 damage figures against tanks, helicopters and jets for direct-hit vehicle weapons?",
+    "result": "useful",
+    "conclusion": "Projectile material 460."
+   }
+  ]
+ }
+}

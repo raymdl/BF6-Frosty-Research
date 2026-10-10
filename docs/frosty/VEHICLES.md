@@ -1278,3 +1278,1500 @@ Two gadget runs carry items that belong with vehicles. The rest of those runs is
 
 - **Vehicle Supply Crate lifecycle** ([L233](../../reference-data/provenance/frosty-2026-10-02-L233-healing-resupply-functional-dossiers.json)): separate construction and pickup-restriction stages. Named current GRX inputs VSC_Enable Auto Construct true, VSC_Time To Construct raw Float32 0.6000000238418579 and VSC_Resupply Interval 5.0; units and effective behaviour are unresolved. UI: a pallet that resupplies ammunition for nearby friendly vehicles.
 - **Vehicle health channels** ([L234](../../reference-data/provenance/frosty-2026-10-02-L234-protection-concealment-functional-report.json)): `ChannelBindings_Vehicle_Health` (key `ab89182cfe1957ed44a562cd880a91cf`) has seven pointers into `ChannelList_Vehicle_Common` naming Vehicle Current Health, Vehicle Health Normalized, Vehicle Max Health, VehicleArmor_CurrentArmor, VehicleArmor_MaxArmor, Vehicle Damage State and Vehicle Is Wreck. Deployable Cover's four 200.0 operands are not a health total.
+
+## Operator vehicle loadout screenshots (3 October 2026)
+
+The operator supplied 137 UI screenshots across 13 vehicle folders. The [working research plan](../working/VEHICLE_SITE_ADDITIONS.md#vehicle-screenshot-evidence-and-next-research-paths-3-october-2026) records category seat text, captured slot layouts, all selection-screen descriptions as summaries, and 58 proposed research directions. The local chat will orchestrate the next round; Dex received the reference handoff. The [image index](../../reference-data/frosty/vehicle-loadout-screenshots-2026-10-03.json) retains every path and SHA-256.
+
+The screenshots narrow activation, slot and recipient questions. Key distinctions include MBT versus AA Enhanced Loading, IFV versus AA Systems Upgrade, and driver-selected Attack Helicopter Thermal Optics affecting the gunner. These are attributed UI statements, not new source mappings or runtime findings. The captured build and factory defaults remain unverified; all existing source identity, receiver, units and activation limits remain in force.
+
+## Inherited projectile source review (4 October 2026)
+
+The current mechanics program independently accepted 42 previously parent-reviewed `InitialSpeed` and `TimeToLive` fields across 21 air-guided, rocket and bomb/ground-guided owners. Current raw identity, the complete unique inherited declaration and all stored cells matched. Exact values and source evidence are in `C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-03-vehicle-screenshot-program/INHERITED_PROJECTILE_SUPERVISOR_REVIEW.json`. See the [working review](../working/VEHICLE_SITE_ADDITIONS.md#inherited-projectile-review-4-october-2026). These are stored source settings, with units, active selection, effective behavior and runtime composition unresolved. Earlier own-name limits and historical descriptor boundaries remain unchanged.
+
+## Vehicle stat ids, archetypes and blueprints (L3306, 9 October 2026)
+
+Build 1.4.3.5, client 1.0.443.60769, Head 4909067, descriptor SHA-256 `4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1`. [Receipt](../../reference-data/provenance/frosty-2026-10-09-L3306-vehicle-stat-archetype-links.json).
+
+`Persistence/StatCategories/StatCategorization/Categorization_Vehicles` holds 33 entries. Each entry stores a stat id string, import pointers to nodes in three category trees and a GUID list. 28 entries import a node in `Category_VehicleArchetypes`; all 33 import a node in `Category_Hardware`. For 30 entries one listed GUID occurs in a saved `VB_VEH_*` blueprint file. This is the first serialized vehicle-to-category link; L3031 and L3032 started from the UI card and found none.
+
+The archetype tree has `archetype_all` with two children. `arch_mastery` holds 13 archetypes: antiair, carapc, fighterplane, heliattack, heliscout, helitrans, ifv, jetattack, jetfleet, jetmultirole, lighttrans, mbt and patrolboat. `arch_mastery_no` holds car, motorcycle and inflatableboat. The four stationary entries and `veh_air_mh47` import no archetype node. The mastery reading of the two parent names is an inference from the names.
+
+All 539 raw checks pass through `frosty-raw-check.py`: entry GUIDs, name pointers and strings, category-array counts, import pointers (value 2 x import index + 1), the 32-byte import records, target node GUIDs and names, tree child pointers, and each blueprint GUID at its offset in both files. Control: `veh_sur_m1a2sepv3` imports `arch_mbt` and lists GUID `6bc50f3e-2272-490e-97ac-140ef69ee3dd`, which occurs in `VB_VEH_Tank_Abrams`.
+
+| Stat id | Archetype | Hardware tree parents | Blueprint with the listed GUID | UI name (name-matched) | UI category text (name-matched) |
+|---|---|---|---|---|---|
+| `veh_air_m77efalchion` | arch_heliattack | veh_air_helis < veh_air < veh | VB_VEH_Helicopter_AH64E | M77E Falchion | Attack Helicopter |
+| `veh_air_panthera` | arch_heliattack | veh_air_helis < veh_air < veh | VB_VEH_Helicopter_Eurocopter | Panthera KHT | Attack Helicopter |
+| `veh_air_uh06` | arch_helitrans | veh_air_helis < veh_air < veh | VB_VEH_Helicopter_UH60 | UH-79  | Transport Helicopter |
+| `veh_air_f61v` | arch_jetattack | veh_air_jets < veh_air < veh | VB_VEH_Airplane_F16 | F-61V | Attack Bomber |
+| `veh_air_f39e` | arch_jetattack | veh_air_jets < veh_air < veh | VB_VEH_Airplane_JAS39 | F-39E | Attack Bomber |
+| `veh_air_f97kes` | arch_fighterplane | veh_air_jets < veh_air < veh | VB_VEH_Airplane_F22 | F-97 Kestrel | Fighter Jet |
+| `veh_air_su57` | arch_fighterplane | veh_air_jets < veh_air < veh | VB_VEH_Airplane_SU57 | Su-57 | Fighter Jet |
+| `veh_sur_m1a2sepv3` | arch_mbt | veh_sur < veh | VB_VEH_Tank_Abrams | M1A2 SEPv3 | Main Battle Tank |
+| `veh_sur_leoa4` | arch_mbt | veh_sur < veh | VB_VEH_Tank_Leopard | Leo A4 | Main Battle Tank |
+| `veh_breacher` | arch_mbt | veh_sur < veh | none saved |  |  |
+| `veh_sur_strf09a4` | arch_ifv | veh_sur < veh | VB_VEH_Tank_CV90 | Strf 09 A4 | Infantry Fighting Vehicle |
+| `veh_sur_bradley` | arch_ifv | veh_sur < veh | VB_VEH_Tank_Bradley | M3A3 Bradley | Infantry Fighting Vehicle |
+| `veh_sur_ge26pax` | arch_antiair | veh_sur < veh | none saved | GE-26 PAX | Mobile Anti-Air |
+| `veh_sur_cheetah1a2` | arch_antiair | veh_sur < veh | VB_VEH_Tank_Gepard | Cheetah 1A2 | Mobile Anti-Air |
+| `veh_sur_glider96` | arch_lighttrans | veh_sur < veh | VB_VEH_Car_Flyer60 | Glider 96 | Light Ground Transport |
+| `veh_sur_vector` | arch_lighttrans | veh_sur < veh | VB_VEH_Car_Vector | VECTOR | Light Ground Transport |
+| `veh_sur_rhib` | arch_inflatableboat | veh_nav < veh | VB_VEH_Boat_RHIB | 7.7m NSW RHIB | Light Transport Boat |
+| `veh_sur_travmark2` | arch_carapc | veh_sur < veh | VB_VEH_Car_Marauder | Traverser Mark 2 | Armored Personnel Carrier |
+| `veh_sur_ptv` | arch_car | veh_sur < veh | VB_VEH_Car_PTV | Turfpro PTV Royal | Golf Cart |
+| `veh_sur_quadbike` | arch_car | veh_sur < veh | VB_VEH_Car_QuadBike | Rugged MV740 | Quad Bike |
+| `station_aa_gdf009` | none | stationary_heavy < stationary | VB_VEH_Stationary_GDF009 |  |  |
+| `station_at_m41a7tow` | none | stationary_light < stationary | VB_VEH_Stationary_BGM71TOW |  |  |
+| `station_autoaa_legion` | none | stationary_heavy < stationary | VB_VEH_Stationary_Phalanx |  |  |
+| `station_hmg_madeuce` | none | stationary_light < stationary | VB_VEH_Stationary_M2MG |  |  |
+| `veh_air_mh47` | none | veh | VB_VEH_Helicopter_MH47_Insertion |  |  |
+| `veh_air_ah6litbird` | arch_heliscout | veh_air_helis < veh_air < veh | VB_VEH_Helicopter_AH6M | AH-6 Little Bird |  |
+| `veh_air_mh350` | arch_heliscout | veh_air_helis < veh_air < veh | none saved |  |  |
+| `veh_sur_dirtbike01` | arch_motorcycle | veh_sur < veh | VB_VEH_Motorcycle_DirtBike01 | M1030-M1 | Dirt Bike |
+| `veh_sur_dirtbike02` | arch_motorcycle | veh_sur < veh | VB_VEH_Motorcycle_DirtBike02 | TM/O 450 | Dirt Bike |
+| `veh_sur_ltv` | arch_carapc | veh_sur < veh | VB_VEH_Car_JLTV | LTV | Armored Personnel Carrier |
+| `veh_sur_CB90` | arch_patrolboat | veh_nav < veh | VB_VEH_Boat_CB90 | RCB-90 Patrol Boat | Patrol Boat |
+| `veh_air_fa18f` | arch_jetmultirole | veh_air_jets < veh_air < veh | VB_VEH_Airplane_FA18F | F/A-81F SUPER SPECTRE | F/A-81F SUPER SPECTRE |
+| `veh_air_f14tomcat` | arch_jetfleet | veh_air_jets < veh_air < veh | VB_VEH_Airplane_F14 | F-74A SEACAT | F-74A SEACAT |
+
+The hardware-tree leaf names equal the stat ids except for the two dirt bikes, whose leaves are `veh_sur_moto_db01` and `veh_sur_moto_db02`. `veh_sur_cheetah1a2` lists the Gepard blueprint GUID; `veh_sur_ge26pax` has no blueprint match and its selected GUID occurs in the Tank/Cheetah customization files. `veh_breacher` and `veh_air_mh350` have no saved blueprint match.
+
+The two UI columns are resolved text from the saved per-vehicle UI metadata records, joined by record internal name (for example "Abrams Vehicle"). No saved vehicle or gadget file contains any of those UI record GUIDs, so this join is name matching, not a source link. The F-14 and F/A-18F records carry INTERCEPTOR JET and MULTIROLE JET as short text. `UIVehicleArchetypeMetadata` is byte-identical to the 30 September capture and still has nine cards; no link from an archetype node to a card or display name was found. `Field_d10900b8` and the `Category_Misc` import on six entries are not interpreted. Runtime use of these categories is not established. No site change.
+
+Full rows and raw checks: `C:\Users\royal\Documents\BF6 Datamining\reports\weapon-analyzer-research\2026-10-09-vehicle-archetype-links\L3306`.
+
+## L3307 - Stored values for every vehicle and vehicle equipment stat entry (9 October 2026)
+
+`Categorization_Vehicles` holds 33 entries and `Categorization_Vehicles_Equipment` 66. `scripts/frosty-roster-values.py` traced each from its GUID list to its defining object and carrier files. A vehicle weapon's firing and projectile data is linked inside the vehicle blueprint: the blueprint object that imports the equipment's unlock also points at the `WF_Vehicles_*` weapon data, so the walk starts from those blueprint objects. Ammunition types, upgrades and abilities are carried by `Eq_Vehicle_*`, `PassiveAbility_*`, `Ability_*` and `WMD_Vehicle_*` files, and each `VehicleCustomizationContext_*` file imports one blueprint and the abilities offered on it.
+
+Vehicles: 31 of 33 have a defining object and own values, 30 have `GRX_Vehicles` rows, 24 have a UI name. Equipment: 64 of 66 have a defining object, 42 have own values, 60 have registry rows, 58 have a UI name. No value of any kind: `veh_air_mh350`, `veh_breacher`, `vehec_wp_30revcan`, `veheq_eq_airrevive` (no saved file contains their GUIDs) and `veheq_upg_imparm` (its affector stores no plain number).
+
+Registry default and own value agree for 1,394 owner-and-property pairs across the three rosters and differ for 73, most of them vehicle weapon damage and falloff (for example MBT APFSDS start damage 130 against 150 and falloff 100 to 300 against 50 to 400). Which one a live match uses is not settled by source data.
+
+Evidence class: stored source values with raw-offset checks (11,854 checks over 470 files, all matched). Passive-upgrade and ability rows are joined by a hand-reviewed name table, and equipment UI names by a hand table on designation text; no asset reference links a vehicle UI record to an equipment entry. Units and runtime use are unconfirmed.
+
+Per-entry tables, the unresolved list with what was searched, and the open questions with an in-game test for each are in `docs/working/ROSTER_VALUES.md`. Data: `reference-data/frosty/roster-values.json`. Receipt: `reference-data/provenance/frosty-2026-10-09-L3307-roster-values.json`.
+## L3308 - Vehicle missile lock-on values (9 October 2026)
+
+Vehicle missile locking controllers (lock time, release times, ray length, minimum range) are recorded with the gadget launchers in [Gadgets](GADGETS.md), section L3308, and in `reference-data/frosty/locking-controllers.json`. Registry rows and blueprint objects agree except for the ray length of air-to-air default controllers (registry 650 or 665, blueprint 800).
+
+## L3312 - Vehicle ability timings, passive upgrades and radar rules (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3312-vehicle-abilities-passives.json). Dataset: `reference-data/frosty/registry-vehicle-abilities-passives.json` (185 rows, each default read back at its raw offset). Registry defaults from `GRX_Vehicles`; own asset values for the same abilities are in L3307. Meaning is read from row names; units, multiplier direction and use in a match are unconfirmed.
+
+| Ability owner | Active time | Recharge time |
+|---|---|---|
+| `Ability_APC_ExplosivesDetectionDetonationSystem` | 0.4 | 20 |
+| `Ability_APC_Passenger_SmokeLauncher` | 0.25 | 30 |
+| `Ability_APC_ProximityDetectionSystem` | 12 | 20 |
+| `Ability_AttackHeli_Countermeasure_Flares` | 1.8 | 15 |
+| `Ability_AttackHeli_GroundTargetDetection` | 15 | 25 |
+| `Ability_AttackPlane_Countermeasure_Flares` | 1.8 | 15 |
+| `Ability_CV90_AdvancedThreatDetectionSystem` | 10 | 15 |
+| `Ability_CV90_Passenger_SmokeLauncher` | 0.25 | 30 |
+| `Ability_CV90_ProximityDetectionSystem` | 12 | 20 |
+| `Ability_Car_EmergencyDamageControl` | 0.4 | 24 |
+| `Ability_FighterPlane_Countermeasure_Flares` | 1.8 | 15 |
+| `Ability_Helicopter_EmergencyDamageControl` | 0.4 | 24 |
+| `Ability_MBT_ActiveProtectionSystem` | 5 | 32 |
+| `Ability_MBT_ExplosivesDetectionDetonationSystem` | 0.4 | 20 |
+| `Ability_MBT_SwitchAmmo` | 0 | 0.5 |
+| `Ability_ScoutHeli_Countermeasure_Flares` | 1.8 | 15 |
+| `Ability_UH60_Countermeasure_Flares` | 1.8 | 15 |
+| `Ability_Vehicle_RWS_ActiveMissileWarningAndKillSystem` | 3.6 | 20 |
+| `Ability_Vehicle_SmokeScreen` | 8.1 | 16 |
+| `Ability_Vehicle_ThermalSmoke` | 10 | 16 |
+
+| Row | Default |
+|---|---|
+| `Ability_ThermalSmoke_DestroyC4` | false |
+| `Ability_ThermalSmoke_InfantryDamage_BR.DamageInterval` | 0.5 |
+| `Ability_ThermalSmoke_InfantryDamage_BR.DamageToDealPerSecond` | 12 |
+| `Ability_ThermalSmoke_InfantryDamage_BR.InitialDamage` | 25 |
+| `Ability_ThermalSmoke_InfantryDamage_MP.DamageInterval` | 0.5 |
+| `Ability_ThermalSmoke_InfantryDamage_MP.DamageToDealPerSecond` | 12 |
+| `Ability_ThermalSmoke_InfantryDamage_MP.InitialDamage` | 25 |
+| `Ability_Vehicle_SmokeScreen_BlockerDeployInterval` | 0.5 |
+| `Ability_Vehicle_SmokeScreen_MinDistanceToDropNewSpotBlocker` | 1 |
+| `Ability_Vehicle_SmokeScreen_TimeToExpand` | 1.35 |
+| `Ability_Vehicle_SmokeScreen_maxRadius` | 7 |
+| `Ability_Vehicle_SmokeScreen_minRadius` | 4.5 |
+| `Air Radar In World Spotting Range` | 0.7 |
+| `Air Radar Max Range` | 700 |
+| `Air Radar Resistance Range Multiplier` | 0.6 |
+| `Air Radar Tick Rate` | 1 |
+| `Below Radar Activation Delay` | 0 |
+| `Below Radar HeightHelicopter` | 25 |
+| `BelowRadarHeightJet` | 50 |
+| `Disable Below Radar` | false |
+| `Disable Below Radar F2P` | false |
+| `EmergencyDamageControl_ExtraHealingAmount` | 50 |
+| `Ground Radar In World Spotting Range` | 0.4 |
+| `Ground Radar Max Range` | 700 |
+| `Ground Radar Resistance Range Multiplier` | 0.5 |
+| `Ground Radar Tick Rate` | 1 |
+| `Is Repair Exhaustion Enabled` | true |
+| `MobilityHitDamageThreshold` | 0.5 |
+| `MobilityHitDuration` | 5 |
+| `MobilityHitTimeFrame` | 3 |
+| `Passives_Vehicles_AA_Antispotting_SpotTimeMultiplier.RankData[0].AdditionalSpotTime` | 0 |
+| `Passives_Vehicles_AA_Antispotting_SpotTimeMultiplier.RankData[0].IgnoreSelfSpot` | false |
+| `Passives_Vehicles_AA_Antispotting_SpotTimeMultiplier.RankData[0].SpotTimeMultiplier` | 0.75 |
+| `Passives_Vehicles_AA_Antispotting_TimeToReactivate` | 10 |
+| `Passives_Vehicles_AA_EquipmentUpgrade_AirRadarRadiusMultiplier.RankData[0].Value` | 1.5 |
+| `Passives_Vehicles_AttackHeli_AntiRadar_AccelerationToMaintain` | 17 |
+| `Passives_Vehicles_AttackHeli_AntiRadar_LockOnTime.RankData[0].LockingTimeMultiplier` | 0.7 |
+| `Passives_Vehicles_AttackHeli_AntiRadar_SpottingDuration.RankData[0].AdditionalSpotTime` | 0 |
+| `Passives_Vehicles_AttackHeli_AntiRadar_SpottingDuration.RankData[0].IgnoreSelfSpot` | false |
+| `Passives_Vehicles_AttackHeli_AntiRadar_SpottingDuration.RankData[0].SpotTimeMultiplier` | 0.75 |
+| `Passives_Vehicles_AttackHeli_AntiRadar_VelocityToActivate` | 32 |
+| `Passives_Vehicles_AttackHeli_AntiRadar_VelocityToMaintain` | 27.5 |
+| `Passives_Vehicles_CaptureSpeed_Affector.RankData[0].Value` | 1.15 |
+| `Passives_Vehicles_CombatAwareness_EffectRadius` | 20 |
+| `Passives_Vehicles_CombatAwareness_SpottingDuration` | 5 |
+| `Passives_Vehicles_FighterPlane_AntiRadar_LockOnTime.RankData[0].LockingTimeMultiplier` | 0.7 |
+| `Passives_Vehicles_FighterPlane_AntiRadar_SpottingDuration.RankData[0].AdditionalSpotTime` | 0 |
+| `Passives_Vehicles_FighterPlane_AntiRadar_SpottingDuration.RankData[0].IgnoreSelfSpot` | false |
+| `Passives_Vehicles_FighterPlane_AntiRadar_SpottingDuration.RankData[0].SpotTimeMultiplier` | 0.75 |
+| `Passives_Vehicles_IFV_Antispotting_LockOnTime.RankData[0].LockingTimeMultiplier` | 0.6 |
+| `Passives_Vehicles_IFV_Antispotting_SpotTimeMultiplier.RankData[0].AdditionalSpotTime` | 0 |
+| `Passives_Vehicles_IFV_Antispotting_SpotTimeMultiplier.RankData[0].IgnoreSelfSpot` | false |
+| `Passives_Vehicles_IFV_Antispotting_SpotTimeMultiplier.RankData[0].SpotTimeMultiplier` | 0.75 |
+| `Passives_Vehicles_IFV_Antispotting_TimeToReactivate` | 10 |
+| `Passives_Vehicles_IFV_Durability_DamageRecievedMultiplier` | 0.85 |
+| `Passives_Vehicles_IFV_EquipmentUpgrade_ProximityDetectionSystemRadiusMultiplier.RankData[0].Value` | 1.3 |
+| `Passives_Vehicles_IFV_Regeneration_Rate` | 110 |
+| `Passives_Vehicles_IFV_Regeneration_RegenDelay` | 9.5 |
+| `Passives_Vehicles_MBT_Durability_DamageRecievedMultiplier` | 0.85 |
+| `Passives_Vehicles_MBT_Regeneration_Rate` | 132 |
+| `Passives_Vehicles_MBT_Regeneration_RegenDelay` | 9.5 |
+| `Passives_Vehicles_Medbay_EffectInterval` | 0.9 |
+| `Passives_Vehicles_Medbay_EffectRadius` | 12.5 |
+| `Passives_Vehicles_Medbay_HealOverTime` | 20 |
+| `Passives_Vehicles_Medbay_InitialHeal` | 5 |
+| `Passives_Vehicles_MobileTrophy_CooldownPerCharge` | 10 |
+| `Passives_Vehicles_MobileTrophy_ExcludeOccupantsFromNearbySoldierCheck` | false |
+| `Passives_Vehicles_MobileTrophy_MaxCharges` | 3 |
+| `Passives_Vehicles_MobileTrophy_NearbyFriendlySoldierRadius` | 13.5 |
+| `Passives_Vehicles_ScoutHeli_AntiRadar_AccelerationToMaintain` | 10 |
+| `Passives_Vehicles_ScoutHeli_AntiRadar_VelocityToActivate` | 27.5 |
+| `Passives_Vehicles_ScoutHeli_AntiRadar_VelocityToMaintain` | 18.5 |
+| `Passives_Vehicles_Shared_Durability_MassMultiplier.RankData[0].Value` | 1.04 |
+| `Passives_Vehicles_Shared_Durability_ReduceRepairRate` | true |
+| `Passives_Vehicles_Shared_EnhancedLoading_HealthThreshold` | 0.6 |
+| `Passives_Vehicles_Shared_GunHandling_PitchMultiplier.RankData[0].Value` | 1.3 |
+| `Passives_Vehicles_Shared_GunHandling_YawMultiplier.RankData[0].Value` | 1.3 |
+| `Passives_Vehicles_Shared_Gunhandling_ImprovedSteeringRatio.RankData[0].Value` | 1.03 |
+| `Repair Exhaustion Recovery Rate` | 6 |
+| `Repaired Health Threshold Level 1` | 80 |
+| `Repaired Health Threshold Level 2` | 295 |
+| `Repaired Health Threshold Level 3` | 395 |
+| `Repaired Health Threshold Level 4` | 495 |
+| `SmokeDischarge_Radius` | 8.4 |
+| `Vehicle_Ability_ActiveProtectionSystem_SaturationMechanic` | false |
+| `Vehicle_Ability_AttackHeli_GroundTargetDetection_LockOnTimePenalty.RankData[0].LockingTimeMultiplier` | 1.1 |
+| `Vehicle_Ability_ExplosivesDetectionDetonationSystem_DetectWhileRecharging` | true |
+| `Vehicle_Ability_ExplosivesDetectionDetonationSystem_MaxDetonationDelay` | 0.11 |
+| `Vehicle_Ability_ExplosivesDetectionDetonationSystem_PulseTimer` | 1.5 |
+| `Vehicle_Ability_ExplosivesDetectionDetonationSystem_Radius` | 30 |
+| `Vehicle_Ability_ExplosivesDetectionDetonationSystem_SupressExplosions` | true |
+| `Vehicle_Ability_Flare_IsLockableTime` | 2.75 |
+| `Vehicle_Ability_GroundTargetDetection_ConeLength` | 250 |
+| `Vehicle_Ability_GroundTargetDetection_ConeRadius` | 70 |
+| `Vehicle_Ability_GroundTargetDetection_ShouldDisableBelowRadar` | true |
+| `Vehicle_Ability_GroundTarget_Detection_RadarRadiusIncrease.RankData[0].Value` | 1.5 |
+| `Vehicle_Ability_ProximityDetectionSystem_Radius` | 30 |
+| `Vehicle_Ability_SeismicDetector_GraniteMult` | 1 |
+| `Vehicle_Ability_SeismicDetector_Radius` | 36 |
+| `Vehicle_Ability_SeismicDetector_SpottingDuration` | 2 |
+| `Vehicle_Ability_SeismicDetector_TimeBetweenPulses` | 3 |
+| `Vehicle_Ability_ThermalScanner_BaseRadius` | 1 |
+| `Vehicle_Ability_ThermalScanner_Range` | 135 |
+| `Vehicle_Ability_ThermalScanner_SharedSpotDuration` | 1 |
+| `Vehicle_Ability_ThermalScanner_TopRadius` | 20 |
+| `Vehicle_Ability_ThreatDetectionSystem_ActiveSpotDuration` | 10 |
+| `Vehicle_Ability_ThreatDetectionSystem_PassiveSpotDuration` | 4 |
+| `Vehicle_Ability_ThreatDetectionSystem_PreActivationBufferTime` | 5 |
+| `Vehicle_HUD_Locking_PainterPainterMaxDuration` | 9 |
+| `Vehicles_Passives_AA_EnhancedLoading_Stance1.Modifiers[0].WeaponReloadSpeedModifier.ReloadSpeed` | -1 |
+| `Vehicles_Passives_AA_EnhancedLoading_Stance1.Modifiers[0].WeaponReloadSpeedModifier.ReloadSpeedMultiplier` | 1.5 |
+| `Vehicles_Passives_AA_EnhancedLoading_Stance2.Modifiers[0].WeaponReloadSpeedModifier.ReloadSpeed` | -1 |
+| `Vehicles_Passives_AA_EnhancedLoading_Stance2.Modifiers[0].WeaponReloadSpeedModifier.ReloadSpeedMultiplier` | 1.25 |
+| `Vehicles_Passives_MBT_EnhancedLoading_Stance1.Modifiers[0].WeaponReloadSpeedModifier.ReloadSpeed` | -1 |
+| `Vehicles_Passives_MBT_EnhancedLoading_Stance1.Modifiers[0].WeaponReloadSpeedModifier.ReloadSpeedMultiplier` | 1.35 |
+| `Vehicles_Passives_MBT_EnhancedLoading_Stance2.Modifiers[0].WeaponOverheatModifier.HeatDropPerSecond` | -1 |
+| `Vehicles_Passives_MBT_EnhancedLoading_Stance2.Modifiers[0].WeaponOverheatModifier.HeatDropPerSecondMultiplier` | 1.3 |
+| `Vehicles_Passives_MBT_EnhancedLoading_Stance2.Modifiers[0].WeaponOverheatModifier.HeatPerBullet` | -1 |
+| `Vehicles_Passives_MBT_EnhancedLoading_Stance2.Modifiers[0].WeaponOverheatModifier.HeatPerBulletMultiplier` | 1 |
+| `Vehicles_Passives_MBT_EnhancedLoading_Stance2.Modifiers[0].WeaponOverheatModifier.OverheatDropDelay` | -1 |
+| `Vehicles_Passives_MBT_EnhancedLoading_Stance2.Modifiers[0].WeaponOverheatModifier.OverheatDropDelayMultiplier` | 1 |
+| `Vehicles_Passives_MBT_EnhancedLoading_Stance2.Modifiers[0].WeaponOverheatModifier.OverheatThreshold` | -1 |
+| `Vehicles_Passives_MBT_EnhancedLoading_Stance2.Modifiers[0].WeaponOverheatModifier.OverheatedDropMultiplier` | 1.1 |
+| `Vehicles_Passives_MBT_EnhancedLoading_Stance2.Modifiers[0].WeaponOverheatModifier.OverheatedPenaltyTime` | -1 |
+| `Vehicles_Passives_MBT_EnhancedLoading_Stance2.Modifiers[0].WeaponOverheatModifier.OverheatedPenaltyTimeMultiplier` | 1 |
+| `Vehicles_Passives_ScoutHeli_SateliteUplink_SpotDurationMultiplier` | 1.35 |
+
+Open, with the test that would settle each:
+
+- Recharge start point: time each ability from activation to ready and from end of effect to ready.
+- Direction of lock-time multipliers: time an enemy lock on an IFV with and without the antispotting upgrade (stored 0.6) and on a helicopter with and without anti-radar (stored 0.7).
+- Regeneration: damage a tank with the upgrade, stay out of combat and record the delay (stored 9.5) and the gain per second (stored 132, unit unknown).
+- Repair exhaustion: repair a tank through several damage cycles and record repair speed after each stored threshold (80, 295, 395, 495).
+- Below-radar heights: fly a helicopter at 20 m and 30 m and a jet at 45 m and 55 m above ground and check whether a lock can start (stored 25 and 50).
+
+## L3313 - Vehicle weapon heat, ammunition, reload and replenish rows (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3313-vehicle-weapon-heat-ammo.json). Dataset: `reference-data/frosty/registry-vehicle-weapon-heat-ammo.json` (701 rows, each default read back at its raw offset). Registry defaults from `GRX_Vehicles`; own asset values are in L3307. Units and use in a match are unconfirmed.
+
+Heat rows. The last two columns are arithmetic on the stored defaults (inference): shots to overheat is 1 / heat per bullet, assuming heat runs 0 to 1 with no cooling while firing; full cool-down is 1 / heat drop per second.
+
+| Owner | Heat per bullet | Heat drop per second | Overheat threshold | Penalty time | Drop delay | Rate of fire | Shots to overheat (inferred) | Full cool-down s (inferred) |
+|---|---|---|---|---|---|---|---|---|
+| `ALQ99 Jammer` | 0.025 | 0.2 | 0.05 | 0.5 | 1 | 360 | 40 | 5.0 |
+| `WF_Vehicles_AA_PrimaryWeapon_AAHV` | 0.036 | 0.5 | - | - | - | 720 | 28 | 2.0 |
+| `WF_Vehicles_APC_FiringPortWeapon` | 0.025 | 0.5 | 0.01 | 0 | 0.5 | 981 | 40 | 2.0 |
+| `WF_Vehicles_Airplane_PrimaryWeapon_Cannon` | 0.02 | 0.25 | - | - | - | 1200 | 50 | 4.0 |
+| `WF_Vehicles_MBT_SecondaryWeapon_CoaxHMG` | 0.05 | 0.5 | 0.01 | 0 | 0.5 | 360 | 20 | 2.0 |
+| `WF_Vehicles_MBT_SecondaryWeapon_CoaxLMG` | 0.025 | 0.5 | 0.01 | 0 | 0.5 | 720 | 40 | 2.0 |
+| `WF_Vehicles_OpenGunner_HMG` | 0.025 | 0.5 | 0.01 | 0 | 0.5 | 500 | 40 | 2.0 |
+| `WF_Vehicles_RWS_HMG` | 0.033333 | 0.5 | 0.01 | 0 | 0.5 | 400 | 30 | 2.0 |
+| `WF_Vehicles_RWS_HMG-SP` | 0.033333 | 0.5 | 0.01 | 0 | 0.5 | 400 | 30 | 2.0 |
+| `WF_Vehicles_RWS_LMG` | 0.025 | 0.5 | 0.01 | 0 | 0.5 | 720 | 40 | 2.0 |
+| `WF_Vehicles_SAA_PrimaryWeapon_20mmRotaryCannon` | 0 | 0 | - | - | - | 1200 | - | - |
+| `WF_Vehicles_ScoutHeli_Passenger_PrimaryWeapon_ThermalScanner` | 0.025 | 0.2 | 0.05 | 0.5 | 1 | 300 | 40 | 5.0 |
+| `WF_Vehicles_ScoutHeli_PrimaryWeapon_GAU19` | 0.03125 | 0.3 | 0.1 | 0 | 0.1 | 800 | 32 | 3.3 |
+| `WF_Vehicles_ScoutHeli_PrimaryWeapon_Minigun` | 0.008889 | 0.3 | 0.1 | 0 | 0.1 | 1800 | 112 | 3.3 |
+| `WF_Vehicles_Stationary_AntiAir` | 0.042 | 0.5 | - | - | - | 720 | 24 | 2.0 |
+| `WF_Vehicles_TransportHeli_Gunner_Minigun` | 0.006667 | 0.3 | 0.1 | 0 | 0.1 | 1800 | 150 | 3.3 |
+
+Ammunition, rate of fire and reload rows (`-1` is stored as written; its meaning is not established):
+
+| Owner | Magazine capacity | Magazines | Auto replenish magazine | Auto replenish rounds | Auto replenish delay | Rate of fire | Reload time | Reload speed |
+|---|---|---|---|---|---|---|---|---|
+| `ALQ99 Jammer` | -1 | 1 | false | -1 | 5 | 360 | - | - |
+| `WF_Vehicles_AA_PrimaryWeapon_AAAP` | 8 | 16 | true | -1 | 8 | 240 | 2.4 | 1 |
+| `WF_Vehicles_AA_PrimaryWeapon_AAGP` | 6 | 28 | true | -1 | 8 | 600 | 1.2 | 1 |
+| `WF_Vehicles_AA_PrimaryWeapon_AAHV` | 250 | 1 | false | 25 | 8 | 720 | 1.7 | 1 |
+| `WF_Vehicles_AA_SecondaryWeapon_AimGuidedMissile` | 1 | 4 | true | -1 | 16 | 120 | 2 | 1 |
+| `WF_Vehicles_AA_SecondaryWeapon_AntiAirMissile` | 2 | 2 | true | -1 | 16 | 120 | 8 | 1 |
+| `WF_Vehicles_AA_SecondaryWeapon_HighVelocityMissile` | 4 | 2 | true | -1 | 16 | 60 | 8 | 1 |
+| `WF_Vehicles_APC_FiringPortWeapon` | 250 | 1 | false | -1 | 5 | 981 | - | - |
+| `WF_Vehicles_Airplane_Bomb_BunkerBuster` | 1 | 2 | true | -1 | 10 | 1200 | 5 | 1 |
+| `WF_Vehicles_Airplane_Bomb_GBU39` | 1 | 4 | true | -1 | 20 | 120 | 0 | 1 |
+| `WF_Vehicles_Airplane_Bomb_Mk82AIR` | 1 | 2 | true | -1 | 30 | 1200 | 0 | 1 |
+| `WF_Vehicles_Airplane_Bomb_Rockeye` | 1 | 2 | true | -1 | 30 | 1200 | 0 | 1 |
+| `WF_Vehicles_Airplane_Passenger_PrimaryWeapon_SemiActiveRadarMissile` | 2 | 1 | false | 1 | 7.5 | 120 | 8 | 1 |
+| `WF_Vehicles_Airplane_PrimaryWeapon_Cannon` | -1 | -1 | false | -1 | 20 | 1200 | - | - |
+| `WF_Vehicles_Airplane_SecondaryWeapon_AirToAirMissile` | 2 | 1 | false | 1 | 10 | 120 | 8 | 1 |
+| `WF_Vehicles_Airplane_SecondaryWeapon_AirToAirMissile_R73` | 2 | 1 | false | 1 | 10 | 120 | 8 | 1 |
+| `WF_Vehicles_Airplane_SecondaryWeapon_AirToGroundMissile` | 1 | 2 | true | -1 | 15 | 18 | 5 | 1 |
+| `WF_Vehicles_Airplane_SecondaryWeapon_AntiRadiationMissile` | 2 | 1 | false | 1 | 10 | 120 | 8 | 1 |
+| `WF_Vehicles_Airplane_SecondaryWeapon_LightRockets` | 7 | 2 | true | -1 | 14 | 300 | 2 | 1 |
+| `WF_Vehicles_Airplane_TVMissile` | 1 | 2 | true | -1 | 16 | 18 | 5 | 1 |
+| `WF_Vehicles_AttackHeli_Passenger_PrimaryWeapon_Chaingun` | 12 | -1 | true | -1 | 8 | 625 | 1.2 | 1 |
+| `WF_Vehicles_AttackHeli_Passenger_SecondaryWeapon_LockingMissile` | 1 | 4 | true | -1 | 20 | 18 | 5 | 1 |
+| `WF_Vehicles_AttackHeli_PrimaryWeapon_HeavyRockets` | 4 | 2 | true | -1 | 16 | 300 | 2 | 1 |
+| `WF_Vehicles_AttackHeli_PrimaryWeapon_LightRockets` | 12 | 2 | true | -1 | 18 | 300 | 2 | 1 |
+| `WF_Vehicles_AttackHeli_PrimaryWeapon_SmartRockets` | 7 | 2 | true | -1 | 14 | 300 | 2 | 1 |
+| `WF_Vehicles_AttackHeli_SecondaryWeapon_AirToAirMissile` | 2 | 1 | false | 1 | 10 | 120 | 8 | 1 |
+| `WF_Vehicles_AttackHeli_SecondaryWeapon_TOW` | 1 | 4 | true | -1 | 20 | 18 | 5 | 1 |
+| `WF_Vehicles_IFV_PrimaryWeapon_APFSDST` | 10 | 20 | true | -1 | 20 | 160 | 2.75 | 1 |
+| `WF_Vehicles_IFV_PrimaryWeapon_Canister` | 16 | 20 | true | -1 | 20 | 240 | 2.75 | 1 |
+| `WF_Vehicles_IFV_PrimaryWeapon_HEAB` | 12 | 20 | true | -1 | 20 | 180 | 2.75 | 1 |
+| `WF_Vehicles_IFV_SecondaryWeapon_HomingATGM` | 1 | 6 | true | -1 | 20 | 150 | 9.5 | 1 |
+| `WF_Vehicles_IFV_SecondaryWeapon_LightRockets` | 2 | 4 | true | -1 | 20 | 300 | 0 | 1 |
+| `WF_Vehicles_IFV_SecondaryWeapon_TOW` | 1 | 6 | true | -1 | 20 | 150 | 8.2 | 1 |
+| `WF_Vehicles_MBT_PrimaryWeapon_120mm` | 1 | 20 | true | -1 | 14 | 900 | 4.1 | 1 |
+| `WF_Vehicles_MBT_SecondaryWeapon_CoaxHMG` | 250 | 1 | false | -1 | 5 | 360 | - | - |
+| `WF_Vehicles_MBT_SecondaryWeapon_CoaxLMG` | 250 | 1 | false | -1 | 5 | 720 | - | - |
+| `WF_Vehicles_MultirolePlane_PrimaryWeapon_ZuniRockets` | 4 | 2 | true | -1 | 16 | 300 | 2 | 1 |
+| `WF_Vehicles_OpenGunner_HMG` | 250 | 1 | false | -1 | 5 | 500 | - | - |
+| `WF_Vehicles_RWS_AGL` | 5 | 10 | false | -1 | 5 | 325 | 2 | 1 |
+| `WF_Vehicles_RWS_HMG` | 250 | 1 | false | -1 | 5 | 400 | - | - |
+| `WF_Vehicles_RWS_HMG-SP` | 250 | 1 | false | -1 | 5 | 400 | - | - |
+| `WF_Vehicles_RWS_LMG` | 250 | 1 | false | -1 | 5 | 720 | - | - |
+| `WF_Vehicles_RWS_TargetDesignator` | -1 | 1 | false | -1 | 5 | - | - | - |
+| `WF_Vehicles_SAA_PrimaryWeapon_20mmRotaryCannon` | -1 | -1 | false | -1 | 20 | 1200 | 0 | 1 |
+| `WF_Vehicles_ScoutHeli_Passenger_PrimaryWeapon_ThermalScanner` | -1 | 1 | false | -1 | 5 | 300 | - | - |
+| `WF_Vehicles_ScoutHeli_PrimaryWeapon_GAU19` | 100 | 4 | false | -1 | 20 | 800 | 0 | 1 |
+| `WF_Vehicles_ScoutHeli_PrimaryWeapon_Minigun` | 100 | 4 | false | -1 | 20 | 1800 | 0 | 1 |
+| `WF_Vehicles_ScoutHeli_SecondaryWeapon_AirToAirMissile` | 2 | 1 | false | 0 | 10 | 120 | 5 | 1 |
+| `WF_Vehicles_Stationary_AntiAir` | -1 | -1 | false | 25 | 8 | 720 | 1.7 | 1 |
+| `WF_Vehicles_Stationary_TOW` | 1 | -1 | false | -1 | 5 | 150 | 10.8 | 1 |
+| `WF_Vehicles_TransportHeli_Gunner_Minigun` | 100 | 4 | false | -1 | 20 | 1800 | 0 | 1 |
+
+Open, with the test that would settle each:
+
+- Heat scale and the meaning of the overheat threshold: hold fire with the tank coaxial heavy machine gun, count shots to overheat, then time the lock-out and the return to zero heat.
+- Replenish: empty a vehicle weapon's reserve and time each returning round or magazine against the stored delay.
+- Rate of fire unit: count shots in a 5 s burst from a recording.
+- Which side is live where the registry and the weapon asset differ (see L3314).
+
+## L3321 - Mine damage against tanks is stored blast damage times the material-grid value (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3321-mine-tank-material-grid.json). Dataset: `reference-data/frosty/mine-tank-material-grid.json`. This extends L3205 and L3207, which read the same grid field without an official number to compare.
+
+Each mine's explosion object stores a material ID. The level material grid cell for that material against target 119 (the tank target of L3205) holds `Field_674633de`. Multiplying the stored blast damage by it gives EA's [1.3.1.0](https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-1-0) damage against tanks exactly. Values are equal in the Abbasid and Badlands grids. Official names are joined to owners by name only.
+
+| Item | Owner | Explosion material | Stored blast damage | Grid value | Product | EA against tanks |
+|---|---|---|---|---|---|---|
+| EOD Bot mine | `PB_NS_EODBot_Mines` | 96 | 150 (asset own value, no registry row) | 2 | 300 | 300 |
+| M15 AV Mine | `PBNS_ATMine` | 96 | 195 (registry default; asset own value 300) | 2 | 390 | 390 |
+| PTKM-1R | `PB_PRJ_PTKM1R_EFP` | 650 | 160 (asset own value, no registry row) | 3 | 480 | 480 |
+
+The M15 matches only with the registry default 195; its own 300 would give 600 (see L3320 in `docs/working/ROSTER_VALUES.md`). The PTKM-1R uses a different material and grid value, so it is an independent match. This is a correspondence on three items, not a proof of the game's operation.
+
+All cells read against target 119:
+
+| Source material | Used by | Grid value |
+|---|---|---|
+| 91 | SLAM body explosion | 1 |
+| 94 | PTKM-1R combat element explosion | 0.4 |
+| 95 | C4 explosion (control, L3207: 3.5) | 3.5 |
+| 96 | mine explosion (M15, EOD Bot mine) | 2 |
+| 99 | naval mine explosion | 0 |
+| 125 | RPG projectile (control, L3205: 2) | 2 |
+| 141 | mine projectile (M15, EOD Bot mine, SLAM body) | 0 |
+| 164 | RPG explosion | 0 |
+| 174 | SLAM EFP explosion | 0 |
+| 208 | EFP projectile (PTKM-1R, SLAM) | 0.4375 |
+| 650 | PTKM-1R EFP explosion | 3 |
+
+Still open, with the test that would settle each:
+
+- Target 119 is not named in stored data. One M15 under a main battle tank and one under an infantry fighting vehicle: equal readings of 390 would mean both use the same target material.
+- Direct-hit weapons are not checked. One RPG hit square on a tank's side at close range, compared with registry Damage 125 times 2 and the side angle curve.
+- The SLAM's cells (0.4375, 0 and 1) do not reproduce EA's 199 to 363. SLAM hits on the side, front and underside of a full-health tank.
+- No reading on the current build. One PTKM-1R full hit on a full-health tank should read 480.
+
+## L3322 - Anti-air damage against aircraft: the material grid stores half of each multiplier (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3322-anti-air-aircraft-material-grid.json). Dataset: `reference-data/frosty/anti-air-aircraft-material-grid.json`. This answers the open item of L3318 (multipliers 4, 5 and 10) as far as stored data goes, with the method of L3321.
+
+| Ammunition | Owner | Projectile material | Registry StartDamage | Grid value | Product | EA number | EA / product |
+|---|---|---|---|---|---|---|---|
+| High velocity | `PD_Vehicles_AA_PrimaryWeapon_AAHV` | 642 | 13 | 2 (targets 121, 669) | 26 | 52 (helicopters) | 2 |
+| High velocity | same | 642 | 13 | 2.5 (targets 120, 207, 233, 670) | 32.5 | 65 (jets) | 2 |
+| Armour piercing | `PD_Vehicles_AA_PrimaryWeapon_AAAP` | 577 | 20 | 5 (all six targets) | 100 | 200 (aircraft) | 2 |
+| General purpose | `PD_Vehicles_AA_PrimaryWeapon_AAGP` | 577 | 13 | 5 (all six targets) | 65 | 130 (aircraft) | 2 |
+
+The grid reproduces the helicopter to jet ratio and the single aircraft number, and EA's figures are exactly twice the product every time. That last factor 2 is not traced. Each cell also stores `Field_7fa53094` = 2, but the mine cells of L3321 store the same 2 and need no extra factor. Which targets are helicopters and which are jets is inferred from EA's numbers only. Values are equal in the Abbasid and Badlands grids. Official names are joined to owners by name only.
+
+The mine explosion material (96) reads 11 against the same six targets.
+
+Still open, with the test that would settle each:
+
+- The remaining factor 2. One high velocity rocket hit on a full-health helicopter: 52 confirms twice the product; 26 would mean EA counts a pair of hits.
+- Target identities. The same single hit on a transport helicopter, an attack helicopter and a jet: 52, 52 and 65 would confirm the split.
+- Mines against aircraft. Land a helicopter on an M15 mine: a grid value of 11 would destroy it outright.
+
+## L3323 - EA's vehicle damage figures follow registry damage times the material-grid value (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3323-vehicle-damage-material-grid-rule.json). Dataset: `reference-data/frosty/vehicle-damage-material-grid-rule.json`. This builds on L3205, L3207, L3321 and L3322 and gives the first rule that reproduces EA's [1.3.1.0](https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-1-0) figures from stored numbers.
+
+The rule, with `Field_674633de` of the level material grid as the grid value:
+
+- Tanks (target 119): registry direct damage x grid value x a hit-quality factor from 0.75 to 2. EA's low figure is the product x 0.75 rounded up; the high figure is the product x 2. Every cell read also stores `Field_7fa53094` = 2; that this is the top factor is an inference.
+- Helicopters (target 121) and jets (target 120): registry direct damage x grid value, plus registry blast damage x the blast material's grid value. No hit-quality factor. EA caps jets at 1000.
+- Mines (L3321): blast damage x grid value only.
+
+All four EA figures reproduced exactly (24 numbers). Official names are joined to owners by name only; one grid (Abbasid) was read.
+
+| EA item | Owner | Registry direct damage | Grid: tank / helicopter / jet | Registry blast damage (grid: helicopter / jet) | Tanks, rule | Tanks, EA | Helicopters, rule | Helicopters, EA | Jets, rule | Jets, EA |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 120mm HEMP-T Rounds | `PD_Vehicles_MBT_AmmoTypes_HE` | 120 | 2 / 9 / 10 | 100 (1 / 2) | 180 to 480 | 180 to 480 | 1180 | 1180 | 1000 | 1000 |
+| 120mm HEAT-MP-T Rounds | `PD_Vehicles_MBT_AmmoTypes_MPAT` | 140 | 2 / 9 / 10 | 100 (1 / 2) | 210 to 560 | 210 to 560 | 1360 | 1360 | 1000 | 1000 |
+| IFV Light Rockets | `PD_Vehicles_IFV_SecondaryWeapon_LightRockets` | 50 | 2 / 9 / 10 | 100 (1 / 2) | 75 to 200 | 75 to 200 | 550 | 550 | 700 | 700 |
+| Helicopter Light Rockets | `PRJ_Missile_Hydra70` | 15 | 2 / 9 / 10 | 90 (1 / 2) | 23 to 60 | 23 to 60 | 225 | 225 | 330 | 330 |
+| Helicopter Aim-Guided Rockets | `PRJ_Missile_APKWS-II` | 30 | 2.2 / 8 / 10 | 80 (1 / 2) | 50 to 132 | 50 to 132 | 320 | 320 | 460 | 460 |
+| IFV AP shells | `PD_Vehicles_IFV_PrimaryWeapon_APFSDS` | 100 | 0.3 / 1 / 1 | none | 23 to 60 | 23 to 60 | 100 | 100 | 100 | 100 |
+
+Fit only with an earlier damage value (taken as changed after 1.3.1.0; earlier registry copies are not saved):
+
+| EA item | Owner | Registry direct damage | Grid: tank / helicopter / jet | Registry blast damage (grid: helicopter / jet) | Tanks, rule | Tanks, EA | Helicopters, rule | Helicopters, EA | Jets, rule | Jets, EA |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Helicopter Heavy Rockets | `PRJ_Missile_Zuni` | 64 | 2.5 / 4 / 5 | 100 (1 / 2) | 120 to 320 | 94 to 250 | 356 | 300 | 520 | 450 |
+| 120mm APFSDS Rounds | `PD_Vehicles_MBT_AmmoTypes_APFSDS` | 130 | 2.5 / 4 / 5 | 0 (0 / 0) | 244 to 650 | 282 to 750 | 520 | 600 | 650 | 750 |
+| RPG | `PB_NS_RPG` | 125 | 2 / 9 / 10 | 70 (0 / 0) | 188 to 500 | 173 to 460 | 1125 | 1035 | 1000 | 1000 |
+
+Heavy Rockets fit with direct damage 50 (now 64), the RPG with 115 (now 125), tank APFSDS with 150 (now 130; 130 gives 650, the figure of a later note, see L3318). Update 1.3.3.0 restates all three (Heavy Rocket 120 to 320 / 356 / 520, RPG 188 to 500 / 1125, tank APFSDS 244 to 650 / 520 / 650), and today's registry values give exactly those figures; see L3324 in `docs/working/ROSTER_VALUES.md`.
+
+Does not fit: the mobile anti-air figures of L3322 are twice what this rule gives for aircraft.
+
+Still open, with the test that would settle each:
+
+- The hit-quality factor is not tied to the stored angle curves. Tank HE at a tank's front, side and rear from 20 m: 180 and 480 are the stored extremes.
+- The anti-air factor 2. One high velocity rocket hit on a full-health helicopter: 26 means EA counts a pair, 52 means a further multiplier.
+- Current values. One RPG hit on a tank's rear should read 500; one tank APFSDS hit on a tank's rear should read 650.
+- Other maps. One tank HE rear hit on a second map: 480 on both confirms the grid values are shared.
+
+## L3325 - Dead end: which stored fields carry the hit-quality factor and the anti-air factor 2 (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3325-vehicle-damage-factor-candidates.json). Dataset: `reference-data/frosty/vehicle-damage-factor-candidates.json`. Recorded as a dead end for source-only research. It follows the two factors left untraced by L3322 and L3323.
+
+Candidates found:
+
+| Stored value | Where | Equals |
+|---|---|---|
+| `Field_58d24a64` = 0.75 | projectile object of all 24 weapon and mine files read | low end of EA's tank ranges |
+| `Field_7fa53094` = 2 | every material-grid cell read with a non-zero damage value | high end of EA's tank ranges |
+| `Field_84b71f89` = 1 | the three mobile anti-air rounds only (2 in every other round of that class) | the group whose figures are twice the rule |
+
+What was searched:
+
+- Every numeric field of the projectile object of 24 weapon and mine files was listed and compared between the weapons that fit the L3323 rule and the three mobile anti-air rounds that are twice the rule.
+- Field_58d24a64 is 0.75 in all 24 projectile objects, equal to the low end of EA's tank ranges. It never varies, so no weapon can show whether changing it changes the low figure.
+- Field_7fa53094 is 2 in every material-grid cell read with a non-zero damage value (tank, helicopter and jet targets, both grids where read), equal to the high end of EA's tank ranges. It never varies either, and aircraft cells hold the same 2 although aircraft figures show no range.
+- Field_84b71f89 is 1 in the three mobile anti-air rounds and 2 in every other projectile of the same class. It is the only stored difference found that lines up with the anti-air figures being twice the rule. No registry row names it.
+- Field_be8c8762 (2, 5 or 6) and Field_c30df0ef (35 to 5000) vary but do not line up with either factor.
+- The registry rows of the anti-air rounds (damage, falloff, speed, gravity, drag, lifetime, DamageMultiplier 1) hold no 2.
+- The stored angle curves of L3201 (side 1 to 1.9, front up to 1.1, rear 3.2) do not give 0.75 to 2.
+- Game code is not in the saved data, so which field the game reads cannot be seen.
+
+The damage rule of L3323 does not depend on which field carries the factors.
+
+Open, with the test that would settle it:
+
+- Tank HE at a tank from the front, the side and the rear at 20 m: three readings between 180 and 480 give the factor per direction.
+- One high velocity anti-air round on a full-health helicopter (26 or 52), then one IFV AP shell on the same helicopter (100 expected).
+
+## L3327 - The damage rule extended to launchers, C-4 and jet bombs (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3327-damage-rule-launchers-c4-bombs.json). Dataset: `reference-data/frosty/vehicle-damage-rule-extension.json`. This applies the rule of L3323 to the weapons EA quotes in its [1.3.1.0 notes](https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-1-0) that were not yet checked. Cells were read in the Abbasid and Badlands grids and are equal. EA item names are joined to owners by name only.
+
+Seven further items reproduce every EA figure (26 numbers). Where the summed jet figure is 1000 or more, EA states 1000.
+
+| EA item | Owner | Direct damage | Grid: tank / helicopter / jet | Blast damage | Grid: tank / helicopter / jet | Tanks, rule | Tanks, EA | Helicopters, rule | Helicopters, EA | Jets, rule | Jets, EA |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| M136 AT | `PB_AT4` | 125 (own, no registry row) | 2.2 / 8 / 10 | 70 (own, no registry row) | 0 / 0 / 0 | 207 to 550 | 207 to 550 | 1000 | 1000 | 1250 | 1000 |
+| MBT-LAW | `PB_MBTLAW` | 100 (own, no registry row) | 0 / 0 / 0 | 80 (own, no registry row) | 3 / 6.5 / 10 | 240 | 240 | 520 | 520 | 800 | 800 |
+| SLM-93A | `PB_NS_Stinger` | 100 (own, no registry row) | 0 / 6.5 / 6.5 | 100 (own, no registry row) | 2 / 0 / 0 | 200 | 200 | 650 | 650 | 650 | 650 |
+| 9K93 IGLA | `PB_NS_IGLA` | 100 (own, no registry row) | 0 / 6.5 / 6.5 | 100 (own, no registry row) | 2 / 0 / 0 | 200 | 200 | 650 | 650 | 650 | 650 |
+| C-4 packs | `PNS_C4` | none | none | 100 (own, no registry row) | 3.5 / 3.5 / 15 | 350 | 350 | 350 | 350 | 1500 | 1000 |
+| Attack Jet Mk82 High Drag Bombs | `PB_Bomb_GBU39` | 40 (registry; own 40) | 2 / 9 / 10 | 240 (registry; own 200) | 1 / 3 / 4 | 300 to 400 | 300 to 400 | 1080 | 1080 | 1360 | 1000 |
+| Fighter Jet GBU-39/B Small Diameter Bombs | `PB_Bomb_Mk82AIR` | 50 (registry; own 50) | 2 / 9 / 10 | 335 (registry; own 335) | 1 / 3 / 4 | 410 to 535 | 410 to 535 | 1455 | 1455 | 1840 | 1000 |
+
+What this adds to the rule:
+
+- **Blast against tanks.** The MBT-LAW, the SLM-93A, the IGLA and C-4 deal no direct damage to tanks (grid value 0 or no direct damage field); their whole tank figure is blast damage times the blast material's grid value, with no range. For the bombs the tank range is the direct part times 0.75 to 2 plus a fixed blast part (GBU-39 file: 60 to 160 plus 240).
+- **Asset values where no registry row exists.** The M136 AT, MBT-LAW, SLM-93A, IGLA and C-4 projectiles have no registry damage row; their own stored values give EA's figures.
+- **One more disputed property follows the registry.** `PB_Bomb_GBU39` BlastDamage is 240 in the registry and 200 in the asset. 240 gives 300 to 400 / 1080; 200 would give 260 to 360 / 960. That makes 26 of 73 (see L3324 in `docs/working/ROSTER_VALUES.md`).
+- **The factor steps are EA's own.** The same notes state that turret hits deal 75%, the body at least 100%, a favourable side angle 150% and a favourable rear angle 200%. The rule's range 0.75 to 2 is these steps; the in-game RPG rear reading of L3326 (500) is the 200% step.
+
+Three things do not fit or are not settled:
+
+- **Bomb names are crossed.** The file `PB_Bomb_GBU39` gives the figures EA lists for the attack jet's Mk82 (300 to 400 / 1080), and `PB_Bomb_Mk82AIR` gives the figures EA lists for the fighter jet's GBU-39 (410 to 535 / 1455). Read by file name, neither matches. Either the notes swap the two lines or the files are used the other way round; stored data does not say which.
+- **IFV HEI-T low figure.** EA states 10 to 30 against tanks. The rule gives 12 to 30 (registry StartDamage 50 x 0.3). Helicopters (100) and jets (150) match. L3324 recorded EA's low figure as absent; the notes do state 10.
+- **M4A1 SLAM.** EA states 199 to 363. The EFP gives 43 to 113.75 (StartDamage 130 x 0.4375) and 143 to 213.75 with the body explosion (100 x 1) added. A direct product of 131.25 plus the body's 100 would give 199 to 362.5, but no stored damage value gives 131.25. This remains a dead end for stored data, as in L3321.
+
+A registry row `PB_C4...BlastDamage` stores 180. No saved file has that name and no stored link to the C-4 projectile `PNS_C4` (own value 100) was found. 100 x 3.5 is EA's 350; 180 x 3.5 would be 630.
+
+Still open, with the test that would settle each:
+
+- Bomb identity. Drop one bomb from the fighter jet on a full-health tank's body: about 320 means the GBU-39 file's values, about 435 the Mk82 file's.
+- C-4 value. One C-4 pack on a full-health tank: 350 (asset 100) or 630 (registry row 180).
+- HEI-T low figure. One IFV HEI-T hit on a tank's turret: 10 or 12.
+- SLAM. One SLAM against a full-health tank's side, front and underside, three readings.
+- Current values. EA's figures are from update 1.3.1.0. One M136 AT hit on a tank's rear should read 550; one MBT-LAW hit 240.
+
+## L3328 - Target materials of all vehicles, and grid values against light vehicles (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3328-vehicle-target-materials.json). Dataset: `reference-data/frosty/vehicle-target-materials.json`. This answers the open item of L3321 (whether the IFV uses target 119) from stored data. Each vehicle's `_DamageZones` file stores a material ID on its parts, read the same way as the Abrams parts in L3201. All 37 saved files were read.
+
+| Target material | Vehicles (file names) |
+|---|---|
+| 116 | `Stationary_GDF009` |
+| 119 | `Car_JLTV`, `Car_Marauder`, `Stationary_Turret_CROWS`, `Tank_AAV7A1`, `Tank_Abrams`, `Tank_Bradley`, `Tank_CV90`, `Tank_Gepard`, `Tank_Leopard` |
+| 120 | `Airplane_F16`, `Airplane_F22`, `Airplane_JAS39`, `SP_Assault_Airplane_JAS39`, `Airplane_SU57` |
+| 121 | `Helicopter_AH64E`, `Helicopter_AH6M`, `Helicopter_AH6M_M05_SP_Cine`, `Helicopter_Eurocopter`, `Helicopter_Eurocopter_SP`, `Helicopter_MH47_SP`, `Helicopter_UH60` |
+| 122 | `Boat_RHIB`, `Car_Flyer60`, `Car_Flyer60_SP`, `Car_Vector`, `Car_Vector_M05_CarChase` |
+| 123 | `Car_TheBeast`, `Stationary_Phalanx`, `Stationary_Phalanx_SP` |
+| 187 | `Car_PTV`, `Car_QuadBike`, `Motorcycle_DirtBike01`, `Motorcycle_DirtBike02` |
+| 233 | `Airplane_MQ9` |
+| 313 | `Boat_CB90` |
+| none stored (material 0 only) | `Stationary_M2MG` |
+
+Material 0 also appears on two parts of each tracked vehicle and one part of several helicopters. Files with `SP`, `M05` or `Cine` in the name are campaign or cinematic variants.
+
+So the IFVs (Bradley, CV90), the AAV7A1, the Gepard and the two armoured cars use the same target material as the tanks, and every grid value read for target 119 applies to them. Light vehicles use three other materials, and the grid values against those are different. Selected rows (all weapons are in the dataset; values are equal in the Abbasid and Badlands grids):
+
+| Weapon | Part | Material | 119 | 121 | 120 | 122 | 187 | 123 | 116 | 233 |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 120mm HEMP-T Rounds | direct | 125 | 2 | 9 | 10 | 5.5 | 5 | 5.5 | 5.5 | 10 |
+| 120mm HEMP-T Rounds | blast | 130 | 0 | 1 | 2 | 3 | 4 | 3 | 1.5 | 2 |
+| MBT 120mm APFSDS Rounds | direct | 431 | 2.5 | 4 | 5 | 5.5 | 5 | 5.5 | 5.5 | 5 |
+| MBT 120mm APFSDS Rounds | blast | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| IFV AP shells | direct | 460 | 0.3 | 1 | 1 | 1.25 | 2.6 | 1 | 1 | 1 |
+| IFV HEI-T Rounds | direct | 459 | 0.3 | 2 | 3 | 1.25 | 2.6 | 1.7 | 1 | 3 |
+| IFV HEI-T Rounds | blast | 129 | 0 | 0 | 0 | 1 | 1 | 1 | 0.5 | 0 |
+| Mobile AA High Velocity | direct | 642 | 0.35 | 2 | 2.5 | 1.25 | 2.6 | 1.25 | 1 | 2.5 |
+| MAS 148 Glaive | direct | 651 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| MAS 148 Glaive | blast | 650 | 3 | 6.5 | 10 | 7 | 7 | 3 | 3.5 | 10 |
+| RPG-7V2 | direct | 125 | 2 | 9 | 10 | 5.5 | 5 | 5.5 | 5.5 | 10 |
+| RPG-7V2 | blast | 164 | 0 | 0 | 0 | 0.3 | 8.5 | 0.3 | 0.15 | 0 |
+| M136 AT | direct | 430 | 2.2 | 8 | 10 | 6.5 | 5 | 6.5 | 5.5 | 10 |
+| M136 AT | blast | 655 | 0 | 0 | 0 | 0.3 | 8.5 | 0.3 | 0.15 | 0 |
+| MBT-LAW | direct | 651 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| MBT-LAW | blast | 650 | 3 | 6.5 | 10 | 7 | 7 | 3 | 3.5 | 10 |
+| SLM-93A | direct | 184 | 0 | 6.5 | 6.5 | 4.5 | 11 | 4.5 | 1 | 6.5 |
+| SLM-93A | blast | 185 | 2 | 0 | 0 | 2 | 8.5 | 2 | 1 | 0 |
+| C-4 | blast | 95 | 3.5 | 3.5 | 15 | 4.5 | 8.5 | 4.5 | 3.34 | 15 |
+| M15 AV Mine | blast | 96 | 2 | 11 | 11 | 2 | 2 | 2 | 1 | 11 |
+
+Against the light materials, blast damage counts much more than against armour: the RPG's explosion (material 164) reads 0 against 119 but 8.5 against 187 and 0.3 against 122.
+
+Limits: the material shows which grid column a vehicle uses. It does not show that the 0.75 to 2 hit-quality steps, which EA describes for tanks, apply to the other vehicles on material 119. No value could be read for target 313 (CB90).
+
+Still open, with the test that would settle each:
+
+- IFV and armoured car. One M15 mine under a Bradley and one under a JLTV: 390 on both would confirm the shared material.
+- Hit-quality steps on an IFV. One RPG on a Bradley's rear: 500 if the steps apply as on a tank.
+- Light vehicles. One RPG on a Vector (122): 708.5 by the rule (125 x 5.5 + 70 x 0.3). One on a quad bike (187): 1220, a kill.
+- CB90. One RPG hit on a full-health CB90, to give a first value for target 313.
+
+## L3330 - Hits to destroy each vehicle, by the damage rule and stored health (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3330-vehicle-hits-to-kill.json). Dataset: `reference-data/frosty/vehicle-hits-to-kill.json` (928 rows: 32 weapons against 29 vehicles). This is a research dataset, not site data. Every number is the rule of L3323 and L3327 applied to stored values; none is a measured result.
+
+How each number is formed:
+
+- Damage per hit is stored direct damage times the grid value, plus stored blast damage times the blast material's grid value, at close range with the full blast.
+- Health is the stored root value (`Class_f2a56983.Field_9040392c`), shown in the column heads. Effective health is not established. The Abrams and Leopard store 1200, while EA's and creators' figures treat a tank as 1000; the dataset gives both counts for those two.
+- For vehicles on target material 119 the four counts are turret (75%) / body (100%) / side (150%) / rear (200%). One count means the angle makes no difference. That these steps apply to the Bradley and JLTV as they do to tanks is an assumption (L3328).
+- Mobile anti-air rounds against aircraft are doubled to agree with EA's figures (L3322).
+- Not included: repair, active protection, upgrades, range falloff, partial blast.
+
+Selected rows:
+
+| Weapon | Abrams (1200) | Bradley (1000) | JLTV (800) | Vector (1000) | PTV (1000) | AH-64E (1000) | AH-6M (700) | UH-60 (1500) | F-16 (1000) |
+|---|---|---|---|---|---|---|---|---|---|
+| RPG-7V2 | 7 / 5 / 4 / 3 | 6 / 4 / 3 / 2 | 5 / 4 / 3 / 2 | 2 | 1 | 1 | 1 | 2 | 1 |
+| M136 AT | 6 / 5 / 3 / 3 | 5 / 4 / 3 / 2 | 4 / 3 / 2 / 2 | 2 | 1 | 1 | 1 | 2 | 1 |
+| MBT-LAW | 5 | 5 | 4 | 2 | 2 | 2 | 2 | 3 | 2 |
+| MAS 148 Glaive | 3 | 3 | 2 | 1 | 1 | 1 | 1 | 2 | 1 |
+| SLM-93A | 6 | 5 | 4 | 2 | 1 | 2 | 2 | 3 | 2 |
+| C-4 | 4 | 3 | 3 | 3 | 2 | 3 | 2 | 5 | 1 |
+| M15 AV Mine | 4 | 3 | 3 | 3 | 3 | 1 | 1 | 1 | 1 |
+| PTKM-1R | 3 | 3 | 2 | 1 | 1 | 1 | 1 | 2 | 1 |
+| MBT 120mm APFSDS Rounds | 5 / 4 / 3 / 2 | 5 / 4 / 3 / 2 | 4 / 3 / 2 / 2 | 2 | 2 | 2 | 2 | 3 | 2 |
+| 120mm HEAT-MP-T Rounds | 6 / 5 / 3 / 3 | 5 / 4 / 3 / 2 | 4 / 3 / 2 / 2 | 1 | 1 | 1 | 1 | 2 | 1 |
+| 120mm HEMP-T Rounds | 7 / 5 / 4 / 3 | 6 / 5 / 3 / 3 | 5 / 4 / 3 / 2 | 2 | 1 | 1 | 1 | 2 | 1 |
+| IFV Aim-Guided Missile | 6 / 5 / 3 / 3 | 5 / 4 / 3 / 2 | 4 / 3 / 2 / 2 | 1 | 1 | 1 | 1 | 2 | 1 |
+| IFV Lock-Guided Missile | 3 | 3 | 2 | 1 | 1 | 2 | 1 | 2 | 1 |
+| IFV AP shells | 54 / 40 / 27 / 20 | 45 / 34 / 23 / 17 | 36 / 27 / 18 / 14 | 8 | 4 | 10 | 7 | 15 | 10 |
+| Air-to-Ground Missiles | 3 | 3 | 2 | 1 | 1 | 2 | 1 | 2 | 1 |
+| Attack Helicopter Heavy Rocket | 10 / 8 / 5 / 4 | 9 / 7 / 5 / 4 | 7 / 5 / 4 / 3 | 2 | 2 | 3 | 2 | 5 | 2 |
+| Mobile AA High Velocity | 352 / 264 / 176 / 132 | 294 / 220 / 147 / 110 | 235 / 176 / 118 / 88 | 62 | 30 | 20 | 14 | 29 | 16 |
+
+Checks against what is known: EA's and the creator figures for the RPG against a tank (188, 375, 500) are the turret, side and rear damage behind the first row, and the user-reported rear reading of L3326 is 500.
+
+Still open, with the test that would settle each:
+
+- Tank health. Count RPG rear hits (500 each) needed to destroy a full-health Abrams with no repair: 2 means 1000, 3 means 1200.
+- Light vehicles. One RPG on a full-health PTV should destroy it (1220); two on a Vector.
+- Helicopters. One M136 AT hit on an AH-64E should destroy it (1000 against 1000); one on a UH-60 should leave 500.
+- IFV steps. Count M136 AT rear hits on a Bradley: 2 if the 200% step applies.
+
+## L3331 - Which jet carries which bomb (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3331-jet-bomb-identity.json). This settles the crossed bomb names of L3327 as far as stored data can. The links below are stored imports resolved by file GUID, not name matches.
+
+| Jet (file) | Class in the vehicle list | Weapon file imported | Projectile file it imports |
+|---|---|---|---|
+| F-61V (`VB_VEH_Airplane_F16`) | arch_jetattack | `WF_Vehicles_Airplane_Bomb_Mk82AIR` | `PB_Bomb_Mk82AIR` |
+| F-39E (`VB_VEH_Airplane_JAS39`) | arch_jetattack | `WF_Vehicles_Airplane_Bomb_Mk82AIR` | `PB_Bomb_Mk82AIR` |
+| F-97 Kestrel (`VB_VEH_Airplane_F22`) | arch_fighterplane | `WF_Vehicles_Airplane_Bomb_GBU39` | `PB_Bomb_GBU39` |
+| Su-57 (`VB_VEH_Airplane_SU57`) | arch_fighterplane | `WF_Vehicles_Airplane_Bomb_GBU39` | `PB_Bomb_GBU39` |
+
+So the file names are the right way round: attack jets carry the Mk82 file and fighter jets the GBU-39 file. By the damage rule the figures are:
+
+| Bomb file | Carried by | Tanks | Helicopters | EA 1.3.1.0 lists these figures under |
+|---|---|---|---|---|
+| `PB_Bomb_Mk82AIR` | attack jets | 410 to 535 | 1455 | Fighter Jet GBU-39/B |
+| `PB_Bomb_GBU39` | fighter jets | 300 to 400 | 1080 | Attack Jet Mk82 |
+
+EA's two lines are crossed relative to stored data, or the two bombs' values were exchanged after that update; stored data cannot tell which. On today's values the attack jet's bomb is the stronger one. 12 raw-offset checks matched.
+
+Still open, with the test that would settle each:
+
+- Drop one bomb from the attack jet on a full-health tank's body: about 435 confirms the stored link and values.
+- The same from the fighter jet: about 320.
+
+## L3334 - EA states tank health 1200 and armoured transport health 800 (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3334-armoured-vehicle-health-official.json). EA's [1.3.1.0 notes](https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-1-0) say: "Weapons no longer deal different damage values to IFV, MBT, APT & AA Vehicles. Instead, MBT health has been increased to 1200 and APT health has been reduced to 800."
+
+| Group | Vehicle file | Stored root health | EA 1.3.1.0 | Target material |
+|---|---|---|---|---|
+| Main battle tanks | `VB_VEH_Tank_Abrams` | 1200 | 1200 | 119 |
+| Main battle tanks | `VB_VEH_Tank_Leopard` | 1200 | 1200 | 119 |
+| Armoured transports (EA: APT) | `VB_VEH_Car_JLTV` | 800 | 800 | 119 |
+| Armoured transports (EA: APT) | `VB_VEH_Car_Marauder` | 800 | 800 | 119 |
+| Infantry fighting vehicles | `VB_VEH_Tank_Bradley` | 1000 | not stated | 119 |
+| Infantry fighting vehicles | `VB_VEH_Tank_CV90` | 1000 | not stated | 119 |
+| Anti-air | `VB_VEH_Tank_Gepard` | 1000 | not stated | 119 |
+
+This settles two open items from stored data plus an official statement:
+
+- **Health (L3330).** The stored root health is the health in use; tanks have 1200, not the 1000 that EA's damage ranges seemed to imply. In the hits-to-kill dataset the counts for stored health are the ones to read; the `hitsIfHealth1000` figures for the two tanks no longer apply.
+- **Shared damage (L3328).** The vehicles EA names all store target material 119, so one hit deals the same damage to each and removes a larger share of an IFV (1000) or an armoured transport (800) than of a tank (1200).
+
+IFV and anti-air health (1000) is stored but not stated by EA. 65 raw-offset checks matched.
+
+Still open, with the test that would settle each:
+
+- Angle steps on other vehicles. One RPG on a Bradley's rear: 500 if the 200% step applies as on a tank.
+- IFV health. Two M136 AT rear hits on a full-health Bradley (2 x 550) should destroy it.
+- Current build. Three RPG rear hits should destroy a full-health tank; two should not.
+
+## L3335 - EA's reload, rate of fire, magazine and speed figures against registry rows (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3335-official-non-damage-figures.json). Dataset: `reference-data/frosty/official-non-damage-figures.json`. EA's [1.3.1.0](https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-1-0) and [1.3.3.0](https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-3-0) notes state many numbers that are not damage. Each was compared with one registry row chosen by exact owner and property; item names are joined to owners by name only. A Haiku worker proposed the candidates; every row below was re-selected and re-read here.
+
+Equal (22 rows):
+
+| EA statement | Registry row | Registry default | EA number |
+|---|---|---|---|
+| IFV cannon reload time 2.4 to 2.75 s | `WF_Vehicles_IFV_PrimaryWeapon_HEAB.PrimaryFire.FireLogic.ReloadInfoArray[0].ReloadTime` | 2.75 | 2.75 |
+| IFV cannon reload time 2.4 to 2.75 s | `WF_Vehicles_IFV_PrimaryWeapon_APFSDST.PrimaryFire.FireLogic.ReloadInfoArray[0].ReloadTime` | 2.75 | 2.75 |
+| IFV cannon reload time 2.4 to 2.75 s | `WF_Vehicles_IFV_PrimaryWeapon_Canister.PrimaryFire.FireLogic.ReloadInfoArray[0].ReloadTime` | 2.75 | 2.75 |
+| IFV HE rounds rate of fire 200 to 180 RPM | `WF_Vehicles_IFV_PrimaryWeapon_HEAB.PrimaryFire.FireLogic.RateOfFire` | 180 | 180 |
+| APDS rounds magazine capacity 12 to 10 | `WF_Vehicles_IFV_PrimaryWeapon_APFSDST.PrimaryFire.Ammo.MagazineCapacity` | 10 | 10 |
+| IFV AP shells rate of fire 120 to 160 RPM | `WF_Vehicles_IFV_PrimaryWeapon_APFSDST.PrimaryFire.FireLogic.RateOfFire` | 160 | 160 |
+| IFV AP shell initial velocity 375 to 445 m/s | `WF_Vehicles_IFV_PrimaryWeapon_APFSDST.PrimaryFire.Shot.InitialSpeed.z` | 445 | 445 |
+| IFV canister rounds magazine capacity 12 to 16 | `WF_Vehicles_IFV_PrimaryWeapon_Canister.PrimaryFire.Ammo.MagazineCapacity` | 16 | 16 |
+| IFV canister rounds rate of fire 200 to 240 RPM | `WF_Vehicles_IFV_PrimaryWeapon_Canister.PrimaryFire.FireLogic.RateOfFire` | 240 | 240 |
+| RWS and coaxial LMG minimum damage 21 to 19 | `PD_Vehicles_RWS_LMG.BulletEntityData.EndDamage` | 19 | 19 |
+| RWS and coaxial LMG falloff start 20 to 25 m | `PD_Vehicles_RWS_LMG.BulletEntityData.DamageFalloffStartDistance` | 25 | 25 |
+| RWS and coaxial LMG falloff end 75 to 60 m | `PD_Vehicles_RWS_LMG.BulletEntityData.DamageFalloffEndDistance` | 60 | 60 |
+| RWS and coaxial HMG minimum damage (75+ m) 30 to 24 | `PD_Vehicles_RWS_HMG.BulletEntityData.EndDamage` | 24 | 24 |
+| RWS and coaxial HMG minimum damage at 75+ m | `PD_Vehicles_RWS_HMG.BulletEntityData.DamageFalloffEndDistance` | 75 | 75 |
+| Automatic grenade launcher RWS reload 3 to 2 s | `WF_Vehicles_RWS_AGL.PrimaryFire.FireLogic.ReloadInfoArray[0].ReloadTime` | 2 | 2 |
+| Attack helicopter TOW2 maximum speed 90 to 120 m/s | `PB_Missile_TOW2B_AirVehicle.MissileEntityData.MaxSpeed` | 120 | 120 |
+| Ground vehicle TOW missiles remain at 90 m/s | `PB_Missile_TOW2B.MissileEntityData.MaxSpeed` | 90 | 90 |
+| MBT-LAW initial missile speed 30 to 100 m/s | `MBTLAW_Weapon Blueprint.WeaponEntityData.WeaponFiring.PrimaryFire.Shot.InitialSpeed.z` | 100 | 100 |
+| MAS 148 Glaive maximum missile speed 60 to 70 m/s | `PB_Javelin.MissileEntityData.MaxSpeed` | 70 | 70 |
+| High Velocity anti-air heat per bullet 4.2% to 3.6% | `WF_Vehicles_AA_PrimaryWeapon_AAHV.PrimaryFire.OverHeat.HeatPerBullet` | 0.036 (x 100 = 3.6) | 3.6 |
+| Armoured vehicle regeneration delay 6 to 12 s (only the CB90 has a row) | `VB_VEH_Boat_CB90.RegenerationDelay` | 12 | 12 |
+| Regeneration rate about 5% to 10% per second (CB90 row, health 1000) | `VB_VEH_Boat_CB90.RegenerationRate` | 100 (x 0.1 = 10) | 10 |
+
+Not equal:
+
+| EA statement | Registry row | Registry default | EA number |
+|---|---|---|---|
+| RWS and coaxial LMG muzzle velocity 850 to 670 m/s | `WF_Vehicles_RWS_LMG.PrimaryFire.Shot.InitialSpeed.z` | 737 | 670 |
+| RWS and coaxial LMG muzzle velocity 850 to 670 m/s | `WF_Vehicles_MBT_SecondaryWeapon_CoaxLMG.PrimaryFire.Shot.InitialSpeed.z` | 737 | 670 |
+| RWS and coaxial HMG muzzle velocity 890 to 760 m/s | `WF_Vehicles_RWS_HMG.PrimaryFire.Shot.InitialSpeed.z` | 890 | 760 |
+| RWS and coaxial HMG muzzle velocity 890 to 760 m/s | `WF_Vehicles_MBT_SecondaryWeapon_CoaxHMG.PrimaryFire.Shot.InitialSpeed.z` | 890 | 760 |
+
+What this gives: the units of these rows (seconds, rounds per minute, metres per second, heat as a fraction of 1), and that `EndDamage` is the minimum damage reached at `DamageFalloffEndDistance`. The machine gun velocity rows hold EA's older value (890) or a different one (737); the cause is not decided. 26 raw-offset checks matched.
+
+Still open, with the test that would settle each:
+
+- Machine gun velocity. Fire the coaxial HMG at a wall 380 m away and time the flight: 0.5 s means 760 m/s, 0.43 s means 890 m/s.
+- Current values. Count IFV HE shots in 10 s of held fire (30 at 180 RPM) and time one cannon reload (2.75 s).
+
+## L3336 - Dead end: CB90 damage and the low HEI-T figure (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3336-cb90-cell-and-heit-low-dead-end.json). Two open items of L3327 and L3328 that stored data cannot settle.
+
+- **CB90 (target material 313).** All 785 target columns of the material grid were read for source materials 125 and 96. Column 313 is empty for both, as is every material from 312 to 325 (339 of 785 columns are empty for source 125). The control cell, 125 against 119, reads 2.0. The grid stores no fallback for an empty cell.
+- **HEI-T low figure.** EA gives 10 to 30 against tanks. The registry holds `StartDamage` 50 and `EndDamage` 40 (falloff from 70 m to 120 m) and the grid value is 0.3. Full damage gives 12 on the turret and 30 on the rear; minimum damage gives 9 and 24. Neither gives 10.
+
+8685 raw-offset checks matched.
+
+Tests that would settle them:
+
+- One RPG on a full-health CB90; read the health removed.
+- One HEI-T round on a tank turret within 70 m; 12 by the rule, 10 by EA's notes.
+
+## L3337 - MinimumBlastDamage is EA's minimum explosive damage of 20% (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3337-minimum-blast-damage-share.json). Dataset: `reference-data/frosty/minimum-blast-damage.json`. EA's [1.3.1.0 notes](https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-1-0): "Most land vehicle explosive weapons now have a minimum explosive damage of 20%. This does not increase lethal or total radius, but increases damage at the edges of explosive radius." The vehicle registry has a `MinimumBlastDamage` row beside `BlastDamage`. Owners with a value above zero:
+
+| Registry owner | BlastDamage | MinimumBlastDamage | Share | Inner radius | Blast radius |
+|---|---|---|---|---|---|
+| `PB_Missile_TOW2B` | 100 | 20 | 20% | 1.75 | 4 |
+| `PB_Missile_TOW2B_AirVehicle` | 100 | 20 | 20% | 1.75 | 4 |
+| `PB_NS_Missile_AA_Secondary_AimGuided` | 75 | 20 | 26.7% | 1.75 | 3 |
+| `PB_NS_Missile_AA_Secondary_HighVelocity` | 75 | 20 | 26.7% | 1.75 | 3 |
+| `PB_Vehicle_AGL_Grenade` | 70 | 20 | 28.6% | 1 | 4 |
+| `PD_Vehicles_IFV_PrimaryWeapon_HEAB` | 50 | 15 | 30% | 1 | 4.25 |
+| `PD_Vehicles_IFV_SecondaryWeapon_LightRockets` | 100 | 20 | 20% | 1 | 4 |
+| `PD_Vehicles_MBT_AmmoTypes_HE` | 100 | 20 | 20% | 2.25 | 5 |
+| `PD_Vehicles_MBT_AmmoTypes_MPAT` | 100 | 20 | 20% | 1 | 5 |
+| `WF_Vehicles_ScoutHeli_PrimaryWeapon_LR30` | 30 | 30 | 100% | 1.75 | 1.76 |
+
+Five owners store exactly one fifth. Owners that store 0: `PBNS_Missile_AIM54`, `PBNS_Missile_AIM54_Pitbull`, `PBNS_Missile_AIM7`, `PB_120mmMortar_Airburst`, `PB_120mmMortar_Airburst`, `PB_120mmMortar_Guided`, `PB_120mmMortar_HE`, `PB_Bomb_BunkerBuster`, `PB_Bomb_BunkerBuster_Passthrough`, `PB_Bomblet_Rockeye`, `PB_Missile_AGM84`, `PB_Missile_AGM88`, `PB_Missile_MBT_GuidedMunition`, `PB_Missile_RBS70`, `PB_Missile_RBS70_TerminalHoming`, `PB_Missile_Torped47`, `PB_NavalMine`, `VB_VEH_Boat_CB90`, `Vulcan_CombatMix_HE_Ammo`, `WF_Vehicles_PatrolBoat_PrimaryWeapon_M230LF - ProjectileData`.
+
+So for the weapons in the table the blast falls from `BlastDamage` inside the inner radius to `MinimumBlastDamage` at the blast radius, not to zero. The shape of the fall between the radii is not in these rows.
+
+Radii against EA's notes (shell names joined by name only):
+
+| EA statement | Row | Stored | EA |
+|---|---|---|---|
+| HEMP-T inner blast radius 2 to 2.25 m (1.3.1.0) | `PD_Vehicles_MBT_AmmoTypes_HE` InnerBlastRadius | 2.25 | 2.25 |
+| HEAT-MP-T total blast radius 4 to 5 m ([1.3.3.0](https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-3-0)) | `PD_Vehicles_MBT_AmmoTypes_MPAT` BlastRadius | 5 | 5 |
+| HEAT-MP-T lethal radius 1 to 1.25 m (1.3.3.0) | `PD_Vehicles_MBT_AmmoTypes_MPAT` InnerBlastRadius | 1 | 1.25 |
+
+120 raw-offset checks matched.
+
+Still open, with the test that would settle each:
+
+- HEAT-MP-T lethal radius. A shell landing 1.2 m from a full-health soldier: a kill means 1.25.
+- Edge damage. A HEMP-T shell landing 4.9 m from a full-health soldier without flak: 20 damage means the minimum applies at the edge.
+- Whether the minimum is scaled by the target material value: not tested.
+
+## L3338 - Vehicle machine guns against soldiers and vehicles (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3338-vehicle-machine-gun-damage.json). Dataset: `reference-data/frosty/vehicle-machine-gun-damage.json`. Registry and own damage are equal for all seven bullet files. Soldier figures assume 100 health and no armour.
+
+| Weapon | Bullet file | Close damage | Far damage | Falloff (m) | Head | Body shots to kill (close / far) |
+|---|---|---|---|---|---|---|
+| Tank coaxial HMG | `PD_Vehicles_MBT_SecondaryWeapon_CoaxHMG` | 50 | 30 | 25 to 75 | x1.34 | 2 / 4 |
+| Tank coaxial LMG | `PD_Vehicles_MBT_SecondaryWeapon_CoaxLMG` | 35 | 21 | 20 to 75 | x1.34 | 3 / 5 |
+| Remote weapon station HMG | `PD_Vehicles_RWS_HMG` | 50 | 24 | 25 to 75 | x1.34 | 2 / 5 |
+| Remote weapon station LMG | `PD_Vehicles_RWS_LMG` | 36 | 19 | 25 to 60 | x1.34 | 3 / 6 |
+| Scout helicopter minigun | `WF_Vehicles_ScoutHeli_PrimaryWeapon_Minigun` | 34 | 18 | 40 to 120 | x1.34 | 3 / 6 |
+| Transport helicopter minigun | `WF_Vehicles_TransportHeli_Gunner_Minigun` | 34 | 20 | 200 to 500 | x1.34 | 3 / 5 |
+| Scout helicopter GAU-19 | `WF_Vehicles_ScoutHeli_PrimaryWeapon_GAU19` | 50 | 24 | 45 to 135 | x1.34 | 2 / 5 |
+
+Grid value by target material (damage is stored damage times this):
+
+| Weapon | Material | Tanks, IFVs (119) | Helicopters (121) | Jets (120) | Flyer, Vector, RHIB (122) | Quad, bikes (187) |
+|---|---|---|---|---|---|---|
+| Tank coaxial HMG | 289 | 0 | 0.6 | 0.8 | 0.5 | 1.5 |
+| Tank coaxial LMG | 288 | 0 | 0.8 | 0.7 | 0.25 | 1.2 |
+| Remote weapon station HMG | 289 | 0 | 0.6 | 0.8 | 0.5 | 1.5 |
+| Remote weapon station LMG | 288 | 0 | 0.8 | 0.7 | 0.25 | 1.2 |
+| Scout helicopter minigun | 621 | 0 | 0.4 | 0.7 | 0.25 | 1.2 |
+| Transport helicopter minigun | 621 | 0 | 0.4 | 0.7 | 0.25 | 1.2 |
+| Scout helicopter GAU-19 | 289 | 0 | 0.6 | 0.8 | 0.5 | 1.5 |
+
+- None of these guns damages tanks, IFVs, armoured transports or the anti-air vehicle (grid value 0).
+- Head hits multiply by 1.34; abdomen and limbs by 1.
+- **Coaxial files differ from the remote weapon station files.** `WF_Vehicles_MBT_SecondaryWeapon_CoaxHMG` and `CoaxLMG` import their own bullet files, which hold minimum damage 30 and 21 and LMG falloff 20 to 75 m. EA's 1.3.1.0 notes changed "RWS & Coaxial" guns to 24 and 19 (LMG falloff 25 to 60 m); only the `PD_Vehicles_RWS_*` files hold those (L3335). The RWS weapon files are imported by both tanks, both IFVs, the JLTV and the Marauder.
+
+5633 raw-offset checks matched.
+
+Still open, with the test that would settle each:
+
+- Coaxial minimum damage. Coaxial LMG body shots on a full-health soldier beyond 75 m: 5 to kill means 21, 6 means 19.
+- Headshot value. One close coaxial HMG headshot on a full-health soldier should deal 67.
+
+## L3339 - Aim-Guided Shell and MAS 148 Glaive under the damage rule (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3339-guided-shell-and-glaive-rule.json). Two items EA gives figures for ([1.3.1.0](https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-1-0), [1.3.3.0](https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-3-0)) that had not been run through the rule of L3323. Files: `PB_Missile_MBT_GuidedMunition` (direct material 431: 2.5 / 4 / 5; blast material 130: 0 / 1 / 2) and `PB_Javelin` (direct material 651: 0 / 0 / 0; blast material 650: 3 / 6.5 / 10). Names are joined by name only.
+
+| Item | Values used | Rule: tanks / helicopters / jets | EA | Notes |
+|---|---|---|---|---|
+| MBT Aim-Guided Shell | own Damage 125, BlastDamage 200 | 235 to 625 / 700 / 1000 | 235 to 625 / 700 / 1000 | 1.3.1.0 |
+| MBT Aim-Guided Shell | registry Damage 130, BlastDamage 200 | 244 to 650 / 720 / 1000 | 244 to 650 / 720 / not stated | 1.3.3.0 |
+| MAS 148 Glaive | registry Damage 140 (grid value 0), BlastDamage 155 | 465 / 1007.5 / 1000 | 465 / 1007.5 / 1000 | 1.3.1.0 |
+| MAS 148 Glaive | own Damage 150 (grid value 0), BlastDamage 125 | 375 / 812.5 / 1000 | not stated | not EA: own values |
+
+- **The shell shows registry over own again.** Own Damage 125 reproduces the older update, registry 130 the newer one. The registry default is current.
+- **The Glaive damages vehicles by blast only.** Its direct material has grid value 0, so there is no angle step: 155 x 3 = 465 on any part of a tank. With tank health 1200 (L3334) that is three hits.
+- EA prints 1007.5 against helicopters, so only its jet figures are capped at 1000.
+
+834 raw-offset checks matched.
+
+Tests that would confirm the current build:
+
+- One Glaive hit on a full-health tank: 465 removed; the third hit destroys it.
+- Two Aim-Guided Shell rear hits destroy a full-health tank (2 x 650).
+
+## L3341 - Where the 75 / 100 / 150 / 200% hit steps are stored (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3341-simplified-tank-angle-steps.json). Dataset: `reference-data/frosty/simplified-tank-angle-steps.json`. The rule of L3323 took its four factors from EA's [1.3.1.0 notes](https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-1-0). They are stored. Six curve files named `AngleDamageCurve_SimplifiedTank_*` hold them, and one schematic, `PF_Vehicle_GameplayDamageZones_Tank`, assigns a curve to each face of a body zone and three turret zones (all target material 119).
+
+| Curve file | Points (angle in degrees, multiplier) | Used for |
+|---|---|---|
+| `AngleDamageCurve_SimplifiedTank_Turret` | (90, 0.75) | turret zones: four side faces and the bottom |
+| `AngleDamageCurve_SimplifiedTank_Top` | (90, 1) | top face of body and turret |
+| `AngleDamageCurve_SimplifiedTank_Front` | no curve object (null) | body front face |
+| `AngleDamageCurve_SimplifiedTank_Sides` | (70, 1) (70.001, 1.5) (109.999, 1.5) (110, 1) | body left and right faces |
+| `AngleDamageCurve_SimplifiedTank_Rear` | (55, 1) (55.001, 2) (124.999, 2) (125, 1) | body rear face |
+| `AngleDamageCurve_SimplifiedTank_Bottom` | (90, 2) | body bottom face |
+
+- **Side and rear are gated by angle.** Rear gives 2.0 only between 55 and 125 degrees and sides 1.5 only between 70 and 110 degrees; outside the window the factor is 1.0. Reading 90 as square-on, that is up to 35 degrees off square at the rear and 20 at the side.
+- **Check against known numbers.** RPG direct product 250 x 0.75 / 1.5 / 2 = 188 / 375 / 500: EA's range ends and the 375 side reading recorded earlier on this page.
+- **Which vehicles.** A byte search of all 31,503 saved files finds the schematic's file GUID in the damage-zone files of the Abrams, Leopard, Bradley, CV90 and Gepard. So the same steps are selected for both tanks, both IFVs and the anti-air vehicle (the open item of L3334).
+- **Armoured transports have no step.** The JLTV and Marauder import `AngleDamageCurve_ArmoredTransport_Shared`, one point (90, 1.0).
+- The older `Tank_*_Shared` and `IFV_*_Shared` curves (1.0 to 3.2, L3201) are still imported by the Abrams and CV90 files but do not reproduce EA's figures.
+- The body zone carries two face lists; the second names the front file for every face. What chooses between them is not decoded.
+
+86 raw-offset checks matched.
+
+Still open, with the test that would settle each:
+
+- Face sets. An RPG square on a tank's side: 375 if the first list applies, 250 if the second.
+- Angle window. An RPG on a tank's rear about 45 degrees off square: 250, not 500.
+- IFVs. One RPG square on a Bradley's rear: 500 of 1000.
+
+## L3344 - Helicopter rocket radii, Aim-Guided Shell timers and smoke cooldown against registry rows (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3344-rocket-radius-guided-shell-smoke-rows.json). Seven more statements from EA's [1.3.1.0 notes](https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-1-0), each compared with one registry row chosen by exact owner and property. Names are joined to owners by name only (Light Rocket = Hydra70, Smart Rocket = APKWS-II, Heavy Rocket = Zuni).
+
+| EA statement | Registry row | Registry default | EA number | Equal |
+|---|---|---|---|---|
+| Helicopter Light Rocket area of effect 5 to 4.75 m | `PRJ_Missile_Hydra70 ... ExplosionEntityData.BlastRadius` | 4.75 | 4.75 | yes |
+| Helicopter Smart Rocket area of effect 5 to 4.75 m | `PRJ_Missile_APKWS-II ... ExplosionEntityData.BlastRadius` | 4.75 | 4.75 | yes |
+| Helicopter Heavy Rocket area of effect 5.5 to 5.25 m | `PRJ_Missile_Zuni ... ExplosionEntityData.BlastRadius` | 5.25 | 5.25 | yes |
+| Aim-Guided Shell time to live 6 to 4 s | `PB_Missile_MBT_GuidedMunition ... ProjectileEntityData.TimeToLive` | 4 | 4 | yes |
+| Aim-Guided Shell engine time to live 1.25 to 1 s | `PB_Missile_MBT_GuidedMunition.MissileEntityData.EngineTimeToLive` | 1 | 1 | yes |
+| Aim-Guided Shell turning rate 12.5 to 6 degrees per second | `PB_Missile_MBT_GuidedMunition.MissileEntityData.MaxTurnAngle` | 7.5 | 6 | no |
+| Smoke Screen cooldown 20 to 16 s | `Ability_Vehicle_SmokeScreen.RechargeTime` | 16 | 16 | yes |
+
+- EA's rocket "area of effect" is the explosion's `BlastRadius`.
+- The shell's `MaxTurnAngle` is 7.5; EA's turning rate is 6 (12.5 before). Not resolved.
+- The smoke screen's `ActiveTime` row holds 8.1.
+
+10 raw-offset checks matched.
+
+## L3345 - Per-part multipliers in the damage-zone files are flat (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3345-damage-zone-multipliers-flat.json). After L3341 found the tank steps in a shared schematic, the 38 saved `*_DamageZones` files were checked for per-part multipliers of their own. Each zone object (`Class_6f785351`) has five multiplier-like fields; their meaning is not decoded.
+
+| Field | Values across all zone objects |
+|---|---|
+| `Field_52bf99dc` | 1 (212) |
+| `Field_4ee6e3a6` | 1 (210), 3 (1), 2 (1) |
+| `Field_8c2ac57f` | 1 (212) |
+| `Field_25714eef` | 1 (212) |
+| `Field_c73fcda4` | 1 (212) |
+| `Field_64b3e9cd` | 0.7 (141), 1 (36), 0 (31), 0.75 (2), 0.8 (2) |
+
+- Every helicopter and jet zone holds 1.0 in the five fields: no stored weak-spot multiplier for rotor, cockpit or engine. EA gives one figure per weapon against helicopters and one against jets.
+- The MQ-9 is the one exception (3.0 and 2.0 on two zones).
+- `Field_64b3e9cd` varies and is still unnamed.
+
+1272 raw-offset checks matched.
+
+Test that would check this: the same RPG hit on a helicopter's body and on its tail should remove the same health.
+
+## L3346 - Vehicle health regeneration: delay and rate (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3346-vehicle-regeneration-values.json). Dataset: `reference-data/frosty/vehicle-regeneration.json`. EA's [1.3.1.0 notes](https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-1-0): regeneration delay 6 to 12 seconds, rate about 5% to 10% per second. Both are stored on the vehicle root object (`Class_f2a56983`, beside root health): `Field_5c9d2d82` is the delay and `Field_3233bcbf` the rate in health per second. The CB90's registry rows `RegenerationDelay` 12 and `RegenerationRate` 100 hold the same numbers as its two fields, which names them.
+
+Multiplayer vehicle files (single-player variants are in the receipt):
+
+| Vehicle file | Root health | Delay (s) | Rate (health/s) | Share of health per second | Seconds from 0 to full once started |
+|---|---|---|---|---|---|
+| `VB_VEH_Airplane_F16` | 1000 | 17.5 | 100 | 10% | 10 |
+| `VB_VEH_Airplane_F22` | 1000 | 17.5 | 100 | 10% | 10 |
+| `VB_VEH_Airplane_JAS39` | 1000 | 17.5 | 100 | 10% | 10 |
+| `VB_VEH_Airplane_MQ9` | 1000 | 40 | 0 | 0% | no regeneration |
+| `VB_VEH_Airplane_SU57` | 1000 | 17.5 | 100 | 10% | 10 |
+| `VB_VEH_Boat_CB90` | 1000 | 12 | 100 | 10% | 10 |
+| `VB_VEH_Boat_RHIB` | 1000 | 12 | 100 | 10% | 10 |
+| `VB_VEH_Car_Flyer60` | 1000 | 12 | 100 | 10% | 10 |
+| `VB_VEH_Car_JLTV` | 800 | 12 | 80 | 10% | 10 |
+| `VB_VEH_Car_Marauder` | 800 | 12 | 80 | 10% | 10 |
+| `VB_VEH_Car_PTV` | 1000 | 12 | 100 | 10% | 10 |
+| `VB_VEH_Car_QuadBike` | 1000 | 12 | 100 | 10% | 10 |
+| `VB_VEH_Car_TheBeast` | 1000 | 5 | 0 | 0% | no regeneration |
+| `VB_VEH_Car_Vector` | 1000 | 12 | 100 | 10% | 10 |
+| `VB_VEH_Helicopter_AH64E` | 1000 | 17.5 | 100 | 10% | 10 |
+| `VB_VEH_Helicopter_AH6M` | 700 | 17.5 | 70 | 10% | 10 |
+| `VB_VEH_Helicopter_Eurocopter` | 1000 | 17.5 | 100 | 10% | 10 |
+| `VB_VEH_Helicopter_UH60` | 1500 | 17.5 | 150 | 10% | 10 |
+| `VB_VEH_Motorcycle_DirtBike01` | 1000 | 10 | 100 | 10% | 10 |
+| `VB_VEH_Motorcycle_DirtBike02` | 1000 | 10 | 100 | 10% | 10 |
+| `VB_VEH_Stationary_GDF009` | 1000 | 10 | 50 | 5% | 20 |
+| `VB_VEH_Stationary_M2MG` | 150 | 10 | 7.5 | 5% | 20 |
+| `VB_VEH_Stationary_Phalanx` | 1000 | 5 | 50 | 5% | 20 |
+| `VB_VEH_Stationary_Turret_CROWS` | 300 | 10 | 15 | 5% | 20 |
+| `VB_VEH_Tank_AAV7A1` | 1000 | 6 | 50 | 5% | 20 |
+| `VB_VEH_Tank_Abrams` | 1200 | 12 | 120 | 10% | 10 |
+| `VB_VEH_Tank_Bradley` | 1000 | 12 | 100 | 10% | 10 |
+| `VB_VEH_Tank_CV90` | 1000 | 12 | 100 | 10% | 10 |
+| `VB_VEH_Tank_Gepard` | 1000 | 12 | 100 | 10% | 10 |
+| `VB_VEH_Tank_Leopard` | 1200 | 12 | 120 | 10% | 10 |
+
+- Tanks, IFVs, the Gepard, the JLTV and the Marauder: 12 s and exactly 10% of health per second, EA's new values.
+- The AAV7A1 holds 6 s and 5%, EA's old values.
+- Helicopters and jets: 17.5 s, 10%. EA's statement does not cover them.
+- Registry rows `Passives_Vehicles_MBT_Regeneration_*` (9.5 s, 132) and `IFV` (9.5 s, 110) belong to the regeneration passive EA says was replaced in 1.3.1.0.
+- EA's 80% slowdown at critical health was not found as a stored value.
+
+117 raw-offset checks matched.
+
+Still open, with the test that would settle each:
+
+- Where regeneration stops: damage a tank to half and watch.
+- Critical slowdown: time regeneration from 10% health (24 per second on a tank if slowed by 80%).
+- Aircraft delay: time from last damage to first tick on a helicopter (17.5 s).
+
+## L3347 - Vehicle disabled (critical health) thresholds (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3347-vehicle-disabled-thresholds.json). Dataset: `reference-data/frosty/vehicle-disabled-thresholds.json`. EA's [1.3.1.0 notes](https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-1-0) slow regeneration by 80% "while in critical health". The CB90's registry rows `DisabledDamageThreshold` and `ClearDisabledDamageThreshold` are both 400, and its root object holds 400 in exactly two fields. Those two fields on every multiplayer vehicle root:
+
+| Vehicle file | Root health | `Field_1a7c18f1` | `Field_6497ebc7` | As share of health |
+|---|---|---|---|---|
+| `VB_VEH_Airplane_F16` | 1000 | 200 | 300 | 20% / 30% |
+| `VB_VEH_Airplane_F22` | 1000 | 200 | 300 | 20% / 30% |
+| `VB_VEH_Airplane_JAS39` | 1000 | 200 | 300 | 20% / 30% |
+| `VB_VEH_Airplane_MQ9` | 1000 | 140 | 70 | 7% / 14% |
+| `VB_VEH_Airplane_SU57` | 1000 | 200 | 300 | 20% / 30% |
+| `VB_VEH_Boat_CB90` | 1000 | 400 | 400 | 40% / 40% |
+| `VB_VEH_Boat_RHIB` | 1000 | 200 | 300 | 20% / 30% |
+| `VB_VEH_Car_Flyer60` | 1000 | 200 | 300 | 20% / 30% |
+| `VB_VEH_Car_JLTV` | 800 | 200 | 300 | 25% / 37.5% |
+| `VB_VEH_Car_Marauder` | 800 | 200 | 300 | 25% / 37.5% |
+| `VB_VEH_Car_PTV` | 1000 | 200 | 300 | 20% / 30% |
+| `VB_VEH_Car_QuadBike` | 1000 | 200 | 300 | 20% / 30% |
+| `VB_VEH_Car_TheBeast` | 1000 | 0 | 50 | 0% / 5% |
+| `VB_VEH_Car_Vector` | 1000 | 200 | 300 | 20% / 30% |
+| `VB_VEH_Helicopter_AH64E` | 1000 | 200 | 300 | 20% / 30% |
+| `VB_VEH_Helicopter_AH6M` | 700 | 300 | 300 | 42.86% / 42.86% |
+| `VB_VEH_Helicopter_Eurocopter` | 1000 | 200 | 300 | 20% / 30% |
+| `VB_VEH_Helicopter_UH60` | 1500 | 250 | 500 | 16.67% / 33.33% |
+| `VB_VEH_Motorcycle_DirtBike01` | 1000 | 300 | 300 | 30% / 30% |
+| `VB_VEH_Motorcycle_DirtBike02` | 1000 | 300 | 300 | 30% / 30% |
+| `VB_VEH_Stationary_GDF009` | 1000 | 0 | 50 | 0% / 5% |
+| `VB_VEH_Stationary_M2MG` | 150 | 0 | 50 | 0% / 33.33% |
+| `VB_VEH_Stationary_Phalanx` | 1000 | 0 | 50 | 0% / 5% |
+| `VB_VEH_Stationary_Turret_CROWS` | 300 | 75 | 50 | 16.67% / 25% |
+| `VB_VEH_Tank_AAV7A1` | 1000 | 200 | 200 | 20% / 20% |
+| `VB_VEH_Tank_Abrams` | 1200 | 200 | 400 | 16.67% / 33.33% |
+| `VB_VEH_Tank_Bradley` | 1000 | 200 | 300 | 20% / 30% |
+| `VB_VEH_Tank_CV90` | 1000 | 200 | 300 | 20% / 30% |
+| `VB_VEH_Tank_Gepard` | 1000 | 200 | 300 | 20% / 30% |
+| `VB_VEH_Tank_Leopard` | 1200 | 200 | 400 | 16.67% / 33.33% |
+
+- Which field is which is not stored: both are 400 on the CB90. `Field_1a7c18f1` is the smaller or equal value on most vehicles but the larger on the MQ-9 and the CROWS turret, so the order cannot be read from the values.
+- If a vehicle turns critical at the lower number and recovers at the higher, a tank turns critical below 200 of 1200 and recovers above 400. That reading is an inference.
+- That the row name "disabled" is EA's "critical health" is a join by meaning.
+
+114 raw-offset checks matched.
+
+Test that would settle the order: damage a tank in steps and note the health at which the critical state starts (200 or 400) and, while it regenerates, where it ends.
+
+## L3348 - Registry rows give one critical-health threshold per vehicle (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3348-vehicle-disabled-threshold-registry-rows.json). Dataset: `reference-data/frosty/vehicle-disabled-threshold-registry.json`. L3347 looked only at the CB90's registry rows. 23 vehicles have the same two rows, `DisabledDamageThreshold` and `ClearDisabledDamageThreshold`, and on every one they hold the same number, which is also the own `Field_6497ebc7`.
+
+| Vehicle | Root health | Registry Disabled = ClearDisabled | Share of health | Own `Field_6497ebc7` | Own `Field_1a7c18f1` |
+|---|---|---|---|---|---|
+| `VB_VEH_Airplane_F16` | 1000 | 300 | 30% | 300 | 200 |
+| `VB_VEH_Airplane_F22` | 1000 | 300 | 30% | 300 | 200 |
+| `VB_VEH_Airplane_JAS39` | 1000 | 300 | 30% | 300 | 200 |
+| `VB_VEH_Airplane_SU57` | 1000 | 300 | 30% | 300 | 200 |
+| `VB_VEH_Boat_CB90` | 1000 | 400 | 40% | 400 | 400 |
+| `VB_VEH_Boat_RHIB` | 1000 | 300 | 30% | 300 | 200 |
+| `VB_VEH_Car_Flyer60` | 1000 | 300 | 30% | 300 | 200 |
+| `VB_VEH_Car_JLTV` | 800 | 300 | 37.5% | 300 | 200 |
+| `VB_VEH_Car_Marauder` | 800 | 300 | 37.5% | 300 | 200 |
+| `VB_VEH_Car_PTV` | 1000 | 300 | 30% | 300 | 200 |
+| `VB_VEH_Car_QuadBike` | 1000 | 300 | 30% | 300 | 200 |
+| `VB_VEH_Car_Vector` | 1000 | 300 | 30% | 300 | 200 |
+| `VB_VEH_Helicopter_AH64E` | 1000 | 300 | 30% | 300 | 200 |
+| `VB_VEH_Helicopter_Eurocopter` | 1000 | 300 | 30% | 300 | 200 |
+| `VB_VEH_Helicopter_UH60` | 1500 | 500 | 33.33% | 500 | 250 |
+| `VB_VEH_Motorcycle_DirtBike01` | 1000 | 300 | 30% | 300 | 300 |
+| `VB_VEH_Motorcycle_DirtBike02` | 1000 | 300 | 30% | 300 | 300 |
+| `VB_VEH_Tank_Abrams` | 1200 | 400 | 33.33% | 400 | 200 |
+| `VB_VEH_Tank_Bradley` | 1000 | 300 | 30% | 300 | 200 |
+| `VB_VEH_Tank_CV90` | 1000 | 300 | 30% | 300 | 200 |
+| `VB_VEH_Tank_Gepard` | 1000 | 300 | 30% | 300 | 200 |
+| `VB_VEH_Tank_Leopard` | 1200 | 400 | 33.33% | 400 | 200 |
+
+- With registry defaults in use there is a single threshold: 400 for tanks (one third of 1200), 500 for the UH60, 300 for the others. **This replaces the reading offered in L3347** (critical below 200, recover above 400).
+- The own `Field_1a7c18f1` is lower than the registry number on 19 vehicles: another own-versus-registry dispute.
+- `RepairRateModifier` is 1.0 on every vehicle with a row.
+
+135 raw-offset checks matched.
+
+Test that would settle it: damage a tank in steps and note the health at which the critical warning and slowed regeneration start (400 by registry, 200 by the own field).
+
+## L3349 - Vehicle passive rows in the registry (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3349-vehicle-passive-registry-rows.json). Dataset: `reference-data/frosty/vehicle-passive-rows.json`. The registry holds 66 rows for vehicle passives. Four statements in EA's [1.3.1.0 notes](https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-1-0) can be compared (Antispotting is taken to be the Targeting Jammer, by name):
+
+| EA statement | Registry row | Default | Reading |
+|---|---|---|---|
+| Targeting Jammers for the IFV & Mobile AA: locking resistance 30% to 40% | `IFV_Antispotting_LockOnTime.LockingTimeMultiplier` | 0.6 | 1 - 0.4 |
+| Targeting Jammers for IFV & Mobile AA deactivation time 4.5 to 10 s (IFV) | `IFV_Antispotting_TimeToReactivate` | 10 | 10 |
+| Targeting Jammers for IFV & Mobile AA deactivation time 4.5 to 10 s (anti-air) | `AA_Antispotting_TimeToReactivate` | 10 | 10 |
+| Mine Sweeping highlights mines in a 30 m area | `Mine Sweep Radius` | 30 | 30 |
+
+- Aircraft anti-radar passives hold a lock multiplier of 0.7 (30%), which EA did not change.
+- How the multiplier is applied is not in the row. If it scales lock speed, a 1.4 s Glaive lock takes 2.33 s against a jammer.
+- The Regeneration passive rows are still present although EA replaced the passive.
+
+All numeric rows that are not 0, -1 or a multiplier of 1:
+
+| Row (prefix `Passives_Vehicles_` or `Vehicles_Passives_` removed) | Default |
+|---|---|
+| `AA_Antispotting_SpotTimeMultiplier.SpotTimeMultiplier` | 0.75 |
+| `AA_Antispotting_TimeToReactivate` | 10 |
+| `AA_EnhancedLoading_Stance1.WeaponReloadSpeedModifier.ReloadSpeedMultiplier` | 1.5 |
+| `AA_EnhancedLoading_Stance2.WeaponReloadSpeedModifier.ReloadSpeedMultiplier` | 1.25 |
+| `AA_EquipmentUpgrade_AirRadarRadiusMultiplier.Value` | 1.5 |
+| `AttackHeli_AntiRadar_AccelerationToMaintain` | 17 |
+| `AttackHeli_AntiRadar_LockOnTime.LockingTimeMultiplier` | 0.7 |
+| `AttackHeli_AntiRadar_SpottingDuration.SpotTimeMultiplier` | 0.75 |
+| `AttackHeli_AntiRadar_VelocityToActivate` | 32 |
+| `AttackHeli_AntiRadar_VelocityToMaintain` | 27.5 |
+| `CaptureSpeed_Affector.Value` | 1.15 |
+| `CombatAwareness_EffectRadius` | 20 |
+| `CombatAwareness_SpottingDuration` | 5 |
+| `FighterPlane_AntiRadar_LockOnTime.LockingTimeMultiplier` | 0.7 |
+| `FighterPlane_AntiRadar_SpottingDuration.SpotTimeMultiplier` | 0.75 |
+| `IFV_Antispotting_LockOnTime.LockingTimeMultiplier` | 0.6 |
+| `IFV_Antispotting_SpotTimeMultiplier.SpotTimeMultiplier` | 0.75 |
+| `IFV_Antispotting_TimeToReactivate` | 10 |
+| `IFV_Durability_DamageRecievedMultiplier` | 0.85 |
+| `IFV_EquipmentUpgrade_ProximityDetectionSystemRadiusMultiplier.Value` | 1.3 |
+| `IFV_Regeneration_Rate` | 110 |
+| `IFV_Regeneration_RegenDelay` | 9.5 |
+| `MBT_Durability_DamageRecievedMultiplier` | 0.85 |
+| `MBT_EnhancedLoading_Stance1.WeaponReloadSpeedModifier.ReloadSpeedMultiplier` | 1.35 |
+| `MBT_EnhancedLoading_Stance2.WeaponOverheatModifier.HeatDropPerSecondMultiplier` | 1.3 |
+| `MBT_EnhancedLoading_Stance2.WeaponOverheatModifier.OverheatedDropMultiplier` | 1.1 |
+| `MBT_Regeneration_Rate` | 132 |
+| `MBT_Regeneration_RegenDelay` | 9.5 |
+| `Medbay_EffectInterval` | 0.9 |
+| `Medbay_EffectRadius` | 12.5 |
+| `Medbay_HealOverTime` | 20 |
+| `Medbay_InitialHeal` | 5 |
+| `Mine Sweep Radius` | 30 |
+| `MobileTrophy_CooldownPerCharge` | 10 |
+| `MobileTrophy_MaxCharges` | 3 |
+| `MobileTrophy_NearbyFriendlySoldierRadius` | 13.5 |
+| `ScoutHeli_AntiRadar_AccelerationToMaintain` | 10 |
+| `ScoutHeli_AntiRadar_VelocityToActivate` | 27.5 |
+| `ScoutHeli_AntiRadar_VelocityToMaintain` | 18.5 |
+| `ScoutHeli_SateliteUplink_SpotDurationMultiplier` | 1.35 |
+| `Shared_Durability_MassMultiplier.Value` | 1.04 |
+| `Shared_EnhancedLoading_HealthThreshold` | 0.6 |
+| `Shared_GunHandling_PitchMultiplier.Value` | 1.3 |
+| `Shared_GunHandling_YawMultiplier.Value` | 1.3 |
+| `Shared_Gunhandling_ImprovedSteeringRatio.Value` | 1.03 |
+
+61 raw-offset checks matched.
+
+Test: time a Glaive lock on an IFV with and without the Targeting Jammer (1.4 s against 2.33 s).
+
+## L3351 - Vehicle registry rows not recorded before (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3351-vehicle-registry-global-rows.json). Dataset: `reference-data/frosty/vehicle-registry-global-rows.json`. `GRX_Vehicles` has 142 rows without an owner prefix; 62 of them were not named anywhere in the docs. All are in the dataset with default, minimum and maximum. These are registry defaults: the row name is the only description, units are implied by the name, and nothing here shows which mode reads a row.
+
+Rows matching `Radius / Duration / Damage / Time / Speed / Health / Range / Multiplier / Delay` (31 of 62):
+
+| Row | Default | Min | Max |
+|---|---|---|---|
+| `120mmILL_Radius` | 36 | 0 | 0 |
+| `120mmILL_SpotDuration` | 7 | 0 | 0 |
+| `APC_RetainOwnership_Radius` | 25 | 10 | 40 |
+| `BoatRampSpeedCheckDeploy` | 9 | 0 | 0 |
+| `BoatRampSpeedCheckUndeploy` | 12 | 0 | 0 |
+| `BoatUnoccupiedCheckTimeInterval` | 2 | 1 | 5 |
+| `HUD_RangeFinder_HelicopterRange` | 2000 | 0 | 2000 |
+| `HUD_RangeFinder_TanksRange` | 1000 | 0 | 2000 |
+| `HUD_RangeFinderAbsoluteMaximumRange` | 2000 | 0 | 2000 |
+| `JetAimAssistMaxRange` | 500 | 0 | 1000 |
+| `JetAimAssistMinRange` | 50 | 0 | 200 |
+| `PhalanxAimEscalationTime` | 13 | 0.01 | 30 |
+| `PhalanxAimRotationSpeed` | 270 | 30 | 720 |
+| `PhalanxBurstDuration` | 3 | 0 | 5 |
+| `TurretSpeedVisualMax` | 360 | 0 | 1800 |
+| `TurretSpeedVisualMin` | 45 | 0 | 1800 |
+| `TVmissileRollBlendTime` | 1.5 | 0.2 | 5 |
+| `UnoccupiedBoatRadius` | 10 | 0 | 0 |
+| `Vehicle_AirCombat_KeepAliveRadius` | 75 | 0 | 0 |
+| `Vehicle_AirCombat_TimeUntilAbandonned` | 10 | 0 | 0 |
+| `Vehicle_Combat_KeepAliveRadius` | 20 | 0 | 0 |
+| `Vehicle_Combat_KeepAliveSpawnerRadius` | 110 | 0 | 0 |
+| `Vehicle_Combat_TimeUntilAbandonned` | 5 | 0 | 0 |
+| `Vehicle_Combat_TimeUntilAbandonned_TeamSpawners` | 120 | 0 | 0 |
+| `Vehicle_Combat_TimeUntilAbandonnedIsDestroyed` | 15 | 0 | 0 |
+| `Vehicle_InWorld_DefaultRespawnDelay` | 5 | 1 | 0 |
+| `Vehicle_InWorld_Enemy_LocalSpottingRadius` | 10 | 0 | 0 |
+| `Vehicle_InWorld_KeepAliveRadius` | 125 | 0 | 0 |
+| `Vehicle_InWorld_KeepAliveSpawnerRadius` | 20 | 0 | 0 |
+| `Vehicle_InWorld_TimeUntilAbandonned` | 5 | 0 | 0 |
+| `Vehicle_InWorld_TimeUntilAbandonnedIsDestroyed` | 15 | 0 | 0 |
+
+62 raw-offset checks matched.
+
+## L3354 - Vehicle ability active and recharge times (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3354-vehicle-ability-times.json). Dataset: `reference-data/frosty/vehicle-ability-times.json`. Registry rows `Ability_*.ActiveTime` and `Ability_*.RechargeTime`. The own value is shown where the ability file is saved and differs. On the ability object (`Class_4918a771`), `Field_143f8e7a` is ActiveTime and `Field_bcfe8c70` is RechargeTime, named by the abilities where both sources agree.
+
+| Ability | Active time (s) | Recharge time (s) |
+|---|---|---|
+| `Ability_APC_ExplosivesDetectionDetonationSystem` | 0.4 (own 0.1) | 20 |
+| `Ability_APC_Passenger_SmokeLauncher` | 0.25 | 30 |
+| `Ability_APC_ProximityDetectionSystem` | 12 | 20 |
+| `Ability_AttackHeli_Countermeasure_Flares` | 1.8 | 15 |
+| `Ability_AttackHeli_GroundTargetDetection` | 15 | 25 |
+| `Ability_AttackPlane_Countermeasure_Flares` | 1.8 | 15 |
+| `Ability_CV90_AdvancedThreatDetectionSystem` | 10 (own 20) | 15 (own 20) |
+| `Ability_CV90_Passenger_SmokeLauncher` | 0.25 | 30 |
+| `Ability_CV90_ProximityDetectionSystem` | 12 (own 20) | 20 |
+| `Ability_Car_EmergencyDamageControl` | 0.4 | 24 (own 30) |
+| `Ability_FighterPlane_Countermeasure_Flares` | 1.8 | 15 |
+| `Ability_Helicopter_EmergencyDamageControl` | 0.4 | 24 (own 30) |
+| `Ability_MBT_ActiveProtectionSystem` | 5 (own 4) | 32 |
+| `Ability_MBT_ExplosivesDetectionDetonationSystem` | 0.4 | 20 |
+| `Ability_MBT_SwitchAmmo` | 0 | 0.5 |
+| `Ability_ScoutHeli_Countermeasure_Flares` | 1.8 | 15 |
+| `Ability_UH60_Countermeasure_Flares` | 1.8 | 15 |
+| `Ability_Vehicle_RWS_ActiveMissileWarningAndKillSystem` | 3.6 | 20 |
+| `Ability_Vehicle_SmokeScreen` | 8.1 | 16 (own 20) |
+| `Ability_Vehicle_ThermalSmoke` | 10 (own 7) | 16 (own 20) |
+
+- Flares: 1.8 s active, 15 s recharge on every aircraft.
+- Disputed pairs are marked "(own ...)"; the registry default is the likely value in use (L3327, L3339) but that is not verified for abilities.
+- Thermal smoke damage to infantry (multiplayer rows): DamageInterval 0.5, DamageToDealPerSecond 12, InitialDamage 25.
+- EA's smoke screen cooldown of 16 s is the `RechargeTime` row (L3344).
+
+119 raw-offset checks matched.
+
+Tests: time the tank's active protection window (5 s or 4 s) and the emergency repair cooldown (24 s or 30 s).
+
+## L3355 - Registry over own holds for vehicle abilities (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3355-ability-registry-over-own-confirmed.json). L3354 left open which value applies when an ability's own time differs from its registry default. EA's [1.3.1.0 notes](https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-1-0) state two of those changes:
+
+| EA statement | Ability | Own value | Registry default |
+|---|---|---|---|
+| Smoke Screen cooldown 20 to 16 s | `Ability_Vehicle_SmokeScreen` RechargeTime | 20 | 16 |
+| Thermal Smoke active duration increased by 3 s | `Ability_Vehicle_ThermalSmoke` ActiveTime | 7 | 10 |
+
+The own value is the number before the change and the registry default the number after it, as with weapon damage (L3327, L3339) and missile speed (L3343). So thermal smoke lasts 10 s, and the other disputed abilities of L3354 most likely use their registry defaults too (tank active protection 5 s, emergency repair recharge 24 s); that extension is an inference. 6 raw-offset checks matched.
+
+## L3357 - Vehicle cannons, canister rounds and the grenade launcher station (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3357-vehicle-cannon-damage.json). Dataset: `reference-data/frosty/vehicle-cannon-damage.json`. Damage per hit = registry damage (close range) x grid value; a blast, where the file has one, follows the plus sign. Own values are shown where they differ. Names are joined to files by name only and none has an EA figure.
+
+| Weapon | File | Close / far damage | Blast | Soldier body | Tanks, IFVs (119) | Helicopters (121) | Jets (120) | Flyer, Vector, RHIB (122) | Quad, bikes (187) |
+|---|---|---|---|---|---|---|---|---|---|
+| Tank canister shell (per pellet) | `PD_Vehicles_MBT_AmmoTypes_Canister` | 50 / 30 | - | 50 | 0 | 30 | 40 | 25 | 75 |
+| IFV canister round (per pellet) | `PD_Vehicles_IFV_PrimaryWeapon_Canister` | 15 / 5 | - | 15 | 0 | 13.5 | 25.5 | 7.5 | 15 |
+| Grenade launcher station (AGL) | `PB_Vehicle_AGL_Grenade` | 32 / 32 | 70 | 32 + 70 | 9.6 | 64 + 210 | 96 + 189 | 40 + 105 | 83.2 + 175 |
+| Attack helicopter gunner chaingun | `WF_Vehicles_AttackHeli_Passenger_PrimaryWeapon_Chaingun` | 22 (own 50) / 22 (own 50) | 30 | 22 + 30 | 22 | 88 | 110 | 27.5 + 30 | 57.2 + 30 |
+| Jet cannon | `WF_Vehicles_Airplane_PrimaryWeapon_Cannon` | 34 / 34 | - | 51 | 10.2 | 36.04 | 73.1 | 42.5 | 88.4 |
+| Stationary anti-air gun | `PD_Vehicles_Stationary_AntiAir` | 30 / 22 | - | 30 | 10.5 | 60 | 75 | 37.5 | 78 |
+| Stationary 20 mm rotary cannon | `WF_Vehicles_SAA_PrimaryWeapon_20mmRotaryCannon` | 10 / 10 | - | 10 | 10 | 40 | 50 | 12.5 | 26 |
+
+- Canister pellets do nothing to armour (grid value 0). Pellets per shot were not read.
+- The jet cannon multiplies by 1.5 against soldiers.
+- The gunner chaingun's registry damage is 22, own 50; the registry value applies by L3356.
+
+5625 raw-offset checks matched.
+
+Tests: gunner chaingun hits to destroy a hovering attack helicopter (88 or 200 per hit); one point-blank canister shot on a soldier-sized target to count pellets.
+
+## L3358 - EA's Battle Royale vehicle lines (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3358-ea-battle-royale-vehicle-lines.json). From the [1.3.1.0 notes](https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-1-0):
+
+| EA 1.3.1.0 Battle Royale line | Stored value | Value | Result |
+|---|---|---|---|
+| Tanks now autospot on the enemy minimap from up to 300m away. | `GraniteBR_TankAutoSpotRadius` | 300.0 | equal |
+| UH-79 was using the Multiplayer health value of 1500 instead of the Battle Royale value of 1250. | `VB_VEH_Helicopter_UH60 root health (Field_9040392c)` | 1500 | multiplayer value equal; no stored 1250 found |
+| UH-79 minigun bullets are now affected by armour and deal a flat 20 damage. | `WF_Vehicles_TransportHeli_Gunner_Minigun StartDamage / EndDamage` | 34 / 20 | multiplayer row only; its far damage is 20 |
+| UH-79 miniguns ... overheat penalty is now three times longer. | `OverHeatPenaltyTime, HeatDropPerSecond` | 0, 0.3 | multiplayer row only; penalty 0, so 'three times' cannot be read from it |
+| Increased UH-79 minigun dispersion from 1.2 to 2.4 degrees. | `none for the vehicle minigun` | - | no row |
+| Increased the XFGM-6D Recon Drone cooldown from 120 seconds to 240 seconds. | `none` | - | no row with 240 or 120 for the drone |
+
+- EA confirms 1500 as the UH-79's multiplayer health (stored root health; with the tank 1200 and armoured transport 800 of L3334 that is three official health values).
+- The Battle Royale overrides have no registry row; they are not needed for multiplayer pages.
+- The `GS_Minigun` dispersion rows belong to a soldier weapon and are not evidence for the vehicle minigun.
+
+6 raw-offset checks matched.
+
+## L3363 - Earlier soldier figures rechecked under the array rule (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3363-soldier-figures-array-recheck.json). Dataset: `reference-data/frosty/soldier-figures-array-recheck.json`. L3362 (WEAPONS.md) showed that a soldier body-part cell uses its multiplier array where it has one. The 43 materials used for soldier figures in L3329, L3338, L3342 and L3357 were re-read:
+
+- 38 have no array against the abdomen (all explosions, cannon shells, grenades, missiles): those figures stand.
+- Materials 288, 289 and 621 have 0.84 for abdomen and limb against a scalar of 1.0. The 'soldier body' figures recorded for them are chest values:
+
+| File | Bullet material | Close / far damage (registry) | Chest | Stomach and limbs (x0.84) |
+|---|---|---|---|---|
+| `PD_Vehicles_MBT_SecondaryWeapon_CoaxLMG` | 288 | 35 / 21 | 35 / 21 | 29.4 / 17.64 |
+| `PD_Vehicles_RWS_LMG` | 288 | 36 / 19 | 36 / 19 | 30.24 / 15.96 |
+| `PD_Vehicles_MBT_AmmoTypes_Canister` | 289 | 50 / 30 | 50 / 30 | 42 / 25.2 |
+| `PD_Vehicles_MBT_SecondaryWeapon_CoaxHMG` | 289 | 50 / 30 | 50 / 30 | 42 / 25.2 |
+| `PD_Vehicles_RWS_HMG` | 289 | 50 / 24 | 50 / 24 | 42 / 20.16 |
+| `WF_Vehicles_ScoutHeli_PrimaryWeapon_GAU19` | 289 | 50 / 24 | 50 / 24 | 42 / 20.16 |
+| `WF_Vehicles_ScoutHeli_PrimaryWeapon_Minigun` | 621 | 34 / 18 | 34 / 18 | 28.56 / 15.12 |
+| `WF_Vehicles_TransportHeli_Gunner_Minigun` | 621 | 34 / 20 | 34 / 20 | 28.56 / 16.8 |
+
+- Headshots for these bullets: scalar 1.34 (L3338); the head table also holds 1.4 and the index used by vehicle weapons is not read.
+
+50 raw-offset checks matched.
+
+Test: one coax machine gun headshot on a full-health soldier at close range.
+
+## L3364 - Small-arms bullets against vehicles and the Improved Armor material (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3364-small-arms-vs-vehicles.json). Dataset: `reference-data/frosty/small-arms-vs-vehicles.json`. Grid scalar (`Field_674633de`) per bullet material and vehicle target material; both level grids agree. Vehicle cells have no multiplier array.
+
+| Bullet material | Bullet files | Helicopters (121), key 0 / key 2 | Jets (120) | Armour (119) | Flyer, Vector, RHIB (122) | Quad, bikes (187) | Material 508 |
+|---|---|---|---|---|---|---|---|
+| 275 | .40SW, .45ACP, 57x28mm +1 | 0.16 / 0.56 | 0.3 | 0 | 0 | 0.13 | 0.55 |
+| 276 | .300BLK_Carbine, 545x39mm_Carbine, 556x45mmNATO_Carbine +4 | 0.25 / 0.65 | 0.5 | 0 | 0 | 0.175 | 0.5 |
+| 277 | 545x39mm, 556x45mmNATO, 762x39mm | 0.4 / 0.8 | 0.7 | 0 | 0.25 | 0.35 | 0.5 |
+| 278 | 545x39mm_MG, 556x45mmNATO_MG, 762x39mm_MG | 0.6 / 1 | 0.8 | 0 | 0.5 | 0.7 | 0.5 |
+| 279 | 12gaNo00Buck275_Pump, 12gaNo00Buck275_Semi, 12gaNo00Buck300_Pump +5 | 0 | 0 | 0 | 0.25 | 0.5 | 0.5 |
+| 286 | 12gaSlug275_Pump, 12gaSlug275_Semi, 12gaSlug300_Pump +1 | 0 | 0 | 0 | 0.25 | 0.5 | 0.5 |
+| 288 | Vehicles_MBT_SecondaryWeapon_CoaxLMG, Vehicles_RWS_LMG | 0.8 / 0.8 | 0.7 | 0 | 0.25 | 1.2 | 1 |
+| 289 | Vehicles_MBT_SecondaryWeapon_CoaxHMG, Vehicles_RWS_HMG, Vehicles_MBT_AmmoTypes_Canister | 0.6 / 1 | 0.8 | 0 | 0.5 | 1.5 | 1 |
+| 290 | .300WinMag, .300WinMag_Match, .338LapuaMagnum2 +5 | 0.4 / 0.8 | 0.7 | 0 | 0.55 | 0.6 | 0.5 |
+| 291 | 556x45mmNATO_Semi | 0.4 / 0.8 | 0.7 | 0 | 0.5 | 0.65 | 0.5 |
+| 340 | Vehicles_IFV_PrimaryWeapon_Canister | 0.9 | 1.7 | 0 | 0.5 | 1 | 1 |
+| 351 | 556x45mmNATO_Bolt | 0.4 / 0.8 | 0.7 | 0 | 0.55 | 0.6 | 0.5 |
+| 491 | .357Magnum, .44Magnum | 0.16 / 0.56 | 0.3 | 0 | 0 | 0.13 | 0.55 |
+| 492 | 46x30_PDW, 57x28mm_PDW | 0.16 / 0.56 | 0.3 | 0 | 0.4 | 0.25 | 0.5 |
+| 493 | .40SW_PDW, 10x25mm_PDW, 32ACP_PDW +1 | 0.16 / 0.56 | 0.3 | 0 | 0.4 | 0.25 | 0.5 |
+| 494 | 68x51mm_Carbine, 762x51mmNATO_Carbine | 0.25 / 0.65 | 0.5 | 0 | 0 | 0.175 | 0.5 |
+| 496 | 762x51mmNATO, 762x51mmNATO_MG | 0.4 / 0.8 | 0.7 | 0 | 0.25 | 0.35 | 0.5 |
+| 497 | 68x51mm_MG | 0.6 / 1 | 0.8 | 0 | 0.5 | 0.7 | 0.5 |
+| 498 | .338LapuaMagnum_Semi, .338LapuaMagnum_Semi_Match, 762x51mmNATO_Semi +3 | 0.4 / 0.8 | 0.7 | 0 | 0.5 | 0.65 | 0.5 |
+| 499 | 12gaFlechette275_Pump, 12gaFlechette275_Semi, 12gaFlechette300_Pump +1 | 0 | 0 | 0 | 0.25 | 0.5 | 0.5 |
+| 606 | Vehicles_Airplane_PrimaryWeapon_Cannon | 1.06 | 2.15 | 0.3 | 1.25 | 2.6 | none |
+| 621 | 556x45mmNATO_Minigun | 0.4 / 0.8 | 0.7 | 0 | 0.25 | 1.2 | 1 |
+| 784 | .416Barrett, .416Barrett_Match | 0.4 / 0.8 | 0.7 | 0 | 0.55 | 0.6 | 0.5 |
+
+- Armour (119): 0 for every infantry bullet.
+- Helicopters (121): two records with keys 0 and 2 for rifle and pistol calibres; the selector is not read. L3338 and L3357 recorded the key 0 value.
+- `Affector_Vehicle_Passive_AttackHeli_ImprovedArmor` holds packed material 532676736 (ID 508). The last column is each bullet against 508: 0.5 for infantry bullets, 1.0 for vehicle machine guns. The UI says the passive gives resistance against most infantry weapons, and EA's [1.3.1.0 notes](https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-1-0) say it reduces small arms damage. How 508 combines with the helicopter value is not read.
+
+116 raw-offset checks matched.
+
+Test: one assault rifle bullet on a Scout Helicopter and on an Attack Helicopter with Improved Armor, reading health lost.
+
+## L3368 - Keyed grid records exist only against helicopters (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3368-keyed-records-helicopters-only.json). A scan of every source material against 14 target materials (12,838 cells) finds a second record with key 2 only against the helicopter material 121:
+
+| Key 0 value | Key 2 value | Difference | Projectile materials |
+|---|---|---|---|
+| 0.16 | 0.56 | 0.4 | 275, 426, 491, 492, 493, 495, 500 |
+| 0.25 | 0.65 | 0.4 | 276, 413, 494, 757 |
+| 0.4 | 0.8 | 0.4 | 277, 290, 291, 351, 410, 486, 490, 496, 498, 501, 621, 631, 660, 784 |
+| 0.6 | 1 | 0.4 | 278, 289, 497, 589, 630 |
+| 0.8 | 0.8 | 0 | 288 |
+
+- No tank, jet, light vehicle, boat or soldier cell has a keyed record.
+- The step is 0.4 except for material 288 (vehicle light machine gun, 0.8 both).
+- All helicopters use material 121, so the switch is something on the helicopter. Candidate: the Improved Armor passive. Not traced; see L3364 for the second candidate (material 508).
+
+84 raw-offset checks matched.
+
+## L3369 - Vehicle machine gun headshots use index 11, so 1.4 (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3369-vehicle-weapon-head-index.json). Dataset: `reference-data/frosty/vehicle-weapon-head-index.json`. Registry rows `<weapon>.PrimaryFire.Shot.DamageProtectionMultiplierIndex` pick the entry of the head table `[1, 1.34, 1.5, 1.75, 1.8, 1, 1, 1, 1, 1, 1, 1.4, 1.57, 1.8, 1.8]`. All nine vehicle weapon rows hold 11:
+
+| Weapon row | Index | Projectile material | Close / far damage | Headshot close / far (x1.4) | Close headshot at the old 1.34 |
+|---|---|---|---|---|---|
+| `WF_Vehicles_APC_FiringPortWeapon` | 11 | not read | - | - | - |
+| `WF_Vehicles_MBT_SecondaryWeapon_CoaxHMG` | 11 | 289 | 50 / 30 | 70 / 42 | 67 |
+| `WF_Vehicles_MBT_SecondaryWeapon_CoaxLMG` | 11 | 288 | 35 / 21 | 49 / 29.4 | 46.9 |
+| `WF_Vehicles_OpenGunner_HMG` | 11 | not read | - | - | - |
+| `WF_Vehicles_RWS_HMG` | 11 | 289 | 50 / 24 | 70 / 33.6 | 67 |
+| `WF_Vehicles_RWS_LMG` | 11 | 288 | 36 / 19 | 50.4 / 26.6 | 48.24 |
+| `WF_Vehicles_ScoutHeli_PrimaryWeapon_GAU19` | 11 | 289 | 50 / 24 | 70 / 33.6 | 67 |
+| `WF_Vehicles_ScoutHeli_PrimaryWeapon_Minigun` | 11 | 621 | 34 / 18 | 47.6 / 25.2 | 45.56 |
+| `WF_Vehicles_TransportHeli_Gunner_Minigun` | 11 | 621 | 34 / 20 | 47.6 / 28 | 45.56 |
+
+- Replaces the head value 1.34 in L3338, which was the cell scalar.
+- Soldier multipliers for these guns: head 1.4, chest 1.0, stomach and limbs 0.84 (L3363).
+- The own value of the index in the vehicle files is not read.
+
+13 raw-offset checks matched.
+
+Test: one coax machine gun headshot on a full-health soldier at close range.
+
+## L3371 - Vehicle machine gun velocity: own 760 is EA's figure, registry 890 is the old one (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3371-vehicle-mg-velocity-own-vs-registry.json). Dataset: `reference-data/frosty/vehicle-mg-velocity.json`. L3335 found the registry velocity rows unequal to EA's [1.3.1.0](https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-1-0) figures. The files' own values:
+
+| Firing file | Own value | Registry default | EA 1.3.1.0 old to new |
+|---|---|---|---|
+| `WF_Vehicles_MBT_SecondaryWeapon_CoaxHMG` | 760 | 890 | 890 to 760 |
+| `WF_Vehicles_MBT_SecondaryWeapon_CoaxLMG` | 600 | 737 | 850 to 670 |
+| `WF_Vehicles_PatrolBoat_PrimaryWeapon_GAU19` | 890 | - | - |
+| `WF_Vehicles_RWS_HMG` | 760 | 890 | 890 to 760 |
+| `WF_Vehicles_RWS_HMG-SP` | 890 | 890 | - |
+| `WF_Vehicles_RWS_LMG` | 600 | 737 | 850 to 670 |
+| `WF_Vehicles_ScoutHeli_PrimaryWeapon_GAU19` | 860 | 860 | - |
+| `WF_Vehicles_ScoutHeli_PrimaryWeapon_Minigun` | 700 | 700 | - |
+| `WF_Vehicles_OpenGunner_HMG` | 760 | 890 | - |
+| `WF_Vehicles_TransportHeli_Gunner_Minigun` | 700 | 700 | - |
+
+- Heavy machine guns: own 760 equals EA's new figure; the registry default 890 is EA's old one. This is an exception to the registry-first rule of L3356 (ROSTER_VALUES.md).
+- Light machine guns: neither 600 nor 737 equals EA's 670 (737 = 670 x 1.1, arithmetic only).
+- Miniguns and the Scout Helicopter GAU-19 agree in both places.
+
+19 raw-offset checks matched.
+
+Test: time a coaxial HMG bullet to a wall 380 m away (0.5 s for 760, 0.43 s for 890).
+
+## L3372 - Launch speed in file and registry, all vehicle weapons (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3372-vehicle-weapon-velocity-own-vs-registry-survey.json). Dataset: `reference-data/frosty/vehicle-weapon-launch-speed.json`. 59 firing files: 36 have a registry row equal to the file's value, 16 have no row, seven differ:
+
+| Firing file | Own value | Registry default | EA |
+|---|---|---|---|
+| `WF_Vehicles_AttackHeli_PrimaryWeapon_SmartRockets` | 180 | 360 | no EA line on file |
+| `WF_Vehicles_IFV_PrimaryWeapon_APFSDST` | 375 | 445 | EA 1.3.3.0: 375 to 445 |
+| `WF_Vehicles_MBT_SecondaryWeapon_CoaxHMG` | 760 | 890 | EA 1.3.1.0: 890 to 760 |
+| `WF_Vehicles_MBT_SecondaryWeapon_CoaxLMG` | 600 | 737 | EA 1.3.1.0: 850 to 670 |
+| `WF_Vehicles_OpenGunner_HMG` | 760 | 890 | no line for this gun (EA names RWS and coaxial) |
+| `WF_Vehicles_RWS_HMG` | 760 | 890 | EA 1.3.1.0: 890 to 760 |
+| `WF_Vehicles_RWS_LMG` | 600 | 737 | EA 1.3.1.0: 850 to 670 |
+
+- IFV AP shell: the usual direction (registry new, file old).
+- Machine guns: see L3371; the open-gunner HMG behaves like the other heavy machine guns.
+- Attack Helicopter Smart Rockets: 180 in the file, 360 in the registry and in the Scout Helicopter's file. No EA line.
+
+18 raw-offset checks matched. Full list: `reference-data/frosty/vehicle-weapon-launch-speed.json`.
+
+Test: time an Attack Helicopter Smart Rocket to a target 360 m away (1 s for 360, 2 s for 180).
+
+## L3373 - Rate of fire, magazine and heat in file and registry, all vehicle weapons (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3373-vehicle-weapon-own-vs-registry-rate-magazine-heat.json). Dataset: `reference-data/frosty/vehicle-weapon-own-vs-registry.json`. | Property | Equal | Different | No registry row |
+|---|---|---|---|
+| RateOfFire | 42 | 6 | 20 |
+| MagazineCapacity | 46 | 3 | 19 |
+| HeatPerBullet | 12 | 2 | 54 |
+
+The 11 differences:
+
+| Firing file | Property | Own value | Registry default | EA |
+|---|---|---|---|---|
+| `WF_Vehicles_AA_PrimaryWeapon_AAHV` | HeatPerBullet | 0.042 | 0.036 | 1.3.3.0: heat per bullet 4.2% to 3.6% |
+| `WF_Vehicles_AA_SecondaryWeapon_AimGuidedMissile` | MagazineCapacity | 2 | 1 | no line on file |
+| `WF_Vehicles_Airplane_Bomb_Mk82AIR` | RateOfFire | 300 | 1200 | no line on file |
+| `WF_Vehicles_IFV_PrimaryWeapon_APFSDST` | RateOfFire | 200 | 160 | 1.3.1.0: 200 to 120; 1.3.3.0: 120 to 160 |
+| `WF_Vehicles_IFV_PrimaryWeapon_APFSDST` | MagazineCapacity | 12 | 10 | 1.3.1.0: 12 to 10 |
+| `WF_Vehicles_IFV_PrimaryWeapon_Canister` | RateOfFire | 200 | 240 | 1.3.1.0: 200 to 240 |
+| `WF_Vehicles_IFV_PrimaryWeapon_Canister` | MagazineCapacity | 12 | 16 | 1.3.1.0: 12 to 16 |
+| `WF_Vehicles_IFV_PrimaryWeapon_HEAB` | RateOfFire | 200 | 180 | 1.3.1.0: 200 to 180 |
+| `WF_Vehicles_MBT_SecondaryWeapon_CoaxLMG` | RateOfFire | 700 | 720 | no line on file |
+| `WF_Vehicles_ScoutHeli_Passenger_PrimaryWeapon_ThermalScanner` | RateOfFire | 3600 | 300 | no line on file |
+| `WF_Vehicles_ScoutHeli_PrimaryWeapon_Minigun` | HeatPerBullet | 0.006667 | 0.008889 | no line on file |
+
+- All six with an EA figure: registry = EA's new number, file = EA's old number. The registry-first rule (L3356) holds here.
+- Five have no EA line; the registry value is taken as current by that rule, unconfirmed.
+- The machine gun velocity (L3371) remains the only case where the file is newer.
+
+22 raw-offset checks matched.
+
+Test: count Scout Helicopter minigun shots to overheat (112 or 150).
+
+## L3382 - Vehicle health override affectors (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3382-vehicle-health-override-affectors.json). Dataset: `reference-data/frosty/vehicle-health-override-affectors.json`. Class `Class_15cfe943`; `Field_9040392c` is the health hash of vehicle bodies. Multiplayer and Battle Royale:
+
+| Affector file | Health (`9040392c`) | `6f28bf9c` | `cbf2ad7c` | `8e30ee56` |
+|---|---|---|---|---|
+| `Affector_Vehicles_MP_DisabledStateHealthRegeneration` | 0 | 0 | 0.25 | 1 |
+| `Affector_UH60VehicleHealthOverride_F2P` | 1250 | 200 | 0 | 1 |
+| `Affector_IFVVehicleHealthOverride_F2P` | 750 | 200 | 0 | 1 |
+| `Affector_TankVehicleHealthOverride_F2P` | 800 | 200 | 0 | 1 |
+
+- UH-79 override 1250 equals EA's [1.3.1.0](https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-1-0) Battle Royale value; L3358 had found no stored 1250.
+- `6f28bf9c` (200) fits a critical-health threshold; `cbf2ad7c` 0.25 on the multiplayer disabled-state affector is near EA's 'slowed by 80 percent' (which would be 0.2) and is not recorded as that figure.
+
+Single-player modifiers (not for multiplayer pages):
+
+| Affector file | Health (`9040392c`) | `6f28bf9c` | `cbf2ad7c` | `8e30ee56` |
+|---|---|---|---|---|
+| `Affector_VehicleHealthMod_Eurocopter_Enemy_NightRaid_SP` | 4000 | 800 | - | - |
+| `Affector_VehicleHealthMod_AAV7A1_Player_SP` | 2500 | 500 | - | - |
+| `Affector_VehicleHealthMod_Abrams_Player_SP` | 1000 | 200 | - | - |
+| `Affector_VehicleHealthMod_Abrams_Squad_SP` | 1000 | 200 | - | - |
+| `Affector_VehicleHealthMod_Bradley_M03_Escort_SP` | 1500 | 300 | - | - |
+| `Affector_VehicleHealthMod_CV90_Enemy_SP` | 500 | 100 | - | - |
+| `Affector_VehicleHealthMod_Cheetah_Enemy_SP` | 320 | 100 | - | - |
+| `Affector_VehicleHealthMod_Leopard_Enemy_SP` | 450 | 120 | - | - |
+| `Affector_VehicleHealthMod_Oerlikon_Enemy_SP` | 300 | 100 | - | - |
+| `Affector_VehicleHealthMod_UH60_Enemy_SP` | 600 | 150 | - | - |
+| `Affector_VehicleHealthMod_Marauder_Enemy_SP` | 400 | 100 | - | - |
+| `Affector_VehicleHealthMod_Quadbike_Enemy_SP` | 400 | 100 | - | - |
+| `Affector_VehicleHealthMod_Vector_Enemy_SP` | 400 | 100 | - | - |
+
+42 raw-offset checks matched.
+
+## L3383 - Vehicle upgrade multiplier affectors against registry rank rows (9 October 2026) - Replaced by L3384 (counts corrected)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3383-vehicle-upgrade-multiplier-affectors.json). Dataset: `reference-data/frosty/vehicle-upgrade-multiplier-affectors.json`. One multiplier per affector file (`Field_8cf424e7`, lock-on time `Field_e2280e0b`, spot time `Field_f95f67f4`). Registry pairing is by name only. Rows that differ come first, then rows that agree, then file-only values:
+
+| Affector file | File value | Registry row (name-only join) | Registry default |
+|---|---|---|---|
+| `Affector_Vehicles_Abilities_IFV_Antispotting_LockOnTime` | 0.8 | `Passives_Vehicles_IFV_Antispotting_LockOnTime.RankData[0].LockingTimeMultiplier` | 0.6 |
+| `Affector_Vehicles_Abilities_AttackHeli_AntiRadar_LockOnTime` | 0.8 | `Passives_Vehicles_AttackHeli_AntiRadar_LockOnTime.RankData[0].LockingTimeMultiplier` | 0.7 |
+| `Affector_VEH_PassiveAbility_CaptureSpeed` | 1.1 | `Passives_Vehicles_CaptureSpeed_Affector.RankData[0].Value` | 1.15 |
+| `Affector_Vehicles_6Wheels_ImprovedSteeringRatio` | 1.02 | `Passives_Vehicles_Shared_Gunhandling_ImprovedSteeringRatio.RankData[0].Value` | 1.03 |
+| `Affector_VEH_Tank_TurretVelocity_YawMultiplier` | 1.2 | `Passives_Vehicles_Shared_GunHandling_YawMultiplier.RankData[0].Value` | 1.3 |
+| `Affector_VEH_Tank_TurretVelocity_PitchMultiplier` | 1.2 | `Passives_Vehicles_Shared_GunHandling_PitchMultiplier.RankData[0].Value` | 1.3 |
+| `Affector_Vehicles_Abilities_IFV_Antispotting_SpotTimeMultiplier` | 0.75 | `Passives_Vehicles_IFV_Antispotting_SpotTimeMultiplier.RankData[0].SpotTimeMultiplier` | 0.75 |
+| `Affector_Vehicles_Abilities_AA_Antispotting_SpotTimeMultiplier` | 0.75 | `Passives_Vehicles_AA_Antispotting_SpotTimeMultiplier.RankData[0].SpotTimeMultiplier` | 0.75 |
+| `Affector_Vehicles_Abilities_AttackHeli_AntiRadar_SpottingDuration` | 0.75 | `Passives_Vehicles_AttackHeli_AntiRadar_SpottingDuration.RankData[0].SpotTimeMultiplier` | 0.75 |
+| `Affector_Vehicles_Abilities_AttackHeli_GroundTargetDetection_LockOnTime` | 1.1 | `Vehicle_Ability_AttackHeli_GroundTargetDetection_LockOnTimePenalty.RankData[0].LockingTimeMultiplier` | 1.1 |
+| `Affector_VEH_Ability_ProximityDetectionSystem_RangeIncreaseModifier` | 1.3 | `Passives_Vehicles_IFV_EquipmentUpgrade_ProximityDetectionSystemRadiusMultiplier.RankData[0].Value` | 1.3 |
+| `Affector_Vehicles_6Wheels_MassMultiplier` | 1.04 | `Passives_Vehicles_Shared_Durability_MassMultiplier.RankData[0].Value` | 1.04 |
+| `Affector_VEH_AirRadarRangeIncreaseMultiplier` | 1.5 | `Passives_Vehicles_AA_EquipmentUpgrade_AirRadarRadiusMultiplier.RankData[0].Value` | 1.5 |
+| `Affector_Vehicles_Abilities_AA_Antispotting_LockOnTime` | 0.8 | none | - |
+| `Affector_VEH_GroundRadarRangeIncreaseMultiplier` | 1.5 | none | - |
+| `Affector_Vehicles_Boost_ConsumptionRate` | 1.15 | none | - |
+| `Affector_Vehicles_Boost_RecoveryReduction` | 0.5 | none | - |
+| `Affector_Vehicles_CruiseSpeedReductionModifier` | 0.84 | none | - |
+| `Affector_Vehicles_IFV_CruiseSpeedModifier` | 0.92 | none | - |
+| `Affector_Vehicles_MBT_CruiseSpeedModifier` | 0.92 | none | - |
+| `Affector_Vehicles_Rotor_EngineUpgradeMultiplier` | 1.15 | none | - |
+| `Affector_Vehicles_Rotor_MassMultiplier` | 0.85 | none | - |
+| `Affector_Vehicles_TailRotor_StabilizerMultiplier` | 0.5 | none | - |
+
+- Registry and file values are recorded separately. By L3356 and L3373 the registry is the likelier live value where they differ; that rule was shown for weapon rows only.
+- File-only values can be stale (L3343).
+
+36 raw-offset checks matched.
+
+Tests: time a full turret turn with and without the gun handling upgrade; lock-on time against an IFV with the anti-spotting upgrade.
+
+## L3384 - Vehicle upgrade multiplier affectors, corrected counts (replaces L3383) (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3384-vehicle-upgrade-multiplier-affectors-corrected.json). Dataset: `reference-data/frosty/vehicle-upgrade-multiplier-affectors-corrected.json`. L3383 stated 14 pairs, eight agreeing and nine file-only; the table it printed was right and the counts are 13, seven and ten. One multiplier per affector file (`Field_8cf424e7`, lock-on time `Field_e2280e0b`, spot time `Field_f95f67f4`). Registry pairing is by name only. Rows that differ come first, then rows that agree, then file-only values:
+
+| Affector file | File value | Registry row (name-only join) | Registry default |
+|---|---|---|---|
+| `Affector_Vehicles_Abilities_IFV_Antispotting_LockOnTime` | 0.8 | `Passives_Vehicles_IFV_Antispotting_LockOnTime.RankData[0].LockingTimeMultiplier` | 0.6 |
+| `Affector_Vehicles_Abilities_AttackHeli_AntiRadar_LockOnTime` | 0.8 | `Passives_Vehicles_AttackHeli_AntiRadar_LockOnTime.RankData[0].LockingTimeMultiplier` | 0.7 |
+| `Affector_VEH_PassiveAbility_CaptureSpeed` | 1.1 | `Passives_Vehicles_CaptureSpeed_Affector.RankData[0].Value` | 1.15 |
+| `Affector_Vehicles_6Wheels_ImprovedSteeringRatio` | 1.02 | `Passives_Vehicles_Shared_Gunhandling_ImprovedSteeringRatio.RankData[0].Value` | 1.03 |
+| `Affector_VEH_Tank_TurretVelocity_YawMultiplier` | 1.2 | `Passives_Vehicles_Shared_GunHandling_YawMultiplier.RankData[0].Value` | 1.3 |
+| `Affector_VEH_Tank_TurretVelocity_PitchMultiplier` | 1.2 | `Passives_Vehicles_Shared_GunHandling_PitchMultiplier.RankData[0].Value` | 1.3 |
+| `Affector_Vehicles_Abilities_IFV_Antispotting_SpotTimeMultiplier` | 0.75 | `Passives_Vehicles_IFV_Antispotting_SpotTimeMultiplier.RankData[0].SpotTimeMultiplier` | 0.75 |
+| `Affector_Vehicles_Abilities_AA_Antispotting_SpotTimeMultiplier` | 0.75 | `Passives_Vehicles_AA_Antispotting_SpotTimeMultiplier.RankData[0].SpotTimeMultiplier` | 0.75 |
+| `Affector_Vehicles_Abilities_AttackHeli_AntiRadar_SpottingDuration` | 0.75 | `Passives_Vehicles_AttackHeli_AntiRadar_SpottingDuration.RankData[0].SpotTimeMultiplier` | 0.75 |
+| `Affector_Vehicles_Abilities_AttackHeli_GroundTargetDetection_LockOnTime` | 1.1 | `Vehicle_Ability_AttackHeli_GroundTargetDetection_LockOnTimePenalty.RankData[0].LockingTimeMultiplier` | 1.1 |
+| `Affector_VEH_Ability_ProximityDetectionSystem_RangeIncreaseModifier` | 1.3 | `Passives_Vehicles_IFV_EquipmentUpgrade_ProximityDetectionSystemRadiusMultiplier.RankData[0].Value` | 1.3 |
+| `Affector_Vehicles_6Wheels_MassMultiplier` | 1.04 | `Passives_Vehicles_Shared_Durability_MassMultiplier.RankData[0].Value` | 1.04 |
+| `Affector_VEH_AirRadarRangeIncreaseMultiplier` | 1.5 | `Passives_Vehicles_AA_EquipmentUpgrade_AirRadarRadiusMultiplier.RankData[0].Value` | 1.5 |
+| `Affector_Vehicles_Abilities_AA_Antispotting_LockOnTime` | 0.8 | none | - |
+| `Affector_VEH_GroundRadarRangeIncreaseMultiplier` | 1.5 | none | - |
+| `Affector_Vehicles_Boost_ConsumptionRate` | 1.15 | none | - |
+| `Affector_Vehicles_Boost_RecoveryReduction` | 0.5 | none | - |
+| `Affector_Vehicles_CruiseSpeedReductionModifier` | 0.84 | none | - |
+| `Affector_Vehicles_IFV_CruiseSpeedModifier` | 0.92 | none | - |
+| `Affector_Vehicles_MBT_CruiseSpeedModifier` | 0.92 | none | - |
+| `Affector_Vehicles_Rotor_EngineUpgradeMultiplier` | 1.15 | none | - |
+| `Affector_Vehicles_Rotor_MassMultiplier` | 0.85 | none | - |
+| `Affector_Vehicles_TailRotor_StabilizerMultiplier` | 0.5 | none | - |
+
+- Registry and file values are recorded separately. By L3356 and L3373 the registry is the likelier live value where they differ; that rule was shown for weapon rows only.
+- File-only values can be stale (L3343).
+
+36 raw-offset checks matched.
+
+Tests: time a full turret turn with and without the gun handling upgrade; lock-on time against an IFV with the anti-spotting upgrade.

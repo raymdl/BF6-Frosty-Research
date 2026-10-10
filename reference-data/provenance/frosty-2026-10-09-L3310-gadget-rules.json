@@ -1,0 +1,162 @@
+{
+ "lead": "L3310",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Newest saved raw copy of each route under builds\\1.4.3.5; raw-checks.json pins each file hash."
+ },
+ "question": "What carried counts, replenish settings, cooldowns and effect rules (fuse times, flash and stun durations, repair rates, defibrillator ranges, supply values) do the gadget registries store?",
+ "sourceFacts": {
+  "method": "Every named value row of every saved GRX registry was listed with the file offset of its default. Rows were selected by name from Common/Hardware/Gadgets/GRX_Gadgets_Glacier and GRX_Gadgets_Glacier_CH1_S02: the ammunition, replenish and recharge rows of each gadget owner, and the flat rule rows for grenades, flash and stun effects, repair, defibrillator, supply and call-in gadgets. Each default was read back from the raw file at its offset. Rows are registry defaults; own asset values are in L3307.",
+  "control": {
+   "description": "First six selected rows, read back at their stored offsets.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 164724,
+     "type": "f32",
+     "bytesHex": "0000f041",
+     "value": 30.0,
+     "expect": 30.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 462720,
+     "type": "bool",
+     "bytesHex": "01",
+     "value": true,
+     "expect": true,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 272836,
+     "type": "i32",
+     "bytesHex": "ffffffff",
+     "value": -1,
+     "expect": -1,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 281860,
+     "type": "i32",
+     "bytesHex": "ffffffff",
+     "value": -1,
+     "expect": -1,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 447900,
+     "type": "i32",
+     "bytesHex": "01000000",
+     "value": 1,
+     "expect": 1,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 735028,
+     "type": "i32",
+     "bytesHex": "02000000",
+     "value": 2,
+     "expect": 2,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 517,
+   "matched": 517,
+   "files": 2,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "raw-checks.json"
+  },
+  "rows": 517,
+  "rowsNotOffsetChecked": 0,
+  "dataset": "reference-data/frosty/registry-gadget-rules.json"
+ },
+ "inference": [
+  "Row names are the registry's own; what each controls is read from the name only.",
+  "Flashbang, M320 flash and stun drill rows hold identical numbers, which suggests one shared effect rule.",
+  "EA's stated defibrillator timing (0.35 s minimum, 1 s full) is close to but not equal to the stored 0.3 and 1.0; the difference is unexplained."
+ ],
+ "unresolved": [
+  "Whether a match uses these defaults or the gadget assets' own values where they differ. Test: count carried items of a gadget on spawn and compare with the stored NumberOfMagazines and MagazineCapacity.",
+  "What AutoReplenishDelay and AutoReplenishRounds -1 mean. Test: use all of a self-replenishing gadget away from any supply source and time the return of each item.",
+  "Flash duration by angle and range. Test: have a teammate throw a flashbang at 5 m and 10 m while facing it, side-on and facing away, and time the white-out (stored 3.5 / 2.5, 1.5 / 1.0, 0.6 / 0.2).",
+  "Repair rate units. Test: time a repair of a tank from a known health to full with the repair tool (stored 40 per second, 60 active).",
+  "Grenade fuse. Test: time a frag from release to detonation with and without a bounce (stored 1.1 minimum, 1.4 after a bounce).",
+  "Rows whose default is boxed or unreadable are listed in the dataset as not offset-checked and carry no value."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-09-gadget-rules",
+  "artifacts": [
+   {
+    "file": "rows.json",
+    "sha256": "449a6bf3c1a4a2633734cec38c194b033e2a096dbf907cfaf0493511d8f1c87d"
+   },
+   {
+    "file": "table.md",
+    "sha256": "efa69a88937b4e63c43f65d63c2b41bc5d49b85058f0f1fbf6dccf68d2a6870d"
+   },
+   {
+    "file": "raw-check-manifest.json",
+    "sha256": "666d30383954e450bfab1dcd71669c153cc9fe0e31ee1b0da2333fc6a3548097"
+   },
+   {
+    "file": "raw-checks.json",
+    "sha256": "bb0c945d5c8985214e1be64d768f48172fae435d45ce15d3abe88abd8cc5d208"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-09",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L3310",
+    "title": "Gadget counts, replenish, cooldown and effect rules in the gadget registry",
+    "status": "finding",
+    "summary": "517 gadget registry rows store carried counts, replenish settings, recharge times and effect rules: grenade fuse 1.1 and 1.4 after a bounce, flash durations 3.5 down to 0.2 by angle and range, repair 40 per second, defibrillator charge 0.3 to 1.0, vehicle supply crate 15 supplies every 5. 517 raw-offset checks matched.",
+    "reopenWhen": "An in-game count, timing or duration measurement for one of these gadgets, or a game update that changes a row.",
+    "statusNote": "Registry defaults only; meaning from row names; units and runtime use unconfirmed."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Hardware/Gadgets/GRX_Gadgets_Glacier",
+    "format": "raw-ebx",
+    "sha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+    "question": "What carried counts, replenish settings, cooldowns and effect rules (fuse times, flash and stun durations, repair rates, defibrillator ranges, supply values) do the gadget registries store?",
+    "result": "useful",
+    "conclusion": "Fuse rows: frag and default grenade 1.1 minimum and 1.4 after a bounce; concussion 0.7 and 0.4. Flashbang, M320 flash and stun drill share duration rows 3.5 / 2.5 in front, 1.5 / 1.0 to the sides, 0.6 / 0.2 behind at close / far, close range 6, max range 12. Repair tool 40 per second (60 active), anti-repair 30 (45 active), range 2, interval 0.1. Defibrillator charge 0.3 minimum and 1.0 full, range 2 friendly and 1.5 enemy. Vehicle supply crate 15 supplies, interval 5. Supply pouch regeneration 25 for 4."
+   },
+   {
+    "path": "Common/Hardware/Gadgets/GRX_Gadgets_Glacier_CH1_S02",
+    "format": "raw-ebx",
+    "sha256": "f59d23bcb29ed4f94ff335ba631b632d8837916692bb06e183edfb6877a85c83",
+    "question": "What carried counts, replenish settings, cooldowns and effect rules (fuse times, flash and stun durations, repair rates, defibrillator ranges, supply values) do the gadget registries store?",
+    "result": "useful",
+    "conclusion": "Season 2 gadget owners store their own ammunition and replenish rows; the Lancet stores tracking times 0.25 general and 0.025 for projectiles."
+   }
+  ]
+ }
+}

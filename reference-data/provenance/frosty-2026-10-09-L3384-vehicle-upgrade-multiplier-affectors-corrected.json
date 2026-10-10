@@ -1,0 +1,694 @@
+{
+ "lead": "L3384",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Read from saved raw captures; no export, no new capture."
+ },
+ "question": "What multipliers do the vehicle upgrade and passive affectors hold, and do they agree with the registry's rank rows of the same upgrades?",
+ "sourceFacts": {
+  "method": "23 vehicle affector files of three multiplier classes were decoded (affdump.py) and the one multiplier of each read with its raw offset. 13 were paired by name with a registry rank row ('Passives_Vehicles_... .RankData[0]...'); the pairing is by name only, no stored link was followed.",
+  "control": {
+   "description": "Seven of the 13 pairs hold the same value in both places (for example Proximity Detection radius 1.3, spot time 0.75, mass 1.04), which supports the name pairing.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-remaining-producers1\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\PassiveAbilities\\IFV\\Affector_Vehicles_Abilities_IFV_Antispotting_LockOnTime.ebx",
+     "rawSha256": "515dcc2d0a13aa04fbee9c385b9a2808357df18220c381b12ab70d49b194bb47",
+     "offset": 184,
+     "type": "f32",
+     "bytesHex": "cdcc4c3f",
+     "value": 0.800000011920929,
+     "expect": 0.8,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 32556,
+     "type": "f32",
+     "bytesHex": "9a99193f",
+     "value": 0.6000000238418579,
+     "expect": 0.6,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-remaining-producers1\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\PassiveAbilities\\IFV\\Affector_Vehicles_Abilities_IFV_Antispotting_SpotTimeMultiplier.ebx",
+     "rawSha256": "b4ddaf18e34c423b15387c1f9d201ab5e81be4ef150ed12205592e6d2ab10539",
+     "offset": 196,
+     "type": "f32",
+     "bytesHex": "0000403f",
+     "value": 0.75,
+     "expect": 0.75,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 47348,
+     "type": "f32",
+     "bytesHex": "0000403f",
+     "value": 0.75,
+     "expect": 0.75,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-remaining-producers1\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\PassiveAbilities\\AA\\Affector_Vehicles_Abilities_AA_Antispotting_LockOnTime.ebx",
+     "rawSha256": "01569f8aedf130494ae8738bb2260bc0bccefb4d51ca2e22ec036dda00a114f6",
+     "offset": 184,
+     "type": "f32",
+     "bytesHex": "cdcc4c3f",
+     "value": 0.800000011920929,
+     "expect": 0.8,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-remaining-producers1\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\PassiveAbilities\\AA\\Affector_Vehicles_Abilities_AA_Antispotting_SpotTimeMultiplier.ebx",
+     "rawSha256": "91b2f5f844332c72820a7985fd78cafd0b2625345db6ef0d8c806dd467b388b4",
+     "offset": 196,
+     "type": "f32",
+     "bytesHex": "0000403f",
+     "value": 0.75,
+     "expect": 0.75,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 103948,
+     "type": "f32",
+     "bytesHex": "0000403f",
+     "value": 0.75,
+     "expect": 0.75,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-remaining-producers2\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\PassiveAbilities\\AttackHeli\\Affector_Vehicles_Abilities_AttackHeli_AntiRadar_LockOnTime.ebx",
+     "rawSha256": "a292459e17a7bf92f5684b7556bf92048234f219bf988dbe79d300ce29f202f1",
+     "offset": 176,
+     "type": "f32",
+     "bytesHex": "cdcc4c3f",
+     "value": 0.800000011920929,
+     "expect": 0.8,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 85804,
+     "type": "f32",
+     "bytesHex": "3333333f",
+     "value": 0.699999988079071,
+     "expect": 0.7,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-remaining-producers2\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\PassiveAbilities\\AttackHeli\\Affector_Vehicles_Abilities_AttackHeli_AntiRadar_SpottingDuration.ebx",
+     "rawSha256": "b4bdd8f1b43959c37c40197ae5133fb39db2a75b2e3d62160dcda579c85dbf5e",
+     "offset": 196,
+     "type": "f32",
+     "bytesHex": "0000403f",
+     "value": 0.75,
+     "expect": 0.75,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 174244,
+     "type": "f32",
+     "bytesHex": "0000403f",
+     "value": 0.75,
+     "expect": 0.75,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-remaining-producers2\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\AttackHeli\\Affector_Vehicles_Abilities_AttackHeli_GroundTargetDetection_LockOnTime.ebx",
+     "rawSha256": "57c956cc20cba29af389f1b92ec3fe79db7ec428c9c3f2a724d4912c1a511568",
+     "offset": 168,
+     "type": "f32",
+     "bytesHex": "cdcc8c3f",
+     "value": 1.100000023841858,
+     "expect": 1.1,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 150188,
+     "type": "f32",
+     "bytesHex": "cdcc8c3f",
+     "value": 1.100000023841858,
+     "expect": 1.1,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-remaining-producers1\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\PassiveAbilities\\APC\\Affector_VEH_PassiveAbility_CaptureSpeed.ebx",
+     "rawSha256": "8e3425acfe3c7fe398de8b9fd67185f45575725730f3ca5279c84406a8eec498",
+     "offset": 168,
+     "type": "f32",
+     "bytesHex": "cdcc8c3f",
+     "value": 1.100000023841858,
+     "expect": 1.1,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 139004,
+     "type": "f32",
+     "bytesHex": "3333933f",
+     "value": 1.149999976158142,
+     "expect": 1.15,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-remaining-producers1\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\IFV\\Affector_VEH_Ability_ProximityDetectionSystem_RangeIncreaseModifier.ebx",
+     "rawSha256": "4d6f736b1c9f939a1461bfc8e09005ac897e8fe1bf3540b3788f5889c7cd4e78",
+     "offset": 168,
+     "type": "f32",
+     "bytesHex": "6666a63f",
+     "value": 1.2999999523162842,
+     "expect": 1.3,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 201628,
+     "type": "f32",
+     "bytesHex": "6666a63f",
+     "value": 1.2999999523162842,
+     "expect": 1.3,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer5-2026-10-01-0149\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Handling\\Affector_Vehicles_6Wheels_ImprovedSteeringRatio.ebx",
+     "rawSha256": "26fbc38c7247211a17c4cd4d906fb627801747608b2d012f4c6b5ed8d746adb9",
+     "offset": 168,
+     "type": "f32",
+     "bytesHex": "5c8f823f",
+     "value": 1.0199999809265137,
+     "expect": 1.02,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 245260,
+     "type": "f32",
+     "bytesHex": "0ad7833f",
+     "value": 1.0299999713897705,
+     "expect": 1.03,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer5-2026-10-01-0149\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Handling\\Affector_Vehicles_6Wheels_MassMultiplier.ebx",
+     "rawSha256": "a3130c8b9910675b99a00bc6b8377f3a8fc5a29191ccaa448e0e406c11b29f6d",
+     "offset": 176,
+     "type": "f32",
+     "bytesHex": "b81e853f",
+     "value": 1.0399999618530273,
+     "expect": 1.04,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 402388,
+     "type": "f32",
+     "bytesHex": "b81e853f",
+     "value": 1.0399999618530273,
+     "expect": 1.04,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-remaining-producers1\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\PassiveAbilities\\Common\\Affector_VEH_Tank_TurretVelocity_YawMultiplier.ebx",
+     "rawSha256": "9b313720cecf7776326f121caf7481319f99b20870254903e0aa3f023ded6c11",
+     "offset": 176,
+     "type": "f32",
+     "bytesHex": "9a99993f",
+     "value": 1.2000000476837158,
+     "expect": 1.2,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 305924,
+     "type": "f32",
+     "bytesHex": "6666a63f",
+     "value": 1.2999999523162842,
+     "expect": 1.3,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-remaining-producers1\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\PassiveAbilities\\Common\\Affector_VEH_Tank_TurretVelocity_PitchMultiplier.ebx",
+     "rawSha256": "c480311560535a4ca52daaac3aec4927d57dd0a24552dca8f1995b34f9e8c960",
+     "offset": 176,
+     "type": "f32",
+     "bytesHex": "9a99993f",
+     "value": 1.2000000476837158,
+     "expect": 1.2,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 348276,
+     "type": "f32",
+     "bytesHex": "6666a63f",
+     "value": 1.2999999523162842,
+     "expect": 1.3,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Expressions\\Affector_VEH_AirRadarRangeIncreaseMultiplier.ebx",
+     "rawSha256": "02ba1c6758d1be47eb22475c600c9d3e67b1bedb5e32b4c6a793d80184f78bcc",
+     "offset": 168,
+     "type": "f32",
+     "bytesHex": "0000c03f",
+     "value": 1.5,
+     "expect": 1.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 474932,
+     "type": "f32",
+     "bytesHex": "0000c03f",
+     "value": 1.5,
+     "expect": 1.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Expressions\\Affector_VEH_GroundRadarRangeIncreaseMultiplier.ebx",
+     "rawSha256": "a04bb48ecb716cec679c7af1788f61430e47ce83136012891162e962117f9329",
+     "offset": 168,
+     "type": "f32",
+     "bytesHex": "0000c03f",
+     "value": 1.5,
+     "expect": 1.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer5-2026-10-01-0149\\raw\\Common\\Gameplay\\Vehicles\\Locomotion\\Expressions\\Affector_Vehicles_Boost_ConsumptionRate.ebx",
+     "rawSha256": "36d63dedcf3ee741bdf5298acd4a797cbb8ad808c03a81fe9e4d8c1b6fa68fa0",
+     "offset": 168,
+     "type": "f32",
+     "bytesHex": "3333933f",
+     "value": 1.149999976158142,
+     "expect": 1.15,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer5-2026-10-01-0149\\raw\\Common\\Gameplay\\Vehicles\\Locomotion\\Expressions\\Affector_Vehicles_Boost_RecoveryReduction.ebx",
+     "rawSha256": "27be381f24788068234283a29cd5d8872e6645bc2cd239d5ccf4b3021dd209cb",
+     "offset": 168,
+     "type": "f32",
+     "bytesHex": "0000003f",
+     "value": 0.5,
+     "expect": 0.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer5-2026-10-01-0149\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Handling\\Affector_Vehicles_CruiseSpeedReductionModifier.ebx",
+     "rawSha256": "f8ef805e5c278b0e5b3c27bcbfddbbfb5300764ac6390741d4a3b9dfc2af1a87",
+     "offset": 168,
+     "type": "f32",
+     "bytesHex": "3d0a573f",
+     "value": 0.8399999737739563,
+     "expect": 0.84,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Handling\\Affector_Vehicles_IFV_CruiseSpeedModifier.ebx",
+     "rawSha256": "9cc6f331cf9ffbe677ffed53973beea4ec92dc719f7e7ef8e3efddf3247bb022",
+     "offset": 168,
+     "type": "f32",
+     "bytesHex": "1f856b3f",
+     "value": 0.9200000166893005,
+     "expect": 0.92,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Handling\\Affector_Vehicles_MBT_CruiseSpeedModifier.ebx",
+     "rawSha256": "299f537b0066c2173c2d87f9fcd085765ef356f7865e73413d60594bfb5041be",
+     "offset": 168,
+     "type": "f32",
+     "bytesHex": "1f856b3f",
+     "value": 0.9200000166893005,
+     "expect": 0.92,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer5-2026-10-01-0149\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Handling\\Affector_Vehicles_Rotor_EngineUpgradeMultiplier.ebx",
+     "rawSha256": "a3a600414f7f6fa87610428d41b13122c610893923e09a5fb5db9c7b281c7fdc",
+     "offset": 176,
+     "type": "f32",
+     "bytesHex": "3333933f",
+     "value": 1.149999976158142,
+     "expect": 1.15,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer5-2026-10-01-0149\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Handling\\Affector_Vehicles_Rotor_MassMultiplier.ebx",
+     "rawSha256": "2fb1c671627dd06ee1bfac94000e7b3f2517fbb5ea098e28f6e57719a85b32c4",
+     "offset": 176,
+     "type": "f32",
+     "bytesHex": "9a99593f",
+     "value": 0.8500000238418579,
+     "expect": 0.85,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer5-2026-10-01-0149\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Handling\\Affector_Vehicles_TailRotor_StabilizerMultiplier.ebx",
+     "rawSha256": "b1d4381868489c0f3816d88b9988b4de4af11e8d8624e140f1e46f92c5c4f2cb",
+     "offset": 176,
+     "type": "f32",
+     "bytesHex": "0000003f",
+     "value": 0.5,
+     "expect": 0.5,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 36,
+   "matched": 36,
+   "files": 24,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "rawchecks-L3384.json"
+  },
+  "dataset": "reference-data/frosty/vehicle-upgrade-multiplier-affectors-corrected.json",
+  "differ": [
+   {
+    "file": "Affector_Vehicles_Abilities_IFV_Antispotting_LockOnTime",
+    "class": "Class_c7ab118c",
+    "ownField": "Field_e2280e0b",
+    "ownValue": 0.8,
+    "registryRow": "Passives_Vehicles_IFV_Antispotting_LockOnTime.RankData[0].LockingTimeMultiplier",
+    "registryDefault": 0.6,
+    "join": "name-only",
+    "agree": false
+   },
+   {
+    "file": "Affector_Vehicles_Abilities_AttackHeli_AntiRadar_LockOnTime",
+    "class": "Class_c7ab118c",
+    "ownField": "Field_e2280e0b",
+    "ownValue": 0.8,
+    "registryRow": "Passives_Vehicles_AttackHeli_AntiRadar_LockOnTime.RankData[0].LockingTimeMultiplier",
+    "registryDefault": 0.7,
+    "join": "name-only",
+    "agree": false
+   },
+   {
+    "file": "Affector_VEH_PassiveAbility_CaptureSpeed",
+    "class": "Class_8f121774",
+    "ownField": "Field_8cf424e7",
+    "ownValue": 1.1,
+    "registryRow": "Passives_Vehicles_CaptureSpeed_Affector.RankData[0].Value",
+    "registryDefault": 1.15,
+    "join": "name-only",
+    "agree": false
+   },
+   {
+    "file": "Affector_Vehicles_6Wheels_ImprovedSteeringRatio",
+    "class": "Class_8f121774",
+    "ownField": "Field_8cf424e7",
+    "ownValue": 1.02,
+    "registryRow": "Passives_Vehicles_Shared_Gunhandling_ImprovedSteeringRatio.RankData[0].Value",
+    "registryDefault": 1.03,
+    "join": "name-only",
+    "agree": false
+   },
+   {
+    "file": "Affector_VEH_Tank_TurretVelocity_YawMultiplier",
+    "class": "Class_8f121774",
+    "ownField": "Field_8cf424e7",
+    "ownValue": 1.2,
+    "registryRow": "Passives_Vehicles_Shared_GunHandling_YawMultiplier.RankData[0].Value",
+    "registryDefault": 1.3,
+    "join": "name-only",
+    "agree": false
+   },
+   {
+    "file": "Affector_VEH_Tank_TurretVelocity_PitchMultiplier",
+    "class": "Class_8f121774",
+    "ownField": "Field_8cf424e7",
+    "ownValue": 1.2,
+    "registryRow": "Passives_Vehicles_Shared_GunHandling_PitchMultiplier.RankData[0].Value",
+    "registryDefault": 1.3,
+    "join": "name-only",
+    "agree": false
+   }
+  ],
+  "agree": [
+   {
+    "file": "Affector_Vehicles_Abilities_IFV_Antispotting_SpotTimeMultiplier",
+    "class": "Class_c15fd5da",
+    "ownField": "Field_f95f67f4",
+    "ownValue": 0.75,
+    "registryRow": "Passives_Vehicles_IFV_Antispotting_SpotTimeMultiplier.RankData[0].SpotTimeMultiplier",
+    "registryDefault": 0.75,
+    "join": "name-only",
+    "agree": true
+   },
+   {
+    "file": "Affector_Vehicles_Abilities_AA_Antispotting_SpotTimeMultiplier",
+    "class": "Class_c15fd5da",
+    "ownField": "Field_f95f67f4",
+    "ownValue": 0.75,
+    "registryRow": "Passives_Vehicles_AA_Antispotting_SpotTimeMultiplier.RankData[0].SpotTimeMultiplier",
+    "registryDefault": 0.75,
+    "join": "name-only",
+    "agree": true
+   },
+   {
+    "file": "Affector_Vehicles_Abilities_AttackHeli_AntiRadar_SpottingDuration",
+    "class": "Class_c15fd5da",
+    "ownField": "Field_f95f67f4",
+    "ownValue": 0.75,
+    "registryRow": "Passives_Vehicles_AttackHeli_AntiRadar_SpottingDuration.RankData[0].SpotTimeMultiplier",
+    "registryDefault": 0.75,
+    "join": "name-only",
+    "agree": true
+   },
+   {
+    "file": "Affector_Vehicles_Abilities_AttackHeli_GroundTargetDetection_LockOnTime",
+    "class": "Class_c7ab118c",
+    "ownField": "Field_e2280e0b",
+    "ownValue": 1.1,
+    "registryRow": "Vehicle_Ability_AttackHeli_GroundTargetDetection_LockOnTimePenalty.RankData[0].LockingTimeMultiplier",
+    "registryDefault": 1.1,
+    "join": "name-only",
+    "agree": true
+   },
+   {
+    "file": "Affector_VEH_Ability_ProximityDetectionSystem_RangeIncreaseModifier",
+    "class": "Class_8f121774",
+    "ownField": "Field_8cf424e7",
+    "ownValue": 1.3,
+    "registryRow": "Passives_Vehicles_IFV_EquipmentUpgrade_ProximityDetectionSystemRadiusMultiplier.RankData[0].Value",
+    "registryDefault": 1.3,
+    "join": "name-only",
+    "agree": true
+   },
+   {
+    "file": "Affector_Vehicles_6Wheels_MassMultiplier",
+    "class": "Class_8f121774",
+    "ownField": "Field_8cf424e7",
+    "ownValue": 1.04,
+    "registryRow": "Passives_Vehicles_Shared_Durability_MassMultiplier.RankData[0].Value",
+    "registryDefault": 1.04,
+    "join": "name-only",
+    "agree": true
+   },
+   {
+    "file": "Affector_VEH_AirRadarRangeIncreaseMultiplier",
+    "class": "Class_8f121774",
+    "ownField": "Field_8cf424e7",
+    "ownValue": 1.5,
+    "registryRow": "Passives_Vehicles_AA_EquipmentUpgrade_AirRadarRadiusMultiplier.RankData[0].Value",
+    "registryDefault": 1.5,
+    "join": "name-only",
+    "agree": true
+   }
+  ],
+  "noRegistryRow": [
+   {
+    "file": "Affector_Vehicles_Abilities_AA_Antispotting_LockOnTime",
+    "class": "Class_c7ab118c",
+    "ownField": "Field_e2280e0b",
+    "ownValue": 0.8,
+    "registryRow": null,
+    "registryDefault": null,
+    "join": null,
+    "agree": null
+   },
+   {
+    "file": "Affector_VEH_GroundRadarRangeIncreaseMultiplier",
+    "class": "Class_8f121774",
+    "ownField": "Field_8cf424e7",
+    "ownValue": 1.5,
+    "registryRow": null,
+    "registryDefault": null,
+    "join": null,
+    "agree": null
+   },
+   {
+    "file": "Affector_Vehicles_Boost_ConsumptionRate",
+    "class": "Class_8f121774",
+    "ownField": "Field_8cf424e7",
+    "ownValue": 1.15,
+    "registryRow": null,
+    "registryDefault": null,
+    "join": null,
+    "agree": null
+   },
+   {
+    "file": "Affector_Vehicles_Boost_RecoveryReduction",
+    "class": "Class_8f121774",
+    "ownField": "Field_8cf424e7",
+    "ownValue": 0.5,
+    "registryRow": null,
+    "registryDefault": null,
+    "join": null,
+    "agree": null
+   },
+   {
+    "file": "Affector_Vehicles_CruiseSpeedReductionModifier",
+    "class": "Class_8f121774",
+    "ownField": "Field_8cf424e7",
+    "ownValue": 0.84,
+    "registryRow": null,
+    "registryDefault": null,
+    "join": null,
+    "agree": null
+   },
+   {
+    "file": "Affector_Vehicles_IFV_CruiseSpeedModifier",
+    "class": "Class_8f121774",
+    "ownField": "Field_8cf424e7",
+    "ownValue": 0.92,
+    "registryRow": null,
+    "registryDefault": null,
+    "join": null,
+    "agree": null
+   },
+   {
+    "file": "Affector_Vehicles_MBT_CruiseSpeedModifier",
+    "class": "Class_8f121774",
+    "ownField": "Field_8cf424e7",
+    "ownValue": 0.92,
+    "registryRow": null,
+    "registryDefault": null,
+    "join": null,
+    "agree": null
+   },
+   {
+    "file": "Affector_Vehicles_Rotor_EngineUpgradeMultiplier",
+    "class": "Class_8f121774",
+    "ownField": "Field_8cf424e7",
+    "ownValue": 1.15,
+    "registryRow": null,
+    "registryDefault": null,
+    "join": null,
+    "agree": null
+   },
+   {
+    "file": "Affector_Vehicles_Rotor_MassMultiplier",
+    "class": "Class_8f121774",
+    "ownField": "Field_8cf424e7",
+    "ownValue": 0.85,
+    "registryRow": null,
+    "registryDefault": null,
+    "join": null,
+    "agree": null
+   },
+   {
+    "file": "Affector_Vehicles_TailRotor_StabilizerMultiplier",
+    "class": "Class_8f121774",
+    "ownField": "Field_8cf424e7",
+    "ownValue": 0.5,
+    "registryRow": null,
+    "registryDefault": null,
+    "join": null,
+    "agree": null
+   }
+  ],
+  "ownFields": {
+   "Class_8f121774": "Field_8cf424e7",
+   "Class_c7ab118c": "Field_e2280e0b",
+   "Class_c15fd5da": "Field_f95f67f4"
+  },
+  "note": "ROSTER_VALUES.md already lists the two radar range files (1.5); they are repeated here for the registry comparison."
+ },
+ "inference": [
+  "Where the two differ, the registry default is the likelier live value by the rule of L3356 and L3373 (registry rows for rate, magazine and heat matched EA's new figures where files did not). That rule was shown for weapon rows, not for these upgrade rows, so it is a candidate here: improved turret traverse 1.3 (file 1.2), IFV anti-spotting lock-on time 0.6 (file 0.8), attack helicopter anti-radar lock-on time 0.7 (file 0.8), capture speed 1.15 (file 1.1), steering 1.03 (file 1.02).",
+  "The pitch and yaw rows are named 'Shared_GunHandling' and the files 'Tank_TurretVelocity'; the pairing rests on both being the only pitch and yaw upgrade multipliers found.",
+  "Values with no registry row are file-only and can be stale (L3343): boost consumption 1.15, boost recovery 0.5, cruise speed 0.84 (and 0.92 for the tank and IFV), rotor engine 1.15, rotor mass 0.85, tail rotor stabiliser 0.5, anti-air lock-on time 0.8, ground radar range 1.5.",
+  "Which vehicle upgrade applies which affector is not read here; the names indicate it (for example the 0.92 cruise speed with a tank or IFV armour upgrade)."
+ ],
+ "unresolved": [
+  "Turret traverse with and without the gun handling upgrade: time for a full 360 degree turn (ratio 1.3 expected by the registry, 1.2 by the file).",
+  "Lock-on time against an IFV with the anti-spotting upgrade (0.6 or 0.8 of normal)."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-09-damage-rule-extension",
+  "artifacts": [
+   {
+    "file": "manifest-L3384.json",
+    "sha256": "f6d5eff7fbd6308111817c010b6cea682cc05e6b09aab796542dc92a7a3b0daa"
+   },
+   {
+    "file": "rawchecks-L3384.json",
+    "sha256": "007c78d9f69d1e8b26dfa03d19eefd1983d5c1eeb5f017dccdad74304bb80ed6"
+   },
+   {
+    "file": "affdump.py",
+    "sha256": "54c37d62c10ab3ceb918a045ec7492e51573fe856d564d4939c6a1879e0abbde"
+   },
+   {
+    "file": "affdump-veh.json",
+    "sha256": "898b256bd5745b1df5afc5cd513d2b21927157225758079da9a38cb8cd539280"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-09",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L3384",
+    "title": "Vehicle upgrade multipliers: 23 affector files read against registry rank rows; six differ (turret traverse 1.2 file / 1.3 registry, lock-on time 0.8 / 0.6 and 0.7, capture speed 1.1 / 1.15, steering 1.02 / 1.03)",
+    "status": "finding",
+    "summary": "23 vehicle upgrade multipliers were read from affector files and 13 paired by name with registry rank rows. Seven agree; six differ, with the registry giving the stronger upgrade in five (turret traverse 1.3 against 1.2, lock-on time 0.6 and 0.7 against 0.8, capture speed 1.15 against 1.1, steering 1.03 against 1.02). Ten have no registry row and are file-only. 36 raw-offset checks matched.",
+    "reopenWhen": "An in-game turret traverse or lock-on timing with and without the upgrade.",
+    "statusNote": "Values read; pairing is name-only; which side is live is not confirmed."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Hardware/Vehicles/_VehiclesCommon/PassiveAbilities/Common/Affector_VEH_Tank_TurretVelocity_YawMultiplier",
+    "format": "raw-ebx",
+    "sha256": "9b313720cecf7776326f121caf7481319f99b20870254903e0aa3f023ded6c11",
+    "question": "What multipliers do the vehicle upgrade and passive affectors hold, and do they agree with the registry's rank rows of the same upgrades?",
+    "result": "useful",
+    "conclusion": "Multiplier 1.2; the registry rank row of the yaw upgrade holds 1.3."
+   }
+  ],
+  "supersedes": [
+   "L3383"
+  ]
+ }
+}

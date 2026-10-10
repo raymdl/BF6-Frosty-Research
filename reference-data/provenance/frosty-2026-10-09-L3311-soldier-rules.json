@@ -1,0 +1,153 @@
+{
+ "lead": "L3311",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Newest saved raw copy of each route under builds\\1.4.3.5; raw-checks.json pins each file hash."
+ },
+ "question": "What soldier rule values (movement, revive, regeneration, suppression resistance, mortar fire pattern, and values named after class traits and field upgrades) does the soldier registry store?",
+ "sourceFacts": {
+  "method": "Every named value row of Common/Gameplay/Soldier/GRX_Glacier_Soldier was listed with the file offset of its default. Spotting rows (recorded in L3309) and screen-effect rows were left out; the rest were read back from the raw file at their offsets. Rows are registry defaults.",
+  "control": {
+   "description": "First six selected rows, read back at their stored offsets.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Gameplay\\Soldier\\GRX_Glacier_Soldier.ebx",
+     "rawSha256": "9b44340483d9af272ef5f0cbda5934ad9a30ff1f055fd3fddc60fc4943e822cc",
+     "offset": 21092,
+     "type": "f32",
+     "bytesHex": "3333333f",
+     "value": 0.699999988079071,
+     "expect": 0.7,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Gameplay\\Soldier\\GRX_Glacier_Soldier.ebx",
+     "rawSha256": "9b44340483d9af272ef5f0cbda5934ad9a30ff1f055fd3fddc60fc4943e822cc",
+     "offset": 5756,
+     "type": "f32",
+     "bytesHex": "00008040",
+     "value": 4.0,
+     "expect": 4.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Gameplay\\Soldier\\GRX_Glacier_Soldier.ebx",
+     "rawSha256": "9b44340483d9af272ef5f0cbda5934ad9a30ff1f055fd3fddc60fc4943e822cc",
+     "offset": 11228,
+     "type": "f32",
+     "bytesHex": "0000003f",
+     "value": 0.5,
+     "expect": 0.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Gameplay\\Soldier\\GRX_Glacier_Soldier.ebx",
+     "rawSha256": "9b44340483d9af272ef5f0cbda5934ad9a30ff1f055fd3fddc60fc4943e822cc",
+     "offset": 14260,
+     "type": "f32",
+     "bytesHex": "0000403f",
+     "value": 0.75,
+     "expect": 0.75,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Gameplay\\Soldier\\GRX_Glacier_Soldier.ebx",
+     "rawSha256": "9b44340483d9af272ef5f0cbda5934ad9a30ff1f055fd3fddc60fc4943e822cc",
+     "offset": 2596,
+     "type": "f32",
+     "bytesHex": "0000a03f",
+     "value": 1.25,
+     "expect": 1.25,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Gameplay\\Soldier\\GRX_Glacier_Soldier.ebx",
+     "rawSha256": "9b44340483d9af272ef5f0cbda5934ad9a30ff1f055fd3fddc60fc4943e822cc",
+     "offset": 15984,
+     "type": "bool",
+     "bytesHex": "00",
+     "value": false,
+     "expect": false,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 171,
+   "matched": 171,
+   "files": 1,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "raw-checks.json"
+  },
+  "rows": 171,
+  "rowsNotOffsetChecked": 1,
+  "dataset": "reference-data/frosty/registry-soldier-rules.json"
+ },
+ "inference": [
+  "Many rows are named after traits or field upgrades (Suppression Mastery, Medical Triage, Artillery Mastery, Improviser, SERE Training, Swift Triage, Concealed Rescue, Scapegoat, Pointman, Perimeter Defense, Fumigator). The name is the only link recorded here; no stored pointer from a class, trait or upgrade asset to a row was traced.",
+  "Multipliers below 1 on reload or revive rows read as shorter times and above 1 on sprint rows as faster movement; the direction is assumed from the names."
+ ],
+ "unresolved": [
+  "Which class trait or field upgrade reads each named row, and at which upgrade level. Test: time a revive with and without the Support Medical Triage upgrade active (stored 2.2 base for Support, reduction 0.5).",
+  "Suppression resistance meaning (share removed or share kept). Test: record aim sway or regeneration delay under fire with and without the upgrade whose row stores 0.75.",
+  "Mortar pattern. Test: fire the mortar once and count shells and volleys and time the gaps (stored 2 volleys of 2, 1.0 and 4.0).",
+  "Sprint multipliers 1.857 and 2.05 have no stored base speed beside them. Test: time a 50 m sprint with default and fast sprint.",
+  "Rows with no readable default are listed in the dataset as not offset-checked.",
+  "No stored link from a class or kit to its gadgets or traits was found: no saved file contains the kit node identifiers of the Category_Kits tree (kit_assault, kit_engineer, kit_recon, kit_support), the catalog has no trait or signature asset under a kit or class path, and KitLimitationGroup files hold spawner groups only."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-09-soldier-rules",
+  "artifacts": [
+   {
+    "file": "rows.json",
+    "sha256": "db6fd05028ab5d3bec4c64e0747c534b641f8fa7fb6a8832e319222e932bc5d0"
+   },
+   {
+    "file": "table.md",
+    "sha256": "5f4ffd8d5dcade77e0b22bb40a2024377a0257cf83cd09794e6a41e649640f75"
+   },
+   {
+    "file": "raw-check-manifest.json",
+    "sha256": "7272b7504523af8adb2844a2c3f06d0ef6597d46cc8dbcfe7fe9fa43979a67a1"
+   },
+   {
+    "file": "raw-checks.json",
+    "sha256": "bc8c37373d5cf151f7dedd320c13bd59428061174a93b39faac2ff52a94a82ca"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-09",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L3311",
+    "title": "Soldier movement, revive, suppression, mortar and trait values in the soldier registry",
+    "status": "finding",
+    "summary": "171 soldier registry rows store movement, revive, regeneration, suppression, mortar and trait-named values: suppression resistance 0.75, revive 4.72 (Support 2.2), mortar 2 volleys of 2 shells, sprint multipliers 1.857 and 2.05. 171 raw-offset checks matched. No stored class-to-trait link was found.",
+    "reopenWhen": "A traced pointer from a trait or field upgrade asset to one of these rows, an in-game timing of revive, mortar or sprint, or a game update that changes a row.",
+    "statusNote": "Registry defaults only; trait links by row name only; units and runtime use unconfirmed."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Gameplay/Soldier/GRX_Glacier_Soldier",
+    "format": "raw-ebx",
+    "sha256": "9b44340483d9af272ef5f0cbda5934ad9a30ff1f055fd3fddc60fc4943e822cc",
+    "question": "What soldier rule values (movement, revive, regeneration, suppression resistance, mortar fire pattern, and values named after class traits and field upgrades) does the soldier registry store?",
+    "result": "useful",
+    "conclusion": "Suppression: SuppressionResistance 0.75, InfantrySupportSuppressionResistance 0.75 within radius 10, KillshotSuppressionResistance 0.25, UnbreakableSuppressionResistance 0.25. Revive: total 4.72, Support 2.2, MedicalTriage reductions 0.5, ActiveReviveTimeReduction 0.7. Movement: sprint multipliers 1.857 and 2.05, slide cooldown 1.0, combat dive cooldown 2.5, drag speed 1.2. Mortar: 2 volleys of 2 shells, 1.0 between shells, 4.0 between volleys, fire delay 3, dispersion radius 8; ArtilleryMasteryMortarReload 0.75, SupplyCratePlusMortarReload 0.835. Regeneration delay 5, rate 10. PointmanBase_RespawnMags 3."
+   }
+  ]
+ }
+}

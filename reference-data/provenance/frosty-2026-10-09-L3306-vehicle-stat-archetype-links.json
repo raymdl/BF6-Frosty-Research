@@ -1,0 +1,1712 @@
+{
+ "lead": "L3306",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\reports\\vehicle-category-links-2026-10-09",
+  "note": "Blueprint files are earlier saved raw captures; each row pins its own file hash."
+ },
+ "question": "Does serialized game data link each vehicle stat id to a vehicle archetype and to its blueprint, without name matching?",
+ "sourceFacts": {
+  "method": "Categorization_Vehicles holds 33 entries. Each entry stores a stat id string, a list of import pointers (value 2*importIndex+1; 32-byte file GUID + object GUID import records from offset 7434) and a GUID list. Import targets are nodes in Category_VehicleArchetypes, Category_Hardware and Category_HardwareGroups; node parents are read from each tree node child array (i32 relative pointers to node instances). One listed GUID per entry occurs in a saved VB_VEH blueprint file for 30 of 33 entries.",
+  "control": {
+   "description": "veh_sur_m1a2sepv3 entry: name pointer and string, category array, three import records, arch_mbt node, and its listed GUID 6bc50f3e-2272-490e-97ac-140ef69ee3dd inside VB_VEH_Tank_Abrams.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-category-links-2026-10-09\\raw\\Persistence\\StatCategories\\StatCategorization\\Categorization_Vehicles.ebx",
+     "rawSha256": "9001639a989e5ee5628d43629fb296ac7a027a19061d9476a75d57b22b4aa41f",
+     "offset": 2584,
+     "type": "guid",
+     "bytesHex": "e367afc8943b3041b4647d0810cb3a24",
+     "value": "c8af67e3-3b94-4130-b464-7d0810cb3a24",
+     "expect": "c8af67e3-3b94-4130-b464-7d0810cb3a24",
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-category-links-2026-10-09\\raw\\Persistence\\StatCategories\\StatCategorization\\Categorization_Vehicles.ebx",
+     "rawSha256": "9001639a989e5ee5628d43629fb296ac7a027a19061d9476a75d57b22b4aa41f",
+     "offset": 2624,
+     "type": "i64",
+     "bytesHex": "d00e000000000000",
+     "value": 3792,
+     "expect": 3792,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-category-links-2026-10-09\\raw\\Persistence\\StatCategories\\StatCategorization\\Categorization_Vehicles.ebx",
+     "rawSha256": "9001639a989e5ee5628d43629fb296ac7a027a19061d9476a75d57b22b4aa41f",
+     "offset": 6416,
+     "type": "bytes:18",
+     "bytesHex": "7665685f7375725f6d316132736570763300",
+     "value": "7665685f7375725f6d316132736570763300",
+     "expect": "7665685f7375725f6d316132736570763300",
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-category-links-2026-10-09\\raw\\Persistence\\StatCategories\\StatCategorization\\Categorization_Vehicles.ebx",
+     "rawSha256": "9001639a989e5ee5628d43629fb296ac7a027a19061d9476a75d57b22b4aa41f",
+     "offset": 2632,
+     "type": "i64",
+     "bytesHex": "380b000000000000",
+     "value": 2872,
+     "expect": 2872,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-category-links-2026-10-09\\raw\\Persistence\\StatCategories\\StatCategorization\\Categorization_Vehicles.ebx",
+     "rawSha256": "9001639a989e5ee5628d43629fb296ac7a027a19061d9476a75d57b22b4aa41f",
+     "offset": 5500,
+     "type": "u32",
+     "bytesHex": "03000000",
+     "value": 3,
+     "expect": 3,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-category-links-2026-10-09\\raw\\Persistence\\StatCategories\\StatCategorization\\Categorization_Vehicles.ebx",
+     "rawSha256": "9001639a989e5ee5628d43629fb296ac7a027a19061d9476a75d57b22b4aa41f",
+     "offset": 5504,
+     "type": "i64",
+     "bytesHex": "1300000000000000",
+     "value": 19,
+     "expect": 19,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-category-links-2026-10-09\\raw\\Persistence\\StatCategories\\StatCategorization\\Categorization_Vehicles.ebx",
+     "rawSha256": "9001639a989e5ee5628d43629fb296ac7a027a19061d9476a75d57b22b4aa41f",
+     "offset": 7722,
+     "type": "bytes:32",
+     "bytesHex": "5f5283357e4bab4b8170437ff4c7afc82a3fc715a2a4b54c8fa3279a3f115ba0",
+     "value": "5f5283357e4bab4b8170437ff4c7afc82a3fc715a2a4b54c8fa3279a3f115ba0",
+     "expect": "5f5283357e4bab4b8170437ff4c7afc82a3fc715a2a4b54c8fa3279a3f115ba0",
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-category-links-2026-10-09\\raw\\Persistence\\StatCategories\\StatCategorization\\Categorization_Vehicles.ebx",
+     "rawSha256": "9001639a989e5ee5628d43629fb296ac7a027a19061d9476a75d57b22b4aa41f",
+     "offset": 5512,
+     "type": "i64",
+     "bytesHex": "6900000000000000",
+     "value": 105,
+     "expect": 105,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-category-links-2026-10-09\\raw\\Persistence\\StatCategories\\StatCategorization\\Categorization_Vehicles.ebx",
+     "rawSha256": "9001639a989e5ee5628d43629fb296ac7a027a19061d9476a75d57b22b4aa41f",
+     "offset": 9098,
+     "type": "bytes:32",
+     "bytesHex": "fede8431ced6ef42ac2844f5a673ba15943738e5b96f1f4786ece05b13dc2e1b",
+     "value": "fede8431ced6ef42ac2844f5a673ba15943738e5b96f1f4786ece05b13dc2e1b",
+     "expect": "fede8431ced6ef42ac2844f5a673ba15943738e5b96f1f4786ece05b13dc2e1b",
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-category-links-2026-10-09\\raw\\Persistence\\StatCategories\\StatCategorization\\Categorization_Vehicles.ebx",
+     "rawSha256": "9001639a989e5ee5628d43629fb296ac7a027a19061d9476a75d57b22b4aa41f",
+     "offset": 5520,
+     "type": "i64",
+     "bytesHex": "4f00000000000000",
+     "value": 79,
+     "expect": 79,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-category-links-2026-10-09\\raw\\Persistence\\StatCategories\\StatCategorization\\Categorization_Vehicles.ebx",
+     "rawSha256": "9001639a989e5ee5628d43629fb296ac7a027a19061d9476a75d57b22b4aa41f",
+     "offset": 8682,
+     "type": "bytes:32",
+     "bytesHex": "f692c6b68bb07c40bb3ced62e23d4476dc21b5c1af2f4f488f6e687f1a3ad4b6",
+     "value": "f692c6b68bb07c40bb3ced62e23d4476dc21b5c1af2f4f488f6e687f1a3ad4b6",
+     "expect": "f692c6b68bb07c40bb3ced62e23d4476dc21b5c1af2f4f488f6e687f1a3ad4b6",
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-category-links-2026-10-09\\raw\\Persistence\\StatCategories\\StatCategorization\\Categorization_Vehicles.ebx",
+     "rawSha256": "9001639a989e5ee5628d43629fb296ac7a027a19061d9476a75d57b22b4aa41f",
+     "offset": 5476,
+     "type": "guid",
+     "bytesHex": "3e0fc56b72220e4997ac140ef69ee3dd",
+     "value": "6bc50f3e-2272-490e-97ac-140ef69ee3dd",
+     "expect": "6bc50f3e-2272-490e-97ac-140ef69ee3dd",
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\Tank\\Abrams\\VB_VEH_Tank_Abrams.ebx",
+     "rawSha256": "e65f368eb95aebd9ec21cbc6728830acaac54589324582dd9516d3f7a70ed672",
+     "offset": 176,
+     "type": "guid",
+     "bytesHex": "3e0fc56b72220e4997ac140ef69ee3dd",
+     "value": "6bc50f3e-2272-490e-97ac-140ef69ee3dd",
+     "expect": "6bc50f3e-2272-490e-97ac-140ef69ee3dd",
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 539,
+   "matched": 539,
+   "files": 34,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "raw-checks.json"
+  },
+  "assets": {
+   "Persistence/StatCategories/StatCategorization/Categorization_Vehicles": {
+    "file": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-category-links-2026-10-09\\raw\\Persistence\\StatCategories\\StatCategorization\\Categorization_Vehicles.ebx",
+    "rawSha256": "9001639a989e5ee5628d43629fb296ac7a027a19061d9476a75d57b22b4aa41f",
+    "fileGuid": "84f2b7ed-fa5b-4737-8079-72fd6bbff0f6"
+   },
+   "Persistence/StatCategories/StatCategoryTrees/Category_VehicleArchetypes": {
+    "file": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-category-links-2026-10-09\\raw\\Persistence\\StatCategories\\StatCategoryTrees\\Category_VehicleArchetypes.ebx",
+    "rawSha256": "6461a7c565502863785be36ea011b18d5fa85e49952539d213187a56de24abc4",
+    "fileGuid": "3184defe-d6ce-42ef-ac28-44f5a673ba15"
+   },
+   "Persistence/StatCategories/StatCategoryTrees/Category_Hardware": {
+    "file": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-category-links-2026-10-09\\raw\\Persistence\\StatCategories\\StatCategoryTrees\\Category_Hardware.ebx",
+    "rawSha256": "c8d82b473600f5fa5d6827ad16cc51ff7f5f63409ec3ac883d704ff86c4e8c77",
+    "fileGuid": "3583525f-4b7e-4bab-8170-437ff4c7afc8"
+   },
+   "Persistence/StatCategories/StatCategoryTrees/Category_HardwareGroups": {
+    "file": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-category-links-2026-10-09\\raw\\Persistence\\StatCategories\\StatCategoryTrees\\Category_HardwareGroups.ebx",
+    "rawSha256": "26e73e333073a95eaa2658ad04a91ba4ea01316d525ec1293ccc37bde2f41684",
+    "fileGuid": "b6c692f6-b08b-407c-bb3c-ed62e23d4476"
+   }
+  },
+  "vehicles": [
+   {
+    "statId": "veh_air_m77efalchion",
+    "statIndex": 66,
+    "entryGuid": "ac432b9d-ed27-43e5-8e8b-6b92ee9bea0d",
+    "entryGuidOffset": 1624,
+    "archetype": "arch_heliattack",
+    "archetypeChain": [
+     "arch_heliattack",
+     "arch_mastery",
+     "archetype_all"
+    ],
+    "hardwareChain": [
+     "veh_air_m77efalchion",
+     "veh_air_helis",
+     "veh_air",
+     "veh"
+    ],
+    "hardwareGroupChains": [
+     [
+      "group_heli",
+      "group_airveh"
+     ]
+    ],
+    "otherImports": [],
+    "blueprint": {
+     "route": "Common/Hardware/Vehicles/Helicopter/AH64E/VB_VEH_Helicopter_AH64E",
+     "rawSha256": "371300af99eab2e9b4bef53cec964bdf7edbcb0ef55c6c426eb963c72c2fa555",
+     "guid": "5ea146c5-3a3b-4c15-b96f-e115a50c8ab9",
+     "offsetInBlueprint": 176,
+     "offsetInCategorization": 4708
+    }
+   },
+   {
+    "statId": "veh_air_panthera",
+    "statIndex": 67,
+    "entryGuid": "553a5da7-35aa-4777-94e3-dad109efbd2d",
+    "entryGuidOffset": 1912,
+    "archetype": "arch_heliattack",
+    "archetypeChain": [
+     "arch_heliattack",
+     "arch_mastery",
+     "archetype_all"
+    ],
+    "hardwareChain": [
+     "veh_air_panthera",
+     "veh_air_helis",
+     "veh_air",
+     "veh"
+    ],
+    "hardwareGroupChains": [
+     [
+      "group_heli",
+      "group_airveh"
+     ]
+    ],
+    "otherImports": [],
+    "blueprint": {
+     "route": "Common/Hardware/Vehicles/Helicopter/Eurocopter/VB_VEH_Helicopter_Eurocopter",
+     "rawSha256": "d4b4cc97f3d4c9fd9ddcea5a49cd10d177b0f1c840c8b947ef13d3cb6a010445",
+     "guid": "aed4ced8-65b5-4e37-bef0-59b2231f49c9",
+     "offsetInBlueprint": 176,
+     "offsetInCategorization": 4932
+    }
+   },
+   {
+    "statId": "veh_air_uh06",
+    "statIndex": 68,
+    "entryGuid": "38aee4bf-6e3e-4acf-9063-b7a40d340031",
+    "entryGuidOffset": 2008,
+    "archetype": "arch_helitrans",
+    "archetypeChain": [
+     "arch_helitrans",
+     "arch_mastery",
+     "archetype_all"
+    ],
+    "hardwareChain": [
+     "veh_air_uh06",
+     "veh_air_helis",
+     "veh_air",
+     "veh"
+    ],
+    "hardwareGroupChains": [
+     [
+      "group_heli",
+      "group_airveh"
+     ],
+     [
+      "group_veh_transp"
+     ]
+    ],
+    "otherImports": [],
+    "blueprint": {
+     "route": "Common/Hardware/Vehicles/Helicopter/UH60/VB_VEH_Helicopter_UH60",
+     "rawSha256": "e82e813cba78d36ba89d859aae18f3bc34e0f0f727f2312d0e51fa0a30c54d97",
+     "guid": "93db45f2-2d50-4972-8021-aab4ac854155",
+     "offsetInBlueprint": 176,
+     "offsetInCategorization": 5004
+    }
+   },
+   {
+    "statId": "veh_air_f61v",
+    "statIndex": 69,
+    "entryGuid": "b402d23a-a1bf-42b4-b618-d1469ff28106",
+    "entryGuidOffset": 952,
+    "archetype": "arch_jetattack",
+    "archetypeChain": [
+     "arch_jetattack",
+     "arch_mastery",
+     "archetype_all"
+    ],
+    "hardwareChain": [
+     "veh_air_f61v",
+     "veh_air_jets",
+     "veh_air",
+     "veh"
+    ],
+    "hardwareGroupChains": [
+     [
+      "group_plane",
+      "group_airveh"
+     ]
+    ],
+    "otherImports": [],
+    "blueprint": {
+     "route": "Common/Hardware/Vehicles/Airplane/F16/VB_VEH_Airplane_F16",
+     "rawSha256": "7d99e0abbba5a58ecf7025cc33841e9662ae620fa1bfc02718ecfdb7145971c0",
+     "guid": "e559b507-7c49-4001-b0d1-704776e30071",
+     "offsetInBlueprint": 176,
+     "offsetInCategorization": 4244
+    }
+   },
+   {
+    "statId": "veh_air_f39e",
+    "statIndex": 70,
+    "entryGuid": "f319bcfc-3597-4a35-bbec-85b9eaf84736",
+    "entryGuidOffset": 3160,
+    "archetype": "arch_jetattack",
+    "archetypeChain": [
+     "arch_jetattack",
+     "arch_mastery",
+     "archetype_all"
+    ],
+    "hardwareChain": [
+     "veh_air_f39e",
+     "veh_air_jets",
+     "veh_air",
+     "veh"
+    ],
+    "hardwareGroupChains": [
+     [
+      "group_plane",
+      "group_airveh"
+     ]
+    ],
+    "otherImports": [],
+    "blueprint": {
+     "route": "Common/Hardware/Vehicles/Airplane/JAS39/VB_VEH_Airplane_JAS39",
+     "rawSha256": "99328b8f81bb70ed0de0189f30c69812f2711dde710a40f6a600fef7c17c2787",
+     "guid": "2f4997d7-4835-44f9-a53e-1fac5b57c762",
+     "offsetInBlueprint": 224,
+     "offsetInCategorization": 5876
+    }
+   },
+   {
+    "statId": "veh_air_f97kes",
+    "statIndex": 71,
+    "entryGuid": "33286ef7-7684-48b0-934e-dde80d94053f",
+    "entryGuidOffset": 3064,
+    "archetype": "arch_fighterplane",
+    "archetypeChain": [
+     "arch_fighterplane",
+     "arch_mastery",
+     "archetype_all"
+    ],
+    "hardwareChain": [
+     "veh_air_f97kes",
+     "veh_air_jets",
+     "veh_air",
+     "veh"
+    ],
+    "hardwareGroupChains": [
+     [
+      "group_plane",
+      "group_airveh"
+     ]
+    ],
+    "otherImports": [],
+    "blueprint": {
+     "route": "Common/Hardware/Vehicles/Airplane/F22/VB_VEH_Airplane_F22",
+     "rawSha256": "52f193e63997466a8a55133b80d7dcecab52f6dcefc390cf1c5568cc0ac2097c",
+     "guid": "02e3620f-e0ca-442c-a3d7-cb5c647452ae",
+     "offsetInBlueprint": 176,
+     "offsetInCategorization": 5804
+    }
+   },
+   {
+    "statId": "veh_air_su57",
+    "statIndex": 72,
+    "entryGuid": "e13cd149-34d6-4b44-b005-2776f898b40d",
+    "entryGuidOffset": 1048,
+    "archetype": "arch_fighterplane",
+    "archetypeChain": [
+     "arch_fighterplane",
+     "arch_mastery",
+     "archetype_all"
+    ],
+    "hardwareChain": [
+     "veh_air_su57",
+     "veh_air_jets",
+     "veh_air",
+     "veh"
+    ],
+    "hardwareGroupChains": [
+     [
+      "group_plane",
+      "group_airveh"
+     ]
+    ],
+    "otherImports": [],
+    "blueprint": {
+     "route": "Common/Hardware/Vehicles/Airplane/SU57/VB_VEH_Airplane_SU57",
+     "rawSha256": "4621cb5729b75c4f4ac0af4671cfe6c2f829ff43ea5ecb3eca15e71c0171f044",
+     "guid": "28f2b645-00d2-438c-8668-c8c9defdacf4",
+     "offsetInBlueprint": 176,
+     "offsetInCategorization": 4316
+    }
+   },
+   {
+    "statId": "veh_sur_m1a2sepv3",
+    "statIndex": 73,
+    "entryGuid": "c8af67e3-3b94-4130-b464-7d0810cb3a24",
+    "entryGuidOffset": 2584,
+    "archetype": "arch_mbt",
+    "archetypeChain": [
+     "arch_mbt",
+     "arch_mastery",
+     "archetype_all"
+    ],
+    "hardwareChain": [
+     "veh_sur_m1a2sepv3",
+     "veh_sur",
+     "veh"
+    ],
+    "hardwareGroupChains": [
+     [
+      "group_tank"
+     ]
+    ],
+    "otherImports": [],
+    "blueprint": {
+     "route": "Common/Hardware/Vehicles/Tank/Abrams/VB_VEH_Tank_Abrams",
+     "rawSha256": "e65f368eb95aebd9ec21cbc6728830acaac54589324582dd9516d3f7a70ed672",
+     "guid": "6bc50f3e-2272-490e-97ac-140ef69ee3dd",
+     "offsetInBlueprint": 176,
+     "offsetInCategorization": 5476
+    }
+   },
+   {
+    "statId": "veh_sur_leoa4",
+    "statIndex": 74,
+    "entryGuid": "637bd60d-ff41-45f6-acb6-92be7a7e48ed",
+    "entryGuidOffset": 376,
+    "archetype": "arch_mbt",
+    "archetypeChain": [
+     "arch_mbt",
+     "arch_mastery",
+     "archetype_all"
+    ],
+    "hardwareChain": [
+     "veh_sur_leoa4",
+     "veh_sur",
+     "veh"
+    ],
+    "hardwareGroupChains": [
+     [
+      "group_tank"
+     ]
+    ],
+    "otherImports": [],
+    "blueprint": {
+     "route": "Common/Hardware/Vehicles/Tank/Leopard/VB_VEH_Tank_Leopard",
+     "rawSha256": "ca4d6b711fb9846d6239006347c46a8669aa8dbda3e7dd0de486d04f6fc2795c",
+     "guid": "8ad8bdcf-4979-43c7-9fbc-cfedbc5d3af1",
+     "offsetInBlueprint": 176,
+     "offsetInCategorization": 3812
+    }
+   },
+   {
+    "statId": "veh_breacher",
+    "statIndex": 75,
+    "entryGuid": "697578a6-ca2a-4b11-bf6f-18eb88a239ea",
+    "entryGuidOffset": 1816,
+    "archetype": "arch_mbt",
+    "archetypeChain": [
+     "arch_mbt",
+     "arch_mastery",
+     "archetype_all"
+    ],
+    "hardwareChain": [
+     "veh_breacher",
+     "veh_sur",
+     "veh"
+    ],
+    "hardwareGroupChains": [
+     [
+      "group_tank"
+     ]
+    ],
+    "otherImports": [],
+    "blueprint": null
+   },
+   {
+    "statId": "veh_sur_strf09a4",
+    "statIndex": 76,
+    "entryGuid": "c2fb4cf0-5c8a-4b7a-beea-e696f0e41f6e",
+    "entryGuidOffset": 2872,
+    "archetype": "arch_ifv",
+    "archetypeChain": [
+     "arch_ifv",
+     "arch_mastery",
+     "archetype_all"
+    ],
+    "hardwareChain": [
+     "veh_sur_strf09a4",
+     "veh_sur",
+     "veh"
+    ],
+    "hardwareGroupChains": [
+     [
+      "group_tank"
+     ]
+    ],
+    "otherImports": [],
+    "blueprint": {
+     "route": "Common/Hardware/Vehicles/Tank/CV90/VB_VEH_Tank_CV90",
+     "rawSha256": "a39ff8309493fb4e625c098809891a8f8fbfd950c329afa7b7079211e3e514a4",
+     "guid": "4cdf7f0f-80b3-4bce-97e3-be8c2f385e72",
+     "offsetInBlueprint": 176,
+     "offsetInCategorization": 5660
+    }
+   },
+   {
+    "statId": "veh_sur_bradley",
+    "statIndex": 77,
+    "entryGuid": "28970163-515b-488e-a29c-c9024aecd546",
+    "entryGuidOffset": 1240,
+    "archetype": "arch_ifv",
+    "archetypeChain": [
+     "arch_ifv",
+     "arch_mastery",
+     "archetype_all"
+    ],
+    "hardwareChain": [
+     "veh_sur_bradley",
+     "veh_sur",
+     "veh"
+    ],
+    "hardwareGroupChains": [
+     [
+      "group_tank"
+     ]
+    ],
+    "otherImports": [],
+    "blueprint": {
+     "route": "Common/Hardware/Vehicles/Tank/Bradley/VB_VEH_Tank_Bradley",
+     "rawSha256": "7d42a906aebe89d73fa0bb3ed1ab38df5c1dc5bbf8770fa230c88adf1a5a9d64",
+     "guid": "500a606c-8fe8-4c4a-88b7-5ec67a551faf",
+     "offsetInBlueprint": 176,
+     "offsetInCategorization": 4452
+    }
+   },
+   {
+    "statId": "veh_sur_ge26pax",
+    "statIndex": 78,
+    "entryGuid": "f49f6d93-217c-4738-b823-c3a03fb999e8",
+    "entryGuidOffset": 1528,
+    "archetype": "arch_antiair",
+    "archetypeChain": [
+     "arch_antiair",
+     "arch_mastery",
+     "archetype_all"
+    ],
+    "hardwareChain": [
+     "veh_sur_ge26pax",
+     "veh_sur",
+     "veh"
+    ],
+    "hardwareGroupChains": [
+     [
+      "group_tank"
+     ]
+    ],
+    "otherImports": [],
+    "blueprint": null
+   },
+   {
+    "statId": "veh_sur_cheetah1a2",
+    "statIndex": 79,
+    "entryGuid": "92a64fc0-75b2-454b-a102-5a869b545be7",
+    "entryGuidOffset": 2104,
+    "archetype": "arch_antiair",
+    "archetypeChain": [
+     "arch_antiair",
+     "arch_mastery",
+     "archetype_all"
+    ],
+    "hardwareChain": [
+     "veh_sur_cheetah1a2",
+     "veh_sur",
+     "veh"
+    ],
+    "hardwareGroupChains": [
+     [
+      "group_tank"
+     ]
+    ],
+    "otherImports": [],
+    "blueprint": {
+     "route": "Common/Hardware/Vehicles/Tank/Gepard/VB_VEH_Tank_Gepard",
+     "rawSha256": "8cb03f795a1518a6a92a70a348e777b1e10eaca2603c99fd04d50552ec0c7f39",
+     "guid": "eae57c59-03d4-4f20-b6de-78fcfb3a2e0e",
+     "offsetInBlueprint": 176,
+     "offsetInCategorization": 5084
+    }
+   },
+   {
+    "statId": "veh_sur_glider96",
+    "statIndex": 80,
+    "entryGuid": "b8caf3df-9c16-40e6-bb36-f39bbb1bd54b",
+    "entryGuidOffset": 2488,
+    "archetype": "arch_lighttrans",
+    "archetypeChain": [
+     "arch_lighttrans",
+     "arch_mastery",
+     "archetype_all"
+    ],
+    "hardwareChain": [
+     "veh_sur_glider96",
+     "veh_sur",
+     "veh"
+    ],
+    "hardwareGroupChains": [
+     [
+      "group_car"
+     ],
+     [
+      "group_veh_transp"
+     ]
+    ],
+    "otherImports": [
+     {
+      "fileGuid": "fb9667c7-aafb-4aee-9a8b-c0830ee0c27c",
+      "objectGuid": "7a2388d2-95fa-4b45-8f63-c53249f89046"
+     }
+    ],
+    "blueprint": {
+     "route": "Common/Hardware/Vehicles/Car/Flyer60/VB_VEH_Car_Flyer60",
+     "rawSha256": "afea4a935d8310ae3ee8abf907c7789b57690f7c898c936bcc3e100e6631edb2",
+     "guid": "ae332bdf-853c-40f7-a547-80b5cad9196d",
+     "offsetInBlueprint": 176,
+     "offsetInCategorization": 5372
+    }
+   },
+   {
+    "statId": "veh_sur_vector",
+    "statIndex": 81,
+    "entryGuid": "7f0dcdd1-1688-400d-948d-e290bd1fc351",
+    "entryGuidOffset": 2392,
+    "archetype": "arch_lighttrans",
+    "archetypeChain": [
+     "arch_lighttrans",
+     "arch_mastery",
+     "archetype_all"
+    ],
+    "hardwareChain": [
+     "veh_sur_vector",
+     "veh_sur",
+     "veh"
+    ],
+    "hardwareGroupChains": [
+     [
+      "group_car"
+     ],
+     [
+      "group_veh_transp"
+     ]
+    ],
+    "otherImports": [],
+    "blueprint": {
+     "route": "Common/Hardware/Vehicles/Car/Vector/VB_VEH_Car_Vector",
+     "rawSha256": "f3a1dad4b5a20f602f6a3392a4a9397394c95c0aea18e62bf47e7bf86dffe665",
+     "guid": "2d11fadd-422e-4c77-9240-40ecadf03719",
+     "offsetInBlueprint": 176,
+     "offsetInCategorization": 5292
+    }
+   },
+   {
+    "statId": "veh_sur_rhib",
+    "statIndex": 82,
+    "entryGuid": "2f4b5930-c6d6-4eea-8332-ab5df9fa114d",
+    "entryGuidOffset": 856,
+    "archetype": "arch_inflatableboat",
+    "archetypeChain": [
+     "arch_inflatableboat",
+     "arch_mastery_no",
+     "archetype_all"
+    ],
+    "hardwareChain": [
+     "veh_sur_rhib",
+     "veh_nav",
+     "veh"
+    ],
+    "hardwareGroupChains": [
+     [
+      "group_boat"
+     ]
+    ],
+    "otherImports": [],
+    "blueprint": {
+     "route": "Common/Hardware/Vehicles/Boat/VB_VEH_Boat_RHIB",
+     "rawSha256": "cc45dacb066f666293c5430404a3cad98321b1e03f20cb6d6ffd68214a27f806",
+     "guid": "426b5884-4b73-4a71-bd5f-51e1c07ee629",
+     "offsetInBlueprint": 176,
+     "offsetInCategorization": 4172
+    }
+   },
+   {
+    "statId": "veh_sur_travmark2",
+    "statIndex": 83,
+    "entryGuid": "30179321-1c3f-4f0e-8890-3af3eef30b31",
+    "entryGuidOffset": 568,
+    "archetype": "arch_carapc",
+    "archetypeChain": [
+     "arch_carapc",
+     "arch_mastery",
+     "archetype_all"
+    ],
+    "hardwareChain": [
+     "veh_sur_travmark2",
+     "veh_sur",
+     "veh"
+    ],
+    "hardwareGroupChains": [
+     [
+      "group_car"
+     ]
+    ],
+    "otherImports": [],
+    "blueprint": {
+     "route": "Common/Hardware/Vehicles/Car/Marauder/VB_VEH_Car_Marauder",
+     "rawSha256": "02231651f7cb25c9242e0bd1313355f60edeefe993be590276d0ca3f5bdc9804",
+     "guid": "2e20ddfe-03bc-4dcc-b70d-68fb2909cd59",
+     "offsetInBlueprint": 176,
+     "offsetInCategorization": 3948
+    }
+   },
+   {
+    "statId": "veh_sur_ptv",
+    "statIndex": 84,
+    "entryGuid": "6482f3c7-7a51-45c9-b7a1-694b6512c075",
+    "entryGuidOffset": 2200,
+    "archetype": "arch_car",
+    "archetypeChain": [
+     "arch_car",
+     "arch_mastery_no",
+     "archetype_all"
+    ],
+    "hardwareChain": [
+     "veh_sur_ptv",
+     "veh_sur",
+     "veh"
+    ],
+    "hardwareGroupChains": [
+     [
+      "group_car"
+     ]
+    ],
+    "otherImports": [
+     {
+      "fileGuid": "fb9667c7-aafb-4aee-9a8b-c0830ee0c27c",
+      "objectGuid": "7a2388d2-95fa-4b45-8f63-c53249f89046"
+     }
+    ],
+    "blueprint": {
+     "route": "Common/Hardware/Vehicles/Car/PTV/VB_VEH_Car_PTV",
+     "rawSha256": "3e49923df3ea6273002d468cbbaef3ffd76fd8012e616a977bb8473c5bfb9bd9",
+     "guid": "dc6798fc-d67c-459b-8a9a-0cb8343caa19",
+     "offsetInBlueprint": 176,
+     "offsetInCategorization": 5156
+    }
+   },
+   {
+    "statId": "veh_sur_quadbike",
+    "statIndex": 85,
+    "entryGuid": "bbf3bf21-af29-4466-af15-b4960f5081fd",
+    "entryGuidOffset": 664,
+    "archetype": "arch_car",
+    "archetypeChain": [
+     "arch_car",
+     "arch_mastery_no",
+     "archetype_all"
+    ],
+    "hardwareChain": [
+     "veh_sur_quadbike",
+     "veh_sur",
+     "veh"
+    ],
+    "hardwareGroupChains": [
+     [
+      "group_car"
+     ]
+    ],
+    "otherImports": [
+     {
+      "fileGuid": "fb9667c7-aafb-4aee-9a8b-c0830ee0c27c",
+      "objectGuid": "7a2388d2-95fa-4b45-8f63-c53249f89046"
+     }
+    ],
+    "blueprint": {
+     "route": "Common/Hardware/Vehicles/Car/QuadBike/VB_VEH_Car_QuadBike",
+     "rawSha256": "0124300b03c73bf58ba642ce7a0914d8471f71ab4d7ec896d2c7ab8db581873f",
+     "guid": "86e16abc-d4da-4c31-b4f1-228b6256680a",
+     "offsetInBlueprint": 176,
+     "offsetInCategorization": 4020
+    }
+   },
+   {
+    "statId": "station_aa_gdf009",
+    "statIndex": 86,
+    "entryGuid": "a22d11ee-4c9c-4cc8-8e4a-89773cb96434",
+    "entryGuidOffset": 2776,
+    "archetype": null,
+    "archetypeChain": null,
+    "hardwareChain": [
+     "station_aa_gdf009",
+     "stationary_heavy",
+     "stationary"
+    ],
+    "hardwareGroupChains": [
+     [
+      "group_stationary"
+     ]
+    ],
+    "otherImports": [],
+    "blueprint": {
+     "route": "Common/Hardware/Vehicles/Stationary/GDF009/VB_VEH_Stationary_GDF009",
+     "rawSha256": "97bc54bf61f1521b82b657c6b566bce74cb6155ed82702e30432158879c3f71f",
+     "guid": "8df948ea-e088-47db-a921-3b24d840e7d6",
+     "offsetInBlueprint": 176,
+     "offsetInCategorization": 5580
+    }
+   },
+   {
+    "statId": "station_at_m41a7tow",
+    "statIndex": 87,
+    "entryGuid": "d9cb375f-4fcd-428a-af79-36acf8738447",
+    "entryGuidOffset": 1144,
+    "archetype": null,
+    "archetypeChain": null,
+    "hardwareChain": [
+     "station_at_m41a7tow",
+     "stationary_light",
+     "stationary"
+    ],
+    "hardwareGroupChains": [
+     [
+      "group_stationary"
+     ]
+    ],
+    "otherImports": [],
+    "blueprint": {
+     "route": "Common/Hardware/Vehicles/Stationary/BGM71TOW/VB_VEH_Stationary_BGM71TOW",
+     "rawSha256": "79a593c9ae9bee42fe3059b1faa29e424bff044f83fca552f6b4886b138727a2",
+     "guid": "768f0ace-92ec-4500-b5c8-7b3c8f296fab",
+     "offsetInBlueprint": 272,
+     "offsetInCategorization": 4388
+    }
+   },
+   {
+    "statId": "station_autoaa_legion",
+    "statIndex": 88,
+    "entryGuid": "7485d2e9-5479-40b7-846d-e91b5402feda",
+    "entryGuidOffset": 2680,
+    "archetype": null,
+    "archetypeChain": null,
+    "hardwareChain": [
+     "station_autoaa_legion",
+     "stationary_heavy",
+     "stationary"
+    ],
+    "hardwareGroupChains": [
+     [
+      "group_stationary"
+     ]
+    ],
+    "otherImports": [],
+    "blueprint": {
+     "route": "Common/Hardware/Vehicles/Stationary/Phalanx/VB_VEH_Stationary_Phalanx",
+     "rawSha256": "87704f8646870a651d66681d89949163277d6b6c0ccc424f0a4207761dcdf401",
+     "guid": "c6c869ba-6048-421f-b59e-b80ed423de15",
+     "offsetInBlueprint": 176,
+     "offsetInCategorization": 5532
+    }
+   },
+   {
+    "statId": "station_hmg_madeuce",
+    "statIndex": 89,
+    "entryGuid": "ecd57c10-cccb-4cc1-a559-cd72fe730a8e",
+    "entryGuidOffset": 472,
+    "archetype": null,
+    "archetypeChain": null,
+    "hardwareChain": [
+     "station_hmg_madeuce",
+     "stationary_light",
+     "stationary"
+    ],
+    "hardwareGroupChains": [
+     [
+      "group_stationary"
+     ]
+    ],
+    "otherImports": [],
+    "blueprint": {
+     "route": "Common/Hardware/Vehicles/Stationary/M2MG/VB_VEH_Stationary_M2MG",
+     "rawSha256": "e902fe4daf0e42f2b925d644731812a47caede44e1f482e61fd92cb601634bdf",
+     "guid": "bace8b09-45a5-4570-acff-6c9acb315395",
+     "offsetInBlueprint": 176,
+     "offsetInCategorization": 3884
+    }
+   },
+   {
+    "statId": "veh_air_mh47",
+    "statIndex": 90,
+    "entryGuid": "20ff75d0-645e-4207-923b-cf462b2ac357",
+    "entryGuidOffset": 2296,
+    "archetype": null,
+    "archetypeChain": null,
+    "hardwareChain": [
+     "veh_air_mh47",
+     "veh"
+    ],
+    "hardwareGroupChains": [],
+    "otherImports": [],
+    "blueprint": {
+     "route": "Common/Hardware/Vehicles/Helicopter/MH47/VB_VEH_Helicopter_MH47_Insertion",
+     "rawSha256": "2283aa479c1c9942788e2fbbef21e51412e97b21540db299921b857e5d1e9e4b",
+     "guid": "57a713d6-3a6d-4e09-a01d-0fdd1f1c7c01",
+     "offsetInBlueprint": 176,
+     "offsetInCategorization": 5220
+    }
+   },
+   {
+    "statId": "veh_air_ah6litbird",
+    "statIndex": 91,
+    "entryGuid": "4c30740c-0ab5-4e6e-ae38-d92d25be3730",
+    "entryGuidOffset": 280,
+    "archetype": "arch_heliscout",
+    "archetypeChain": [
+     "arch_heliscout",
+     "arch_mastery",
+     "archetype_all"
+    ],
+    "hardwareChain": [
+     "veh_air_ah6litbird",
+     "veh_air_helis",
+     "veh_air",
+     "veh"
+    ],
+    "hardwareGroupChains": [
+     [
+      "group_heli",
+      "group_airveh"
+     ]
+    ],
+    "otherImports": [],
+    "blueprint": {
+     "route": "Common/Hardware/Vehicles/Helicopter/AH6M/VB_VEH_Helicopter_AH6M",
+     "rawSha256": "ed3c587a39bf7421e5479e85efb96c5df4dbcc588810d651a0b83e1b9375d098",
+     "guid": "6f854b23-cdfc-469b-ae67-783c01b79528",
+     "offsetInBlueprint": 176,
+     "offsetInCategorization": 3724
+    }
+   },
+   {
+    "statId": "veh_air_mh350",
+    "statIndex": 92,
+    "entryGuid": "fa74ee8d-f035-4238-8cb9-70a5754be59a",
+    "entryGuidOffset": 1432,
+    "archetype": "arch_heliscout",
+    "archetypeChain": [
+     "arch_heliscout",
+     "arch_mastery",
+     "archetype_all"
+    ],
+    "hardwareChain": [
+     "veh_air_mh350",
+     "veh_air_helis",
+     "veh_air",
+     "veh"
+    ],
+    "hardwareGroupChains": [
+     [
+      "group_heli",
+      "group_airveh"
+     ]
+    ],
+    "otherImports": [],
+    "blueprint": null
+   },
+   {
+    "statId": "veh_sur_dirtbike01",
+    "statIndex": 93,
+    "entryGuid": "8b2352a0-1c2f-44f2-879a-905d793ce862",
+    "entryGuidOffset": 1720,
+    "archetype": "arch_motorcycle",
+    "archetypeChain": [
+     "arch_motorcycle",
+     "arch_mastery_no",
+     "archetype_all"
+    ],
+    "hardwareChain": [
+     "veh_sur_moto_db01",
+     "veh_sur",
+     "veh"
+    ],
+    "hardwareGroupChains": [
+     [
+      "group_car"
+     ]
+    ],
+    "otherImports": [
+     {
+      "fileGuid": "fb9667c7-aafb-4aee-9a8b-c0830ee0c27c",
+      "objectGuid": "7a2388d2-95fa-4b45-8f63-c53249f89046"
+     }
+    ],
+    "blueprint": {
+     "route": "Common/Hardware/Vehicles/Motorcycle/DirtBike01/VB_VEH_Motorcycle_DirtBike01",
+     "rawSha256": "19ad25b50818a33f4effb26f4f1fa47c00727932f5f168f97e37866bbafbdfc2",
+     "guid": "e57858c6-0260-4eb3-aee5-a4635c4c8e4f",
+     "offsetInBlueprint": 176,
+     "offsetInCategorization": 4780
+    }
+   },
+   {
+    "statId": "veh_sur_dirtbike02",
+    "statIndex": 94,
+    "entryGuid": "51e7f401-7671-4a39-ad22-6284d1257de8",
+    "entryGuidOffset": 88,
+    "archetype": "arch_motorcycle",
+    "archetypeChain": [
+     "arch_motorcycle",
+     "arch_mastery_no",
+     "archetype_all"
+    ],
+    "hardwareChain": [
+     "veh_sur_moto_db02",
+     "veh_sur",
+     "veh"
+    ],
+    "hardwareGroupChains": [
+     [
+      "group_car"
+     ]
+    ],
+    "otherImports": [
+     {
+      "fileGuid": "fb9667c7-aafb-4aee-9a8b-c0830ee0c27c",
+      "objectGuid": "7a2388d2-95fa-4b45-8f63-c53249f89046"
+     }
+    ],
+    "blueprint": {
+     "route": "Common/Hardware/Vehicles/Motorcycle/DirtBike02/VB_VEH_Motorcycle_DirtBike02",
+     "rawSha256": "9d391833c249600fc40c5db6b863be7042e4d542e7f0468b08c8035ff2b87342",
+     "guid": "c3bd81ec-b404-4c9c-84c5-fcd16794f3ff",
+     "offsetInBlueprint": 176,
+     "offsetInCategorization": 3588
+    }
+   },
+   {
+    "statId": "veh_sur_ltv",
+    "statIndex": 95,
+    "entryGuid": "753b7c23-316b-4908-804d-05acf89a49f8",
+    "entryGuidOffset": 760,
+    "archetype": "arch_carapc",
+    "archetypeChain": [
+     "arch_carapc",
+     "arch_mastery",
+     "archetype_all"
+    ],
+    "hardwareChain": [
+     "veh_sur_ltv",
+     "veh_sur",
+     "veh"
+    ],
+    "hardwareGroupChains": [
+     [
+      "group_car"
+     ]
+    ],
+    "otherImports": [],
+    "blueprint": {
+     "route": "Common/Hardware/Vehicles/Car/JLTV/VB_VEH_Car_JLTV",
+     "rawSha256": "13f64f0252f34050910d1aedca17cf9a45c8ff1d621c878e6188dca7867ee729",
+     "guid": "39ad6855-d1e5-42c9-be4b-b2c0d0dcd639",
+     "offsetInBlueprint": 176,
+     "offsetInCategorization": 4100
+    }
+   },
+   {
+    "statId": "veh_sur_CB90",
+    "statIndex": 96,
+    "entryGuid": "b9426667-388f-4af4-833a-e676a4a5ce7a",
+    "entryGuidOffset": 1336,
+    "archetype": "arch_patrolboat",
+    "archetypeChain": [
+     "arch_patrolboat",
+     "arch_mastery",
+     "archetype_all"
+    ],
+    "hardwareChain": [
+     "veh_sur_CB90",
+     "veh_nav",
+     "veh"
+    ],
+    "hardwareGroupChains": [
+     [
+      "group_boat"
+     ]
+    ],
+    "otherImports": [],
+    "blueprint": {
+     "route": "Common/Hardware/Vehicles/Boat/CB90/VB_VEH_Boat_CB90",
+     "rawSha256": "2d8e05398f8f3f2b79159a8db1ec5a87d3033ac7c2469d0cb5f3c6c3f6911ad3",
+     "guid": "fcd2bcc4-0a82-467a-9f21-2225a8af71ef",
+     "offsetInBlueprint": 176,
+     "offsetInCategorization": 4524
+    }
+   },
+   {
+    "statId": "veh_air_fa18f",
+    "statIndex": 97,
+    "entryGuid": "6c15910b-8779-4e72-bbe2-6f461f72c6e9",
+    "entryGuidOffset": 184,
+    "archetype": "arch_jetmultirole",
+    "archetypeChain": [
+     "arch_jetmultirole",
+     "arch_mastery",
+     "archetype_all"
+    ],
+    "hardwareChain": [
+     "veh_air_fa18f",
+     "veh_air_jets",
+     "veh_air",
+     "veh"
+    ],
+    "hardwareGroupChains": [
+     [
+      "group_plane",
+      "group_airveh"
+     ]
+    ],
+    "otherImports": [],
+    "blueprint": {
+     "route": "Common/Hardware/Vehicles/Airplane/FA18F/VB_VEH_Airplane_FA18F",
+     "rawSha256": "5e6a8b69fedc76ca5515841122af7114febbff29148453bbfd9ef9c2bca757c4",
+     "guid": "c092cc64-6095-4d91-9752-123233cbdbfe",
+     "offsetInBlueprint": 176,
+     "offsetInCategorization": 3668
+    }
+   },
+   {
+    "statId": "veh_air_f14tomcat",
+    "statIndex": 98,
+    "entryGuid": "f89fc2f0-15fc-4495-a132-e0edd134af11",
+    "entryGuidOffset": 2968,
+    "archetype": "arch_jetfleet",
+    "archetypeChain": [
+     "arch_jetfleet",
+     "arch_mastery",
+     "archetype_all"
+    ],
+    "hardwareChain": [
+     "veh_air_f14tomcat",
+     "veh_air_jets",
+     "veh_air",
+     "veh"
+    ],
+    "hardwareGroupChains": [
+     [
+      "group_plane",
+      "group_airveh"
+     ]
+    ],
+    "otherImports": [],
+    "blueprint": {
+     "route": "Common/Hardware/Vehicles/Airplane/F14/VB_VEH_Airplane_F14",
+     "rawSha256": "68664b0e99e1944cd2c6df8bb1efefb97f49f715caac84173ac85853ed01b065",
+     "guid": "58b5541e-68d5-4d5f-b599-0d114c496bfc",
+     "offsetInBlueprint": 176,
+     "offsetInCategorization": 5732
+    }
+   }
+  ],
+  "archetypeTree": [
+   {
+    "name": "arch_antiair",
+    "guid": "7f5186ab-f2ec-4145-875d-100a9fd1ebb9",
+    "parent": "arch_mastery"
+   },
+   {
+    "name": "arch_car",
+    "guid": "0e61a049-f335-41e5-abf7-5d9a38f8dd10",
+    "parent": "arch_mastery_no"
+   },
+   {
+    "name": "arch_carapc",
+    "guid": "2f86a2dc-f99b-4f61-80b8-a320262b557e",
+    "parent": "arch_mastery"
+   },
+   {
+    "name": "arch_fighterplane",
+    "guid": "33e8b3be-908a-4a79-ba7c-913eab15d0cb",
+    "parent": "arch_mastery"
+   },
+   {
+    "name": "arch_heliattack",
+    "guid": "0cc62c72-3b96-4564-8870-6ef8fabf1f9c",
+    "parent": "arch_mastery"
+   },
+   {
+    "name": "arch_heliscout",
+    "guid": "9b7cd54e-38fe-4e3c-8f97-d6d0258c88e5",
+    "parent": "arch_mastery"
+   },
+   {
+    "name": "arch_helitrans",
+    "guid": "34080e2b-f781-4151-a533-bc8da45bfb2b",
+    "parent": "arch_mastery"
+   },
+   {
+    "name": "arch_ifv",
+    "guid": "5f347826-0d7b-4bde-bb9c-82d1b1279344",
+    "parent": "arch_mastery"
+   },
+   {
+    "name": "arch_inflatableboat",
+    "guid": "fbd1a644-72eb-41a2-9f89-47ba9e372e6d",
+    "parent": "arch_mastery_no"
+   },
+   {
+    "name": "arch_jetattack",
+    "guid": "c61fc823-465f-44e7-bb56-5c883c059e8f",
+    "parent": "arch_mastery"
+   },
+   {
+    "name": "arch_jetfleet",
+    "guid": "007bb781-6579-49c0-8181-faaa80b81212",
+    "parent": "arch_mastery"
+   },
+   {
+    "name": "arch_jetmultirole",
+    "guid": "035b640e-a9be-41a0-a4f3-4ece4eb73184",
+    "parent": "arch_mastery"
+   },
+   {
+    "name": "arch_lighttrans",
+    "guid": "615d759c-671a-43e0-b8d4-e3c9316b42f1",
+    "parent": "arch_mastery"
+   },
+   {
+    "name": "arch_mastery",
+    "guid": "fe366dfa-df05-4b0b-a1d1-e2d21cd412e5",
+    "parent": "archetype_all"
+   },
+   {
+    "name": "arch_mastery_no",
+    "guid": "85edac53-c687-4a0a-be29-f961e491c4e3",
+    "parent": "archetype_all"
+   },
+   {
+    "name": "arch_mbt",
+    "guid": "e5383794-6fb9-471f-86ec-e05b13dc2e1b",
+    "parent": "arch_mastery"
+   },
+   {
+    "name": "arch_motorcycle",
+    "guid": "d405b22a-c610-4b0a-93d0-02e2600689e2",
+    "parent": "arch_mastery_no"
+   },
+   {
+    "name": "arch_patrolboat",
+    "guid": "d0cb5587-7cae-4960-9b91-5635aacc999c",
+    "parent": "arch_mastery"
+   },
+   {
+    "name": "archetype_all",
+    "guid": "444ea51b-97bc-464d-8b70-befeca792b30",
+    "parent": null
+   }
+  ],
+  "counts": {
+   "entries": 33,
+   "withArchetype": 28,
+   "withoutArchetype": [
+    "station_aa_gdf009",
+    "station_at_m41a7tow",
+    "station_autoaa_legion",
+    "station_hmg_madeuce",
+    "veh_air_mh47"
+   ],
+   "withBlueprintGuidMatch": 30,
+   "withoutBlueprintGuidMatch": [
+    "veh_breacher",
+    "veh_sur_ge26pax",
+    "veh_air_mh350"
+   ],
+   "masteryArchetypes": [
+    "arch_antiair",
+    "arch_carapc",
+    "arch_fighterplane",
+    "arch_heliattack",
+    "arch_heliscout",
+    "arch_helitrans",
+    "arch_ifv",
+    "arch_jetattack",
+    "arch_jetfleet",
+    "arch_jetmultirole",
+    "arch_lighttrans",
+    "arch_mbt",
+    "arch_patrolboat"
+   ],
+   "nonMasteryArchetypes": [
+    "arch_car",
+    "arch_inflatableboat",
+    "arch_motorcycle"
+   ]
+  },
+  "uiNames": {
+   "evidenceClass": "Resolved UI text from saved per-vehicle UI metadata records (frosty-ui-text.py, client 60769 strings). Association to a stat id is by record internal name only: no saved vehicle or gadget file contains any of these UI record GUIDs. Not a pointer-proved link.",
+   "records": [
+    {
+     "uiAsset": "UIMetaData_Vehicle_DeployableMortar.ebx",
+     "uiRecord": "Deployable Mortar Vehicle",
+     "uiRecordGuid": "110259a5-79e3-4f26-91a5-7e90a047ed32",
+     "name": "Portable Mortar",
+     "short": null,
+     "category": null
+    },
+    {
+     "uiAsset": "UIMetaData_Vehicle_PayloadDrone.ebx",
+     "uiRecord": "Drone Payload",
+     "uiRecordGuid": "07db31bf-400f-4272-bba7-649254fc8506",
+     "name": "Portable Mortar",
+     "short": null,
+     "category": null
+    },
+    {
+     "uiAsset": "UIMetaData_Vehicle_SwitchbladeDrone.ebx",
+     "uiRecord": "Switchblade Drone",
+     "uiRecordGuid": "179e1832-555b-4702-85a1-6e9d2cf48895",
+     "name": "<missing D7F3BFB7>",
+     "short": null,
+     "category": null
+    },
+    {
+     "uiAsset": "UIMetaData_Vehicle_Boat_Jetski.ebx",
+     "uiRecord": "Jetski Vehicle",
+     "uiRecordGuid": "7799246c-a5c8-4ff1-8dfe-e97808529684",
+     "name": "Light Transport Jetski",
+     "short": "Jetski",
+     "category": "Jetski"
+    },
+    {
+     "uiAsset": "UIMetaData_Vehicle_Boat_RHIB.ebx",
+     "uiRecord": "RHIB Vehicle (1)",
+     "uiRecordGuid": "1c9b2fbc-2292-4639-8e9a-452908a048b9",
+     "name": "7.7m NSW RHIB",
+     "short": null,
+     "category": null
+    },
+    {
+     "uiAsset": "UIMetaData_Vehicle_Boat_RHIB.ebx",
+     "uiRecord": "RHIB Vehicle",
+     "uiRecordGuid": "f66598bc-6c94-454d-8f7b-edae9463628c",
+     "name": "7.7m NSW RHIB",
+     "short": "RHIB",
+     "category": "Light Transport Boat"
+    },
+    {
+     "uiAsset": "UIMetaData_Vehicle_Car_PTV.ebx",
+     "uiRecord": "PTV Vehicle",
+     "uiRecordGuid": "3f33d46e-df63-49e6-bea1-24a2bf9a2d0f",
+     "name": "Turfpro PTV Royal",
+     "short": "Golf Cart",
+     "category": "Golf Cart"
+    },
+    {
+     "uiAsset": "UIMetaData_Vehicle_Car_QuadBike.ebx",
+     "uiRecord": "QuadBike Vehicle",
+     "uiRecordGuid": "066e8ee3-bd13-47cb-aaea-8e03c0831705",
+     "name": "Rugged MV740",
+     "short": "Quad Bike",
+     "category": "Quad Bike"
+    },
+    {
+     "uiAsset": "UIMetaData_Vehicle_Helicopter_UH60.ebx",
+     "uiRecord": "UH60 Vehicle",
+     "uiRecordGuid": "7800d797-1f52-45ee-9888-f1eb117c1e03",
+     "name": "UH-79 ",
+     "short": "Transport",
+     "category": "Transport Helicopter"
+    },
+    {
+     "uiAsset": "UIMetaData_Vehicle_AAV.ebx",
+     "uiRecord": "AAV7A1 Vehicle",
+     "uiRecordGuid": "f979fa25-44c7-4c81-b066-babf8ca1607a",
+     "name": "AAV-7A1",
+     "short": null,
+     "category": null
+    },
+    {
+     "uiAsset": "UIMetaData_Vehicle_Airplane_AttackPlane.ebx",
+     "uiRecord": "F2P Vehicle - Air Strike Call-In",
+     "uiRecordGuid": "dad27d49-dc27-4aa7-973b-7c3286bf11f6",
+     "name": "Attack Jet",
+     "short": null,
+     "category": null
+    },
+    {
+     "uiAsset": "UIMetaData_Vehicle_Airplane_AttackPlane.ebx",
+     "uiRecord": "F16 Vehicle",
+     "uiRecordGuid": "7322eb4d-fc6e-4c2d-9df2-b3e1b04a76d5",
+     "name": "F-61V",
+     "short": "Attack",
+     "category": "Attack Bomber"
+    },
+    {
+     "uiAsset": "UIMetaData_Vehicle_Airplane_AttackPlane.ebx",
+     "uiRecord": "JAS39 Vehicle",
+     "uiRecordGuid": "94f530f0-4607-45c2-90da-c3ab354a4f5e",
+     "name": "F-39E",
+     "short": "Attack",
+     "category": "Attack Bomber"
+    },
+    {
+     "uiAsset": "UIMetaData_Vehicle_Airplane_FighterPlane.ebx",
+     "uiRecord": "F22 Vehicle",
+     "uiRecordGuid": "76d8fd68-2a49-40ed-93f5-3cc754b105bf",
+     "name": "F-97 Kestrel",
+     "short": "Fighter",
+     "category": "Fighter Jet"
+    },
+    {
+     "uiAsset": "UIMetaData_Vehicle_Airplane_FighterPlane.ebx",
+     "uiRecord": "SU57 Vehicle",
+     "uiRecordGuid": "bebb34c2-8378-4f0a-88fa-933e848a02e3",
+     "name": "Su-57",
+     "short": "Fighter",
+     "category": "Fighter Jet"
+    },
+    {
+     "uiAsset": "UIMetaData_Vehicle_Car_LightTransport.ebx",
+     "uiRecord": "Flyer 60 Vehicle",
+     "uiRecordGuid": "abcedb88-aedf-48f2-b43d-e01bb005ee0d",
+     "name": "Glider 96",
+     "short": "Transport",
+     "category": "Light Ground Transport"
+    },
+    {
+     "uiAsset": "UIMetaData_Vehicle_Car_LightTransport.ebx",
+     "uiRecord": "Vector Vehicle",
+     "uiRecordGuid": "2a1492ce-239a-4669-8d79-b75090eca1cb",
+     "name": "VECTOR",
+     "short": "Transport",
+     "category": "Light Ground Transport"
+    },
+    {
+     "uiAsset": "UIMetaData_Vehicle_Drone_TRV150.ebx",
+     "uiRecord": "TRV150 Vehicle",
+     "uiRecordGuid": "537540ea-33e5-4a81-8747-47121ba33920",
+     "name": "TRV150",
+     "short": null,
+     "category": null
+    },
+    {
+     "uiAsset": "UIMetaData_Vehicle_Helicopter_AttackHeli.ebx",
+     "uiRecord": "AH64E Vehicle",
+     "uiRecordGuid": "b5c68cba-34b3-4fcd-81ff-eb175ae34f73",
+     "name": "M77E Falchion",
+     "short": "Attack",
+     "category": "Attack Helicopter"
+    },
+    {
+     "uiAsset": "UIMetaData_Vehicle_Helicopter_AttackHeli.ebx",
+     "uiRecord": "Eurocopter Vehicle",
+     "uiRecordGuid": "934e47c3-a62f-42f9-92b7-274c90144500",
+     "name": "Panthera KHT",
+     "short": "Attack",
+     "category": "Attack Helicopter"
+    },
+    {
+     "uiAsset": "UIMetaData_Vehicle_Helicopter_ScoutHeli.ebx",
+     "uiRecord": "AH6M Vehicle",
+     "uiRecordGuid": "42256923-7bd3-453d-9c95-ee57a285180b",
+     "name": "AH-6 Little Bird",
+     "short": null,
+     "category": null
+    },
+    {
+     "uiAsset": "UIMetaData_Vehicle_Helicopter_ScoutHeli.ebx",
+     "uiRecord": "AH6M Vehicle (1)",
+     "uiRecordGuid": "748ee4d3-aa4d-43ff-9a14-363af1fd866b",
+     "name": "AH-6 Little Bird",
+     "short": null,
+     "category": null
+    },
+    {
+     "uiAsset": "UIMetaData_Vehicle_Tank_Breacher.ebx",
+     "uiRecord": "Breacher Vehicle",
+     "uiRecordGuid": "81f69256-0ef7-4438-82b0-9563625af5ab",
+     "name": "<missing 42AF9BC6>",
+     "short": null,
+     "category": null
+    },
+    {
+     "uiAsset": "UIMetaData_Vehicle_Tank_IFV.ebx",
+     "uiRecord": "CV90 Vehicle",
+     "uiRecordGuid": "89d0835f-8063-4ee6-bc51-56a33ece1a61",
+     "name": "Strf 09 A4",
+     "short": "IFV",
+     "category": "Infantry Fighting Vehicle"
+    },
+    {
+     "uiAsset": "UIMetaData_Vehicle_Tank_IFV.ebx",
+     "uiRecord": "Bradley Vehicle",
+     "uiRecordGuid": "adc8f77c-c47f-4d8e-82ea-d40701395924",
+     "name": "M3A3 Bradley",
+     "short": "IFV",
+     "category": "Infantry Fighting Vehicle"
+    },
+    {
+     "uiAsset": "UIMetaData_Vehicle_Tank_IFV.ebx",
+     "uiRecord": "Bradley Vehicle F2P",
+     "uiRecordGuid": "b71841fb-8f04-4066-be42-71598f0a6857",
+     "name": "M3A3 Bradley",
+     "short": null,
+     "category": null
+    },
+    {
+     "uiAsset": "UIMetaData_Vehicle_Tank_MBT.ebx",
+     "uiRecord": "Abrams Vehicle",
+     "uiRecordGuid": "75d2f321-bdae-418f-b9e4-43e6c41c0229",
+     "name": "M1A2 SEPv3",
+     "short": "MBT",
+     "category": "Main Battle Tank"
+    },
+    {
+     "uiAsset": "UIMetaData_Vehicle_Tank_MBT.ebx",
+     "uiRecord": "Abrams Vehicle (1)",
+     "uiRecordGuid": "76a46e96-29f4-490d-985b-e59959fea617",
+     "name": "M1A2 SEPv3",
+     "short": "MBT",
+     "category": "MAIN BATTLE TANK"
+    },
+    {
+     "uiAsset": "UIMetaData_Vehicle_Tank_MBT.ebx",
+     "uiRecord": "Leopard Vehicle",
+     "uiRecordGuid": "9b6a82c7-a36a-4c92-be83-5caf566918f1",
+     "name": "Leo A4",
+     "short": "MBT",
+     "category": "Main Battle Tank"
+    },
+    {
+     "uiAsset": "UIMetaData_Vehicle_Tank_MobileAA.ebx",
+     "uiRecord": "Cheetah Vehicle",
+     "uiRecordGuid": "9c23885b-d79e-4580-a8af-75f614d541fa",
+     "name": "GE-26 PAX",
+     "short": "Anti-Air",
+     "category": "Mobile Anti-Air"
+    },
+    {
+     "uiAsset": "UIMetaData_Vehicle_Tank_MobileAA.ebx",
+     "uiRecord": "Gepard Vehicle",
+     "uiRecordGuid": "56bd4579-5b31-4f36-b2f1-cfd6ed9c9435",
+     "name": "Cheetah 1A2",
+     "short": "Anti-Air",
+     "category": "Mobile Anti-Air"
+    },
+    {
+     "uiAsset": "UIMetaData_Vehicle_Boat_CB90.ebx",
+     "uiRecord": "CB90 Vehicle",
+     "uiRecordGuid": "dc551308-d4d0-42b2-b9db-2d1afdf4b520",
+     "name": "RCB-90 Patrol Boat",
+     "short": "RCB-90",
+     "category": "Patrol Boat"
+    },
+    {
+     "uiAsset": "UIMetaData_Vehicle_Airplane_MultirolePlane.ebx",
+     "uiRecord": "FA18F Vehicle",
+     "uiRecordGuid": "00235356-0706-4cd5-8a2e-1a465a4dc817",
+     "name": "F/A-81F SUPER SPECTRE",
+     "short": "MULTIROLE JET",
+     "category": "F/A-81F SUPER SPECTRE"
+    },
+    {
+     "uiAsset": "UIMetaData_Vehicle_Airplane_NavalFighterPlane.ebx",
+     "uiRecord": "F14 Vehicle",
+     "uiRecordGuid": "cc9e3846-cb40-4139-9899-fb4341ef470c",
+     "name": "F-74A SEACAT",
+     "short": "INTERCEPTOR JET",
+     "category": "F-74A SEACAT"
+    },
+    {
+     "uiAsset": "UIMetaData_Vehicle_Motorcycle_DirtBike.ebx",
+     "uiRecord": "DirtBike01 Vehicle",
+     "uiRecordGuid": "4375b85b-bbac-47e7-9162-72f1a12619a8",
+     "name": "M1030-M1",
+     "short": "Dirt Bike",
+     "category": "Dirt Bike"
+    },
+    {
+     "uiAsset": "UIMetaData_Vehicle_Motorcycle_DirtBike.ebx",
+     "uiRecord": "DirtBike02 Vehicle",
+     "uiRecordGuid": "dbb39fb6-72cb-41af-b2b1-814189fdd7d5",
+     "name": "TM/O 450",
+     "short": "Dirt Bike",
+     "category": "Dirt Bike"
+    }
+   ]
+  }
+ },
+ "inference": [
+  "The hardware-tree node names (for example veh_sur_moto_db01) match the vehicle ids GameTools reports; the categorization entry names differ for the two dirt bikes (veh_sur_dirtbike01/02).",
+  "arch_mastery and arch_mastery_no are read as mastery and non-mastery groupings from their names only."
+ ],
+ "unresolved": [
+  "No serialized link from an archetype stat node to a UIVehicleArchetypeMetadata card or to a display name; the card asset is byte-identical to the 30 September capture (9 cards) and its Field_1636b8bd keys are not DJB/FNV hashes of the tested archetype names.",
+  "veh_breacher, veh_sur_ge26pax and veh_air_mh350 have no listed GUID in a saved VB_VEH file; ge26pax selected GUID occurs in the Tank/Cheetah customization and U_ files.",
+  "Field_d10900b8 (one selected GUID per entry) and the Category_Misc import on six entries are not interpreted.",
+  "Runtime use of these categories (mastery, stats backend) is not established."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-09-vehicle-archetype-links\\L3306",
+  "artifacts": [
+   {
+    "file": "vehicle-archetype-links.json",
+    "sha256": "a68da7d3d3545f56fc35d3964c4c72377b68936ad0458858398b64d5c29e9b04"
+   },
+   {
+    "file": "raw-check-manifest.json",
+    "sha256": "fdf7cda3cdedf567bee455fc6f6f13e2817bf7daa4fda550374c25e936d2fb4b"
+   },
+   {
+    "file": "raw-checks.json",
+    "sha256": "7ae84f7aae324beab6493a8cd7309136d0ed17d5c10171ffff88131bc78f16c8"
+   },
+   {
+    "file": "vehicle-ui-names.json",
+    "sha256": "6e30e7adc41f2e94cd88c65a149202776241db1d2181c1d18e689ff0633855ba"
+   },
+   {
+    "file": "ui-text.json",
+    "sha256": "e92abc972b421169faf01199af75e89bbbf8965b49896234252054f33f5c3ef1"
+   },
+   {
+    "file": "decoded.json",
+    "sha256": "75f4bcc70cff0238c0dacfc5de8feef7b1160e2c4f7baf9872ac3ef7effb3bb7"
+   },
+   {
+    "file": "build-links.py",
+    "sha256": "d0c5c52dedb0fb6dd8561cbe54f39abd5d82949f335d2bc6d1ac21509218233e"
+   },
+   {
+    "file": "join-ui-names.py",
+    "sha256": "0d8b3256116f8fe525497a19a18860a0aaebcf8e460541f722181b6adaad99ea"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-09",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L3306",
+    "title": "Vehicle stat id to archetype and blueprint links",
+    "status": "finding",
+    "summary": "Categorization_Vehicles links 33 vehicle stat ids to hardware-tree nodes, 28 of them to one of 16 archetype nodes (13 under arch_mastery, 3 under arch_mastery_no), and 30 to a saved VB_VEH blueprint by a shared GUID; 539 raw checks pass.",
+    "reopenWhen": "A serialized link from an archetype node to its UI card or display name is found, or a game update changes Categorization_Vehicles or Category_VehicleArchetypes.",
+    "statusNote": "Source links only; display-name association is name-matched and runtime use is unconfirmed."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Persistence/StatCategories/StatCategorization/Categorization_Vehicles",
+    "format": "raw-ebx",
+    "sha256": "9001639a989e5ee5628d43629fb296ac7a027a19061d9476a75d57b22b4aa41f",
+    "question": "Does serialized game data link each vehicle stat id to a vehicle archetype and to its blueprint, without name matching?",
+    "result": "useful",
+    "conclusion": "33 entries; each stores a stat id, import pointers to category-tree nodes and a GUID list; 28 import an archetype node and 30 list a GUID found in a saved VB_VEH blueprint."
+   },
+   {
+    "path": "Persistence/StatCategories/StatCategoryTrees/Category_VehicleArchetypes",
+    "format": "raw-ebx",
+    "sha256": "6461a7c565502863785be36ea011b18d5fa85e49952539d213187a56de24abc4",
+    "question": "Does serialized game data link each vehicle stat id to a vehicle archetype and to its blueprint, without name matching?",
+    "result": "useful",
+    "conclusion": "19 named nodes: archetype_all, arch_mastery with 13 archetypes, arch_mastery_no with arch_car, arch_motorcycle and arch_inflatableboat; names and parent links raw-checked."
+   },
+   {
+    "path": "Persistence/StatCategories/StatCategoryTrees/Category_Hardware",
+    "format": "raw-ebx",
+    "sha256": "c8d82b473600f5fa5d6827ad16cc51ff7f5f63409ec3ac883d704ff86c4e8c77",
+    "question": "Does serialized game data link each vehicle stat id to a vehicle archetype and to its blueprint, without name matching?",
+    "result": "useful",
+    "conclusion": "Target nodes for all 33 entries resolve by GUID and name; chains run through veh_sur, veh_air (helis, jets), veh_nav and stationary (light, heavy)."
+   },
+   {
+    "path": "Persistence/StatCategories/StatCategoryTrees/Category_HardwareGroups",
+    "format": "raw-ebx",
+    "sha256": "26e73e333073a95eaa2658ad04a91ba4ea01316d525ec1293ccc37bde2f41684",
+    "question": "Does serialized game data link each vehicle stat id to a vehicle archetype and to its blueprint, without name matching?",
+    "result": "useful",
+    "conclusion": "Target group nodes resolve by GUID and name: group_tank, group_car, group_boat, group_heli and group_plane under group_airveh, group_stationary, group_veh_transp."
+   }
+  ]
+ }
+}

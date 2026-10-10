@@ -176,3 +176,667 @@ The Airburst and Incendiary primary explosion roots are the same nonexported cla
 - **No compiled utility operation reader** was found in the inspected inventory (L190 stays blocked). Repair, supply, revive and regeneration operations are therefore unnamed. The enum and curve readers (L1001, L1002) do not read the utility format. This is a limit of what was inspected, not proof that no reader exists.
 - A name, equal scalar, wrapper identity or authored port is insufficient to name an operation.
 - UI-to-source number matches (Hemostatic 12.5 and 2.5, MP-APS 3, MTN-55 1 s and 2 s, revive 2.2 s) are consistent with each other, which makes them good questions for a future capture, not controls.
+
+## L3307 - Stored values for every gadget stat entry (9 October 2026)
+
+`Categorization_Gadgets` holds 68 entries. `scripts/frosty-roster-values.py` traced each from its GUID list to its defining object, its carrier files and the damage, blast and projectile fields those files reach, and joined named `GRX_Gadgets_Glacier` rows. 63 entries have a defining object, 60 have own values, 44 have registry rows and 53 have a UI name. Five have no value of any kind: the two underbarrel shotgun entries (`gad_ubsg_buck`, `gad_ubsg_slug`: no saved file contains their GUIDs) and the three underbarrel launcher entries (`gad_ubl_gl_he`, `gad_ubl_gl_smoke`, `gad_ubl_gl_tb`: carried by rifle ability files in the weapon tree, not decoded in this pass).
+
+Evidence class: stored source values with raw-offset checks (11,854 checks over 470 files, all matched, shared with the vehicle rosters). Registry rows are joined by owner name or by a hand-reviewed name table; UI names are a hand name table. None of this shows units or runtime use, and registry defaults are recorded separately from own values.
+
+Per-entry tables, the unresolved list with what was searched, and the open questions with an in-game test for each are in `docs/working/ROSTER_VALUES.md`. Data: `reference-data/frosty/roster-values.json`, `roster-registry-vs-own.json`, `roster-registry-name-joins.json`, `roster-display-names.json`. Receipt: `reference-data/provenance/frosty-2026-10-09-L3307-roster-values.json`.
+## L3308 - Lock-on values (9 October 2026)
+
+Every lock-on weapon points at one or more locking controller objects (`Class_9a3efaa2`); 106 such objects sit in 62 saved gadget and vehicle files. Six of their fields are named by equality with registry rows of the same controller: lock time, unlock time, release time, release-on-new-target time, minimum range and ray length. All values are in `reference-data/frosty/locking-controllers.json`; 636 raw-offset checks matched.
+
+| Weapon file | Own objects: lock time / unlock / release / release on new target / ray length / minimum range |
+| --- | --- |
+| `WB_Stinger` | 1.5 / 0.5 / 1.5 / 1 / 650 / 0 and 1 / 0.5 / 1.5 / 1 / 750 / 0 |
+| `WB_IGLA` | 1.8 / 0.5 / 1.5 / 0.1 / 600 / 39 and 1.2 / 0.5 / 1.5 / 0.1 / 800 / 39 |
+| `WB_Javelin` | 1.8 / 0.5 / 1.5 / 0.1 / 650 / 39 and 1 / 0.5 / 1.5 / 0.1 / 750 / 39 |
+| `WB_MBTLAW` | 3 / -1 / 5 / 0.5 / 650 / 0 |
+| `WB_PLD` (laser designator) | 1.2 / -1 / 1 / 1.5 / 750 / 0 and 1.2 / -1 / 1 / 1.5 / 650 / 0; registry primary 1.5 and secondary 1.2 lock time with ray length 750 |
+| Fighter air-to-air (`F22`, `SU57`) | 1 / -1 / 0.5 / 1.5 / 800 / 0 and 0.625 / -1 / 0.5 / 1.5 / 800 / 0; registry 665 default and 800 painted, lock time 1 for both |
+| Attack helicopter air-to-air | 1.25 / -1 / 0.5 / 1.5 / 800 / 0; registry 650 default and 780 painted |
+| Mobile AA missile (`Gepard`) | 1 / -1 / 0.5 / 1 / 800 / 0 and 0.625 / -1 / 0.5 / 1 / 800 / 0; registry 650 default and 780 painted |
+| Air-to-ground (`F16`, `JAS39`, `AH64E` gunner) | 0.75 / -1 / 0.5 / 1.5 / 800 / 0; registry equal |
+| IFV homing missile (`Bradley`, `CV90`) | 0.75 / -1 / 1.5 / 1 / 800 / 0; registry equal |
+
+The registry also stores `Vehicle_HUD_Locking_PainterPainterMaxDuration` 9, `PLD_World Lock On Time`, `PLD_World Locking Cooldown` and `LockingTimeMultiplier` rows. EA's 1.3.1.0 note of a 20% lock-range bonus on painted targets corresponds to the registry's 650 to 780 pair, and its 20 to 9 second designation change to the stored 9; both are correspondences, not controls.
+
+Open: which object of a pair applies to a painted target; whether a match uses the registry rows or the own objects (they differ only in the ray length of air-to-air default controllers); units; the gadget that owns the registry's `PrimaryLockingController` (1.5, ray length 687.5) and `SecondaryLockingController` (1.4, 550). In-game test: with a Stinger, time the lock tone on a hovering helicopter at a fixed range, unpainted and then laser-painted, and find the longest range at which each locks; 1.5 s against 1 s and a range ratio near 650 to 750 would identify the pair. Receipt: `reference-data/provenance/frosty-2026-10-09-L3308-locking-controllers.json`.
+
+## L3309 - Recon drone, laser designator and sensor spotting values (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3309-spotting-detection.json). Dataset: `reference-data/frosty/registry-spotting-detection.json`. Registry defaults from `GRX_Gadgets_Glacier` (Lancet rows from `GRX_Gadgets_Glacier_CH1_S02`), each read back at its raw offset; meaning is read from the row name, and units and use in a match are unconfirmed. Soldier spotting rows are in [SOLDIER.md](SOLDIER.md).
+
+| Gadget | Rows | Stored defaults |
+|---|---|---|
+| Recon drone | `Drone_Controlled_Max Spotting Distance_ZoomLevel 0 / 1` | 60 / 160 (uncontrolled rows equal) |
+| Recon drone | `Drone_Controlled_Max Spotting Angle_ZoomLevel 0 / 1` | 10 / 5 |
+| Recon drone | `Drone_GadgetSpotting_Spotting Radius`, `_Time Intreval` | 40, 1.5 |
+| Recon drone | `Drone_Lock On Gadgets Max Distance`, `Max Angle` | 80, 2.5 |
+| Recon drone | `Drone_Destroy Gadget Cooldown`, `Lock On Time` | 5, 0 |
+| Recon drone | `Drone_MaxLifetime`, `_Granite` | 80, 45 |
+| EOD bot | `EODBot_GadgetSpotting_Spotting Radius`, `_Time Intreval`, `EODBot_Max Detection Distance` | 40, 1.5, 40 |
+| Laser designator | `PLD_Controlled_Max Spotting Distance_ZoomLevel 0..3` | 80 / 180 / 360 / 540 |
+| Laser designator | `PLD_Controlled_Max Spotting Angle_ZoomLevel 0..3` | 10 / 3.75 / 1.875 / 1.25 |
+| Laser designator | `PLD_Handheld Spotting Max Distance`, `Angle` | 500, 10 |
+| Laser designator | `PLD_*_Soldier / Gadget / Vehicle_SpottingDuration` | 5 / 20 / 30 (handheld and deployed equal) |
+| Laser designator | `PLD_SpotVehicleOnLaserPaintProgress` | 0.5 |
+| Lancet | `Lancet_HipFire / ZoomLevel1 / ZoomLevel2_Max Detection Distance` | 30 / 60 / 80 |
+| Lancet | `Lancet_MaxDetectionRange_UAV`, `Lancet_Spot Duration Of Driver` | 450, 5 |
+| T-UGS | `TUGS_Spotting Radius`, `Delay Between Spotting Pulses`, `Spotting Duration` | 15, 1.5, 2 (as recorded earlier) |
+| Proximity grenade | `ProximityGrenade_Spotting Radius`, `Delay Between Spotting Pulses`, `Spotting Duration` | 7, 1, 2 |
+
+The laser designator spot durations (5 / 20 / 30) equal the soldier registry's default, gadget and vehicle spot durations.
+
+Open, with the test that would settle each:
+
+- Recon drone range: fly at a stationary enemy and note the distance at which they are marked without zoom (stored 60) and with zoom (stored 160); check whether deployed gadgets are marked within 40 m.
+- Laser designator range by zoom level: mark a vehicle at 150 m, 300 m and 500 m at each zoom step.
+- Whether the recon drone also uses the `GRX_Characters` cylinder rows: hover above an enemy without aiming at them and note whether they are marked.
+
+## L3310 - Gadget counts, replenish, cooldown and effect rules (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3310-gadget-rules.json). Dataset: `reference-data/frosty/registry-gadget-rules.json` (517 rows, each default read back at its raw offset). Registry defaults from `GRX_Gadgets_Glacier` and `GRX_Gadgets_Glacier_CH1_S02`; own asset values are in L3307. Meaning is read from row names; units and use in a match are unconfirmed.
+
+Ammunition and replenish rows by registry owner (`-1` is stored as written; its meaning is not established):
+
+| Owner | Magazine capacity | Magazines | Initial ammo | Auto replenish magazine | Auto replenish rounds | Auto replenish delay |
+|---|---|---|---|---|---|---|
+| `AT4_Weapon Blueprint` | 1 | 2 | -1 | true | -1 | 30 |
+| `AirburstIncendiary_Weapon Blueprint` | 1 | 3 | -1 | true | -1 | 30 |
+| `AntiTankGrenade_WB` | 1 | 2 | -1 | true | -1 | 30 |
+| `ConcussionGrenade_WB` | 1 | 1 | -1 | true | -1 | 30 |
+| `Defibrillators_Equipped_WB` | 1 | 3 | 3 | true | -1 | 4 |
+| `DeployableCover_WB` | 1 | 1 | -1 | true | -1 | 30 |
+| `DeployableMortar_WB` | 1 | 1 | -1 | true | -1 | 90 |
+| `Drone_Weapon Blueprint` | 1 | 1 | -1 | true | -1 | 30 |
+| `Flashbang_WB` | 1 | 1 | -1 | true | -1 | 30 |
+| `Gadget_ATMine_WB` | 1 | 3 | -1 | true | -1 | 10 |
+| `Gadget_SupplyCrate_WB` | 1 | 1 | -1 | true | -1 | 15 |
+| `IncendiaryGrenade_WB` | 1 | 1 | -1 | true | -1 | 30 |
+| `Javelin_Weapon Blueprint` | 1 | 3 | -1 | true | -1 | 30 |
+| `M18Claymore_WB` | 1 | 1 | -1 | true | -1 | 30 |
+| `M4SLAM_WB` | 1 | 3 | -1 | true | -1 | 15 |
+| `MBTLAW_Weapon Blueprint` | 1 | 3 | -1 | true | -1 | 18 |
+| `MPAPS_WB` | 1 | 1 | -1 | true | -1 | 18 |
+| `MiniV40_WB` | 1 | 2 | -1 | true | -1 | 30 |
+| `PLD_Controlled_VehicleWeaponComponentData` | 1 | 0 | 0 | false | -1 | 5 |
+| `PLD_Handheld_Weapon Blueprint` | 1 | 1 | 1 | true | -1 | 15 |
+| `PTKM1R_WB` | 1 | 1 | -1 | true | -1 | 21 |
+| `RPG7V2_Weapon Blueprint` | 1 | 3 | -1 | true | -1 | 18 |
+| `RepairTool_Weapon Blueprint` | -1 | -1 | -1 | false | -1 | 5 |
+| `SmokeGrenade_WB` | 1 | 2 | -1 | true | -1 | 18 |
+| `SniperDecoy_WB` | 1 | 3 | -1 | true | -1 | 12 |
+| `SpawnBeacon_Weapon Blueprint` | 1 | 1 | -1 | true | -1 | 30 |
+| `Stinger_Weapon Blueprint` | 1 | 3 | -1 | true | -1 | 18 |
+| `SupplyPouch_WB` | 1 | 3 | -1 | true | -1 | 39 |
+| `TUGS_Weapon Blueprint` | 1 | 1 | -1 | true | -1 | 30 |
+| `ThrowingKnife_WB` | 1 | 5 | -1 | true | -1 | 15 |
+| `TracerDart_Weapon Blueprint` | 1 | 3 | -1 | true | -1 | 9 |
+| `VB_VEH_DeployableMortar_HE Shell` | 1 | -1 | -1 | false | -1 | 8 |
+| `VB_VEH_DeployableMortar_Smoke Shell` | 1 | 3 | 0 | true | -1 | 45 |
+| `WB_AdrenalineShot` | 1 | 1 | -1 | true | -1 | 45 |
+| `WB_C4` | 1 | 4 | -1 | true | -1 | 30 |
+| `WB_M26Mass` | 5 | 2 | -1 | true | -1 | 60 |
+| `WB_VehicleSupplyCrate` | 1 | 1 | -1 | true | -1 | 120 |
+| `X95BRE_BreachingDart` | 1 | 3 | -1 | true | -1 | 15 |
+
+Ability rows: `Ability_AdrenalineShot` active 1, recharge 0; `DeployableCover_Ability` active 1, recharge 0; `DeployableMortar_Ability` active 1, recharge 0; `Gadget_ATMine_Ability` active 1.8, recharge 0; `Gadget_SupplyCrate_Ability` active 1, recharge 0; `MPAPS_Ability` active 0, recharge 20.
+
+Effect rules (flat rows):
+
+| Topic | Stored defaults |
+|---|---|
+| Grenade fuse | Frag and default: minimum time before detonation 1.1, delay after bounce 1.4. Concussion: 0.7 and 0.4. Flashbang: 1.1 and 1.4. |
+| Flash and stun | Flashbang, M320 flash and stun drill store the same rows: duration in front 3.5 close / 2.5 far, sides 1.5 / 1.0, behind 0.6 / 0.2; close range 6, max range 12; angle in front 60, sides 90. |
+| Concussion grenade | Duration 3.5 within 5, 2.5 within 7, 1.5 within 9. |
+| Incendiary | Grenade radius 1.7, height 1.0; `Fire damage duration` 2.5; thermobaric fire damage duration 4.0. |
+| Repair tool | Repair 40 per second (active 60), anti-repair 30 (active 45), interval 0.1, range 2. EOD bot: repair 40 (active 75), anti-repair 30 (active 45), range 3.2. |
+| Defibrillator | Charge time minimum 0.3, time to full charge 1.0; max range friendly 2.0, enemy 1.5. |
+| Supply | Supply pouch health regeneration 25 for 4; supply crate open 0.4; vehicle supply crate 15 supplies, resupply interval 5, construct 0.6. |
+| Adrenaline | Duration 8, rank 5. |
+| C-4 | Arm delay 0.5. |
+
+Open, with the test that would settle each:
+
+- Carried counts and which side is live: count a gadget's items on spawn and compare with the stored magazines and capacity.
+- Replenish: use all of a gadget away from any supply source and time the return of each item (stored delay, for example 30 for the AT4 and 18 for the RPG-7V2).
+- Flash duration by angle and range: time the white-out at 5 m and 10 m facing, side-on and facing away.
+- Repair rate: time a repair of a tank from a known health to full.
+- Grenade fuse: time a frag from release to detonation with and without a bounce.
+
+## L3315 - Healing and ammunition supply effects (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3315-resistance-heal-ammo-effects.json). Dataset: `reference-data/frosty/effect-resistance-heal-ammo.json`. Every saved object of the healing effect class (`Class_1486fe7f`, seven objects) and the ammunition supply effect class (`Class_42da642c`, 17 objects) was read, each scalar checked at its raw offset. Flak effects from the same lead are in [SOLDIER.md](SOLDIER.md).
+
+Healing. `Field_77f58095` and `Field_3202ac10` are named InitialHeal and HealOverTime by a stored link: the vehicle medbay effect fills them from the registry rows `Passives_Vehicles_Medbay_InitialHeal` and `Passives_Vehicles_Medbay_HealOverTime`. `Field_8bba458c` is unnamed.
+
+| Effect file | InitialHeal | HealOverTime | `Field_8bba458c` |
+|---|---|---|---|
+| `Affector_Healing_SupplyPouch` | 0 | 20 | 2.5 |
+| `Affector_Healing_MedicCrate` | 0 | 20 | 2.5 |
+| `Affector_Healing_MedicalTriage` | 0 | 20 | 1.0 |
+| `Affector_EmergencyDamageControl_ExtraHeal` | registry `EmergencyDamageControl_ExtraHealingAmount` (50) | 70 | 2.0 |
+| `Affector_VEH_PassiveAbility_Medbay_Heal` | registry (5) | registry (20) | 2.5 |
+| `Affector_SelfHeal_AdrenalineShot` | 0 | 5, 10, 12.5, 15, 17.5, 20 and further ranks | 0 |
+| `Affector_RepairTool_HealVehicle` | 2.5, 5, 7.5, 10, 12.5, 15 and further ranks | 0 | 0 |
+
+Ammunition supply. No field of this class is named. The stored values that differ between effects:
+
+| Effect file | `Field_2e02f8ac` | `Field_5b881d59` | `Field_f502de34` | `Field_89e9d098` |
+|---|---|---|---|---|
+| `Affector_Ammunition_Rifle_AmmoCrate`, `_MG_`, `_PDWPistol_` | 0 | 1 | 20 | 1 |
+| `Affector_Ammunition_BoltDMR_AmmoCrate`, `_Shotgun_` | 0 | 1 | 5 | 1 |
+| `Affector_Ammunition_AmmoCrate` (entry 0) | 1 | 1 | 0 | 1 |
+| `Affector_Ammunition_SupplyPouch` (entries 0, 1, 2) | 0 | 2, 3, 4 | 0 | 1 |
+| `Affector_LethalGadgets_AmmoCrate` | 1 | 0 | 0 | 1 |
+| `Affector_VehicleSupplyCrate_Ammo` | 1 | 0 | 0 | 0.8 |
+
+Open, with the test that would settle each:
+
+- The unnamed healing field (2.5 or 1.0): stand on a medic crate at 50 health and record health per second and any delay before it starts.
+- The ammunition integer (5 or 20): stand on a supply crate with an empty rifle reserve and with an empty shotgun reserve and count rounds gained per supply tick.
+- The supply pouch values 2, 3, 4: pick up a pouch with each weapon class empty and count magazines gained.
+
+## L3332 - Blast radius fields, and radii for launchers, C-4 and mines (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3332-explosion-radius-fields.json). Dataset: `reference-data/frosty/explosion-radius-fields.json`. The soldier damage table of L3329 (`SOLDIER.md`) had no radius for weapons without a registry row. Three fields of the explosion object (`Class_9966532d`) are named here by comparing them with the registry rows of the 19 owners that have them:
+
+| Field | Name | Agrees with the registry row |
+|---|---|---|
+| `Field_33f3a8ab` | BlastRadius | 14 of 19 owners |
+| `Field_95e340fe` | InnerBlastRadius | 17 of 19 owners |
+| `Field_524836d3` | ShockwaveRadius | 19 of 19 owners |
+
+All 7 exceptions are pairs already recorded as disputed, where the registry was changed and the asset kept the older value (L3318, L3324). The naming rests on value agreement, not on a stored name link.
+
+The asset's own values for the weapons with no registry radius row, in metres:
+
+| Item | Owner | Blast radius | Inner blast radius | Shockwave radius |
+|---|---|---|---|---|
+| IFV MPLD round (no EA figure) | `PD_Vehicles_IFV_PrimaryWeapon_MPLD` | 5 | 1 | 10 |
+| M136 AT | `PB_AT4` | 5 | 2 | 7.5 |
+| MBT-LAW | `PB_MBTLAW` | 4 | 1 | 6.5 |
+| 9K93 IGLA | `PB_NS_IGLA` | 5 | 1 | 7.5 |
+| SLM-93A | `PB_NS_Stinger` | 5 | 1 | 7.5 |
+| C-4 | `PNS_C4` | 3 | 1 | 5 |
+| M4A1 SLAM (body) | `PB_M4SLAM` | 1 | 0.99 | 3.5 |
+| EOD Bot mine | `PB_NS_EODBot_Mines` | 2 | 1.99 | 4.5 |
+| PTKM-1R | `PB_PRJ_PTKM1R_EFP` | 4 | 3.99 | 8 |
+
+The mines store an inner radius just below the radius, which reads as full damage across the whole radius (inference). No field was found for the minimum blast damage. 141 raw-offset checks matched.
+
+Still open, with the test that would settle each:
+
+- Radii in game. Detonate C-4 with a teammate at 2.5 m and at 3.5 m: damage at 2.5 m only confirms the radius 3.
+- Minimum blast damage. A tank HE shell at 4.9 m from a soldier: 20 means the stored minimum applies at the edge.
+- Shockwave radius. Stand 7 m from an RPG impact (between the radius 6 and the shockwave radius 8.5) and note any effect.
+
+## L3333 - C-4: the registry row PB_C4 is bound to nothing (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3333-c4-registry-row-orphan.json). L3327 left open whether C-4 uses the asset's own BlastDamage 100 or the registry row `PB_C4...BlastDamage` 180. Stored data settles it:
+
+- The build's asset catalog has no file named `PB_C4`. The C-4 folder holds `PNS_C4` and its presentation and logic files only.
+- The C-4 weapon file `WB_C4` imports `PNS_C4` (by file GUID). `PNS_C4` imports no registry row.
+- For comparison, `PB_NS_RPG` imports 7 registry rows and `PB_M4SLAM_EFP` 6, each under its own owner name; `PB_AT4`, `PB_MBTLAW` and `PB_M4SLAM` import none.
+
+So the `PB_C4` rows are leftovers bound to no saved file, and C-4's stored damage is 100 (350 against tanks, L3327). The same check separates the two groups seen so far: projectiles that import their registry rows follow the registry, and projectiles that import none use their own values. 7 raw-offset checks matched.
+
+Still open, with the test that would settle each:
+
+- One C-4 pack on a full-health tank: 350 expected; 630 would mean the orphan row is used.
+- Other orphan registry owners were not surveyed.
+
+## L3340 - Stored blast falloff curves (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3340-blast-falloff-curves.json). Dataset: `reference-data/frosty/blast-falloff-curves.json`. Six curve files hold the shape of blast damage with distance. The explosion object points at one through `Field_0839b22b`. x is distance as a fraction of the blast radius; y is the fraction of blast damage.
+
+| Curve file | Points (x, y) | Imported by |
+|---|---|---|
+| `Javelin_BlastDamageFallOffCurve` | (0, 1), (0.125, 1), (0.125, 0.67), (0.33, 0.67), (0.33, 0.33) | `PB_Javelin` |
+| `BlastCurve_C4` | (0, 1), (0.599, 0.9958), (0.6, 0.8), (0.758, 0.8), (0.761, 0.4063), (0.9026, 0.4021), (0.9036, 0.2), (1, 0.2) | `PD_Railgun`, `VB_VEH_SP_Drone_Payload_Gameplay`, `VB_VEH_Drone_Payload`, `PNS_C4` |
+| `FragGrenade_BlastDamageFalloff_Curve` | (0, 1), (0.2, 1), (0.6, 0.8), (0.601, 0.6), (0.799, 0.4), (0.8, 0.2), (1, 0.2) | `PB_NS_EODBot_ClusterCharge_Submunition`, `PBNS_FragGrenade`, `PBNS_SP_Player_FragGrenade` |
+| `BlastCurve_Vehicles_InnerRadius25` | (0.25, 1), (0.9, 0.2) | `PB_Vehicle_AGL_Grenade`, `PD_Vehicles_IFV_PrimaryWeapon_HEAB`, `PD_Vehicles_IFV_SecondaryWeapon_LightRockets`, `PD_Vehicles_MBT_AmmoTypes_MPAT` |
+| `BlastCurve_Vehicles_InnerRadius40` | (0.4, 1), (0.9, 0.2) | `PD_Vehicles_MBT_AmmoTypes_HE` |
+| `BlastCurve_Vehicles_InnerRadius50` | (0.5, 1), (0.9, 0.2) | `PB_Missile_AGM84`, `PB_Missile_TOW2B`, `PB_Missile_TOW2B_AirVehicle`, `PB_Missile_TOW2B_SP`, `PB_NS_Missile_AA_Secondary_AimGuided`, `PB_NS_Missile_AA_Secondary_HighVelocity` |
+
+How the axes were named: the frag grenade's own inner radius (1 m) is 0.2 of its radius (5 m) and its curve leaves full damage at x = 0.2; the vehicle curves are named InnerRadius25, 40 and 50 and start at 0.25, 0.4 and 0.5; all three end at 0.2 of damage, the 20% minimum EA announced in [1.3.1.0](https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-1-0) (L3337).
+
+In metres, with straight lines between points:
+
+| Explosive | Blast damage | Radius | Damage by distance |
+|---|---|---|---|
+| Frag grenade | 100 | 5 m | 100 to 1 m; falls to 80 at 3 m; 60 at 3 m falling to 40 at 4 m; 20 from 4 m to 5 m |
+| C-4 | 100 | 3 m | 100 to 1.8 m; 80 to 2.27 m; about 40 to 2.71 m; 20 to 3 m |
+| MAS 148 Glaive | 155 (registry) | 4 m | full to 0.5 m; 67% to 1.32 m; 33% beyond |
+| HEAT-MP-T shell | 100 | 5 m (registry) | full to 1.25 m; falls to 20 at 4.5 m; 20 to 5 m |
+| HEMP-T shell | 100 (registry) | 5 m | full to 2 m by the curve (registry inner radius 2.25); falls to 20 at 4.5 m |
+
+- **EA's HEAT-MP-T lethal radius comes from the curve.** 0.25 x 5 m = 1.25 m, the figure in [1.3.3.0](https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-3-0); the `InnerBlastRadius` row holds 1.0 (L3337).
+- 9 of the 10 owners with a non-zero `MinimumBlastDamage` row import a vehicle curve.
+- No curve: `PBNS_ATMine`, `PBNS_AntiTankGrenade`, `PBNS_M720A1`, `PB_AT4`, `PB_ATGM_Homing_Spike`, `PB_Bomb_GBU39`, `PB_Bomb_Mk82AIR`, `PB_M4SLAM`, `PB_MBTLAW`, `PB_Missile_AGM114_Hellfire`, `PB_Missile_MBT_GuidedMunition`, `PB_NS_EODBot_Mines`, `PB_NS_IGLA`, `PB_NS_M320HE`, `PB_NS_M320Thermobaric`, `PB_NS_RPG`, `PB_NS_Stinger`, `PB_PRJ_PTKM1R_EFP`, `PD_M26Mass12Frag`, `PD_Vehicles_IFV_PrimaryWeapon_MPLD`, `PRJ_Missile_AGM65_Maverick`, `PRJ_Missile_APKWS-II`, `PRJ_Missile_Hydra70`, `PRJ_Missile_Zuni`, `WF_Vehicles_AttackHeli_Passenger_PrimaryWeapon_Chaingun`. Their falloff shape is not stored here.
+- Each point also stores a mode and tangents that were not interpreted.
+
+106 raw-offset checks matched.
+
+Still open, with the test that would settle each:
+
+- HEMP-T full-damage distance (2 m by curve, 2.25 m by inner radius). A shell landing 2.1 m from a full-health soldier without flak: a kill means 2.25.
+- Frag grenade steps. A grenade exploding 3.5 m from a full-health soldier without flak should deal about 50; at 4.5 m, 20.
+
+## L3342 - Grenades, 40 mm grenades and the mortar shell against soldiers and vehicles (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3342-grenade-and-mortar-damage.json). Dataset: `reference-data/frosty/grenade-and-mortar-damage.json`. Full blast damage = blast damage x grid value of the explosion's material against the target. The registry default is used where a row exists; the own value is shown when it differs. Names are joined to files by name only, and none of these has an EA figure.
+
+| Item | File | Blast damage | Inner / blast radius (m) | Soldier body | Tanks, IFVs (119) | Helicopters (121) | Jets (120) | Flyer, Vector, RHIB (122) | Quad, bikes (187) |
+|---|---|---|---|---|---|---|---|---|---|
+| Frag grenade | `PBNS_FragGrenade` | 100 | 1 / 5 | 100 | 0 | 100 | 100 | 100 | 100 |
+| 40 mm HE grenade (M320) | `PB_NS_M320HE` | 120 | 1 / 5 | 120 | 6 | 96 | 96 | 96 | 96 |
+| 40 mm thermobaric grenade (M320) | `PB_NS_M320Thermobaric` | 50 (own 30) | 2 / 3 | 50 | 2.5 | 20 | 20 | 10 | 10 |
+| Anti-tank grenade | `PBNS_AntiTankGrenade` | 50 | 0.75 / 1.5 | 42.5 | 150 | 325 | 500 | 350 | 350 |
+| Mortar HE shell (M720A1) | `PBNS_M720A1` | 60 | 2.444 / 7.622 | 60 | 0 | 60 | 60 | 60 | 60 |
+
+- The frag grenade and the mortar blast do nothing to armoured vehicles but full damage to aircraft and light vehicles.
+- The anti-tank grenade's blast material has the same values against tanks, helicopters and jets as the Glaive's (L3339): 150 to a tank, of 1200.
+- Mortar HE direct hit: material 167, registry Damage 100 (own 200), value 1 on armour, 7 on aircraft, 4.5 and 11 on light vehicles.
+- The hand and 40 mm grenades' impact objects have a material but no damage field.
+- Falloff with distance: the frag grenade has a stored curve (L3340); the others have none.
+
+4346 raw-offset checks matched.
+
+Tests that would check these:
+
+- One anti-tank grenade on a full-health tank: 150 removed.
+- One thermobaric grenade at a soldier's feet: 50 (registry) or 30 (own).
+- One frag grenade under a landed helicopter: 100 removed.
+
+## L3343 - Launcher missile speed, lock time and lock range against EA (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3343-launcher-speed-and-lock-values.json). Dataset: `reference-data/frosty/launcher-speed-and-lock-values.json`. EA's [1.3.1.0 notes](https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-1-0) give speeds, accelerations, lock times and one lock range for the launchers. Names are joined to files by name only. A Haiku worker proposed candidate fields; each value here was re-read by script.
+
+Missile object (`Class_6a25e89d`): `Field_1a2b6380` is MaxSpeed and `Field_0f6601e1` is EngineStrength, named by the files where a registry row of that name holds the same number.
+
+| Item | File | Max speed own | Max speed registry | EA max speed | Equal to EA's new | Engine strength own | EA acceleration | Equal |
+|---|---|---|---|---|---|---|---|---|
+| MBT-LAW | `PB_MBTLAW` | 300 | none | 75 to 300 | yes | 100 | 50 to 100 | yes |
+| MAS 148 Glaive | `PB_Javelin` | 60 | 70 | 60 to 70 | yes | 40 | not stated | - |
+| Attack helicopter TOW | `PB_Missile_TOW2B_AirVehicle` | 90 | 120 | 90 to 120 | yes | 50 | not stated | - |
+| Ground vehicle TOW | `PB_Missile_TOW2B` | 150 | 90 | remains 90 | yes | 50 | not stated | - |
+| 9K93 IGLA | `PB_NS_IGLA` | 640 | none | 640 to 480 | no | 65 | 65 to 100 | no |
+| SLM-93A | `PB_NS_Stinger` | 400 | none | 540 to 480 | no | 50 | not stated | - |
+| SLM-93A (second file) | `PB_Stinger` | 350 | none | 540 to 480 | no | 200 | not stated | - |
+| Stinger, vehicle file | `PBNS_Stinger_Vehicle` | 540 | 540 | 540 to 480 | no | 65 | not stated | - |
+
+Weapon file: lock time is `Field_1351d684` in `Class_a4fe2c96`; lock range is `Field_f41246df` in `Class_6191fd53` (two objects, two ranges).
+
+| Item | File | Lock time (s) | EA lock time | Lock ranges (m) | Ratio | EA base range |
+|---|---|---|---|---|---|---|
+| 9K93 IGLA | `WB_IGLA` | 1 | 1.2 to 1 | 840 and 700 | 1.2 | not stated |
+| MAS 148 Glaive | `WB_Javelin` | 1.4 | 1.8 to 1.4 | 650 and 780 | 1.2 | not stated |
+| SLM-93A | `WB_Stinger` | 1.5 | not stated | 550 and 687.5 | 1.25 | 650 to 550 |
+| MBT-LAW | `WB_MBTLAW` | 3 | not stated | 650 | - | not stated |
+
+- EA's "missile acceleration" is EngineStrength.
+- **IGLA and SLM-93A speeds are not updated in these files.** The IGLA stores 640 and 65, EA's old values; no file stores 480.
+- The two lock ranges differ by 1.2 for the IGLA and Glaive, EA's "consistent 20%" laser designator bonus, but by 1.25 for the SLM-93A.
+- Tank active protection: `Ability_MBT_ActiveProtectionSystem` `Field_85c11a9b` = 0.55, the activation time in [1.3.3.0](https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-3-0). The same object stores 32 (registry RechargeTime 32) and 4.0 (registry ActiveTime 5.0).
+
+55 raw-offset checks matched.
+
+Still open, with the test that would settle each:
+
+- IGLA and SLM-93A missile speed: time a missile over a known distance.
+- SLM-93A designated lock range: try to lock a designated helicopter at 675 m (possible if 687.5, not if 660).
+- Active protection window: 4 s or 5 s.
+
+## L3352 - Gadget registry rows not recorded before (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3352-gadget-registry-global-rows.json). Dataset: `reference-data/frosty/gadget-registry-global-rows.json`. `GRX_Gadgets_Glacier` has 276 rows without an owner prefix; 187 of them were not named anywhere in the docs. All are in the dataset with default, minimum and maximum. These are registry defaults: the row name is the only description, units are implied by the name, and nothing here shows which mode reads a row.
+
+Rows matching `Damage / Radius / Health / Heal / Cooldown / Duration / Range / Resupply / Regen / Charges / MaxCount / Limit` (52 of 187):
+
+| Row | Default | Min | Max |
+|---|---|---|---|
+| `BaseDamage` | 2 | 1 | 9 |
+| `Defibrillators_PeepholeRadius` | 0 | 0 | 10 |
+| `Defibrillators_SP_Max Range` | 4 | 0 | 10 |
+| `Drone_NearbyProjectile_Explosive Trigger Range` | 0.5 | 0.5 | 5 |
+| `Drone_RangeFinder Max Distance` | 1000 | 0 | 10000 |
+| `DroneMovement_Initial Upward Momentum Duration` | 1.5 | 0 | 3 |
+| `EIDOS_Max Intercept Range` | 5 | 0 | 20 |
+| `EODBot_Apply Damage/ Repair Interval` | 0.1 | 0.01 | 1 |
+| `EODBot_BR_Damage Vehicle Rank` | 5 | 0 | 6 |
+| `EODBot_Damage Vehicle Rank` | 3 | 0 | 6 |
+| `EODBot_Repair_Range` | 3.2 | 0 | 10 |
+| `Fire Radius` | 2.2 | 0.1 | 5 |
+| `FirePutOut_Duration` | 1 | 0 | 1.5 |
+| `Flashbang_Duration_Sides_Close` | 1.5 | 0 | 10 |
+| `Flashbang_Duration_Sides_Far` | 1 | 0 | 10 |
+| `Flashbang_Max Range` | 12 | 0 | 30 |
+| `FumigatorHealthGate` | 0.35 | 0 | 0 |
+| `GasDealsDamage` | True | none | none |
+| `M26Dragon_MaxDistanceAffectorsLowDamage` | 20 | 0 | 30 |
+| `M320_AT_Thermite Affector Duration` | 3.5 | 0 | 5 |
+| `M320_Flash_Close Range` | 6 | 0 | 30 |
+| `M320_Flash_Duration_Behind_Close` | 0.6 | 0 | 10 |
+| `M320_Flash_Duration_Behind_Far` | 0.2 | 0 | 10 |
+| `M320_Flash_Duration_Infront_Close` | 3.5 | 0 | 10 |
+| `M320_Flash_Duration_Infront_Far` | 2.5 | 0 | 10 |
+| `M320_Flash_Duration_Sides_Close` | 1.5 | 0 | 10 |
+| `M320_Flash_Duration_Sides_Far` | 1 | 0 | 10 |
+| `M320_Flash_Max Range` | 12 | 0 | 30 |
+| `M320_LVG_BlastRadius` | 3.5 | 2 | 5 |
+| `M320_Thermobaric_Incendiary Radius` | 1 | 0 | 10 |
+| `PelletLimit` | 25 | 4 | 700 |
+| `PLD_Deployed_Controlled_Gadget_SpottingDuration` | 20 | 0 | 30 |
+| `PLD_Deployed_Controlled_Soldier_SpottingDuration` | 5 | 0 | 30 |
+| `PLD_Deployed_Controlled_Vehicle_SpottingDuration` | 30 | 0 | 30 |
+| `PLD_Deployed_Uncontrolled_Gadget_SpottingDuration` | 20 | 0 | 30 |
+| `PLD_Deployed_Uncontrolled_Soldier_SpottingDuration` | 5 | 0 | 30 |
+| `PLD_Deployed_Uncontrolled_Vehicle_SpottingDuration` | 30 | 0 | 30 |
+| `PLD_Handheld_Gadget_SpottingDuration` | 20 | 0 | 30 |
+| `PLD_Handheld_Soldier_SpottingDuration` | 5 | 0 | 30 |
+| `PLD_Handheld_Vehicle_SpottingDuration` | 30 | 0 | 30 |
+| `ProximityGrenade_Spotting Duration` | 2 | 0.5 | 12 |
+| `ProximityGrenade_Spotting Radius_GraniteMulti` | 2.14 | 0 | 10 |
+| `StunDrill _Duration_Behind_Close` | 0.6 | 0 | 10 |
+| `StunDrill _Duration_Behind_Far` | 0.2 | 0 | 10 |
+| `StunDrill _Duration_Infront_Close` | 3.5 | 0 | 10 |
+| `StunDrill _Duration_Infront_Far` | 2.5 | 0 | 10 |
+| `StunDrill _Duration_Sides_Close` | 1.5 | 0 | 10 |
+| `StunDrill _Duration_Sides_Far` | 1 | 0 | 10 |
+| `StunDrill_Close Range` | 6 | 0 | 30 |
+| `StunDrill_Max Range` | 12 | 0 | 30 |
+| `SupplyCrate_OpenCrateDuration` | 0.4 | 0 | 2 |
+| `VSC_Resupply Neutral Vehicles Max Time` | 15 | 0 | 30 |
+
+187 raw-offset checks matched.
+
+## L3353 - Repair Tool and EOD Bot repair rows (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3353-repair-rate-rows.json). Registry defaults, by exact row name:
+
+| Tool | State | Repair amount per second | Anti-repair amount per second |
+|---|---|---|---|
+| Repair Tool | standard | 40 | 30 |
+| Repair Tool | active repair | 60 | 45 |
+| Repair Tool | battle royale | 30 | 15 |
+| Repair Tool | battle royale, active repair | 60 | 30 |
+| EOD Bot | standard | 40 | 30 |
+| EOD Bot | active repair | 75 | 45 |
+| EOD Bot | battle royale | 30 | 15 |
+| EOD Bot | battle royale, active repair | 60 | 30 |
+
+Related rows: tool range 2 m, bot range 3.2 m, apply interval 0.1 s for both, `Repair Exhaustion Recovery Rate` 6, `VehicleRepairedAmount_AccumulatorTime` 2.
+
+If the amount is health per second on the vehicle's own scale (not verified; see the note in the repair table above on this page):
+
+| Vehicle | Root health | Seconds from 0 to full at 40 | at 60 | Own regeneration per second (L3346) |
+|---|---|---|---|---|
+| Tank (Abrams, Leopard) | 1200 | 30 | 20 | 120 |
+| IFV, anti-air, helicopters, jets | 1000 | 25 | 16.6667 | 100 |
+| Armoured transport (JLTV, Marauder) | 800 | 20 | 13.3333 | 80 |
+
+A standard repair at 40 would then be a third of a tank's own regeneration rate, which is a reason to doubt the plain reading. 23 raw-offset checks matched.
+
+Test: repair a tank from a known health for exactly 10 s; 400 gained means 40 health per second.
+
+## L3366 - Claymore fragmentation damage 50 (9 October 2026)
+
+**Withdrawn in L3367 below: the value 50 is shared by other gadgets and is not the Claymore's damage.**
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3366-claymore-fragment-damage-50.json). EA's [1.3.1.0 notes](https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-1-0): Claymore fragmentation base close-range damage 65 to 50. The blast object holds BlastDamage 1 (L164), so the figure is elsewhere: `M18Claymore_Projectile` has a property list (`Class_1788e77e`) of name-hash and value pairs with three floats:
+
+| Name hash | Value |
+|---|---|
+| `2b715869` | 30 |
+| `2b71592f` | 50 |
+| `2b7158ae` | 15 |
+
+The 50 equals EA's figure. The names are hashes of one family; what 30 and 15 mean is not read. No registry row is named for Claymore damage. 3 raw-offset checks matched.
+
+Test: health lost to an enemy Claymore at 1 m and at the edge of its range.
+
+## L3367 - Correction: the Claymore's 50 is a shared value, not its damage (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3367-claymore-50-shared-default.json). L3366 above is withdrawn. The same three values under the same name hashes (30, 50, 15) are in 8 gadget projectile files, among them `PBNS_ATMine`, `PB_M4SLAM`, `PB_NS_EODBot_Mines`, `PBNS_MobileJammer` and `PBNS_ProximityGrenade`. A value shared by mines, a jammer and a sensor grenade is not a damage figure; the match with EA's Claymore figure was a coincidence.
+
+The Claymore's fragmentation damage (EA: 50) is not located in stored data: blast object BlastDamage 1, no registry row, no file-specific value. 4 raw-offset checks matched.
+
+Test: health lost to an enemy Claymore at 1 m.
+
+## L3375 - Portable Mortar firing profile (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3375-portable-mortar-profile.json). Dataset: `reference-data/frosty/portable-mortar-profile.json`. Registry defaults (own values not read):
+
+| Registry row | Default |
+|---|---|
+| `VB_VEH_DeployableMortar_HE Shell.WeaponFiring.PrimaryFire.Shot.InitialSpeed.y` | 48.3 |
+| `VB_VEH_DeployableMortar_HE Shell.WeaponFiring.PrimaryFire.Shot.InitialSpeed.z` | 31.37 |
+| `VB_VEH_DeployableMortar_HE Shell.WeaponFiring.PrimaryFire.FireLogic.ReloadInfoArray[0].ReloadTime` | 2.65 |
+| `VB_VEH_DeployableMortar_HE Shell.WeaponFiring.PrimaryFire.OverHeat.HeatPerBullet` | 0.03 |
+| `VB_VEH_DeployableMortar_HE Shell.WeaponFiring.PrimaryFire.OverHeat.HeatDropPerSecond` | 0.25 |
+| `VB_VEH_DeployableMortar_HE Shell.WeaponFiring.PrimaryFire.Ammo.MagazineCapacity` | 1 |
+| `VB_VEH_DeployableMortar_HE Shell.WeaponFiring.PrimaryFire.Ammo.NumberOfMagazines` | -1 |
+| `VB_VEH_DeployableMortar_HE Shell.WeaponFiring.PrimaryFire.Ammo.AutoReplenishDelay` | 8 |
+| `VB_VEH_DeployableMortar_HE Shell.WeaponFiring.PrimaryFire.Ammo.AutoReplenishMagazine` | 0 |
+| `VB_VEH_DeployableMortar_Smoke Shell.WeaponFiring.PrimaryFire.Shot.InitialSpeed.y` | 48.3 |
+| `VB_VEH_DeployableMortar_Smoke Shell.WeaponFiring.PrimaryFire.Shot.InitialSpeed.z` | 31.37 |
+| `VB_VEH_DeployableMortar_Smoke Shell.WeaponFiring.PrimaryFire.FireLogic.ReloadInfoArray[0].ReloadTime` | 2.65 |
+| `VB_VEH_DeployableMortar_Smoke Shell.WeaponFiring.PrimaryFire.OverHeat.HeatPerBullet` | 0.03 |
+| `VB_VEH_DeployableMortar_Smoke Shell.WeaponFiring.PrimaryFire.OverHeat.HeatDropPerSecond` | 0.25 |
+| `VB_VEH_DeployableMortar_Smoke Shell.WeaponFiring.PrimaryFire.Ammo.MagazineCapacity` | 1 |
+| `VB_VEH_DeployableMortar_Smoke Shell.WeaponFiring.PrimaryFire.Ammo.NumberOfMagazines` | 3 |
+| `VB_VEH_DeployableMortar_Smoke Shell.WeaponFiring.PrimaryFire.Ammo.AutoReplenishDelay` | 45 |
+| `VB_VEH_DeployableMortar_Smoke Shell.WeaponFiring.PrimaryFire.Ammo.AutoReplenishMagazine` | 1 |
+| `DeployableMortar_WB.WeaponEntityData.WeaponFiring.PrimaryFire.Ammo.AutoReplenishDelay` | 90 |
+| `DeployableMortar_WB.WeaponEntityData.WeaponFiring.PrimaryFire.Ammo.MagazineCapacity` | 1 |
+| `DeployableMortar_WB.WeaponEntityData.WeaponFiring.PrimaryFire.Ammo.NumberOfMagazines` | 1 |
+| `VB_VEH_DeployableMortar.MaxHealth` | 50 |
+| `VB_VEH_DeployableMortar.RegenerationRate` | 0 |
+| `ArtilleryMasteryMortarReload` | 0.75 |
+| `SupplyCratePlusMortarReload` | 0.835 |
+| `Mortar_Supply Crate Reload` | 0.623 |
+
+Arithmetic on these (inference):
+
+- Launch speed 57.6 m/s at 57.0 degrees; about 309 m with no drag and gravity 9.81 (upper estimate).
+- Reload 2.65 s; with the multipliers 1.99 s (0.75), 2.21 s (0.835) or 1.65 s (0.623). Which multiplier applies when is not read.
+- Heat 0.03 per shell against 0.25 per second cooling: no practical overheat.
+
+Shell damage is in L3342. 26 raw-offset checks matched.
+
+Test: time the gap between two shells with and without a Supply Crate nearby.
+
+## L3376 - Launcher and gadget reload times (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3376-gadget-launcher-reload-times.json). Dataset: `reference-data/frosty/gadget-reload-times.json`. Own reload entries of the gadget weapon files, with the registry default where a row exists (file and registry owner joined by name):
+
+| Weapon file | Own reload time | Own reload time, rounds left | Registry default |
+|---|---|---|---|
+| `WB_RPG7V2` | 3.4 | -1 | 3.4 |
+| `WB_Stinger` | 3.4 | 3.66 | 3.4 |
+| `WB_MBTLAW` | 3.4 | -1 | 3.4 |
+| `WB_AT4` | 3.66 | 3.66 | 3.66 |
+| `WB_Javelin` | -1 | -1 | -1 |
+| `WB_TracerDart` | 3.38 | 3.38 | 3.38 |
+| `WB_RepairTool` | 3.59 | -1 | 3.59 |
+| `WB_M26Mass` | 3.53 | 3 | 3.53 |
+| `WB_AirburstIncendiary` | 2.53 | 2.53 | 2.53 |
+| `WB_IGLA` | 3.4 | 2.33 | no row |
+| `WB_Panzerfaust3` | 4.96 | 4.96 | no row |
+| `DrillGL_WB` | 2.53 | 2.53 | no row |
+| `Railgun_WB` | 4.266 | -1 | no row |
+| `Minigun_WB` | 6.7 | 5.83 | no row |
+| `Lancet_WB` | 3.233 | -1 | no row |
+| `SupplyDrop_WB` | 3.6 | -1 | no row |
+| `KineticStrike_WB` | 20 | 20 | no row |
+
+- All nine with a registry row agree with it.
+- Javelin: -1 in both, no timed reload stored.
+- Rounds-left value differs for the Stinger, IGLA, M26 MASS and Minigun; which applies to a one-round launcher is not shown.
+- EA's notes state no launcher reload time.
+
+43 raw-offset checks matched.
+
+Test: time one RPG-7V2 reload and one Stinger reload.
+
+## L3377 - Railgun and Panzerfaust 3 under the damage rule (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3377-railgun-panzerfaust3-damage-rule.json). Dataset: `reference-data/frosty/railgun-panzerfaust3-damage.json`. Stored damage times the grid value for each target (before the hit factor of L3323 for aimed hits):
+
+| File | Part | Material | Stored damage | tank / IFV | helicopter | jet | light vehicle | quad / bike | soldier chest | soldier stomach |
+|---|---|---|---|---|---|---|---|---|---|---|
+| `PD_Railgun` | blast | 679 | 0 | 0 (x0) | 0 (x0) | 0 (x0) | 0 (x0) | 0 (x0) | 0 (x0) | 0 (x0) |
+| `PD_Railgun` | direct | 678 | 150 | 375 (x2.5) | 525 (x3.5) | 525 (x3.5) | 825 (x5.5) | 1350 (x9) | 150 (x1) | 150 (x1) |
+| `PB_Panzerfaust3` | direct | 125 | 100 (file only) | 200 (x2) | 900 (x9) | 1000 (x10) | 550 (x5.5) | 500 (x5) | 100 (x1) | 100 (x1) |
+| `PB_Panzerfaust3` | blast | 164 | 130 (file only) | 0 (x0) | 0 (x0) | 0 (x0) | 39 (x0.3) | 1105 (x8.5) | 130 (x1) | 130 (x1) |
+| `PB_Panzerfaust3_DM32` | direct | 167 | 100 (file only) | 100 (x1) | 700 (x7) | 700 (x7) | 450 (x4.5) | 1100 (x11) | 100 (x1) | 100 (x1) |
+| `PB_Panzerfaust3_DM32` | blast | 164 | 230 (file only) | 0 (x0) | 0 (x0) | 0 (x0) | 69 (x0.3) | 1955 (x8.5) | 230 (x1) | 230 (x1) |
+
+- Railgun registry rows: speed 1029 m/s, magazine 1, magazines 11, reload 4.266 s, falloff 100 to 200 m with 150 at both ends.
+- Panzerfaust 3 shares material 125 with the RPG (registry damage 125). Its 100 is a file-only value and may be stale.
+
+2089 raw-offset checks matched.
+
+Test: one Railgun hit on a tank's rear (750 expected) and one Panzerfaust 3 hit on a tank's side (300 expected).
+
+## L3378 - Call-in strike munitions under the damage rule (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3378-call-in-strike-munitions-damage-rule.json). Dataset: `reference-data/frosty/call-in-strike-munitions.json`. File damage times the grid value for each target. None of these has a registry damage row, so the values may be stale (L3343):
+
+| File | Part | Material | File damage | tank / IFV | helicopter | light vehicle | soldier chest |
+|---|---|---|---|---|---|---|---|
+| `PB_PRJ_Missile_AGM179_JAGM` | direct | 125 | 175 | 350 (x2) | 1575 (x9) | 962.5 (x5.5) | 175 (x1) |
+| `PB_PRJ_Missile_AGM179_JAGM` | blast | 206 | 160 | 347.2 (x2.17) | 1067.2 (x6.67) | 1360 (x8.5) | 80 (x0.5) |
+| `PB_Bomb_Mk82_AirStrike` | direct | 125 | 450 | 900 (x2) | 4050 (x9) | 2475 (x5.5) | 450 (x1) |
+| `PB_Bomb_Mk82_AirStrike` | blast | 95 | 335 | 1172.5 (x3.5) | 1172.5 (x3.5) | 1507.5 (x4.5) | 335 (x1) |
+| `PB_Bomb_Mk82_AirStrike_Delayed` | direct | 125 | 450 | 900 (x2) | 4050 (x9) | 2475 (x5.5) | 450 (x1) |
+| `PB_Bomb_Mk82_AirStrike_Delayed` | blast | 95 | 335 | 1172.5 (x3.5) | 1172.5 (x3.5) | 1507.5 (x4.5) | 335 (x1) |
+| `PB_PRJ_Artillery_155mmM795HE_SP_Beach` | direct | 125 | 330 | 660 (x2) | 2970 (x9) | 1815 (x5.5) | 330 (x1) |
+| `PB_PRJ_Artillery_155mmM795HE_SP_Beach` | blast | 95 | 120 | 420 (x3.5) | 420 (x3.5) | 540 (x4.5) | 120 (x1) |
+| `PB_PRJ_Missile_KineticStrike_TEMP` | direct | 20 | 1000 | 0 (x0) | 0 (x0) | 1000 (x1) | 1000 (x1) |
+| `PB_PRJ_Missile_KineticStrike_TEMP` | blast | 130 | 1 | 0 (x0) | 1 (x1) | 3 (x3) | 1 (x1) |
+| `PB_PRJ_Missile_AIM9X_CarrierStrike_SSMBattery` | direct | 743 | 1000 | 2000 (x2) | 9000 (x9) | 5500 (x5.5) | 1000 (x1) |
+| `PB_PRJ_Missile_AIM9X_CarrierStrike_SSMBattery` | blast | 607 | 160 | 160 (x1) | 480 (x3) | 400 (x2.5) | 128 (x0.8) |
+| `PB_40x46mmLVG_Drill` | blast | 429 | 40 | 16 (x0.4) | 100 (x2.5) | 120 (x3) | 40 (x1) |
+| `PB_40x46mmLVG_Drill_Gas` | blast | 429 | 40 | 16 (x0.4) | 100 (x2.5) | 120 (x3) | 40 (x1) |
+
+Pattern and warning rows (registry):
+
+| Registry row | Default |
+|---|---|
+| `Artillery_ShellCountPerVolley` | 18 |
+| `Artillery_VolleyCount` | 1 |
+| `Artillery_TimeBetweenShells` | 0.5709 |
+| `Artillery_TimeBetweenShellsVariation` | 0.175 |
+| `Artillery_DispersionRadius` | 45 |
+| `Artillery_FireDelay` | 4 |
+| `Artillery_RangeingShotCount` | 2 |
+| `Artillery_RangeingTimeBetweenShots` | 2 |
+| `JAGMStrike_MapInnerBlastRadius` | 4 |
+| `JAGMStrike_MapBlastRadius` | 10 |
+| `JAGMStrike_MapShockwaveRadius` | 20 |
+| `JAGMStrike_WarningRadius` | 200 |
+| `AirStrike_WarningDelay` | 3 |
+
+3877 raw-offset checks matched.
+
+Test: health lost by a tank to one JAGM hit.
+
+## L3379 - Fire damage affectors and their stages (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3379-fire-damage-affector-stages.json). Dataset: `reference-data/frosty/fire-damage-affectors.json`. Fire damage is not in a blast object. Six affector files (`Class_14965f9f`) each hold an interval and a list of stages (integer, float, material 169):
+
+| Affector file | Interval (`ce8df685`) | `72380a66` | `093fdee2` | Stages: integer / float |
+|---|---|---|---|---|
+| `Affector_FireFizzleOut` | 0.2 | 0 | 100 | 2 / 2, 50 / 1 |
+| `Affector_Damage_AirburstIncendiary` | 0.3 | 15 | 1 | 10 / 15 |
+| `Affector_Damage_Thermobaric` | 0.4 | 5 | 1 | 8 / 2, 5 / 1.5 |
+| `Affector_Damage_Exit_IncendiaryGrenade` | 0.2 | 0 | 1 | 3 / 1 |
+| `Affector_Damage_InOpenVehicle_IncendiaryGrenade` | 0.1 | 1 | 1 | 8 / 2, 6 / 3.5, 4 / 5 |
+| `Affector_Damage_IncendiaryGrenade` | 0.1 | 0 | 1 | 2 / 0, 15 / 2.5, 10 / 7, 5 / 10 |
+
+- Candidate reading: integer = damage, float = time. For the incendiary grenade the integers fall as the floats rise (15 to 2.5 s, 10 to 7 s, 5 to 10 s), and the projectile lives 10 s. The thermobaric list does not fit the same reading of the float.
+- Field names are hashes; units (per interval or per second) are not shown.
+- Material 169 against the soldier: head scalar -; neck / chest scalar 1; stomach scalar 1; limb scalar -.
+
+58 raw-offset checks matched.
+
+Test: health lost in the first and in the eighth second inside an incendiary grenade fire.
+
+## L3385 - Repair Tool and EOD Bot damage to vehicles (9 October 2026) - Replaced by L3386
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3385-repair-tool-vehicle-damage-affector.json). Dataset: `reference-data/frosty/repair-tool-vehicle-damage-affector.json`. `Affector_RepairToolDamageVehicle` and `Affector_EODBot_DamageVehicle` hold the same seven entries on material 479. Per application, times the grid value:
+
+| Entry | InitialDamage | Tank / IFV (x1) | Helicopter (x1.25) | Light vehicle (x2) |
+|---|---|---|---|---|
+| 0 | 10 | 10 | 12.5 | 20 |
+| 1 | 5 | 5 | 6.25 | 10 |
+| 2 | 7.5 | 7.5 | 9.375 | 15 |
+| 3 | 12.5 | 12.5 | 15.625 | 25 |
+| 4 | 15 | 15 | 18.75 | 30 |
+| 5 | 17.5 | 17.5 | 21.875 | 35 |
+| 6 | 20 | 20 | 25 | 40 |
+
+- Registry: `RepairTool_Damage Vehicle Rank` 3, `RepairTool_BR_Damage Vehicle Rank` 5, `RepairTool_Apply Damage/ Repair Interval` 0.1. If the rank is the entry index: 12.5 in multiplayer, 17.5 in Battle Royale (candidate, joined by name).
+- 12.5 every 0.1 s would be 125 per second against a tank, about twice the repair rate; the tick rate is not confirmed.
+
+36 raw-offset checks matched.
+
+Test: health an enemy tank loses in 5 s of Repair Tool use.
+
+## L3386 - Repair Tool affectors and the stacking table (9 October 2026, replaces L3385)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3386-repair-tool-affectors-and-stacking-table.json). Dataset: `reference-data/frosty/repair-tool-affectors-and-stacking-table.json`. Registry rows:
+
+| Registry row | Default |
+|---|---|
+| `RepairTool_Damage Vehicle Rank` | 3 |
+| `RepairTool_BR_Damage Vehicle Rank` | 5 |
+| `RepairTool_Apply Damage/ Repair Interval` | 0.1 |
+| `RepairTool_ActiveRepair_AntiRepair Amount Per Second` | 45 |
+| `RepairTool_ActiveRepairBR_AntiRepair Amount Per Second` | 30 |
+| `RepairTool_Default_Repair Amount Per Second` | 40 |
+| `RepairTool_ActiveRepair_Repair Amount Per Second` | 60 |
+| `RepairTool_DefaultBR_Repair Amount Per Second` | 30 |
+| `RepairTool_ActiveRepairBR_Repair Amount Per Second` | 60 |
+| `RepairTool_Default_AntiRepair Amount Per Second` | 30 |
+| `RepairTool_DefaultBR_AntiRepair Amount Per Second` | 15 |
+| `RepairTool_Range` | 2 |
+
+Stacking table in `Affector_VehicleRepair` (eight of 16 entries, all identical):
+
+| Count (`621f70fb`) | Multiplier (`6be2817d`) | Count x multiplier |
+|---|---|---|
+| 2 | 0.75 | 1.5 |
+| 3 | 0.58 | 1.74 |
+| 4 | 0.5 | 2 |
+| 5 | 0.4 | 2 |
+| 6 | 0.33 | 1.98 |
+| 7 | 0.28 | 1.96 |
+| 8 | 0.25 | 2 |
+
+- Fits: with several repairers each one is scaled, and the total caps at about twice one repairer (candidate; hashes only).
+- Heal entries in `Affector_RepairTool_HealVehicle`: 2.5, 5, 7.5, 10, 12.5, 15, 17.5, 20.
+
+Damage entries (both damage affectors, material 479), per application, times the grid value:
+
+| Entry | InitialDamage | Tank / IFV (x1) | Helicopter (x1.25) | Light vehicle (x2) |
+|---|---|---|---|---|
+| 0 | 10 | 10 | 12.5 | 20 |
+| 1 | 5 | 5 | 6.25 | 10 |
+| 2 | 7.5 | 7.5 | 9.375 | 15 |
+| 3 | 12.5 | 12.5 | 15.625 | 25 |
+| 4 | 15 | 15 | 18.75 | 30 |
+| 5 | 17.5 | 17.5 | 21.875 | 35 |
+| 6 | 20 | 20 | 25 | 40 |
+
+- `Damage Vehicle Rank` 3 and 5 point at 12.5 and 17.5 if the rank is the entry index (candidate, joined by name).
+- Whether the damage to enemy vehicles is the `AntiRepair` per-second row (30) or a damage entry per 0.1 s is not settled; L3385 wrongly ruled the first out.
+
+81 raw-offset checks matched.
+
+Tests: repair time of a damaged tank with one and with two repairers; health an enemy tank loses in 5 s of Repair Tool use.

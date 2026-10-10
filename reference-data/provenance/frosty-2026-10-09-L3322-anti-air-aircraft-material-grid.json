@@ -1,0 +1,227 @@
+{
+ "lead": "L3322",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Level material grids read from the saved raw capture with the L3207 cell reader; no export, no new capture."
+ },
+ "question": "Are the aircraft damage multipliers 4, 5 and 10 of L3318 stored in the level material grid?",
+ "sourceFacts": {
+  "method": "The projectile object of each mobile anti-air ammunition file stores a material value whose top 12 bits are the material ID (rule checked in L3321). Field_674633de was listed for those source materials against every target 0 to 799 in the Abbasid grid; the six targets with values above 1.25 shared by both materials were then reread with offset checks in the Abbasid and Badlands grids.",
+  "control": {
+   "description": "Same reader and material rule as L3321, whose controls (RPG 2, C4 3.5) passed; values equal across the two grids.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\AA\\PD_Vehicles_AA_PrimaryWeapon_AAHV.ebx",
+     "rawSha256": "a60a1061eae76db9a7ef10f7d198753dd6c4e7b3e0e8b12090c5437fa74f4f87",
+     "offset": 336,
+     "type": "u32",
+     "bytesHex": "80522028",
+     "value": 673206912,
+     "expect": 673206912,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\AA\\PD_Vehicles_AA_PrimaryWeapon_AAAP.ebx",
+     "rawSha256": "7d455868b9e5d2a46faa4f1be9984714ec2294adaddeda0072490fec4c5fab26",
+     "offset": 336,
+     "type": "u32",
+     "bytesHex": "80521024",
+     "value": 605049472,
+     "expect": 605049472,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\AA\\PD_Vehicles_AA_PrimaryWeapon_AAGP.ebx",
+     "rawSha256": "e38f1a47be43a69b19da9d362fc4df69a315afc712a81c4cbae96673d341709e",
+     "offset": 336,
+     "type": "u32",
+     "bytesHex": "80521024",
+     "value": 605049472,
+     "expect": 605049472,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 629,
+   "matched": 629,
+   "files": 5,
+   "tool": "scripts/frosty-raw-check.py (material values: aa-raw-checks.json; grid reads: aa-grid-rawchecks.json)",
+   "artifact": "aa-raw-checks.json"
+  },
+  "matches": [
+   {
+    "item": "Mobile AA high velocity",
+    "owner": "PD_Vehicles_AA_PrimaryWeapon_AAHV",
+    "projectileMaterial": 642,
+    "registryStartDamage": 13.0,
+    "gridValues": {
+     "targets 121, 669": 2.0,
+     "targets 120, 207, 233, 670": 2.5
+    },
+    "products": [
+     26.0,
+     32.5
+    ],
+    "official": [
+     52,
+     65
+    ],
+    "officialOverProduct": [
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "item": "Mobile AA armour piercing",
+    "owner": "PD_Vehicles_AA_PrimaryWeapon_AAAP",
+    "projectileMaterial": 577,
+    "registryStartDamage": 20.0,
+    "gridValues": {
+     "all six targets": 5.0
+    },
+    "products": [
+     100.0
+    ],
+    "official": [
+     200
+    ],
+    "officialOverProduct": [
+     2.0
+    ]
+   },
+   {
+    "item": "Mobile AA general purpose",
+    "owner": "PD_Vehicles_AA_PrimaryWeapon_AAGP",
+    "projectileMaterial": 577,
+    "registryStartDamage": 13.0,
+    "gridValues": {
+     "all six targets": 5.0
+    },
+    "products": [
+     65.0
+    ],
+    "official": [
+     130
+    ],
+    "officialOverProduct": [
+     2.0
+    ]
+   }
+  ],
+  "dataset": "reference-data/frosty/anti-air-aircraft-material-grid.json"
+ },
+ "inference": [
+  "Half of each multiplier is stored in the grid. High velocity ammunition reads 2 against two targets and 2.5 against four, the same 4 to 5 ratio as EA's helicopter 52 and jet 65. Armour piercing and general purpose ammunition read 5 against all six, matching EA's single aircraft number for each.",
+  "In all four cases EA's number is exactly twice registry StartDamage times the grid value (26, 32.5, 100 and 65 against 52, 65, 200 and 130). The remaining factor 2 is not traced. Every cell also stores Field_7fa53094 = 2, but the mine cells of L3321 store the same 2 and need no extra factor, so it is not shown to be the cause.",
+  "Which targets are helicopters and which are jets is inferred from EA's numbers only: 121 and 669 would be helicopters, 120, 207, 233 and 670 jets."
+ ],
+ "unresolved": [
+  "The remaining factor 2. Test: one high velocity rocket hit on a full-health helicopter; 52 confirms twice the product, 26 would mean EA counts two hits or a pair.",
+  "Target identities are not named in stored data. Test: the same single hit on a transport helicopter, an attack helicopter and a jet; readings of 52, 52 and 65 would confirm the split.",
+  "The mine explosion material reads 11 against the same six targets. Test: land a helicopter on an M15 mine; 195 x 11 would destroy any aircraft outright."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-09-mine-material-grid",
+  "artifacts": [
+   {
+    "file": "aa-evidence.json",
+    "sha256": "a331cd39e6b47dc8620a4f2aa421564e2dc064750b557d042f01a0dfaefc94b0"
+   },
+   {
+    "file": "aa-materials.json",
+    "sha256": "07440a3e5b87670130c6b3ef44b159629bb218dd5f2838bb67177d94bde01f01"
+   },
+   {
+    "file": "aa-summary.json",
+    "sha256": "fb128e14f173a15c44f9459deadbe6077ac0c7148e17fb5d8cf318dc0d69170f"
+   },
+   {
+    "file": "aa-selected-cells.json",
+    "sha256": "d2aa1fa4c57fa2b1bb5ca521e7571e399a2795f8a3fca79d56337ba51c7b207e"
+   },
+   {
+    "file": "aa-grid-rawchecks.json",
+    "sha256": "b40a62bb011ebbdee4a9cf5022f7446304ed59a238f0792e1e8443d99ee47bdd"
+   },
+   {
+    "file": "aa-scan.json",
+    "sha256": "d6fd48c932ce153d3a42d09cd336de846fe77bf2fd6d7fb1b30d66375414165f"
+   },
+   {
+    "file": "aa-raw-check-manifest.json",
+    "sha256": "54660806dae81e05893677962a3d3e106d6ff964e5faca0613d11b2efd4e3607"
+   },
+   {
+    "file": "aa-raw-checks.json",
+    "sha256": "cfcf650f909eba52634ded137690ea3741f5aa2587a5c61e9fcb3af0b5be7928"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-09",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L3322",
+    "title": "Anti-air damage against aircraft: the material grid stores half of each multiplier",
+    "status": "finding",
+    "summary": "For mobile anti-air ammunition the grid's Field_674633de reads 2 and 2.5 (high velocity) and 5 (armour piercing, general purpose) against six aircraft targets. EA's numbers are exactly twice registry StartDamage times these values, with the helicopter to jet ratio 4 to 5 reproduced. The remaining factor 2 is not traced. 629 raw reads matched.",
+    "reopenWhen": "A current-build single-hit damage reading on a helicopter or jet, or a stored field shown to carry the remaining factor 2.",
+    "statusNote": "Ratio and three official numbers reproduced up to an untraced factor 2; target identities inferred; joins by name."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Game/GlacierMP/levels/mp_abbasid/mp_abbasid/materialgrid_win32",
+    "format": "raw-ebx",
+    "sha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+    "question": "Are the aircraft damage multipliers 4, 5 and 10 of L3318 stored in the level material grid?",
+    "result": "useful",
+    "conclusion": "Cells for source materials 642 and 577 against six targets store Field_674633de 2, 2.5 and 5."
+   },
+   {
+    "path": "Game/GlacierMP/levels/mp_badlands/mp_badlands/materialgrid_win32",
+    "format": "raw-ebx",
+    "sha256": "b2ca0a2bde7aa7ebae1d0eea5880d59a72ab3a9f6a3f602e6d4fbec07498edec",
+    "question": "Are the aircraft damage multipliers 4, 5 and 10 of L3318 stored in the level material grid?",
+    "result": "useful",
+    "conclusion": "Cells for source materials 642 and 577 against six targets store Field_674633de 2, 2.5 and 5."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/AA/PD_Vehicles_AA_PrimaryWeapon_AAHV",
+    "format": "raw-ebx",
+    "sha256": "a60a1061eae76db9a7ef10f7d198753dd6c4e7b3e0e8b12090c5437fa74f4f87",
+    "question": "Are the aircraft damage multipliers 4, 5 and 10 of L3318 stored in the level material grid?",
+    "result": "useful",
+    "conclusion": "Projectile object stores material ID 642."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/AA/PD_Vehicles_AA_PrimaryWeapon_AAAP",
+    "format": "raw-ebx",
+    "sha256": "7d455868b9e5d2a46faa4f1be9984714ec2294adaddeda0072490fec4c5fab26",
+    "question": "Are the aircraft damage multipliers 4, 5 and 10 of L3318 stored in the level material grid?",
+    "result": "useful",
+    "conclusion": "Projectile object stores material ID 577."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/AA/PD_Vehicles_AA_PrimaryWeapon_AAGP",
+    "format": "raw-ebx",
+    "sha256": "e38f1a47be43a69b19da9d362fc4df69a315afc712a81c4cbae96673d341709e",
+    "question": "Are the aircraft damage multipliers 4, 5 and 10 of L3318 stored in the level material grid?",
+    "result": "useful",
+    "conclusion": "Projectile object stores material ID 577."
+   }
+  ]
+ }
+}

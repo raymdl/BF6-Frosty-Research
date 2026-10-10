@@ -1,0 +1,1206 @@
+{
+ "lead": "L3346",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Read from saved raw captures; no export, no new capture."
+ },
+ "question": "Where are vehicle regeneration delay and rate stored, and do they equal EA's 1.3.1.0 figures (delay 6 to 12 s, rate about 5 to 10 percent per second)?",
+ "sourceFacts": {
+  "method": "The root objects (Class_f2a56983, the class that holds root health Field_9040392c) of 14 vehicles were searched for a field equal to 12 in every armoured vehicle and a field equal to one tenth of root health; two fields fit and were then read for all 37 saved vehicle roots. The CB90's registry rows RegenerationDelay and RegenerationRate name the fields.",
+  "control": {
+   "description": "CB90: Field_5c9d2d82 = 12 = registry RegenerationDelay; Field_3233bcbf = 100 = registry RegenerationRate. Abrams 12 and 120 (10 percent of 1200); JLTV 12 and 80 (10 percent of 800).",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Airplane\\F16\\VB_VEH_Airplane_F16.ebx",
+     "rawSha256": "7d99e0abbba5a58ecf7025cc33841e9662ae620fa1bfc02718ecfdb7145971c0",
+     "offset": 440,
+     "type": "f32",
+     "bytesHex": "00007a44",
+     "value": 1000.0,
+     "expect": 1000.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Airplane\\F16\\VB_VEH_Airplane_F16.ebx",
+     "rawSha256": "7d99e0abbba5a58ecf7025cc33841e9662ae620fa1bfc02718ecfdb7145971c0",
+     "offset": 444,
+     "type": "f32",
+     "bytesHex": "00008c41",
+     "value": 17.5,
+     "expect": 17.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Airplane\\F16\\VB_VEH_Airplane_F16.ebx",
+     "rawSha256": "7d99e0abbba5a58ecf7025cc33841e9662ae620fa1bfc02718ecfdb7145971c0",
+     "offset": 472,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Airplane\\F22\\VB_VEH_Airplane_F22.ebx",
+     "rawSha256": "52f193e63997466a8a55133b80d7dcecab52f6dcefc390cf1c5568cc0ac2097c",
+     "offset": 440,
+     "type": "f32",
+     "bytesHex": "00007a44",
+     "value": 1000.0,
+     "expect": 1000.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Airplane\\F22\\VB_VEH_Airplane_F22.ebx",
+     "rawSha256": "52f193e63997466a8a55133b80d7dcecab52f6dcefc390cf1c5568cc0ac2097c",
+     "offset": 444,
+     "type": "f32",
+     "bytesHex": "00008c41",
+     "value": 17.5,
+     "expect": 17.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Airplane\\F22\\VB_VEH_Airplane_F22.ebx",
+     "rawSha256": "52f193e63997466a8a55133b80d7dcecab52f6dcefc390cf1c5568cc0ac2097c",
+     "offset": 472,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Airplane\\JAS39\\VB_VEH_Airplane_JAS39.ebx",
+     "rawSha256": "99328b8f81bb70ed0de0189f30c69812f2711dde710a40f6a600fef7c17c2787",
+     "offset": 488,
+     "type": "f32",
+     "bytesHex": "00007a44",
+     "value": 1000.0,
+     "expect": 1000.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Airplane\\JAS39\\VB_VEH_Airplane_JAS39.ebx",
+     "rawSha256": "99328b8f81bb70ed0de0189f30c69812f2711dde710a40f6a600fef7c17c2787",
+     "offset": 492,
+     "type": "f32",
+     "bytesHex": "00008c41",
+     "value": 17.5,
+     "expect": 17.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Airplane\\JAS39\\VB_VEH_Airplane_JAS39.ebx",
+     "rawSha256": "99328b8f81bb70ed0de0189f30c69812f2711dde710a40f6a600fef7c17c2787",
+     "offset": 520,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Airplane\\JAS39\\VB_VEH_SP_Assault_Airplane_JAS39.ebx",
+     "rawSha256": "04f716566ec2020a0b12bf8a5b0186d2148737f12a06393ee3b498aaf903465b",
+     "offset": 1176,
+     "type": "f32",
+     "bytesHex": "00007a44",
+     "value": 1000.0,
+     "expect": 1000.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Airplane\\JAS39\\VB_VEH_SP_Assault_Airplane_JAS39.ebx",
+     "rawSha256": "04f716566ec2020a0b12bf8a5b0186d2148737f12a06393ee3b498aaf903465b",
+     "offset": 1180,
+     "type": "f32",
+     "bytesHex": "0000a041",
+     "value": 20.0,
+     "expect": 20.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Airplane\\JAS39\\VB_VEH_SP_Assault_Airplane_JAS39.ebx",
+     "rawSha256": "04f716566ec2020a0b12bf8a5b0186d2148737f12a06393ee3b498aaf903465b",
+     "offset": 1188,
+     "type": "f32",
+     "bytesHex": "0000a041",
+     "value": 20.0,
+     "expect": 20.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Airplane\\MQ9\\VB_VEH_Airplane_MQ9.ebx",
+     "rawSha256": "284031c4a199682d3b3a280a3b80edc12cac3560c89868d7eee0572ccd0bc8e9",
+     "offset": 440,
+     "type": "f32",
+     "bytesHex": "00007a44",
+     "value": 1000.0,
+     "expect": 1000.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Airplane\\MQ9\\VB_VEH_Airplane_MQ9.ebx",
+     "rawSha256": "284031c4a199682d3b3a280a3b80edc12cac3560c89868d7eee0572ccd0bc8e9",
+     "offset": 444,
+     "type": "f32",
+     "bytesHex": "00002042",
+     "value": 40.0,
+     "expect": 40.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Airplane\\MQ9\\VB_VEH_Airplane_MQ9.ebx",
+     "rawSha256": "284031c4a199682d3b3a280a3b80edc12cac3560c89868d7eee0572ccd0bc8e9",
+     "offset": 472,
+     "type": "f32",
+     "bytesHex": "00000000",
+     "value": 0.0,
+     "expect": 0.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Airplane\\SU57\\VB_VEH_Airplane_SU57.ebx",
+     "rawSha256": "4621cb5729b75c4f4ac0af4671cfe6c2f829ff43ea5ecb3eca15e71c0171f044",
+     "offset": 440,
+     "type": "f32",
+     "bytesHex": "00007a44",
+     "value": 1000.0,
+     "expect": 1000.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Airplane\\SU57\\VB_VEH_Airplane_SU57.ebx",
+     "rawSha256": "4621cb5729b75c4f4ac0af4671cfe6c2f829ff43ea5ecb3eca15e71c0171f044",
+     "offset": 444,
+     "type": "f32",
+     "bytesHex": "00008c41",
+     "value": 17.5,
+     "expect": 17.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Airplane\\SU57\\VB_VEH_Airplane_SU57.ebx",
+     "rawSha256": "4621cb5729b75c4f4ac0af4671cfe6c2f829ff43ea5ecb3eca15e71c0171f044",
+     "offset": 472,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Boat\\CB90\\VB_VEH_Boat_CB90.ebx",
+     "rawSha256": "2d8e05398f8f3f2b79159a8db1ec5a87d3033ac7c2469d0cb5f3c6c3f6911ad3",
+     "offset": 440,
+     "type": "f32",
+     "bytesHex": "00007a44",
+     "value": 1000.0,
+     "expect": 1000.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Boat\\CB90\\VB_VEH_Boat_CB90.ebx",
+     "rawSha256": "2d8e05398f8f3f2b79159a8db1ec5a87d3033ac7c2469d0cb5f3c6c3f6911ad3",
+     "offset": 444,
+     "type": "f32",
+     "bytesHex": "00004041",
+     "value": 12.0,
+     "expect": 12.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Boat\\CB90\\VB_VEH_Boat_CB90.ebx",
+     "rawSha256": "2d8e05398f8f3f2b79159a8db1ec5a87d3033ac7c2469d0cb5f3c6c3f6911ad3",
+     "offset": 472,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Boat\\VB_VEH_Boat_RHIB.ebx",
+     "rawSha256": "cc45dacb066f666293c5430404a3cad98321b1e03f20cb6d6ffd68214a27f806",
+     "offset": 440,
+     "type": "f32",
+     "bytesHex": "00007a44",
+     "value": 1000.0,
+     "expect": 1000.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Boat\\VB_VEH_Boat_RHIB.ebx",
+     "rawSha256": "cc45dacb066f666293c5430404a3cad98321b1e03f20cb6d6ffd68214a27f806",
+     "offset": 444,
+     "type": "f32",
+     "bytesHex": "00004041",
+     "value": 12.0,
+     "expect": 12.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Boat\\VB_VEH_Boat_RHIB.ebx",
+     "rawSha256": "cc45dacb066f666293c5430404a3cad98321b1e03f20cb6d6ffd68214a27f806",
+     "offset": 472,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Car\\Flyer60\\VB_VEH_Car_Flyer60.ebx",
+     "rawSha256": "afea4a935d8310ae3ee8abf907c7789b57690f7c898c936bcc3e100e6631edb2",
+     "offset": 440,
+     "type": "f32",
+     "bytesHex": "00007a44",
+     "value": 1000.0,
+     "expect": 1000.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Car\\Flyer60\\VB_VEH_Car_Flyer60.ebx",
+     "rawSha256": "afea4a935d8310ae3ee8abf907c7789b57690f7c898c936bcc3e100e6631edb2",
+     "offset": 444,
+     "type": "f32",
+     "bytesHex": "00004041",
+     "value": 12.0,
+     "expect": 12.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Car\\Flyer60\\VB_VEH_Car_Flyer60.ebx",
+     "rawSha256": "afea4a935d8310ae3ee8abf907c7789b57690f7c898c936bcc3e100e6631edb2",
+     "offset": 472,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Car\\Flyer60\\VB_VEH_Car_Flyer60_SP.ebx",
+     "rawSha256": "d7696533159f8e3e685a550e0c1a9059ebf18bb7f3e585d318930a0af1545a1f",
+     "offset": 440,
+     "type": "f32",
+     "bytesHex": "00007a44",
+     "value": 1000.0,
+     "expect": 1000.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Car\\Flyer60\\VB_VEH_Car_Flyer60_SP.ebx",
+     "rawSha256": "d7696533159f8e3e685a550e0c1a9059ebf18bb7f3e585d318930a0af1545a1f",
+     "offset": 444,
+     "type": "f32",
+     "bytesHex": "00002041",
+     "value": 10.0,
+     "expect": 10.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Car\\Flyer60\\VB_VEH_Car_Flyer60_SP.ebx",
+     "rawSha256": "d7696533159f8e3e685a550e0c1a9059ebf18bb7f3e585d318930a0af1545a1f",
+     "offset": 452,
+     "type": "f32",
+     "bytesHex": "00004842",
+     "value": 50.0,
+     "expect": 50.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Car\\JLTV\\VB_VEH_Car_JLTV.ebx",
+     "rawSha256": "13f64f0252f34050910d1aedca17cf9a45c8ff1d621c878e6188dca7867ee729",
+     "offset": 440,
+     "type": "f32",
+     "bytesHex": "00004844",
+     "value": 800.0,
+     "expect": 800.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Car\\JLTV\\VB_VEH_Car_JLTV.ebx",
+     "rawSha256": "13f64f0252f34050910d1aedca17cf9a45c8ff1d621c878e6188dca7867ee729",
+     "offset": 444,
+     "type": "f32",
+     "bytesHex": "00004041",
+     "value": 12.0,
+     "expect": 12.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Car\\JLTV\\VB_VEH_Car_JLTV.ebx",
+     "rawSha256": "13f64f0252f34050910d1aedca17cf9a45c8ff1d621c878e6188dca7867ee729",
+     "offset": 472,
+     "type": "f32",
+     "bytesHex": "0000a042",
+     "value": 80.0,
+     "expect": 80.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Car\\Marauder\\VB_VEH_Car_Marauder.ebx",
+     "rawSha256": "02231651f7cb25c9242e0bd1313355f60edeefe993be590276d0ca3f5bdc9804",
+     "offset": 440,
+     "type": "f32",
+     "bytesHex": "00004844",
+     "value": 800.0,
+     "expect": 800.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Car\\Marauder\\VB_VEH_Car_Marauder.ebx",
+     "rawSha256": "02231651f7cb25c9242e0bd1313355f60edeefe993be590276d0ca3f5bdc9804",
+     "offset": 444,
+     "type": "f32",
+     "bytesHex": "00004041",
+     "value": 12.0,
+     "expect": 12.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Car\\Marauder\\VB_VEH_Car_Marauder.ebx",
+     "rawSha256": "02231651f7cb25c9242e0bd1313355f60edeefe993be590276d0ca3f5bdc9804",
+     "offset": 472,
+     "type": "f32",
+     "bytesHex": "0000a042",
+     "value": 80.0,
+     "expect": 80.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Car\\PTV\\VB_VEH_Car_PTV.ebx",
+     "rawSha256": "3e49923df3ea6273002d468cbbaef3ffd76fd8012e616a977bb8473c5bfb9bd9",
+     "offset": 440,
+     "type": "f32",
+     "bytesHex": "00007a44",
+     "value": 1000.0,
+     "expect": 1000.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Car\\PTV\\VB_VEH_Car_PTV.ebx",
+     "rawSha256": "3e49923df3ea6273002d468cbbaef3ffd76fd8012e616a977bb8473c5bfb9bd9",
+     "offset": 444,
+     "type": "f32",
+     "bytesHex": "00004041",
+     "value": 12.0,
+     "expect": 12.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Car\\PTV\\VB_VEH_Car_PTV.ebx",
+     "rawSha256": "3e49923df3ea6273002d468cbbaef3ffd76fd8012e616a977bb8473c5bfb9bd9",
+     "offset": 472,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Car\\QuadBike\\VB_VEH_Car_QuadBike.ebx",
+     "rawSha256": "0124300b03c73bf58ba642ce7a0914d8471f71ab4d7ec896d2c7ab8db581873f",
+     "offset": 440,
+     "type": "f32",
+     "bytesHex": "00007a44",
+     "value": 1000.0,
+     "expect": 1000.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Car\\QuadBike\\VB_VEH_Car_QuadBike.ebx",
+     "rawSha256": "0124300b03c73bf58ba642ce7a0914d8471f71ab4d7ec896d2c7ab8db581873f",
+     "offset": 444,
+     "type": "f32",
+     "bytesHex": "00004041",
+     "value": 12.0,
+     "expect": 12.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Car\\QuadBike\\VB_VEH_Car_QuadBike.ebx",
+     "rawSha256": "0124300b03c73bf58ba642ce7a0914d8471f71ab4d7ec896d2c7ab8db581873f",
+     "offset": 472,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Car\\TheBeast\\VB_VEH_Car_TheBeast.ebx",
+     "rawSha256": "6f344d9f8fd7f43adbbaffef62183d640e072addff58f58af86ecebd9838c8d7",
+     "offset": 440,
+     "type": "f32",
+     "bytesHex": "00007a44",
+     "value": 1000.0,
+     "expect": 1000.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Car\\TheBeast\\VB_VEH_Car_TheBeast.ebx",
+     "rawSha256": "6f344d9f8fd7f43adbbaffef62183d640e072addff58f58af86ecebd9838c8d7",
+     "offset": 444,
+     "type": "f32",
+     "bytesHex": "0000a040",
+     "value": 5.0,
+     "expect": 5.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Car\\TheBeast\\VB_VEH_Car_TheBeast.ebx",
+     "rawSha256": "6f344d9f8fd7f43adbbaffef62183d640e072addff58f58af86ecebd9838c8d7",
+     "offset": 452,
+     "type": "f32",
+     "bytesHex": "00000000",
+     "value": 0.0,
+     "expect": 0.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Car\\Vector\\VB_VEH_Car_Vector.ebx",
+     "rawSha256": "f3a1dad4b5a20f602f6a3392a4a9397394c95c0aea18e62bf47e7bf86dffe665",
+     "offset": 440,
+     "type": "f32",
+     "bytesHex": "00007a44",
+     "value": 1000.0,
+     "expect": 1000.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Car\\Vector\\VB_VEH_Car_Vector.ebx",
+     "rawSha256": "f3a1dad4b5a20f602f6a3392a4a9397394c95c0aea18e62bf47e7bf86dffe665",
+     "offset": 444,
+     "type": "f32",
+     "bytesHex": "00004041",
+     "value": 12.0,
+     "expect": 12.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Car\\Vector\\VB_VEH_Car_Vector.ebx",
+     "rawSha256": "f3a1dad4b5a20f602f6a3392a4a9397394c95c0aea18e62bf47e7bf86dffe665",
+     "offset": 472,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Car\\Vector\\VB_VEH_Car_Vector_M05_CarChase.ebx",
+     "rawSha256": "450a2d938d471b03c42cb350a8f9ca86cfd28739a21533535c4c676a27e5cffa",
+     "offset": 440,
+     "type": "f32",
+     "bytesHex": "00007a44",
+     "value": 1000.0,
+     "expect": 1000.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Car\\Vector\\VB_VEH_Car_Vector_M05_CarChase.ebx",
+     "rawSha256": "450a2d938d471b03c42cb350a8f9ca86cfd28739a21533535c4c676a27e5cffa",
+     "offset": 444,
+     "type": "f32",
+     "bytesHex": "00002041",
+     "value": 10.0,
+     "expect": 10.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Car\\Vector\\VB_VEH_Car_Vector_M05_CarChase.ebx",
+     "rawSha256": "450a2d938d471b03c42cb350a8f9ca86cfd28739a21533535c4c676a27e5cffa",
+     "offset": 452,
+     "type": "f32",
+     "bytesHex": "00004842",
+     "value": 50.0,
+     "expect": 50.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\AH64E\\VB_VEH_Helicopter_AH64E.ebx",
+     "rawSha256": "371300af99eab2e9b4bef53cec964bdf7edbcb0ef55c6c426eb963c72c2fa555",
+     "offset": 440,
+     "type": "f32",
+     "bytesHex": "00007a44",
+     "value": 1000.0,
+     "expect": 1000.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\AH64E\\VB_VEH_Helicopter_AH64E.ebx",
+     "rawSha256": "371300af99eab2e9b4bef53cec964bdf7edbcb0ef55c6c426eb963c72c2fa555",
+     "offset": 444,
+     "type": "f32",
+     "bytesHex": "00008c41",
+     "value": 17.5,
+     "expect": 17.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\AH64E\\VB_VEH_Helicopter_AH64E.ebx",
+     "rawSha256": "371300af99eab2e9b4bef53cec964bdf7edbcb0ef55c6c426eb963c72c2fa555",
+     "offset": 472,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\AH6M\\VB_VEH_Helicopter_AH6M.ebx",
+     "rawSha256": "ed3c587a39bf7421e5479e85efb96c5df4dbcc588810d651a0b83e1b9375d098",
+     "offset": 440,
+     "type": "f32",
+     "bytesHex": "00002f44",
+     "value": 700.0,
+     "expect": 700.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\AH6M\\VB_VEH_Helicopter_AH6M.ebx",
+     "rawSha256": "ed3c587a39bf7421e5479e85efb96c5df4dbcc588810d651a0b83e1b9375d098",
+     "offset": 444,
+     "type": "f32",
+     "bytesHex": "00008c41",
+     "value": 17.5,
+     "expect": 17.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\AH6M\\VB_VEH_Helicopter_AH6M.ebx",
+     "rawSha256": "ed3c587a39bf7421e5479e85efb96c5df4dbcc588810d651a0b83e1b9375d098",
+     "offset": 472,
+     "type": "f32",
+     "bytesHex": "00008c42",
+     "value": 70.0,
+     "expect": 70.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\AH6M\\VB_VEH_Helicopter_AH6M_M05_SP_Cine.ebx",
+     "rawSha256": "106354665d9d738edf5acaa14e37485bf0ffa0b24e01a7d3ccbb7eacdeb6c307",
+     "offset": 440,
+     "type": "f32",
+     "bytesHex": "0000fa43",
+     "value": 500.0,
+     "expect": 500.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\AH6M\\VB_VEH_Helicopter_AH6M_M05_SP_Cine.ebx",
+     "rawSha256": "106354665d9d738edf5acaa14e37485bf0ffa0b24e01a7d3ccbb7eacdeb6c307",
+     "offset": 444,
+     "type": "f32",
+     "bytesHex": "0000a041",
+     "value": 20.0,
+     "expect": 20.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\AH6M\\VB_VEH_Helicopter_AH6M_M05_SP_Cine.ebx",
+     "rawSha256": "106354665d9d738edf5acaa14e37485bf0ffa0b24e01a7d3ccbb7eacdeb6c307",
+     "offset": 452,
+     "type": "f32",
+     "bytesHex": "0000a041",
+     "value": 20.0,
+     "expect": 20.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\Eurocopter\\VB_VEH_Helicopter_Eurocopter.ebx",
+     "rawSha256": "d4b4cc97f3d4c9fd9ddcea5a49cd10d177b0f1c840c8b947ef13d3cb6a010445",
+     "offset": 440,
+     "type": "f32",
+     "bytesHex": "00007a44",
+     "value": 1000.0,
+     "expect": 1000.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\Eurocopter\\VB_VEH_Helicopter_Eurocopter.ebx",
+     "rawSha256": "d4b4cc97f3d4c9fd9ddcea5a49cd10d177b0f1c840c8b947ef13d3cb6a010445",
+     "offset": 444,
+     "type": "f32",
+     "bytesHex": "00008c41",
+     "value": 17.5,
+     "expect": 17.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\Eurocopter\\VB_VEH_Helicopter_Eurocopter.ebx",
+     "rawSha256": "d4b4cc97f3d4c9fd9ddcea5a49cd10d177b0f1c840c8b947ef13d3cb6a010445",
+     "offset": 472,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\Eurocopter\\VB_VEH_Helicopter_Eurocopter_SP.ebx",
+     "rawSha256": "fa2fb8b5c69bd73ec748dd6328f2af256f6c556a6244ef0493022d65f71cf007",
+     "offset": 440,
+     "type": "f32",
+     "bytesHex": "00007a44",
+     "value": 1000.0,
+     "expect": 1000.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\Eurocopter\\VB_VEH_Helicopter_Eurocopter_SP.ebx",
+     "rawSha256": "fa2fb8b5c69bd73ec748dd6328f2af256f6c556a6244ef0493022d65f71cf007",
+     "offset": 444,
+     "type": "f32",
+     "bytesHex": "0000a041",
+     "value": 20.0,
+     "expect": 20.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\Eurocopter\\VB_VEH_Helicopter_Eurocopter_SP.ebx",
+     "rawSha256": "fa2fb8b5c69bd73ec748dd6328f2af256f6c556a6244ef0493022d65f71cf007",
+     "offset": 452,
+     "type": "f32",
+     "bytesHex": "0000a041",
+     "value": 20.0,
+     "expect": 20.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\MH47\\VB_VEH_Helicopter_MH47_SP.ebx",
+     "rawSha256": "d29abee576574ee192f2487f9101f1863a6cc6486496035ed9af316cf08dc240",
+     "offset": 440,
+     "type": "f32",
+     "bytesHex": "00c0da44",
+     "value": 1750.0,
+     "expect": 1750.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\MH47\\VB_VEH_Helicopter_MH47_SP.ebx",
+     "rawSha256": "d29abee576574ee192f2487f9101f1863a6cc6486496035ed9af316cf08dc240",
+     "offset": 444,
+     "type": "f32",
+     "bytesHex": "0000a041",
+     "value": 20.0,
+     "expect": 20.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\MH47\\VB_VEH_Helicopter_MH47_SP.ebx",
+     "rawSha256": "d29abee576574ee192f2487f9101f1863a6cc6486496035ed9af316cf08dc240",
+     "offset": 452,
+     "type": "f32",
+     "bytesHex": "0000a041",
+     "value": 20.0,
+     "expect": 20.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\UH60\\VB_VEH_Helicopter_UH60.ebx",
+     "rawSha256": "e82e813cba78d36ba89d859aae18f3bc34e0f0f727f2312d0e51fa0a30c54d97",
+     "offset": 440,
+     "type": "f32",
+     "bytesHex": "0080bb44",
+     "value": 1500.0,
+     "expect": 1500.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\UH60\\VB_VEH_Helicopter_UH60.ebx",
+     "rawSha256": "e82e813cba78d36ba89d859aae18f3bc34e0f0f727f2312d0e51fa0a30c54d97",
+     "offset": 444,
+     "type": "f32",
+     "bytesHex": "00008c41",
+     "value": 17.5,
+     "expect": 17.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\UH60\\VB_VEH_Helicopter_UH60.ebx",
+     "rawSha256": "e82e813cba78d36ba89d859aae18f3bc34e0f0f727f2312d0e51fa0a30c54d97",
+     "offset": 472,
+     "type": "f32",
+     "bytesHex": "00001643",
+     "value": 150.0,
+     "expect": 150.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Motorcycle\\DirtBike01\\VB_VEH_Motorcycle_DirtBike01.ebx",
+     "rawSha256": "19ad25b50818a33f4effb26f4f1fa47c00727932f5f168f97e37866bbafbdfc2",
+     "offset": 440,
+     "type": "f32",
+     "bytesHex": "00007a44",
+     "value": 1000.0,
+     "expect": 1000.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Motorcycle\\DirtBike01\\VB_VEH_Motorcycle_DirtBike01.ebx",
+     "rawSha256": "19ad25b50818a33f4effb26f4f1fa47c00727932f5f168f97e37866bbafbdfc2",
+     "offset": 444,
+     "type": "f32",
+     "bytesHex": "00002041",
+     "value": 10.0,
+     "expect": 10.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Motorcycle\\DirtBike01\\VB_VEH_Motorcycle_DirtBike01.ebx",
+     "rawSha256": "19ad25b50818a33f4effb26f4f1fa47c00727932f5f168f97e37866bbafbdfc2",
+     "offset": 472,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Motorcycle\\DirtBike02\\VB_VEH_Motorcycle_DirtBike02.ebx",
+     "rawSha256": "9d391833c249600fc40c5db6b863be7042e4d542e7f0468b08c8035ff2b87342",
+     "offset": 440,
+     "type": "f32",
+     "bytesHex": "00007a44",
+     "value": 1000.0,
+     "expect": 1000.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Motorcycle\\DirtBike02\\VB_VEH_Motorcycle_DirtBike02.ebx",
+     "rawSha256": "9d391833c249600fc40c5db6b863be7042e4d542e7f0468b08c8035ff2b87342",
+     "offset": 444,
+     "type": "f32",
+     "bytesHex": "00002041",
+     "value": 10.0,
+     "expect": 10.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Motorcycle\\DirtBike02\\VB_VEH_Motorcycle_DirtBike02.ebx",
+     "rawSha256": "9d391833c249600fc40c5db6b863be7042e4d542e7f0468b08c8035ff2b87342",
+     "offset": 472,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Stationary\\CWS\\VB_VEH_Stationary_Turret_CROWS.ebx",
+     "rawSha256": "995550c5c0ac690e9ddbab3a46cfb8c66591fcf22aa2739f7787f1675d240f8f",
+     "offset": 440,
+     "type": "f32",
+     "bytesHex": "00009643",
+     "value": 300.0,
+     "expect": 300.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Stationary\\CWS\\VB_VEH_Stationary_Turret_CROWS.ebx",
+     "rawSha256": "995550c5c0ac690e9ddbab3a46cfb8c66591fcf22aa2739f7787f1675d240f8f",
+     "offset": 444,
+     "type": "f32",
+     "bytesHex": "00002041",
+     "value": 10.0,
+     "expect": 10.0,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 117,
+   "matched": 117,
+   "files": 38,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "rawchecks-L3346.json"
+  },
+  "dataset": "reference-data/frosty/vehicle-regeneration.json",
+  "officialSource": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-1-0",
+  "eaStatements": [
+   "Regeneration delay increased from 6 seconds to 12 seconds.",
+   "Regeneration rate increased from roughly 5% per second to 10% per second.",
+   "While in critical health, regeneration is now slowed by 80% instead of being fully disabled."
+  ],
+  "fields": {
+   "Class_f2a56983.Field_5c9d2d82": "RegenerationDelay (by registry agreement, CB90)",
+   "Class_f2a56983.Field_3233bcbf": "RegenerationRate, health per second (by registry agreement, CB90)"
+  },
+  "rows": [
+   {
+    "vehicle": "VB_VEH_Airplane_F16",
+    "rootHealth": 1000.0,
+    "regenerationDelay": 17.5,
+    "regenerationRate": 100.0,
+    "rateShareOfHealth": 0.1
+   },
+   {
+    "vehicle": "VB_VEH_Airplane_F22",
+    "rootHealth": 1000.0,
+    "regenerationDelay": 17.5,
+    "regenerationRate": 100.0,
+    "rateShareOfHealth": 0.1
+   },
+   {
+    "vehicle": "VB_VEH_Airplane_JAS39",
+    "rootHealth": 1000.0,
+    "regenerationDelay": 17.5,
+    "regenerationRate": 100.0,
+    "rateShareOfHealth": 0.1
+   },
+   {
+    "vehicle": "VB_VEH_Airplane_MQ9",
+    "rootHealth": 1000.0,
+    "regenerationDelay": 40.0,
+    "regenerationRate": 0.0,
+    "rateShareOfHealth": 0.0
+   },
+   {
+    "vehicle": "VB_VEH_Airplane_SU57",
+    "rootHealth": 1000.0,
+    "regenerationDelay": 17.5,
+    "regenerationRate": 100.0,
+    "rateShareOfHealth": 0.1
+   },
+   {
+    "vehicle": "VB_VEH_Boat_CB90",
+    "rootHealth": 1000.0,
+    "regenerationDelay": 12.0,
+    "regenerationRate": 100.0,
+    "rateShareOfHealth": 0.1
+   },
+   {
+    "vehicle": "VB_VEH_Boat_RHIB",
+    "rootHealth": 1000.0,
+    "regenerationDelay": 12.0,
+    "regenerationRate": 100.0,
+    "rateShareOfHealth": 0.1
+   },
+   {
+    "vehicle": "VB_VEH_Car_Flyer60",
+    "rootHealth": 1000.0,
+    "regenerationDelay": 12.0,
+    "regenerationRate": 100.0,
+    "rateShareOfHealth": 0.1
+   },
+   {
+    "vehicle": "VB_VEH_Car_Flyer60_SP",
+    "rootHealth": 1000.0,
+    "regenerationDelay": 10.0,
+    "regenerationRate": 50.0,
+    "rateShareOfHealth": 0.05
+   },
+   {
+    "vehicle": "VB_VEH_Car_JLTV",
+    "rootHealth": 800.0,
+    "regenerationDelay": 12.0,
+    "regenerationRate": 80.0,
+    "rateShareOfHealth": 0.1
+   },
+   {
+    "vehicle": "VB_VEH_Car_Marauder",
+    "rootHealth": 800.0,
+    "regenerationDelay": 12.0,
+    "regenerationRate": 80.0,
+    "rateShareOfHealth": 0.1
+   },
+   {
+    "vehicle": "VB_VEH_Car_PTV",
+    "rootHealth": 1000.0,
+    "regenerationDelay": 12.0,
+    "regenerationRate": 100.0,
+    "rateShareOfHealth": 0.1
+   },
+   {
+    "vehicle": "VB_VEH_Car_QuadBike",
+    "rootHealth": 1000.0,
+    "regenerationDelay": 12.0,
+    "regenerationRate": 100.0,
+    "rateShareOfHealth": 0.1
+   },
+   {
+    "vehicle": "VB_VEH_Car_TheBeast",
+    "rootHealth": 1000.0,
+    "regenerationDelay": 5.0,
+    "regenerationRate": 0.0,
+    "rateShareOfHealth": 0.0
+   },
+   {
+    "vehicle": "VB_VEH_Car_Vector",
+    "rootHealth": 1000.0,
+    "regenerationDelay": 12.0,
+    "regenerationRate": 100.0,
+    "rateShareOfHealth": 0.1
+   },
+   {
+    "vehicle": "VB_VEH_Car_Vector_M05_CarChase",
+    "rootHealth": 1000.0,
+    "regenerationDelay": 10.0,
+    "regenerationRate": 50.0,
+    "rateShareOfHealth": 0.05
+   },
+   {
+    "vehicle": "VB_VEH_Helicopter_AH64E",
+    "rootHealth": 1000.0,
+    "regenerationDelay": 17.5,
+    "regenerationRate": 100.0,
+    "rateShareOfHealth": 0.1
+   },
+   {
+    "vehicle": "VB_VEH_Helicopter_AH6M",
+    "rootHealth": 700.0,
+    "regenerationDelay": 17.5,
+    "regenerationRate": 70.0,
+    "rateShareOfHealth": 0.1
+   },
+   {
+    "vehicle": "VB_VEH_Helicopter_AH6M_M05_SP_Cine",
+    "rootHealth": 500.0,
+    "regenerationDelay": 20.0,
+    "regenerationRate": 20.0,
+    "rateShareOfHealth": 0.04
+   },
+   {
+    "vehicle": "VB_VEH_Helicopter_Eurocopter",
+    "rootHealth": 1000.0,
+    "regenerationDelay": 17.5,
+    "regenerationRate": 100.0,
+    "rateShareOfHealth": 0.1
+   },
+   {
+    "vehicle": "VB_VEH_Helicopter_Eurocopter_SP",
+    "rootHealth": 1000.0,
+    "regenerationDelay": 20.0,
+    "regenerationRate": 20.0,
+    "rateShareOfHealth": 0.02
+   },
+   {
+    "vehicle": "VB_VEH_Helicopter_MH47_SP",
+    "rootHealth": 1750.0,
+    "regenerationDelay": 20.0,
+    "regenerationRate": 20.0,
+    "rateShareOfHealth": 0.0114
+   },
+   {
+    "vehicle": "VB_VEH_Helicopter_UH60",
+    "rootHealth": 1500.0,
+    "regenerationDelay": 17.5,
+    "regenerationRate": 150.0,
+    "rateShareOfHealth": 0.1
+   },
+   {
+    "vehicle": "VB_VEH_Motorcycle_DirtBike01",
+    "rootHealth": 1000.0,
+    "regenerationDelay": 10.0,
+    "regenerationRate": 100.0,
+    "rateShareOfHealth": 0.1
+   },
+   {
+    "vehicle": "VB_VEH_Motorcycle_DirtBike02",
+    "rootHealth": 1000.0,
+    "regenerationDelay": 10.0,
+    "regenerationRate": 100.0,
+    "rateShareOfHealth": 0.1
+   },
+   {
+    "vehicle": "VB_VEH_SP_Assault_Airplane_JAS39",
+    "rootHealth": 1000.0,
+    "regenerationDelay": 20.0,
+    "regenerationRate": 20.0,
+    "rateShareOfHealth": 0.02
+   },
+   {
+    "vehicle": "VB_VEH_Stationary_GDF009",
+    "rootHealth": 1000.0,
+    "regenerationDelay": 10.0,
+    "regenerationRate": 50.0,
+    "rateShareOfHealth": 0.05
+   },
+   {
+    "vehicle": "VB_VEH_Stationary_M2MG",
+    "rootHealth": 150.0,
+    "regenerationDelay": 10.0,
+    "regenerationRate": 7.5,
+    "rateShareOfHealth": 0.05
+   },
+   {
+    "vehicle": "VB_VEH_Stationary_Phalanx",
+    "rootHealth": 1000.0,
+    "regenerationDelay": 5.0,
+    "regenerationRate": 50.0,
+    "rateShareOfHealth": 0.05
+   },
+   {
+    "vehicle": "VB_VEH_Stationary_Phalanx_SP",
+    "rootHealth": 50.0,
+    "regenerationDelay": 5.0,
+    "regenerationRate": 0.0,
+    "rateShareOfHealth": 0.0
+   },
+   {
+    "vehicle": "VB_VEH_Stationary_Turret_CROWS",
+    "rootHealth": 300.0,
+    "regenerationDelay": 10.0,
+    "regenerationRate": 15.0,
+    "rateShareOfHealth": 0.05
+   },
+   {
+    "vehicle": "VB_VEH_Tank_AAV7A1",
+    "rootHealth": 1000.0,
+    "regenerationDelay": 6.0,
+    "regenerationRate": 50.0,
+    "rateShareOfHealth": 0.05
+   },
+   {
+    "vehicle": "VB_VEH_Tank_Abrams",
+    "rootHealth": 1200.0,
+    "regenerationDelay": 12.0,
+    "regenerationRate": 120.0,
+    "rateShareOfHealth": 0.1
+   },
+   {
+    "vehicle": "VB_VEH_Tank_Bradley",
+    "rootHealth": 1000.0,
+    "regenerationDelay": 12.0,
+    "regenerationRate": 100.0,
+    "rateShareOfHealth": 0.1
+   },
+   {
+    "vehicle": "VB_VEH_Tank_CV90",
+    "rootHealth": 1000.0,
+    "regenerationDelay": 12.0,
+    "regenerationRate": 100.0,
+    "rateShareOfHealth": 0.1
+   },
+   {
+    "vehicle": "VB_VEH_Tank_Gepard",
+    "rootHealth": 1000.0,
+    "regenerationDelay": 12.0,
+    "regenerationRate": 100.0,
+    "rateShareOfHealth": 0.1
+   },
+   {
+    "vehicle": "VB_VEH_Tank_Leopard",
+    "rootHealth": 1200.0,
+    "regenerationDelay": 12.0,
+    "regenerationRate": 120.0,
+    "rateShareOfHealth": 0.1
+   }
+  ],
+  "registry": {
+   "VB_VEH_Boat_CB90.RegenerationDelay": 12.0,
+   "VB_VEH_Boat_CB90.RegenerationRate": 100.0,
+   "Passives_Vehicles_MBT_Regeneration_RegenDelay": 9.5,
+   "Passives_Vehicles_MBT_Regeneration_Rate": 132.0,
+   "Passives_Vehicles_IFV_Regeneration_RegenDelay": 9.5,
+   "Passives_Vehicles_IFV_Regeneration_Rate": 110.0
+  }
+ },
+ "inference": [
+  "Both tanks, both IFVs, the Gepard, the JLTV and the Marauder store delay 12 s and a rate of exactly 10 percent of root health per second: EA's new values. The rate is in health per second, so a tank regains 120 per second and an armoured transport 80.",
+  "The AAV7A1 stores 6 s and 5 percent: EA's values from before 1.3.1.0.",
+  "Aircraft are not in EA's statement: helicopters and jets store 17.5 s and 10 percent. Light vehicles and boats store 12 s and 10 percent, dirt bikes 10 s and 10 percent, stationary weapons 5 or 10 s and 5 percent, the MQ-9 and the Beast no regeneration.",
+  "The registry rows Passives_Vehicles_MBT_Regeneration (delay 9.5, rate 132) and IFV (9.5, 110) are 110 percent of the base rate with a shorter delay. EA says the Vehicle Regeneration passive was replaced by Mine Sweeping in 1.3.1.0, so these rows may be unused.",
+  "EA's 80 percent slowdown at critical health was not found as a stored number in the root object."
+ ],
+ "unresolved": [
+  "Whether regeneration runs to full health or stops at a threshold; not read here. Test: damage a tank to half health, wait, and note where regeneration stops.",
+  "Critical-health slowdown (EA: 80 percent slower). Test: time regeneration from 10 percent health; 24 per second on a tank would be the slowed rate.",
+  "Aircraft delay 17.5 s has no EA statement. Test: time from last damage to the first health tick on a helicopter."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-09-damage-rule-extension",
+  "artifacts": [
+   {
+    "file": "manifest-L3346.json",
+    "sha256": "ad23ed4f16f2fa4c1ea24c29e93b0c480294a5cbc49c7724c025834ede0a6a69"
+   },
+   {
+    "file": "rawchecks-L3346.json",
+    "sha256": "f9680edeea36b0430ba8c9bb8f8c99b591f055f3b4431d9bfedb294045e98399"
+   },
+   {
+    "file": "fieldfind-regen.json",
+    "sha256": "c42329db75b7287d0f15c053a8f708236965bf525c3d69d428fa7b9cd070b545"
+   },
+   {
+    "file": "regenfind.json",
+    "sha256": "2f29d25839cd9b0e4fe5b2901477bbf879cda3d083dbc1a2d3c62ab72ead9ff7"
+   },
+   {
+    "file": "regenfind.py",
+    "sha256": "cae8bcc053ae5c8066d52ce89c4f6461f663e58ad5c7623a38e935e4d48daef6"
+   },
+   {
+    "file": "fieldfind.py",
+    "sha256": "51b443e49c3043f524e485e8c2232d4ff4792a9a0cc15f73ef0ec44ec6e7fab9"
+   },
+   {
+    "file": "ea-1-3-1-0.txt",
+    "sha256": "164104a0230d09e8d179f79b65a708c2c1d04244f06157ab8827d57b5443ad4d"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-09",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L3346",
+    "title": "Vehicle health regeneration: delay and rate are stored on every vehicle root and equal EA's 12 seconds and 10 percent per second",
+    "status": "finding",
+    "summary": "Vehicle regeneration is stored on the vehicle root: Field_5c9d2d82 is the delay and Field_3233bcbf the rate in health per second, named by the CB90's registry rows. Tanks, IFVs, the Gepard and the armoured transports store 12 s and 10 percent of health per second, EA's 1.3.1.0 values; the AAV7A1 still stores the old 6 s and 5 percent; helicopters and jets store 17.5 s and 10 percent. 117 raw-offset checks matched.",
+    "reopenWhen": "A timed regeneration in game, or a stored critical-health slowdown value.",
+    "statusNote": "Stored values equal EA's two numbers for seven armoured vehicles; critical slowdown not found."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Hardware/Vehicles/Tank/Abrams/VB_VEH_Tank_Abrams",
+    "format": "raw-ebx",
+    "sha256": "e65f368eb95aebd9ec21cbc6728830acaac54589324582dd9516d3f7a70ed672",
+    "question": "Where are vehicle regeneration delay and rate stored, and do they equal EA's 1.3.1.0 figures (delay 6 to 12 s, rate about 5 to 10 percent per second)?",
+    "result": "useful",
+    "conclusion": "Delay 12, rate 120 with root health 1200."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/Boat/CB90/VB_VEH_Boat_CB90",
+    "format": "raw-ebx",
+    "sha256": "2d8e05398f8f3f2b79159a8db1ec5a87d3033ac7c2469d0cb5f3c6c3f6911ad3",
+    "question": "Where are vehicle regeneration delay and rate stored, and do they equal EA's 1.3.1.0 figures (delay 6 to 12 s, rate about 5 to 10 percent per second)?",
+    "result": "useful",
+    "conclusion": "Delay 12 and rate 100, equal to its registry rows."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/Tank/AAV7A1/VB_VEH_Tank_AAV7A1",
+    "format": "raw-ebx",
+    "sha256": "9912c341bb80f992e104cc364f737e3d7b64943d6c423509581e7d2e1a3b5c71",
+    "question": "Where are vehicle regeneration delay and rate stored, and do they equal EA's 1.3.1.0 figures (delay 6 to 12 s, rate about 5 to 10 percent per second)?",
+    "result": "useful",
+    "conclusion": "Delay 6, rate 50: EA's values from before 1.3.1.0."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/Helicopter/AH64E/VB_VEH_Helicopter_AH64E",
+    "format": "raw-ebx",
+    "sha256": "371300af99eab2e9b4bef53cec964bdf7edbcb0ef55c6c426eb963c72c2fa555",
+    "question": "Where are vehicle regeneration delay and rate stored, and do they equal EA's 1.3.1.0 figures (delay 6 to 12 s, rate about 5 to 10 percent per second)?",
+    "result": "useful",
+    "conclusion": "Delay 17.5, rate 100."
+   }
+  ]
+ }
+}

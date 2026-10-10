@@ -1,0 +1,688 @@
+{
+ "lead": "L3342",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Read from saved raw captures; no export, no new capture."
+ },
+ "question": "What do the frag grenade, the 40 mm grenades, the anti-tank grenade and the mortar shell store for damage against soldiers and each vehicle class?",
+ "sourceFacts": {
+  "method": "For five projectile files the explosion object's material, own BlastDamage and radii, the registry rows and the material grid value (Field_674633de) against soldier abdomen and five vehicle target materials were read (two level grids, equal). Full blast = blast damage x grid value, using the registry default where a row exists. Item names are joined to files by name only.",
+  "control": {
+   "description": "The frag grenade and mortar blast share material 209 with value 1 against the soldier abdomen, the value L3329 found for shells and rockets; the anti-tank grenade's material 656 has 0.85 there and 3 / 6.5 / 10 against tanks, helicopters and jets, the same three values as the Glaive's blast material (L3339).",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Frag\\PBNS_FragGrenade.ebx",
+     "rawSha256": "590cd563923cf67771e78a60287a64673bf64b6f583da3e3a92810772b3e25fb",
+     "offset": 1712,
+     "type": "u32",
+     "bytesHex": "8021100d",
+     "value": 219160960,
+     "expect": 219160960,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Frag\\PBNS_FragGrenade.ebx",
+     "rawSha256": "590cd563923cf67771e78a60287a64673bf64b6f583da3e3a92810772b3e25fb",
+     "offset": 1808,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Frag\\PBNS_FragGrenade.ebx",
+     "rawSha256": "590cd563923cf67771e78a60287a64673bf64b6f583da3e3a92810772b3e25fb",
+     "offset": 1824,
+     "type": "f32",
+     "bytesHex": "0000a040",
+     "value": 5.0,
+     "expect": 5.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Frag\\PBNS_FragGrenade.ebx",
+     "rawSha256": "590cd563923cf67771e78a60287a64673bf64b6f583da3e3a92810772b3e25fb",
+     "offset": 1800,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 615860,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 83940,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 194012,
+     "type": "f32",
+     "bytesHex": "0000a040",
+     "value": 5.0,
+     "expect": 5.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\Launchers\\M320HE\\PB_NS_M320HE.ebx",
+     "rawSha256": "36eea37d05d4487ec0cb7d74db59dd3d015cf15da07f47159285358dbb652e7d",
+     "offset": 1648,
+     "type": "u32",
+     "bytesHex": "80215016",
+     "value": 374350208,
+     "expect": 374350208,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\Launchers\\M320HE\\PB_NS_M320HE.ebx",
+     "rawSha256": "36eea37d05d4487ec0cb7d74db59dd3d015cf15da07f47159285358dbb652e7d",
+     "offset": 1744,
+     "type": "f32",
+     "bytesHex": "0000f042",
+     "value": 120.0,
+     "expect": 120.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\Launchers\\M320HE\\PB_NS_M320HE.ebx",
+     "rawSha256": "36eea37d05d4487ec0cb7d74db59dd3d015cf15da07f47159285358dbb652e7d",
+     "offset": 1760,
+     "type": "f32",
+     "bytesHex": "0000a040",
+     "value": 5.0,
+     "expect": 5.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\Launchers\\M320HE\\PB_NS_M320HE.ebx",
+     "rawSha256": "36eea37d05d4487ec0cb7d74db59dd3d015cf15da07f47159285358dbb652e7d",
+     "offset": 1736,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 461916,
+     "type": "f32",
+     "bytesHex": "0000f042",
+     "value": 120.0,
+     "expect": 120.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\Launchers\\M320Thermobaric\\PB_NS_M320Thermobaric.ebx",
+     "rawSha256": "7434e629cb66b7f41cc03933f0ee031cd0ae7993fc47668266a9edd5d13aaa2c",
+     "offset": 1696,
+     "type": "u32",
+     "bytesHex": "8016c01d",
+     "value": 499127936,
+     "expect": 499127936,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\Launchers\\M320Thermobaric\\PB_NS_M320Thermobaric.ebx",
+     "rawSha256": "7434e629cb66b7f41cc03933f0ee031cd0ae7993fc47668266a9edd5d13aaa2c",
+     "offset": 1792,
+     "type": "f32",
+     "bytesHex": "0000f041",
+     "value": 30.0,
+     "expect": 30.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\Launchers\\M320Thermobaric\\PB_NS_M320Thermobaric.ebx",
+     "rawSha256": "7434e629cb66b7f41cc03933f0ee031cd0ae7993fc47668266a9edd5d13aaa2c",
+     "offset": 1808,
+     "type": "f32",
+     "bytesHex": "00004040",
+     "value": 3.0,
+     "expect": 3.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\Launchers\\M320Thermobaric\\PB_NS_M320Thermobaric.ebx",
+     "rawSha256": "7434e629cb66b7f41cc03933f0ee031cd0ae7993fc47668266a9edd5d13aaa2c",
+     "offset": 1784,
+     "type": "f32",
+     "bytesHex": "00000040",
+     "value": 2.0,
+     "expect": 2.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 688756,
+     "type": "f32",
+     "bytesHex": "00004842",
+     "value": 50.0,
+     "expect": 50.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Throwables\\AntiTank\\PBNS_AntiTankGrenade.ebx",
+     "rawSha256": "cfde467bd1e2b92f29f69ec97ed39c39f162187d0a8f542f753b89f43be807fb",
+     "offset": 2304,
+     "type": "u32",
+     "bytesHex": "80160029",
+     "value": 687871616,
+     "expect": 687871616,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Throwables\\AntiTank\\PBNS_AntiTankGrenade.ebx",
+     "rawSha256": "cfde467bd1e2b92f29f69ec97ed39c39f162187d0a8f542f753b89f43be807fb",
+     "offset": 2400,
+     "type": "f32",
+     "bytesHex": "00004842",
+     "value": 50.0,
+     "expect": 50.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Throwables\\AntiTank\\PBNS_AntiTankGrenade.ebx",
+     "rawSha256": "cfde467bd1e2b92f29f69ec97ed39c39f162187d0a8f542f753b89f43be807fb",
+     "offset": 2416,
+     "type": "f32",
+     "bytesHex": "0000c03f",
+     "value": 1.5,
+     "expect": 1.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Throwables\\AntiTank\\PBNS_AntiTankGrenade.ebx",
+     "rawSha256": "cfde467bd1e2b92f29f69ec97ed39c39f162187d0a8f542f753b89f43be807fb",
+     "offset": 2392,
+     "type": "f32",
+     "bytesHex": "0000403f",
+     "value": 0.75,
+     "expect": 0.75,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 706988,
+     "type": "f32",
+     "bytesHex": "00004842",
+     "value": 50.0,
+     "expect": 50.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 479972,
+     "type": "f32",
+     "bytesHex": "0000403f",
+     "value": 0.75,
+     "expect": 0.75,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 209884,
+     "type": "f32",
+     "bytesHex": "0000c03f",
+     "value": 1.5,
+     "expect": 1.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Misc\\DeployableMortar\\PBNS_M720A1.ebx",
+     "rawSha256": "4c27b0bda83a870e9334314ebabf4e85def377f0b703d181c08f244e87254c43",
+     "offset": 1984,
+     "type": "u32",
+     "bytesHex": "8015100d",
+     "value": 219157888,
+     "expect": 219157888,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Misc\\DeployableMortar\\PBNS_M720A1.ebx",
+     "rawSha256": "4c27b0bda83a870e9334314ebabf4e85def377f0b703d181c08f244e87254c43",
+     "offset": 2080,
+     "type": "f32",
+     "bytesHex": "00007042",
+     "value": 60.0,
+     "expect": 60.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Misc\\DeployableMortar\\PBNS_M720A1.ebx",
+     "rawSha256": "4c27b0bda83a870e9334314ebabf4e85def377f0b703d181c08f244e87254c43",
+     "offset": 2096,
+     "type": "f32",
+     "bytesHex": "6de7f340",
+     "value": 7.622000217437744,
+     "expect": 7.622,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Misc\\DeployableMortar\\PBNS_M720A1.ebx",
+     "rawSha256": "4c27b0bda83a870e9334314ebabf4e85def377f0b703d181c08f244e87254c43",
+     "offset": 2072,
+     "type": "f32",
+     "bytesHex": "7f6a1c40",
+     "value": 2.444000005722046,
+     "expect": 2.444,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 383356,
+     "type": "f32",
+     "bytesHex": "00007042",
+     "value": 60.0,
+     "expect": 60.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 576260,
+     "type": "f32",
+     "bytesHex": "7f6a1c40",
+     "value": 2.444000005722046,
+     "expect": 2.444,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 531724,
+     "type": "f32",
+     "bytesHex": "6de7f340",
+     "value": 7.622000217437744,
+     "expect": 7.622,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Misc\\DeployableMortar\\PBNS_M720A1.ebx",
+     "rawSha256": "4c27b0bda83a870e9334314ebabf4e85def377f0b703d181c08f244e87254c43",
+     "offset": 416,
+     "type": "u32",
+     "bytesHex": "8028700a",
+     "value": 175122560,
+     "expect": 175122560,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Misc\\DeployableMortar\\PBNS_M720A1.ebx",
+     "rawSha256": "4c27b0bda83a870e9334314ebabf4e85def377f0b703d181c08f244e87254c43",
+     "offset": 868,
+     "type": "f32",
+     "bytesHex": "00004843",
+     "value": 200.0,
+     "expect": 200.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 281428,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 4346,
+   "matched": 4346,
+   "files": 8,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "rawchecks-L3342.json"
+  },
+  "dataset": "reference-data/frosty/grenade-and-mortar-damage.json",
+  "rows": [
+   {
+    "item": "Frag grenade",
+    "file": "PBNS_FragGrenade",
+    "blastMaterial": 209,
+    "blastDamage": {
+     "registry": 100.0,
+     "own": 100.0,
+     "used": 100.0
+    },
+    "innerBlastRadius": {
+     "registry": 1.0,
+     "own": 1.0
+    },
+    "blastRadius": {
+     "registry": 5.0,
+     "own": 5.0
+    },
+    "curve": "FragGrenade_BlastDamageFalloff_Curve",
+    "grid": {
+     "25": 1.0,
+     "119": 0.0,
+     "121": 1.0,
+     "120": 1.0,
+     "122": 1.0,
+     "187": 1.0
+    },
+    "fullBlast": {
+     "25": 100.0,
+     "119": 0.0,
+     "121": 100.0,
+     "120": 100.0,
+     "122": 100.0,
+     "187": 100.0
+    },
+    "impactObject": {
+     "class": "Class_796b4d4a",
+     "material": 644,
+     "ownDamageFields": "none",
+     "grid119": 0.0
+    }
+   },
+   {
+    "item": "40 mm HE grenade (M320)",
+    "file": "PB_NS_M320HE",
+    "blastMaterial": 357,
+    "blastDamage": {
+     "registry": 120.0,
+     "own": 120.0,
+     "used": 120.0
+    },
+    "innerBlastRadius": {
+     "registry": null,
+     "own": 1.0
+    },
+    "blastRadius": {
+     "registry": null,
+     "own": 5.0
+    },
+    "curve": null,
+    "grid": {
+     "25": 1.0,
+     "119": 0.05,
+     "121": 0.8,
+     "120": 0.8,
+     "122": 0.8,
+     "187": 0.8
+    },
+    "fullBlast": {
+     "25": 120.0,
+     "119": 6.0,
+     "121": 96.0,
+     "120": 96.0,
+     "122": 96.0,
+     "187": 96.0
+    },
+    "impactObject": {
+     "class": "Class_6761170b",
+     "material": 422,
+     "ownDamageFields": "none",
+     "grid119": 0.0
+    }
+   },
+   {
+    "item": "40 mm thermobaric grenade (M320)",
+    "file": "PB_NS_M320Thermobaric",
+    "blastMaterial": 476,
+    "blastDamage": {
+     "registry": 50.0,
+     "own": 30.0,
+     "used": 50.0
+    },
+    "innerBlastRadius": {
+     "registry": null,
+     "own": 2.0
+    },
+    "blastRadius": {
+     "registry": null,
+     "own": 3.0
+    },
+    "curve": null,
+    "grid": {
+     "25": 1.0,
+     "119": 0.05,
+     "121": 0.4,
+     "120": 0.4,
+     "122": 0.2,
+     "187": 0.2
+    },
+    "fullBlast": {
+     "25": 50.0,
+     "119": 2.5,
+     "121": 20.0,
+     "120": 20.0,
+     "122": 10.0,
+     "187": 10.0
+    },
+    "impactObject": {
+     "class": "Class_6761170b",
+     "material": 422,
+     "ownDamageFields": "none",
+     "grid119": 0.0
+    }
+   },
+   {
+    "item": "Anti-tank grenade",
+    "file": "PBNS_AntiTankGrenade",
+    "blastMaterial": 656,
+    "blastDamage": {
+     "registry": 50.0,
+     "own": 50.0,
+     "used": 50.0
+    },
+    "innerBlastRadius": {
+     "registry": 0.75,
+     "own": 0.75
+    },
+    "blastRadius": {
+     "registry": 1.5,
+     "own": 1.5
+    },
+    "curve": null,
+    "grid": {
+     "25": 0.85,
+     "119": 3.0,
+     "121": 6.5,
+     "120": 10.0,
+     "122": 7.0,
+     "187": 7.0
+    },
+    "fullBlast": {
+     "25": 42.5,
+     "119": 150.0,
+     "121": 325.0,
+     "120": 500.0,
+     "122": 350.0,
+     "187": 350.0
+    },
+    "impactObject": {
+     "class": "Class_796b4d4a",
+     "material": 144,
+     "ownDamageFields": "none",
+     "grid119": 0.0
+    }
+   },
+   {
+    "item": "Mortar HE shell (M720A1)",
+    "file": "PBNS_M720A1",
+    "blastMaterial": 209,
+    "blastDamage": {
+     "registry": 60.0,
+     "own": 60.0,
+     "used": 60.0
+    },
+    "innerBlastRadius": {
+     "registry": 2.444,
+     "own": 2.444
+    },
+    "blastRadius": {
+     "registry": 7.622,
+     "own": 7.622
+    },
+    "curve": null,
+    "grid": {
+     "25": 1.0,
+     "119": 0.0,
+     "121": 1.0,
+     "120": 1.0,
+     "122": 1.0,
+     "187": 1.0
+    },
+    "fullBlast": {
+     "25": 60.0,
+     "119": 0.0,
+     "121": 60.0,
+     "120": 60.0,
+     "122": 60.0,
+     "187": 60.0
+    },
+    "direct": {
+     "material": 167,
+     "damage": {
+      "registry": 100.0,
+      "own": 200.0
+     },
+     "grid": {
+      "25": 1.0,
+      "119": 1.0,
+      "121": 7.0,
+      "120": 7.0,
+      "122": 4.5,
+      "187": 11.0
+     }
+    }
+   }
+  ],
+  "targets": {
+   "25": "soldier abdomen",
+   "119": "tanks, IFVs, armoured transports, anti-air",
+   "121": "helicopters",
+   "120": "jets",
+   "122": "Flyer 60, Vector, RHIB",
+   "187": "PTV, quad, dirt bikes"
+  }
+ },
+ "inference": [
+  "Frag grenade: 100 to a soldier at full blast, nothing to armoured vehicles (grid value 0), and 100 to helicopters, jets and light vehicles. Its falloff curve is in L3340.",
+  "40 mm HE: 120 at full blast to a soldier, 6 to armoured vehicles and 96 to aircraft and light vehicles. 40 mm thermobaric: registry 50 (own 30) to a soldier, 2.5 to armoured vehicles.",
+  "Anti-tank grenade: blast 50 with values 3 / 6.5 / 10 / 7 / 7 gives 150 to armoured vehicles, 325 to helicopters, 500 to jets and 350 to light vehicles, and 42.5 to a soldier. Its radius is 1.5 m.",
+  "Mortar HE shell: blast 60 behaves like the frag grenade's material (0 to armour). Its direct hit uses material 167 with registry Damage 100 (own 200) and values 1 on armour, 7 on helicopters, 4.5 and 11 on light vehicles; by the rule of L3323 a direct hit on a tank would be 75 to 200.",
+  "The grenades' impact objects (classes Class_796b4d4a and Class_6761170b) carry a material but no own damage field, so a direct-impact damage for a 40 mm grenade is not stored in these files."
+ ],
+ "unresolved": [
+  "None of these has an EA figure. Test: one anti-tank grenade on a full-health tank should remove 150; eight destroy it.",
+  "Frag grenade against a helicopter: 100 per grenade by these values. Test on a landed helicopter.",
+  "Thermobaric blast 50 (registry) or 30 (own). Test: one thermobaric grenade at a soldier's feet, read the health removed.",
+  "Mortar direct hit on a tank (75 to 200 by the rule) and whether the registry 100 or own 200 is used."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-09-damage-rule-extension",
+  "artifacts": [
+   {
+    "file": "manifest-L3342.json",
+    "sha256": "f12515134a17391ecd85e2deb80e29492492e5748ed6d5211911b2dfedde77a2"
+   },
+   {
+    "file": "rawchecks-L3342.json",
+    "sha256": "b9a54aa8373c23026eac7415841540f6c0f0ef6d580fe9f6c9dd126a439b49aa"
+   },
+   {
+    "file": "gren.json",
+    "sha256": "339b01a2d69529b46506015ffdd7f04e9a65a9ff40720f31b727647fe918ee43"
+   },
+   {
+    "file": "extract.py",
+    "sha256": "0350a77b41b82ac121478aaad252154a4db0c299216076b7785a560d0e71a92a"
+   },
+   {
+    "file": "blast-curve-users.json",
+    "sha256": "cea6909065535e8808b2e9523f8b084e89a67b46e876449c955333718b0e7a88"
+   },
+   {
+    "file": "gren-grid-rawchecks.json",
+    "sha256": "99af631cc98b3ef1cb609ab991214aa1e6ca54699163f9e0116c5cd35192573a"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-09",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L3342",
+    "title": "Hand grenades, 40 mm grenades and the mortar shell: stored blast damage against soldiers and vehicles",
+    "status": "finding",
+    "summary": "Stored blast damage at full strength: frag grenade 100 to soldiers, aircraft and light vehicles and 0 to armour; 40 mm HE 120 to soldiers and 6 to armour; thermobaric 50 (registry) and 2.5; anti-tank grenade 42.5 to soldiers, 150 to armour, 325 to helicopters and 350 to light vehicles; mortar HE blast 60 with a direct hit worth 100 x 1 on armour. None has an EA figure to compare. 4346 raw-offset checks matched.",
+    "reopenWhen": "An in-game reading for any of these items.",
+    "statusNote": "Stored values and grid values read; no official figure or in-game reading; names joined by name."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Hardware/Gadgets/Throwables/AntiTank/PBNS_AntiTankGrenade",
+    "format": "raw-ebx",
+    "sha256": "cfde467bd1e2b92f29f69ec97ed39c39f162187d0a8f542f753b89f43be807fb",
+    "question": "What do the frag grenade, the 40 mm grenades, the anti-tank grenade and the mortar shell store for damage against soldiers and each vehicle class?",
+    "result": "useful",
+    "conclusion": "Blast 50, material 656: 3 on armour, 6.5 helicopters, 10 jets, 7 light vehicles, 0.85 soldier."
+   },
+   {
+    "path": "Common/Hardware/Gadgets/Throwables/Frag/PBNS_FragGrenade",
+    "format": "raw-ebx",
+    "sha256": "590cd563923cf67771e78a60287a64673bf64b6f583da3e3a92810772b3e25fb",
+    "question": "What do the frag grenade, the 40 mm grenades, the anti-tank grenade and the mortar shell store for damage against soldiers and each vehicle class?",
+    "result": "useful",
+    "conclusion": "Blast 100, material 209: 0 on armour, 1 on soldiers, aircraft and light vehicles."
+   },
+   {
+    "path": "Common/Hardware/Gadgets/Launchers/M320Thermobaric/PB_NS_M320Thermobaric",
+    "format": "raw-ebx",
+    "sha256": "7434e629cb66b7f41cc03933f0ee031cd0ae7993fc47668266a9edd5d13aaa2c",
+    "question": "What do the frag grenade, the 40 mm grenades, the anti-tank grenade and the mortar shell store for damage against soldiers and each vehicle class?",
+    "result": "useful",
+    "conclusion": "Own blast 30, registry 50; material 476."
+   },
+   {
+    "path": "Common/Hardware/Gadgets/Misc/DeployableMortar/PBNS_M720A1",
+    "format": "raw-ebx",
+    "sha256": "4c27b0bda83a870e9334314ebabf4e85def377f0b703d181c08f244e87254c43",
+    "question": "What do the frag grenade, the 40 mm grenades, the anti-tank grenade and the mortar shell store for damage against soldiers and each vehicle class?",
+    "result": "useful",
+    "conclusion": "Direct material 167 with own Damage 200 (registry 100); blast 60 with material 209."
+   }
+  ]
+ }
+}

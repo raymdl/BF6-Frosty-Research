@@ -1,0 +1,386 @@
+{
+ "lead": "L3321",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Level material grids read from the saved raw capture with the L3207 cell reader; no export, no new capture."
+ },
+ "question": "Where is the factor stored that turns a mine's stored blast damage into EA's stated damage against tanks?",
+ "sourceFacts": {
+  "method": "The explosion object of each mine file stores a material value; its top 12 bits are the material ID (the rule reproduces the RPG projectile ID 125 from L3204). The cell for that source material against target 119 was read in two level material grids with the L3207 reader, and Field_674633de was compared with EA's 1.3.1.0 damage against tanks divided by the stored blast damage.",
+  "control": {
+   "description": "Known cells reread: RPG projectile 125 gives 2 (L3205) and C4 explosion 95 gives 3.5 (L3207), in both grids.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Mines\\ATMine\\PBNS_ATMine.ebx",
+     "rawSha256": "a41318ef04b07cc68543bbffd2862b9b29674c0ea53bf871c543e055294c7c4f",
+     "offset": 416,
+     "type": "u32",
+     "bytesHex": "8002d008",
+     "value": 147849856,
+     "expect": 147849856,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Mines\\ATMine\\PBNS_ATMine.ebx",
+     "rawSha256": "a41318ef04b07cc68543bbffd2862b9b29674c0ea53bf871c543e055294c7c4f",
+     "offset": 2480,
+     "type": "u32",
+     "bytesHex": "80150006",
+     "value": 100668800,
+     "expect": 100668800,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Misc\\EODBot\\Mines\\PB_NS_EODBot_Mines.ebx",
+     "rawSha256": "3c9e20e2772e6fbee26fb6190e6b401076cafd049168e6932ce97591616fddbe",
+     "offset": 416,
+     "type": "u32",
+     "bytesHex": "8002d008",
+     "value": 147849856,
+     "expect": 147849856,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Misc\\EODBot\\Mines\\PB_NS_EODBot_Mines.ebx",
+     "rawSha256": "3c9e20e2772e6fbee26fb6190e6b401076cafd049168e6932ce97591616fddbe",
+     "offset": 2480,
+     "type": "u32",
+     "bytesHex": "80150006",
+     "value": 100668800,
+     "expect": 100668800,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PTKM1R_EFP.ebx",
+     "rawSha256": "09c32887741cc43c55a13540152675e62770e070b11269c14c525364b0a5a644",
+     "offset": 416,
+     "type": "u32",
+     "bytesHex": "8011000d",
+     "value": 218108288,
+     "expect": 218108288,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PTKM1R_EFP.ebx",
+     "rawSha256": "09c32887741cc43c55a13540152675e62770e070b11269c14c525364b0a5a644",
+     "offset": 1824,
+     "type": "u32",
+     "bytesHex": "8029a028",
+     "value": 681585024,
+     "expect": 681585024,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PKTM1R_CombatElement.ebx",
+     "rawSha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+     "offset": 416,
+     "type": "u32",
+     "bytesHex": "8051020b",
+     "value": 184701312,
+     "expect": 184701312,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Mines\\PTKM1R\\PB_PRJ_PKTM1R_CombatElement.ebx",
+     "rawSha256": "d39b8484df81e48308d4ecdd2e95eae1e2fccdff8c0778e59e74b25a4daaef35",
+     "offset": 3664,
+     "type": "u32",
+     "bytesHex": "8029e005",
+     "value": 98576768,
+     "expect": 98576768,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Mines\\M4SLAM\\PB_M4SLAM_EFP.ebx",
+     "rawSha256": "38b16a1b3d94cfe8608e851fa364c67979e785205a28c645642b75202068fac2",
+     "offset": 336,
+     "type": "u32",
+     "bytesHex": "8011000d",
+     "value": 218108288,
+     "expect": 218108288,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Mines\\M4SLAM\\PB_M4SLAM_EFP.ebx",
+     "rawSha256": "38b16a1b3d94cfe8608e851fa364c67979e785205a28c645642b75202068fac2",
+     "offset": 1360,
+     "type": "u32",
+     "bytesHex": "8029e00a",
+     "value": 182462848,
+     "expect": 182462848,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Mines\\M4SLAM\\PB_M4SLAM.ebx",
+     "rawSha256": "2a2f2279d357278c7e901b6c2b483742e5881d71c0ba1bb1b7b5cb45fa44a6c4",
+     "offset": 416,
+     "type": "u32",
+     "bytesHex": "8002d008",
+     "value": 147849856,
+     "expect": 147849856,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Mines\\M4SLAM\\PB_M4SLAM.ebx",
+     "rawSha256": "2a2f2279d357278c7e901b6c2b483742e5881d71c0ba1bb1b7b5cb45fa44a6c4",
+     "offset": 2976,
+     "type": "u32",
+     "bytesHex": "8016b005",
+     "value": 95426176,
+     "expect": 95426176,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\RPG7\\PB_NS_RPG.ebx",
+     "rawSha256": "571920dca13809eccf5f9567442d9144b0bc1b96a63a10265dffb2874b6f0581",
+     "offset": 416,
+     "type": "u32",
+     "bytesHex": "8011d007",
+     "value": 131076480,
+     "expect": 131076480,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\RPG7\\PB_NS_RPG.ebx",
+     "rawSha256": "571920dca13809eccf5f9567442d9144b0bc1b96a63a10265dffb2874b6f0581",
+     "offset": 1664,
+     "type": "u32",
+     "bytesHex": "80ca410a",
+     "value": 172083840,
+     "expect": 172083840,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Bomb\\NavalMine\\PB_NavalMine.ebx",
+     "rawSha256": "fe4b1f62a87b466957943e8c4ab08becfc777047190a297fe26290c30563bf10",
+     "offset": 416,
+     "type": "u32",
+     "bytesHex": "807f4122",
+     "value": 574717824,
+     "expect": 574717824,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Bomb\\NavalMine\\PB_NavalMine.ebx",
+     "rawSha256": "fe4b1f62a87b466957943e8c4ab08becfc777047190a297fe26290c30563bf10",
+     "offset": 2480,
+     "type": "u32",
+     "bytesHex": "8015f005",
+     "value": 99620224,
+     "expect": 99620224,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 736,
+   "matched": 736,
+   "files": 10,
+   "tool": "scripts/frosty-raw-check.py (material values: raw-checks.json; grid reads: all-grid-rawchecks.json)",
+   "artifact": "raw-checks.json"
+  },
+  "matches": [
+   {
+    "item": "EOD Bot mine",
+    "owner": "PB_NS_EODBot_Mines",
+    "explosionMaterial": 96,
+    "storedBlastDamage": 150.0,
+    "storedSource": "asset own value, no registry row",
+    "official": 300,
+    "gridValue": 2.0,
+    "product": 300.0,
+    "equalsOfficial": true
+   },
+   {
+    "item": "M15 AV Mine",
+    "owner": "PBNS_ATMine",
+    "explosionMaterial": 96,
+    "storedBlastDamage": 195.0,
+    "storedSource": "registry default; asset own value 300",
+    "official": 390,
+    "gridValue": 2.0,
+    "product": 390.0,
+    "equalsOfficial": true
+   },
+   {
+    "item": "PTKM-1R",
+    "owner": "PB_PRJ_PTKM1R_EFP",
+    "explosionMaterial": 650,
+    "storedBlastDamage": 160.0,
+    "storedSource": "asset own value, no registry row",
+    "official": 480,
+    "gridValue": 3.0,
+    "product": 480.0,
+    "equalsOfficial": true
+   }
+  ],
+  "allCells": [
+   {
+    "source": 91,
+    "gridValue": 1.0,
+    "label": "SLAM body explosion"
+   },
+   {
+    "source": 94,
+    "gridValue": 0.4,
+    "label": "PTKM-1R combat element explosion"
+   },
+   {
+    "source": 95,
+    "gridValue": 3.5,
+    "label": "C4 explosion (control, L3207: 3.5)"
+   },
+   {
+    "source": 96,
+    "gridValue": 2.0,
+    "label": "mine explosion (M15, EOD Bot mine)"
+   },
+   {
+    "source": 99,
+    "gridValue": 0.0,
+    "label": "naval mine explosion"
+   },
+   {
+    "source": 125,
+    "gridValue": 2.0,
+    "label": "RPG projectile (control, L3205: 2)"
+   },
+   {
+    "source": 141,
+    "gridValue": 0.0,
+    "label": "mine projectile (M15, EOD Bot mine, SLAM body)"
+   },
+   {
+    "source": 164,
+    "gridValue": 0.0,
+    "label": "RPG explosion"
+   },
+   {
+    "source": 174,
+    "gridValue": 0.0,
+    "label": "SLAM EFP explosion"
+   },
+   {
+    "source": 208,
+    "gridValue": 0.4375,
+    "label": "EFP projectile (PTKM-1R, SLAM)"
+   },
+   {
+    "source": 650,
+    "gridValue": 3.0,
+    "label": "PTKM-1R EFP explosion"
+   }
+  ],
+  "dataset": "reference-data/frosty/mine-tank-material-grid.json"
+ },
+ "inference": [
+  "For three mines, stored blast damage times the grid value for the explosion's material against target 119 equals EA's stated damage against tanks: 150 x 2 = 300 (EOD Bot mine), 195 x 2 = 390 (M15, registry default), 160 x 3 = 480 (PTKM-1R). The PTKM-1R uses a different material and a different grid value, so it is an independent match.",
+  "Field_674633de therefore behaves as a damage multiplier for that material pair. This is a correspondence with official numbers on three items, not a proof of the game's operation.",
+  "For the M15 the product matches only with the registry default 195; the asset's own 300 would give 600. This strengthens L3320 and the registry rule of L3318."
+ ],
+ "unresolved": [
+  "Target 119 is taken from L3205 as the tank material; it is not named in stored data. Test: one M15 under a main battle tank and one under an infantry fighting vehicle; equal readings of 390 would mean both use the same target material.",
+  "The rule is checked on blast damage only. Test: one RPG hit square on a tank's side at close range, to compare with registry Damage 125 times the grid value 2 and the side angle curve of L3201.",
+  "The SLAM's projectile cell reads 0.4375 and its explosion cells 0 and 1; EA's 199 to 363 is not reproduced. Test: SLAM hits on the side, front and underside of a full-health tank on the current build.",
+  "No reading on the current build. Test: one PTKM-1R full hit on a full-health tank should read 480."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-09-mine-material-grid",
+  "artifacts": [
+   {
+    "file": "evidence.json",
+    "sha256": "2ee7fb54e51aaebc5b6159b1df149e2c0228b58a7f79bbb4b6a2fd7f2a94421b"
+   },
+   {
+    "file": "materials.json",
+    "sha256": "1b10cd9b0b7057c891b0ad0cabe3cf3bada4734660dfba9c320d9694cc35b05c"
+   },
+   {
+    "file": "summary.json",
+    "sha256": "3fb166702e5fa3b0d31d4ab58343cfd28100f369c5fd9edaa7691033a3ba83eb"
+   },
+   {
+    "file": "selected-cells.json",
+    "sha256": "0f7e5bbd78dbc3bd0bc1a5637cb3957e780326f8f8e8ad05b891d0080af60fd4"
+   },
+   {
+    "file": "all-grid-rawchecks.json",
+    "sha256": "d6d855407ea992382807d7e58f8ab16fa9e02b820892c547fa139f26c4ee983b"
+   },
+   {
+    "file": "raw-check-manifest.json",
+    "sha256": "5998e0aba9634716553f8c4ffe5e1a56b7438f459c3c47330d5a9d9fa9068c15"
+   },
+   {
+    "file": "raw-checks.json",
+    "sha256": "da4ca3fa093ca4396384882c2072f681b1e92a890db268475506bdb253db5b59"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-09",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L3321",
+    "title": "Mine damage against tanks equals stored blast damage times the material-grid value",
+    "status": "finding",
+    "summary": "The level material grid's Field_674633de for a mine explosion's material against target 119 is 2 for the M15 and EOD Bot mine and 3 for the PTKM-1R. Stored blast damage times that value gives EA's 1.3.1.0 numbers exactly: 300, 390 (from the registry default 195) and 480. Known cells for the RPG (2) and C4 (3.5) were reread as controls. 736 raw reads matched.",
+    "reopenWhen": "A current-build mine damage reading that differs from stored blast damage times the grid value, or an official number that breaks the pattern.",
+    "statusNote": "Three official numbers reproduced; target material 119 carried from L3205; operation not proven; joins by name."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Game/GlacierMP/levels/mp_abbasid/mp_abbasid/materialgrid_win32",
+    "format": "raw-ebx",
+    "sha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+    "question": "Where is the factor stored that turns a mine's stored blast damage into EA's stated damage against tanks?",
+    "result": "useful",
+    "conclusion": "Cells for source materials 96 and 650 against target 119 store Field_674633de 2 and 3."
+   },
+   {
+    "path": "Game/GlacierMP/levels/mp_badlands/mp_badlands/materialgrid_win32",
+    "format": "raw-ebx",
+    "sha256": "b2ca0a2bde7aa7ebae1d0eea5880d59a72ab3a9f6a3f602e6d4fbec07498edec",
+    "question": "Where is the factor stored that turns a mine's stored blast damage into EA's stated damage against tanks?",
+    "result": "useful",
+    "conclusion": "Cells for source materials 96 and 650 against target 119 store Field_674633de 2 and 3."
+   },
+   {
+    "path": "Common/Hardware/Gadgets/Mines/ATMine/PBNS_ATMine",
+    "format": "raw-ebx",
+    "sha256": "a41318ef04b07cc68543bbffd2862b9b29674c0ea53bf871c543e055294c7c4f",
+    "question": "Where is the factor stored that turns a mine's stored blast damage into EA's stated damage against tanks?",
+    "result": "useful",
+    "conclusion": "Explosion object stores material ID 96."
+   },
+   {
+    "path": "Common/Hardware/Gadgets/Misc/EODBot/Mines/PB_NS_EODBot_Mines",
+    "format": "raw-ebx",
+    "sha256": "3c9e20e2772e6fbee26fb6190e6b401076cafd049168e6932ce97591616fddbe",
+    "question": "Where is the factor stored that turns a mine's stored blast damage into EA's stated damage against tanks?",
+    "result": "useful",
+    "conclusion": "Explosion object stores material ID 96."
+   },
+   {
+    "path": "Common/Hardware/Gadgets/Mines/PTKM1R/PB_PRJ_PTKM1R_EFP",
+    "format": "raw-ebx",
+    "sha256": "09c32887741cc43c55a13540152675e62770e070b11269c14c525364b0a5a644",
+    "question": "Where is the factor stored that turns a mine's stored blast damage into EA's stated damage against tanks?",
+    "result": "useful",
+    "conclusion": "Explosion object stores material ID 650."
+   }
+  ]
+ }
+}

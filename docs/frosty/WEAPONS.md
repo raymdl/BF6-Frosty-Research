@@ -2056,3 +2056,155 @@ The first four parallel health curves differ and remain separate source facts; t
 
 [L902](../../reference-data/provenance/frosty-2026-10-01-L902-weapon-attributes-ui.json) confirms current source support for the four implemented Weapon Attributes candidates: Hipfire, Precision, Control and Mobility. Seven compiled delegate hashes and the exact Precision settings body match reviewed evidence. The Control known-answer input/constant check passes. Menu-score candidates remain distinct from physical stat units, native provider selection and final renderer normalization. No universal clamp or new atlas field meaning is established; 0 known-limit families and 0 contexts receive meaning. No new implementation proposal follows.
 <!-- L902-weapon-attributes:end -->
+
+## L3359 - Bolt-action sweet spot ranges are the 100 stretch of the bullet damage curve (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3359-bolt-action-sweet-spot-ranges.json). Dataset: `reference-data/frosty/bolt-action-sweet-spots.json`. EA's [1.3.3.0 notes](https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-3-0) give four sweet spot ranges. Each is the span over which the stored bullet damage curve (`Field_2ad7e688`, registry `TweakableDamageCurve.XYValues`) holds its top value 100:
+
+| Rifle | Bullet file (name-only join) | EA old range | EA new range | Stored curve points (distance m, value) | Stored range at 100 |
+|---|---|---|---|---|---|
+| L115 | `PD_.338LapuaMagnum2` | 120-175 | 100-133 | (75, 80), (100, 100), (133, 100), (175, 62) | 100-133 |
+| M2010 ESR | `PD_.300WinMag` | 75-120 | 75-100 | (54, 80), (75, 100), (100, 100), (133, 62) | 75-100 |
+| PSR | `PD_.338NormaMagnum` | 100-150 | 90-120 | (75, 80), (90, 100), (120, 100), (160, 62) | 90-120 |
+| SV-98 | `PD_762x54mmR_Bolt` | 54-90 | 54-75 | (0, 80), (36, 80), (54, 100), (75, 100), (100, 62) | 54-75 |
+
+- Own curve, registry default and the Match ammunition file agree for all four; the armor curve is the same.
+- The sweet spot is not a separate setting: 80 before the range, 100 inside, falling to 62 after.
+- EA's old ranges are not in these files.
+- `PD_.416Barrett` holds a 100 stretch from 120 to 160 m and `PD_556x45mmNATO_Bolt` none; EA gives no figure for either.
+
+68 raw-offset checks matched.
+
+Test: L115 body shot on a full-health soldier at 90 m and at 110 m.
+
+## L3360 - EA's 1.3.3.0 muzzle velocity table against stored values (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3360-ea-muzzle-velocity-table.json). Dataset: `reference-data/frosty/ea-muzzle-velocity-1-3-3-0.json`. From the [1.3.3.0 notes](https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-3-0). Registry row `<weapon>_WB...Shot.InitialSpeed.z`; own value `Class_35259f6b.Field_0bf4f62b.Field_32a99b9c`. Weapon names are joined by name only.
+
+| EA name | Weapon file (name-only join) | EA old | EA new | Registry default | Own value |
+|---|---|---|---|---|---|
+| ES 5.7 | `FiveSeven_WB` | 650 | 510 | 510 | 510 |
+| LMR27 | `ARADMR_WB` | 880 | 800 | 800 | 800 |
+| SCW-10 | `APC10_WB` | 428 | 398 | 398 | 398 |
+| SG 553R | `SIG553R_WB` | 519 | 483 | 483 | 483 |
+| TR7 | `Tavor7_WB` | 648 | 604 | 604 | 604 |
+| NVO-228E | `ACE32_WB` | 671 | 626 | 626 | 626 |
+| M417A2 | `HK417A2_WB` | 600 | 560 | 560 | 560 |
+| M121 A2 | `MG5_WB` | 600 | 560 | 560 | 560 |
+| CZ3A1 | `ScorpionEvo3_WB` | 360 | 336 | 336 | 336 |
+| M240L | `M240L_WB` | 630 | 590 | 590 | 590 |
+| M4A1 | `M4A1_WB` | 630 | 590 | 590 | 590 |
+| VCR-2 | `VHS2_WB` | 704 | 660 | 660 | 660 |
+| SOR-300SC | `SCARSC_WB` | 563 | 528 | 528 | 528 |
+| GRT-BC | `MSBSGROTB_WB` | 599 | 563 | 563 | 563 |
+| RPKM | `RPKM_WB` | 670 | 630 | 630 | 630 |
+| M123K | `MG4K_WB` | 670 | 630 | 630 | 630 |
+| M433 | `HK433_WB` | 670 | 630 | 630 | 630 |
+| SGX | `MPX_WB` | 402 | 378 | 378 | 378 |
+| QBZ-192 | `QBZ192_WB` | 644 | 608 | 608 | 608 |
+| DRS-IAR | `M27IAR_WB` | 720 | 680 | 680 | 680 |
+| M/60 | `M60E6_WB` | 720 | 680 | 680 | 680 |
+| AK4D | `G3A4_WB` | 720 | 680 | 680 | 680 |
+| PW5A3 | `MP5MLI_WB` | 432 | 408 | 408 | 408 |
+| M16A4 | `M16A3_WB` | 720 | 680 | 680 | 680 |
+| SVK-8.6 | `SVCh_WB` | 720 | 680 | 680 | 680 |
+| PSR | `MRAD_WB` | 720 | 680 | 680 | 680 |
+| SV-98 | `SV98M_WB` | 720 | 680 | 680 | 680 |
+| L115 | `L115A3_WB` | 703 | 664 | 742 (differs) | 742 |
+| L110 | `Minimi_WB` | 780 | 740 | 740 | 740 |
+| B36A4 | `G36_WB` | 780 | 740 | 740 | 740 |
+| M277 | `XM7_WB` | 624 | 592 | 592 | 592 |
+| PP-19 | `PP19_WB` | 468 | 444 | 444 | 444 |
+| M39 EMR | `M39EMR_WB` | 800 | 760 | 760 | 760 |
+| SVDM | `SVDM_WB` | 800 | 760 | 760 | 760 |
+| GRT-CPS | `MSBSGROTCPS_WB` | 800 | 760 | 760 | 760 |
+| M2010 ESR | `M2010ESR_WB` | 800 | 760 | 760 | 760 |
+| Mini Scout | `MiniFix_WB` | 800 | 760 | 760 | 760 |
+| M250 | `M250_WB` | 760 | 724 | 724 | 724 |
+| Kord 6P67 | `6P67_WB` | 760 | 724 | 724 | 724 |
+| USG-90 | `P90_WB` | 570 | 543 | 543 | 543 |
+| SL9 | `APDW_WB` | 510 | 486 | 486 | 486 |
+| L85A3 | `L85A3_WB` | 814 | 778 | 778 | 778 |
+| UMG-40 | `UMP40_WB` | 488 | 467 | 467 | 467 |
+| SOR-556Mk2 | `SCARL_WB` | 800 | 768 | 768 | 768 |
+| PW7A2 | `MP7A2_WB` | 600 | 576 | 576 | 576 |
+| VZ.61 | `Skorpion_WB` | 326 | 313 | 313 | 313 |
+| AK-205 | `AK205_WB` | 737 | 708 | 708 | 708 |
+| KTS100MK8 | `Ultimax_WB` | 840 | 808 | 808 | 808 |
+| RPK-74M | `RPK74M_WB` | 840 | 808 | 808 | 808 |
+| KV9 | `Vector_WB` | 348 | 362 | 362 | 362 |
+
+- Registry default = EA's new figure for 49 of 50.
+- Own values: 50 read, 49 equal EA's new figure, 0 equal the old one.
+- L115: stored 742, EA 664. 742 x 0.8^0.5 = 663.7; 0.8^n is the barrel velocity tier factor (FIELD_MAP.md), so EA's figure may include the default barrel. Not traced. Withdrawn in L3361: no stored barrel gives that factor.
+
+100 raw-offset checks matched.
+
+## L3361 - The L115's 742 m/s is not turned into EA's 664 by any barrel (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3361-l115-velocity-barrel-check.json). L3360 suggested EA's L115 figure might include a barrel penalty. The stored velocity effects are `WME_MuzzleVelocity_M05` 0.8, `_M10` 0.64, `_M15` 0.512 and `_P05` 1.25. The L115's barrels:
+
+| Barrel package (L115 ability references its unlock) | Velocity effect | Factor | L115 velocity |
+|---|---|---|---|
+| `WPM_BRL_Basic_W10` | none | 1 | 742 |
+| `WPM_BRL_Fluted_W20` | none | 1 | 742 |
+| `WPM_BRL_Short_W15` | `WME_MuzzleVelocity_M05` | 0.8 | 593.6 |
+| `WPM_BRL_Extended_W05` | `WME_MuzzleVelocity_P05` | 1.25 | 927.5 |
+
+- The factor needed for 664 is 0.8949; no stored effect holds it. The L3360 suggestion is withdrawn.
+- The reductions are used by Short barrels and subsonic ammunition, the increase by Extended barrels (byte search of effect GUIDs).
+- The earlier receipt `frosty-1.4.2.5-l115-velocity.json` already found no velocity modifier on the Basic Barrel.
+
+The site keeps 742. 7 raw-offset checks matched.
+
+Test: L115 with Basic Barrel, velocity on the stat card or time of flight at a known distance.
+
+## L3362 - EA's 1.3.3.0 body-part multipliers are the grid arrays, not the scalar (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3362-ea-body-part-multipliers.json). Dataset: `reference-data/frosty/soldier-body-part-multipliers.json`. Each grid cell (projectile material x soldier bone material) holds a scalar (`Field_674633de`) and a multiplier array (`Class_c180226c`). Against EA's [1.3.3.0 notes](https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-3-0):
+
+| Material | Bullet files | Class (by name) | Abdomen array | Limb array | Old scalar, abdomen / limb | EA 1.3.3.0 stomach and limbs |
+|---|---|---|---|---|---|---|
+| 275 | .40SW, .45ACP, 57x28mm, 9x19mm | sidearm | 1 | 1 | 1 / 1 | 1 |
+| 276 | .300BLK_Carbine, 545x39mm_Carbine, 556x45mmNATO_Carbine, 58x42mm_Carbine and 3 more | automatic | 0.84 | 0.84 | 1 / 1 | 0.84 |
+| 277 | 545x39mm, 556x45mmNATO, 762x39mm | automatic | 0.84 | 0.84 | 1 / 1 | 0.84 |
+| 278 | 545x39mm_MG, 556x45mmNATO_MG, 762x39mm_MG | automatic | 0.84 | 0.84 | 1 / 1 | 0.84 |
+| 279 | 12gaNo00Buck275_Pump, 12gaNo00Buck275_Semi, 12gaNo00Buck300_Pump, 12gaNo00Buck300_Semi and 4 more | shotgun | 1 | 1 | 1 / 1 | 1 |
+| 286 | 12gaSlug275_Pump, 12gaSlug275_Semi, 12gaSlug300_Pump, 12gaSlug300_Semi | shotgun | 1 | 1 | 1 / 1 | 1 |
+| 290 | .300WinMag, .300WinMag_Match, .338LapuaMagnum2, .338LapuaMagnum2_Match and 4 more | sniper | 0.67 | 0.67 | 0.8 / 0.8 | 0.67 |
+| 291 | 556x45mmNATO_Semi | DMR | 0.91 | 0.91 | 1 / 1 | 0.91 |
+| 351 | 556x45mmNATO_Bolt | sniper | 0.67 | 0.67 | 1 / 1 | 0.67 |
+| 491 | .357Magnum, .44Magnum | sidearm | 1 | 1 | 1 / 1 | 1 |
+| 492 | 46x30_PDW, 57x28mm_PDW | automatic | 0.84 | 0.84 | 1 / 1 | 0.84 |
+| 493 | .40SW_PDW, 10x25mm_PDW, 32ACP_PDW, 9x19mm_PDW | automatic | 0.84 | 0.84 | 1 / 1 | 0.84 |
+| 494 | 68x51mm_Carbine, 762x51mmNATO_Carbine | automatic | 0.84 | 0.84 | 1 / 1 | 0.84 |
+| 496 | 762x51mmNATO, 762x51mmNATO_MG | automatic | 0.84 | 0.84 | 1 / 1 | 0.84 |
+| 497 | 68x51mm_MG | automatic | 0.84 | 0.84 | 1 / 1 | 0.84 |
+| 498 | .338LapuaMagnum_Semi, .338LapuaMagnum_Semi_Match, 762x51mmNATO_Semi, 762x51mmNATO_Semi_Match and 2 more | DMR | 0.91 | 0.91 | 1 / 1 | 0.91 |
+| 499 | 12gaFlechette275_Pump, 12gaFlechette275_Semi, 12gaFlechette300_Pump, 12gaFlechette300_Semi | shotgun | 1 | 1 | 1 / 1 | 1 |
+| 621 | 556x45mmNATO_Minigun | automatic | 0.84 | 0.84 | 1 / 1 | 0.84 |
+| 784 | .416Barrett, .416Barrett_Match | sniper | 1 | 1 | 1 / 0.8 | 0.67 |
+
+- Not new: that the head, torso and limb multipliers are read from these arrays is already in [Hit zones](#hit-zones) (scripts/frosty-hit-zones.py, 63 weapons). New here: the arrays equal EA's 1.3.3.0 figures, and the scalar in the same cell is a stale value that must not be used for soldier body parts.
+- The arrays hold EA's new stomach and limb figures (0.84 automatic, 0.91 DMR, 0.67 sniper, 1.0 sidearms and shotguns). The scalars hold the old ones.
+- Head table, the same for every bullet: `[1, 1.34, 1.5, 1.75, 1.8, 1, 1, 1, 1, 1, 1, 1.4, 1.57, 1.8, 1.8]`. Indexes 1-3 are EA's old headshot values, 11-13 the new automatic ones.
+- Chest (material 115) is 1.0 everywhere. EA's 'against armor' values need the armor target material, not identified.
+- Earlier leads that used the scalar for a soldier's abdomen (L3329, L3338, L3342, L3357) need their arrays checked; vehicle targets are not affected (L3323).
+
+115 raw-offset checks matched.
+
+## L3365 - EA's 1.3.3.0 drag change against stored drag (9 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-09-L3365-ea-bullet-drag-change.json). EA's [1.3.3.0 notes](https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-3-0): bullet drag up 40% for all weapons and 100% with Match Grade ammunition. Stored drag (`Field_30c37c24`, registry `BulletEntityData.Drag`) by group of bullet file:
+
+| Group | Files | Drag values |
+|---|---|---|
+| Multiplayer standard bullets | 56 | 0.0035 (own) / 0.0035 (registry): 54, 0.0035 (own) / no row (registry): 2 |
+| Match bullets | 9 | 0.002 (own) / 0.002 (registry): 8, 0.002 (own) / no row (registry): 1 |
+| Single-player bullets | 23 | 0.0025 (own) / 0.0025 (registry): 19, 0 (own) / 0 (registry): 2, 0.0035 (own) / no row (registry): 1, 0.002645 (own) / 0.002645 (registry): 1 |
+
+- 0.0025 x 1.4 = 0.0035: the single-player files hold what would be the value before the change. A correspondence, not a traced history.
+- Match 0.002 is twice 0.001; no file holds 0.001 for a Match bullet.
+- Match still has less drag than standard (0.002 against 0.0035).
+
+172 raw-offset checks matched.

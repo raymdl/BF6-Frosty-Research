@@ -1,0 +1,847 @@
+{
+ "lead": "L3378",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Read from saved raw captures; no export, no new capture."
+ },
+ "question": "What stored damage do the call-in strike munitions carry, and what does the damage rule of L3323 give for them?",
+ "sourceFacts": {
+  "method": "Eight strike and pickup munition files were decoded with extract.py: own direct and blast damage, packed material, and the material-grid scalar against four target materials in both level grids. None has a registry damage row. The artillery pattern, JAGM map radii and air strike warning rows were read from the registry with raw offsets.",
+  "control": {
+   "description": "Material 125 reads 2 against tanks and 9 against helicopters, as for the RPG in L3323; blast material 95 is the jet bombs' blast material of L3327.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\missile\\Hellfire\\Art\\PB_PRJ_Missile_AGM179_JAGM.ebx",
+     "rawSha256": "69200949639e7f28708b7af3dd42424d08c60fca26cb976b7b4b7e0eb68c609b",
+     "offset": 868,
+     "type": "f32",
+     "bytesHex": "00002f43",
+     "value": 175.0,
+     "expect": 175.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\missile\\Hellfire\\Art\\PB_PRJ_Missile_AGM179_JAGM.ebx",
+     "rawSha256": "69200949639e7f28708b7af3dd42424d08c60fca26cb976b7b4b7e0eb68c609b",
+     "offset": 416,
+     "type": "i32",
+     "bytesHex": "8000d007",
+     "value": 131072128,
+     "expect": 131072128,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\missile\\Hellfire\\Art\\PB_PRJ_Missile_AGM179_JAGM.ebx",
+     "rawSha256": "69200949639e7f28708b7af3dd42424d08c60fca26cb976b7b4b7e0eb68c609b",
+     "offset": 2496,
+     "type": "f32",
+     "bytesHex": "00002043",
+     "value": 160.0,
+     "expect": 160.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\missile\\Hellfire\\Art\\PB_PRJ_Missile_AGM179_JAGM.ebx",
+     "rawSha256": "69200949639e7f28708b7af3dd42424d08c60fca26cb976b7b4b7e0eb68c609b",
+     "offset": 2400,
+     "type": "i32",
+     "bytesHex": "8017e00c",
+     "value": 216012672,
+     "expect": 216012672,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Bomb\\Mk82\\PB_Bomb_Mk82_AirStrike.ebx",
+     "rawSha256": "50c19df12130123eba75f43f89c141190a0cdbbf1ab8c84805fc2fafcda66cae",
+     "offset": 868,
+     "type": "f32",
+     "bytesHex": "0000e143",
+     "value": 450.0,
+     "expect": 450.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Bomb\\Mk82\\PB_Bomb_Mk82_AirStrike.ebx",
+     "rawSha256": "50c19df12130123eba75f43f89c141190a0cdbbf1ab8c84805fc2fafcda66cae",
+     "offset": 416,
+     "type": "i32",
+     "bytesHex": "8035d007",
+     "value": 131085696,
+     "expect": 131085696,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Bomb\\Mk82\\PB_Bomb_Mk82_AirStrike.ebx",
+     "rawSha256": "50c19df12130123eba75f43f89c141190a0cdbbf1ab8c84805fc2fafcda66cae",
+     "offset": 2112,
+     "type": "f32",
+     "bytesHex": "0080a743",
+     "value": 335.0,
+     "expect": 335.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Bomb\\Mk82\\PB_Bomb_Mk82_AirStrike.ebx",
+     "rawSha256": "50c19df12130123eba75f43f89c141190a0cdbbf1ab8c84805fc2fafcda66cae",
+     "offset": 2016,
+     "type": "i32",
+     "bytesHex": "8017f005",
+     "value": 99620736,
+     "expect": 99620736,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer4-2026-10-01-0141\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Bomb\\Mk82\\PB_Bomb_Mk82_AirStrike_Delayed.ebx",
+     "rawSha256": "ba98b08af66c0304e935cfb9b59f16fb7c480e82eecb56d2cb4244ae76f8241c",
+     "offset": 868,
+     "type": "f32",
+     "bytesHex": "0000e143",
+     "value": 450.0,
+     "expect": 450.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer4-2026-10-01-0141\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Bomb\\Mk82\\PB_Bomb_Mk82_AirStrike_Delayed.ebx",
+     "rawSha256": "ba98b08af66c0304e935cfb9b59f16fb7c480e82eecb56d2cb4244ae76f8241c",
+     "offset": 416,
+     "type": "i32",
+     "bytesHex": "8035d007",
+     "value": 131085696,
+     "expect": 131085696,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer4-2026-10-01-0141\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Bomb\\Mk82\\PB_Bomb_Mk82_AirStrike_Delayed.ebx",
+     "rawSha256": "ba98b08af66c0304e935cfb9b59f16fb7c480e82eecb56d2cb4244ae76f8241c",
+     "offset": 2112,
+     "type": "f32",
+     "bytesHex": "0080a743",
+     "value": 335.0,
+     "expect": 335.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer4-2026-10-01-0141\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Bomb\\Mk82\\PB_Bomb_Mk82_AirStrike_Delayed.ebx",
+     "rawSha256": "ba98b08af66c0304e935cfb9b59f16fb7c480e82eecb56d2cb4244ae76f8241c",
+     "offset": 2016,
+     "type": "i32",
+     "bytesHex": "8017f005",
+     "value": 99620736,
+     "expect": 99620736,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\CallIns\\ArtilleryStrike\\PB_PRJ_Artillery_155mmM795HE_SP_Beach.ebx",
+     "rawSha256": "88fa689d9c7a9ac91b06476f3135f30a050e96c992f203c01e89c2d6b0a299ae",
+     "offset": 804,
+     "type": "f32",
+     "bytesHex": "0000a543",
+     "value": 330.0,
+     "expect": 330.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\CallIns\\ArtilleryStrike\\PB_PRJ_Artillery_155mmM795HE_SP_Beach.ebx",
+     "rawSha256": "88fa689d9c7a9ac91b06476f3135f30a050e96c992f203c01e89c2d6b0a299ae",
+     "offset": 408,
+     "type": "i32",
+     "bytesHex": "8011d007",
+     "value": 131076480,
+     "expect": 131076480,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\CallIns\\ArtilleryStrike\\PB_PRJ_Artillery_155mmM795HE_SP_Beach.ebx",
+     "rawSha256": "88fa689d9c7a9ac91b06476f3135f30a050e96c992f203c01e89c2d6b0a299ae",
+     "offset": 1956,
+     "type": "f32",
+     "bytesHex": "0000f042",
+     "value": 120.0,
+     "expect": 120.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\CallIns\\ArtilleryStrike\\PB_PRJ_Artillery_155mmM795HE_SP_Beach.ebx",
+     "rawSha256": "88fa689d9c7a9ac91b06476f3135f30a050e96c992f203c01e89c2d6b0a299ae",
+     "offset": 1872,
+     "type": "i32",
+     "bytesHex": "8017f005",
+     "value": 99620736,
+     "expect": 99620736,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\CallIns\\KineticStrike\\PB_PRJ_Missile_KineticStrike_TEMP.ebx",
+     "rawSha256": "e0cf31086c7893362e45b275a5513f297c4f6ca732f439655e9d3f362758249e",
+     "offset": 868,
+     "type": "f32",
+     "bytesHex": "00007a44",
+     "value": 1000.0,
+     "expect": 1000.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\CallIns\\KineticStrike\\PB_PRJ_Missile_KineticStrike_TEMP.ebx",
+     "rawSha256": "e0cf31086c7893362e45b275a5513f297c4f6ca732f439655e9d3f362758249e",
+     "offset": 416,
+     "type": "i32",
+     "bytesHex": "81224001",
+     "value": 20980353,
+     "expect": 20980353,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\CallIns\\KineticStrike\\PB_PRJ_Missile_KineticStrike_TEMP.ebx",
+     "rawSha256": "e0cf31086c7893362e45b275a5513f297c4f6ca732f439655e9d3f362758249e",
+     "offset": 3536,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\CallIns\\KineticStrike\\PB_PRJ_Missile_KineticStrike_TEMP.ebx",
+     "rawSha256": "e0cf31086c7893362e45b275a5513f297c4f6ca732f439655e9d3f362758249e",
+     "offset": 3440,
+     "type": "i32",
+     "bytesHex": "80212008",
+     "value": 136323456,
+     "expect": 136323456,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer4-2026-10-01-0141\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Missile\\AIM9X\\PB_PRJ_Missile_AIM9X_CarrierStrike_SSMBattery.ebx",
+     "rawSha256": "685e93c288a6ce114d96846eda267fec4f87b25ce73b36b4a9c82b0323827609",
+     "offset": 868,
+     "type": "f32",
+     "bytesHex": "00007a44",
+     "value": 1000.0,
+     "expect": 1000.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer4-2026-10-01-0141\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Missile\\AIM9X\\PB_PRJ_Missile_AIM9X_CarrierStrike_SSMBattery.ebx",
+     "rawSha256": "685e93c288a6ce114d96846eda267fec4f87b25ce73b36b4a9c82b0323827609",
+     "offset": 416,
+     "type": "i32",
+     "bytesHex": "8000702e",
+     "value": 779092096,
+     "expect": 779092096,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer4-2026-10-01-0141\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Missile\\AIM9X\\PB_PRJ_Missile_AIM9X_CarrierStrike_SSMBattery.ebx",
+     "rawSha256": "685e93c288a6ce114d96846eda267fec4f87b25ce73b36b4a9c82b0323827609",
+     "offset": 2496,
+     "type": "f32",
+     "bytesHex": "00002043",
+     "value": 160.0,
+     "expect": 160.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer4-2026-10-01-0141\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Missile\\AIM9X\\PB_PRJ_Missile_AIM9X_CarrierStrike_SSMBattery.ebx",
+     "rawSha256": "685e93c288a6ce114d96846eda267fec4f87b25ce73b36b4a9c82b0323827609",
+     "offset": 2400,
+     "type": "i32",
+     "bytesHex": "8000f025",
+     "value": 636485760,
+     "expect": 636485760,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\BreachingDart\\PB_40x46mmLVG_Drill.ebx",
+     "rawSha256": "6c9f20ee890bd2f63f00c264f23c96f14e3b3fa71ecc0b21685ef48b68d2f19d",
+     "offset": 2272,
+     "type": "f32",
+     "bytesHex": "00002042",
+     "value": 40.0,
+     "expect": 40.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\BreachingDart\\PB_40x46mmLVG_Drill.ebx",
+     "rawSha256": "6c9f20ee890bd2f63f00c264f23c96f14e3b3fa71ecc0b21685ef48b68d2f19d",
+     "offset": 2176,
+     "type": "i32",
+     "bytesHex": "8016d01a",
+     "value": 449844864,
+     "expect": 449844864,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\BreachingDart\\PB_40x46mmLVG_Drill_Gas.ebx",
+     "rawSha256": "0eb7eac61be11dc33e09581302aa07096beb4b5bf38b02fd8edd0f8dc82e4e1d",
+     "offset": 2624,
+     "type": "f32",
+     "bytesHex": "00002042",
+     "value": 40.0,
+     "expect": 40.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\BreachingDart\\PB_40x46mmLVG_Drill_Gas.ebx",
+     "rawSha256": "0eb7eac61be11dc33e09581302aa07096beb4b5bf38b02fd8edd0f8dc82e4e1d",
+     "offset": 2528,
+     "type": "i32",
+     "bytesHex": "8016d01a",
+     "value": 449844864,
+     "expect": 449844864,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Game\\GlacierGranite\\GameSetup\\Tweakables\\GRX_Granite.ebx",
+     "rawSha256": "51cdcbe74151c009435a8849d43df42a49bf1acb4bd038728c9fd0130d1f7c81",
+     "offset": 16852,
+     "type": "i32",
+     "bytesHex": "12000000",
+     "value": 18,
+     "expect": 18,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Game\\GlacierGranite\\GameSetup\\Tweakables\\GRX_Granite.ebx",
+     "rawSha256": "51cdcbe74151c009435a8849d43df42a49bf1acb4bd038728c9fd0130d1f7c81",
+     "offset": 15508,
+     "type": "i32",
+     "bytesHex": "01000000",
+     "value": 1,
+     "expect": 1,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Game\\GlacierGranite\\GameSetup\\Tweakables\\GRX_Granite.ebx",
+     "rawSha256": "51cdcbe74151c009435a8849d43df42a49bf1acb4bd038728c9fd0130d1f7c81",
+     "offset": 9660,
+     "type": "f32",
+     "bytesHex": "f628123f",
+     "value": 0.5709375143051147,
+     "expect": 0.570938,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Game\\GlacierGranite\\GameSetup\\Tweakables\\GRX_Granite.ebx",
+     "rawSha256": "51cdcbe74151c009435a8849d43df42a49bf1acb4bd038728c9fd0130d1f7c81",
+     "offset": 17428,
+     "type": "f32",
+     "bytesHex": "3333333e",
+     "value": 0.17499999701976776,
+     "expect": 0.175,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Game\\GlacierGranite\\GameSetup\\Tweakables\\GRX_Granite.ebx",
+     "rawSha256": "51cdcbe74151c009435a8849d43df42a49bf1acb4bd038728c9fd0130d1f7c81",
+     "offset": 11124,
+     "type": "f32",
+     "bytesHex": "00003442",
+     "value": 45.0,
+     "expect": 45.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Game\\GlacierGranite\\GameSetup\\Tweakables\\GRX_Granite.ebx",
+     "rawSha256": "51cdcbe74151c009435a8849d43df42a49bf1acb4bd038728c9fd0130d1f7c81",
+     "offset": 19020,
+     "type": "f32",
+     "bytesHex": "00008040",
+     "value": 4.0,
+     "expect": 4.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Game\\GlacierGranite\\GameSetup\\Tweakables\\GRX_Granite.ebx",
+     "rawSha256": "51cdcbe74151c009435a8849d43df42a49bf1acb4bd038728c9fd0130d1f7c81",
+     "offset": 12452,
+     "type": "i32",
+     "bytesHex": "02000000",
+     "value": 2,
+     "expect": 2,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Game\\GlacierGranite\\GameSetup\\Tweakables\\GRX_Granite.ebx",
+     "rawSha256": "51cdcbe74151c009435a8849d43df42a49bf1acb4bd038728c9fd0130d1f7c81",
+     "offset": 18460,
+     "type": "f32",
+     "bytesHex": "00000040",
+     "value": 2.0,
+     "expect": 2.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Game\\GlacierGranite\\GameSetup\\Tweakables\\GRX_Granite.ebx",
+     "rawSha256": "51cdcbe74151c009435a8849d43df42a49bf1acb4bd038728c9fd0130d1f7c81",
+     "offset": 14836,
+     "type": "f32",
+     "bytesHex": "00008040",
+     "value": 4.0,
+     "expect": 4.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Game\\GlacierGranite\\GameSetup\\Tweakables\\GRX_Granite.ebx",
+     "rawSha256": "51cdcbe74151c009435a8849d43df42a49bf1acb4bd038728c9fd0130d1f7c81",
+     "offset": 26756,
+     "type": "f32",
+     "bytesHex": "00002041",
+     "value": 10.0,
+     "expect": 10.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Game\\GlacierGranite\\GameSetup\\Tweakables\\GRX_Granite.ebx",
+     "rawSha256": "51cdcbe74151c009435a8849d43df42a49bf1acb4bd038728c9fd0130d1f7c81",
+     "offset": 24396,
+     "type": "f32",
+     "bytesHex": "0000a041",
+     "value": 20.0,
+     "expect": 20.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Game\\GlacierGranite\\GameSetup\\Tweakables\\GRX_Granite.ebx",
+     "rawSha256": "51cdcbe74151c009435a8849d43df42a49bf1acb4bd038728c9fd0130d1f7c81",
+     "offset": 204,
+     "type": "f32",
+     "bytesHex": "00004843",
+     "value": 200.0,
+     "expect": 200.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Game\\GlacierGranite\\GameSetup\\Tweakables\\GRX_Granite.ebx",
+     "rawSha256": "51cdcbe74151c009435a8849d43df42a49bf1acb4bd038728c9fd0130d1f7c81",
+     "offset": 6548,
+     "type": "f32",
+     "bytesHex": "00004040",
+     "value": 3.0,
+     "expect": 3.0,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 3877,
+   "matched": 3877,
+   "files": 11,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "rawchecks-L3378.json"
+  },
+  "dataset": "reference-data/frosty/call-in-strike-munitions.json",
+  "munitions": [
+   {
+    "file": "PB_PRJ_Missile_AGM179_JAGM",
+    "object": 1,
+    "kind": "direct",
+    "material": 125,
+    "ownDamage": 175.0,
+    "grid": {
+     "119": 2.0,
+     "121": 9.0,
+     "122": 5.5,
+     "115": 1.0
+    },
+    "product": {
+     "119": 350.0,
+     "121": 1575.0,
+     "122": 962.5,
+     "115": 175.0
+    }
+   },
+   {
+    "file": "PB_PRJ_Missile_AGM179_JAGM",
+    "object": 10,
+    "kind": "blast",
+    "material": 206,
+    "ownDamage": 160.0,
+    "grid": {
+     "119": 2.17,
+     "121": 6.67,
+     "122": 8.5,
+     "115": 0.5
+    },
+    "product": {
+     "119": 347.2,
+     "121": 1067.2,
+     "122": 1360.0,
+     "115": 80.0
+    }
+   },
+   {
+    "file": "PB_Bomb_Mk82_AirStrike",
+    "object": 1,
+    "kind": "direct",
+    "material": 125,
+    "ownDamage": 450.0,
+    "grid": {
+     "119": 2.0,
+     "121": 9.0,
+     "122": 5.5,
+     "115": 1.0
+    },
+    "product": {
+     "119": 900.0,
+     "121": 4050.0,
+     "122": 2475.0,
+     "115": 450.0
+    }
+   },
+   {
+    "file": "PB_Bomb_Mk82_AirStrike",
+    "object": 8,
+    "kind": "blast",
+    "material": 95,
+    "ownDamage": 335.0,
+    "grid": {
+     "119": 3.5,
+     "121": 3.5,
+     "122": 4.5,
+     "115": 1.0
+    },
+    "product": {
+     "119": 1172.5,
+     "121": 1172.5,
+     "122": 1507.5,
+     "115": 335.0
+    }
+   },
+   {
+    "file": "PB_Bomb_Mk82_AirStrike_Delayed",
+    "object": 1,
+    "kind": "direct",
+    "material": 125,
+    "ownDamage": 450.0,
+    "grid": {
+     "119": 2.0,
+     "121": 9.0,
+     "122": 5.5,
+     "115": 1.0
+    },
+    "product": {
+     "119": 900.0,
+     "121": 4050.0,
+     "122": 2475.0,
+     "115": 450.0
+    }
+   },
+   {
+    "file": "PB_Bomb_Mk82_AirStrike_Delayed",
+    "object": 8,
+    "kind": "blast",
+    "material": 95,
+    "ownDamage": 335.0,
+    "grid": {
+     "119": 3.5,
+     "121": 3.5,
+     "122": 4.5,
+     "115": 1.0
+    },
+    "product": {
+     "119": 1172.5,
+     "121": 1172.5,
+     "122": 1507.5,
+     "115": 335.0
+    }
+   },
+   {
+    "file": "PB_PRJ_Artillery_155mmM795HE_SP_Beach",
+    "object": 1,
+    "kind": "direct",
+    "material": 125,
+    "ownDamage": 330.0,
+    "grid": {
+     "119": 2.0,
+     "121": 9.0,
+     "122": 5.5,
+     "115": 1.0
+    },
+    "product": {
+     "119": 660.0,
+     "121": 2970.0,
+     "122": 1815.0,
+     "115": 330.0
+    }
+   },
+   {
+    "file": "PB_PRJ_Artillery_155mmM795HE_SP_Beach",
+    "object": 7,
+    "kind": "blast",
+    "material": 95,
+    "ownDamage": 120.0,
+    "grid": {
+     "119": 3.5,
+     "121": 3.5,
+     "122": 4.5,
+     "115": 1.0
+    },
+    "product": {
+     "119": 420.0,
+     "121": 420.0,
+     "122": 540.0,
+     "115": 120.0
+    }
+   },
+   {
+    "file": "PB_PRJ_Missile_KineticStrike_TEMP",
+    "object": 1,
+    "kind": "direct",
+    "material": 20,
+    "ownDamage": 1000.0,
+    "grid": {
+     "119": 0.0,
+     "121": 0.0,
+     "122": 1.0,
+     "115": 1.0
+    },
+    "product": {
+     "119": 0.0,
+     "121": 0.0,
+     "122": 1000.0,
+     "115": 1000.0
+    }
+   },
+   {
+    "file": "PB_PRJ_Missile_KineticStrike_TEMP",
+    "object": 18,
+    "kind": "blast",
+    "material": 130,
+    "ownDamage": 1.0,
+    "grid": {
+     "119": 0.0,
+     "121": 1.0,
+     "122": 3.0,
+     "115": 1.0
+    },
+    "product": {
+     "119": 0.0,
+     "121": 1.0,
+     "122": 3.0,
+     "115": 1.0
+    }
+   },
+   {
+    "file": "PB_PRJ_Missile_AIM9X_CarrierStrike_SSMBattery",
+    "object": 1,
+    "kind": "direct",
+    "material": 743,
+    "ownDamage": 1000.0,
+    "grid": {
+     "119": 2.0,
+     "121": 9.0,
+     "122": 5.5,
+     "115": 1.0
+    },
+    "product": {
+     "119": 2000.0,
+     "121": 9000.0,
+     "122": 5500.0,
+     "115": 1000.0
+    }
+   },
+   {
+    "file": "PB_PRJ_Missile_AIM9X_CarrierStrike_SSMBattery",
+    "object": 10,
+    "kind": "blast",
+    "material": 607,
+    "ownDamage": 160.0,
+    "grid": {
+     "119": 1.0,
+     "121": 3.0,
+     "122": 2.5,
+     "115": 0.8
+    },
+    "product": {
+     "119": 160.0,
+     "121": 480.0,
+     "122": 400.0,
+     "115": 128.0
+    }
+   },
+   {
+    "file": "PB_40x46mmLVG_Drill",
+    "object": 11,
+    "kind": "blast",
+    "material": 429,
+    "ownDamage": 40.0,
+    "grid": {
+     "119": 0.4,
+     "121": 2.5,
+     "122": 3.0,
+     "115": 1.0
+    },
+    "product": {
+     "119": 16.0,
+     "121": 100.0,
+     "122": 120.0,
+     "115": 40.0
+    }
+   },
+   {
+    "file": "PB_40x46mmLVG_Drill_Gas",
+    "object": 14,
+    "kind": "blast",
+    "material": 429,
+    "ownDamage": 40.0,
+    "grid": {
+     "119": 0.4,
+     "121": 2.5,
+     "122": 3.0,
+     "115": 1.0
+    },
+    "product": {
+     "119": 16.0,
+     "121": 100.0,
+     "122": 120.0,
+     "115": 40.0
+    }
+   }
+  ],
+  "patternRows": [
+   {
+    "row": "Artillery_ShellCountPerVolley",
+    "default": 18.0,
+    "registry": "GRX_Granite"
+   },
+   {
+    "row": "Artillery_VolleyCount",
+    "default": 1.0,
+    "registry": "GRX_Granite"
+   },
+   {
+    "row": "Artillery_TimeBetweenShells",
+    "default": 0.570938,
+    "registry": "GRX_Granite"
+   },
+   {
+    "row": "Artillery_TimeBetweenShellsVariation",
+    "default": 0.175,
+    "registry": "GRX_Granite"
+   },
+   {
+    "row": "Artillery_DispersionRadius",
+    "default": 45.0,
+    "registry": "GRX_Granite"
+   },
+   {
+    "row": "Artillery_FireDelay",
+    "default": 4.0,
+    "registry": "GRX_Granite"
+   },
+   {
+    "row": "Artillery_RangeingShotCount",
+    "default": 2.0,
+    "registry": "GRX_Granite"
+   },
+   {
+    "row": "Artillery_RangeingTimeBetweenShots",
+    "default": 2.0,
+    "registry": "GRX_Granite"
+   },
+   {
+    "row": "JAGMStrike_MapInnerBlastRadius",
+    "default": 4.0,
+    "registry": "GRX_Granite"
+   },
+   {
+    "row": "JAGMStrike_MapBlastRadius",
+    "default": 10.0,
+    "registry": "GRX_Granite"
+   },
+   {
+    "row": "JAGMStrike_MapShockwaveRadius",
+    "default": 20.0,
+    "registry": "GRX_Granite"
+   },
+   {
+    "row": "JAGMStrike_WarningRadius",
+    "default": 200.0,
+    "registry": "GRX_Granite"
+   },
+   {
+    "row": "AirStrike_WarningDelay",
+    "default": 3.0,
+    "registry": "GRX_Granite"
+   }
+  ],
+  "registryDamageRows": 0
+ },
+ "inference": [
+  "JAGM: direct 175 on the RPG's material (350 against a tank before any hit factor) plus blast 160 with grid 2.17 (347), so about 697 for a direct hit. Mk 82 air strike bomb: direct 450 (900) plus blast 335 with grid 3.5 (1172), above a tank's 1200 health on a direct hit. 155 mm shell: direct 330 (660) plus blast 120 (420). Kinetic strike: direct 1000 with grid 0 against tanks and helicopters and 1 against light vehicles and soldiers. Carrier-strike missile: direct 1000 (2000 against a tank).",
+  "All damage values here are file-only: no registry row exists for any of them, and such values can be stale (L3343). The products are what the rule gives if the file values are current.",
+  "Artillery strike pattern rows: one volley of 18 shells, 0.571 s apart (variation 0.175), dispersion radius 45, fire delay 4, two ranging shots 2 s apart. Units are taken as seconds and metres by analogy with other rows.",
+  "JAGM map radii 4 / 10 / 20 (inner, blast, shockwave) and warning radius 200 are rows for the map display and warning; the missile's own blast radius was not read here."
+ ],
+ "unresolved": [
+  "Damage of one JAGM hit on a tank (about 697 expected if the file values are current).",
+  "Which modes offer each strike, and their cooldowns, are not in these files."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-09-damage-rule-extension",
+  "artifacts": [
+   {
+    "file": "manifest-L3378.json",
+    "sha256": "8eecd466f1a31a27e940806f591ec491ccec89d271e23d1a0b03fa50b9c653c9"
+   },
+   {
+    "file": "rawchecks-L3378.json",
+    "sha256": "f4392f83f48356142997df5343d5f0c731c4742b113ec740d3a7f9fceeca5afd"
+   },
+   {
+    "file": "strike.json",
+    "sha256": "7e4dc7cfb31791b6f2991dbdec62598e0d3286a3c7499e64d17201660506c91e"
+   },
+   {
+    "file": "extract.py",
+    "sha256": "0350a77b41b82ac121478aaad252154a4db0c299216076b7785a560d0e71a92a"
+   },
+   {
+    "file": "strike-grid-rawchecks.json",
+    "sha256": "97c711d59f981cfff856bc862512c260894b8c25b4ad4c259b11ab7365a3d9c4"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-09",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L3378",
+    "title": "Call-in strike munitions under the damage rule: JAGM, Mk 82 air strike, 155 mm artillery, kinetic strike, carrier missile and the 40 mm drill grenade (file-only damage values)",
+    "status": "finding",
+    "summary": "Stored damage for the call-in strikes: JAGM 175 direct and 160 blast, Mk 82 air strike bomb 450 and 335, 155 mm shell 330 and 120, kinetic strike and carrier missile 1000 direct. By the rule a direct JAGM hit does about 697 to a tank (350 direct plus 347 blast) and a direct bomb hit more than a tank's health. All are file-only values with no registry row. The artillery strike fires one volley of 18 shells over about 10 s within a 45 m radius. 3877 raw-offset checks matched.",
+    "reopenWhen": "An in-game strike damage reading on a vehicle.",
+    "statusNote": "File values and grid products read; no registry rows; not confirmed in game."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Hardware/Vehicles/_Projectiles/missile/Hellfire/Art/PB_PRJ_Missile_AGM179_JAGM",
+    "format": "raw-ebx",
+    "sha256": "69200949639e7f28708b7af3dd42424d08c60fca26cb976b7b4b7e0eb68c609b",
+    "question": "What stored damage do the call-in strike munitions carry, and what does the damage rule of L3323 give for them?",
+    "result": "useful",
+    "conclusion": "Direct damage 175 on material 125; blast 160."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/_Projectiles/Bomb/Mk82/PB_Bomb_Mk82_AirStrike",
+    "format": "raw-ebx",
+    "sha256": "50c19df12130123eba75f43f89c141190a0cdbbf1ab8c84805fc2fafcda66cae",
+    "question": "What stored damage do the call-in strike munitions carry, and what does the damage rule of L3323 give for them?",
+    "result": "useful",
+    "conclusion": "Direct damage 450; blast 335 on material 95."
+   }
+  ]
+ }
+}

@@ -1,0 +1,960 @@
+{
+ "lead": "L3343",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Read from saved raw captures; no export, no new capture."
+ },
+ "question": "Do the stored missile speed, acceleration, lock time and lock range of the launchers equal EA's 1.3.1.0 figures, and which fields hold them?",
+ "sourceFacts": {
+  "method": "A Haiku worker searched the launcher files for fields equal to EA's numbers; its candidates were not recorded as found. Each field below was re-read here by script with its offset: Field_1a2b6380 and Field_0f6601e1 on the missile object (Class_6a25e89d), Field_1351d684 in Class_a4fe2c96 and Field_f41246df in Class_6191fd53 of the weapon files, and Field_85c11a9b of the tank's active protection ability. Registry rows were read where they exist. Item names are joined to files by name only.",
+  "control": {
+   "description": "Field_1a2b6380 is MaxSpeed and Field_0f6601e1 is EngineStrength: PBNS_Stinger_Vehicle stores 540 and 65 in both the fields and its registry rows of those names; PB_Javelin stores EngineStrength 40 in both.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\MBTLAW\\PB_MBTLAW.ebx",
+     "rawSha256": "31bbb108ea03a6433a70fc96b9b0c2ca2fe743cda4bb2cbb9f3bcecb102828ba",
+     "offset": 684,
+     "type": "f32",
+     "bytesHex": "00009643",
+     "value": 300.0,
+     "expect": 300.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\MBTLAW\\PB_MBTLAW.ebx",
+     "rawSha256": "31bbb108ea03a6433a70fc96b9b0c2ca2fe743cda4bb2cbb9f3bcecb102828ba",
+     "offset": 680,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Javelin\\PB_Javelin.ebx",
+     "rawSha256": "26ded649660436b43b24a0339a475685b6ae3d9d8127599f4eebeb4b8fc8d6cd",
+     "offset": 684,
+     "type": "f32",
+     "bytesHex": "00007042",
+     "value": 60.0,
+     "expect": 60.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 651548,
+     "type": "f32",
+     "bytesHex": "00008c42",
+     "value": 70.0,
+     "expect": 70.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Javelin\\PB_Javelin.ebx",
+     "rawSha256": "26ded649660436b43b24a0339a475685b6ae3d9d8127599f4eebeb4b8fc8d6cd",
+     "offset": 680,
+     "type": "f32",
+     "bytesHex": "00002042",
+     "value": 40.0,
+     "expect": 40.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 32724,
+     "type": "f32",
+     "bytesHex": "00002042",
+     "value": 40.0,
+     "expect": 40.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Missile\\TOW2B\\PB_Missile_TOW2B_AirVehicle.ebx",
+     "rawSha256": "c3d4dadb95456b181c15b7b682d413b68ea10eb931c66018d0ae9405c8378bb5",
+     "offset": 684,
+     "type": "f32",
+     "bytesHex": "0000b442",
+     "value": 90.0,
+     "expect": 90.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 413300,
+     "type": "f32",
+     "bytesHex": "0000f042",
+     "value": 120.0,
+     "expect": 120.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Missile\\TOW2B\\PB_Missile_TOW2B_AirVehicle.ebx",
+     "rawSha256": "c3d4dadb95456b181c15b7b682d413b68ea10eb931c66018d0ae9405c8378bb5",
+     "offset": 680,
+     "type": "f32",
+     "bytesHex": "00004842",
+     "value": 50.0,
+     "expect": 50.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 114900,
+     "type": "f32",
+     "bytesHex": "0000a042",
+     "value": 80.0,
+     "expect": 80.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Missile\\TOW2B\\PB_Missile_TOW2B.ebx",
+     "rawSha256": "da25296d96d4e29600e6b16239f62bca556558f359be5a9552693383841fa973",
+     "offset": 684,
+     "type": "f32",
+     "bytesHex": "00001643",
+     "value": 150.0,
+     "expect": 150.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 65940,
+     "type": "f32",
+     "bytesHex": "0000b442",
+     "value": 90.0,
+     "expect": 90.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Missile\\TOW2B\\PB_Missile_TOW2B.ebx",
+     "rawSha256": "da25296d96d4e29600e6b16239f62bca556558f359be5a9552693383841fa973",
+     "offset": 680,
+     "type": "f32",
+     "bytesHex": "00004842",
+     "value": 50.0,
+     "expect": 50.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 165724,
+     "type": "f32",
+     "bytesHex": "00004842",
+     "value": 50.0,
+     "expect": 50.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\IGLA\\PB_NS_IGLA.ebx",
+     "rawSha256": "91b1062d694603295dad42cecaaec90353f8fbedd5de244befd1be35a42097a7",
+     "offset": 684,
+     "type": "f32",
+     "bytesHex": "00002044",
+     "value": 640.0,
+     "expect": 640.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\IGLA\\PB_NS_IGLA.ebx",
+     "rawSha256": "91b1062d694603295dad42cecaaec90353f8fbedd5de244befd1be35a42097a7",
+     "offset": 680,
+     "type": "f32",
+     "bytesHex": "00008242",
+     "value": 65.0,
+     "expect": 65.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Stinger\\PB_NS_Stinger.ebx",
+     "rawSha256": "6e9f751e5927247da34d7240161ba1f6ea6f62c82b354e9d8b89a034b36f2cbd",
+     "offset": 684,
+     "type": "f32",
+     "bytesHex": "0000c843",
+     "value": 400.0,
+     "expect": 400.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Stinger\\PB_NS_Stinger.ebx",
+     "rawSha256": "6e9f751e5927247da34d7240161ba1f6ea6f62c82b354e9d8b89a034b36f2cbd",
+     "offset": 680,
+     "type": "f32",
+     "bytesHex": "00004842",
+     "value": 50.0,
+     "expect": 50.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Stinger\\PB_Stinger.ebx",
+     "rawSha256": "149e05ae01b735dc615316912123e0127d58de98dae26ca422244402a5daede8",
+     "offset": 684,
+     "type": "f32",
+     "bytesHex": "0000af43",
+     "value": 350.0,
+     "expect": 350.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Stinger\\PB_Stinger.ebx",
+     "rawSha256": "149e05ae01b735dc615316912123e0127d58de98dae26ca422244402a5daede8",
+     "offset": 680,
+     "type": "f32",
+     "bytesHex": "00004843",
+     "value": 200.0,
+     "expect": 200.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\PBNS_Stinger_Vehicle.ebx",
+     "rawSha256": "d70533cc8bdb5249459eb476927cc71a0154b8d0d4cd585bf4d41b9c4220211f",
+     "offset": 684,
+     "type": "f32",
+     "bytesHex": "00000744",
+     "value": 540.0,
+     "expect": 540.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 374964,
+     "type": "f32",
+     "bytesHex": "00000744",
+     "value": 540.0,
+     "expect": 540.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\PBNS_Stinger_Vehicle.ebx",
+     "rawSha256": "d70533cc8bdb5249459eb476927cc71a0154b8d0d4cd585bf4d41b9c4220211f",
+     "offset": 680,
+     "type": "f32",
+     "bytesHex": "00008242",
+     "value": 65.0,
+     "expect": 65.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 449236,
+     "type": "f32",
+     "bytesHex": "00008242",
+     "value": 65.0,
+     "expect": 65.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\IGLA\\WB_IGLA.ebx",
+     "rawSha256": "cde96ccd57bbebed049b9489683b0b2559217e4c1474826d607a5a39326ecb26",
+     "offset": 6080,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\IGLA\\WB_IGLA.ebx",
+     "rawSha256": "cde96ccd57bbebed049b9489683b0b2559217e4c1474826d607a5a39326ecb26",
+     "offset": 6200,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\IGLA\\WB_IGLA.ebx",
+     "rawSha256": "cde96ccd57bbebed049b9489683b0b2559217e4c1474826d607a5a39326ecb26",
+     "offset": 4936,
+     "type": "f32",
+     "bytesHex": "00005244",
+     "value": 840.0,
+     "expect": 840.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\IGLA\\WB_IGLA.ebx",
+     "rawSha256": "cde96ccd57bbebed049b9489683b0b2559217e4c1474826d607a5a39326ecb26",
+     "offset": 5048,
+     "type": "f32",
+     "bytesHex": "00002f44",
+     "value": 700.0,
+     "expect": 700.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\IGLA\\WB_IGLA.ebx",
+     "rawSha256": "cde96ccd57bbebed049b9489683b0b2559217e4c1474826d607a5a39326ecb26",
+     "offset": 5528,
+     "type": "f32",
+     "bytesHex": "6666e63f",
+     "value": 1.7999999523162842,
+     "expect": 1.8,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\IGLA\\WB_IGLA.ebx",
+     "rawSha256": "cde96ccd57bbebed049b9489683b0b2559217e4c1474826d607a5a39326ecb26",
+     "offset": 5704,
+     "type": "f32",
+     "bytesHex": "9a99993f",
+     "value": 1.2000000476837158,
+     "expect": 1.2,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\IGLA\\WB_IGLA.ebx",
+     "rawSha256": "cde96ccd57bbebed049b9489683b0b2559217e4c1474826d607a5a39326ecb26",
+     "offset": 5556,
+     "type": "f32",
+     "bytesHex": "00001644",
+     "value": 600.0,
+     "expect": 600.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\IGLA\\WB_IGLA.ebx",
+     "rawSha256": "cde96ccd57bbebed049b9489683b0b2559217e4c1474826d607a5a39326ecb26",
+     "offset": 5732,
+     "type": "f32",
+     "bytesHex": "00004844",
+     "value": 800.0,
+     "expect": 800.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Javelin\\WB_Javelin.ebx",
+     "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+     "offset": 6120,
+     "type": "f32",
+     "bytesHex": "3333b33f",
+     "value": 1.399999976158142,
+     "expect": 1.4,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Javelin\\WB_Javelin.ebx",
+     "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+     "offset": 6240,
+     "type": "f32",
+     "bytesHex": "3333b33f",
+     "value": 1.399999976158142,
+     "expect": 1.4,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Javelin\\WB_Javelin.ebx",
+     "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+     "offset": 4936,
+     "type": "f32",
+     "bytesHex": "00802244",
+     "value": 650.0,
+     "expect": 650.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Javelin\\WB_Javelin.ebx",
+     "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+     "offset": 5048,
+     "type": "f32",
+     "bytesHex": "00004344",
+     "value": 780.0,
+     "expect": 780.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Javelin\\WB_Javelin.ebx",
+     "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+     "offset": 5664,
+     "type": "f32",
+     "bytesHex": "6666e63f",
+     "value": 1.7999999523162842,
+     "expect": 1.8,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Javelin\\WB_Javelin.ebx",
+     "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+     "offset": 5840,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Javelin\\WB_Javelin.ebx",
+     "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+     "offset": 5692,
+     "type": "f32",
+     "bytesHex": "00802244",
+     "value": 650.0,
+     "expect": 650.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Javelin\\WB_Javelin.ebx",
+     "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+     "offset": 5868,
+     "type": "f32",
+     "bytesHex": "00803b44",
+     "value": 750.0,
+     "expect": 750.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Stinger\\WB_Stinger.ebx",
+     "rawSha256": "4ca9099481e74cf6332c1c39b43b0fb193e970b024bf5621f161640cb57299cc",
+     "offset": 5896,
+     "type": "f32",
+     "bytesHex": "0000c03f",
+     "value": 1.5,
+     "expect": 1.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Stinger\\WB_Stinger.ebx",
+     "rawSha256": "4ca9099481e74cf6332c1c39b43b0fb193e970b024bf5621f161640cb57299cc",
+     "offset": 6016,
+     "type": "f32",
+     "bytesHex": "0000c03f",
+     "value": 1.5,
+     "expect": 1.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Stinger\\WB_Stinger.ebx",
+     "rawSha256": "4ca9099481e74cf6332c1c39b43b0fb193e970b024bf5621f161640cb57299cc",
+     "offset": 4808,
+     "type": "f32",
+     "bytesHex": "00800944",
+     "value": 550.0,
+     "expect": 550.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Stinger\\WB_Stinger.ebx",
+     "rawSha256": "4ca9099481e74cf6332c1c39b43b0fb193e970b024bf5621f161640cb57299cc",
+     "offset": 4920,
+     "type": "f32",
+     "bytesHex": "00e02b44",
+     "value": 687.5,
+     "expect": 687.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Stinger\\WB_Stinger.ebx",
+     "rawSha256": "4ca9099481e74cf6332c1c39b43b0fb193e970b024bf5621f161640cb57299cc",
+     "offset": 5400,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Stinger\\WB_Stinger.ebx",
+     "rawSha256": "4ca9099481e74cf6332c1c39b43b0fb193e970b024bf5621f161640cb57299cc",
+     "offset": 5576,
+     "type": "f32",
+     "bytesHex": "0000c03f",
+     "value": 1.5,
+     "expect": 1.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Stinger\\WB_Stinger.ebx",
+     "rawSha256": "4ca9099481e74cf6332c1c39b43b0fb193e970b024bf5621f161640cb57299cc",
+     "offset": 5428,
+     "type": "f32",
+     "bytesHex": "00803b44",
+     "value": 750.0,
+     "expect": 750.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Stinger\\WB_Stinger.ebx",
+     "rawSha256": "4ca9099481e74cf6332c1c39b43b0fb193e970b024bf5621f161640cb57299cc",
+     "offset": 5604,
+     "type": "f32",
+     "bytesHex": "00802244",
+     "value": 650.0,
+     "expect": 650.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\MBTLAW\\WB_MBTLAW.ebx",
+     "rawSha256": "8b7b51c84034c96cbb51acbe843321ea4b9679e21ab3d21fe60885f9ca35f839",
+     "offset": 6376,
+     "type": "f32",
+     "bytesHex": "00004040",
+     "value": 3.0,
+     "expect": 3.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\MBTLAW\\WB_MBTLAW.ebx",
+     "rawSha256": "8b7b51c84034c96cbb51acbe843321ea4b9679e21ab3d21fe60885f9ca35f839",
+     "offset": 5440,
+     "type": "f32",
+     "bytesHex": "00802244",
+     "value": 650.0,
+     "expect": 650.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\MBTLAW\\WB_MBTLAW.ebx",
+     "rawSha256": "8b7b51c84034c96cbb51acbe843321ea4b9679e21ab3d21fe60885f9ca35f839",
+     "offset": 5984,
+     "type": "f32",
+     "bytesHex": "00004040",
+     "value": 3.0,
+     "expect": 3.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\MBTLAW\\WB_MBTLAW.ebx",
+     "rawSha256": "8b7b51c84034c96cbb51acbe843321ea4b9679e21ab3d21fe60885f9ca35f839",
+     "offset": 6012,
+     "type": "f32",
+     "bytesHex": "00802244",
+     "value": 650.0,
+     "expect": 650.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Abilities\\MBT\\Ability_MBT_ActiveProtectionSystem.ebx",
+     "rawSha256": "3ffdbf70e4f62363ee15011e53ae1f677ae629c3b4f35bf4ec85b4aa3e2ff3fb",
+     "offset": 388,
+     "type": "f32",
+     "bytesHex": "cdcc0c3f",
+     "value": 0.550000011920929,
+     "expect": 0.55,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 110756,
+     "type": "f32",
+     "bytesHex": "0000a040",
+     "value": 5.0,
+     "expect": 5.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 150860,
+     "type": "f32",
+     "bytesHex": "00000042",
+     "value": 32.0,
+     "expect": 32.0,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 55,
+   "matched": 55,
+   "files": 15,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "rawchecks-L3343.json"
+  },
+  "dataset": "reference-data/frosty/launcher-speed-and-lock-values.json",
+  "officialSources": [
+   "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-1-0",
+   "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-3-0"
+  ],
+  "fieldNames": {
+   "Class_6a25e89d.Field_1a2b6380": "MaxSpeed (by registry agreement)",
+   "Class_6a25e89d.Field_0f6601e1": "EngineStrength (by registry agreement)",
+   "Class_a4fe2c96 Field_1351d684": "lock time (by EA agreement, two items)",
+   "Class_6191fd53.Field_f41246df": "lock range (by EA agreement, one item)"
+  },
+  "motion": [
+   {
+    "item": "MBT-LAW",
+    "file": "PB_MBTLAW",
+    "maxSpeed": {
+     "own": 300.0,
+     "registry": null,
+     "ea": "75 to 300",
+     "eaNew": 300,
+     "used": 300.0,
+     "equalsEaNew": true
+    },
+    "engineStrength": {
+     "own": 100.0,
+     "registry": null,
+     "ea": "50 to 100",
+     "eaNew": 100,
+     "equalsEaNew": true
+    }
+   },
+   {
+    "item": "MAS 148 Glaive",
+    "file": "PB_Javelin",
+    "maxSpeed": {
+     "own": 60.0,
+     "registry": 70.0,
+     "ea": "60 to 70",
+     "eaNew": 70,
+     "used": 70.0,
+     "equalsEaNew": true
+    },
+    "engineStrength": {
+     "own": 40.0,
+     "registry": 40.0,
+     "ea": null,
+     "eaNew": null,
+     "equalsEaNew": null
+    }
+   },
+   {
+    "item": "Attack helicopter TOW",
+    "file": "PB_Missile_TOW2B_AirVehicle",
+    "maxSpeed": {
+     "own": 90.0,
+     "registry": 120.0,
+     "ea": "90 to 120",
+     "eaNew": 120,
+     "used": 120.0,
+     "equalsEaNew": true
+    },
+    "engineStrength": {
+     "own": 50.0,
+     "registry": 80.0,
+     "ea": null,
+     "eaNew": null,
+     "equalsEaNew": null
+    }
+   },
+   {
+    "item": "Ground vehicle TOW",
+    "file": "PB_Missile_TOW2B",
+    "maxSpeed": {
+     "own": 150.0,
+     "registry": 90.0,
+     "ea": "remains 90",
+     "eaNew": 90,
+     "used": 90.0,
+     "equalsEaNew": true
+    },
+    "engineStrength": {
+     "own": 50.0,
+     "registry": 50.0,
+     "ea": null,
+     "eaNew": null,
+     "equalsEaNew": null
+    }
+   },
+   {
+    "item": "9K93 IGLA",
+    "file": "PB_NS_IGLA",
+    "maxSpeed": {
+     "own": 640.0,
+     "registry": null,
+     "ea": "640 to 480",
+     "eaNew": 480,
+     "used": 640.0,
+     "equalsEaNew": false
+    },
+    "engineStrength": {
+     "own": 65.0,
+     "registry": null,
+     "ea": "65 to 100",
+     "eaNew": 100,
+     "equalsEaNew": false
+    }
+   },
+   {
+    "item": "SLM-93A",
+    "file": "PB_NS_Stinger",
+    "maxSpeed": {
+     "own": 400.0,
+     "registry": null,
+     "ea": "540 to 480",
+     "eaNew": 480,
+     "used": 400.0,
+     "equalsEaNew": false
+    },
+    "engineStrength": {
+     "own": 50.0,
+     "registry": null,
+     "ea": null,
+     "eaNew": null,
+     "equalsEaNew": null
+    }
+   },
+   {
+    "item": "SLM-93A (second file)",
+    "file": "PB_Stinger",
+    "maxSpeed": {
+     "own": 350.0,
+     "registry": null,
+     "ea": "540 to 480",
+     "eaNew": 480,
+     "used": 350.0,
+     "equalsEaNew": false
+    },
+    "engineStrength": {
+     "own": 200.0,
+     "registry": null,
+     "ea": null,
+     "eaNew": null,
+     "equalsEaNew": null
+    }
+   },
+   {
+    "item": "Stinger, vehicle file",
+    "file": "PBNS_Stinger_Vehicle",
+    "maxSpeed": {
+     "own": 540.0,
+     "registry": 540.0,
+     "ea": "540 to 480",
+     "eaNew": 480,
+     "used": 540.0,
+     "equalsEaNew": false
+    },
+    "engineStrength": {
+     "own": 65.0,
+     "registry": 65.0,
+     "ea": null,
+     "eaNew": null,
+     "equalsEaNew": null
+    }
+   }
+  ],
+  "lock": [
+   {
+    "item": "9K93 IGLA",
+    "file": "WB_IGLA",
+    "lockTime": 1.0,
+    "lockTimeObjects": 2,
+    "eaLockTime": "1.2 to 1",
+    "lockTimeEqualsEa": true,
+    "ranges": [
+     840.0,
+     700.0
+    ],
+    "ratio": 1.2,
+    "eaRange": null,
+    "rangeEqualsEa": null,
+    "otherObjects": [
+     {
+      "lockTime": 1.8,
+      "range": 600.0
+     },
+     {
+      "lockTime": 1.2,
+      "range": 800.0
+     }
+    ]
+   },
+   {
+    "item": "MAS 148 Glaive",
+    "file": "WB_Javelin",
+    "lockTime": 1.4,
+    "lockTimeObjects": 2,
+    "eaLockTime": "1.8 to 1.4",
+    "lockTimeEqualsEa": true,
+    "ranges": [
+     650.0,
+     780.0
+    ],
+    "ratio": 1.2,
+    "eaRange": null,
+    "rangeEqualsEa": null,
+    "otherObjects": [
+     {
+      "lockTime": 1.8,
+      "range": 650.0
+     },
+     {
+      "lockTime": 1.0,
+      "range": 750.0
+     }
+    ]
+   },
+   {
+    "item": "SLM-93A",
+    "file": "WB_Stinger",
+    "lockTime": 1.5,
+    "lockTimeObjects": 2,
+    "eaLockTime": null,
+    "lockTimeEqualsEa": null,
+    "ranges": [
+     550.0,
+     687.5
+    ],
+    "ratio": 1.25,
+    "eaRange": "650 to 550",
+    "rangeEqualsEa": true,
+    "otherObjects": [
+     {
+      "lockTime": 1.0,
+      "range": 750.0
+     },
+     {
+      "lockTime": 1.5,
+      "range": 650.0
+     }
+    ]
+   },
+   {
+    "item": "MBT-LAW",
+    "file": "WB_MBTLAW",
+    "lockTime": 3.0,
+    "lockTimeObjects": 1,
+    "eaLockTime": null,
+    "lockTimeEqualsEa": null,
+    "ranges": [
+     650.0
+    ],
+    "ratio": null,
+    "eaRange": null,
+    "rangeEqualsEa": null,
+    "otherObjects": [
+     {
+      "lockTime": 3.0,
+      "range": 650.0
+     }
+    ]
+   }
+  ],
+  "activeProtection": {
+   "file": "Ability_MBT_ActiveProtectionSystem",
+   "Field_85c11a9b": 0.55,
+   "eaActivationTime": "1 to 0.6 (1.3.1.0), then 0.55 (1.3.3.0)",
+   "registry": {
+    "ActiveTime": 5.0,
+    "RechargeTime": 32.0
+   },
+   "ownField_143f8e7a": 4.0,
+   "ownField_bcfe8c70": 32.0
+  },
+  "workerOutput": "ea-own-field-candidates.json (unverified candidates; several are coincidences, such as Damage 100 offered as acceleration)"
+ },
+ "inference": [
+  "EA's 'missile acceleration' is EngineStrength: the MBT-LAW stores 100, EA's new value.",
+  "Max speed follows the registry-over-own pattern again: Glaive own 60, registry 70 (EA 60 to 70); helicopter TOW own 90, registry 120 (EA 90 to 120). The MBT-LAW has no row and its own value is 300, EA's new value.",
+  "The IGLA missile file stores max speed 640 and engine strength 65, EA's values from before 1.3.1.0, and has no registry row; no SLM-93A file stores 480 either (400, 350 and 540). EA's 480 m/s for both is not in any file read here.",
+  "Lock time is in the weapon file: IGLA 1.0 and Glaive 1.4, EA's new values. SLM-93A stores 1.5 and the MBT-LAW 3.0, for which EA states nothing.",
+  "Each locking weapon file stores two lock ranges. The lower SLM-93A range is 550, EA's new base range. The higher is 1.2 times the lower for the IGLA (700, 840) and Glaive (650, 780), which fits EA's 'consistent 20% increase' from the laser designator; for the SLM-93A it is 1.25 times (550, 687.5), which does not.",
+  "Active protection: Field_85c11a9b is 0.55, EA's 1.3.3.0 activation time. The same object stores 32, equal to the registry RechargeTime, and 4.0 where the registry ActiveTime is 5.0."
+ ],
+ "unresolved": [
+  "IGLA and SLM-93A missile speed (stored 640 and 400 / 350 / 540; EA 480). Test: time an IGLA missile over a known distance to a hovering helicopter at about 480 m; 1 s after launch speed-up means 480 m/s.",
+  "SLM-93A designated lock range: 687.5 m stored, 660 m by EA's 20 percent. Test: lock a laser-designated helicopter at 675 m.",
+  "Which SLM-93A missile file the gadget fires (PB_NS_Stinger or PB_Stinger); the weapon-to-projectile import was not traced here.",
+  "Active protection active time: own 4.0 or registry 5.0. Test: time the system's active window."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-09-damage-rule-extension",
+  "artifacts": [
+   {
+    "file": "manifest-L3343.json",
+    "sha256": "b82efd7b4a140f0f55f0c57c798ce8df720850ca207bbbf1bae7732c727ba881"
+   },
+   {
+    "file": "rawchecks-L3343.json",
+    "sha256": "47360561fde924b440850b487dfe28718eca43955a15c23822f2a46edf6b3cb4"
+   },
+   {
+    "file": "fieldfind-motion.json",
+    "sha256": "975d69633a1a9d35275e75406ff22457ec73be6b9991ef26e76388e95cae7eb6"
+   },
+   {
+    "file": "fieldfind-aps.json",
+    "sha256": "dd87114abc4285e248f7d4b880eabe8975b939303d519f306af585fe1958f314"
+   },
+   {
+    "file": "fieldfind.py",
+    "sha256": "51b443e49c3043f524e485e8c2232d4ff4792a9a0cc15f73ef0ec44ec6e7fab9"
+   },
+   {
+    "file": "ea-own-field-candidates.json",
+    "sha256": "fcfdb2f77ebc779d9dd9083c24f3082f0b53b6c160cfd0ae52ac81411ad6e1dc"
+   },
+   {
+    "file": "ea-1-3-1-0.txt",
+    "sha256": "164104a0230d09e8d179f79b65a708c2c1d04244f06157ab8827d57b5443ad4d"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-09",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L3343",
+    "title": "Launcher missile speed, lock time and lock range against EA's 1.3.1.0 figures; the IGLA and SLM-93A missile files still hold the older speeds",
+    "status": "finding",
+    "summary": "Missile max speed is Field_1a2b6380 and EA's 'acceleration' is EngineStrength (Field_0f6601e1). The MBT-LAW (300, 100), Glaive (registry 70) and TOW (registry 120 and 90) equal EA's 1.3.1.0 figures; the IGLA file still stores 640 and 65 and no SLM-93A file stores EA's 480. Lock times 1.0 (IGLA) and 1.4 (Glaive), the SLM-93A base lock range 550 and the active protection activation time 0.55 equal EA's figures. Designated lock range is 1.2 times base for IGLA and Glaive but 1.25 times for the SLM-93A. 55 raw-offset checks matched.",
+    "reopenWhen": "A timed missile flight or lock in game, or a stored row holding 480 for the IGLA or SLM-93A.",
+    "statusNote": "Six EA figures equal stored values; IGLA and SLM-93A speeds do not; names joined by name only."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Hardware/Gadgets/Launchers/IGLA/PB_NS_IGLA",
+    "format": "raw-ebx",
+    "sha256": "91b1062d694603295dad42cecaaec90353f8fbedd5de244befd1be35a42097a7",
+    "question": "Do the stored missile speed, acceleration, lock time and lock range of the launchers equal EA's 1.3.1.0 figures, and which fields hold them?",
+    "result": "useful",
+    "conclusion": "MaxSpeed 640 and EngineStrength 65, EA's values from before 1.3.1.0."
+   },
+   {
+    "path": "Common/Hardware/Gadgets/Launchers/MBTLAW/PB_MBTLAW",
+    "format": "raw-ebx",
+    "sha256": "31bbb108ea03a6433a70fc96b9b0c2ca2fe743cda4bb2cbb9f3bcecb102828ba",
+    "question": "Do the stored missile speed, acceleration, lock time and lock range of the launchers equal EA's 1.3.1.0 figures, and which fields hold them?",
+    "result": "useful",
+    "conclusion": "MaxSpeed 300 and EngineStrength 100, EA's new values."
+   },
+   {
+    "path": "Common/Hardware/Gadgets/Launchers/Stinger/WB_Stinger",
+    "format": "raw-ebx",
+    "sha256": "4ca9099481e74cf6332c1c39b43b0fb193e970b024bf5621f161640cb57299cc",
+    "question": "Do the stored missile speed, acceleration, lock time and lock range of the launchers equal EA's 1.3.1.0 figures, and which fields hold them?",
+    "result": "useful",
+    "conclusion": "Lock ranges 550 and 687.5; lock time 1.5."
+   },
+   {
+    "path": "Common/Hardware/Gadgets/Launchers/IGLA/WB_IGLA",
+    "format": "raw-ebx",
+    "sha256": "cde96ccd57bbebed049b9489683b0b2559217e4c1474826d607a5a39326ecb26",
+    "question": "Do the stored missile speed, acceleration, lock time and lock range of the launchers equal EA's 1.3.1.0 figures, and which fields hold them?",
+    "result": "useful",
+    "conclusion": "Lock time 1.0; lock ranges 700 and 840."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/_VehiclesCommon/Abilities/MBT/Ability_MBT_ActiveProtectionSystem",
+    "format": "raw-ebx",
+    "sha256": "3ffdbf70e4f62363ee15011e53ae1f677ae629c3b4f35bf4ec85b4aa3e2ff3fb",
+    "question": "Do the stored missile speed, acceleration, lock time and lock range of the launchers equal EA's 1.3.1.0 figures, and which fields hold them?",
+    "result": "useful",
+    "conclusion": "Field_85c11a9b 0.55, EA's 1.3.3.0 activation time."
+   }
+  ]
+ }
+}

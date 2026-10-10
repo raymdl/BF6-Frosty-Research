@@ -1,0 +1,172 @@
+{
+ "lead": "L3366",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Read from saved raw captures; no export, no new capture."
+ },
+ "question": "Is EA's 1.3.1.0 Claymore figure (fragmentation base close-range damage 65 to 50) stored, given that the blast object holds BlastDamage 1?",
+ "sourceFacts": {
+  "method": "M18Claymore_Projectile was decoded and every boxed named value listed (boxed.py). One object (Class_1788e77e) holds a list of eight name-hash and value pairs; its three non-zero floats were located in the raw file and checked. No registry row is named for the Claymore's damage (18 Claymore rows, all for the weapon blueprint).",
+  "control": {
+   "description": "The blast object of the same file reads InnerBlastRadius 2.5, BlastDamage 1, BlastRadius 5, as already recorded (GADGET_SITE_ADDITIONS.md, L164).",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\PlacedExplosives\\M18Claymore\\M18Claymore_Projectile.ebx",
+     "rawSha256": "8e4cf92b1999983c1e8852a22db7042c4e106a5d53e09c16276427556ed6c193",
+     "offset": 11876,
+     "type": "f32",
+     "bytesHex": "0000f041",
+     "value": 30.0,
+     "expect": 30.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\PlacedExplosives\\M18Claymore\\M18Claymore_Projectile.ebx",
+     "rawSha256": "8e4cf92b1999983c1e8852a22db7042c4e106a5d53e09c16276427556ed6c193",
+     "offset": 11880,
+     "type": "f32",
+     "bytesHex": "00004842",
+     "value": 50.0,
+     "expect": 50.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\PlacedExplosives\\M18Claymore\\M18Claymore_Projectile.ebx",
+     "rawSha256": "8e4cf92b1999983c1e8852a22db7042c4e106a5d53e09c16276427556ed6c193",
+     "offset": 11888,
+     "type": "f32",
+     "bytesHex": "00007041",
+     "value": 15.0,
+     "expect": 15.0,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 3,
+   "matched": 3,
+   "files": 1,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "rawchecks-L3366.json"
+  },
+  "officialSource": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-1-0",
+  "eaStatement": "Updated the M18A1 Claymore fragmentation base close range damage from 65 to 50. Damage drop-off now starts at the edge of the detection arc.",
+  "file": "M18Claymore_Projectile",
+  "class": "Class_1788e77e",
+  "namedValues": [
+   {
+    "nameHash": "2b715869",
+    "value": 30.0,
+    "offset": 11876,
+    "object": 44,
+    "listField": "Field_21943083"
+   },
+   {
+    "nameHash": "2b71592f",
+    "value": 50.0,
+    "offset": 11880,
+    "object": 44,
+    "listField": "Field_21943083"
+   },
+   {
+    "nameHash": "2b7158ae",
+    "value": 15.0,
+    "offset": 11888,
+    "object": 44,
+    "listField": "Field_21943083"
+   }
+  ],
+  "otherEntries": [
+   {
+    "nameHash": "ea0b313a",
+    "kind": 19,
+    "value": 0.0
+   },
+   {
+    "nameHash": "eb17a5a2",
+    "kind": 10,
+    "value": false
+   },
+   {
+    "nameHash": "cd6ef8ce",
+    "kind": 3,
+    "value": "ref"
+   },
+   {
+    "nameHash": "c993ed59",
+    "kind": 15,
+    "value": 0
+   },
+   {
+    "nameHash": "a23d01c9",
+    "kind": 10,
+    "value": true
+   }
+  ],
+  "note": "Name hashes are of stripped property names; the three differ only in their low bytes (2b715869, 2b71592f, 2b7158ae), which suggests three names of one family."
+ },
+ "inference": [
+  "The value 50 is the only stored 50 tied to the Claymore's damage and equals EA's new close-range figure. It is a correspondence: the property name is a hash and no consumer was traced.",
+  "The neighbouring values 30 and 15 belong to the same family of names. A reading as far damage 30 and a distance of 15 m is a guess and is not recorded as a value.",
+  "The Claymore's damage is therefore not in its blast object (BlastDamage 1) but in this property list, which explains why earlier leads could not give it a damage figure."
+ ],
+ "unresolved": [
+  "Names and meaning of the three values. Test: stand in front of an enemy Claymore at 1 m (50 expected) and at the edge of its range, reading health lost.",
+  "EA's old value 65 is not in the file."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-09-damage-rule-extension",
+  "artifacts": [
+   {
+    "file": "manifest-L3366.json",
+    "sha256": "1d1f68bb93da7dd5106b3159f0414d811c34ef77b552442ffe7e26cab3488c69"
+   },
+   {
+    "file": "rawchecks-L3366.json",
+    "sha256": "e32811ae45d5c9a649b1f31980ebbe2bb4f9c9061f959a0082d382a0f2af6449"
+   },
+   {
+    "file": "boxed.py",
+    "sha256": "2f7403d9c14c4c31df08dc35bb7ca119d284329a798a5a7c7b4f3ec2c8896872"
+   },
+   {
+    "file": "boxed-M18Claymore_Projectile.json",
+    "sha256": "20910aa8550c7628ff584eba0530561e712c8e020cc3fbc8e57615381889a18c"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-09",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L3366",
+    "title": "Claymore: a named value of 50 in the projectile's property list equals EA's fragmentation close-range damage; its neighbours 30 and 15 are unnamed",
+    "status": "finding",
+    "summary": "The Claymore's projectile file holds three named values, 30, 50 and 15, in a property list separate from its blast object (BlastDamage 1). The 50 equals EA's 1.3.1.0 fragmentation close-range damage; the names are hashes and the other two values are unread. 3 raw-offset checks matched.",
+    "reopenWhen": "The property names are resolved or an in-game Claymore damage reading.",
+    "statusNote": "Value 50 found and matches EA; meaning by correspondence only."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Hardware/Gadgets/PlacedExplosives/M18Claymore/M18Claymore_Projectile",
+    "format": "raw-ebx",
+    "sha256": "8e4cf92b1999983c1e8852a22db7042c4e106a5d53e09c16276427556ed6c193",
+    "question": "Is EA's 1.3.1.0 Claymore figure (fragmentation base close-range damage 65 to 50) stored, given that the blast object holds BlastDamage 1?",
+    "result": "useful",
+    "conclusion": "Property list holds 30, 50, 15; 50 equals EA's Claymore close-range damage."
+   }
+  ]
+ }
+}

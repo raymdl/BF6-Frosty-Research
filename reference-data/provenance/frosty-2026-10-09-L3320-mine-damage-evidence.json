@@ -1,0 +1,212 @@
+{
+ "lead": "L3320",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Newest saved raw copy of each route under builds\\1.4.3.5; raw-checks.json pins each file hash."
+ },
+ "question": "Does the current anti-vehicle mine damage against tanks follow the registry default 195 or the asset's own 300, and what does the November 2025 recorded test show?",
+ "sourceFacts": {
+  "method": "EA's 1.3.1.0 notes were read for the mine damage lines. The EOD Bot mine has one stored blast damage (150, no registry row) and an official 300 against tanks, which gives a tank factor of 2 for a mine blast. The same factor was applied to both stored numbers of the M15 mine. A recorded in-game test from 9 November 2025 was read from its captions and compared.",
+  "control": {
+   "description": "EOD Bot mine: single stored BlastDamage 150, official 300 against tanks. M15 mine: registry 195, own 300, official 390.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 52548,
+     "type": "f32",
+     "bytesHex": "00004343",
+     "value": 195.0,
+     "expect": 195.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Mines\\ATMine\\PBNS_ATMine.ebx",
+     "rawSha256": "a41318ef04b07cc68543bbffd2862b9b29674c0ea53bf871c543e055294c7c4f",
+     "offset": 2576,
+     "type": "f32",
+     "bytesHex": "00009643",
+     "value": 300.0,
+     "expect": 300.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Misc\\EODBot\\Mines\\PB_NS_EODBot_Mines.ebx",
+     "rawSha256": "3c9e20e2772e6fbee26fb6190e6b401076cafd049168e6932ce97591616fddbe",
+     "offset": 2576,
+     "type": "f32",
+     "bytesHex": "00001643",
+     "value": 150.0,
+     "expect": 150.0,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 3,
+   "matched": 3,
+   "files": 3,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "raw-checks.json"
+  },
+  "official": [
+   {
+    "item": "CSB IV EOD Bot Mine Layer",
+    "statement": "damage against tanks updated to 300",
+    "owner": "PB_NS_EODBot_Mines",
+    "property": "BlastDamage",
+    "registryDefault": null,
+    "ownValue": 150.0,
+    "ownFile": "Common/Hardware/Gadgets/Misc/EODBot/Mines/PB_NS_EODBot_Mines",
+    "ownFields": [
+     "Field_19861d8c"
+    ],
+    "ratioOfficialToOwn": 2.0,
+    "note": "No registry value row carries this owner's name, so the asset's 150 is the only stored number. It fixes the tank multiplier for a mine blast at 2."
+   },
+   {
+    "item": "M15 AV Mine",
+    "statement": "damage against tanks updated to 390",
+    "owner": "PBNS_ATMine",
+    "property": "BlastDamage",
+    "registryDefault": 195.0,
+    "ownValue": 300.0,
+    "ownFile": "Common/Hardware/Gadgets/Mines/ATMine/PBNS_ATMine",
+    "ownFields": [
+     "Field_19861d8c"
+    ],
+    "registryRow": "PBNS_ATMine.GhostedProjectileEntityData.MeshProjectileEntityData.ProjectileEntityData.Explosion.ExplosionEntityData.BlastDamage",
+    "registryTimes2": 390.0,
+    "ownTimes2": 600.0,
+    "matches": "registry"
+   },
+   {
+    "item": "PTKM-1R Acoustic Mine",
+    "statement": "now deals 480 damage against tanks",
+    "owner": "PB_PRJ_PTKM1R_EFP",
+    "property": "BlastDamage",
+    "registryDefault": null,
+    "ownValue": 160.0,
+    "ratioOfficialToOwn": 3.0,
+    "note": "Not a disputed pair; own value from L3307, not re-read here. The factor 3 is not traced to stored data."
+   },
+   {
+    "item": "M4A1 SLAM",
+    "statement": "damage against tanks ranges between 199 and 363",
+    "owner": "PB_M4SLAM_EFP",
+    "property": "StartDamage",
+    "registryDefault": 130.0,
+    "ownValue": 130.0,
+    "note": "Not a disputed pair; values from L3307, not re-read here. The range depends on where the tank is hit."
+   }
+  ],
+  "video": {
+   "url": "https://www.youtube.com/watch?v=gIoClOsLySI",
+   "title": "Battlefield 6 - How Engineer Mines Actually Work - Damage, Range, Positioning",
+   "channel": "GhostGaming",
+   "uploaded": "2025-11-09",
+   "kind": "third-party recorded in-game test against a main battle tank; numbers read from the auto-generated captions and from the transcript the user supplied",
+   "readings": [
+    {
+     "item": "M15 AV Mine",
+     "damage": 770,
+     "note": "same from any side; also when placed on top of the tank"
+    },
+    {
+     "item": "M4A1 SLAM",
+     "damage": {
+      "side": 262,
+      "front": 317,
+      "underside": 436
+     },
+     "note": "trigger range about 10 m"
+    },
+    {
+     "item": "PTKM-1R",
+     "damage": 476,
+     "note": "also spoken as 472 for a full hit; 162 on a partial hit; range between 55 and 60 m; needs line of sight"
+    }
+   ],
+   "limits": "Recorded before update 1.3.1.0, which restated all three damages. The readings are the earlier values and do not test the current build."
+  },
+  "laterNotes": "The repo's patch-note inventory lists no M15 or EOD Bot mine damage change after 1.3.1.0; 1.3.2.0 changes placement only (page read 9 October 2026).",
+  "dataset": "reference-data/frosty/registry-mine-damage-evidence.json"
+ },
+ "inference": [
+  "EA's 390 for the M15 against tanks is twice the registry default 195. Twice the asset's own 300 is 600, which EA does not state. The factor 2 is taken from the EOD Bot mine, whose only stored damage 150 has an official 300. This is a seventh disputed property where the official number follows the registry.",
+  "The recorded test's 770 for the M15 is from before update 1.3.1.0. It equals neither stored number times 2, so it does not tell the two apart and does not show what the asset's 300 once was.",
+  "The recorded PTKM-1R reading of 476 is close to EA's later 480, and the SLAM readings (262 to 436) sit above EA's later 199 to 363."
+ ],
+ "unresolved": [
+  "No reading has been taken on the current build. Test: one M15 mine under a full-health main battle tank in a private match; 390 confirms the registry default, 600 the asset's own value.",
+  "The tank factor 2 for mine blasts and the factor 3 for the PTKM-1R are not traced to stored data. Test: one EOD Bot mine under the same tank should read 300.",
+  "Official item names are joined to stored owners by name only."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-09-mine-damage-evidence",
+  "artifacts": [
+   {
+    "file": "evidence.json",
+    "sha256": "86d7e3dba832ad4871e26308c94129b86eca8417b852ced86c6c18cc48e150eb"
+   },
+   {
+    "file": "raw-check-manifest.json",
+    "sha256": "5da9091085cacfce16f9b24a94ce7782c27fed0318cf5edaabe53a7b1d4c4d0b"
+   },
+   {
+    "file": "raw-checks.json",
+    "sha256": "bfe817a9068bc94f573beed26b5e90443a03c9c2d239fe518aa96901c3d1ff1e"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-09",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L3320",
+    "title": "M15 mine official damage follows the registry default; November 2025 recorded test predates the change",
+    "status": "finding",
+    "summary": "EA's 1.3.1.0 notes give the M15 mine 390 against tanks and the EOD Bot mine 300. The EOD Bot mine's only stored blast damage is 150, so tanks take twice a mine's blast damage; twice the M15's registry default 195 is 390, twice its own 300 is 600. A recorded test from 9 November 2025 reads 770 for the M15, 262 to 436 for the SLAM and 476 for the PTKM-1R, all from before that update. 3 raw-offset checks matched.",
+    "reopenWhen": "A current-build damage reading for the M15 mine against a tank, or an official note changing mine damage after 1.3.1.0.",
+    "statusNote": "Official statement matched to stored values with a factor fixed on a sibling mine; joins by name; third-party video is pre-change; no current in-game control."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Hardware/Gadgets/GRX_Gadgets_Glacier",
+    "format": "raw-ebx",
+    "sha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+    "question": "Does the current anti-vehicle mine damage against tanks follow the registry default 195 or the asset's own 300, and what does the November 2025 recorded test show?",
+    "result": "useful",
+    "conclusion": "Registry row for the M15 mine BlastDamage stores 195; twice that is EA's 390 against tanks."
+   },
+   {
+    "path": "Common/Hardware/Gadgets/Mines/ATMine/PBNS_ATMine",
+    "format": "raw-ebx",
+    "sha256": "a41318ef04b07cc68543bbffd2862b9b29674c0ea53bf871c543e055294c7c4f",
+    "question": "Does the current anti-vehicle mine damage against tanks follow the registry default 195 or the asset's own 300, and what does the November 2025 recorded test show?",
+    "result": "useful",
+    "conclusion": "The M15 mine asset's explosion object stores 300; twice that is 600, which no official note states."
+   },
+   {
+    "path": "Common/Hardware/Gadgets/Misc/EODBot/Mines/PB_NS_EODBot_Mines",
+    "format": "raw-ebx",
+    "sha256": "3c9e20e2772e6fbee26fb6190e6b401076cafd049168e6932ce97591616fddbe",
+    "question": "Does the current anti-vehicle mine damage against tanks follow the registry default 195 or the asset's own 300, and what does the November 2025 recorded test show?",
+    "result": "useful",
+    "conclusion": "The EOD Bot mine's explosion object stores BlastDamage 150 with no registry row; EA states 300 against tanks."
+   }
+  ]
+ }
+}

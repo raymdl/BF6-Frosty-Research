@@ -1,0 +1,701 @@
+{
+ "lead": "L3376",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Read from saved raw captures; no export, no new capture."
+ },
+ "question": "What reload times are stored for the launchers and other gadgets that reload, and do file and registry agree?",
+ "sourceFacts": {
+  "method": "Every gadget weapon file was decoded and its reload entries read (Field_f8822efa/Field_d15a0c1c: ReloadTime Field_85ff24a0, ReloadTimeBulletsLeft Field_fc66e75e, as named in scripts/frosty-site-timing-audit.py). The registry rows '<blueprint>...ReloadInfoArray[0].ReloadTime' of GRX_Gadgets_Glacier were set beside them; file and registry owner are joined by name.",
+  "control": {
+   "description": "WB_M26Mass, whose registry owner has the same name as the file, reads 3.53 in both.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 741644,
+     "type": "f32",
+     "bytesHex": "9a995940",
+     "value": 3.4000000953674316,
+     "expect": 3.4,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\RPG7\\WB_RPG7V2.ebx",
+     "rawSha256": "e0a8bb946ee5226019190c87df6a0c5dc2548c6d00c9f92681d18c70e207d856",
+     "offset": 7788,
+     "type": "f32",
+     "bytesHex": "9a995940",
+     "value": 3.4000000953674316,
+     "expect": 3.4,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\RPG7\\WB_RPG7V2.ebx",
+     "rawSha256": "e0a8bb946ee5226019190c87df6a0c5dc2548c6d00c9f92681d18c70e207d856",
+     "offset": 7792,
+     "type": "f32",
+     "bytesHex": "000080bf",
+     "value": -1.0,
+     "expect": -1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 202164,
+     "type": "f32",
+     "bytesHex": "9a995940",
+     "value": 3.4000000953674316,
+     "expect": 3.4,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Stinger\\WB_Stinger.ebx",
+     "rawSha256": "4ca9099481e74cf6332c1c39b43b0fb193e970b024bf5621f161640cb57299cc",
+     "offset": 7580,
+     "type": "f32",
+     "bytesHex": "9a995940",
+     "value": 3.4000000953674316,
+     "expect": 3.4,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Stinger\\WB_Stinger.ebx",
+     "rawSha256": "4ca9099481e74cf6332c1c39b43b0fb193e970b024bf5621f161640cb57299cc",
+     "offset": 7584,
+     "type": "f32",
+     "bytesHex": "713d6a40",
+     "value": 3.6600000858306885,
+     "expect": 3.66,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 125388,
+     "type": "f32",
+     "bytesHex": "9a995940",
+     "value": 3.4000000953674316,
+     "expect": 3.4,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\MBTLAW\\WB_MBTLAW.ebx",
+     "rawSha256": "8b7b51c84034c96cbb51acbe843321ea4b9679e21ab3d21fe60885f9ca35f839",
+     "offset": 7700,
+     "type": "f32",
+     "bytesHex": "9a995940",
+     "value": 3.4000000953674316,
+     "expect": 3.4,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\MBTLAW\\WB_MBTLAW.ebx",
+     "rawSha256": "8b7b51c84034c96cbb51acbe843321ea4b9679e21ab3d21fe60885f9ca35f839",
+     "offset": 7704,
+     "type": "f32",
+     "bytesHex": "000080bf",
+     "value": -1.0,
+     "expect": -1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 619948,
+     "type": "f32",
+     "bytesHex": "713d6a40",
+     "value": 3.6600000858306885,
+     "expect": 3.66,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\M136AT4\\WB_AT4.ebx",
+     "rawSha256": "3b541679266e2742d043c8c6b32b4415563d04484102e176e73cc656fa061bac",
+     "offset": 10948,
+     "type": "f32",
+     "bytesHex": "713d6a40",
+     "value": 3.6600000858306885,
+     "expect": 3.66,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\M136AT4\\WB_AT4.ebx",
+     "rawSha256": "3b541679266e2742d043c8c6b32b4415563d04484102e176e73cc656fa061bac",
+     "offset": 10952,
+     "type": "f32",
+     "bytesHex": "713d6a40",
+     "value": 3.6600000858306885,
+     "expect": 3.66,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 340860,
+     "type": "f32",
+     "bytesHex": "000080bf",
+     "value": -1.0,
+     "expect": -1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Javelin\\WB_Javelin.ebx",
+     "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+     "offset": 9188,
+     "type": "f32",
+     "bytesHex": "000080bf",
+     "value": -1.0,
+     "expect": -1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Javelin\\WB_Javelin.ebx",
+     "rawSha256": "43a62969b620517805f3ddce6379b51e8ea4673e648eb19c7b4269e85f8bdf16",
+     "offset": 9192,
+     "type": "f32",
+     "bytesHex": "000080bf",
+     "value": -1.0,
+     "expect": -1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 591308,
+     "type": "f32",
+     "bytesHex": "ec515840",
+     "value": 3.380000114440918,
+     "expect": 3.38,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-heat-display-2026-10-01-0950\\raw\\Common\\Hardware\\Gadgets\\Misc\\TracerDart\\WB_TracerDart.ebx",
+     "rawSha256": "6e90b80ef69d9c3bb63cf9c700379e0665c4629b132a0b63d36d6c4323d4458a",
+     "offset": 5116,
+     "type": "f32",
+     "bytesHex": "ec515840",
+     "value": 3.380000114440918,
+     "expect": 3.38,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-heat-display-2026-10-01-0950\\raw\\Common\\Hardware\\Gadgets\\Misc\\TracerDart\\WB_TracerDart.ebx",
+     "rawSha256": "6e90b80ef69d9c3bb63cf9c700379e0665c4629b132a0b63d36d6c4323d4458a",
+     "offset": 5120,
+     "type": "f32",
+     "bytesHex": "ec515840",
+     "value": 3.380000114440918,
+     "expect": 3.38,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 554444,
+     "type": "f32",
+     "bytesHex": "8fc26540",
+     "value": 3.5899999141693115,
+     "expect": 3.59,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Basic\\WB_RepairTool.ebx",
+     "rawSha256": "6833cd8af9aac2d759390e6e6dbfc68bc998f0418c9631da9d2c7926d7c2b369",
+     "offset": 5140,
+     "type": "f32",
+     "bytesHex": "8fc26540",
+     "value": 3.5899999141693115,
+     "expect": 3.59,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Basic\\WB_RepairTool.ebx",
+     "rawSha256": "6833cd8af9aac2d759390e6e6dbfc68bc998f0418c9631da9d2c7926d7c2b369",
+     "offset": 5144,
+     "type": "f32",
+     "bytesHex": "000080bf",
+     "value": -1.0,
+     "expect": -1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 386652,
+     "type": "f32",
+     "bytesHex": "85eb6140",
+     "value": 3.5299999713897705,
+     "expect": 3.53,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Underbarrels\\M26Mass00Buck\\WB_M26Mass.ebx",
+     "rawSha256": "200649ad884e69e1d6b5cdfbf19ce0c6dfd03b5f267752f201c1979266674b6a",
+     "offset": 6812,
+     "type": "f32",
+     "bytesHex": "85eb6140",
+     "value": 3.5299999713897705,
+     "expect": 3.53,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Underbarrels\\M26Mass00Buck\\WB_M26Mass.ebx",
+     "rawSha256": "200649ad884e69e1d6b5cdfbf19ce0c6dfd03b5f267752f201c1979266674b6a",
+     "offset": 6816,
+     "type": "f32",
+     "bytesHex": "00004040",
+     "value": 3.0,
+     "expect": 3.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 100044,
+     "type": "f32",
+     "bytesHex": "85eb2140",
+     "value": 2.5299999713897705,
+     "expect": 2.53,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\AirburstIncendiary\\WB_AirburstIncendiary.ebx",
+     "rawSha256": "d6dbf7187d75fe696e0137d70ba6ae81eecb7e24dd892d033fcf2aab48b56112",
+     "offset": 10132,
+     "type": "f32",
+     "bytesHex": "85eb2140",
+     "value": 2.5299999713897705,
+     "expect": 2.53,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\AirburstIncendiary\\WB_AirburstIncendiary.ebx",
+     "rawSha256": "d6dbf7187d75fe696e0137d70ba6ae81eecb7e24dd892d033fcf2aab48b56112",
+     "offset": 10136,
+     "type": "f32",
+     "bytesHex": "85eb2140",
+     "value": 2.5299999713897705,
+     "expect": 2.53,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\IGLA\\WB_IGLA.ebx",
+     "rawSha256": "cde96ccd57bbebed049b9489683b0b2559217e4c1474826d607a5a39326ecb26",
+     "offset": 8028,
+     "type": "f32",
+     "bytesHex": "9a995940",
+     "value": 3.4000000953674316,
+     "expect": 3.4,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\IGLA\\WB_IGLA.ebx",
+     "rawSha256": "cde96ccd57bbebed049b9489683b0b2559217e4c1474826d607a5a39326ecb26",
+     "offset": 8032,
+     "type": "f32",
+     "bytesHex": "b81e1540",
+     "value": 2.3299999237060547,
+     "expect": 2.33,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Panzerfaust3\\WB_Panzerfaust3.ebx",
+     "rawSha256": "6f72949dd4b3cc25149ed94f1d4d2f6af301daeab11a990ceaba71bc9c6cce00",
+     "offset": 7444,
+     "type": "f32",
+     "bytesHex": "52b89e40",
+     "value": 4.960000038146973,
+     "expect": 4.96,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Panzerfaust3\\WB_Panzerfaust3.ebx",
+     "rawSha256": "6f72949dd4b3cc25149ed94f1d4d2f6af301daeab11a990ceaba71bc9c6cce00",
+     "offset": 7448,
+     "type": "f32",
+     "bytesHex": "52b89e40",
+     "value": 4.960000038146973,
+     "expect": 4.96,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\BreachingDart\\DrillGL_WB.ebx",
+     "rawSha256": "4974e714801ffd618f4b676dd6f05c2cc0f19873d2db7b2bbdcdf43facad9d43",
+     "offset": 6540,
+     "type": "f32",
+     "bytesHex": "85eb2140",
+     "value": 2.5299999713897705,
+     "expect": 2.53,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\BreachingDart\\DrillGL_WB.ebx",
+     "rawSha256": "4974e714801ffd618f4b676dd6f05c2cc0f19873d2db7b2bbdcdf43facad9d43",
+     "offset": 6544,
+     "type": "f32",
+     "bytesHex": "85eb2140",
+     "value": 2.5299999713897705,
+     "expect": 2.53,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\BattlePickups\\Railgun\\Railgun_WB.ebx",
+     "rawSha256": "51f4fbd7d97040666ae93aff7294b3010974016d89a6aca4a54d2fcb013fd2c0",
+     "offset": 6604,
+     "type": "f32",
+     "bytesHex": "12838840",
+     "value": 4.265999794006348,
+     "expect": 4.266,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\BattlePickups\\Railgun\\Railgun_WB.ebx",
+     "rawSha256": "51f4fbd7d97040666ae93aff7294b3010974016d89a6aca4a54d2fcb013fd2c0",
+     "offset": 6608,
+     "type": "f32",
+     "bytesHex": "000080bf",
+     "value": -1.0,
+     "expect": -1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\BattlePickups\\Minigun\\Minigun_WB.ebx",
+     "rawSha256": "6cd090ec8c3c931cca7b65a664cab63fe05e87fe78683d33f52a79f44ba23f82",
+     "offset": 6148,
+     "type": "f32",
+     "bytesHex": "6666d640",
+     "value": 6.699999809265137,
+     "expect": 6.7,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\BattlePickups\\Minigun\\Minigun_WB.ebx",
+     "rawSha256": "6cd090ec8c3c931cca7b65a664cab63fe05e87fe78683d33f52a79f44ba23f82",
+     "offset": 6152,
+     "type": "f32",
+     "bytesHex": "5c8fba40",
+     "value": 5.829999923706055,
+     "expect": 5.83,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Intel\\Lancet\\Lancet_WB.ebx",
+     "rawSha256": "6b484076e7635a84da0b2af95f443f5f7622e9a43b98d31044e421d76e68296b",
+     "offset": 11148,
+     "type": "f32",
+     "bytesHex": "79e94e40",
+     "value": 3.2330000400543213,
+     "expect": 3.233,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Intel\\Lancet\\Lancet_WB.ebx",
+     "rawSha256": "6b484076e7635a84da0b2af95f443f5f7622e9a43b98d31044e421d76e68296b",
+     "offset": 11152,
+     "type": "f32",
+     "bytesHex": "000080bf",
+     "value": -1.0,
+     "expect": -1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\CallIns\\AirDrop\\SupplyDrop_WB.ebx",
+     "rawSha256": "9ec932fc6a732b06996799b0ac3ec30305e567d55a89a680dda3be18367efbe5",
+     "offset": 4660,
+     "type": "f32",
+     "bytesHex": "66666640",
+     "value": 3.5999999046325684,
+     "expect": 3.6,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\CallIns\\AirDrop\\SupplyDrop_WB.ebx",
+     "rawSha256": "9ec932fc6a732b06996799b0ac3ec30305e567d55a89a680dda3be18367efbe5",
+     "offset": 4664,
+     "type": "f32",
+     "bytesHex": "000080bf",
+     "value": -1.0,
+     "expect": -1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\CallIns\\KineticStrike\\KineticStrike_WB.ebx",
+     "rawSha256": "eae5032f1efe1b0da7758817f6a545b930ba1df692f1a43a3e4c7fdfb3a3e333",
+     "offset": 9140,
+     "type": "f32",
+     "bytesHex": "0000a041",
+     "value": 20.0,
+     "expect": 20.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\CallIns\\KineticStrike\\KineticStrike_WB.ebx",
+     "rawSha256": "eae5032f1efe1b0da7758817f6a545b930ba1df692f1a43a3e4c7fdfb3a3e333",
+     "offset": 9144,
+     "type": "f32",
+     "bytesHex": "0000a041",
+     "value": 20.0,
+     "expect": 20.0,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 43,
+   "matched": 43,
+   "files": 18,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "rawchecks-L3376.json"
+  },
+  "dataset": "reference-data/frosty/gadget-reload-times.json",
+  "rows": [
+   {
+    "file": "WB_RPG7V2",
+    "ownReloadTime": 3.4,
+    "ownReloadTimeBulletsLeft": -1.0,
+    "ownReloadDelay": 0.0,
+    "ownPostReloadDelay": 0.0,
+    "registryOwner": "RPG7V2_Weapon Blueprint",
+    "registryDefault": 3.4,
+    "join": "file to registry owner by name"
+   },
+   {
+    "file": "WB_Stinger",
+    "ownReloadTime": 3.4,
+    "ownReloadTimeBulletsLeft": 3.66,
+    "ownReloadDelay": 0.0,
+    "ownPostReloadDelay": 0.0,
+    "registryOwner": "Stinger_Weapon Blueprint",
+    "registryDefault": 3.4,
+    "join": "file to registry owner by name"
+   },
+   {
+    "file": "WB_MBTLAW",
+    "ownReloadTime": 3.4,
+    "ownReloadTimeBulletsLeft": -1.0,
+    "ownReloadDelay": 0.0,
+    "ownPostReloadDelay": 0.0,
+    "registryOwner": "MBTLAW_Weapon Blueprint",
+    "registryDefault": 3.4,
+    "join": "file to registry owner by name"
+   },
+   {
+    "file": "WB_AT4",
+    "ownReloadTime": 3.66,
+    "ownReloadTimeBulletsLeft": 3.66,
+    "ownReloadDelay": 0.0,
+    "ownPostReloadDelay": 0.0,
+    "registryOwner": "AT4_Weapon Blueprint",
+    "registryDefault": 3.66,
+    "join": "file to registry owner by name"
+   },
+   {
+    "file": "WB_Javelin",
+    "ownReloadTime": -1.0,
+    "ownReloadTimeBulletsLeft": -1.0,
+    "ownReloadDelay": 0.0,
+    "ownPostReloadDelay": 0.0,
+    "registryOwner": "Javelin_Weapon Blueprint",
+    "registryDefault": -1.0,
+    "join": "file to registry owner by name"
+   },
+   {
+    "file": "WB_TracerDart",
+    "ownReloadTime": 3.38,
+    "ownReloadTimeBulletsLeft": 3.38,
+    "ownReloadDelay": 0.0,
+    "ownPostReloadDelay": 0.0,
+    "registryOwner": "TracerDart_Weapon Blueprint",
+    "registryDefault": 3.38,
+    "join": "file to registry owner by name"
+   },
+   {
+    "file": "WB_RepairTool",
+    "ownReloadTime": 3.59,
+    "ownReloadTimeBulletsLeft": -1.0,
+    "ownReloadDelay": 0.0,
+    "ownPostReloadDelay": 0.0,
+    "registryOwner": "RepairTool_Weapon Blueprint",
+    "registryDefault": 3.59,
+    "join": "file to registry owner by name"
+   },
+   {
+    "file": "WB_M26Mass",
+    "ownReloadTime": 3.53,
+    "ownReloadTimeBulletsLeft": 3.0,
+    "ownReloadDelay": 0.0,
+    "ownPostReloadDelay": 0.0,
+    "registryOwner": "WB_M26Mass",
+    "registryDefault": 3.53,
+    "join": "file to registry owner by name"
+   },
+   {
+    "file": "WB_AirburstIncendiary",
+    "ownReloadTime": 2.53,
+    "ownReloadTimeBulletsLeft": 2.53,
+    "ownReloadDelay": 0.0,
+    "ownPostReloadDelay": 0.0,
+    "registryOwner": "AirburstIncendiary_Weapon Blueprint",
+    "registryDefault": 2.53,
+    "join": "file to registry owner by name"
+   },
+   {
+    "file": "WB_IGLA",
+    "ownReloadTime": 3.4,
+    "ownReloadTimeBulletsLeft": 2.33,
+    "ownReloadDelay": 0.0,
+    "ownPostReloadDelay": 0.0,
+    "registryOwner": null,
+    "registryDefault": null,
+    "join": null
+   },
+   {
+    "file": "WB_Panzerfaust3",
+    "ownReloadTime": 4.96,
+    "ownReloadTimeBulletsLeft": 4.96,
+    "ownReloadDelay": 0.0,
+    "ownPostReloadDelay": 0.0,
+    "registryOwner": null,
+    "registryDefault": null,
+    "join": null
+   },
+   {
+    "file": "DrillGL_WB",
+    "ownReloadTime": 2.53,
+    "ownReloadTimeBulletsLeft": 2.53,
+    "ownReloadDelay": 0.0,
+    "ownPostReloadDelay": 0.0,
+    "registryOwner": null,
+    "registryDefault": null,
+    "join": null
+   },
+   {
+    "file": "Railgun_WB",
+    "ownReloadTime": 4.266,
+    "ownReloadTimeBulletsLeft": -1.0,
+    "ownReloadDelay": 0.0,
+    "ownPostReloadDelay": 0.0,
+    "registryOwner": null,
+    "registryDefault": null,
+    "join": null
+   },
+   {
+    "file": "Minigun_WB",
+    "ownReloadTime": 6.7,
+    "ownReloadTimeBulletsLeft": 5.83,
+    "ownReloadDelay": 0.0,
+    "ownPostReloadDelay": 0.0,
+    "registryOwner": null,
+    "registryDefault": null,
+    "join": null
+   },
+   {
+    "file": "Lancet_WB",
+    "ownReloadTime": 3.233,
+    "ownReloadTimeBulletsLeft": -1.0,
+    "ownReloadDelay": 0.0,
+    "ownPostReloadDelay": 0.0,
+    "registryOwner": null,
+    "registryDefault": null,
+    "join": null
+   },
+   {
+    "file": "SupplyDrop_WB",
+    "ownReloadTime": 3.6,
+    "ownReloadTimeBulletsLeft": -1.0,
+    "ownReloadDelay": 0.0,
+    "ownPostReloadDelay": 0.0,
+    "registryOwner": null,
+    "registryDefault": null,
+    "join": null
+   },
+   {
+    "file": "KineticStrike_WB",
+    "ownReloadTime": 20.0,
+    "ownReloadTimeBulletsLeft": 20.0,
+    "ownReloadDelay": 0.0,
+    "ownPostReloadDelay": 0.0,
+    "registryOwner": null,
+    "registryDefault": null,
+    "join": null
+   }
+  ],
+  "withRegistryRow": 9,
+  "units": "seconds, as for infantry weapon reload rows used by the site"
+ },
+ "inference": [
+  "Registry default and own value are equal for all nine gadgets that have a row: RPG-7V2, Stinger and MBT-LAW 3.4, AT4 3.66, M26 MASS 3.53, Tracer Dart 3.38, Repair Tool 3.59 (its overheat recovery or a reload, not settled here), airburst incendiary launcher 2.53, Javelin -1 (stored as written; no timed reload row).",
+  "No registry row: IGLA 3.4, Panzerfaust 3 4.96, DrillGL 2.53, and the pickup or call-in weapons Railgun 4.266, Minigun 6.7, Lancet 3.233, Supply Drop 3.6 and Kinetic Strike 20. By L3343 an own value without a row may be current or stale.",
+  "The second value (rounds left) differs from the first for the Stinger (3.66 against 3.4), IGLA (2.33), M26 MASS (3.0) and Minigun (5.83); -1 is stored for single-shot launchers. For a one-round launcher which of the two applies is not shown.",
+  "EA's notes on file state no launcher reload time, so these are unconfirmed stored values."
+ ],
+ "unresolved": [
+  "Time one RPG-7V2 reload (3.4 s expected) and one Stinger reload (3.4 or 3.66 s).",
+  "Javelin reload time: stored -1; needs a timing."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-09-damage-rule-extension",
+  "artifacts": [
+   {
+    "file": "manifest-L3376.json",
+    "sha256": "3b0433f92171359425b0671ce382fbecf1cfffaad9f664aedbd3450c041a534b"
+   },
+   {
+    "file": "rawchecks-L3376.json",
+    "sha256": "47c584ef7e700f49688861f771c6d60783e5507d4372b2517b77e37e5604fa15"
+   },
+   {
+    "file": "gadreload.py",
+    "sha256": "13763f5316978fc4ceee7821f1fdbd8cf861710222ea9da2404d9f96a3295fca"
+   },
+   {
+    "file": "gadreload2.py",
+    "sha256": "c5202f47bcfa5fec0d44311ad1f7d5494c5537620d46d1394b0e376c0fe48477"
+   },
+   {
+    "file": "gadreload.json",
+    "sha256": "1fb425ee59c6fcb9f0d60bbb0d5f4e69b5aa84b7c90ec03c02afac25c556d25c"
+   },
+   {
+    "file": "gadreload-own.json",
+    "sha256": "e02feda6fe6603bded4e1a376fbbb6f53a3572adeec40ed0dc36b166d890cab0"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-09",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L3376",
+    "title": "Reload times of launchers and other reloading gadgets: file and registry agree for all nine with a row; eight more have a file value only",
+    "status": "finding",
+    "summary": "Stored reload times: RPG-7V2, Stinger, MBT-LAW and IGLA 3.4 s, AT4 3.66 s, Panzerfaust 3 4.96 s, M26 MASS 3.53 s, Tracer Dart 3.38 s. File and registry agree for all nine gadgets with a registry row; the Javelin holds -1. EA states none of these, so they await a timing. 43 raw-offset checks matched.",
+    "reopenWhen": "An in-game launcher reload timing.",
+    "statusNote": "Own and registry reload times read; not confirmed in game."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Hardware/Gadgets/Launchers/RPG7/WB_RPG7V2",
+    "format": "raw-ebx",
+    "sha256": "e0a8bb946ee5226019190c87df6a0c5dc2548c6d00c9f92681d18c70e207d856",
+    "question": "What reload times are stored for the launchers and other gadgets that reload, and do file and registry agree?",
+    "result": "useful",
+    "conclusion": "Own reload time 3.4; registry default 3.4."
+   }
+  ]
+ }
+}

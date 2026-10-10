@@ -1,0 +1,313 @@
+{
+ "lead": "L3316",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Newest saved raw copy of each route under builds\\1.4.3.5; raw-checks.json pins each file hash."
+ },
+ "question": "How are assets bound to registry rows, and for which properties is the registry row itself the stored source of the value?",
+ "sourceFacts": {
+  "method": "The instance GUID of every named row of the 25 saved GRX registries was collected (41,695 rows). Every decodable saved file outside the registries (31,501) was walked and each import whose target is one of those rows was listed with the file, object class and field path holding it. Imports were grouped by the last field of the path. The default of every row imported into a value slot was read back at its raw offset.",
+  "control": {
+   "description": "First six registry rows that an asset imports into a value slot, read back at their stored offsets.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Characters.ebx",
+     "rawSha256": "9d6ba8b49f5ef85dfc63c43b5dad08e0212d891d47938cd3ff309b6e10d872a3",
+     "offset": 4332,
+     "type": "f32",
+     "bytesHex": "00003442",
+     "value": 45.0,
+     "expect": 45.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_DICEAI.ebx",
+     "rawSha256": "9aabbd105466d597edd77660debf18fd6bb4c18b4c0f43b9c844680dd38e0733",
+     "offset": 22768,
+     "type": "bool",
+     "bytesHex": "01",
+     "value": true,
+     "expect": true,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_DICEAI.ebx",
+     "rawSha256": "9aabbd105466d597edd77660debf18fd6bb4c18b4c0f43b9c844680dd38e0733",
+     "offset": 16084,
+     "type": "f32",
+     "bytesHex": "00008040",
+     "value": 4.0,
+     "expect": 4.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_DICEAI.ebx",
+     "rawSha256": "9aabbd105466d597edd77660debf18fd6bb4c18b4c0f43b9c844680dd38e0733",
+     "offset": 11448,
+     "type": "bool",
+     "bytesHex": "01",
+     "value": true,
+     "expect": true,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_DICEAI.ebx",
+     "rawSha256": "9aabbd105466d597edd77660debf18fd6bb4c18b4c0f43b9c844680dd38e0733",
+     "offset": 18824,
+     "type": "bool",
+     "bytesHex": "01",
+     "value": true,
+     "expect": true,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_DICEAI.ebx",
+     "rawSha256": "9aabbd105466d597edd77660debf18fd6bb4c18b4c0f43b9c844680dd38e0733",
+     "offset": 17212,
+     "type": "f32",
+     "bytesHex": "9a99993e",
+     "value": 0.30000001192092896,
+     "expect": 0.3,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 549,
+   "matched": 549,
+   "files": 17,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "raw-checks.json"
+  },
+  "summary": {
+   "decodedFiles": 31501,
+   "registryRowsWithGuid": 41695,
+   "valueSlotImports": {
+    "imports": 9430,
+    "files": 634,
+    "distinctRows": 7553,
+    "byRegistry": {
+     "GRX_Granite": 54,
+     "GRX_Gadgets_Glacier": 1478,
+     "GRX_Glacier_Soldier": 44,
+     "GRX_DICEAI": 115,
+     "GRX_SP": 40,
+     "GRX_Characters": 1,
+     "GRX_UI": 22,
+     "GRX_ModBuilder": 15,
+     "GRX_Online": 45,
+     "GRX_Persistence": 213,
+     "GRX_Persistence_Glacier": 19,
+     "GRX_WeaponsAndGadgets": 7,
+     "GRX_DICEUI": 1,
+     "GRX_Vehicles": 1357,
+     "GRX_Weapons": 5998,
+     "GRX_Gadgets_Glacier_CH1_S02": 19,
+     "GRX_GameModes": 1,
+     "GRX_Glacier_CH1_S03": 1
+    },
+    "topFiles": [
+     [
+      "TweakablesConfig",
+      336
+     ],
+     [
+      "RPK74M_WB",
+      88
+     ],
+     [
+      "Glacier_Soldier_AI",
+      84
+     ],
+     [
+      "GS_EF88",
+      81
+     ],
+     [
+      "GS_M16A3",
+      81
+     ],
+     [
+      "GS_DesertTechHTI",
+      81
+     ],
+     [
+      "GS_L115A3",
+      81
+     ],
+     [
+      "GS_VSSM",
+      81
+     ],
+     [
+      "GS_RPK74M",
+      81
+     ],
+     [
+      "GS_Skorpion",
+      81
+     ],
+     [
+      "GS_PP19",
+      81
+     ],
+     [
+      "GS_ScorpionEvo3",
+      81
+     ],
+     [
+      "MRAD_WB",
+      72
+     ],
+     [
+      "SV98M_WB",
+      72
+     ],
+     [
+      "MiniFix_WB",
+      67
+     ],
+     [
+      "ARADMR_WB",
+      56
+     ],
+     [
+      "M39EMR_WB",
+      56
+     ],
+     [
+      "SVCh_WB",
+      56
+     ],
+     [
+      "SVDM_WB",
+      56
+     ],
+     [
+      "G36_WB",
+      55
+     ],
+     [
+      "GS_Minigun",
+      54
+     ],
+     [
+      "GS_AirburstIncendiary",
+      54
+     ],
+     [
+      "GS_DrillGL",
+      54
+     ],
+     [
+      "GS_Javelin",
+      54
+     ],
+     [
+      "GS_M320HE",
+      54
+     ]
+    ]
+   },
+   "masterList": {
+    "imports": 32520,
+    "files": [
+     "Common/GameSetup/Tweakables/TweakablesConfig"
+    ],
+    "distinctRows": 32184
+   },
+   "otherImports": {
+    "imports": 1323,
+    "byFieldTail": {
+     "8cf424e7": 1300,
+     "44a3a7c1": 23
+    }
+   },
+   "slotImportsToValueRows": 869,
+   "slotImportsToContainerRows": 8561,
+   "differingPairs": {
+    "pairs": 73,
+    "ownerImportsItsContainerRows": 73,
+    "importedOnlyByMasterList": 73,
+    "importedByValueSlot": 0
+   }
+  },
+  "dataset": "reference-data/frosty/registry-value-slot-imports.json"
+ },
+ "inference": [
+  "Value rows imported into a value slot (869 imports, 868 of them rows with flat names such as the spotting, grenade, repair and ability rows of L3309 to L3312): the asset holds a pointer to the registry row where a number would be, usually with a fallback number beside it. For these the registry row is the stored source of the value and there is no competing own value.",
+  "Container rows imported into a slot (8,561 imports): an asset imports the registry container rows that carry its own name, for example file PBNS_ATMine imports the container row PBNS_ATMine...Explosion.ExplosionEntityData. The numbers of that container are value rows beneath it in the registry, while the asset also stores its own numbers.",
+  "For all 73 properties where registry and own value differ (L3307), the owning asset imports its registry container rows. So the asset is explicitly tied to the registry container that holds the differing default; the data still stores two numbers and nothing that says which is read. Together with the registry-only minigun change in L3314 this makes the registry default the likelier live value, as inference.",
+  "One file, TweakablesConfig, imports nearly every row through Field_a4361fcc; it is a master list and binds no asset to a row."
+ ],
+ "unresolved": [
+  "For container rows, whether the game applies the registry default over the asset's own number at load. Test: the scout helicopter minigun shots-to-overheat count and the anti-tank mine damage reading described in L3314.",
+  "Whether the fallback number beside a value-slot import is ever used. Test: none in game; a build in which a row is removed while the asset keeps its import would show it.",
+  "Imports ending in Field_8cf424e7 and Field_44a3a7c1 (1323 in all) were not examined.",
+  "Which flat rows of L3309 to L3312 are imported by which asset is in the dataset but was not reviewed row by row.",
+  "Whether an imported container makes the game replace the asset's own numbers with the registry defaults; the import shows the tie, not the rule."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-09-registry-bindings",
+  "artifacts": [
+   {
+    "file": "summary.json",
+    "sha256": "cba5a1ddf3b623f7d2c5912ce9bad6584a5ac4c86f971e8711d8396e3446d570"
+   },
+   {
+    "file": "value-slot-imports.json",
+    "sha256": "b81629623cc39f01f2d317dade6a1959b288c669b85f7aa1ecce8a52b6a99a3e"
+   },
+   {
+    "file": "raw-check-manifest.json",
+    "sha256": "ff22ffd3442607e9b9181dbcc27928e945f7df6154fc7a1a5fa55551f72c94f8"
+   },
+   {
+    "file": "raw-checks.json",
+    "sha256": "3c76dc7eb85098dbeb779410996316c6b1df521db8eaeccfc4e9c6dd759fb005"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-09",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L3316",
+    "title": "How assets are bound to registry rows: value-slot imports and path rows",
+    "status": "finding",
+    "summary": "9430 imports in 634 files point from an asset to a registry row: 869 to value rows, where the registry is the stored source, and 8561 to container rows carrying the asset's own name. For all 73 properties where registry and own value differ the owning asset imports its registry container. 549 raw-offset checks matched.",
+    "reopenWhen": "An in-game reading that settles a path row (minigun overheat count or anti-tank mine damage), or a build that changes the binding of a row.",
+    "statusNote": "Stored bindings only; runtime precedence for path rows unproven."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/GameSetup/Tweakables/GameRemixer/GRX_Vehicles",
+    "format": "raw-ebx",
+    "sha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+    "question": "How are assets bound to registry rows, and for which properties is the registry row itself the stored source of the value?",
+    "result": "useful",
+    "conclusion": "Rows such as Passives_Vehicles_Medbay_HealOverTime (20) are imported by assets into value slots."
+   },
+   {
+    "path": "Common/Hardware/Gadgets/GRX_Gadgets_Glacier",
+    "format": "raw-ebx",
+    "sha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+    "question": "How are assets bound to registry rows, and for which properties is the registry row itself the stored source of the value?",
+    "result": "useful",
+    "conclusion": "Gadget rule rows are imported by assets into value slots; file PBNS_ATMine imports its own container rows, under which the BlastDamage row sits."
+   }
+  ]
+ }
+}

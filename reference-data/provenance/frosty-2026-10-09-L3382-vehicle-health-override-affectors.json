@@ -1,0 +1,675 @@
+{
+ "lead": "L3382",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Read from saved raw captures; no export, no new capture."
+ },
+ "question": "L3358 found no stored 1250 for the UH-79's Battle Royale health, and EA's 'regeneration slowed by 80% in critical health' had no stored match. Do the vehicle health affectors hold them?",
+ "sourceFacts": {
+  "method": "The vehicle health affector files of class Class_15cfe943 were decoded (affdump.py): three '..._F2P' overrides, the multiplayer disabled-state regeneration affector and 13 single-player modifiers. Field_9040392c is the hash recorded as MaxHealth on vehicle bodies (VEHICLES.md, L3024); the other three fields are unnamed.",
+  "control": {
+   "description": "The single-player modifiers hold round health figures for named vehicles (Abrams 1000, AAV7A1 2500), as a health field would.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Gameplay\\Vehicles\\Affectors\\Affector_Vehicles_MP_DisabledStateHealthRegeneration.ebx",
+     "rawSha256": "5845f29bbfec69748062ef9053d69919b777c86c57770e2b4aa7f0ad8221b94d",
+     "offset": 108,
+     "type": "f32",
+     "bytesHex": "00000000",
+     "value": 0.0,
+     "expect": 0.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Gameplay\\Vehicles\\Affectors\\Affector_Vehicles_MP_DisabledStateHealthRegeneration.ebx",
+     "rawSha256": "5845f29bbfec69748062ef9053d69919b777c86c57770e2b4aa7f0ad8221b94d",
+     "offset": 116,
+     "type": "f32",
+     "bytesHex": "00000000",
+     "value": 0.0,
+     "expect": 0.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Gameplay\\Vehicles\\Affectors\\Affector_Vehicles_MP_DisabledStateHealthRegeneration.ebx",
+     "rawSha256": "5845f29bbfec69748062ef9053d69919b777c86c57770e2b4aa7f0ad8221b94d",
+     "offset": 104,
+     "type": "f32",
+     "bytesHex": "0000803e",
+     "value": 0.25,
+     "expect": 0.25,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Gameplay\\Vehicles\\Affectors\\Affector_Vehicles_MP_DisabledStateHealthRegeneration.ebx",
+     "rawSha256": "5845f29bbfec69748062ef9053d69919b777c86c57770e2b4aa7f0ad8221b94d",
+     "offset": 112,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\UH60\\Affector_UH60VehicleHealthOverride_F2P.ebx",
+     "rawSha256": "5558837c003124a1d63e19519efe277dd4746fa2edc7b71b4f1b65aa86e13a43",
+     "offset": 108,
+     "type": "f32",
+     "bytesHex": "00409c44",
+     "value": 1250.0,
+     "expect": 1250.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\UH60\\Affector_UH60VehicleHealthOverride_F2P.ebx",
+     "rawSha256": "5558837c003124a1d63e19519efe277dd4746fa2edc7b71b4f1b65aa86e13a43",
+     "offset": 116,
+     "type": "f32",
+     "bytesHex": "00004843",
+     "value": 200.0,
+     "expect": 200.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\UH60\\Affector_UH60VehicleHealthOverride_F2P.ebx",
+     "rawSha256": "5558837c003124a1d63e19519efe277dd4746fa2edc7b71b4f1b65aa86e13a43",
+     "offset": 104,
+     "type": "f32",
+     "bytesHex": "00000000",
+     "value": 0.0,
+     "expect": 0.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Helicopter\\UH60\\Affector_UH60VehicleHealthOverride_F2P.ebx",
+     "rawSha256": "5558837c003124a1d63e19519efe277dd4746fa2edc7b71b4f1b65aa86e13a43",
+     "offset": 112,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Tank\\Affector_IFVVehicleHealthOverride_F2P.ebx",
+     "rawSha256": "2cff70a4a403c561552f74c557bb294f9470be49ed83f44c77903abfa3451218",
+     "offset": 108,
+     "type": "f32",
+     "bytesHex": "00803b44",
+     "value": 750.0,
+     "expect": 750.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Tank\\Affector_IFVVehicleHealthOverride_F2P.ebx",
+     "rawSha256": "2cff70a4a403c561552f74c557bb294f9470be49ed83f44c77903abfa3451218",
+     "offset": 116,
+     "type": "f32",
+     "bytesHex": "00004843",
+     "value": 200.0,
+     "expect": 200.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Tank\\Affector_IFVVehicleHealthOverride_F2P.ebx",
+     "rawSha256": "2cff70a4a403c561552f74c557bb294f9470be49ed83f44c77903abfa3451218",
+     "offset": 104,
+     "type": "f32",
+     "bytesHex": "00000000",
+     "value": 0.0,
+     "expect": 0.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Tank\\Affector_IFVVehicleHealthOverride_F2P.ebx",
+     "rawSha256": "2cff70a4a403c561552f74c557bb294f9470be49ed83f44c77903abfa3451218",
+     "offset": 112,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Tank\\Affector_TankVehicleHealthOverride_F2P.ebx",
+     "rawSha256": "2182fb3bd2e2a65efbd264b61f741e964fb5df699367ea3c9499df85717e405c",
+     "offset": 108,
+     "type": "f32",
+     "bytesHex": "00004844",
+     "value": 800.0,
+     "expect": 800.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Tank\\Affector_TankVehicleHealthOverride_F2P.ebx",
+     "rawSha256": "2182fb3bd2e2a65efbd264b61f741e964fb5df699367ea3c9499df85717e405c",
+     "offset": 116,
+     "type": "f32",
+     "bytesHex": "00004843",
+     "value": 200.0,
+     "expect": 200.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Tank\\Affector_TankVehicleHealthOverride_F2P.ebx",
+     "rawSha256": "2182fb3bd2e2a65efbd264b61f741e964fb5df699367ea3c9499df85717e405c",
+     "offset": 104,
+     "type": "f32",
+     "bytesHex": "00000000",
+     "value": 0.0,
+     "expect": 0.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Common\\Hardware\\Vehicles\\Tank\\Affector_TankVehicleHealthOverride_F2P.ebx",
+     "rawSha256": "2182fb3bd2e2a65efbd264b61f741e964fb5df699367ea3c9499df85717e405c",
+     "offset": 112,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Game\\GlacierSP\\Gameplay\\Hardware\\Vehicles\\CustomazationAssets\\CombatAir\\Affectors\\Affector_VehicleHealthMod_Eurocopter_Enemy_NightRaid_SP.ebx",
+     "rawSha256": "b8476716848b9e4c8c811b16acd92a262a970683807c85f86c5822e3ecdfd47e",
+     "offset": 104,
+     "type": "f32",
+     "bytesHex": "00007a45",
+     "value": 4000.0,
+     "expect": 4000.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Game\\GlacierSP\\Gameplay\\Hardware\\Vehicles\\CustomazationAssets\\CombatAir\\Affectors\\Affector_VehicleHealthMod_Eurocopter_Enemy_NightRaid_SP.ebx",
+     "rawSha256": "b8476716848b9e4c8c811b16acd92a262a970683807c85f86c5822e3ecdfd47e",
+     "offset": 108,
+     "type": "f32",
+     "bytesHex": "00004844",
+     "value": 800.0,
+     "expect": 800.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Game\\GlacierSP\\Gameplay\\Hardware\\Vehicles\\CustomazationAssets\\CombatGround\\Affectors\\Affector_VehicleHealthMod_AAV7A1_Player_SP.ebx",
+     "rawSha256": "99d48096c065bf6897cf0eed5efd155446c8e0396b9e684be2a2c1f2ac81edd4",
+     "offset": 104,
+     "type": "f32",
+     "bytesHex": "00401c45",
+     "value": 2500.0,
+     "expect": 2500.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Game\\GlacierSP\\Gameplay\\Hardware\\Vehicles\\CustomazationAssets\\CombatGround\\Affectors\\Affector_VehicleHealthMod_AAV7A1_Player_SP.ebx",
+     "rawSha256": "99d48096c065bf6897cf0eed5efd155446c8e0396b9e684be2a2c1f2ac81edd4",
+     "offset": 108,
+     "type": "f32",
+     "bytesHex": "0000fa43",
+     "value": 500.0,
+     "expect": 500.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Game\\GlacierSP\\Gameplay\\Hardware\\Vehicles\\CustomazationAssets\\CombatGround\\Affectors\\Affector_VehicleHealthMod_Abrams_Player_SP.ebx",
+     "rawSha256": "a34052f598a978a9f195cdea08ea85d284fc40e84954b8eaf3a7e9435a771267",
+     "offset": 104,
+     "type": "f32",
+     "bytesHex": "00007a44",
+     "value": 1000.0,
+     "expect": 1000.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Game\\GlacierSP\\Gameplay\\Hardware\\Vehicles\\CustomazationAssets\\CombatGround\\Affectors\\Affector_VehicleHealthMod_Abrams_Player_SP.ebx",
+     "rawSha256": "a34052f598a978a9f195cdea08ea85d284fc40e84954b8eaf3a7e9435a771267",
+     "offset": 108,
+     "type": "f32",
+     "bytesHex": "00004843",
+     "value": 200.0,
+     "expect": 200.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Game\\GlacierSP\\Gameplay\\Hardware\\Vehicles\\CustomazationAssets\\CombatGround\\Affectors\\Affector_VehicleHealthMod_Abrams_Squad_SP.ebx",
+     "rawSha256": "fe10a9e15bd2d6ff1d6c6369a8d70c4b1b5c868752b185fbe363c91a2adccea9",
+     "offset": 104,
+     "type": "f32",
+     "bytesHex": "00007a44",
+     "value": 1000.0,
+     "expect": 1000.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Game\\GlacierSP\\Gameplay\\Hardware\\Vehicles\\CustomazationAssets\\CombatGround\\Affectors\\Affector_VehicleHealthMod_Abrams_Squad_SP.ebx",
+     "rawSha256": "fe10a9e15bd2d6ff1d6c6369a8d70c4b1b5c868752b185fbe363c91a2adccea9",
+     "offset": 108,
+     "type": "f32",
+     "bytesHex": "00004843",
+     "value": 200.0,
+     "expect": 200.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Game\\GlacierSP\\Gameplay\\Hardware\\Vehicles\\CustomazationAssets\\CombatGround\\Affectors\\Affector_VehicleHealthMod_Bradley_M03_Escort_SP.ebx",
+     "rawSha256": "adeffec752559a557d8caceb6fdf03cf5b9c0f499644cfa7d0d566c3f2354e18",
+     "offset": 104,
+     "type": "f32",
+     "bytesHex": "0080bb44",
+     "value": 1500.0,
+     "expect": 1500.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Game\\GlacierSP\\Gameplay\\Hardware\\Vehicles\\CustomazationAssets\\CombatGround\\Affectors\\Affector_VehicleHealthMod_Bradley_M03_Escort_SP.ebx",
+     "rawSha256": "adeffec752559a557d8caceb6fdf03cf5b9c0f499644cfa7d0d566c3f2354e18",
+     "offset": 108,
+     "type": "f32",
+     "bytesHex": "00009643",
+     "value": 300.0,
+     "expect": 300.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Game\\GlacierSP\\Gameplay\\Hardware\\Vehicles\\CustomazationAssets\\CombatGround\\Affectors\\Affector_VehicleHealthMod_CV90_Enemy_SP.ebx",
+     "rawSha256": "cbeff368658e56efdb07ee7b1abedc8d7cb73a79166e64073bf711781463a471",
+     "offset": 104,
+     "type": "f32",
+     "bytesHex": "0000fa43",
+     "value": 500.0,
+     "expect": 500.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Game\\GlacierSP\\Gameplay\\Hardware\\Vehicles\\CustomazationAssets\\CombatGround\\Affectors\\Affector_VehicleHealthMod_CV90_Enemy_SP.ebx",
+     "rawSha256": "cbeff368658e56efdb07ee7b1abedc8d7cb73a79166e64073bf711781463a471",
+     "offset": 108,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Game\\GlacierSP\\Gameplay\\Hardware\\Vehicles\\CustomazationAssets\\CombatGround\\Affectors\\Affector_VehicleHealthMod_Cheetah_Enemy_SP.ebx",
+     "rawSha256": "efe013e862639e78ebe796ab99a44ded776eed417be5cea5a979acab627fa343",
+     "offset": 104,
+     "type": "f32",
+     "bytesHex": "0000a043",
+     "value": 320.0,
+     "expect": 320.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Game\\GlacierSP\\Gameplay\\Hardware\\Vehicles\\CustomazationAssets\\CombatGround\\Affectors\\Affector_VehicleHealthMod_Cheetah_Enemy_SP.ebx",
+     "rawSha256": "efe013e862639e78ebe796ab99a44ded776eed417be5cea5a979acab627fa343",
+     "offset": 108,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Game\\GlacierSP\\Gameplay\\Hardware\\Vehicles\\CustomazationAssets\\CombatGround\\Affectors\\Affector_VehicleHealthMod_Leopard_Enemy_SP.ebx",
+     "rawSha256": "c62d1f222be6188ac0134c44ea1e3963d1d50703a122a11d919865018d812e55",
+     "offset": 104,
+     "type": "f32",
+     "bytesHex": "0000e143",
+     "value": 450.0,
+     "expect": 450.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Game\\GlacierSP\\Gameplay\\Hardware\\Vehicles\\CustomazationAssets\\CombatGround\\Affectors\\Affector_VehicleHealthMod_Leopard_Enemy_SP.ebx",
+     "rawSha256": "c62d1f222be6188ac0134c44ea1e3963d1d50703a122a11d919865018d812e55",
+     "offset": 108,
+     "type": "f32",
+     "bytesHex": "0000f042",
+     "value": 120.0,
+     "expect": 120.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Game\\GlacierSP\\Gameplay\\Hardware\\Vehicles\\CustomazationAssets\\Stationary\\Affectors\\Affector_VehicleHealthMod_Oerlikon_Enemy_SP.ebx",
+     "rawSha256": "7f7aaa26e1a6d345e6ab4db5fd3ded16560b55bd3e2dbc89b7febcf3e0c3f834",
+     "offset": 104,
+     "type": "f32",
+     "bytesHex": "00009643",
+     "value": 300.0,
+     "expect": 300.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Game\\GlacierSP\\Gameplay\\Hardware\\Vehicles\\CustomazationAssets\\Stationary\\Affectors\\Affector_VehicleHealthMod_Oerlikon_Enemy_SP.ebx",
+     "rawSha256": "7f7aaa26e1a6d345e6ab4db5fd3ded16560b55bd3e2dbc89b7febcf3e0c3f834",
+     "offset": 108,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Game\\GlacierSP\\Gameplay\\Hardware\\Vehicles\\CustomazationAssets\\TransportAir\\Affectors\\Affector_VehicleHealthMod_UH60_Enemy_SP.ebx",
+     "rawSha256": "63c6d3fd9ca394f473327ad97876c52a237942474a89ea28e1935b82ad57ff47",
+     "offset": 104,
+     "type": "f32",
+     "bytesHex": "00001644",
+     "value": 600.0,
+     "expect": 600.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Game\\GlacierSP\\Gameplay\\Hardware\\Vehicles\\CustomazationAssets\\TransportAir\\Affectors\\Affector_VehicleHealthMod_UH60_Enemy_SP.ebx",
+     "rawSha256": "63c6d3fd9ca394f473327ad97876c52a237942474a89ea28e1935b82ad57ff47",
+     "offset": 108,
+     "type": "f32",
+     "bytesHex": "00001643",
+     "value": 150.0,
+     "expect": 150.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Game\\GlacierSP\\Gameplay\\Hardware\\Vehicles\\CustomazationAssets\\TransportGround\\Affectors\\Affector_VehicleHealthMod_Marauder_Enemy_SP.ebx",
+     "rawSha256": "1b89438c787215c9a17806a9745eaa987000e5c6396734addecfbe964e341f08",
+     "offset": 104,
+     "type": "f32",
+     "bytesHex": "0000c843",
+     "value": 400.0,
+     "expect": 400.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Game\\GlacierSP\\Gameplay\\Hardware\\Vehicles\\CustomazationAssets\\TransportGround\\Affectors\\Affector_VehicleHealthMod_Marauder_Enemy_SP.ebx",
+     "rawSha256": "1b89438c787215c9a17806a9745eaa987000e5c6396734addecfbe964e341f08",
+     "offset": 108,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Game\\GlacierSP\\Gameplay\\Hardware\\Vehicles\\CustomazationAssets\\TransportGround\\Affectors\\Affector_VehicleHealthMod_Quadbike_Enemy_SP.ebx",
+     "rawSha256": "9134c3757fed6363cc2c401fe41d3407511679955a9b785ad9abbde6eda906e4",
+     "offset": 104,
+     "type": "f32",
+     "bytesHex": "0000c843",
+     "value": 400.0,
+     "expect": 400.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Game\\GlacierSP\\Gameplay\\Hardware\\Vehicles\\CustomazationAssets\\TransportGround\\Affectors\\Affector_VehicleHealthMod_Quadbike_Enemy_SP.ebx",
+     "rawSha256": "9134c3757fed6363cc2c401fe41d3407511679955a9b785ad9abbde6eda906e4",
+     "offset": 108,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Game\\GlacierSP\\Gameplay\\Hardware\\Vehicles\\CustomazationAssets\\TransportGround\\Affectors\\Affector_VehicleHealthMod_Vector_Enemy_SP.ebx",
+     "rawSha256": "6e5dd63664736dd914d56464931936f87e5ee72b521194c6108250854a8d5651",
+     "offset": 104,
+     "type": "f32",
+     "bytesHex": "0000c843",
+     "value": 400.0,
+     "expect": 400.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicle-loadout-slots-2026-10-01-direct\\raw\\Game\\GlacierSP\\Gameplay\\Hardware\\Vehicles\\CustomazationAssets\\TransportGround\\Affectors\\Affector_VehicleHealthMod_Vector_Enemy_SP.ebx",
+     "rawSha256": "6e5dd63664736dd914d56464931936f87e5ee72b521194c6108250854a8d5651",
+     "offset": 108,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 42,
+   "matched": 42,
+   "files": 17,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "rawchecks-L3382.json"
+  },
+  "dataset": "reference-data/frosty/vehicle-health-override-affectors.json",
+  "officialSource": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-1-0",
+  "eaStatements": [
+   "Corrected an issue where the UH-79 was using the Multiplayer health value of 1500 instead of the Battle Royale value of 1250.",
+   "While in critical health, regeneration is now slowed by 80% instead of being fully disabled."
+  ],
+  "multiplayerAndBattleRoyale": [
+   {
+    "file": "Affector_Vehicles_MP_DisabledStateHealthRegeneration",
+    "maxHealth_9040392c": 0.0,
+    "value_6f28bf9c": 0.0,
+    "value_cbf2ad7c": 0.25,
+    "value_8e30ee56": 1.0,
+    "flag_30362fbd": false,
+    "scope": "multiplayer"
+   },
+   {
+    "file": "Affector_UH60VehicleHealthOverride_F2P",
+    "maxHealth_9040392c": 1250.0,
+    "value_6f28bf9c": 200.0,
+    "value_cbf2ad7c": 0.0,
+    "value_8e30ee56": 1.0,
+    "flag_30362fbd": false,
+    "scope": "Battle Royale (F2P)"
+   },
+   {
+    "file": "Affector_IFVVehicleHealthOverride_F2P",
+    "maxHealth_9040392c": 750.0,
+    "value_6f28bf9c": 200.0,
+    "value_cbf2ad7c": 0.0,
+    "value_8e30ee56": 1.0,
+    "flag_30362fbd": false,
+    "scope": "Battle Royale (F2P)"
+   },
+   {
+    "file": "Affector_TankVehicleHealthOverride_F2P",
+    "maxHealth_9040392c": 800.0,
+    "value_6f28bf9c": 200.0,
+    "value_cbf2ad7c": 0.0,
+    "value_8e30ee56": 1.0,
+    "flag_30362fbd": false,
+    "scope": "Battle Royale (F2P)"
+   }
+  ],
+  "singlePlayer": [
+   {
+    "file": "Affector_VehicleHealthMod_Eurocopter_Enemy_NightRaid_SP",
+    "maxHealth_9040392c": 4000.0,
+    "value_6f28bf9c": 800.0,
+    "value_cbf2ad7c": null,
+    "value_8e30ee56": null,
+    "flag_30362fbd": false,
+    "scope": "single-player"
+   },
+   {
+    "file": "Affector_VehicleHealthMod_AAV7A1_Player_SP",
+    "maxHealth_9040392c": 2500.0,
+    "value_6f28bf9c": 500.0,
+    "value_cbf2ad7c": null,
+    "value_8e30ee56": null,
+    "flag_30362fbd": true,
+    "scope": "single-player"
+   },
+   {
+    "file": "Affector_VehicleHealthMod_Abrams_Player_SP",
+    "maxHealth_9040392c": 1000.0,
+    "value_6f28bf9c": 200.0,
+    "value_cbf2ad7c": null,
+    "value_8e30ee56": null,
+    "flag_30362fbd": true,
+    "scope": "single-player"
+   },
+   {
+    "file": "Affector_VehicleHealthMod_Abrams_Squad_SP",
+    "maxHealth_9040392c": 1000.0,
+    "value_6f28bf9c": 200.0,
+    "value_cbf2ad7c": null,
+    "value_8e30ee56": null,
+    "flag_30362fbd": true,
+    "scope": "single-player"
+   },
+   {
+    "file": "Affector_VehicleHealthMod_Bradley_M03_Escort_SP",
+    "maxHealth_9040392c": 1500.0,
+    "value_6f28bf9c": 300.0,
+    "value_cbf2ad7c": null,
+    "value_8e30ee56": null,
+    "flag_30362fbd": true,
+    "scope": "single-player"
+   },
+   {
+    "file": "Affector_VehicleHealthMod_CV90_Enemy_SP",
+    "maxHealth_9040392c": 500.0,
+    "value_6f28bf9c": 100.0,
+    "value_cbf2ad7c": null,
+    "value_8e30ee56": null,
+    "flag_30362fbd": false,
+    "scope": "single-player"
+   },
+   {
+    "file": "Affector_VehicleHealthMod_Cheetah_Enemy_SP",
+    "maxHealth_9040392c": 320.0,
+    "value_6f28bf9c": 100.0,
+    "value_cbf2ad7c": null,
+    "value_8e30ee56": null,
+    "flag_30362fbd": false,
+    "scope": "single-player"
+   },
+   {
+    "file": "Affector_VehicleHealthMod_Leopard_Enemy_SP",
+    "maxHealth_9040392c": 450.0,
+    "value_6f28bf9c": 120.0,
+    "value_cbf2ad7c": null,
+    "value_8e30ee56": null,
+    "flag_30362fbd": false,
+    "scope": "single-player"
+   },
+   {
+    "file": "Affector_VehicleHealthMod_Oerlikon_Enemy_SP",
+    "maxHealth_9040392c": 300.0,
+    "value_6f28bf9c": 100.0,
+    "value_cbf2ad7c": null,
+    "value_8e30ee56": null,
+    "flag_30362fbd": false,
+    "scope": "single-player"
+   },
+   {
+    "file": "Affector_VehicleHealthMod_UH60_Enemy_SP",
+    "maxHealth_9040392c": 600.0,
+    "value_6f28bf9c": 150.0,
+    "value_cbf2ad7c": null,
+    "value_8e30ee56": null,
+    "flag_30362fbd": false,
+    "scope": "single-player"
+   },
+   {
+    "file": "Affector_VehicleHealthMod_Marauder_Enemy_SP",
+    "maxHealth_9040392c": 400.0,
+    "value_6f28bf9c": 100.0,
+    "value_cbf2ad7c": null,
+    "value_8e30ee56": null,
+    "flag_30362fbd": false,
+    "scope": "single-player"
+   },
+   {
+    "file": "Affector_VehicleHealthMod_Quadbike_Enemy_SP",
+    "maxHealth_9040392c": 400.0,
+    "value_6f28bf9c": 100.0,
+    "value_cbf2ad7c": null,
+    "value_8e30ee56": null,
+    "flag_30362fbd": false,
+    "scope": "single-player"
+   },
+   {
+    "file": "Affector_VehicleHealthMod_Vector_Enemy_SP",
+    "maxHealth_9040392c": 400.0,
+    "value_6f28bf9c": 100.0,
+    "value_cbf2ad7c": null,
+    "value_8e30ee56": null,
+    "flag_30362fbd": false,
+    "scope": "single-player"
+   }
+  ]
+ },
+ "inference": [
+  "The UH-79's Battle Royale health of 1250 is stored in Affector_UH60VehicleHealthOverride_F2P, equal to EA's figure; this settles the open item of L3358. The same mechanism gives Battle Royale tanks 800 and IFVs 750 against 1200 in multiplayer (L3334). 'F2P' is taken as the free-to-play Battle Royale mode from the UH-79 match.",
+  "Each override carries 200 in Field_6f28bf9c. In the single-player modifiers that field is a fifth to a quarter of the health, which fits a critical-health threshold; unnamed, so a candidate.",
+  "The multiplayer disabled-state regeneration affector holds 0.25 in Field_cbf2ad7c and no health. If that is the regeneration multiplier while critical it means slowed by 75%, not EA's 80%; a file-only value that may be older than EA's note, or a different quantity. Not recorded as the slowdown.",
+  "Single-player modifiers are listed for completeness and do not apply to multiplayer pages."
+ ],
+ "unresolved": [
+  "Critical-health regeneration rate on a multiplayer tank: 24 per second if slowed by 80%, 30 if the 0.25 applies (test of L3346).",
+  "Battle Royale tank and IFV health (800 and 750) have no EA figure on file."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-09-damage-rule-extension",
+  "artifacts": [
+   {
+    "file": "manifest-L3382.json",
+    "sha256": "f737cd81ff46e4d2dcd64acfaa765fc2e37f8945cc3e3f1752ff58f3c9e1e699"
+   },
+   {
+    "file": "rawchecks-L3382.json",
+    "sha256": "98cef7c2433bf96d522d747533a692ac7cac08ce9177bb87701382914826a286"
+   },
+   {
+    "file": "affdump.py",
+    "sha256": "54c37d62c10ab3ceb918a045ec7492e51573fe856d564d4939c6a1879e0abbde"
+   },
+   {
+    "file": "affdump-vehrepair.json",
+    "sha256": "1e706ec5c6cb0e688bc42420fa7e210598f46bc22d9802798eb07f96e237301a"
+   },
+   {
+    "file": "affdump-healthmod.json",
+    "sha256": "6917c98e4aed7467a734454ce905878b6d393bca3b71709743fba7114dfe7555"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-09",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L3382",
+    "title": "Battle Royale vehicle health overrides are stored as affectors: UH-79 1250 (EA's stated value), tank 800, IFV 750; the multiplayer critical-state regeneration affector holds 0.25",
+    "status": "finding",
+    "summary": "The Battle Royale vehicle health overrides are affector files: UH-79 1250, which is the value EA states, tank 800 and IFV 750, each with a second value of 200 that fits a critical threshold. The multiplayer critical-state regeneration affector holds 0.25, close to but not equal to EA's 'slowed by 80%'. 42 raw-offset checks matched.",
+    "reopenWhen": "An in-game critical-health regeneration timing, or EA figures for Battle Royale tank health.",
+    "statusNote": "UH-79 Battle Royale health settled against EA; other fields are candidates."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Hardware/Vehicles/Helicopter/UH60/Affector_UH60VehicleHealthOverride_F2P",
+    "format": "raw-ebx",
+    "sha256": "5558837c003124a1d63e19519efe277dd4746fa2edc7b71b4f1b65aa86e13a43",
+    "question": "L3358 found no stored 1250 for the UH-79's Battle Royale health, and EA's 'regeneration slowed by 80% in critical health' had no stored match. Do the vehicle health affectors hold them?",
+    "result": "useful",
+    "conclusion": "Health 1250, EA's Battle Royale value for the UH-79."
+   }
+  ]
+ }
+}

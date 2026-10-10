@@ -1,0 +1,763 @@
+{
+ "lead": "L3372",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Read from saved raw captures; no export, no new capture."
+ },
+ "question": "L3371 found the heavy machine guns' own velocity newer than the registry default. Is that pattern wider among vehicle weapons?",
+ "sourceFacts": {
+  "method": "All 59 WF_Vehicles_* firing files with a launch speed were decoded; the own Shot.InitialSpeed z value (largest z in the firing object) was compared with the registry default of '<file>.PrimaryFire.Shot.InitialSpeed.z' where the row exists.",
+  "control": {
+   "description": "The tank cannon (560) and the IFV high-explosive round (250) read the same in file and registry.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\AttackHeli\\WF_Vehicles_AttackHeli_PrimaryWeapon_SmartRockets.ebx",
+     "rawSha256": "f739d9808bed51491b5d3e691a555324e90d65cbf872db6c58a00f2537faa271",
+     "offset": 592,
+     "type": "f32",
+     "bytesHex": "00003443",
+     "value": 180.0,
+     "expect": 180.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 51276,
+     "type": "f32",
+     "bytesHex": "0000b443",
+     "value": 360.0,
+     "expect": 360.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\IFV\\WF_Vehicles_IFV_PrimaryWeapon_APFSDST.ebx",
+     "rawSha256": "b67d73af08d8f35c3c321c112191f2e34f4283fc41601c721ae9e2ad379b68e3",
+     "offset": 1552,
+     "type": "f32",
+     "bytesHex": "0080bb43",
+     "value": 375.0,
+     "expect": 375.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 75628,
+     "type": "f32",
+     "bytesHex": "0080de43",
+     "value": 445.0,
+     "expect": 445.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\MBT\\WF_Vehicles_MBT_SecondaryWeapon_CoaxHMG.ebx",
+     "rawSha256": "a3d2cdd806a902e02aaa559a066be6b468ad8c1c2e90f621bdf1afa61e48c642",
+     "offset": 624,
+     "type": "f32",
+     "bytesHex": "00003e44",
+     "value": 760.0,
+     "expect": 760.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 52668,
+     "type": "f32",
+     "bytesHex": "00805e44",
+     "value": 890.0,
+     "expect": 890.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\MBT\\WF_Vehicles_MBT_SecondaryWeapon_CoaxLMG.ebx",
+     "rawSha256": "611b7853c6d26e58855b3bada87290c903982c840ad2e24c8a3143d6e13d4cb0",
+     "offset": 1184,
+     "type": "f32",
+     "bytesHex": "00001644",
+     "value": 600.0,
+     "expect": 600.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 189964,
+     "type": "f32",
+     "bytesHex": "00403844",
+     "value": 737.0,
+     "expect": 737.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\Shared\\WF_Vehicles_OpenGunner_HMG.ebx",
+     "rawSha256": "1d1be1c0ea852a99ce3a7daca9ca3ac4621102b0a6cf55d97d010fc9442756e3",
+     "offset": 2496,
+     "type": "f32",
+     "bytesHex": "00003e44",
+     "value": 760.0,
+     "expect": 760.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 217140,
+     "type": "f32",
+     "bytesHex": "00805e44",
+     "value": 890.0,
+     "expect": 890.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\RWS\\WF_Vehicles_RWS_HMG.ebx",
+     "rawSha256": "7d14e7e408ccd497c1c21dff0836520ae9a880b11f2835482c4d8f1157df063c",
+     "offset": 464,
+     "type": "f32",
+     "bytesHex": "00003e44",
+     "value": 760.0,
+     "expect": 760.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 149860,
+     "type": "f32",
+     "bytesHex": "00805e44",
+     "value": 890.0,
+     "expect": 890.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\RWS\\WF_Vehicles_RWS_LMG.ebx",
+     "rawSha256": "1aa019ea7aee0341346d26fb54417cccae583f32a77c1c51e5ffcb08ca443416",
+     "offset": 784,
+     "type": "f32",
+     "bytesHex": "00001644",
+     "value": 600.0,
+     "expect": 600.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 49844,
+     "type": "f32",
+     "bytesHex": "00403844",
+     "value": 737.0,
+     "expect": 737.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\MBT\\WF_Vehicles_MBT_PrimaryWeapon_120mm.ebx",
+     "rawSha256": "6279b00148f693b96b9a39591476ce16ad1e98a21994fa101f6661f5741c0f0c",
+     "offset": 688,
+     "type": "f32",
+     "bytesHex": "00000c44",
+     "value": 560.0,
+     "expect": 560.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 355204,
+     "type": "f32",
+     "bytesHex": "00000c44",
+     "value": 560.0,
+     "expect": 560.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\IFV\\WF_Vehicles_IFV_PrimaryWeapon_HEAB.ebx",
+     "rawSha256": "3acadbd4dc5f83c622f884e5e6a5582313225f2c6646d1ed1f4702dc8d78b8c8",
+     "offset": 880,
+     "type": "f32",
+     "bytesHex": "00007a43",
+     "value": 250.0,
+     "expect": 250.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 122708,
+     "type": "f32",
+     "bytesHex": "00007a43",
+     "value": 250.0,
+     "expect": 250.0,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 18,
+   "matched": 18,
+   "files": 10,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "rawchecks-L3372.json"
+  },
+  "dataset": "reference-data/frosty/vehicle-weapon-launch-speed.json",
+  "files": 59,
+  "withRegistryRowEqual": 36,
+  "withoutRegistryRow": 16,
+  "different": [
+   {
+    "file": "WF_Vehicles_AttackHeli_PrimaryWeapon_SmartRockets",
+    "own": 180.0,
+    "ownOffset": 592,
+    "otherZValues": [],
+    "registryDefault": 360.0,
+    "ea": "no EA line on file"
+   },
+   {
+    "file": "WF_Vehicles_IFV_PrimaryWeapon_APFSDST",
+    "own": 375.0,
+    "ownOffset": 1552,
+    "otherZValues": [
+     110.0
+    ],
+    "registryDefault": 445.0,
+    "ea": "EA 1.3.3.0: 375 to 445"
+   },
+   {
+    "file": "WF_Vehicles_MBT_SecondaryWeapon_CoaxHMG",
+    "own": 760.0,
+    "ownOffset": 624,
+    "otherZValues": [],
+    "registryDefault": 890.0,
+    "ea": "EA 1.3.1.0: 890 to 760"
+   },
+   {
+    "file": "WF_Vehicles_MBT_SecondaryWeapon_CoaxLMG",
+    "own": 600.0,
+    "ownOffset": 1184,
+    "otherZValues": [],
+    "registryDefault": 737.0,
+    "ea": "EA 1.3.1.0: 850 to 670"
+   },
+   {
+    "file": "WF_Vehicles_OpenGunner_HMG",
+    "own": 760.0,
+    "ownOffset": 2496,
+    "otherZValues": [],
+    "registryDefault": 890.0,
+    "ea": "no line for this gun (EA names RWS and coaxial)"
+   },
+   {
+    "file": "WF_Vehicles_RWS_HMG",
+    "own": 760.0,
+    "ownOffset": 464,
+    "otherZValues": [],
+    "registryDefault": 890.0,
+    "ea": "EA 1.3.1.0: 890 to 760"
+   },
+   {
+    "file": "WF_Vehicles_RWS_LMG",
+    "own": 600.0,
+    "ownOffset": 784,
+    "otherZValues": [],
+    "registryDefault": 737.0,
+    "ea": "EA 1.3.1.0: 850 to 670"
+   }
+  ],
+  "rows": [
+   {
+    "file": "WF_Vehicles_AA_PrimaryWeapon_AAAP",
+    "own": 560.0,
+    "ownOffset": 1408,
+    "otherZValues": [],
+    "registryDefault": 560.0
+   },
+   {
+    "file": "WF_Vehicles_AA_PrimaryWeapon_AAGP",
+    "own": 850.0,
+    "ownOffset": 416,
+    "otherZValues": [],
+    "registryDefault": 850.0
+   },
+   {
+    "file": "WF_Vehicles_AA_PrimaryWeapon_AAHV",
+    "own": 1175.0,
+    "ownOffset": 656,
+    "otherZValues": [],
+    "registryDefault": 1175.0
+   },
+   {
+    "file": "WF_Vehicles_AA_SecondaryWeapon_AimGuidedMissile",
+    "own": 50.0,
+    "ownOffset": 368,
+    "otherZValues": [],
+    "registryDefault": 50.0
+   },
+   {
+    "file": "WF_Vehicles_AA_SecondaryWeapon_AntiAirMissile",
+    "own": 20.0,
+    "ownOffset": 784,
+    "otherZValues": [],
+    "registryDefault": 20.0
+   },
+   {
+    "file": "WF_Vehicles_AA_SecondaryWeapon_HighVelocityMissile",
+    "own": 117.5,
+    "ownOffset": 656,
+    "otherZValues": [],
+    "registryDefault": 117.5
+   },
+   {
+    "file": "WF_Vehicles_Airplane_PrimaryWeapon_Cannon",
+    "own": 1100.0,
+    "ownOffset": 368,
+    "otherZValues": [],
+    "registryDefault": 1100.0
+   },
+   {
+    "file": "WF_Vehicles_Airplane_SecondaryWeapon_AirToAirMissile",
+    "own": 20.0,
+    "ownOffset": 720,
+    "otherZValues": [],
+    "registryDefault": 20.0
+   },
+   {
+    "file": "WF_Vehicles_Airplane_SecondaryWeapon_AirToAirMissile_R73",
+    "own": 20.0,
+    "ownOffset": 368,
+    "otherZValues": [],
+    "registryDefault": 20.0
+   },
+   {
+    "file": "WF_Vehicles_Airplane_SecondaryWeapon_AirToGroundMissile",
+    "own": 40.0,
+    "ownOffset": 368,
+    "otherZValues": [],
+    "registryDefault": 40.0
+   },
+   {
+    "file": "WF_Vehicles_Airplane_SecondaryWeapon_AntiRadiationMissile",
+    "own": 40.0,
+    "ownOffset": 832,
+    "otherZValues": [],
+    "registryDefault": 40.0
+   },
+   {
+    "file": "WF_Vehicles_Airplane_SecondaryWeapon_LightRockets",
+    "own": 360.0,
+    "ownOffset": 832,
+    "otherZValues": [],
+    "registryDefault": 360.0
+   },
+   {
+    "file": "WF_Vehicles_AttackHeli_Passenger_PrimaryWeapon_Chaingun",
+    "own": 805.0,
+    "ownOffset": 1168,
+    "otherZValues": [],
+    "registryDefault": 805.0
+   },
+   {
+    "file": "WF_Vehicles_AttackHeli_Passenger_SecondaryWeapon_LockingMissile",
+    "own": 20.0,
+    "ownOffset": 560,
+    "otherZValues": [],
+    "registryDefault": 20.0
+   },
+   {
+    "file": "WF_Vehicles_AttackHeli_PrimaryWeapon_HeavyRockets",
+    "own": 360.0,
+    "ownOffset": 368,
+    "otherZValues": [],
+    "registryDefault": 360.0
+   },
+   {
+    "file": "WF_Vehicles_AttackHeli_PrimaryWeapon_LightRockets",
+    "own": 360.0,
+    "ownOffset": 368,
+    "otherZValues": [],
+    "registryDefault": 360.0
+   },
+   {
+    "file": "WF_Vehicles_AttackHeli_PrimaryWeapon_SmartRockets",
+    "own": 180.0,
+    "ownOffset": 592,
+    "otherZValues": [],
+    "registryDefault": 360.0,
+    "ea": "no EA line on file"
+   },
+   {
+    "file": "WF_Vehicles_AttackHeli_SecondaryWeapon_AirToAirMissile",
+    "own": 20.0,
+    "ownOffset": 784,
+    "otherZValues": [],
+    "registryDefault": 20.0
+   },
+   {
+    "file": "WF_Vehicles_AttackHeli_SecondaryWeapon_TOW",
+    "own": 50.0,
+    "ownOffset": 464,
+    "otherZValues": [],
+    "registryDefault": 50.0
+   },
+   {
+    "file": "WF_Vehicles_IFV_PrimaryWeapon_APFSDST",
+    "own": 375.0,
+    "ownOffset": 1552,
+    "otherZValues": [
+     110.0
+    ],
+    "registryDefault": 445.0,
+    "ea": "EA 1.3.3.0: 375 to 445"
+   },
+   {
+    "file": "WF_Vehicles_IFV_PrimaryWeapon_Canister",
+    "own": 700.0,
+    "ownOffset": 1472,
+    "otherZValues": [
+     110.0
+    ],
+    "registryDefault": 700.0
+   },
+   {
+    "file": "WF_Vehicles_IFV_PrimaryWeapon_HEAB",
+    "own": 250.0,
+    "ownOffset": 880,
+    "otherZValues": [
+     110.0
+    ],
+    "registryDefault": 250.0
+   },
+   {
+    "file": "WF_Vehicles_IFV_SecondaryWeapon_HomingATGM",
+    "own": 80.0,
+    "ownOffset": 672,
+    "otherZValues": [],
+    "registryDefault": 80.0
+   },
+   {
+    "file": "WF_Vehicles_IFV_SecondaryWeapon_LightRockets",
+    "own": 120.0,
+    "ownOffset": 832,
+    "otherZValues": [],
+    "registryDefault": 120.0
+   },
+   {
+    "file": "WF_Vehicles_IFV_SecondaryWeapon_TOW",
+    "own": 50.0,
+    "ownOffset": 432,
+    "otherZValues": [],
+    "registryDefault": 50.0
+   },
+   {
+    "file": "WF_Vehicles_MBT_PrimaryWeapon_120mm",
+    "own": 560.0,
+    "ownOffset": 688,
+    "otherZValues": [
+     90.0
+    ],
+    "registryDefault": 560.0
+   },
+   {
+    "file": "WF_Vehicles_MBT_SecondaryWeapon_CoaxHMG",
+    "own": 760.0,
+    "ownOffset": 624,
+    "otherZValues": [],
+    "registryDefault": 890.0,
+    "ea": "EA 1.3.1.0: 890 to 760"
+   },
+   {
+    "file": "WF_Vehicles_MBT_SecondaryWeapon_CoaxLMG",
+    "own": 600.0,
+    "ownOffset": 1184,
+    "otherZValues": [],
+    "registryDefault": 737.0,
+    "ea": "EA 1.3.1.0: 850 to 670"
+   },
+   {
+    "file": "WF_Vehicles_MultirolePlane_PrimaryWeapon_ZuniRockets",
+    "own": 360.0,
+    "ownOffset": 592,
+    "otherZValues": [],
+    "registryDefault": 360.0
+   },
+   {
+    "file": "WF_Vehicles_OpenGunner_HMG",
+    "own": 760.0,
+    "ownOffset": 2496,
+    "otherZValues": [],
+    "registryDefault": 890.0,
+    "ea": "no line for this gun (EA names RWS and coaxial)"
+   },
+   {
+    "file": "WF_Vehicles_PatrolBoat_Gunner_PrimaryWeapon_120mmMortar_Airburst",
+    "own": 80.0,
+    "ownOffset": 464,
+    "otherZValues": [],
+    "registryDefault": null
+   },
+   {
+    "file": "WF_Vehicles_PatrolBoat_Gunner_PrimaryWeapon_120mmMortar_Guided",
+    "own": 80.0,
+    "ownOffset": 1088,
+    "otherZValues": [],
+    "registryDefault": null
+   },
+   {
+    "file": "WF_Vehicles_PatrolBoat_Gunner_PrimaryWeapon_120mmMortar_HE",
+    "own": 80.0,
+    "ownOffset": 1184,
+    "otherZValues": [],
+    "registryDefault": null
+   },
+   {
+    "file": "WF_Vehicles_PatrolBoat_Gunner_PrimaryWeapon_120mmMortar_Illumination",
+    "own": 80.0,
+    "ownOffset": 656,
+    "otherZValues": [],
+    "registryDefault": null
+   },
+   {
+    "file": "WF_Vehicles_PatrolBoat_Gunner_PrimaryWeapon_120mmMortar_Smoke",
+    "own": 80.0,
+    "ownOffset": 1088,
+    "otherZValues": [],
+    "registryDefault": null
+   },
+   {
+    "file": "WF_Vehicles_PatrolBoat_PrimaryWeapon_GAU19",
+    "own": 890.0,
+    "ownOffset": 784,
+    "otherZValues": [],
+    "registryDefault": null
+   },
+   {
+    "file": "WF_Vehicles_PatrolBoat_PrimaryWeapon_M230LF",
+    "own": 530.0,
+    "ownOffset": 944,
+    "otherZValues": [],
+    "registryDefault": null
+   },
+   {
+    "file": "WF_Vehicles_PatrolBoat_SecondaryWeapon_MistralMissile",
+    "own": 20.0,
+    "ownOffset": 560,
+    "otherZValues": [],
+    "registryDefault": null
+   },
+   {
+    "file": "WF_Vehicles_PatrolBoat_SecondaryWeapon_RBS70",
+    "own": 50.0,
+    "ownOffset": 480,
+    "otherZValues": [],
+    "registryDefault": null
+   },
+   {
+    "file": "WF_Vehicles_RWS_AGL",
+    "own": 100.0,
+    "ownOffset": 368,
+    "otherZValues": [],
+    "registryDefault": 100.0
+   },
+   {
+    "file": "WF_Vehicles_RWS_AGL-SP",
+    "own": 100.0,
+    "ownOffset": 736,
+    "otherZValues": [],
+    "registryDefault": null
+   },
+   {
+    "file": "WF_Vehicles_RWS_HMG",
+    "own": 760.0,
+    "ownOffset": 464,
+    "otherZValues": [],
+    "registryDefault": 890.0,
+    "ea": "EA 1.3.1.0: 890 to 760"
+   },
+   {
+    "file": "WF_Vehicles_RWS_HMG-SP",
+    "own": 890.0,
+    "ownOffset": 2384,
+    "otherZValues": [],
+    "registryDefault": 890.0
+   },
+   {
+    "file": "WF_Vehicles_RWS_LMG",
+    "own": 600.0,
+    "ownOffset": 784,
+    "otherZValues": [],
+    "registryDefault": 737.0,
+    "ea": "EA 1.3.1.0: 850 to 670"
+   },
+   {
+    "file": "WF_Vehicles_RWS_TargetDesignator",
+    "own": 350.0,
+    "ownOffset": 368,
+    "otherZValues": [],
+    "registryDefault": 350.0
+   },
+   {
+    "file": "WF_Vehicles_SAA_PrimaryWeapon_20mmRotaryCannon",
+    "own": 1100.0,
+    "ownOffset": 368,
+    "otherZValues": [],
+    "registryDefault": 1100.0
+   },
+   {
+    "file": "WF_Vehicles_SSMBattery_SecondaryWeapon_AntiAirMissile",
+    "own": 20.0,
+    "ownOffset": 368,
+    "otherZValues": [],
+    "registryDefault": null
+   },
+   {
+    "file": "WF_Vehicles_ScoutHeli_Passenger_PrimaryWeapon_ThermalScanner",
+    "own": 350.0,
+    "ownOffset": 2032,
+    "otherZValues": [],
+    "registryDefault": 350.0
+   },
+   {
+    "file": "WF_Vehicles_ScoutHeli_Passenger_SecondaryWeapon_DirectionalJammer",
+    "own": 350.0,
+    "ownOffset": 1840,
+    "otherZValues": [],
+    "registryDefault": null
+   },
+   {
+    "file": "WF_Vehicles_ScoutHeli_PrimaryWeapon_GAU19",
+    "own": 860.0,
+    "ownOffset": 1744,
+    "otherZValues": [],
+    "registryDefault": 860.0
+   },
+   {
+    "file": "WF_Vehicles_ScoutHeli_PrimaryWeapon_LR30",
+    "own": 265.0,
+    "ownOffset": 1136,
+    "otherZValues": [],
+    "registryDefault": null
+   },
+   {
+    "file": "WF_Vehicles_ScoutHeli_PrimaryWeapon_Minigun",
+    "own": 700.0,
+    "ownOffset": 496,
+    "otherZValues": [],
+    "registryDefault": 700.0
+   },
+   {
+    "file": "WF_Vehicles_ScoutHeli_SecondaryWeapon_AirToAirMissile",
+    "own": 20.0,
+    "ownOffset": 368,
+    "otherZValues": [],
+    "registryDefault": 20.0
+   },
+   {
+    "file": "WF_Vehicles_ScoutHeli_SecondaryWeapon_Hellfire",
+    "own": 20.0,
+    "ownOffset": 480,
+    "otherZValues": [],
+    "registryDefault": null
+   },
+   {
+    "file": "WF_Vehicles_ScoutHeli_SecondaryWeapon_LightRockets",
+    "own": 360.0,
+    "ownOffset": 528,
+    "otherZValues": [],
+    "registryDefault": null
+   },
+   {
+    "file": "WF_Vehicles_ScoutHeli_SecondaryWeapon_SmartRockets",
+    "own": 360.0,
+    "ownOffset": 640,
+    "otherZValues": [],
+    "registryDefault": null
+   },
+   {
+    "file": "WF_Vehicles_Stationary_AntiAir",
+    "own": 1175.0,
+    "ownOffset": 560,
+    "otherZValues": [],
+    "registryDefault": 1175.0
+   },
+   {
+    "file": "WF_Vehicles_Stationary_TOW",
+    "own": 50.0,
+    "ownOffset": 480,
+    "otherZValues": [],
+    "registryDefault": 50.0
+   },
+   {
+    "file": "WF_Vehicles_TransportHeli_Gunner_Minigun",
+    "own": 700.0,
+    "ownOffset": 1488,
+    "otherZValues": [],
+    "registryDefault": 700.0
+   }
+  ]
+ },
+ "inference": [
+  "36 files have a registry row equal to the own value, 16 have no registry row, and seven differ.",
+  "IFV AP shell: own 375 is EA's old figure and the registry 445 the new one, the usual direction (L3356).",
+  "Machine guns (five files): the reverse or neither, as in L3371. The open-gunner HMG follows the other heavy machine guns (own 760, registry 890) although EA's line names only the remote and coaxial guns.",
+  "Attack Helicopter Smart Rockets: own 180, registry 360. The Scout Helicopter's Smart Rockets file holds 360 and has no row. No EA line on file states a speed; by the usual direction 360 is the current value, unconfirmed.",
+  "So the machine guns are the only vehicle weapons where the registry-first rule is in doubt for launch speed."
+ ],
+ "unresolved": [
+  "Attack Helicopter Smart Rocket speed (180 or 360): time a rocket to a target 360 m away (1 s or 2 s).",
+  "Machine gun velocity test as in L3371."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-09-damage-rule-extension",
+  "artifacts": [
+   {
+    "file": "manifest-L3372.json",
+    "sha256": "e0b83e2c05b647647b29d5904f15420ad3c79ecfc0ffe4036a1e2b2d89f5bfcf"
+   },
+   {
+    "file": "rawchecks-L3372.json",
+    "sha256": "1a8a438ee78610c0b45ff0568cc68fdf5a3fa6686721e93c376a807656c4e503"
+   },
+   {
+    "file": "vehvel.py",
+    "sha256": "47eeda79d6faa6bd0644a615b261d5b5317589e0be1808e6977e6bebd31e58fa"
+   },
+   {
+    "file": "vehvel.json",
+    "sha256": "712aeb35782ddaaa02bcaeebe152196141acdd6124161ad6f4752d55aa307124"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-09",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L3372",
+    "title": "Launch speed in file and registry for all 59 vehicle weapon files: seven differ, and only the machine guns have the newer figure in the file",
+    "status": "finding",
+    "summary": "Across 59 vehicle weapon files the launch speed in the file equals the registry default wherever a row exists, except seven: the IFV AP shell (registry holds EA's new 445), the Attack Helicopter Smart Rockets (180 in file, 360 in registry) and five machine guns (L3371). 18 raw-offset checks matched.",
+    "reopenWhen": "An in-game flight time for Smart Rockets or a machine gun.",
+    "statusNote": "Survey complete for launch speed; which source applies for the machine guns and Smart Rockets is unconfirmed."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/AttackHeli/WF_Vehicles_AttackHeli_PrimaryWeapon_SmartRockets",
+    "format": "raw-ebx",
+    "sha256": "f739d9808bed51491b5d3e691a555324e90d65cbf872db6c58a00f2537faa271",
+    "question": "L3371 found the heavy machine guns' own velocity newer than the registry default. Is that pattern wider among vehicle weapons?",
+    "result": "useful",
+    "conclusion": "Own launch speed 180; registry default 360."
+   }
+  ]
+ }
+}

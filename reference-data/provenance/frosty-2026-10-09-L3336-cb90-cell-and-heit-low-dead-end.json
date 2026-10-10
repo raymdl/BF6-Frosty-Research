@@ -1,0 +1,229 @@
+{
+ "lead": "L3336",
+ "status": "exhausted",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Read from saved raw captures; no export, no new capture."
+ },
+ "question": "What damage does the CB90 boat take (target material 313), and which stored value gives EA's low figure of 10 for HEI-T rounds against tanks?",
+ "sourceFacts": {
+  "method": "Every one of the 785 target columns of the Abbasid material grid was read for two source materials (125, rocket direct hit; 96) and classed as value, empty or other. For HEI-T, the registry rows of PD_Vehicles_IFV_PrimaryWeapon_HEAB were read for a second damage number and the rule of L3323 was applied to it.",
+  "control": {
+   "description": "The same scan returns 2.0 for source 125 against target 119, the tank value used in L3323.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Boat\\CB90\\VB_VEH_Boat_CB90_DamageZones.ebx",
+     "rawSha256": "4ccc610183b064038983b697e2bdc2bffe08505134e129ca3f934cfa496e7e1c",
+     "offset": 372,
+     "type": "u32",
+     "bytesHex": "80399113",
+     "value": 328284544,
+     "expect": 328284544,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\Boat\\CB90\\VB_VEH_Boat_CB90_DamageZones.ebx",
+     "rawSha256": "4ccc610183b064038983b697e2bdc2bffe08505134e129ca3f934cfa496e7e1c",
+     "offset": 580,
+     "type": "u32",
+     "bytesHex": "80399113",
+     "value": 328284544,
+     "expect": 328284544,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 23468,
+     "type": "f32",
+     "bytesHex": "00002042",
+     "value": 40.0,
+     "expect": 40.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 43548,
+     "type": "f32",
+     "bytesHex": "00008c42",
+     "value": 70.0,
+     "expect": 70.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 251572,
+     "type": "f32",
+     "bytesHex": "00004842",
+     "value": 50.0,
+     "expect": 50.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 388764,
+     "type": "f32",
+     "bytesHex": "0000f042",
+     "value": 120.0,
+     "expect": 120.0,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 8685,
+   "matched": 8685,
+   "files": 3,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "rawchecks-L3336.json"
+  },
+  "cb90": {
+   "targetMaterial": 313,
+   "cell": "empty for both sources",
+   "emptyTargets300to325": [
+    300,
+    302,
+    305,
+    306,
+    307,
+    308,
+    312,
+    313,
+    314,
+    315,
+    316,
+    317,
+    318,
+    319,
+    320,
+    321,
+    322,
+    323,
+    324,
+    325
+   ],
+   "source125": {
+    "val": 437,
+    "empty": 339,
+    "other": 9
+   },
+   "source96": {
+    "val": 423,
+    "empty": 356,
+    "other": 6
+   },
+   "targets": 785
+  },
+  "heiT": {
+   "eaLow": 10,
+   "eaHigh": 30,
+   "startDamage": 50,
+   "endDamage": 40,
+   "falloffStart": 70.0,
+   "falloffEnd": 120.0,
+   "grid119": 0.3,
+   "fromStart": {
+    "low": "ceil(0.75 x 50 x 0.3) = 12",
+    "high": "2 x 50 x 0.3 = 30"
+   },
+   "fromEnd": {
+    "low": "0.75 x 40 x 0.3 = 9",
+    "high": "2 x 40 x 0.3 = 24"
+   }
+  }
+ },
+ "inference": [
+  "Target material 313 is one of about 340 columns with no stored value for these sources; material IDs 305 to 308 and 312 to 325 are all empty. What the game does with an empty cell is not stored in the grid.",
+  "EA's low HEI-T figure 10 lies between the turret figure at full damage (12) and at minimum damage (9); neither stored number gives 10. EA's high figure 30 equals the full-damage rear figure."
+ ],
+ "unresolved": [
+  "Damage to the CB90. Test: one RPG on a full-health CB90, read the health removed.",
+  "HEI-T low figure. Test: one HEI-T round on a tank turret within 70 m, read the health removed: 12 by the rule, 10 by EA's notes."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-09-damage-rule-extension",
+  "artifacts": [
+   {
+    "file": "manifest-L3336.json",
+    "sha256": "7844f6c334d9cb1199b8ec923686e48c57271849b0a7f3b8ee91c2588add1a04"
+   },
+   {
+    "file": "rawchecks-L3336.json",
+    "sha256": "63562d8c34b9f3e7e56eadc957935d0b41c66bc7aa6781f8d485054424a3a6d9"
+   },
+   {
+    "file": "scan-targets.json",
+    "sha256": "1cacf8e2757907ccc279610ef1fdf52084a6d196c93da165821c3af509ce55e2"
+   },
+   {
+    "file": "scan313.py",
+    "sha256": "fd197136b33dd4b367c3b3321a7caa2ac81f255024dfb3c0db02fe4315d8097b"
+   },
+   {
+    "file": "core.json",
+    "sha256": "681425eb3b5736fda9c7d9dd85a34b4519ff218008c132cc283dab7f8d6ba6e2"
+   },
+   {
+    "file": "scan-targets-grid-rawchecks.json",
+    "sha256": "724f14738a46c4e323492422fc90cc6bef9f4984f963e881be7fff2cfd740937"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-09",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L3336",
+    "title": "Dead end: the CB90's target material has no grid value, and no stored number gives EA's low HEI-T figure of 10",
+    "status": "exhausted",
+    "summary": "The CB90's target material 313 has an empty cell in the material grid for both sources scanned, like every material from 312 to 325, so stored data gives no damage figure for the boat. For HEI-T rounds the registry holds 50 at close range and 40 beyond 120 m; the rule gives 12 or 9 on a tank turret, not EA's 10. 8685 raw-offset checks matched.",
+    "reopenWhen": "A stored default for empty grid cells is found, or an in-game reading for either item.",
+    "statusNote": "Stored data exhausted for both items.",
+    "searched": [
+     "All 785 target columns of the Abbasid material grid for source materials 125 and 96",
+     "Registry rows of PD_Vehicles_IFV_PrimaryWeapon_HEAB: StartDamage, EndDamage, DamageFalloffStartDistance, DamageFalloffEndDistance",
+     "CB90 damage-zone target materials (L3328)"
+    ]
+   }
+  ],
+  "assets": [
+   {
+    "path": "Game/GlacierMP/levels/mp_abbasid/mp_abbasid/materialgrid_win32",
+    "format": "raw-ebx",
+    "sha256": "aa93a111c7ee6443ef00e0df63834433672ff72dbbb3e3d6c10efc72f38c3de7",
+    "question": "What damage does the CB90 boat take (target material 313), and which stored value gives EA's low figure of 10 for HEI-T rounds against tanks?",
+    "result": "inconclusive",
+    "conclusion": "Column 313 is empty for sources 125 and 96."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/Boat/CB90/VB_VEH_Boat_CB90_DamageZones",
+    "format": "raw-ebx",
+    "sha256": "4ccc610183b064038983b697e2bdc2bffe08505134e129ca3f934cfa496e7e1c",
+    "question": "What damage does the CB90 boat take (target material 313), and which stored value gives EA's low figure of 10 for HEI-T rounds against tanks?",
+    "result": "inconclusive",
+    "conclusion": "CB90 damage zones store target material 313."
+   },
+   {
+    "path": "Common/GameSetup/Tweakables/GameRemixer/GRX_Vehicles",
+    "format": "raw-ebx",
+    "sha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+    "question": "What damage does the CB90 boat take (target material 313), and which stored value gives EA's low figure of 10 for HEI-T rounds against tanks?",
+    "result": "inconclusive",
+    "conclusion": "HEAB rows hold StartDamage 50 and EndDamage 40; neither gives EA's 10."
+   }
+  ]
+ }
+}

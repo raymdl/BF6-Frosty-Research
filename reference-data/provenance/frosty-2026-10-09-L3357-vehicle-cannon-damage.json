@@ -1,0 +1,783 @@
+{
+ "lead": "L3357",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Read from saved raw captures; no export, no new capture."
+ },
+ "question": "What damage per hit do the remaining vehicle guns (canister rounds, grenade launcher station, helicopter chaingun, jet cannon, stationary guns) store against soldiers and each vehicle class?",
+ "sourceFacts": {
+  "method": "For seven projectile files (read with the machine guns of L3338) the registry StartDamage and EndDamage, own values, bullet material and, where present, explosion material and BlastDamage were read, with the material grid value (Field_674633de) against soldier abdomen and five vehicle target materials in two level grids (equal). Damage per hit = registry damage x grid value; blast is listed after a plus sign. Names are joined to files by name only.",
+  "control": {
+   "description": "The same reader reproduced EA's machine gun minimum damage in L3338 and L3335; the grid values for materials 289 and 459 are those used in L3338 and L3336.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 133068,
+     "type": "f32",
+     "bytesHex": "00004842",
+     "value": 50.0,
+     "expect": 50.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\MBT\\PD_Vehicles_MBT_AmmoTypes_Canister.ebx",
+     "rawSha256": "421668ab07a9662a2deeace6c6865c578fdc9c1d7ed786c341eb281b06da35c9",
+     "offset": 676,
+     "type": "f32",
+     "bytesHex": "00004842",
+     "value": 50.0,
+     "expect": 50.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 459876,
+     "type": "f32",
+     "bytesHex": "0000f041",
+     "value": 30.0,
+     "expect": 30.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\MBT\\PD_Vehicles_MBT_AmmoTypes_Canister.ebx",
+     "rawSha256": "421668ab07a9662a2deeace6c6865c578fdc9c1d7ed786c341eb281b06da35c9",
+     "offset": 680,
+     "type": "f32",
+     "bytesHex": "0000f041",
+     "value": 30.0,
+     "expect": 30.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\MBT\\PD_Vehicles_MBT_AmmoTypes_Canister.ebx",
+     "rawSha256": "421668ab07a9662a2deeace6c6865c578fdc9c1d7ed786c341eb281b06da35c9",
+     "offset": 400,
+     "type": "u32",
+     "bytesHex": "80501012",
+     "value": 303059072,
+     "expect": 303059072,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 497028,
+     "type": "f32",
+     "bytesHex": "00007041",
+     "value": 15.0,
+     "expect": 15.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\IFV\\PD_Vehicles_IFV_PrimaryWeapon_Canister.ebx",
+     "rawSha256": "bfd5a40d4a77313147588cfb5e6d329c73ec5ec7b55027b870b54b6ef122bd36",
+     "offset": 676,
+     "type": "f32",
+     "bytesHex": "00007041",
+     "value": 15.0,
+     "expect": 15.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 292052,
+     "type": "f32",
+     "bytesHex": "0000a040",
+     "value": 5.0,
+     "expect": 5.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\IFV\\PD_Vehicles_IFV_PrimaryWeapon_Canister.ebx",
+     "rawSha256": "bfd5a40d4a77313147588cfb5e6d329c73ec5ec7b55027b870b54b6ef122bd36",
+     "offset": 680,
+     "type": "f32",
+     "bytesHex": "0000a040",
+     "value": 5.0,
+     "expect": 5.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\IFV\\PD_Vehicles_IFV_PrimaryWeapon_Canister.ebx",
+     "rawSha256": "bfd5a40d4a77313147588cfb5e6d329c73ec5ec7b55027b870b54b6ef122bd36",
+     "offset": 400,
+     "type": "u32",
+     "bytesHex": "80514015",
+     "value": 356536704,
+     "expect": 356536704,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 408956,
+     "type": "f32",
+     "bytesHex": "00000042",
+     "value": 32.0,
+     "expect": 32.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Grenade\\PB_Vehicle_AGL_Grenade.ebx",
+     "rawSha256": "5cf46ca05c20af016c650cbed077c044507c41a849e156ebde8a9cc3ffc0aae8",
+     "offset": 692,
+     "type": "f32",
+     "bytesHex": "00000042",
+     "value": 32.0,
+     "expect": 32.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 313244,
+     "type": "f32",
+     "bytesHex": "00000042",
+     "value": 32.0,
+     "expect": 32.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Grenade\\PB_Vehicle_AGL_Grenade.ebx",
+     "rawSha256": "5cf46ca05c20af016c650cbed077c044507c41a849e156ebde8a9cc3ffc0aae8",
+     "offset": 696,
+     "type": "f32",
+     "bytesHex": "00000042",
+     "value": 32.0,
+     "expect": 32.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Grenade\\PB_Vehicle_AGL_Grenade.ebx",
+     "rawSha256": "5cf46ca05c20af016c650cbed077c044507c41a849e156ebde8a9cc3ffc0aae8",
+     "offset": 416,
+     "type": "u32",
+     "bytesHex": "804bb01c",
+     "value": 481315712,
+     "expect": 481315712,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 72356,
+     "type": "f32",
+     "bytesHex": "00008c42",
+     "value": 70.0,
+     "expect": 70.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Grenade\\PB_Vehicle_AGL_Grenade.ebx",
+     "rawSha256": "5cf46ca05c20af016c650cbed077c044507c41a849e156ebde8a9cc3ffc0aae8",
+     "offset": 1344,
+     "type": "f32",
+     "bytesHex": "00008c42",
+     "value": 70.0,
+     "expect": 70.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Grenade\\PB_Vehicle_AGL_Grenade.ebx",
+     "rawSha256": "5cf46ca05c20af016c650cbed077c044507c41a849e156ebde8a9cc3ffc0aae8",
+     "offset": 1248,
+     "type": "u32",
+     "bytesHex": "80210008",
+     "value": 134226304,
+     "expect": 134226304,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 256036,
+     "type": "f32",
+     "bytesHex": "0000b041",
+     "value": 22.0,
+     "expect": 22.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\AttackHeli\\WF_Vehicles_AttackHeli_Passenger_PrimaryWeapon_Chaingun.ebx",
+     "rawSha256": "016d46d97d3db31fdba6006d558fc1fffe52b19436e635034064dcb2af2b4126",
+     "offset": 2676,
+     "type": "f32",
+     "bytesHex": "00004842",
+     "value": 50.0,
+     "expect": 50.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 228004,
+     "type": "f32",
+     "bytesHex": "0000b041",
+     "value": 22.0,
+     "expect": 22.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\AttackHeli\\WF_Vehicles_AttackHeli_Passenger_PrimaryWeapon_Chaingun.ebx",
+     "rawSha256": "016d46d97d3db31fdba6006d558fc1fffe52b19436e635034064dcb2af2b4126",
+     "offset": 2680,
+     "type": "f32",
+     "bytesHex": "00004842",
+     "value": 50.0,
+     "expect": 50.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\AttackHeli\\WF_Vehicles_AttackHeli_Passenger_PrimaryWeapon_Chaingun.ebx",
+     "rawSha256": "016d46d97d3db31fdba6006d558fc1fffe52b19436e635034064dcb2af2b4126",
+     "offset": 2400,
+     "type": "u32",
+     "bytesHex": "8010e007",
+     "value": 132124800,
+     "expect": 132124800,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 349860,
+     "type": "f32",
+     "bytesHex": "0000f041",
+     "value": 30.0,
+     "expect": 30.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\AttackHeli\\WF_Vehicles_AttackHeli_Passenger_PrimaryWeapon_Chaingun.ebx",
+     "rawSha256": "016d46d97d3db31fdba6006d558fc1fffe52b19436e635034064dcb2af2b4126",
+     "offset": 480,
+     "type": "f32",
+     "bytesHex": "0000f041",
+     "value": 30.0,
+     "expect": 30.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\AttackHeli\\WF_Vehicles_AttackHeli_Passenger_PrimaryWeapon_Chaingun.ebx",
+     "rawSha256": "016d46d97d3db31fdba6006d558fc1fffe52b19436e635034064dcb2af2b4126",
+     "offset": 384,
+     "type": "u32",
+     "bytesHex": "80161008",
+     "value": 135272064,
+     "expect": 135272064,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 93268,
+     "type": "f32",
+     "bytesHex": "00000842",
+     "value": 34.0,
+     "expect": 34.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\Airplane\\WF_Vehicles_Airplane_PrimaryWeapon_Cannon.ebx",
+     "rawSha256": "a68775da6d074a056fa60e837c1cf9d61d1ef24e5f7c85a45739177dd564b9bf",
+     "offset": 2292,
+     "type": "f32",
+     "bytesHex": "00000842",
+     "value": 34.0,
+     "expect": 34.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 345988,
+     "type": "f32",
+     "bytesHex": "00000842",
+     "value": 34.0,
+     "expect": 34.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\Airplane\\WF_Vehicles_Airplane_PrimaryWeapon_Cannon.ebx",
+     "rawSha256": "a68775da6d074a056fa60e837c1cf9d61d1ef24e5f7c85a45739177dd564b9bf",
+     "offset": 2296,
+     "type": "f32",
+     "bytesHex": "00000842",
+     "value": 34.0,
+     "expect": 34.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\Airplane\\WF_Vehicles_Airplane_PrimaryWeapon_Cannon.ebx",
+     "rawSha256": "a68775da6d074a056fa60e837c1cf9d61d1ef24e5f7c85a45739177dd564b9bf",
+     "offset": 2016,
+     "type": "u32",
+     "bytesHex": "8050e025",
+     "value": 635457664,
+     "expect": 635457664,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 51796,
+     "type": "f32",
+     "bytesHex": "0000f041",
+     "value": 30.0,
+     "expect": 30.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\Stationaries\\PD_Vehicles_Stationary_AntiAir.ebx",
+     "rawSha256": "5a918c103f286d3b5d86e422c022f1bd69a4df32f70145c43f57689a544ab518",
+     "offset": 612,
+     "type": "f32",
+     "bytesHex": "0000f041",
+     "value": 30.0,
+     "expect": 30.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 183052,
+     "type": "f32",
+     "bytesHex": "0000b041",
+     "value": 22.0,
+     "expect": 22.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\Stationaries\\PD_Vehicles_Stationary_AntiAir.ebx",
+     "rawSha256": "5a918c103f286d3b5d86e422c022f1bd69a4df32f70145c43f57689a544ab518",
+     "offset": 616,
+     "type": "f32",
+     "bytesHex": "0000b041",
+     "value": 22.0,
+     "expect": 22.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\Stationaries\\PD_Vehicles_Stationary_AntiAir.ebx",
+     "rawSha256": "5a918c103f286d3b5d86e422c022f1bd69a4df32f70145c43f57689a544ab518",
+     "offset": 336,
+     "type": "u32",
+     "bytesHex": "80522028",
+     "value": 673206912,
+     "expect": 673206912,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 115380,
+     "type": "f32",
+     "bytesHex": "00002041",
+     "value": 10.0,
+     "expect": 10.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\Stationaries\\WF_Vehicles_SAA_PrimaryWeapon_20mmRotaryCannon.ebx",
+     "rawSha256": "28a01eb0e0940927dcef86e3e487b0f424f1b773bfa08e96b0066864bc47e058",
+     "offset": 2068,
+     "type": "f32",
+     "bytesHex": "00002041",
+     "value": 10.0,
+     "expect": 10.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 93076,
+     "type": "f32",
+     "bytesHex": "00002041",
+     "value": 10.0,
+     "expect": 10.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\Stationaries\\WF_Vehicles_SAA_PrimaryWeapon_20mmRotaryCannon.ebx",
+     "rawSha256": "28a01eb0e0940927dcef86e3e487b0f424f1b773bfa08e96b0066864bc47e058",
+     "offset": 2072,
+     "type": "f32",
+     "bytesHex": "00002041",
+     "value": 10.0,
+     "expect": 10.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\Stationaries\\WF_Vehicles_SAA_PrimaryWeapon_20mmRotaryCannon.ebx",
+     "rawSha256": "28a01eb0e0940927dcef86e3e487b0f424f1b773bfa08e96b0066864bc47e058",
+     "offset": 1792,
+     "type": "u32",
+     "bytesHex": "8050e007",
+     "value": 132141184,
+     "expect": 132141184,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 5625,
+   "matched": 5625,
+   "files": 10,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "rawchecks-L3357.json"
+  },
+  "dataset": "reference-data/frosty/vehicle-cannon-damage.json",
+  "rows": [
+   {
+    "weapon": "Tank canister shell (per pellet)",
+    "file": "PD_Vehicles_MBT_AmmoTypes_Canister",
+    "bulletMaterial": 289,
+    "startDamage": {
+     "registry": 50.0,
+     "own": 50.0
+    },
+    "endDamage": {
+     "registry": 30.0,
+     "own": 30.0
+    },
+    "grid": {
+     "25": 1.0,
+     "119": 0.0,
+     "121": 0.6,
+     "120": 0.8,
+     "122": 0.5,
+     "187": 1.5
+    },
+    "closeDirect": {
+     "25": 50.0,
+     "119": 0.0,
+     "121": 30.0,
+     "120": 40.0,
+     "122": 25.0,
+     "187": 75.0
+    }
+   },
+   {
+    "weapon": "IFV canister round (per pellet)",
+    "file": "PD_Vehicles_IFV_PrimaryWeapon_Canister",
+    "bulletMaterial": 340,
+    "startDamage": {
+     "registry": 15.0,
+     "own": 15.0
+    },
+    "endDamage": {
+     "registry": 5.0,
+     "own": 5.0
+    },
+    "grid": {
+     "25": 1.0,
+     "119": 0.0,
+     "121": 0.9,
+     "120": 1.7,
+     "122": 0.5,
+     "187": 1.0
+    },
+    "closeDirect": {
+     "25": 15.0,
+     "119": 0.0,
+     "121": 13.5,
+     "120": 25.5,
+     "122": 7.5,
+     "187": 15.0
+    }
+   },
+   {
+    "weapon": "Grenade launcher station (AGL)",
+    "file": "PB_Vehicle_AGL_Grenade",
+    "bulletMaterial": 459,
+    "startDamage": {
+     "registry": 32.0,
+     "own": 32.0
+    },
+    "endDamage": {
+     "registry": 32.0,
+     "own": 32.0
+    },
+    "grid": {
+     "25": 1.0,
+     "119": 0.3,
+     "121": 2.0,
+     "120": 3.0,
+     "122": 1.25,
+     "187": 2.6
+    },
+    "closeDirect": {
+     "25": 32.0,
+     "119": 9.6,
+     "121": 64.0,
+     "120": 96.0,
+     "122": 40.0,
+     "187": 83.2
+    },
+    "blast": {
+     "material": 128,
+     "blastDamage": {
+      "registry": 70.0,
+      "own": 70.0
+     },
+     "grid": {
+      "25": 1.0,
+      "119": 0.0,
+      "121": 3.0,
+      "120": 2.7,
+      "122": 1.5,
+      "187": 2.5
+     },
+     "fullBlast": {
+      "25": 70.0,
+      "119": 0.0,
+      "121": 210.0,
+      "120": 189.0,
+      "122": 105.0,
+      "187": 175.0
+     }
+    }
+   },
+   {
+    "weapon": "Attack helicopter gunner chaingun",
+    "file": "WF_Vehicles_AttackHeli_Passenger_PrimaryWeapon_Chaingun",
+    "bulletMaterial": 126,
+    "startDamage": {
+     "registry": 22.0,
+     "own": 50.0
+    },
+    "endDamage": {
+     "registry": 22.0,
+     "own": 50.0
+    },
+    "grid": {
+     "25": 1.0,
+     "119": 1.0,
+     "121": 4.0,
+     "120": 5.0,
+     "122": 1.25,
+     "187": 2.6
+    },
+    "closeDirect": {
+     "25": 22.0,
+     "119": 22.0,
+     "121": 88.0,
+     "120": 110.0,
+     "122": 27.5,
+     "187": 57.2
+    },
+    "blast": {
+     "material": 129,
+     "blastDamage": {
+      "registry": 30.0,
+      "own": 30.0
+     },
+     "grid": {
+      "25": 1.0,
+      "119": 0.0,
+      "121": 0.0,
+      "120": 0.0,
+      "122": 1.0,
+      "187": 1.0
+     },
+     "fullBlast": {
+      "25": 30.0,
+      "119": 0.0,
+      "121": 0.0,
+      "120": 0.0,
+      "122": 30.0,
+      "187": 30.0
+     }
+    }
+   },
+   {
+    "weapon": "Jet cannon",
+    "file": "WF_Vehicles_Airplane_PrimaryWeapon_Cannon",
+    "bulletMaterial": 606,
+    "startDamage": {
+     "registry": 34.0,
+     "own": 34.0
+    },
+    "endDamage": {
+     "registry": 34.0,
+     "own": 34.0
+    },
+    "grid": {
+     "25": 1.5,
+     "119": 0.3,
+     "121": 1.06,
+     "120": 2.15,
+     "122": 1.25,
+     "187": 2.6
+    },
+    "closeDirect": {
+     "25": 51.0,
+     "119": 10.2,
+     "121": 36.04,
+     "120": 73.1,
+     "122": 42.5,
+     "187": 88.4
+    }
+   },
+   {
+    "weapon": "Stationary anti-air gun",
+    "file": "PD_Vehicles_Stationary_AntiAir",
+    "bulletMaterial": 642,
+    "startDamage": {
+     "registry": 30.0,
+     "own": 30.0
+    },
+    "endDamage": {
+     "registry": 22.0,
+     "own": 22.0
+    },
+    "grid": {
+     "25": 1.0,
+     "119": 0.35,
+     "121": 2.0,
+     "120": 2.5,
+     "122": 1.25,
+     "187": 2.6
+    },
+    "closeDirect": {
+     "25": 30.0,
+     "119": 10.5,
+     "121": 60.0,
+     "120": 75.0,
+     "122": 37.5,
+     "187": 78.0
+    }
+   },
+   {
+    "weapon": "Stationary 20 mm rotary cannon",
+    "file": "WF_Vehicles_SAA_PrimaryWeapon_20mmRotaryCannon",
+    "bulletMaterial": 126,
+    "startDamage": {
+     "registry": 10.0,
+     "own": 10.0
+    },
+    "endDamage": {
+     "registry": 10.0,
+     "own": 10.0
+    },
+    "grid": {
+     "25": 1.0,
+     "119": 1.0,
+     "121": 4.0,
+     "120": 5.0,
+     "122": 1.25,
+     "187": 2.6
+    },
+    "closeDirect": {
+     "25": 10.0,
+     "119": 10.0,
+     "121": 40.0,
+     "120": 50.0,
+     "122": 12.5,
+     "187": 26.0
+    }
+   }
+  ],
+  "registryDiffersFromOwn": [
+   "Attack helicopter gunner chaingun"
+  ],
+  "targets": {
+   "25": "soldier abdomen",
+   "119": "tanks, IFVs, armoured transports, anti-air",
+   "121": "helicopters",
+   "120": "jets",
+   "122": "Flyer 60, Vector, RHIB",
+   "187": "PTV, quad, dirt bikes"
+  }
+ },
+ "inference": [
+  "Canister rounds use a bullet material with grid value 0 against armour: the tank canister (material 289, the heavy machine gun's) and the IFV canister (340) do no damage to tanks or IFVs. The figures are per pellet; pellets per shot were not read here.",
+  "The jet cannon's material 606 multiplies by 1.5 against soldiers (51 per hit at 34) and by 0.3 against armour (10.2).",
+  "The helicopter gunner chaingun's registry damage is 22 against an own value of 50; by L3356 the registry value applies. It adds a blast of 30 whose material has value 0 against all the vehicle targets here.",
+  "The grenade launcher station deals 32 on impact plus up to 70 blast to a soldier, and 9.6 per grenade to armour.",
+  "None of these has an EA figure to compare."
+ ],
+ "unresolved": [
+  "Pellets per canister shot. Test: one tank canister shot at a wall of a soldier-sized target at point-blank and the damage dealt, divided by 50.",
+  "Chaingun 22 or 50 per hit on a helicopter (x4 = 88 or 200). Test: count gunner hits to destroy a hovering attack helicopter.",
+  "No EA figures exist for these weapons."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-09-damage-rule-extension",
+  "artifacts": [
+   {
+    "file": "manifest-L3357.json",
+    "sha256": "a724c627cfb78c014166afe001f9c0a51fb76d15969d299b4d2782dc0b556e38"
+   },
+   {
+    "file": "rawchecks-L3357.json",
+    "sha256": "db2d7bc0c740403081843304208e47b8c3aa0ddeab9bf962d53ffa266287dbec"
+   },
+   {
+    "file": "mg.json",
+    "sha256": "d3b1cb19bbb6ca2b810162d439782d660299690367975c66682a3e4c0570b062"
+   },
+   {
+    "file": "extract.py",
+    "sha256": "0350a77b41b82ac121478aaad252154a4db0c299216076b7785a560d0e71a92a"
+   },
+   {
+    "file": "mg-grid-rawchecks.json",
+    "sha256": "2c3b4d8dc0a1248eb2a6332d2dd48df7833496b54eee390a2642bd6d05c848b7"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-09",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L3357",
+    "title": "Vehicle cannons, canister rounds and the grenade launcher station: stored damage per hit against soldiers and vehicles",
+    "status": "finding",
+    "summary": "Stored damage per hit for seven more vehicle guns: tank canister pellets 50 falling to 30 and IFV canister pellets 15 to 5, both zero against armour; grenade launcher station 32 plus 70 blast; helicopter gunner chaingun 22 by registry (own 50) plus 30 blast; jet cannon 34 with 1.5 times against soldiers; stationary anti-air 30 to 22; 20 mm rotary cannon 10. Values against each vehicle class are in the table. 5625 raw-offset checks matched.",
+    "reopenWhen": "An in-game reading or an EA figure for any of these weapons.",
+    "statusNote": "Stored values and grid values read; no official figure; pellet counts not read."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/AttackHeli/WF_Vehicles_AttackHeli_Passenger_PrimaryWeapon_Chaingun",
+    "format": "raw-ebx",
+    "sha256": "016d46d97d3db31fdba6006d558fc1fffe52b19436e635034064dcb2af2b4126",
+    "question": "What damage per hit do the remaining vehicle guns (canister rounds, grenade launcher station, helicopter chaingun, jet cannon, stationary guns) store against soldiers and each vehicle class?",
+    "result": "useful",
+    "conclusion": "Own StartDamage 50, registry 22; blast 30."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/MBT/PD_Vehicles_MBT_AmmoTypes_Canister",
+    "format": "raw-ebx",
+    "sha256": "421668ab07a9662a2deeace6c6865c578fdc9c1d7ed786c341eb281b06da35c9",
+    "question": "What damage per hit do the remaining vehicle guns (canister rounds, grenade launcher station, helicopter chaingun, jet cannon, stationary guns) store against soldiers and each vehicle class?",
+    "result": "useful",
+    "conclusion": "Material 289: grid value 0 against target 119."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/Airplane/WF_Vehicles_Airplane_PrimaryWeapon_Cannon",
+    "format": "raw-ebx",
+    "sha256": "a68775da6d074a056fa60e837c1cf9d61d1ef24e5f7c85a45739177dd564b9bf",
+    "question": "What damage per hit do the remaining vehicle guns (canister rounds, grenade launcher station, helicopter chaingun, jet cannon, stationary guns) store against soldiers and each vehicle class?",
+    "result": "useful",
+    "conclusion": "Material 606: 1.5 against soldiers, 0.3 against target 119."
+   }
+  ]
+ }
+}

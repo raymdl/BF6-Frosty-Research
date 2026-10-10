@@ -17,9 +17,15 @@ establish those functions; follow the selected effect, target and receiving
 consumer. Record qualitative source evidence as well as mapped numeric fields.
 
 Use `python scripts/frosty-records.py status` for live leads in both queues.
+
+The operator-authorized [mechanics research program](VEHICLE_SITE_ADDITIONS.md#orchestration-and-evidence-rules) starts with the vehicle screenshot leads, then continues useful Vehicle/Gadget and weapon/attachment research. The local orchestrator owns direction checks, source review and replacement researcher chats. The program's `PROGRAM_STATE.json` and `RESEARCH_BRIEF.md` hold the current roster and scope; the older paused program remains a source of saved evidence, not the active roster.
 Close gadget leads with the same receipt, topic-page, build/check and local-commit
 workflow. Remove completed rows here. Closed leads and past runs remain in
 [the research archive](../archive/FROSTY_QUEUE_CLOSED.md).
+
+## Operator description and availability clarification (4 October 2026)
+
+The EOD Bot screenshot matches the description already decoded as `22FB3FF1`. The operator classified all 15 missing/placeholder UI rows: five not currently in multiplayer, one event-only, five EOD subrecords covered by parent-description context, two single-player and two RedSec-only. Use the exact [scope table and evidence](../frosty/UI_TEXT.md#operator-scope-clarification-and-eod-screenshot-4-october-2026) when setting current regular-MP research scope. These are attributed availability/context statements, not raw source selection proof. Preserve the original metadata strings and do not assign the parent paragraph as a separately decoded description for each EOD subrecord.
 
 ## Review before resuming (Claude Opus, 29 September 2026)
 
@@ -529,3 +535,32 @@ The Repair Tool has a distinct configured tuple; the other 25 profiles share the
 
 The complete proposed gadget schema is the L226 base plus L227 proposal-specific supplement and `L228/proposed-heat-schema-supplement.json`. No further named source/meaning route is identified in this fixed selected-owner scope. Reopen only with the exact typed active consumer, units and composition contract. UI-to-gameplay identity joins remain parked. No recording is planned or proposed.
 <!-- gadget-vehicle-display-2026-10-01-end -->
+
+## Roster-linked survey of gadgets and vehicle equipment (9 October 2026, not yet closed as leads)
+
+Working notes from one scripted pass. Nothing here has raw-offset checks or a receipt, and every value is a stored source value. Run folder: `BF6 Datamining/reports/weapon-analyzer-research/2026-10-09-gadget-category-links/`. Captures (build 1.4.3.5, Head 4909067): `gadget-category-links-2026-10-09`, `gadget-category-trees-2026-10-09`, `gadget-logic-assets-2026-10-09` and `-b` (1,728 gadget logic files; all of `Common/Hardware/Gadgets` is now saved except textures and meshes).
+
+**Roster.** `Categorization_Gadgets` holds 68 entries and `Categorization_Vehicles_Equipment` 66, with the same structure as `Categorization_Vehicles` (L3306). Each entry imports one `Category_Hardware` leaf; gadgets also import `Category_HardwareGroups` tags and `Category_Effects` nodes (`fx_dmg`, `fx_dsrpt`, `fx_intel`, `fx_resupply`, `fx_vhdamage`, `fx_spawn`). The vehicle `Category_Misc` import left open in L3306 is `misc_tracked_airtime_land_vehicle`, on five light vehicles. `Categorization_Kits` holds only the four classes; no entry links a gadget to a class. GameTools reports 57 gadget ids, 55 of them equal to these stat names; its `gad_deployable` is the tree branch (a sum of 17 gadgets), not Deployable Cover (`gad_deplocover`).
+
+**Stat id to asset.** The entry GUID lists (`Field_1e6bcd75`) occur in saved files for 129 of 133 entries (`entry-assets-and-doc-mentions.json`). Not found: `gad_ubsg_buck`, `gad_ubsg_slug`, `vehec_wp_30revcan`, `veheq_eq_airrevive`. The two `gad_rl_autoguide` entries reach the Igla and the MBT LAW.
+
+**Blast census.** 275 `Class_9966532d` objects in 4,641 decoded gadget and vehicle files (`explosion-projectile-census.json`, `blast-census-table.txt`). `gadget-blast-links.json` follows imports from each gadget entry to the explosion objects it reaches; shared files make that an over-approximation (all three M320 entries reach both the HE and thermobaric objects).
+
+**Named registry.** `GRX_Gadgets_Glacier` and `GRX_Vehicles` together hold about 8,600 named values with full property paths (`named-registry.json`, `vehicle-weapon-registry-table.txt`). For explosion fields the registry value equals the asset's own value in 118 cases and differs in 10 (`registry-vs-own-blast.txt`), for example AT mine BlastDamage 195 against 300 and Javelin 155 against 125. The registry file is byte-stable from 1.4.3.0 to 1.4.3.5 and differs from 1.4.2.5 in one added name only, so build history does not show which side a patch moves.
+
+**Hypothesis: where registry and own value differ, the registry value is the one in use.** The evidence is the EA 1.3.1.0 and 1.3.3.0 tank-damage maxima recorded in [Vehicle research](VEHICLE_SITE_ADDITIONS.md#tank-directional-damage-known-answers-operator-1-october-2026):
+
+| Weapon | EA maximum | Registry value | Ratio | Own value | Ratio |
+|---|---|---|---|---|---|
+| RPG-7V2 | 500 | Damage 125 | 4.0 | 135 | 3.70 |
+| MBT APFSDS | 650 | StartDamage 130 | 5.0 | 150 | 4.33 |
+| MBT guided shell | 650 | Damage 130 | 5.0 | 125 | 5.2 |
+| Heavy rockets (Zuni) | 320 | Damage 64 | 5.0 | 70 | 4.57 |
+| IFV lock-guided missile (Spike) | 450 | Damage 150 | 3.0 | 250 | 1.8 |
+| IFV light rockets | 200 | StartDamage 50 | 4.0 | 50 | 4.0 |
+
+EA gives APFSDS and the guided shell the same range; the registry stores the same value for both and the assets do not. The RPG side value 375 is 125 x 3. Against it: the M136 AT (550, own Damage 125, no registry Damage row) gives 4.4, MBT LAW (240, own 100) gives 2.4 and C-4 (350, registry BlastDamage 180, own 100) fits neither; the EA numbers are older than the build read; the multipliers 3, 4 and 5 are unexplained; and the Zuni join to "heavy rockets" is by name. A discriminating test would be one current in-game damage number for the AT mine, Javelin or M320 thermobaric, where the two sides differ most. This does not change the rule in [Gadgets](../frosty/GADGETS.md) that the two values are recorded separately.
+
+**Other observations.** The Upgraded Hydra, APKWS and Zuni projectile assets differ from the base ones in InnerBlastRadius only (1 to 2, Zuni 1 to 2.5); the link to the attack-helicopter heavy-warheads upgrade is untraced. Every vehicle blueprint carries the same two explosion objects (180 / 6.5 / 2.5 and 2 / 5 / 1). Gadget folders with no stat entry: Panzerfaust 3, Airburst, M224 mortar, Switchblade launcher, zipline, kinetic strike, gas strike, thermite and demolition charges, RF jammer.
+
+**Vehicle abilities and passives.** `GRX_Vehicles` names an ActiveTime and RechargeTime pair for 22 vehicle abilities and the parameters of the passive upgrades (`vehicle-ability-passive-registry-table.txt`, 302 rows). Examples: MBT Active Protection System 5 / 32, flares 1.8 / 15, smoke screen 8.1 / 16; Medbay radius 12.5, interval 0.9, heal over time 20, initial heal 5; MBT and IFV Durability DamageRecievedMultiplier 0.85; MBT Regeneration rate 132 with delay 9.5 (IFV 110); Enhanced Loading reload-speed multiplier 1.35 (MBT) and 1.5 / 1.25 (AA) below a 0.6 health threshold; Capture Speed 1.15; Mobile Trophy 3 charges, 10 per charge. Units and activation are not established. Whether the L3305 declarations for Medbay, Combat Awareness, regeneration and antispotting are these same named rows has not been checked.

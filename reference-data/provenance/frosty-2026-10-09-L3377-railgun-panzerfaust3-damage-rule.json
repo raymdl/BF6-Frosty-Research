@@ -1,0 +1,507 @@
+{
+ "lead": "L3377",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Read from saved raw captures; no export, no new capture."
+ },
+ "question": "What do the stored values give for the Railgun pickup weapon and the Panzerfaust 3, which no lead has put through the damage rule of L3323?",
+ "sourceFacts": {
+  "method": "PD_Railgun, PB_Panzerfaust3 and PB_Panzerfaust3_DM32 were decoded with extract.py: own damage fields, packed projectile material, and the material-grid scalar against seven target materials in both level grids. Registry rows were read for the Railgun (the Panzerfaust has none). Products are stored damage times grid value, before the hit factor (0.75 turret, 1 body, 1.5 side, 2 rear) that applies to aimed weapons.",
+  "control": {
+   "description": "Material 125 reads 2 / 9 / 10 against tank, helicopter and jet, the values recorded for the RPG's projectile in L3323.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\BattlePickups\\Railgun\\PD_Railgun.ebx",
+     "rawSha256": "9d8d8798c5f5e9c365abce4409c68226294c5ff10377fc2933babff611951b52",
+     "offset": 368,
+     "type": "f32",
+     "bytesHex": "00000000",
+     "value": 0.0,
+     "expect": 0.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\BattlePickups\\Railgun\\PD_Railgun.ebx",
+     "rawSha256": "9d8d8798c5f5e9c365abce4409c68226294c5ff10377fc2933babff611951b52",
+     "offset": 272,
+     "type": "i32",
+     "bytesHex": "8000702a",
+     "value": 711983232,
+     "expect": 711983232,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\BattlePickups\\Railgun\\PD_Railgun.ebx",
+     "rawSha256": "9d8d8798c5f5e9c365abce4409c68226294c5ff10377fc2933babff611951b52",
+     "offset": 1124,
+     "type": "f32",
+     "bytesHex": "00001643",
+     "value": 150.0,
+     "expect": 150.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\BattlePickups\\Railgun\\PD_Railgun.ebx",
+     "rawSha256": "9d8d8798c5f5e9c365abce4409c68226294c5ff10377fc2933babff611951b52",
+     "offset": 1128,
+     "type": "f32",
+     "bytesHex": "00001643",
+     "value": 150.0,
+     "expect": 150.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\BattlePickups\\Railgun\\PD_Railgun.ebx",
+     "rawSha256": "9d8d8798c5f5e9c365abce4409c68226294c5ff10377fc2933babff611951b52",
+     "offset": 848,
+     "type": "i32",
+     "bytesHex": "807e612a",
+     "value": 711032448,
+     "expect": 711032448,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Panzerfaust3\\Art\\PB_Panzerfaust3.ebx",
+     "rawSha256": "d3a3c6a9f4409e8d657cbb953e24ae04bea2208e97278d5a35e3cc63c133d538",
+     "offset": 868,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Panzerfaust3\\Art\\PB_Panzerfaust3.ebx",
+     "rawSha256": "d3a3c6a9f4409e8d657cbb953e24ae04bea2208e97278d5a35e3cc63c133d538",
+     "offset": 416,
+     "type": "i32",
+     "bytesHex": "8011d007",
+     "value": 131076480,
+     "expect": 131076480,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Panzerfaust3\\Art\\PB_Panzerfaust3.ebx",
+     "rawSha256": "d3a3c6a9f4409e8d657cbb953e24ae04bea2208e97278d5a35e3cc63c133d538",
+     "offset": 2048,
+     "type": "f32",
+     "bytesHex": "00000243",
+     "value": 130.0,
+     "expect": 130.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Panzerfaust3\\Art\\PB_Panzerfaust3.ebx",
+     "rawSha256": "d3a3c6a9f4409e8d657cbb953e24ae04bea2208e97278d5a35e3cc63c133d538",
+     "offset": 1952,
+     "type": "i32",
+     "bytesHex": "8015400a",
+     "value": 171971968,
+     "expect": 171971968,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Panzerfaust3\\Art\\PB_Panzerfaust3_DM32.ebx",
+     "rawSha256": "420174ad89e2c64de2621dc53ad782468b3455a3b02716a38a30ab71767bc450",
+     "offset": 868,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Panzerfaust3\\Art\\PB_Panzerfaust3_DM32.ebx",
+     "rawSha256": "420174ad89e2c64de2621dc53ad782468b3455a3b02716a38a30ab71767bc450",
+     "offset": 416,
+     "type": "i32",
+     "bytesHex": "8011700a",
+     "value": 175116672,
+     "expect": 175116672,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Panzerfaust3\\Art\\PB_Panzerfaust3_DM32.ebx",
+     "rawSha256": "420174ad89e2c64de2621dc53ad782468b3455a3b02716a38a30ab71767bc450",
+     "offset": 1920,
+     "type": "f32",
+     "bytesHex": "00006643",
+     "value": 230.0,
+     "expect": 230.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Panzerfaust3\\Art\\PB_Panzerfaust3_DM32.ebx",
+     "rawSha256": "420174ad89e2c64de2621dc53ad782468b3455a3b02716a38a30ab71767bc450",
+     "offset": 1824,
+     "type": "i32",
+     "bytesHex": "8015400a",
+     "value": 171971968,
+     "expect": 171971968,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 896204,
+     "type": "f32",
+     "bytesHex": "00001643",
+     "value": 150.0,
+     "expect": 150.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1247620,
+     "type": "f32",
+     "bytesHex": "00000000",
+     "value": 0.0,
+     "expect": 0.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 2528604,
+     "type": "f32",
+     "bytesHex": "00001643",
+     "value": 150.0,
+     "expect": 150.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 189548,
+     "type": "f32",
+     "bytesHex": "b8fe9543",
+     "value": 299.989990234375,
+     "expect": 299.98999,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 307028,
+     "type": "f32",
+     "bytesHex": "12838840",
+     "value": 4.265999794006348,
+     "expect": 4.266,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 729772,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1271652,
+     "type": "f32",
+     "bytesHex": "00004843",
+     "value": 200.0,
+     "expect": 200.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1762732,
+     "type": "i32",
+     "bytesHex": "0b000000",
+     "value": 11,
+     "expect": 11,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1845156,
+     "type": "i32",
+     "bytesHex": "01000000",
+     "value": 1,
+     "expect": 1,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1954460,
+     "type": "f32",
+     "bytesHex": "00a08044",
+     "value": 1029.0,
+     "expect": 1029.0,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 2089,
+   "matched": 2089,
+   "files": 6,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "rawchecks-L3377.json"
+  },
+  "dataset": "reference-data/frosty/railgun-panzerfaust3-damage.json",
+  "rows": [
+   {
+    "file": "PD_Railgun",
+    "object": 1,
+    "kind": "blast",
+    "material": 679,
+    "ownDamage": 0.0,
+    "registry": {
+     "EndDamage": 150.0,
+     "BlastDamage": 0.0,
+     "StartDamage": 150.0
+    },
+    "grid": {
+     "119": 0.0,
+     "121": 0.0,
+     "120": 0.0,
+     "122": 0.0,
+     "187": 0.0,
+     "115": 0.0,
+     "25": 0.0
+    },
+    "product": {
+     "119": 0.0,
+     "121": 0.0,
+     "120": 0.0,
+     "122": 0.0,
+     "187": 0.0,
+     "115": 0.0,
+     "25": 0.0
+    }
+   },
+   {
+    "file": "PD_Railgun",
+    "object": 2,
+    "kind": "direct",
+    "material": 678,
+    "ownDamage": 150.0,
+    "registry": {
+     "EndDamage": 150.0,
+     "BlastDamage": 0.0,
+     "StartDamage": 150.0
+    },
+    "grid": {
+     "119": 2.5,
+     "121": 3.5,
+     "120": 3.5,
+     "122": 5.5,
+     "187": 9.0,
+     "115": 1.0,
+     "25": 1.0
+    },
+    "product": {
+     "119": 375.0,
+     "121": 525.0,
+     "120": 525.0,
+     "122": 825.0,
+     "187": 1350.0,
+     "115": 150.0,
+     "25": 150.0
+    }
+   },
+   {
+    "file": "PB_Panzerfaust3",
+    "object": 1,
+    "kind": "direct",
+    "material": 125,
+    "ownDamage": 100.0,
+    "registry": null,
+    "grid": {
+     "119": 2.0,
+     "121": 9.0,
+     "120": 10.0,
+     "122": 5.5,
+     "187": 5.0,
+     "115": 1.0,
+     "25": 1.0
+    },
+    "product": {
+     "119": 200.0,
+     "121": 900.0,
+     "120": 1000.0,
+     "122": 550.0,
+     "187": 500.0,
+     "115": 100.0,
+     "25": 100.0
+    }
+   },
+   {
+    "file": "PB_Panzerfaust3",
+    "object": 7,
+    "kind": "blast",
+    "material": 164,
+    "ownDamage": 130.0,
+    "registry": null,
+    "grid": {
+     "119": 0.0,
+     "121": 0.0,
+     "120": 0.0,
+     "122": 0.3,
+     "187": 8.5,
+     "115": 1.0,
+     "25": 1.0
+    },
+    "product": {
+     "119": 0.0,
+     "121": 0.0,
+     "120": 0.0,
+     "122": 39.0,
+     "187": 1105.0,
+     "115": 130.0,
+     "25": 130.0
+    }
+   },
+   {
+    "file": "PB_Panzerfaust3_DM32",
+    "object": 1,
+    "kind": "direct",
+    "material": 167,
+    "ownDamage": 100.0,
+    "registry": null,
+    "grid": {
+     "119": 1.0,
+     "121": 7.0,
+     "120": 7.0,
+     "122": 4.5,
+     "187": 11.0,
+     "115": 1.0,
+     "25": 1.0
+    },
+    "product": {
+     "119": 100.0,
+     "121": 700.0,
+     "120": 700.0,
+     "122": 450.0,
+     "187": 1100.0,
+     "115": 100.0,
+     "25": 100.0
+    }
+   },
+   {
+    "file": "PB_Panzerfaust3_DM32",
+    "object": 6,
+    "kind": "blast",
+    "material": 164,
+    "ownDamage": 230.0,
+    "registry": null,
+    "grid": {
+     "119": 0.0,
+     "121": 0.0,
+     "120": 0.0,
+     "122": 0.3,
+     "187": 8.5,
+     "115": 1.0,
+     "25": 1.0
+    },
+    "product": {
+     "119": 0.0,
+     "121": 0.0,
+     "120": 0.0,
+     "122": 69.0,
+     "187": 1955.0,
+     "115": 230.0,
+     "25": 230.0
+    }
+   }
+  ],
+  "railgunRegistryRows": {
+   "RateOfFire": 299.98999,
+   "ReloadTime": 4.266,
+   "DamageFalloffStartDistance": 100.0,
+   "DamageFalloffEndDistance": 200.0,
+   "NumberOfMagazines": 11.0,
+   "MagazineCapacity": 1.0,
+   "InitialSpeed.z": 1029.0
+  },
+  "gridChecks": "both level grids agree (extract.py compares them)"
+ },
+ "inference": [
+  "Railgun: 150 damage in file and registry, no falloff effect (150 at both ends, 100 to 200 m), 1029 m/s, one round per magazine with 11 magazines, reload 4.266 s. Against a tank the product is 375 before the hit factor (281 turret, 375 body, 563 side, 750 rear by L3323's factors); 525 against helicopters and jets; 825 against light vehicles. A soldier takes 150 on any body part by the scalar (the array is present but empty), above 100 health.",
+  "Panzerfaust 3: direct damage 100 on material 125, the RPG's material, so 200 against tanks before the hit factor (150 to 400), 900 against helicopters, 1000 against jets; blast 130 with grid 1.0 against soldiers and 0 against armour. The DM32 rocket has direct 100 on another material and blast 230.",
+  "The Panzerfaust figures are file-only values: no registry row exists, and L3343 showed such values can be stale. The RPG's own registry damage is 125 on the same material, which would make the Panzerfaust the weaker of the two against tanks if 100 is current.",
+  "Whether either weapon is obtainable in the current multiplayer modes is not read from these files."
+ ],
+ "unresolved": [
+  "One Railgun hit on a tank's rear at close range (750 expected) and on a helicopter (525).",
+  "One Panzerfaust 3 hit square on a tank's side (300 expected if 100 is current)."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-09-damage-rule-extension",
+  "artifacts": [
+   {
+    "file": "manifest-L3377.json",
+    "sha256": "1c6a9887849cc857d99639a54c3dcb0be0add79ac549c2e76ebe54474490b70d"
+   },
+   {
+    "file": "rawchecks-L3377.json",
+    "sha256": "81c6830922dd4cfa0e53b5a19ced9b45468f7676986be482542927c3753f9976"
+   },
+   {
+    "file": "pickup.json",
+    "sha256": "98e80e413fe6c3a150cc296836327f0bd297de3025b74a9e6eb9be3c59be005a"
+   },
+   {
+    "file": "extract.py",
+    "sha256": "0350a77b41b82ac121478aaad252154a4db0c299216076b7785a560d0e71a92a"
+   },
+   {
+    "file": "pickup-grid-rawchecks.json",
+    "sha256": "3f82c2cbc591fd8e45949fff98aad3bbe3046571ba6baacd18de47fc558a87f0"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-09",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L3377",
+    "title": "Railgun and Panzerfaust 3 under the damage rule: Railgun 150 times 2.5 against tanks; the Panzerfaust 3 shares the RPG's material with a file-only damage of 100",
+    "status": "finding",
+    "summary": "The Railgun stores 150 damage with a tank multiplier of 2.5, giving 375 to a tank's body before the hit factor and 525 to aircraft, at 1029 m/s with 11 single rounds. The Panzerfaust 3 uses the RPG's material with a file-only damage of 100 (200 to a tank's body), which may be stale as it has no registry row. 2089 raw-offset checks matched.",
+    "reopenWhen": "An in-game Railgun or Panzerfaust 3 damage reading on a vehicle.",
+    "statusNote": "Stored values and grid products read; not confirmed in game, Panzerfaust values file-only."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Hardware/Gadgets/BattlePickups/Railgun/PD_Railgun",
+    "format": "raw-ebx",
+    "sha256": "9d8d8798c5f5e9c365abce4409c68226294c5ff10377fc2933babff611951b52",
+    "question": "What do the stored values give for the Railgun pickup weapon and the Panzerfaust 3, which no lead has put through the damage rule of L3323?",
+    "result": "useful",
+    "conclusion": "Damage 150, material 678 (tank grid value 2.5)."
+   },
+   {
+    "path": "Common/Hardware/Gadgets/Launchers/Panzerfaust3/Art/PB_Panzerfaust3",
+    "format": "raw-ebx",
+    "sha256": "d3a3c6a9f4409e8d657cbb953e24ae04bea2208e97278d5a35e3cc63c133d538",
+    "question": "What do the stored values give for the Railgun pickup weapon and the Panzerfaust 3, which no lead has put through the damage rule of L3323?",
+    "result": "useful",
+    "conclusion": "Direct damage 100 on material 125; blast 130. No registry row."
+   }
+  ]
+ }
+}

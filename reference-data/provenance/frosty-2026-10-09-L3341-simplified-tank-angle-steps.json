@@ -1,0 +1,1281 @@
+{
+ "lead": "L3341",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Read from saved raw captures; no export, no new capture."
+ },
+ "question": "Where are the hit-quality steps of the damage rule (turret 0.75, body 1, side 1.5, rear 2) stored, at what angles do they apply, and which vehicles use them?",
+ "sourceFacts": {
+  "method": "All 20 files under _VehiclesCommon/AngleDamage were decoded and every .ebx in the 54 saved capture roots (31,503 files) was byte-searched for their file GUIDs. The six SimplifiedTank curves are referenced by one file, the schematic PF_Vehicle_GameplayDamageZones_Tank, which was decoded: four damage-zone objects (Class_6f785351), each with a per-face list (Field_12c84a54) naming a curve per face. The same byte search for the schematic's own file GUID lists the files that reference it.",
+  "control": {
+   "description": "EA 1.3.1.0 states the four steps; the curves hold 0.75 (Turret), 1.0 (Top), 1.5 (Sides) and 2.0 (Rear). RPG direct product 250 (L3323) x 0.75 / 1.5 / 2 = 188 / 375 / 500: EA's range ends and the operator's 375 side reading already in VEHICLES.md.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 332,
+     "type": "u32",
+     "bytesHex": "813d7107",
+     "value": 124861825,
+     "expect": 124861825,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 1480,
+     "type": "u32",
+     "bytesHex": "00000000",
+     "value": 0,
+     "expect": 0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 1504,
+     "type": "f32",
+     "bytesHex": "cdcccc3d",
+     "value": 0.10000000149011612,
+     "expect": 0.1,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 1536,
+     "type": "u32",
+     "bytesHex": "00000000",
+     "value": 0,
+     "expect": 0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 1560,
+     "type": "f32",
+     "bytesHex": "cdcccc3d",
+     "value": 0.10000000149011612,
+     "expect": 0.1,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 1592,
+     "type": "u32",
+     "bytesHex": "00000000",
+     "value": 0,
+     "expect": 0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 1616,
+     "type": "f32",
+     "bytesHex": "cdcccc3d",
+     "value": 0.10000000149011612,
+     "expect": 0.1,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 1648,
+     "type": "u32",
+     "bytesHex": "00000000",
+     "value": 0,
+     "expect": 0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 1672,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 1704,
+     "type": "u32",
+     "bytesHex": "00000000",
+     "value": 0,
+     "expect": 0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 1728,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 1760,
+     "type": "u32",
+     "bytesHex": "00000000",
+     "value": 0,
+     "expect": 0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 1784,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 1816,
+     "type": "u32",
+     "bytesHex": "01000000",
+     "value": 1,
+     "expect": 1,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 1840,
+     "type": "f32",
+     "bytesHex": "cdcccc3d",
+     "value": 0.10000000149011612,
+     "expect": 0.1,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 1872,
+     "type": "u32",
+     "bytesHex": "01000000",
+     "value": 1,
+     "expect": 1,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 1896,
+     "type": "f32",
+     "bytesHex": "cdcccc3d",
+     "value": 0.10000000149011612,
+     "expect": 0.1,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 1928,
+     "type": "u32",
+     "bytesHex": "01000000",
+     "value": 1,
+     "expect": 1,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 1952,
+     "type": "f32",
+     "bytesHex": "cdcccc3d",
+     "value": 0.10000000149011612,
+     "expect": 0.1,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 1984,
+     "type": "u32",
+     "bytesHex": "01000000",
+     "value": 1,
+     "expect": 1,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 2008,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 2040,
+     "type": "u32",
+     "bytesHex": "01000000",
+     "value": 1,
+     "expect": 1,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 2064,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 2096,
+     "type": "u32",
+     "bytesHex": "01000000",
+     "value": 1,
+     "expect": 1,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 2120,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 524,
+     "type": "u32",
+     "bytesHex": "813d7107",
+     "value": 124861825,
+     "expect": 124861825,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 2160,
+     "type": "u32",
+     "bytesHex": "00000000",
+     "value": 0,
+     "expect": 0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 2184,
+     "type": "f32",
+     "bytesHex": "cdcccc3d",
+     "value": 0.10000000149011612,
+     "expect": 0.1,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 2216,
+     "type": "u32",
+     "bytesHex": "00000000",
+     "value": 0,
+     "expect": 0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 2240,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 2272,
+     "type": "u32",
+     "bytesHex": "00000000",
+     "value": 0,
+     "expect": 0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 2296,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 2328,
+     "type": "u32",
+     "bytesHex": "00000000",
+     "value": 0,
+     "expect": 0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 2352,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 2384,
+     "type": "u32",
+     "bytesHex": "00000000",
+     "value": 0,
+     "expect": 0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 2408,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 2440,
+     "type": "u32",
+     "bytesHex": "00000000",
+     "value": 0,
+     "expect": 0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 2464,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 716,
+     "type": "u32",
+     "bytesHex": "813d7107",
+     "value": 124861825,
+     "expect": 124861825,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 2504,
+     "type": "u32",
+     "bytesHex": "00000000",
+     "value": 0,
+     "expect": 0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 2528,
+     "type": "f32",
+     "bytesHex": "cdcccc3d",
+     "value": 0.10000000149011612,
+     "expect": 0.1,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 2560,
+     "type": "u32",
+     "bytesHex": "00000000",
+     "value": 0,
+     "expect": 0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 2584,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 2616,
+     "type": "u32",
+     "bytesHex": "00000000",
+     "value": 0,
+     "expect": 0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 2640,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 2672,
+     "type": "u32",
+     "bytesHex": "00000000",
+     "value": 0,
+     "expect": 0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 2696,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 2728,
+     "type": "u32",
+     "bytesHex": "00000000",
+     "value": 0,
+     "expect": 0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 2752,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 2784,
+     "type": "u32",
+     "bytesHex": "00000000",
+     "value": 0,
+     "expect": 0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 2808,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 908,
+     "type": "u32",
+     "bytesHex": "813d7107",
+     "value": 124861825,
+     "expect": 124861825,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 2848,
+     "type": "u32",
+     "bytesHex": "00000000",
+     "value": 0,
+     "expect": 0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 2872,
+     "type": "f32",
+     "bytesHex": "cdcccc3d",
+     "value": 0.10000000149011612,
+     "expect": 0.1,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 2904,
+     "type": "u32",
+     "bytesHex": "00000000",
+     "value": 0,
+     "expect": 0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 2928,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 2960,
+     "type": "u32",
+     "bytesHex": "00000000",
+     "value": 0,
+     "expect": 0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 2984,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 3016,
+     "type": "u32",
+     "bytesHex": "00000000",
+     "value": 0,
+     "expect": 0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 3040,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 3072,
+     "type": "u32",
+     "bytesHex": "00000000",
+     "value": 0,
+     "expect": 0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 3096,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 3128,
+     "type": "u32",
+     "bytesHex": "00000000",
+     "value": 0,
+     "expect": 0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Gameplay\\Vehicles\\Schematics\\PF_Vehicle_GameplayDamageZones_Tank.ebx",
+     "rawSha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+     "offset": 3152,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer4-2026-10-01-0141\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\AngleDamage\\AngleDamageCurve_SimplifiedTank_Turret.ebx",
+     "rawSha256": "691952b0a07ab9ab3f82cade125a9d8b2c6aad337403f53b8fb97a4f27f67536",
+     "offset": 228,
+     "type": "f32",
+     "bytesHex": "0000b442",
+     "value": 90.0,
+     "expect": 90.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer4-2026-10-01-0141\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\AngleDamage\\AngleDamageCurve_SimplifiedTank_Turret.ebx",
+     "rawSha256": "691952b0a07ab9ab3f82cade125a9d8b2c6aad337403f53b8fb97a4f27f67536",
+     "offset": 248,
+     "type": "f32",
+     "bytesHex": "0000403f",
+     "value": 0.75,
+     "expect": 0.75,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer4-2026-10-01-0141\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\AngleDamage\\AngleDamageCurve_SimplifiedTank_Top.ebx",
+     "rawSha256": "60c1b41d8b56e3941eeba04c87686b7c4b5039a2c4bd131126d58ad99e366173",
+     "offset": 228,
+     "type": "f32",
+     "bytesHex": "0000b442",
+     "value": 90.0,
+     "expect": 90.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer4-2026-10-01-0141\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\AngleDamage\\AngleDamageCurve_SimplifiedTank_Top.ebx",
+     "rawSha256": "60c1b41d8b56e3941eeba04c87686b7c4b5039a2c4bd131126d58ad99e366173",
+     "offset": 248,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer4-2026-10-01-0141\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\AngleDamage\\AngleDamageCurve_SimplifiedTank_Sides.ebx",
+     "rawSha256": "9b2996f9df9ef874658b123b8de9ac496cac210bec7a36eb8d7dab6f0b8a99b3",
+     "offset": 228,
+     "type": "f32",
+     "bytesHex": "00008c42",
+     "value": 70.0,
+     "expect": 70.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer4-2026-10-01-0141\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\AngleDamage\\AngleDamageCurve_SimplifiedTank_Sides.ebx",
+     "rawSha256": "9b2996f9df9ef874658b123b8de9ac496cac210bec7a36eb8d7dab6f0b8a99b3",
+     "offset": 248,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer4-2026-10-01-0141\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\AngleDamage\\AngleDamageCurve_SimplifiedTank_Sides.ebx",
+     "rawSha256": "9b2996f9df9ef874658b123b8de9ac496cac210bec7a36eb8d7dab6f0b8a99b3",
+     "offset": 256,
+     "type": "f32",
+     "bytesHex": "83008c42",
+     "value": 70.0009994506836,
+     "expect": 70.000999,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer4-2026-10-01-0141\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\AngleDamage\\AngleDamageCurve_SimplifiedTank_Sides.ebx",
+     "rawSha256": "9b2996f9df9ef874658b123b8de9ac496cac210bec7a36eb8d7dab6f0b8a99b3",
+     "offset": 276,
+     "type": "f32",
+     "bytesHex": "0000c03f",
+     "value": 1.5,
+     "expect": 1.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer4-2026-10-01-0141\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\AngleDamage\\AngleDamageCurve_SimplifiedTank_Sides.ebx",
+     "rawSha256": "9b2996f9df9ef874658b123b8de9ac496cac210bec7a36eb8d7dab6f0b8a99b3",
+     "offset": 284,
+     "type": "f32",
+     "bytesHex": "7dffdb42",
+     "value": 109.9990005493164,
+     "expect": 109.999001,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer4-2026-10-01-0141\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\AngleDamage\\AngleDamageCurve_SimplifiedTank_Sides.ebx",
+     "rawSha256": "9b2996f9df9ef874658b123b8de9ac496cac210bec7a36eb8d7dab6f0b8a99b3",
+     "offset": 304,
+     "type": "f32",
+     "bytesHex": "0000c03f",
+     "value": 1.5,
+     "expect": 1.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer4-2026-10-01-0141\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\AngleDamage\\AngleDamageCurve_SimplifiedTank_Sides.ebx",
+     "rawSha256": "9b2996f9df9ef874658b123b8de9ac496cac210bec7a36eb8d7dab6f0b8a99b3",
+     "offset": 312,
+     "type": "f32",
+     "bytesHex": "0000dc42",
+     "value": 110.0,
+     "expect": 110.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer4-2026-10-01-0141\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\AngleDamage\\AngleDamageCurve_SimplifiedTank_Sides.ebx",
+     "rawSha256": "9b2996f9df9ef874658b123b8de9ac496cac210bec7a36eb8d7dab6f0b8a99b3",
+     "offset": 332,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer4-2026-10-01-0141\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\AngleDamage\\AngleDamageCurve_SimplifiedTank_Rear.ebx",
+     "rawSha256": "3114ec84bd93ce57c500faf1a33cd03aa57815901aedbcd77ebfd74da4794353",
+     "offset": 228,
+     "type": "f32",
+     "bytesHex": "00005c42",
+     "value": 55.0,
+     "expect": 55.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer4-2026-10-01-0141\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\AngleDamage\\AngleDamageCurve_SimplifiedTank_Rear.ebx",
+     "rawSha256": "3114ec84bd93ce57c500faf1a33cd03aa57815901aedbcd77ebfd74da4794353",
+     "offset": 248,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer4-2026-10-01-0141\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\AngleDamage\\AngleDamageCurve_SimplifiedTank_Rear.ebx",
+     "rawSha256": "3114ec84bd93ce57c500faf1a33cd03aa57815901aedbcd77ebfd74da4794353",
+     "offset": 256,
+     "type": "f32",
+     "bytesHex": "06015c42",
+     "value": 55.000999450683594,
+     "expect": 55.000999,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer4-2026-10-01-0141\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\AngleDamage\\AngleDamageCurve_SimplifiedTank_Rear.ebx",
+     "rawSha256": "3114ec84bd93ce57c500faf1a33cd03aa57815901aedbcd77ebfd74da4794353",
+     "offset": 276,
+     "type": "f32",
+     "bytesHex": "00000040",
+     "value": 2.0,
+     "expect": 2.0,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 86,
+   "matched": 86,
+   "files": 6,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "rawchecks-L3341.json"
+  },
+  "dataset": "reference-data/frosty/simplified-tank-angle-steps.json",
+  "officialSource": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-1-0",
+  "schematic": "PF_Vehicle_GameplayDamageZones_Tank",
+  "schematicFileGuid": "0ad6d252-3995-11f1-86a5-c4909d2fb637",
+  "curves": {
+   "Turret": [
+    [
+     90.0,
+     0.75
+    ]
+   ],
+   "Top": [
+    [
+     90.0,
+     1.0
+    ]
+   ],
+   "Front": null,
+   "Sides": [
+    [
+     70.0,
+     1.0
+    ],
+    [
+     70.000999,
+     1.5
+    ],
+    [
+     109.999001,
+     1.5
+    ],
+    [
+     110.0,
+     1.0
+    ]
+   ],
+   "Rear": [
+    [
+     55.0,
+     1.0
+    ],
+    [
+     55.000999,
+     2.0
+    ],
+    [
+     124.999001,
+     2.0
+    ],
+    [
+     125.0,
+     1.0
+    ]
+   ],
+   "Bottom": [
+    [
+     90.0,
+     2.0
+    ]
+   ]
+  },
+  "zones": [
+   {
+    "object": 1,
+    "targetMaterial": 119,
+    "boneData": null,
+    "faces": [
+     {
+      "face": 5,
+      "set": 0,
+      "curve": "Front",
+      "hitType": "HitTypeAngle_Small",
+      "Field_8c2ac57f": 0.1
+     },
+     {
+      "face": 3,
+      "set": 0,
+      "curve": "Sides",
+      "hitType": null,
+      "Field_8c2ac57f": 0.1
+     },
+     {
+      "face": 0,
+      "set": 0,
+      "curve": "Sides",
+      "hitType": null,
+      "Field_8c2ac57f": 0.1
+     },
+     {
+      "face": 2,
+      "set": 0,
+      "curve": "Rear",
+      "hitType": "HitTypeAngle_Critical",
+      "Field_8c2ac57f": 1.0
+     },
+     {
+      "face": 4,
+      "set": 0,
+      "curve": "Top",
+      "hitType": null,
+      "Field_8c2ac57f": 1.0
+     },
+     {
+      "face": 1,
+      "set": 0,
+      "curve": "Bottom",
+      "hitType": null,
+      "Field_8c2ac57f": 1.0
+     },
+     {
+      "face": 5,
+      "set": 1,
+      "curve": "Front",
+      "hitType": "HitTypeAngle_Small",
+      "Field_8c2ac57f": 0.1
+     },
+     {
+      "face": 3,
+      "set": 1,
+      "curve": "Front",
+      "hitType": "HitTypeAngle_Small",
+      "Field_8c2ac57f": 0.1
+     },
+     {
+      "face": 0,
+      "set": 1,
+      "curve": "Front",
+      "hitType": "HitTypeAngle_Small",
+      "Field_8c2ac57f": 0.1
+     },
+     {
+      "face": 2,
+      "set": 1,
+      "curve": "Front",
+      "hitType": "HitTypeAngle_Small",
+      "Field_8c2ac57f": 1.0
+     },
+     {
+      "face": 4,
+      "set": 1,
+      "curve": "Front",
+      "hitType": "HitTypeAngle_Small",
+      "Field_8c2ac57f": 1.0
+     },
+     {
+      "face": 1,
+      "set": 1,
+      "curve": "Front",
+      "hitType": "HitTypeAngle_Small",
+      "Field_8c2ac57f": 1.0
+     }
+    ]
+   },
+   {
+    "object": 2,
+    "targetMaterial": 119,
+    "boneData": null,
+    "faces": [
+     {
+      "face": 5,
+      "set": 0,
+      "curve": "Turret",
+      "hitType": null,
+      "Field_8c2ac57f": 0.1
+     },
+     {
+      "face": 3,
+      "set": 0,
+      "curve": "Turret",
+      "hitType": null,
+      "Field_8c2ac57f": 1.0
+     },
+     {
+      "face": 0,
+      "set": 0,
+      "curve": "Turret",
+      "hitType": null,
+      "Field_8c2ac57f": 1.0
+     },
+     {
+      "face": 2,
+      "set": 0,
+      "curve": "Turret",
+      "hitType": null,
+      "Field_8c2ac57f": 1.0
+     },
+     {
+      "face": 4,
+      "set": 0,
+      "curve": "Top",
+      "hitType": "HitTypeAngle_Regular",
+      "Field_8c2ac57f": 1.0
+     },
+     {
+      "face": 1,
+      "set": 0,
+      "curve": "Turret",
+      "hitType": "HitTypeAngle_Regular",
+      "Field_8c2ac57f": 1.0
+     }
+    ]
+   },
+   {
+    "object": 3,
+    "targetMaterial": 119,
+    "boneData": "BD_Turret_Tank",
+    "faces": [
+     {
+      "face": 5,
+      "set": 0,
+      "curve": "Turret",
+      "hitType": null,
+      "Field_8c2ac57f": 0.1
+     },
+     {
+      "face": 3,
+      "set": 0,
+      "curve": "Turret",
+      "hitType": null,
+      "Field_8c2ac57f": 1.0
+     },
+     {
+      "face": 0,
+      "set": 0,
+      "curve": "Turret",
+      "hitType": null,
+      "Field_8c2ac57f": 1.0
+     },
+     {
+      "face": 2,
+      "set": 0,
+      "curve": "Turret",
+      "hitType": null,
+      "Field_8c2ac57f": 1.0
+     },
+     {
+      "face": 4,
+      "set": 0,
+      "curve": "Top",
+      "hitType": "HitTypeAngle_Regular",
+      "Field_8c2ac57f": 1.0
+     },
+     {
+      "face": 1,
+      "set": 0,
+      "curve": "Turret",
+      "hitType": "HitTypeAngle_Regular",
+      "Field_8c2ac57f": 1.0
+     }
+    ]
+   },
+   {
+    "object": 4,
+    "targetMaterial": 119,
+    "boneData": "BD_Turret_Tank",
+    "faces": [
+     {
+      "face": 5,
+      "set": 0,
+      "curve": "Turret",
+      "hitType": null,
+      "Field_8c2ac57f": 0.1
+     },
+     {
+      "face": 3,
+      "set": 0,
+      "curve": "Turret",
+      "hitType": null,
+      "Field_8c2ac57f": 1.0
+     },
+     {
+      "face": 0,
+      "set": 0,
+      "curve": "Turret",
+      "hitType": null,
+      "Field_8c2ac57f": 1.0
+     },
+     {
+      "face": 2,
+      "set": 0,
+      "curve": "Turret",
+      "hitType": null,
+      "Field_8c2ac57f": 1.0
+     },
+     {
+      "face": 4,
+      "set": 0,
+      "curve": "Top",
+      "hitType": "HitTypeAngle_Regular",
+      "Field_8c2ac57f": 1.0
+     },
+     {
+      "face": 1,
+      "set": 0,
+      "curve": "Turret",
+      "hitType": "HitTypeAngle_Regular",
+      "Field_8c2ac57f": 1.0
+     }
+    ]
+   }
+  ],
+  "referencedBy": [
+   "VB_VEH_Tank_Abrams_DamageZones",
+   "VB_VEH_Tank_Bradley_DamageZones",
+   "VB_VEH_Tank_CV90_DamageZones",
+   "VB_VEH_Tank_Gepard_DamageZones",
+   "VB_VEH_Tank_Leopard_DamageZones"
+  ],
+  "filesByteSearched": 31503,
+  "armouredTransportCurve": {
+   "file": "AngleDamageCurve_ArmoredTransport_Shared",
+   "points": [
+    [
+     90.0,
+     1.0
+    ]
+   ],
+   "importedBy": [
+    "VB_VEH_Car_JLTV_DamageZones",
+    "VB_VEH_Car_Marauder_DamageZones"
+   ]
+  },
+  "olderCurves": "AngleDamageCurve_Tank_*_Shared and IFV_*_Shared (1.0 to 3.2) are still imported directly by the Abrams and CV90 damage-zone files (L3201); they do not reproduce EA's figures."
+ },
+ "inference": [
+  "The hit-quality factors of the damage rule are these curves: turret 0.75 on every side face, body front and top 1.0, body sides 1.5, body rear 2.0, body bottom 2.0.",
+  "Side and rear are angle-gated steps, not gradual: the side curve gives 1.5 only between 70 and 110 degrees and the rear curve gives 2.0 only between 55 and 125 degrees; outside those windows both give 1.0. Reading 90 degrees as a square-on hit (the curves are symmetric about 90), a rear hit keeps 2.0 up to 35 degrees off square and a side hit keeps 1.5 up to 20 degrees off square.",
+  "The schematic is referenced by the damage-zone files of the Abrams, Leopard, Bradley, CV90 and Gepard, so the same steps are selected for both tanks, both IFVs and the anti-air vehicle. This is stored evidence for the open item of L3334.",
+  "The JLTV and Marauder damage zones do not reference the schematic; they import AngleDamageCurve_ArmoredTransport_Shared, a single point (90, 1.0): no angle step on armoured transports.",
+  "The body zone has two face lists (set 0 and set 1); set 1 names the Front file (no curve) for every face. What selects between the sets is not decoded.",
+  "Faces are stored as numbers 0 to 5; which is front, side, rear, top or bottom is read from the name of the curve each selects, not from a decoded enum.",
+  "The front file holds no curve object; the factor 1 for the front is EA's statement, not a stored number."
+ ],
+ "unresolved": [
+  "Which of the two body face sets applies, and when. Test: RPG square on a tank's side should remove 375; if it removes 250, set 1 is in use.",
+  "Angle windows. Test: RPG on a tank's rear at about 45 degrees off square should remove 250, not 500.",
+  "IFV steps. Test: one RPG square on a Bradley's rear should remove 500 of 1000.",
+  "Bottom face 2.0: only reachable by mines or explosives under the hull; not compared with any figure.",
+  "The AAV7A1 damage-zone file was not among the files that reference the schematic; whether it is saved was not checked."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-09-damage-rule-extension",
+  "artifacts": [
+   {
+    "file": "manifest-L3341.json",
+    "sha256": "84cb57261c64badaaa4936bc1f4d22e3c2aa2ce8bdfde9b7dda5b073fa2b6cfa"
+   },
+   {
+    "file": "rawchecks-L3341.json",
+    "sha256": "21747c5f8468838a02a5c6937307910f34e1c4d01f120a46b1d446738980bb38"
+   },
+   {
+    "file": "angle-curves.json",
+    "sha256": "4f4561375acc9cc468a6c8080bef68401662e2afb8eff625da56b536fc15e1e8"
+   },
+   {
+    "file": "pf-tank-zones.json",
+    "sha256": "3d1e0fe3e577da05427bc3928acddcdb8e662d7cc7260bee34865293dbe42827"
+   },
+   {
+    "file": "guidscan.json",
+    "sha256": "4889a1da0d9d4838ffafbcf58148f3933d25496d1b001cd8286c4c20c9d7e430"
+   },
+   {
+    "file": "guidscan-guid.json",
+    "sha256": "8a517396c2ff38d85c954c842a447d0d285bf788d936426d429116ee8ef9193e"
+   },
+   {
+    "file": "anglecurves.py",
+    "sha256": "9bcc77011520c800d805f897bf2984f14251ff1314d286df7b7c84a6efd0d563"
+   },
+   {
+    "file": "guidscan.py",
+    "sha256": "13eced2ea9249355e07b9d96baf619f3917ae838cb1ca395c5ea369dd8ab3356"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-09",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L3341",
+    "title": "The stored source of EA's 75 / 100 / 150 / 200 percent hit steps: the SimplifiedTank angle curves, selected by both tanks, both IFVs and the Gepard",
+    "status": "finding",
+    "summary": "The four hit steps of the vehicle damage rule are stored in six SimplifiedTank angle curves: turret 0.75, top 1.0, sides 1.5 between 70 and 110 degrees, rear 2.0 between 55 and 125 degrees (1.0 outside those windows), bottom 2.0. One schematic, PF_Vehicle_GameplayDamageZones_Tank, assigns them to faces, and the damage-zone files of the Abrams, Leopard, Bradley, CV90 and Gepard reference it. The JLTV and Marauder use a flat 1.0 curve. 86 raw-offset checks matched.",
+    "reopenWhen": "An in-game reading at a measured angle, or a decoded selector for the body's two face sets.",
+    "statusNote": "Stored steps equal EA's four; users found by byte search of 31,503 saved files; face-set selection not decoded."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Gameplay/Vehicles/Schematics/PF_Vehicle_GameplayDamageZones_Tank",
+    "format": "raw-ebx",
+    "sha256": "4277c6759086cf47befbd874695d0872ff803d8d24c5fb653c879b1a2c8b25c9",
+    "question": "Where are the hit-quality steps of the damage rule (turret 0.75, body 1, side 1.5, rear 2) stored, at what angles do they apply, and which vehicles use them?",
+    "result": "useful",
+    "conclusion": "Four damage zones with per-face curve lists naming the SimplifiedTank curves; target material 119."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/_VehiclesCommon/AngleDamage/AngleDamageCurve_SimplifiedTank_Rear",
+    "format": "raw-ebx",
+    "sha256": "3114ec84bd93ce57c500faf1a33cd03aa57815901aedbcd77ebfd74da4794353",
+    "question": "Where are the hit-quality steps of the damage rule (turret 0.75, body 1, side 1.5, rear 2) stored, at what angles do they apply, and which vehicles use them?",
+    "result": "useful",
+    "conclusion": "Points (55, 1) (55.001, 2) (124.999, 2) (125, 1)."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/_VehiclesCommon/AngleDamage/AngleDamageCurve_SimplifiedTank_Sides",
+    "format": "raw-ebx",
+    "sha256": "9b2996f9df9ef874658b123b8de9ac496cac210bec7a36eb8d7dab6f0b8a99b3",
+    "question": "Where are the hit-quality steps of the damage rule (turret 0.75, body 1, side 1.5, rear 2) stored, at what angles do they apply, and which vehicles use them?",
+    "result": "useful",
+    "conclusion": "Points (70, 1) (70.001, 1.5) (109.999, 1.5) (110, 1)."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/_VehiclesCommon/AngleDamage/AngleDamageCurve_SimplifiedTank_Turret",
+    "format": "raw-ebx",
+    "sha256": "691952b0a07ab9ab3f82cade125a9d8b2c6aad337403f53b8fb97a4f27f67536",
+    "question": "Where are the hit-quality steps of the damage rule (turret 0.75, body 1, side 1.5, rear 2) stored, at what angles do they apply, and which vehicles use them?",
+    "result": "useful",
+    "conclusion": "One point (90, 0.75)."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/_VehiclesCommon/AngleDamage/AngleDamageCurve_SimplifiedTank_Front",
+    "format": "raw-ebx",
+    "sha256": "59cb7fe8d56d902ff2d6792eb395e5a17de39edd10d519cf0915e2b90aea48be",
+    "question": "Where are the hit-quality steps of the damage rule (turret 0.75, body 1, side 1.5, rear 2) stored, at what angles do they apply, and which vehicles use them?",
+    "result": "inconclusive",
+    "conclusion": "No curve object; pointer is null."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/Tank/Bradley/VB_VEH_Tank_Bradley_DamageZones",
+    "format": "raw-ebx",
+    "sha256": "41996d0cecb213825a8b917957173fc131ce50a32c5d3dc817e80acc8f164dc2",
+    "question": "Where are the hit-quality steps of the damage rule (turret 0.75, body 1, side 1.5, rear 2) stored, at what angles do they apply, and which vehicles use them?",
+    "result": "useful",
+    "conclusion": "Contains the schematic's file GUID at offset 3450."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/Tank/Gepard/VB_VEH_Tank_Gepard_DamageZones",
+    "format": "raw-ebx",
+    "sha256": "24b5d1ca54217289b05c42088c4edbef746be08cc3756f6e87421b74cafbec38",
+    "question": "Where are the hit-quality steps of the damage rule (turret 0.75, body 1, side 1.5, rear 2) stored, at what angles do they apply, and which vehicles use them?",
+    "result": "useful",
+    "conclusion": "Contains the schematic's file GUID at offset 3720."
+   }
+  ]
+ }
+}

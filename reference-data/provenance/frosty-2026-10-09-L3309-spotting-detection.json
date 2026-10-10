@@ -1,0 +1,178 @@
+{
+ "lead": "L3309",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Newest saved raw copy of each route under builds\\1.4.3.5; raw-checks.json pins each file hash."
+ },
+ "question": "What spotting and detection values (range, angle, time to spot, spot duration, pulse radius and interval) do the named registries store for soldiers, the recon drone, the EOD bot, the laser designator, the Lancet, the T-UGS and the proximity grenade?",
+ "sourceFacts": {
+  "method": "Every named value row of every saved GRX registry was listed with the file offset of its default (32,512 rows in 25 registries). Rows were selected by name from three registries: Common/Gameplay/Soldier/GRX_Glacier_Soldier, Common/Hardware/Gadgets/GRX_Gadgets_Glacier and Common/GameSetup/Tweakables/GameRemixer/GRX_Characters. Each selected default was read back from the raw file at its offset. Rows are registry defaults; no own asset value is recorded in this lead.",
+  "control": {
+   "description": "First six selected rows, read back at their stored offsets.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Characters.ebx",
+     "rawSha256": "9d6ba8b49f5ef85dfc63c43b5dad08e0212d891d47938cd3ff309b6e10d872a3",
+     "offset": 2604,
+     "type": "f32",
+     "bytesHex": "0000c03f",
+     "value": 1.5,
+     "expect": 1.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Characters.ebx",
+     "rawSha256": "9d6ba8b49f5ef85dfc63c43b5dad08e0212d891d47938cd3ff309b6e10d872a3",
+     "offset": 5388,
+     "type": "f32",
+     "bytesHex": "00000040",
+     "value": 2.0,
+     "expect": 2.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Characters.ebx",
+     "rawSha256": "9d6ba8b49f5ef85dfc63c43b5dad08e0212d891d47938cd3ff309b6e10d872a3",
+     "offset": 10468,
+     "type": "f32",
+     "bytesHex": "00002042",
+     "value": 40.0,
+     "expect": 40.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Characters.ebx",
+     "rawSha256": "9d6ba8b49f5ef85dfc63c43b5dad08e0212d891d47938cd3ff309b6e10d872a3",
+     "offset": 5196,
+     "type": "f32",
+     "bytesHex": "9a99593f",
+     "value": 0.8500000238418579,
+     "expect": 0.85,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Characters.ebx",
+     "rawSha256": "9d6ba8b49f5ef85dfc63c43b5dad08e0212d891d47938cd3ff309b6e10d872a3",
+     "offset": 6252,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Characters.ebx",
+     "rawSha256": "9d6ba8b49f5ef85dfc63c43b5dad08e0212d891d47938cd3ff309b6e10d872a3",
+     "offset": 9708,
+     "type": "f32",
+     "bytesHex": "00004040",
+     "value": 3.0,
+     "expect": 3.0,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 212,
+   "matched": 212,
+   "files": 4,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "raw-checks.json"
+  },
+  "rows": 212,
+  "rowsNotOffsetChecked": 7,
+  "dataset": "reference-data/frosty/registry-spotting-detection.json"
+ },
+ "inference": [
+  "Row names are the game's own registry names; what each controls is read from the name only.",
+  "The soldier spot durations (soldier 5, gadget 20, vehicle 30) repeat exactly in the laser designator rows, which suggests one shared rule; this is a correspondence between stored values, not a proof of use.",
+  "GRX_Characters holds rows named for specialists of an earlier game, so its drone and sensor rows may not be used by the current recon drone; the GRX_Gadgets_Glacier Drone_ rows are the likelier source."
+ ],
+ "unresolved": [
+  "Whether a live match uses these defaults. Test: in a private match, look at a stationary enemy with a rifle from 90 m and 110 m while zoomed and note whether the spot marker appears (stored zoom distance 100) and how long after aiming (stored 0.5).",
+  "Units. Distances are assumed metres and times seconds. Test: spot a soldier, break line of sight and time the marker (stored 5; vehicles 30; gadgets 20).",
+  "Recon drone range. Test: fly the drone at a stationary enemy and note the distance at which it is marked without zoom (stored 60) and with zoom (stored 160); check whether deployed gadgets are marked within 40 m.",
+  "Whether the recon drone uses the GRX_Characters cylinder rows (height 100, top radius 12.5) as well. Test: hover directly above an enemy at 50 m and 120 m altitude without aiming at them and note whether they are marked.",
+  "Seven Q...Spot_Duration rows of GRX_Glacier_Soldier store no readable default and are not recorded.",
+  "Which class trait or field upgrade applies AdvancedSpot, Tracker, Bloodhound, Ripple, Ruthless and Despicable rows; no stored link was traced."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-09-spotting-detection",
+  "artifacts": [
+   {
+    "file": "rows.json",
+    "sha256": "dccfa847c5c1d061e8bdef5c7538e4abf4420aea2fd5ea9996d7715ae1d1ab5c"
+   },
+   {
+    "file": "table.md",
+    "sha256": "a65cd276f913e772161f72624cb6021b7a2eeaf2dcc253c0df1e141fa1b58eb5"
+   },
+   {
+    "file": "raw-check-manifest.json",
+    "sha256": "b4ccf0a25dda6c44c63479f581a8f7073d4a3ae6fb36fbe89ee2a03ced6599dc"
+   },
+   {
+    "file": "raw-checks.json",
+    "sha256": "b50d5d728968a81362b229a17342cf6da2c0bc099f07c2e327a11210e1fa4160"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-09",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L3309",
+    "title": "Spotting and detection values for soldiers, the recon drone, the laser designator and sensors",
+    "status": "finding",
+    "summary": "212 registry rows store spotting and detection values: soldier time to spot 0.5, zoomed distance 100, spot duration 5 (vehicle 30, gadget 20); recon drone distance 60 and 160 by zoom with a gadget radius of 40; laser designator distance 80 to 540 by zoom. 212 raw-offset checks matched.",
+    "reopenWhen": "An in-game spotting range or duration measurement, a traced link from a spotting asset to these rows, or a game update that changes a row.",
+    "statusNote": "Registry defaults only; meaning from row names; units and runtime use unconfirmed."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/GameSetup/Tweakables/GameRemixer/GRX_Characters",
+    "format": "raw-ebx",
+    "sha256": "9d6ba8b49f5ef85dfc63c43b5dad08e0212d891d47938cd3ff309b6e10d872a3",
+    "question": "What spotting and detection values (range, angle, time to spot, spot duration, pulse radius and interval) do the named registries store for soldiers, the recon drone, the EOD bot, the laser designator, the Lancet, the T-UGS and the proximity grenade?",
+    "result": "useful",
+    "conclusion": "Drone, scanner and movement-sensor rows sit beside rows named for earlier-game specialists (grapple hook, EIDOS, stim pistol), so they may be leftovers: DroneControlledSpottingCylinder height 100, top radius 12.5, spot duration 6, cycle 0.35; MovementSensor radius 25; Pulse radius 60, interval 3."
+   },
+   {
+    "path": "Common/Gameplay/Soldier/GRX_Glacier_Soldier",
+    "format": "raw-ebx",
+    "sha256": "9b44340483d9af272ef5f0cbda5934ad9a30ff1f055fd3fddc60fc4943e822cc",
+    "question": "What spotting and detection values (range, angle, time to spot, spot duration, pulse radius and interval) do the named registries store for soldiers, the recon drone, the EOD bot, the laser designator, the Lancet, the T-UGS and the proximity grenade?",
+    "result": "useful",
+    "conclusion": "Soldier spotting rows: TimeToSpot 0.5, SpottingFoV 7.5, SpottingDistanceHip 10, SpottingDistanceZoom 100, SpottingDistanceVehicle 100, DefaultSpotDuration 5, SpotDuration 2.5, VehicleSpotDuration 30, GadgetSpotDuration 20, DamageSpot_Duration 8, SpotOnFireDuration 0.4, HipfireSpottingEnabled false; AdvancedSpot range 1.33, angle 1.1, base time 0.25, duration increase 3; thermal signature rows by stance."
+   },
+   {
+    "path": "Common/Hardware/Gadgets/GRX_Gadgets_Glacier",
+    "format": "raw-ebx",
+    "sha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+    "question": "What spotting and detection values (range, angle, time to spot, spot duration, pulse radius and interval) do the named registries store for soldiers, the recon drone, the EOD bot, the laser designator, the Lancet, the T-UGS and the proximity grenade?",
+    "result": "useful",
+    "conclusion": "Recon drone: spotting distance 60 at zoom level 0 and 160 at zoom level 1, angle 10 and 5, controlled and uncontrolled equal; gadget spotting radius 40 every 1.5; lifetime 80. Laser designator: distance 80 / 180 / 360 / 540 by zoom level, handheld 500 at angle 10; spot durations soldier 5, gadget 20, vehicle 30. T-UGS radius 15, pulse delay 1.5, duration 2. Proximity grenade radius 7, pulse delay 1, duration 2."
+   },
+   {
+    "path": "Common/Hardware/Gadgets/GRX_Gadgets_Glacier_CH1_S02",
+    "format": "raw-ebx",
+    "sha256": "f59d23bcb29ed4f94ff335ba631b632d8837916692bb06e183edfb6877a85c83",
+    "question": "What spotting and detection values (range, angle, time to spot, spot duration, pulse radius and interval) do the named registries store for soldiers, the recon drone, the EOD bot, the laser designator, the Lancet, the T-UGS and the proximity grenade?",
+    "result": "useful",
+    "conclusion": "Lancet rows: detection distance 30 hip, 60 and 80 by zoom level, UAV detection range 450, driver spot duration 5."
+   }
+  ]
+ }
+}

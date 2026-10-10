@@ -1,0 +1,157 @@
+{
+ "lead": "L3317",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Reads the saved registry files of builds 1.4.2.5 and 1.4.3.0 and the saved weapon asset of 1.4.3.0 and 1.4.3.5; raw-checks.json pins each file hash."
+ },
+ "question": "Does an official statement show which of the registry default and the asset's own value a live match uses?",
+ "sourceFacts": {
+  "method": "L3314 found that the 1.4.3.0 update changed the scout helicopter minigun HeatPerBullet registry row while the weapon asset kept its old value. EA's published notes for that update (https://www.ea.com/games/battlefield/redsec/news/battlefield-6-game-update-1-4-3-0, read 9 October 2026; also summarised in reference-data/patch-notes/patch-notes-inventory.json as 'scout minigun heating') were read for the matching statement. The registry and asset values were read back at their raw offsets.",
+  "control": {
+   "description": "The minigun HeatPerBullet registry row in builds 1.4.2.5 and 1.4.3.0 and the asset's own HeatPerBullet.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.2.5\\capture\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "d1efa74528523d870048c51e4d5365f27897692f5ed0a1d09154c63d90d75031",
+     "offset": 203300,
+     "type": "f32",
+     "bytesHex": "7e73da3b",
+     "value": 0.006666599772870541,
+     "expect": 0.006667,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "7be1c136b6b4de1c3071eca63c12b5affc714ff96c51bd1dbf3f38b1fc2580de",
+     "offset": 203300,
+     "type": "f32",
+     "bytesHex": "54a2113c",
+     "value": 0.00888879969716072,
+     "expect": 0.008889,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-dependency-layer3-2026-09-23\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\ScoutHeli\\WF_Vehicles_ScoutHeli_PrimaryWeapon_Minigun.ebx",
+     "rawSha256": "f087b42d506c5d7774208528b48e5a9bc0ec12cd897a4558bc6bc7556a58b9f2",
+     "offset": 1168,
+     "type": "f32",
+     "bytesHex": "7e73da3b",
+     "value": 0.006666599772870541,
+     "expect": 0.006667,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\ScoutHeli\\WF_Vehicles_ScoutHeli_PrimaryWeapon_Minigun.ebx",
+     "rawSha256": "f087b42d506c5d7774208528b48e5a9bc0ec12cd897a4558bc6bc7556a58b9f2",
+     "offset": 1168,
+     "type": "f32",
+     "bytesHex": "7e73da3b",
+     "value": 0.006666599772870541,
+     "expect": 0.006667,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 6,
+   "matched": 6,
+   "files": 4,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "raw-checks.json"
+  },
+  "facts": {
+   "officialSource": "https://www.ea.com/games/battlefield/redsec/news/battlefield-6-game-update-1-4-3-0",
+   "officialArticleDate": "2026-09-14",
+   "readOn": "2026-10-09",
+   "officialStatements": [
+    "AH-6 minigun: overheat per bullet increased by about 33%.",
+    "RCB90 patrol boat: health raised from 800 to 1000."
+   ],
+   "registry": {
+    "row": "WF_Vehicles_ScoutHeli_PrimaryWeapon_Minigun.PrimaryFire.OverHeat.HeatPerBullet",
+    "build1425": 0.006667,
+    "build1430": 0.008889,
+    "ratio": 1.3333,
+    "cb90MaxHealthRow": "VB_VEH_Boat_CB90.MaxHealth",
+    "cb90From": 800.0,
+    "cb90To": 1000.0
+   },
+   "asset": {
+    "file": "WF_Vehicles_ScoutHeli_PrimaryWeapon_Minigun",
+    "field": "Field_72a2b562 (HeatPerBullet)",
+    "build1430": 0.006667,
+    "build1435": 0.006667
+   }
+  }
+ },
+ "inference": [
+  "EA states the AH-6 minigun's overheat per bullet rose by about 33% in update 1.4.3.0. The registry row rose from 0.006667 to 0.008889, a ratio of 1.3333. The weapon asset saved for 1.4.3.0 and 1.4.3.5 still stores 0.006667. The officially announced change therefore exists in the registry and not in the asset, so for this property the registry default is the value the game uses.",
+  "EA also states RCB90 health rose from 800 to 1000; the registry row VB_VEH_Boat_CB90.MaxHealth changed from 800 to 1000 in the same update. The current asset also stores 1000, so this case agrees with the registry but does not separate the two sides.",
+  "By extension the registry default is the likelier live value for the other properties where the two differ (the 73 pairs of L3307), since each owning asset imports its registry container (L3316). That extension is inference; only the minigun property has an official statement."
+ ],
+ "unresolved": [
+  "A direct in-game reading. Test: hold fire with the scout helicopter minigun from zero heat and count shots to overheat (about 112 on the registry value, about 150 on the asset value, if heat runs 0 to 1 with no cooling while firing).",
+  "Whether the same holds for damage rows. Test: one anti-tank mine under a full-health tank (registry BlastDamage 195, asset 300).",
+  "The 1.4.2.5 copy of the minigun asset is not saved, so it is not shown that the asset stored 0.006667 before the update as well; the asset has the same file hash in 1.4.3.0 and 1.4.3.5.",
+  "This is a correspondence between an official statement and stored values, not an in-game control."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-09-registry-live-official",
+  "artifacts": [
+   {
+    "file": "facts.json",
+    "sha256": "2cf536f7dd092c6d9701c153cad243b0688f7d032f02039251c3e992163f45f8"
+   },
+   {
+    "file": "raw-check-manifest.json",
+    "sha256": "b7f18aeaf10aac907e2baf37c06b316c3db0d8dad233d6fa98c1dd070c605698"
+   },
+   {
+    "file": "raw-checks.json",
+    "sha256": "8021fd29175cacf2c6c34d5bc00ceddaf9ed58638b919b88142264f031e90c06"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-09",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L3317",
+    "title": "Official 1.4.3.0 note matches a registry-only change: the registry default is the live value for the scout helicopter minigun heat",
+    "status": "finding",
+    "summary": "EA's 1.4.3.0 notes state the AH-6 minigun's overheat per bullet rose by about 33%. Only the registry row changed (0.006667 to 0.008889, ratio 1.3333); the weapon asset still stores 0.006667. For this property the registry default is the value in use; extending that to the other 73 differing properties is inference. 6 raw-offset checks matched.",
+    "reopenWhen": "An in-game shots-to-overheat count or anti-tank mine damage reading, or a later update whose official notes name a value that changed on only one side.",
+    "statusNote": "Official statement matched to stored values for one property; no in-game control."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/GameSetup/Tweakables/GameRemixer/GRX_Vehicles",
+    "format": "raw-ebx",
+    "sha256": "7be1c136b6b4de1c3071eca63c12b5affc714ff96c51bd1dbf3f38b1fc2580de",
+    "question": "Does an official statement show which of the registry default and the asset's own value a live match uses?",
+    "result": "useful",
+    "conclusion": "Scout helicopter minigun HeatPerBullet row stores 0.008889 after update 1.4.3.0 (0.006667 before), matching EA's stated increase of about 33%."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/ScoutHeli/WF_Vehicles_ScoutHeli_PrimaryWeapon_Minigun",
+    "format": "raw-ebx",
+    "sha256": "f087b42d506c5d7774208528b48e5a9bc0ec12cd897a4558bc6bc7556a58b9f2",
+    "question": "Does an official statement show which of the registry default and the asset's own value a live match uses?",
+    "result": "useful",
+    "conclusion": "The asset's own HeatPerBullet still stores 0.006667 in builds 1.4.3.0 and 1.4.3.5."
+   }
+  ]
+ }
+}

@@ -1,0 +1,352 @@
+{
+ "lead": "L3339",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Read from saved raw captures; no export, no new capture."
+ },
+ "question": "Does the damage rule of L3323 reproduce EA's figures for the tank Aim-Guided Shell and the MAS 148 Glaive, and with the registry default or the asset's own value?",
+ "sourceFacts": {
+  "method": "For PB_Missile_MBT_GuidedMunition and PB_Javelin the direct and blast materials, own Damage and BlastDamage, registry rows and grid values against target materials 119, 121 and 120 were read (two level grids, equal). The rule of L3323 was applied: tanks = direct product x 0.75 (rounded up) to x 2, plus blast product; aircraft = direct product + blast product, jets shown as 1000 at most. Item names are joined to files by name only.",
+  "control": {
+   "description": "Both updates' Aim-Guided Shell figures and all three Glaive figures are reproduced exactly (10 numbers).",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Missile\\TOW2B\\PB_Missile_MBT_GuidedMunition.ebx",
+     "rawSha256": "209c624e85f4524c40f9c771b17b338fd3fe9a4ec802f8f56c28bbc103993e73",
+     "offset": 416,
+     "type": "u32",
+     "bytesHex": "8000f01a",
+     "value": 451936384,
+     "expect": 451936384,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Missile\\TOW2B\\PB_Missile_MBT_GuidedMunition.ebx",
+     "rawSha256": "209c624e85f4524c40f9c771b17b338fd3fe9a4ec802f8f56c28bbc103993e73",
+     "offset": 868,
+     "type": "f32",
+     "bytesHex": "0000fa42",
+     "value": 125.0,
+     "expect": 125.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Missile\\TOW2B\\PB_Missile_MBT_GuidedMunition.ebx",
+     "rawSha256": "209c624e85f4524c40f9c771b17b338fd3fe9a4ec802f8f56c28bbc103993e73",
+     "offset": 1664,
+     "type": "u32",
+     "bytesHex": "80152008",
+     "value": 136320384,
+     "expect": 136320384,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Missile\\TOW2B\\PB_Missile_MBT_GuidedMunition.ebx",
+     "rawSha256": "209c624e85f4524c40f9c771b17b338fd3fe9a4ec802f8f56c28bbc103993e73",
+     "offset": 1760,
+     "type": "f32",
+     "bytesHex": "00004843",
+     "value": 200.0,
+     "expect": 200.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 216220,
+     "type": "f32",
+     "bytesHex": "00000243",
+     "value": 130.0,
+     "expect": 130.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 459540,
+     "type": "f32",
+     "bytesHex": "00004843",
+     "value": 200.0,
+     "expect": 200.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Javelin\\PB_Javelin.ebx",
+     "rawSha256": "26ded649660436b43b24a0339a475685b6ae3d9d8127599f4eebeb4b8fc8d6cd",
+     "offset": 416,
+     "type": "u32",
+     "bytesHex": "8011b028",
+     "value": 682627456,
+     "expect": 682627456,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Javelin\\PB_Javelin.ebx",
+     "rawSha256": "26ded649660436b43b24a0339a475685b6ae3d9d8127599f4eebeb4b8fc8d6cd",
+     "offset": 868,
+     "type": "f32",
+     "bytesHex": "00001643",
+     "value": 150.0,
+     "expect": 150.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Javelin\\PB_Javelin.ebx",
+     "rawSha256": "26ded649660436b43b24a0339a475685b6ae3d9d8127599f4eebeb4b8fc8d6cd",
+     "offset": 2240,
+     "type": "u32",
+     "bytesHex": "8015a028",
+     "value": 681579904,
+     "expect": 681579904,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Javelin\\PB_Javelin.ebx",
+     "rawSha256": "26ded649660436b43b24a0339a475685b6ae3d9d8127599f4eebeb4b8fc8d6cd",
+     "offset": 2336,
+     "type": "f32",
+     "bytesHex": "0000fa42",
+     "value": 125.0,
+     "expect": 125.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 536756,
+     "type": "f32",
+     "bytesHex": "00000c43",
+     "value": 140.0,
+     "expect": 140.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 99948,
+     "type": "f32",
+     "bytesHex": "00001b43",
+     "value": 155.0,
+     "expect": 155.0,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 834,
+   "matched": 834,
+   "files": 6,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "rawchecks-L3339.json"
+  },
+  "officialSources": [
+   "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-1-0",
+   "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-3-0"
+  ],
+  "files": [
+   {
+    "owner": "PB_Missile_MBT_GuidedMunition",
+    "directMaterial": 431,
+    "blastMaterial": 130,
+    "directGrid": {
+     "119": 2.5,
+     "121": 4.0,
+     "120": 5.0
+    },
+    "blastGrid": {
+     "119": 0.0,
+     "121": 1.0,
+     "120": 2.0
+    },
+    "damage": {
+     "registry": 130.0,
+     "own": 125.0
+    },
+    "blastDamage": {
+     "registry": 200.0,
+     "own": 200.0
+    }
+   },
+   {
+    "owner": "PB_Javelin",
+    "directMaterial": 651,
+    "blastMaterial": 650,
+    "directGrid": {
+     "119": 0.0,
+     "121": 0.0,
+     "120": 0.0
+    },
+    "blastGrid": {
+     "119": 3.0,
+     "121": 6.5,
+     "120": 10.0
+    },
+    "damage": {
+     "registry": 140.0,
+     "own": 150.0
+    },
+    "blastDamage": {
+     "registry": 155.0,
+     "own": 125.0
+    }
+   }
+  ],
+  "cases": [
+   {
+    "item": "MBT Aim-Guided Shell",
+    "note": "1.3.1.0",
+    "ea": {
+     "tankLow": 235,
+     "tankHigh": 625,
+     "helicopters": 700,
+     "jets": 1000
+    },
+    "values": "own Damage 125, BlastDamage 200",
+    "predicted": {
+     "tankLow": 235.0,
+     "tankHigh": 625.0,
+     "helicopters": 700.0,
+     "jets": 1000,
+     "jetsUncapped": 1025.0
+    },
+    "equal": true
+   },
+   {
+    "item": "MBT Aim-Guided Shell",
+    "note": "1.3.3.0",
+    "ea": {
+     "tankLow": 244,
+     "tankHigh": 650,
+     "helicopters": 720,
+     "jets": null
+    },
+    "values": "registry Damage 130, BlastDamage 200",
+    "predicted": {
+     "tankLow": 244.0,
+     "tankHigh": 650.0,
+     "helicopters": 720.0,
+     "jets": 1000,
+     "jetsUncapped": 1050.0
+    },
+    "equal": true
+   },
+   {
+    "item": "MAS 148 Glaive",
+    "note": "1.3.1.0",
+    "ea": {
+     "tankLow": 465,
+     "tankHigh": 465,
+     "helicopters": 1007.5,
+     "jets": 1000
+    },
+    "values": "registry Damage 140 (grid value 0), BlastDamage 155",
+    "predicted": {
+     "tankLow": 465.0,
+     "tankHigh": 465.0,
+     "helicopters": 1007.5,
+     "jets": 1000,
+     "jetsUncapped": 1550.0
+    },
+    "equal": true
+   },
+   {
+    "item": "MAS 148 Glaive",
+    "note": "not EA: own values",
+    "ea": null,
+    "values": "own Damage 150 (grid value 0), BlastDamage 125",
+    "predicted": {
+     "tankLow": 375.0,
+     "tankHigh": 375.0,
+     "helicopters": 812.5,
+     "jets": 1000,
+     "jetsUncapped": 1250.0
+    }
+   }
+  ]
+ },
+ "inference": [
+  "Aim-Guided Shell: the asset's own Damage 125 gives EA's 1.3.1.0 figures (235 to 625, 700) and the registry default 130 gives EA's 1.3.3.0 figures (244 to 650, 720). The registry default is the newer value and the one in use; the own value is the previous patch's number.",
+  "Glaive: its direct-hit material 651 has grid value 0 against all three targets, so all vehicle damage comes from the blast: registry BlastDamage 155 x 3 = 465, x 6.5 = 1007.5, x 10 = 1550 (shown as 1000). The own value 125 would give 375 and 812.5, which EA does not state.",
+  "Because the Glaive's damage is blast only, no hit-quality step applies, which is why EA gives one tank number and why it matches EA's statement that lock-on weapons ignore zones and angles.",
+  "EA prints 1007.5 for helicopters, so only the jet figure is capped at 1000 in EA's notes."
+ ],
+ "unresolved": [
+  "Current build values. Test: one Glaive hit on a full-health tank should remove 465 of 1200; three hits should destroy it.",
+  "Aim-Guided Shell on a tank's rear should remove 650; two rear hits should destroy a full-health tank (1300 of 1200)."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-09-damage-rule-extension",
+  "artifacts": [
+   {
+    "file": "manifest-L3339.json",
+    "sha256": "6896bffc85ce11aba2cff97cac9ed98e75f53d9893de059fc3c8650991a357d7"
+   },
+   {
+    "file": "rawchecks-L3339.json",
+    "sha256": "e090da2829c030514422395d30a3206bd5f4cd6f21e6737a49203b501b02048f"
+   },
+   {
+    "file": "guided.json",
+    "sha256": "ba8a84325b17b1d5d8ae62ae7aaab18e98f865f2ec3dc98f34c990abdc0bc8ca"
+   },
+   {
+    "file": "extract.py",
+    "sha256": "0350a77b41b82ac121478aaad252154a4db0c299216076b7785a560d0e71a92a"
+   },
+   {
+    "file": "ea-1-3-1-0.txt",
+    "sha256": "164104a0230d09e8d179f79b65a708c2c1d04244f06157ab8827d57b5443ad4d"
+   },
+   {
+    "file": "ea-1-3-3-0.txt",
+    "sha256": "f755dc18c8aad27471d33e8ba721cd377a24c5940957d23e9dd9e40a443e6b47"
+   },
+   {
+    "file": "guided-grid-rawchecks.json",
+    "sha256": "b10b8e9ef533e2e4932d22ced3ace63f958602e23f4e29fc389e6dbb20e73891"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-09",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L3339",
+    "title": "The damage rule reproduces EA's figures for the tank Aim-Guided Shell in two updates and for the MAS 148 Glaive",
+    "status": "finding",
+    "summary": "The rule reproduces EA's figures for the tank Aim-Guided Shell in both updates (own Damage 125 gives 1.3.1.0's 235 to 625 and 700; registry 130 gives 1.3.3.0's 244 to 650 and 720) and for the MAS 148 Glaive (registry BlastDamage 155 gives 465, 1007.5 and 1000). The Glaive's direct-hit material has grid value 0, so its vehicle damage is blast only. 834 raw-offset checks matched.",
+    "reopenWhen": "An in-game reading for either item that differs.",
+    "statusNote": "Ten official numbers reproduced; names joined by name only."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Hardware/Vehicles/_Projectiles/Missile/TOW2B/PB_Missile_MBT_GuidedMunition",
+    "format": "raw-ebx",
+    "sha256": "209c624e85f4524c40f9c771b17b338fd3fe9a4ec802f8f56c28bbc103993e73",
+    "question": "Does the damage rule of L3323 reproduce EA's figures for the tank Aim-Guided Shell and the MAS 148 Glaive, and with the registry default or the asset's own value?",
+    "result": "useful",
+    "conclusion": "Own Damage 125 reproduces EA 1.3.1.0; registry 130 reproduces EA 1.3.3.0."
+   },
+   {
+    "path": "Common/Hardware/Gadgets/Launchers/Javelin/PB_Javelin",
+    "format": "raw-ebx",
+    "sha256": "26ded649660436b43b24a0339a475685b6ae3d9d8127599f4eebeb4b8fc8d6cd",
+    "question": "Does the damage rule of L3323 reproduce EA's figures for the tank Aim-Guided Shell and the MAS 148 Glaive, and with the registry default or the asset's own value?",
+    "result": "useful",
+    "conclusion": "Direct material 651 has grid value 0; blast material 650 with registry BlastDamage 155 reproduces EA's 465 / 1007.5 / 1000."
+   }
+  ]
+ }
+}

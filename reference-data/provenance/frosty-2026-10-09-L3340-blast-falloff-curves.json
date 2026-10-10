@@ -1,0 +1,1406 @@
+{
+ "lead": "L3340",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Read from saved raw captures; no export, no new capture."
+ },
+ "question": "Is the shape of blast damage falloff between the inner radius and the blast radius stored, and for which explosives?",
+ "sourceFacts": {
+  "method": "The six files named BlastCurve_* or *BlastDamageFall* in the saved vehicle and gadget captures were decoded: each holds one curve object (Class_afbfd124) with a list of points (x = Field_3901db14, y = Field_42fc0f5e). The explosion objects (Class_9966532d) of 51 explosive owners were decoded and searched for an import of one of those files; 18 hold one in Field_0839b22b. Every point and each user's own blast damage and radii were re-read at their raw offsets.",
+  "control": {
+   "description": "Frag grenade: own InnerBlastRadius 1 / BlastRadius 5 = 0.2, the x of the last full-damage point of its curve. The three vehicle curves are named InnerRadius25, 40 and 50 and start at x = 0.25, 0.4 and 0.5; all end at (0.9, 0.2), EA's 20 percent minimum.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Javelin\\Javelin_BlastDamageFallOffCurve.ebx",
+     "rawSha256": "b8a229f27265df4c7ccc0f69656bca9313960cd105adc29342cfeaacb934501b",
+     "offset": 196,
+     "type": "f32",
+     "bytesHex": "00000000",
+     "value": 0.0,
+     "expect": 0.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Javelin\\Javelin_BlastDamageFallOffCurve.ebx",
+     "rawSha256": "b8a229f27265df4c7ccc0f69656bca9313960cd105adc29342cfeaacb934501b",
+     "offset": 216,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Javelin\\Javelin_BlastDamageFallOffCurve.ebx",
+     "rawSha256": "b8a229f27265df4c7ccc0f69656bca9313960cd105adc29342cfeaacb934501b",
+     "offset": 224,
+     "type": "f32",
+     "bytesHex": "0000003e",
+     "value": 0.125,
+     "expect": 0.125,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Javelin\\Javelin_BlastDamageFallOffCurve.ebx",
+     "rawSha256": "b8a229f27265df4c7ccc0f69656bca9313960cd105adc29342cfeaacb934501b",
+     "offset": 244,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Javelin\\Javelin_BlastDamageFallOffCurve.ebx",
+     "rawSha256": "b8a229f27265df4c7ccc0f69656bca9313960cd105adc29342cfeaacb934501b",
+     "offset": 252,
+     "type": "f32",
+     "bytesHex": "0000003e",
+     "value": 0.125,
+     "expect": 0.125,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Javelin\\Javelin_BlastDamageFallOffCurve.ebx",
+     "rawSha256": "b8a229f27265df4c7ccc0f69656bca9313960cd105adc29342cfeaacb934501b",
+     "offset": 272,
+     "type": "f32",
+     "bytesHex": "1f852b3f",
+     "value": 0.6700000166893005,
+     "expect": 0.67,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Javelin\\Javelin_BlastDamageFallOffCurve.ebx",
+     "rawSha256": "b8a229f27265df4c7ccc0f69656bca9313960cd105adc29342cfeaacb934501b",
+     "offset": 280,
+     "type": "f32",
+     "bytesHex": "c3f5a83e",
+     "value": 0.33000001311302185,
+     "expect": 0.33,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Javelin\\Javelin_BlastDamageFallOffCurve.ebx",
+     "rawSha256": "b8a229f27265df4c7ccc0f69656bca9313960cd105adc29342cfeaacb934501b",
+     "offset": 300,
+     "type": "f32",
+     "bytesHex": "1f852b3f",
+     "value": 0.6700000166893005,
+     "expect": 0.67,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Javelin\\Javelin_BlastDamageFallOffCurve.ebx",
+     "rawSha256": "b8a229f27265df4c7ccc0f69656bca9313960cd105adc29342cfeaacb934501b",
+     "offset": 308,
+     "type": "f32",
+     "bytesHex": "c3f5a83e",
+     "value": 0.33000001311302185,
+     "expect": 0.33,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Javelin\\Javelin_BlastDamageFallOffCurve.ebx",
+     "rawSha256": "b8a229f27265df4c7ccc0f69656bca9313960cd105adc29342cfeaacb934501b",
+     "offset": 328,
+     "type": "f32",
+     "bytesHex": "c3f5a83e",
+     "value": 0.33000001311302185,
+     "expect": 0.33,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Throwables\\C4\\BlastCurve_C4.ebx",
+     "rawSha256": "e06593c327cf3d13f3f960b1bca61126080989dbde90517e2d32af8bbbc8328b",
+     "offset": 196,
+     "type": "f32",
+     "bytesHex": "00000000",
+     "value": 0.0,
+     "expect": 0.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Throwables\\C4\\BlastCurve_C4.ebx",
+     "rawSha256": "e06593c327cf3d13f3f960b1bca61126080989dbde90517e2d32af8bbbc8328b",
+     "offset": 216,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Throwables\\C4\\BlastCurve_C4.ebx",
+     "rawSha256": "e06593c327cf3d13f3f960b1bca61126080989dbde90517e2d32af8bbbc8328b",
+     "offset": 224,
+     "type": "f32",
+     "bytesHex": "1158193f",
+     "value": 0.5990000367164612,
+     "expect": 0.599,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Throwables\\C4\\BlastCurve_C4.ebx",
+     "rawSha256": "e06593c327cf3d13f3f960b1bca61126080989dbde90517e2d32af8bbbc8328b",
+     "offset": 244,
+     "type": "f32",
+     "bytesHex": "0fec7e3f",
+     "value": 0.9957894682884216,
+     "expect": 0.995789,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Throwables\\C4\\BlastCurve_C4.ebx",
+     "rawSha256": "e06593c327cf3d13f3f960b1bca61126080989dbde90517e2d32af8bbbc8328b",
+     "offset": 252,
+     "type": "f32",
+     "bytesHex": "9a99193f",
+     "value": 0.6000000238418579,
+     "expect": 0.6,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Throwables\\C4\\BlastCurve_C4.ebx",
+     "rawSha256": "e06593c327cf3d13f3f960b1bca61126080989dbde90517e2d32af8bbbc8328b",
+     "offset": 272,
+     "type": "f32",
+     "bytesHex": "cdcc4c3f",
+     "value": 0.800000011920929,
+     "expect": 0.8,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Throwables\\C4\\BlastCurve_C4.ebx",
+     "rawSha256": "e06593c327cf3d13f3f960b1bca61126080989dbde90517e2d32af8bbbc8328b",
+     "offset": 280,
+     "type": "f32",
+     "bytesHex": "9c0a423f",
+     "value": 0.75797438621521,
+     "expect": 0.757974,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Throwables\\C4\\BlastCurve_C4.ebx",
+     "rawSha256": "e06593c327cf3d13f3f960b1bca61126080989dbde90517e2d32af8bbbc8328b",
+     "offset": 300,
+     "type": "f32",
+     "bytesHex": "cdcc4c3f",
+     "value": 0.800000011920929,
+     "expect": 0.8,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Throwables\\C4\\BlastCurve_C4.ebx",
+     "rawSha256": "e06593c327cf3d13f3f960b1bca61126080989dbde90517e2d32af8bbbc8328b",
+     "offset": 308,
+     "type": "f32",
+     "bytesHex": "94d2423f",
+     "value": 0.7610256671905518,
+     "expect": 0.761026,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Throwables\\C4\\BlastCurve_C4.ebx",
+     "rawSha256": "e06593c327cf3d13f3f960b1bca61126080989dbde90517e2d32af8bbbc8328b",
+     "offset": 328,
+     "type": "f32",
+     "bytesHex": "a008d03e",
+     "value": 0.40631580352783203,
+     "expect": 0.406316,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Throwables\\C4\\BlastCurve_C4.ebx",
+     "rawSha256": "e06593c327cf3d13f3f960b1bca61126080989dbde90517e2d32af8bbbc8328b",
+     "offset": 336,
+     "type": "f32",
+     "bytesHex": "710e673f",
+     "value": 0.9025641083717346,
+     "expect": 0.902564,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Throwables\\C4\\BlastCurve_C4.ebx",
+     "rawSha256": "e06593c327cf3d13f3f960b1bca61126080989dbde90517e2d32af8bbbc8328b",
+     "offset": 356,
+     "type": "f32",
+     "bytesHex": "bee0cd3e",
+     "value": 0.40210527181625366,
+     "expect": 0.402105,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Throwables\\C4\\BlastCurve_C4.ebx",
+     "rawSha256": "e06593c327cf3d13f3f960b1bca61126080989dbde90517e2d32af8bbbc8328b",
+     "offset": 364,
+     "type": "f32",
+     "bytesHex": "a851673f",
+     "value": 0.9035897254943848,
+     "expect": 0.90359,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Throwables\\C4\\BlastCurve_C4.ebx",
+     "rawSha256": "e06593c327cf3d13f3f960b1bca61126080989dbde90517e2d32af8bbbc8328b",
+     "offset": 384,
+     "type": "f32",
+     "bytesHex": "cdcc4c3e",
+     "value": 0.20000000298023224,
+     "expect": 0.2,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Throwables\\C4\\BlastCurve_C4.ebx",
+     "rawSha256": "e06593c327cf3d13f3f960b1bca61126080989dbde90517e2d32af8bbbc8328b",
+     "offset": 392,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Throwables\\C4\\BlastCurve_C4.ebx",
+     "rawSha256": "e06593c327cf3d13f3f960b1bca61126080989dbde90517e2d32af8bbbc8328b",
+     "offset": 412,
+     "type": "f32",
+     "bytesHex": "cdcc4c3e",
+     "value": 0.20000000298023224,
+     "expect": 0.2,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Frag\\FragGrenade_BlastDamageFalloff_Curve.ebx",
+     "rawSha256": "d2984f1dae954999676dd329961f0084daab68f471592fbe34d3e01c4c301aa7",
+     "offset": 196,
+     "type": "f32",
+     "bytesHex": "00000000",
+     "value": 0.0,
+     "expect": 0.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Frag\\FragGrenade_BlastDamageFalloff_Curve.ebx",
+     "rawSha256": "d2984f1dae954999676dd329961f0084daab68f471592fbe34d3e01c4c301aa7",
+     "offset": 216,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Frag\\FragGrenade_BlastDamageFalloff_Curve.ebx",
+     "rawSha256": "d2984f1dae954999676dd329961f0084daab68f471592fbe34d3e01c4c301aa7",
+     "offset": 224,
+     "type": "f32",
+     "bytesHex": "cdcc4c3e",
+     "value": 0.20000000298023224,
+     "expect": 0.2,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Frag\\FragGrenade_BlastDamageFalloff_Curve.ebx",
+     "rawSha256": "d2984f1dae954999676dd329961f0084daab68f471592fbe34d3e01c4c301aa7",
+     "offset": 244,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Frag\\FragGrenade_BlastDamageFalloff_Curve.ebx",
+     "rawSha256": "d2984f1dae954999676dd329961f0084daab68f471592fbe34d3e01c4c301aa7",
+     "offset": 252,
+     "type": "f32",
+     "bytesHex": "9a99193f",
+     "value": 0.6000000238418579,
+     "expect": 0.6,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Frag\\FragGrenade_BlastDamageFalloff_Curve.ebx",
+     "rawSha256": "d2984f1dae954999676dd329961f0084daab68f471592fbe34d3e01c4c301aa7",
+     "offset": 272,
+     "type": "f32",
+     "bytesHex": "cdcc4c3f",
+     "value": 0.800000011920929,
+     "expect": 0.8,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Frag\\FragGrenade_BlastDamageFalloff_Curve.ebx",
+     "rawSha256": "d2984f1dae954999676dd329961f0084daab68f471592fbe34d3e01c4c301aa7",
+     "offset": 280,
+     "type": "f32",
+     "bytesHex": "23db193f",
+     "value": 0.6010000109672546,
+     "expect": 0.601,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Frag\\FragGrenade_BlastDamageFalloff_Curve.ebx",
+     "rawSha256": "d2984f1dae954999676dd329961f0084daab68f471592fbe34d3e01c4c301aa7",
+     "offset": 300,
+     "type": "f32",
+     "bytesHex": "9a99193f",
+     "value": 0.6000000238418579,
+     "expect": 0.6,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Frag\\FragGrenade_BlastDamageFalloff_Curve.ebx",
+     "rawSha256": "d2984f1dae954999676dd329961f0084daab68f471592fbe34d3e01c4c301aa7",
+     "offset": 308,
+     "type": "f32",
+     "bytesHex": "448b4c3f",
+     "value": 0.7990000247955322,
+     "expect": 0.799,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Frag\\FragGrenade_BlastDamageFalloff_Curve.ebx",
+     "rawSha256": "d2984f1dae954999676dd329961f0084daab68f471592fbe34d3e01c4c301aa7",
+     "offset": 328,
+     "type": "f32",
+     "bytesHex": "cdcccc3e",
+     "value": 0.4000000059604645,
+     "expect": 0.4,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Frag\\FragGrenade_BlastDamageFalloff_Curve.ebx",
+     "rawSha256": "d2984f1dae954999676dd329961f0084daab68f471592fbe34d3e01c4c301aa7",
+     "offset": 336,
+     "type": "f32",
+     "bytesHex": "cdcc4c3f",
+     "value": 0.800000011920929,
+     "expect": 0.8,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Frag\\FragGrenade_BlastDamageFalloff_Curve.ebx",
+     "rawSha256": "d2984f1dae954999676dd329961f0084daab68f471592fbe34d3e01c4c301aa7",
+     "offset": 356,
+     "type": "f32",
+     "bytesHex": "cdcc4c3e",
+     "value": 0.20000000298023224,
+     "expect": 0.2,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Frag\\FragGrenade_BlastDamageFalloff_Curve.ebx",
+     "rawSha256": "d2984f1dae954999676dd329961f0084daab68f471592fbe34d3e01c4c301aa7",
+     "offset": 364,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Frag\\FragGrenade_BlastDamageFalloff_Curve.ebx",
+     "rawSha256": "d2984f1dae954999676dd329961f0084daab68f471592fbe34d3e01c4c301aa7",
+     "offset": 384,
+     "type": "f32",
+     "bytesHex": "cdcc4c3e",
+     "value": 0.20000000298023224,
+     "expect": 0.2,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\BlastCurve_Vehicles_InnerRadius25.ebx",
+     "rawSha256": "a8e281bbcb16173d427e785bf3b511996b5b88bb87e1d220efd21b019c4ee40c",
+     "offset": 196,
+     "type": "f32",
+     "bytesHex": "0000803e",
+     "value": 0.25,
+     "expect": 0.25,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\BlastCurve_Vehicles_InnerRadius25.ebx",
+     "rawSha256": "a8e281bbcb16173d427e785bf3b511996b5b88bb87e1d220efd21b019c4ee40c",
+     "offset": 216,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\BlastCurve_Vehicles_InnerRadius25.ebx",
+     "rawSha256": "a8e281bbcb16173d427e785bf3b511996b5b88bb87e1d220efd21b019c4ee40c",
+     "offset": 224,
+     "type": "f32",
+     "bytesHex": "6666663f",
+     "value": 0.8999999761581421,
+     "expect": 0.9,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\BlastCurve_Vehicles_InnerRadius25.ebx",
+     "rawSha256": "a8e281bbcb16173d427e785bf3b511996b5b88bb87e1d220efd21b019c4ee40c",
+     "offset": 244,
+     "type": "f32",
+     "bytesHex": "cdcc4c3e",
+     "value": 0.20000000298023224,
+     "expect": 0.2,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer4-2026-10-01-0141\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\BlastCurve_Vehicles_InnerRadius40.ebx",
+     "rawSha256": "f14fd17551826b26767f3877093340fd581ba9ab249ffb52ad06ebf2922ba904",
+     "offset": 196,
+     "type": "f32",
+     "bytesHex": "cdcccc3e",
+     "value": 0.4000000059604645,
+     "expect": 0.4,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer4-2026-10-01-0141\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\BlastCurve_Vehicles_InnerRadius40.ebx",
+     "rawSha256": "f14fd17551826b26767f3877093340fd581ba9ab249ffb52ad06ebf2922ba904",
+     "offset": 216,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer4-2026-10-01-0141\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\BlastCurve_Vehicles_InnerRadius40.ebx",
+     "rawSha256": "f14fd17551826b26767f3877093340fd581ba9ab249ffb52ad06ebf2922ba904",
+     "offset": 224,
+     "type": "f32",
+     "bytesHex": "6666663f",
+     "value": 0.8999999761581421,
+     "expect": 0.9,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer4-2026-10-01-0141\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\BlastCurve_Vehicles_InnerRadius40.ebx",
+     "rawSha256": "f14fd17551826b26767f3877093340fd581ba9ab249ffb52ad06ebf2922ba904",
+     "offset": 244,
+     "type": "f32",
+     "bytesHex": "cdcc4c3e",
+     "value": 0.20000000298023224,
+     "expect": 0.2,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\BlastCurve_Vehicles_InnerRadius50.ebx",
+     "rawSha256": "67d431eade8e4b69d1fac424cf36c0b06abf5c5919aef6cf74fb48f524096d6d",
+     "offset": 196,
+     "type": "f32",
+     "bytesHex": "0000003f",
+     "value": 0.5,
+     "expect": 0.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\BlastCurve_Vehicles_InnerRadius50.ebx",
+     "rawSha256": "67d431eade8e4b69d1fac424cf36c0b06abf5c5919aef6cf74fb48f524096d6d",
+     "offset": 216,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\BlastCurve_Vehicles_InnerRadius50.ebx",
+     "rawSha256": "67d431eade8e4b69d1fac424cf36c0b06abf5c5919aef6cf74fb48f524096d6d",
+     "offset": 224,
+     "type": "f32",
+     "bytesHex": "6666663f",
+     "value": 0.8999999761581421,
+     "expect": 0.9,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-layer3-2026-10-01-0132\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\BlastCurve_Vehicles_InnerRadius50.ebx",
+     "rawSha256": "67d431eade8e4b69d1fac424cf36c0b06abf5c5919aef6cf74fb48f524096d6d",
+     "offset": 244,
+     "type": "f32",
+     "bytesHex": "cdcc4c3e",
+     "value": 0.20000000298023224,
+     "expect": 0.2,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Javelin\\PB_Javelin.ebx",
+     "rawSha256": "26ded649660436b43b24a0339a475685b6ae3d9d8127599f4eebeb4b8fc8d6cd",
+     "offset": 2336,
+     "type": "f32",
+     "bytesHex": "0000fa42",
+     "value": 125.0,
+     "expect": 125.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Javelin\\PB_Javelin.ebx",
+     "rawSha256": "26ded649660436b43b24a0339a475685b6ae3d9d8127599f4eebeb4b8fc8d6cd",
+     "offset": 2352,
+     "type": "f32",
+     "bytesHex": "00008040",
+     "value": 4.0,
+     "expect": 4.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Launchers\\Javelin\\PB_Javelin.ebx",
+     "rawSha256": "26ded649660436b43b24a0339a475685b6ae3d9d8127599f4eebeb4b8fc8d6cd",
+     "offset": 2328,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\Drone\\SP_PayloadDrone\\VB_VEH_SP_Drone_Payload_Gameplay.ebx",
+     "rawSha256": "d58d177daacbe380da805781b5afe4beecabec0e24111cef9298534d29d5b0a5",
+     "offset": 2276,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\Drone\\SP_PayloadDrone\\VB_VEH_SP_Drone_Payload_Gameplay.ebx",
+     "rawSha256": "d58d177daacbe380da805781b5afe4beecabec0e24111cef9298534d29d5b0a5",
+     "offset": 2288,
+     "type": "f32",
+     "bytesHex": "0000a040",
+     "value": 5.0,
+     "expect": 5.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Misc\\Drone\\SP_PayloadDrone\\VB_VEH_SP_Drone_Payload_Gameplay.ebx",
+     "rawSha256": "d58d177daacbe380da805781b5afe4beecabec0e24111cef9298534d29d5b0a5",
+     "offset": 2272,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Misc\\EODBot\\PrimaryWeapon\\PB_NS_EODBot_ClusterCharge_Submunition.ebx",
+     "rawSha256": "6c7f2f3a911047d5aa579ac51ffd4d710458899f5c1bd264a063d2f44d63f22a",
+     "offset": 1600,
+     "type": "f32",
+     "bytesHex": "0000a041",
+     "value": 20.0,
+     "expect": 20.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Misc\\EODBot\\PrimaryWeapon\\PB_NS_EODBot_ClusterCharge_Submunition.ebx",
+     "rawSha256": "6c7f2f3a911047d5aa579ac51ffd4d710458899f5c1bd264a063d2f44d63f22a",
+     "offset": 1616,
+     "type": "f32",
+     "bytesHex": "00008040",
+     "value": 4.0,
+     "expect": 4.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Misc\\EODBot\\PrimaryWeapon\\PB_NS_EODBot_ClusterCharge_Submunition.ebx",
+     "rawSha256": "6c7f2f3a911047d5aa579ac51ffd4d710458899f5c1bd264a063d2f44d63f22a",
+     "offset": 1592,
+     "type": "f32",
+     "bytesHex": "00000040",
+     "value": 2.0,
+     "expect": 2.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\patch-summary-extra\\raw\\Common\\Hardware\\Gadgets\\RemoteControllable\\PayloadDrone\\VB_VEH_Drone_Payload.ebx",
+     "rawSha256": "6763c36fd7b1e5a320b39deb16629fab8f0bf05adaf2c196d32d3eef6a332c16",
+     "offset": 11120,
+     "type": "f32",
+     "bytesHex": "00000000",
+     "value": 0.0,
+     "expect": 0.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\patch-summary-extra\\raw\\Common\\Hardware\\Gadgets\\RemoteControllable\\PayloadDrone\\VB_VEH_Drone_Payload.ebx",
+     "rawSha256": "6763c36fd7b1e5a320b39deb16629fab8f0bf05adaf2c196d32d3eef6a332c16",
+     "offset": 11136,
+     "type": "f32",
+     "bytesHex": "0000a040",
+     "value": 5.0,
+     "expect": 5.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\patch-summary-extra\\raw\\Common\\Hardware\\Gadgets\\RemoteControllable\\PayloadDrone\\VB_VEH_Drone_Payload.ebx",
+     "rawSha256": "6763c36fd7b1e5a320b39deb16629fab8f0bf05adaf2c196d32d3eef6a332c16",
+     "offset": 11112,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Throwables\\C4\\PNS_C4.ebx",
+     "rawSha256": "c56385fd5260b62da56f63d88021f0f44ce6dee573a3227546ea28cb985ecb1f",
+     "offset": 3136,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Throwables\\C4\\PNS_C4.ebx",
+     "rawSha256": "c56385fd5260b62da56f63d88021f0f44ce6dee573a3227546ea28cb985ecb1f",
+     "offset": 3152,
+     "type": "f32",
+     "bytesHex": "00004040",
+     "value": 3.0,
+     "expect": 3.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Throwables\\C4\\PNS_C4.ebx",
+     "rawSha256": "c56385fd5260b62da56f63d88021f0f44ce6dee573a3227546ea28cb985ecb1f",
+     "offset": 3128,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Frag\\PBNS_FragGrenade.ebx",
+     "rawSha256": "590cd563923cf67771e78a60287a64673bf64b6f583da3e3a92810772b3e25fb",
+     "offset": 1808,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Frag\\PBNS_FragGrenade.ebx",
+     "rawSha256": "590cd563923cf67771e78a60287a64673bf64b6f583da3e3a92810772b3e25fb",
+     "offset": 1824,
+     "type": "f32",
+     "bytesHex": "0000a040",
+     "value": 5.0,
+     "expect": 5.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Frag\\PBNS_FragGrenade.ebx",
+     "rawSha256": "590cd563923cf67771e78a60287a64673bf64b6f583da3e3a92810772b3e25fb",
+     "offset": 1800,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Frag\\PBNS_SP_Player_FragGrenade.ebx",
+     "rawSha256": "4c6de0c505a748c0aa408ddad0af2459cd35262b590aaad6a16fdd38d3b44bc4",
+     "offset": 1808,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Frag\\PBNS_SP_Player_FragGrenade.ebx",
+     "rawSha256": "4c6de0c505a748c0aa408ddad0af2459cd35262b590aaad6a16fdd38d3b44bc4",
+     "offset": 1824,
+     "type": "f32",
+     "bytesHex": "0000a040",
+     "value": 5.0,
+     "expect": 5.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gadget-logic-assets-2026-10-09\\raw\\Common\\Hardware\\Gadgets\\Throwables\\Frag\\PBNS_SP_Player_FragGrenade.ebx",
+     "rawSha256": "4c6de0c505a748c0aa408ddad0af2459cd35262b590aaad6a16fdd38d3b44bc4",
+     "offset": 1800,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Grenade\\PB_Vehicle_AGL_Grenade.ebx",
+     "rawSha256": "5cf46ca05c20af016c650cbed077c044507c41a849e156ebde8a9cc3ffc0aae8",
+     "offset": 1344,
+     "type": "f32",
+     "bytesHex": "00008c42",
+     "value": 70.0,
+     "expect": 70.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Grenade\\PB_Vehicle_AGL_Grenade.ebx",
+     "rawSha256": "5cf46ca05c20af016c650cbed077c044507c41a849e156ebde8a9cc3ffc0aae8",
+     "offset": 1360,
+     "type": "f32",
+     "bytesHex": "00008040",
+     "value": 4.0,
+     "expect": 4.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Grenade\\PB_Vehicle_AGL_Grenade.ebx",
+     "rawSha256": "5cf46ca05c20af016c650cbed077c044507c41a849e156ebde8a9cc3ffc0aae8",
+     "offset": 1336,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Missile\\AGM84\\PB_Missile_AGM84.ebx",
+     "rawSha256": "4a8bdd5126fd1dd6babffa9b0e4943dadf2152863138cd1b82ccb88dd8d44517",
+     "offset": 1760,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Missile\\AGM84\\PB_Missile_AGM84.ebx",
+     "rawSha256": "4a8bdd5126fd1dd6babffa9b0e4943dadf2152863138cd1b82ccb88dd8d44517",
+     "offset": 1776,
+     "type": "f32",
+     "bytesHex": "00008040",
+     "value": 4.0,
+     "expect": 4.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Missile\\AGM84\\PB_Missile_AGM84.ebx",
+     "rawSha256": "4a8bdd5126fd1dd6babffa9b0e4943dadf2152863138cd1b82ccb88dd8d44517",
+     "offset": 1752,
+     "type": "f32",
+     "bytesHex": "0000e03f",
+     "value": 1.75,
+     "expect": 1.75,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\vehicles-open-owners-2026-10-01-0126\\raw\\Common\\Hardware\\Vehicles\\_Projectiles\\Missile\\TOW2B\\PB_Missile_TOW2B.ebx",
+     "rawSha256": "da25296d96d4e29600e6b16239f62bca556558f359be5a9552693383841fa973",
+     "offset": 1760,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 106,
+   "matched": 106,
+   "files": 24,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "rawchecks-L3340.json"
+  },
+  "dataset": "reference-data/frosty/blast-falloff-curves.json",
+  "officialSources": [
+   "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-1-0",
+   "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-3-0"
+  ],
+  "curveField": "Class_9966532d.Field_0839b22b (import of the curve file)",
+  "curves": [
+   {
+    "file": "Javelin_BlastDamageFallOffCurve",
+    "points": [
+     [
+      0.0,
+      1.0
+     ],
+     [
+      0.125,
+      1.0
+     ],
+     [
+      0.125,
+      0.67
+     ],
+     [
+      0.33,
+      0.67
+     ],
+     [
+      0.33,
+      0.33
+     ]
+    ],
+    "pointModes": [
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "importedBy": [
+     "PB_Javelin"
+    ]
+   },
+   {
+    "file": "BlastCurve_C4",
+    "points": [
+     [
+      0.0,
+      1.0
+     ],
+     [
+      0.599,
+      0.995789
+     ],
+     [
+      0.6,
+      0.8
+     ],
+     [
+      0.757974,
+      0.8
+     ],
+     [
+      0.761026,
+      0.406316
+     ],
+     [
+      0.902564,
+      0.402105
+     ],
+     [
+      0.90359,
+      0.2
+     ],
+     [
+      1.0,
+      0.2
+     ]
+    ],
+    "pointModes": [
+     0,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "importedBy": [
+     "PD_Railgun",
+     "VB_VEH_SP_Drone_Payload_Gameplay",
+     "VB_VEH_Drone_Payload",
+     "PNS_C4"
+    ]
+   },
+   {
+    "file": "FragGrenade_BlastDamageFalloff_Curve",
+    "points": [
+     [
+      0.0,
+      1.0
+     ],
+     [
+      0.2,
+      1.0
+     ],
+     [
+      0.6,
+      0.8
+     ],
+     [
+      0.601,
+      0.6
+     ],
+     [
+      0.799,
+      0.4
+     ],
+     [
+      0.8,
+      0.2
+     ],
+     [
+      1.0,
+      0.2
+     ]
+    ],
+    "pointModes": [
+     2,
+     3,
+     3,
+     3,
+     3,
+     2,
+     0
+    ],
+    "importedBy": [
+     "PB_NS_EODBot_ClusterCharge_Submunition",
+     "PBNS_FragGrenade",
+     "PBNS_SP_Player_FragGrenade"
+    ]
+   },
+   {
+    "file": "BlastCurve_Vehicles_InnerRadius25",
+    "points": [
+     [
+      0.25,
+      1.0
+     ],
+     [
+      0.9,
+      0.2
+     ]
+    ],
+    "pointModes": [
+     2,
+     2
+    ],
+    "importedBy": [
+     "PB_Vehicle_AGL_Grenade",
+     "PD_Vehicles_IFV_PrimaryWeapon_HEAB",
+     "PD_Vehicles_IFV_SecondaryWeapon_LightRockets",
+     "PD_Vehicles_MBT_AmmoTypes_MPAT"
+    ]
+   },
+   {
+    "file": "BlastCurve_Vehicles_InnerRadius40",
+    "points": [
+     [
+      0.4,
+      1.0
+     ],
+     [
+      0.9,
+      0.2
+     ]
+    ],
+    "pointModes": [
+     2,
+     2
+    ],
+    "importedBy": [
+     "PD_Vehicles_MBT_AmmoTypes_HE"
+    ]
+   },
+   {
+    "file": "BlastCurve_Vehicles_InnerRadius50",
+    "points": [
+     [
+      0.5,
+      1.0
+     ],
+     [
+      0.9,
+      0.2
+     ]
+    ],
+    "pointModes": [
+     2,
+     2
+    ],
+    "importedBy": [
+     "PB_Missile_AGM84",
+     "PB_Missile_TOW2B",
+     "PB_Missile_TOW2B_AirVehicle",
+     "PB_Missile_TOW2B_SP",
+     "PB_NS_Missile_AA_Secondary_AimGuided",
+     "PB_NS_Missile_AA_Secondary_HighVelocity"
+    ]
+   }
+  ],
+  "users": [
+   {
+    "file": "PB_Javelin",
+    "object": 9,
+    "curve": "Javelin_BlastDamageFallOffCurve",
+    "ownBlastDamage": 125.0,
+    "ownInnerBlastRadius": 1.0,
+    "ownBlastRadius": 4.0,
+    "registryMinimumBlastDamage": null,
+    "registryBlastRadius": null,
+    "registryInnerBlastRadius": null
+   },
+   {
+    "file": "VB_VEH_SP_Drone_Payload_Gameplay",
+    "object": 23,
+    "curve": "BlastCurve_C4",
+    "ownBlastDamage": 100.0,
+    "ownInnerBlastRadius": 1.0,
+    "ownBlastRadius": 5.0,
+    "registryMinimumBlastDamage": null,
+    "registryBlastRadius": null,
+    "registryInnerBlastRadius": null
+   },
+   {
+    "file": "PB_NS_EODBot_ClusterCharge_Submunition",
+    "object": 6,
+    "curve": "FragGrenade_BlastDamageFalloff_Curve",
+    "ownBlastDamage": 20.0,
+    "ownInnerBlastRadius": 2.0,
+    "ownBlastRadius": 4.0,
+    "registryMinimumBlastDamage": null,
+    "registryBlastRadius": null,
+    "registryInnerBlastRadius": null
+   },
+   {
+    "file": "VB_VEH_Drone_Payload",
+    "object": 36,
+    "curve": "BlastCurve_C4",
+    "ownBlastDamage": 0.0,
+    "ownInnerBlastRadius": 1.0,
+    "ownBlastRadius": 5.0,
+    "registryMinimumBlastDamage": null,
+    "registryBlastRadius": null,
+    "registryInnerBlastRadius": null
+   },
+   {
+    "file": "PNS_C4",
+    "object": 17,
+    "curve": "BlastCurve_C4",
+    "ownBlastDamage": 100.0,
+    "ownInnerBlastRadius": 1.0,
+    "ownBlastRadius": 3.0,
+    "registryMinimumBlastDamage": null,
+    "registryBlastRadius": null,
+    "registryInnerBlastRadius": null
+   },
+   {
+    "file": "PBNS_FragGrenade",
+    "object": 7,
+    "curve": "FragGrenade_BlastDamageFalloff_Curve",
+    "ownBlastDamage": 100.0,
+    "ownInnerBlastRadius": 1.0,
+    "ownBlastRadius": 5.0,
+    "registryMinimumBlastDamage": null,
+    "registryBlastRadius": null,
+    "registryInnerBlastRadius": null
+   },
+   {
+    "file": "PBNS_SP_Player_FragGrenade",
+    "object": 7,
+    "curve": "FragGrenade_BlastDamageFalloff_Curve",
+    "ownBlastDamage": 100.0,
+    "ownInnerBlastRadius": 1.0,
+    "ownBlastRadius": 5.0,
+    "registryMinimumBlastDamage": null,
+    "registryBlastRadius": null,
+    "registryInnerBlastRadius": null
+   },
+   {
+    "file": "PB_Vehicle_AGL_Grenade",
+    "object": 3,
+    "curve": "BlastCurve_Vehicles_InnerRadius25",
+    "ownBlastDamage": 70.0,
+    "ownInnerBlastRadius": 1.0,
+    "ownBlastRadius": 4.0,
+    "registryMinimumBlastDamage": 20.0,
+    "registryBlastRadius": 4.0,
+    "registryInnerBlastRadius": 1.0
+   },
+   {
+    "file": "PB_Missile_AGM84",
+    "object": 5,
+    "curve": "BlastCurve_Vehicles_InnerRadius50",
+    "ownBlastDamage": 100.0,
+    "ownInnerBlastRadius": 1.75,
+    "ownBlastRadius": 4.0,
+    "registryMinimumBlastDamage": 0.0,
+    "registryBlastRadius": 4.0,
+    "registryInnerBlastRadius": 1.75
+   },
+   {
+    "file": "PB_Missile_TOW2B",
+    "object": 5,
+    "curve": "BlastCurve_Vehicles_InnerRadius50",
+    "ownBlastDamage": 100.0,
+    "ownInnerBlastRadius": 1.0,
+    "ownBlastRadius": 4.0,
+    "registryMinimumBlastDamage": 20.0,
+    "registryBlastRadius": 4.0,
+    "registryInnerBlastRadius": 1.75
+   },
+   {
+    "file": "PB_Missile_TOW2B_AirVehicle",
+    "object": 5,
+    "curve": "BlastCurve_Vehicles_InnerRadius50",
+    "ownBlastDamage": 100.0,
+    "ownInnerBlastRadius": 1.75,
+    "ownBlastRadius": 4.0,
+    "registryMinimumBlastDamage": 20.0,
+    "registryBlastRadius": 4.0,
+    "registryInnerBlastRadius": 1.75
+   },
+   {
+    "file": "PB_Missile_TOW2B_SP",
+    "object": 5,
+    "curve": "BlastCurve_Vehicles_InnerRadius50",
+    "ownBlastDamage": 100.0,
+    "ownInnerBlastRadius": 1.0,
+    "ownBlastRadius": 4.0,
+    "registryMinimumBlastDamage": null,
+    "registryBlastRadius": null,
+    "registryInnerBlastRadius": null
+   },
+   {
+    "file": "PB_NS_Missile_AA_Secondary_AimGuided",
+    "object": 5,
+    "curve": "BlastCurve_Vehicles_InnerRadius50",
+    "ownBlastDamage": 100.0,
+    "ownInnerBlastRadius": 1.75,
+    "ownBlastRadius": 4.0,
+    "registryMinimumBlastDamage": 20.0,
+    "registryBlastRadius": 3.0,
+    "registryInnerBlastRadius": 1.75
+   },
+   {
+    "file": "PB_NS_Missile_AA_Secondary_HighVelocity",
+    "object": 5,
+    "curve": "BlastCurve_Vehicles_InnerRadius50",
+    "ownBlastDamage": 175.0,
+    "ownInnerBlastRadius": 1.75,
+    "ownBlastRadius": 3.0,
+    "registryMinimumBlastDamage": 20.0,
+    "registryBlastRadius": 3.0,
+    "registryInnerBlastRadius": 1.75
+   },
+   {
+    "file": "PD_Vehicles_IFV_PrimaryWeapon_HEAB",
+    "object": 3,
+    "curve": "BlastCurve_Vehicles_InnerRadius25",
+    "ownBlastDamage": 40.0,
+    "ownInnerBlastRadius": 1.0,
+    "ownBlastRadius": 5.0,
+    "registryMinimumBlastDamage": 15.0,
+    "registryBlastRadius": 4.25,
+    "registryInnerBlastRadius": 1.0
+   },
+   {
+    "file": "PD_Vehicles_IFV_SecondaryWeapon_LightRockets",
+    "object": 3,
+    "curve": "BlastCurve_Vehicles_InnerRadius25",
+    "ownBlastDamage": 55.0,
+    "ownInnerBlastRadius": 1.0,
+    "ownBlastRadius": 5.0,
+    "registryMinimumBlastDamage": 20.0,
+    "registryBlastRadius": 4.0,
+    "registryInnerBlastRadius": 1.0
+   },
+   {
+    "file": "PD_Vehicles_MBT_AmmoTypes_HE",
+    "object": 4,
+    "curve": "BlastCurve_Vehicles_InnerRadius40",
+    "ownBlastDamage": 120.0,
+    "ownInnerBlastRadius": 1.0,
+    "ownBlastRadius": 5.0,
+    "registryMinimumBlastDamage": 20.0,
+    "registryBlastRadius": 5.0,
+    "registryInnerBlastRadius": 2.25
+   },
+   {
+    "file": "PD_Vehicles_MBT_AmmoTypes_MPAT",
+    "object": 4,
+    "curve": "BlastCurve_Vehicles_InnerRadius25",
+    "ownBlastDamage": 100.0,
+    "ownInnerBlastRadius": 1.0,
+    "ownBlastRadius": 5.0,
+    "registryMinimumBlastDamage": 20.0,
+    "registryBlastRadius": 5.0,
+    "registryInnerBlastRadius": 1.0
+   }
+  ],
+  "explosivesWithNoCurve": [
+   "PBNS_ATMine",
+   "PBNS_AntiTankGrenade",
+   "PBNS_M720A1",
+   "PB_AT4",
+   "PB_ATGM_Homing_Spike",
+   "PB_Bomb_GBU39",
+   "PB_Bomb_Mk82AIR",
+   "PB_M4SLAM",
+   "PB_MBTLAW",
+   "PB_Missile_AGM114_Hellfire",
+   "PB_Missile_MBT_GuidedMunition",
+   "PB_NS_EODBot_Mines",
+   "PB_NS_IGLA",
+   "PB_NS_M320HE",
+   "PB_NS_M320Thermobaric",
+   "PB_NS_RPG",
+   "PB_NS_Stinger",
+   "PB_PRJ_PTKM1R_EFP",
+   "PD_M26Mass12Frag",
+   "PD_Vehicles_IFV_PrimaryWeapon_MPLD",
+   "PRJ_Missile_AGM65_Maverick",
+   "PRJ_Missile_APKWS-II",
+   "PRJ_Missile_Hydra70",
+   "PRJ_Missile_Zuni",
+   "WF_Vehicles_AttackHeli_Passenger_PrimaryWeapon_Chaingun"
+  ],
+  "vehicleCurveUsers": [
+   "PB_Missile_AGM84",
+   "PB_Missile_TOW2B",
+   "PB_Missile_TOW2B_AirVehicle",
+   "PB_Missile_TOW2B_SP",
+   "PB_NS_Missile_AA_Secondary_AimGuided",
+   "PB_NS_Missile_AA_Secondary_HighVelocity",
+   "PB_Vehicle_AGL_Grenade",
+   "PD_Vehicles_IFV_PrimaryWeapon_HEAB",
+   "PD_Vehicles_IFV_SecondaryWeapon_LightRockets",
+   "PD_Vehicles_MBT_AmmoTypes_HE",
+   "PD_Vehicles_MBT_AmmoTypes_MPAT"
+  ],
+  "nonZeroMinimumBlastDamageOwners": [
+   "PB_Missile_TOW2B",
+   "PB_Missile_TOW2B_AirVehicle",
+   "PB_NS_Missile_AA_Secondary_AimGuided",
+   "PB_NS_Missile_AA_Secondary_HighVelocity",
+   "PB_Vehicle_AGL_Grenade",
+   "PD_Vehicles_IFV_PrimaryWeapon_HEAB",
+   "PD_Vehicles_IFV_SecondaryWeapon_LightRockets",
+   "PD_Vehicles_MBT_AmmoTypes_HE",
+   "PD_Vehicles_MBT_AmmoTypes_MPAT",
+   "WF_Vehicles_ScoutHeli_PrimaryWeapon_LR30"
+  ],
+  "inBoth": [
+   "PB_Missile_TOW2B",
+   "PB_Missile_TOW2B_AirVehicle",
+   "PB_NS_Missile_AA_Secondary_AimGuided",
+   "PB_NS_Missile_AA_Secondary_HighVelocity",
+   "PB_Vehicle_AGL_Grenade",
+   "PD_Vehicles_IFV_PrimaryWeapon_HEAB",
+   "PD_Vehicles_IFV_SecondaryWeapon_LightRockets",
+   "PD_Vehicles_MBT_AmmoTypes_HE",
+   "PD_Vehicles_MBT_AmmoTypes_MPAT"
+  ]
+ },
+ "inference": [
+  "x is distance as a fraction of the blast radius and y is the fraction of blast damage: the frag grenade's own inner radius is 0.2 of its radius and the curve leaves full damage at 0.2; the vehicle curve names give their first x; all three vehicle curves end at 0.2 of damage, EA's stated minimum.",
+  "Vehicle shells and missiles with a curve keep full blast damage to 25, 40 or 50 percent of the radius, fall to 20 percent at 90 percent of the radius and stay there. 9 of the 10 owners with a non-zero MinimumBlastDamage row (L3337) import one of these curves.",
+  "HEAT-MP-T (MPAT) imports the 25 percent curve: 0.25 x its registry radius 5 = 1.25 m, the lethal radius EA states for 1.3.3.0 (and 0.25 x 4 = 1 m before it). This is the source of EA's 1.25, which the InnerBlastRadius row (1.0) did not give in L3337.",
+  "Frag grenade (100 damage, radius 5 m): 100 to 1 m, down to 80 at 3 m, then 60 falling to 40 at 4 m, then 20 out to 5 m. C-4 (radius 3 m): about full to 1.8 m, 80 percent to 2.27 m, about 40 percent to 2.71 m, 20 percent to 3 m. Glaive (radius 4 m): full to 0.5 m, 67 percent to 1.32 m, 33 percent beyond.",
+  "Launcher rockets, anti-air missiles, mines, bombs, the 40 mm grenades, the anti-tank grenade and the mortar shell hold no curve import; their falloff shape is not stored in these files.",
+  "The distances above use straight lines between points. Each point also stores a mode and tangent values, which were not interpreted; the step points (two x values 0.001 apart) do not depend on them."
+ ],
+ "unresolved": [
+  "HEMP-T: the 40 percent curve gives 2.0 m of full damage with radius 5, EA states an inner radius of 2.25 (the registry InnerBlastRadius). Whether the curve or the inner radius sets the full-damage distance when they disagree is not stored. Test: HEMP-T shell landing 2.1 m from a full-health soldier without flak; a kill means the 2.25 radius applies.",
+  "Frag grenade steps. Test: grenade exploding 3.5 m from a full-health soldier without flak should deal about 50; at 4.5 m, 20.",
+  "Whether a registry radius replaces the own radius when both exist (several of these owners are disputed pairs).",
+  "Falloff shape for explosives without a curve (RPG, M136 AT, mines, 40 mm grenades)."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-09-damage-rule-extension",
+  "artifacts": [
+   {
+    "file": "manifest-L3340.json",
+    "sha256": "21e029b62489e4a098ba1a7c5f34300a3e21d8508f173a9f756a421d61690fd4"
+   },
+   {
+    "file": "rawchecks-L3340.json",
+    "sha256": "2c3e34f378d5717306354232a408bcdece2230903aad71aaf3c568f35a2d8a44"
+   },
+   {
+    "file": "blast-curves.json",
+    "sha256": "c5424e7a8f17fde10bd79aeee2b8fac10f18739cd81fc406367ade76bbde1b7d"
+   },
+   {
+    "file": "blast-curve-users.json",
+    "sha256": "cea6909065535e8808b2e9523f8b084e89a67b46e876449c955333718b0e7a88"
+   },
+   {
+    "file": "curves.py",
+    "sha256": "4478a8a6dc4455ddc6e26cefaadece04a773184445859086cc05b970a5a7008a"
+   },
+   {
+    "file": "curveusers.py",
+    "sha256": "900d8a926a9dcbcd11b7b97a38ee32ebbc8dceea2728fa548854318a8815acaa"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-09",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L3340",
+    "title": "Stored blast falloff curves: six curve files give the shape of blast damage with distance for the frag grenade, C-4, the Glaive and vehicle shells",
+    "status": "finding",
+    "summary": "Six stored curve files give blast damage as a fraction of full damage against distance as a fraction of the blast radius. 18 explosion objects import one through Field_0839b22b: the frag grenade, C-4, the Glaive, and the vehicle shells and missiles EA gave a 20 percent minimum (their curves end at 0.2). The 25 percent vehicle curve times the 5 m radius gives EA's HEAT-MP-T lethal radius of 1.25 m. Launcher rockets, mines, bombs and 40 mm grenades have no curve. 106 raw-offset checks matched.",
+    "reopenWhen": "An in-game blast reading at a measured distance, or a decoded meaning for the point modes and tangents.",
+    "statusNote": "Curve points and users read; axes named by three value agreements; point modes not interpreted."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Hardware/Gadgets/Throwables/Frag/FragGrenade_BlastDamageFalloff_Curve",
+    "format": "raw-ebx",
+    "sha256": "d2984f1dae954999676dd329961f0084daab68f471592fbe34d3e01c4c301aa7",
+    "question": "Is the shape of blast damage falloff between the inner radius and the blast radius stored, and for which explosives?",
+    "result": "useful",
+    "conclusion": "Seven points; full damage to x = 0.2, steps at 0.6 and 0.8, 0.2 of damage to x = 1."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/BlastCurve_Vehicles_InnerRadius25",
+    "format": "raw-ebx",
+    "sha256": "a8e281bbcb16173d427e785bf3b511996b5b88bb87e1d220efd21b019c4ee40c",
+    "question": "Is the shape of blast damage falloff between the inner radius and the blast radius stored, and for which explosives?",
+    "result": "useful",
+    "conclusion": "Two points, (0.25, 1) and (0.9, 0.2); imported by the HEAT-MP-T shell among others."
+   },
+   {
+    "path": "Common/Hardware/Gadgets/Throwables/C4/BlastCurve_C4",
+    "format": "raw-ebx",
+    "sha256": "e06593c327cf3d13f3f960b1bca61126080989dbde90517e2d32af8bbbc8328b",
+    "question": "Is the shape of blast damage falloff between the inner radius and the blast radius stored, and for which explosives?",
+    "result": "useful",
+    "conclusion": "Eight points stepping 1, 0.8, 0.4, 0.2; imported by PNS_C4."
+   },
+   {
+    "path": "Common/Hardware/Gadgets/Launchers/Javelin/Javelin_BlastDamageFallOffCurve",
+    "format": "raw-ebx",
+    "sha256": "b8a229f27265df4c7ccc0f69656bca9313960cd105adc29342cfeaacb934501b",
+    "question": "Is the shape of blast damage falloff between the inner radius and the blast radius stored, and for which explosives?",
+    "result": "useful",
+    "conclusion": "Steps 1, 0.67, 0.33 at x = 0.125 and 0.33; imported by PB_Javelin."
+   },
+   {
+    "path": "Common/Hardware/Gadgets/Throwables/Frag/PBNS_FragGrenade",
+    "format": "raw-ebx",
+    "sha256": "590cd563923cf67771e78a60287a64673bf64b6f583da3e3a92810772b3e25fb",
+    "question": "Is the shape of blast damage falloff between the inner radius and the blast radius stored, and for which explosives?",
+    "result": "useful",
+    "conclusion": "Explosion object imports the frag curve through Field_0839b22b; own inner radius 1, radius 5."
+   }
+  ]
+ }
+}
