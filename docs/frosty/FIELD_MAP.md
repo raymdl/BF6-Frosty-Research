@@ -494,3 +494,13 @@ Evidence: [receipt](../../reference-data/provenance/frosty-2026-10-01-L1006-auth
 
 The final enum method tests exact retained UI choice/value bindings. Current widget-to-zeroing DBD pointers, exported GUIDs and local keys pass the source identity control. The selected enum 536 UI array is empty, and its retained UI text list has zero records. Five selected spotting reset entries store exact INT32 values 0, 0 and 31; they are not established named enum choices. No complete named UI choice/value mapping exists in the inspected selected artifacts. This scoped limit does not establish absence elsewhere. Missing contracts and exact reopen conditions are in the two result rows. No zeroing or spotting enum meaning is promoted. See the [receipt](../../reference-data/provenance/frosty-2026-10-01-L1008-ui-enum-binding-control.json).
 <!-- native-semantics:L1008:end -->
+
+## L4002 - Dead end: registry rows give no further weapon field names (10 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-10-L4002-registry-names-add-no-weapon-field-names.json). Value matching of registry defaults against decoded leaves (L4000 method) names 102 fields of the weapon, firing-data and bullet files; 101 are already in this page. The remaining match, `Field_0fb2d151` as `AutoReplenishMagazine`, has two distinct values and is a weak candidate.
+
+- `Field_440ed7fa` is in the FireLogic block (`Class_35259f6b/Field_f8822efa`) beside `RateOfFire` and the reload array. No registry row carries its values.
+- None of the 15 hashes in OPEN_QUESTIONS.md is named.
+- Audit of earlier negative closures: 399 `Field_` hashes cited by 116 exhausted, rejected, parked or limit-worded weapon, attachment and soldier leads (112 receipts read); 28 have a registry name and all of those were already recorded. No closure is reopened.
+
+4 raw-offset checks matched.

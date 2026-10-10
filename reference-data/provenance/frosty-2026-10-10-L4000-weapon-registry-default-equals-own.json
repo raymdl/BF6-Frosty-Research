@@ -1,0 +1,2926 @@
+{
+ "lead": "L4000",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Read from saved raw captures; no export, no new capture."
+ },
+ "question": "For the 63 site weapons, their GS firing data and their bullet files, does any registry default differ from the value stored in the owning file, as it does for vehicles and gadgets (L3314, L3356)?",
+ "sourceFacts": {
+  "method": "Every registry row of GRX_Weapons and the other registries whose name starts with a saved weapon file (_WB), firing-data file (GS_) or bullet file (PD_) was grouped by row suffix. For each suffix the own field is the decoded leaf path that equals the registry default on the most owners; every owner was then compared on that path with a float32 comparison. Rows under WeaponModifierDataAssets were left out (their owners are attachment packages, not the weapon). Site owners are the 63 crosswalk weapons' WB and GS files and the 64 projectile files of the site's ballistics.json.",
+  "control": {
+   "description": "The method reproduces yesterday's results: muzzle velocity own path Class_35259f6b/Field_58d70acb/Field_0bf4f62b/Field_32a99b9c (L3360) on 63 of 63 weapons, and it finds the known vehicle disagreements (MBT HE inner blast radius 2.25 against 1, L3356). The rate-of-fire, reload and magazine paths it selects are the names already in FIELD_MAP.md.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1744772,
+     "type": "f32",
+     "bytesHex": "0000c843",
+     "value": 400.0,
+     "expect": 400.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\Shotgun\\185KSK\\185KSK_WB.ebx",
+     "rawSha256": "2134fe385283daf3c8360195f3550394ee975050d9d221fa7b81897e94e10a82",
+     "offset": 1184,
+     "type": "f32",
+     "bytesHex": "0000c843",
+     "value": 400.0,
+     "expect": 400.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 454508,
+     "type": "f32",
+     "bytesHex": "cdcc6c40",
+     "value": 3.700000047683716,
+     "expect": 3.7,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\Shotgun\\185KSK\\185KSK_WB.ebx",
+     "rawSha256": "2134fe385283daf3c8360195f3550394ee975050d9d221fa7b81897e94e10a82",
+     "offset": 15424,
+     "type": "f32",
+     "bytesHex": "cdcc6c40",
+     "value": 3.700000047683716,
+     "expect": 3.7,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 274124,
+     "type": "f32",
+     "bytesHex": "00003040",
+     "value": 2.75,
+     "expect": 2.75,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\Shotgun\\185KSK\\185KSK_WB.ebx",
+     "rawSha256": "2134fe385283daf3c8360195f3550394ee975050d9d221fa7b81897e94e10a82",
+     "offset": 15368,
+     "type": "f32",
+     "bytesHex": "00003040",
+     "value": 2.75,
+     "expect": 2.75,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1431700,
+     "type": "f32",
+     "bytesHex": "cdcc6c40",
+     "value": 3.700000047683716,
+     "expect": 3.7,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\Shotgun\\185KSK\\185KSK_WB.ebx",
+     "rawSha256": "2134fe385283daf3c8360195f3550394ee975050d9d221fa7b81897e94e10a82",
+     "offset": 15420,
+     "type": "f32",
+     "bytesHex": "cdcc6c40",
+     "value": 3.700000047683716,
+     "expect": 3.7,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 2460036,
+     "type": "f32",
+     "bytesHex": "0000c843",
+     "value": 400.0,
+     "expect": 400.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\Shotgun\\590A1\\590A1_WB.ebx",
+     "rawSha256": "d6d98cecb0c2929268cc2a9cd80f08b509aec4295f410dfc0c7d3b24f5163bca",
+     "offset": 416,
+     "type": "f32",
+     "bytesHex": "0000c843",
+     "value": 400.0,
+     "expect": 400.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1109292,
+     "type": "f32",
+     "bytesHex": "3333333f",
+     "value": 0.699999988079071,
+     "expect": 0.7,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\Shotgun\\590A1\\590A1_WB.ebx",
+     "rawSha256": "d6d98cecb0c2929268cc2a9cd80f08b509aec4295f410dfc0c7d3b24f5163bca",
+     "offset": 10976,
+     "type": "f32",
+     "bytesHex": "3333333f",
+     "value": 0.699999988079071,
+     "expect": 0.7,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 88780,
+     "type": "f32",
+     "bytesHex": "3333333f",
+     "value": 0.699999988079071,
+     "expect": 0.7,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\Shotgun\\590A1\\590A1_WB.ebx",
+     "rawSha256": "d6d98cecb0c2929268cc2a9cd80f08b509aec4295f410dfc0c7d3b24f5163bca",
+     "offset": 10920,
+     "type": "f32",
+     "bytesHex": "3333333f",
+     "value": 0.699999988079071,
+     "expect": 0.7,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1129412,
+     "type": "f32",
+     "bytesHex": "60761740",
+     "value": 2.3666000366210938,
+     "expect": 2.3666,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\Shotgun\\590A1\\590A1_WB.ebx",
+     "rawSha256": "d6d98cecb0c2929268cc2a9cd80f08b509aec4295f410dfc0c7d3b24f5163bca",
+     "offset": 10972,
+     "type": "f32",
+     "bytesHex": "60761740",
+     "value": 2.3666000366210938,
+     "expect": 2.3666,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1467508,
+     "type": "f32",
+     "bytesHex": "00003544",
+     "value": 724.0,
+     "expect": 724.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\6p67\\6P67_WB.ebx",
+     "rawSha256": "06f2649035e846e34f01062920fb7b02915f990a1188d2acb9b4ddba4b2a8b49",
+     "offset": 416,
+     "type": "f32",
+     "bytesHex": "00003544",
+     "value": 724.0,
+     "expect": 724.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 908428,
+     "type": "f32",
+     "bytesHex": "87164140",
+     "value": 3.0169999599456787,
+     "expect": 3.017,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\6p67\\6P67_WB.ebx",
+     "rawSha256": "06f2649035e846e34f01062920fb7b02915f990a1188d2acb9b4ddba4b2a8b49",
+     "offset": 15776,
+     "type": "f32",
+     "bytesHex": "87164140",
+     "value": 3.0169999599456787,
+     "expect": 3.017,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 668908,
+     "type": "f32",
+     "bytesHex": "cdcc1c40",
+     "value": 2.450000047683716,
+     "expect": 2.45,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\6p67\\6P67_WB.ebx",
+     "rawSha256": "06f2649035e846e34f01062920fb7b02915f990a1188d2acb9b4ddba4b2a8b49",
+     "offset": 15720,
+     "type": "f32",
+     "bytesHex": "cdcc1c40",
+     "value": 2.450000047683716,
+     "expect": 2.45,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 336316,
+     "type": "f32",
+     "bytesHex": "87164140",
+     "value": 3.0169999599456787,
+     "expect": 3.017,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\6p67\\6P67_WB.ebx",
+     "rawSha256": "06f2649035e846e34f01062920fb7b02915f990a1188d2acb9b4ddba4b2a8b49",
+     "offset": 15772,
+     "type": "f32",
+     "bytesHex": "87164140",
+     "value": 3.0169999599456787,
+     "expect": 3.017,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 2028844,
+     "type": "f32",
+     "bytesHex": "00801c44",
+     "value": 626.0,
+     "expect": 626.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\ACE32\\ACE32_WB.ebx",
+     "rawSha256": "ae6fe42a4b209f6ee30b9de5a6c610dfb5ee4e7edd6d6088779d03eb088382d3",
+     "offset": 416,
+     "type": "f32",
+     "bytesHex": "00801c44",
+     "value": 626.0,
+     "expect": 626.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 2550284,
+     "type": "f32",
+     "bytesHex": "9a993940",
+     "value": 2.9000000953674316,
+     "expect": 2.9,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\ACE32\\ACE32_WB.ebx",
+     "rawSha256": "ae6fe42a4b209f6ee30b9de5a6c610dfb5ee4e7edd6d6088779d03eb088382d3",
+     "offset": 15176,
+     "type": "f32",
+     "bytesHex": "9a993940",
+     "value": 2.9000000953674316,
+     "expect": 2.9,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1514100,
+     "type": "f32",
+     "bytesHex": "a8c61b40",
+     "value": 2.434000015258789,
+     "expect": 2.434,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\ACE32\\ACE32_WB.ebx",
+     "rawSha256": "ae6fe42a4b209f6ee30b9de5a6c610dfb5ee4e7edd6d6088779d03eb088382d3",
+     "offset": 15120,
+     "type": "f32",
+     "bytesHex": "a8c61b40",
+     "value": 2.434000015258789,
+     "expect": 2.434,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1174812,
+     "type": "f32",
+     "bytesHex": "9a993940",
+     "value": 2.9000000953674316,
+     "expect": 2.9,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\ACE32\\ACE32_WB.ebx",
+     "rawSha256": "ae6fe42a4b209f6ee30b9de5a6c610dfb5ee4e7edd6d6088779d03eb088382d3",
+     "offset": 15172,
+     "type": "f32",
+     "bytesHex": "9a993940",
+     "value": 2.9000000953674316,
+     "expect": 2.9,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 263364,
+     "type": "f32",
+     "bytesHex": "00003144",
+     "value": 708.0,
+     "expect": 708.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\AK205\\AK205_WB.ebx",
+     "rawSha256": "e25be21eceb3690e45a15fa53c60724ce5d87fc5269f6c535286b101972d35af",
+     "offset": 416,
+     "type": "f32",
+     "bytesHex": "00003144",
+     "value": 708.0,
+     "expect": 708.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1022388,
+     "type": "f32",
+     "bytesHex": "33333340",
+     "value": 2.799999952316284,
+     "expect": 2.8,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\AK205\\AK205_WB.ebx",
+     "rawSha256": "e25be21eceb3690e45a15fa53c60724ce5d87fc5269f6c535286b101972d35af",
+     "offset": 14856,
+     "type": "f32",
+     "bytesHex": "33333340",
+     "value": 2.799999952316284,
+     "expect": 2.8,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 2673292,
+     "type": "f32",
+     "bytesHex": "75931840",
+     "value": 2.384000062942505,
+     "expect": 2.384,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\AK205\\AK205_WB.ebx",
+     "rawSha256": "e25be21eceb3690e45a15fa53c60724ce5d87fc5269f6c535286b101972d35af",
+     "offset": 14800,
+     "type": "f32",
+     "bytesHex": "75931840",
+     "value": 2.384000062942505,
+     "expect": 2.384,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1544428,
+     "type": "f32",
+     "bytesHex": "33333340",
+     "value": 2.799999952316284,
+     "expect": 2.8,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\AK205\\AK205_WB.ebx",
+     "rawSha256": "e25be21eceb3690e45a15fa53c60724ce5d87fc5269f6c535286b101972d35af",
+     "offset": 14852,
+     "type": "f32",
+     "bytesHex": "33333340",
+     "value": 2.799999952316284,
+     "expect": 2.8,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1458524,
+     "type": "f32",
+     "bytesHex": "0000c743",
+     "value": 398.0,
+     "expect": 398.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\SMG\\APC10\\APC10_WB.ebx",
+     "rawSha256": "9c57691ee32d9a1189999e520b3dfc867550681b23b7dbdac329b3a13efb1fdf",
+     "offset": 416,
+     "type": "f32",
+     "bytesHex": "0000c743",
+     "value": 398.0,
+     "expect": 398.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 2114340,
+     "type": "f32",
+     "bytesHex": "33334340",
+     "value": 3.049999952316284,
+     "expect": 3.05,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\SMG\\APC10\\APC10_WB.ebx",
+     "rawSha256": "9c57691ee32d9a1189999e520b3dfc867550681b23b7dbdac329b3a13efb1fdf",
+     "offset": 14312,
+     "type": "f32",
+     "bytesHex": "33334340",
+     "value": 3.049999952316284,
+     "expect": 3.05,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 252668,
+     "type": "f32",
+     "bytesHex": "33332340",
+     "value": 2.549999952316284,
+     "expect": 2.55,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\SMG\\APC10\\APC10_WB.ebx",
+     "rawSha256": "9c57691ee32d9a1189999e520b3dfc867550681b23b7dbdac329b3a13efb1fdf",
+     "offset": 14256,
+     "type": "f32",
+     "bytesHex": "33332340",
+     "value": 2.549999952316284,
+     "expect": 2.55,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1201228,
+     "type": "f32",
+     "bytesHex": "33334340",
+     "value": 3.049999952316284,
+     "expect": 3.05,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\SMG\\APC10\\APC10_WB.ebx",
+     "rawSha256": "9c57691ee32d9a1189999e520b3dfc867550681b23b7dbdac329b3a13efb1fdf",
+     "offset": 14308,
+     "type": "f32",
+     "bytesHex": "33334340",
+     "value": 3.049999952316284,
+     "expect": 3.05,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 2137196,
+     "type": "f32",
+     "bytesHex": "0000f343",
+     "value": 486.0,
+     "expect": 486.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\SMG\\APDW\\APDW_WB.ebx",
+     "rawSha256": "5c7997973f10771897f78135a1ff85bb7843d60e62b4c18b50b62a4728cdb2ce",
+     "offset": 416,
+     "type": "f32",
+     "bytesHex": "0000f343",
+     "value": 486.0,
+     "expect": 486.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 222596,
+     "type": "f32",
+     "bytesHex": "0e2d5240",
+     "value": 3.2839999198913574,
+     "expect": 3.284,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\SMG\\APDW\\APDW_WB.ebx",
+     "rawSha256": "5c7997973f10771897f78135a1ff85bb7843d60e62b4c18b50b62a4728cdb2ce",
+     "offset": 15440,
+     "type": "f32",
+     "bytesHex": "0e2d5240",
+     "value": 3.2839999198913574,
+     "expect": 3.284,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 2331148,
+     "type": "f32",
+     "bytesHex": "dbf92e40",
+     "value": 2.7339999675750732,
+     "expect": 2.734,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\SMG\\APDW\\APDW_WB.ebx",
+     "rawSha256": "5c7997973f10771897f78135a1ff85bb7843d60e62b4c18b50b62a4728cdb2ce",
+     "offset": 15384,
+     "type": "f32",
+     "bytesHex": "dbf92e40",
+     "value": 2.7339999675750732,
+     "expect": 2.734,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1874044,
+     "type": "f32",
+     "bytesHex": "0e2d5240",
+     "value": 3.2839999198913574,
+     "expect": 3.284,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\SMG\\APDW\\APDW_WB.ebx",
+     "rawSha256": "5c7997973f10771897f78135a1ff85bb7843d60e62b4c18b50b62a4728cdb2ce",
+     "offset": 15436,
+     "type": "f32",
+     "bytesHex": "0e2d5240",
+     "value": 3.2839999198913574,
+     "expect": 3.284,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 2500948,
+     "type": "f32",
+     "bytesHex": "00004844",
+     "value": 800.0,
+     "expect": 800.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\ARADMR\\ARADMR_WB.ebx",
+     "rawSha256": "51f23fa195f637196a86d9d67a1fe8626abb4bc3dfeed4d420a00f27a95dc90c",
+     "offset": 416,
+     "type": "f32",
+     "bytesHex": "00004844",
+     "value": 800.0,
+     "expect": 800.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1474268,
+     "type": "f32",
+     "bytesHex": "ba494440",
+     "value": 3.066999912261963,
+     "expect": 3.067,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\ARADMR\\ARADMR_WB.ebx",
+     "rawSha256": "51f23fa195f637196a86d9d67a1fe8626abb4bc3dfeed4d420a00f27a95dc90c",
+     "offset": 27152,
+     "type": "f32",
+     "bytesHex": "ba494440",
+     "value": 3.066999912261963,
+     "expect": 3.067,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1956156,
+     "type": "f32",
+     "bytesHex": "0e2d4240",
+     "value": 3.0339999198913574,
+     "expect": 3.034,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\ARADMR\\ARADMR_WB.ebx",
+     "rawSha256": "51f23fa195f637196a86d9d67a1fe8626abb4bc3dfeed4d420a00f27a95dc90c",
+     "offset": 27096,
+     "type": "f32",
+     "bytesHex": "0e2d4240",
+     "value": 3.0339999198913574,
+     "expect": 3.034,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1222860,
+     "type": "f32",
+     "bytesHex": "ba494440",
+     "value": 3.066999912261963,
+     "expect": 3.067,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\ARADMR\\ARADMR_WB.ebx",
+     "rawSha256": "51f23fa195f637196a86d9d67a1fe8626abb4bc3dfeed4d420a00f27a95dc90c",
+     "offset": 27148,
+     "type": "f32",
+     "bytesHex": "ba494440",
+     "value": 3.066999912261963,
+     "expect": 3.067,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 734860,
+     "type": "f32",
+     "bytesHex": "00c00c44",
+     "value": 563.0,
+     "expect": 563.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\BREN3\\BREN3_WB.ebx",
+     "rawSha256": "5e5c96431ee2b098f459b326f2ee4c208cdadcbd91ed7c6835a9e5313f9cb74f",
+     "offset": 416,
+     "type": "f32",
+     "bytesHex": "00c00c44",
+     "value": 563.0,
+     "expect": 563.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 2430340,
+     "type": "f32",
+     "bytesHex": "33334340",
+     "value": 3.049999952316284,
+     "expect": 3.05,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\BREN3\\BREN3_WB.ebx",
+     "rawSha256": "5e5c96431ee2b098f459b326f2ee4c208cdadcbd91ed7c6835a9e5313f9cb74f",
+     "offset": 14880,
+     "type": "f32",
+     "bytesHex": "33334340",
+     "value": 3.049999952316284,
+     "expect": 3.05,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1519444,
+     "type": "f32",
+     "bytesHex": "54e30d40",
+     "value": 2.2170000076293945,
+     "expect": 2.217,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\BREN3\\BREN3_WB.ebx",
+     "rawSha256": "5e5c96431ee2b098f459b326f2ee4c208cdadcbd91ed7c6835a9e5313f9cb74f",
+     "offset": 14824,
+     "type": "f32",
+     "bytesHex": "54e30d40",
+     "value": 2.2170000076293945,
+     "expect": 2.217,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1158468,
+     "type": "f32",
+     "bytesHex": "33334340",
+     "value": 3.049999952316284,
+     "expect": 3.05,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\BREN3\\BREN3_WB.ebx",
+     "rawSha256": "5e5c96431ee2b098f459b326f2ee4c208cdadcbd91ed7c6835a9e5313f9cb74f",
+     "offset": 14876,
+     "type": "f32",
+     "bytesHex": "33334340",
+     "value": 3.049999952316284,
+     "expect": 3.05,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 430916,
+     "type": "f32",
+     "bytesHex": "0000c843",
+     "value": 400.0,
+     "expect": 400.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\Shotgun\\DP12\\DP12_WB.ebx",
+     "rawSha256": "dc00487d9baab7bbf1d52b7e6f643e953644cd305f504035663cd47db2bfdf2d",
+     "offset": 416,
+     "type": "f32",
+     "bytesHex": "0000c843",
+     "value": 400.0,
+     "expect": 400.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 271596,
+     "type": "f32",
+     "bytesHex": "2db25d3f",
+     "value": 0.8659999966621399,
+     "expect": 0.866,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\Shotgun\\DP12\\DP12_WB.ebx",
+     "rawSha256": "dc00487d9baab7bbf1d52b7e6f643e953644cd305f504035663cd47db2bfdf2d",
+     "offset": 11008,
+     "type": "f32",
+     "bytesHex": "2db25d3f",
+     "value": 0.8659999966621399,
+     "expect": 0.866,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 193156,
+     "type": "f32",
+     "bytesHex": "2db25d3f",
+     "value": 0.8659999966621399,
+     "expect": 0.866,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\Shotgun\\DP12\\DP12_WB.ebx",
+     "rawSha256": "dc00487d9baab7bbf1d52b7e6f643e953644cd305f504035663cd47db2bfdf2d",
+     "offset": 10952,
+     "type": "f32",
+     "bytesHex": "2db25d3f",
+     "value": 0.8659999966621399,
+     "expect": 0.866,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1978932,
+     "type": "f32",
+     "bytesHex": "2db25d3f",
+     "value": 0.8659999966621399,
+     "expect": 0.866,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\Shotgun\\DP12\\DP12_WB.ebx",
+     "rawSha256": "dc00487d9baab7bbf1d52b7e6f643e953644cd305f504035663cd47db2bfdf2d",
+     "offset": 11004,
+     "type": "f32",
+     "bytesHex": "2db25d3f",
+     "value": 0.8659999966621399,
+     "expect": 0.866,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 1488,
+   "matched": 1488,
+   "files": 187,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "rawchecks-L4000.json"
+  },
+  "dataset": "reference-data/frosty/weapon-registry-own-comparison.json",
+  "perFamily": {
+   "WB": {
+    "siteOwners": 63,
+    "siteOwnersWithRowsAndRaw": 63,
+    "siteOwnersWithout": [],
+    "suffixes": 60,
+    "rowsCompared": 2771,
+    "rowsDiffering": 0
+   },
+   "GS": {
+    "siteOwners": 63,
+    "siteOwnersWithRowsAndRaw": 62,
+    "siteOwnersWithout": [
+     "GS_BREN3"
+    ],
+    "suffixes": 206,
+    "rowsCompared": 11500,
+    "rowsDiffering": 0
+   },
+   "PD": {
+    "siteOwners": 64,
+    "siteOwnersWithRowsAndRaw": 61,
+    "siteOwnersWithout": [
+     "PD_545x39mm_MG",
+     "PD_9x39mm_Match",
+     "PD_9x39mm_Semi"
+    ],
+    "suffixes": 13,
+    "rowsCompared": 567,
+    "rowsDiffering": 0
+   }
+  },
+  "siteValuesCompared": 14838,
+  "siteValuesDiffering": 0,
+  "ownPathByRowSuffix": {
+   "WB:WeaponEntityData.WeaponFiring.PrimaryFire.Ammo.MagazineCapacity": {
+    "ownPath": "Class_35259f6b/Field_4cc9e2ed/Field_7f22bfb4",
+    "siteOwners": 63,
+    "distinctDefaults": 17
+   },
+   "WB:WeaponEntityData.WeaponFiring.PrimaryFire.Shot.InitialSpeed.y": {
+    "ownPath": "Class_35259f6b/Field_58d70acb/Field_0bf4f62b/Field_42fc0f5e",
+    "siteOwners": 63,
+    "distinctDefaults": 7
+   },
+   "WB:WeaponEntityData.WeaponFiring.PrimaryFire.Shot.DamageProtectionMultiplierIndex": {
+    "ownPath": "Class_35259f6b/Field_58d70acb/Field_9ba8b76b",
+    "siteOwners": 63,
+    "distinctDefaults": 6
+   },
+   "WB:WeaponZoomedMoveSpeedMultiplierIndex.Index": {
+    "ownPath": "Class_542ac52c/Field_dcb8bf9e/Field_2b6f2936",
+    "siteOwners": 63,
+    "distinctDefaults": 8
+   },
+   "WB:WeaponEntityData.WeaponFiring.PrimaryFire.FireLogic.ReloadInfoArray[1].ReloadTimeBulletsLeft": {
+    "ownPath": "Class_35259f6b/Field_f8822efa/Field_d15a0c1c[1]/Field_fc66e75e",
+    "siteOwners": 61,
+    "distinctDefaults": 49
+   },
+   "WB:WeaponEntityData.WeaponFiring.PrimaryFire.FireLogic.ReloadInfoArray[0].ReloadThreshold": {
+    "ownPath": "Class_35259f6b/Field_f8822efa/Field_d15a0c1c[0]/Field_9c1e1476",
+    "siteOwners": 63,
+    "distinctDefaults": 29
+   },
+   "WB:WeaponEntityData.WeaponFiring.PrimaryFire.FireLogic.ReloadInfoArray[1].ReloadThreshold": {
+    "ownPath": "Class_35259f6b/Field_f8822efa/Field_d15a0c1c[1]/Field_9c1e1476",
+    "siteOwners": 61,
+    "distinctDefaults": 22
+   },
+   "WB:WeaponEntityData.WeaponFiring.PrimaryFire.FireLogic.ReloadInfoArray[0].ReloadTime": {
+    "ownPath": "Class_35259f6b/Field_f8822efa/Field_d15a0c1c[0]/Field_85ff24a0",
+    "siteOwners": 63,
+    "distinctDefaults": 10
+   },
+   "WB:WeaponEntityData.WeaponFiring.PrimaryFire.FireLogic.RateOfFire": {
+    "ownPath": "Class_35259f6b/Field_f8822efa/Field_14c4a054",
+    "siteOwners": 63,
+    "distinctDefaults": 35
+   },
+   "WB:WeaponEntityData.WeaponFiring.PrimaryFire.FireLogic.ReloadInfoArray[0].ReloadSpeed": {
+    "ownPath": "Class_35259f6b/Field_f8822efa/Field_d15a0c1c[0]/Field_1c533b56",
+    "siteOwners": 63,
+    "distinctDefaults": 16
+   },
+   "WB:WeaponEntityData.WeaponFiring.PrimaryFire.FireLogic.ReloadInfoArray[0].MinAmmoCountInWeapon": {
+    "ownPath": "Class_35259f6b/Field_f8822efa/Field_d15a0c1c[0]/Field_82265a82",
+    "siteOwners": 63,
+    "distinctDefaults": 2
+   },
+   "WB:WeaponEntityData.WeaponFiring.PrimaryFire.FireLogic.ReloadInfoArray[1].BridgeDelay": {
+    "ownPath": "Class_a6e2adec/Field_f7791e41[0]/Field_2d7314c9",
+    "siteOwners": 61,
+    "distinctDefaults": 1
+   },
+   "WB:WeaponEntityData.WeaponFiring.PrimaryFire.FireLogic.ReloadInfoArray[1].ReloadType": {
+    "ownPath": "Class_35259f6b/Field_f8822efa/Field_d15a0c1c[1]/Field_6e081af4",
+    "siteOwners": 61,
+    "distinctDefaults": 3
+   },
+   "WB:WeaponEntityData.WeaponFiring.PrimaryFire.FireLogic.ReloadInfoArray[1].ReloadSpeed": {
+    "ownPath": "Class_35259f6b/Field_f8822efa/Field_d15a0c1c[1]/Field_1c533b56",
+    "siteOwners": 61,
+    "distinctDefaults": 13
+   },
+   "WB:WeaponEntityData.WeaponFiring.PrimaryFire.FireLogic.ReloadInfoArray[1].MaxAmmoCountInWeapon": {
+    "ownPath": "Class_a6e2adec/Field_f7791e41[0]/Field_2d7314c9",
+    "siteOwners": 61,
+    "distinctDefaults": 1
+   },
+   "WB:WeaponEntityData.WeaponFiring.PrimaryFire.FireLogic.ReloadInfoArray[0].BridgeDelay": {
+    "ownPath": "Class_35259f6b/Field_f40a1d28/Field_5a28e118/Field_0084b1d1",
+    "siteOwners": 63,
+    "distinctDefaults": 1
+   },
+   "WB:AnimationZoomSettingsIndex.Index": {
+    "ownPath": "Class_542ac52c/Field_ae4adc54/Field_2b6f2936",
+    "siteOwners": 63,
+    "distinctDefaults": 7
+   },
+   "WB:WeaponZoomTransitionIndex.Index": {
+    "ownPath": "Class_542ac52c/Field_db03e8a9/Field_2b6f2936",
+    "siteOwners": 63,
+    "distinctDefaults": 7
+   },
+   "WB:WeaponEntityData.WeaponFiring.PrimaryFire.FireLogic.ReloadInfoArray[0].ReloadTimeBulletsLeft": {
+    "ownPath": "Class_35259f6b/Field_f8822efa/Field_d15a0c1c[0]/Field_fc66e75e",
+    "siteOwners": 63,
+    "distinctDefaults": 48
+   },
+   "WB:AltAnimationZoomSettingsIndex.Index": {
+    "ownPath": "Class_542ac52c/Field_e7f4ce7c/Field_2b6f2936",
+    "siteOwners": 63,
+    "distinctDefaults": 3
+   },
+   "WB:WeaponEntityData.WeaponFiring.PrimaryFire.Ammo.NumberOfMagazines": {
+    "ownPath": "Class_35259f6b/Field_4cc9e2ed/Field_4614adfe",
+    "siteOwners": 63,
+    "distinctDefaults": 13
+   },
+   "WB:WeaponEntityData.WeaponFiring.PrimaryFire.FireLogic.BurstsPerMinute": {
+    "ownPath": "Class_35259f6b/Field_f8822efa/Field_2320e742",
+    "siteOwners": 63,
+    "distinctDefaults": 5
+   },
+   "WB:WeaponEntityData.WeaponFiring.PrimaryFire.FireLogic.RateOfFireForSingleFire": {
+    "ownPath": "Class_35259f6b/Field_f8822efa/Field_be31b12d",
+    "siteOwners": 63,
+    "distinctDefaults": 15
+   },
+   "WB:WeaponEntityData.WeaponFiring.PrimaryFire.FireLogic.ReloadInfoArray[1].ReloadDelay": {
+    "ownPath": "Class_35259f6b/Field_f8822efa/Field_d15a0c1c[1]/Field_c0c7c72f",
+    "siteOwners": 61,
+    "distinctDefaults": 4
+   },
+   "WB:WeaponEntityData.WeaponFiring.PrimaryFire.FireLogic.RateOfFireForBurst": {
+    "ownPath": "Class_35259f6b/Field_f8822efa/Field_5bd8006c",
+    "siteOwners": 63,
+    "distinctDefaults": 34
+   },
+   "WB:WeaponEntityData.WeaponFiring.PrimaryFire.Ammo.AutoReplenishMagazine": {
+    "ownPath": "Class_35259f6b/Field_f8822efa/Field_0fb2d151",
+    "siteOwners": 63,
+    "distinctDefaults": 2
+   },
+   "WB:WeaponEntityData.WeaponFiring.PrimaryFire.Ammo.AutoReplenishRounds": {
+    "ownPath": "Class_35259f6b/Field_4cc9e2ed/Field_db4fa3c2",
+    "siteOwners": 63,
+    "distinctDefaults": 1
+   },
+   "WB:WeaponHipMoveSpeedMultiplierIndex.Index": {
+    "ownPath": "Class_35259f6b/Field_f40a1d28/Field_5a28e118/Field_0084b1d1",
+    "siteOwners": 63,
+    "distinctDefaults": 1
+   },
+   "WB:WeaponEntityData.WeaponFiring.PrimaryFire.FireLogic.ReloadInfoArray[1].ReloadTime": {
+    "ownPath": "Class_35259f6b/Field_f8822efa/Field_d15a0c1c[1]/Field_85ff24a0",
+    "siteOwners": 61,
+    "distinctDefaults": 47
+   },
+   "WB:WeaponEntityData.WeaponFiring.PrimaryFire.FireLogic.ReloadInfoArray[0].MaxAmmoCountInWeapon": {
+    "ownPath": "Class_35259f6b/Field_f8822efa/Field_d15a0c1c[0]/Field_c59cc6a8",
+    "siteOwners": 63,
+    "distinctDefaults": 14
+   },
+   "WB:WeaponEntityData.WeaponFiring.PrimaryFire.FireLogic.ReloadInfoArray[0].PostReloadDelay": {
+    "ownPath": "Class_35259f6b/Field_f8822efa/Field_d15a0c1c[0]/Field_b480c17a",
+    "siteOwners": 63,
+    "distinctDefaults": 4
+   },
+   "WB:WeaponEntityData.WeaponFiring.PrimaryFire.FireLogic.ReloadInfoArray[0].ReloadDelay": {
+    "ownPath": "Class_35259f6b/Field_f8822efa/Field_d15a0c1c[0]/Field_c0c7c72f",
+    "siteOwners": 63,
+    "distinctDefaults": 4
+   },
+   "WB:WeaponEntityData.WeaponFiring.PrimaryFire.Shot.InitialSpeed.z": {
+    "ownPath": "Class_35259f6b/Field_58d70acb/Field_0bf4f62b/Field_32a99b9c",
+    "siteOwners": 63,
+    "distinctDefaults": 50
+   },
+   "WB:WeaponEntityData.WeaponFiring.PrimaryFire.Shot.SpawnDelay": {
+    "ownPath": "Class_a6e2adec/Field_f7791e41[0]/Field_2d7314c9",
+    "siteOwners": 63,
+    "distinctDefaults": 1
+   },
+   "WB:WeaponEntityData.WeaponFiring.PrimaryFire.Ammo.AutoReplenishDelay": {
+    "ownPath": "Class_35259f6b/Field_4cc9e2ed/Field_46afa73c",
+    "siteOwners": 63,
+    "distinctDefaults": 10
+   },
+   "WB:WeaponEntityData.WeaponFiring.PrimaryFire.Shot.DamagePenetrationMultiplierIndex": {
+    "ownPath": "Class_35259f6b/Field_58d70acb/Field_7e2be65f",
+    "siteOwners": 63,
+    "distinctDefaults": 4
+   },
+   "WB:WeaponEntityData.WeaponFiring.PrimaryFire.FireLogic.ReloadInfoArray[0].ReloadType": {
+    "ownPath": "Class_35259f6b/Field_f8822efa/Field_d15a0c1c[0]/Field_6e081af4",
+    "siteOwners": 63,
+    "distinctDefaults": 3
+   },
+   "WB:SprintSettingsIndex.Index": {
+    "ownPath": "Class_542ac52c/Field_5198399a/Field_2b6f2936",
+    "siteOwners": 63,
+    "distinctDefaults": 9
+   },
+   "WB:WeaponEntityData.WeaponFiring.PrimaryFire.FireLogic.ReloadInfoArray[1].PostReloadDelay": {
+    "ownPath": "Class_35259f6b/Field_f8822efa/Field_d15a0c1c[1]/Field_b480c17a",
+    "siteOwners": 61,
+    "distinctDefaults": 5
+   },
+   "WB:WeaponEntityData.WeaponFiring.PrimaryFire.Ammo.InitialAmmo": {
+    "ownPath": "Class_35259f6b/Field_4cc9e2ed/Field_80a58418",
+    "siteOwners": 63,
+    "distinctDefaults": 2
+   },
+   "WB:WeaponEntityData.WeaponFiring.PrimaryFire.FireLogic.ReloadInfoArray[1].MinAmmoCountInWeapon": {
+    "ownPath": "Class_a6e2adec/Field_f7791e41[0]/Field_2d7314c9",
+    "siteOwners": 61,
+    "distinctDefaults": 1
+   },
+   "WB:WeaponEntityData.WeaponFiring.PrimaryFire.Shot.InitialSpeed.x": {
+    "ownPath": "Class_35259f6b/Field_58d70acb/Field_0bf4f62b/Field_3901db14",
+    "siteOwners": 63,
+    "distinctDefaults": 2
+   },
+   "WB:WeaponEntityData.WeaponFiring.PrimaryFire.Shot.Zeroing.RangeFinder": {
+    "ownPath": "Class_a6e2adec/Field_f7791e41[0]/Field_2d7314c9",
+    "siteOwners": 12,
+    "distinctDefaults": 1
+   },
+   "WB:WeaponEntityData.WeaponFiring.PrimaryFire.Shot.Zeroing.RangeFindingInAdsOnly": {
+    "ownPath": "Class_35259f6b/Field_58d70acb/Field_d7e3da82/Field_32a99b9c",
+    "siteOwners": 12,
+    "distinctDefaults": 1
+   },
+   "WB:WeaponEntityData.WeaponFiring.PrimaryFire.FireLogic.BoltAction.BoltActionSpeed": {
+    "ownPath": "Class_35259f6b/Field_f8822efa/Field_eebe0fd8/Field_1c57216a",
+    "siteOwners": 10,
+    "distinctDefaults": 5
+   },
+   "WB:WeaponEntityData.WeaponFiring.PrimaryFire.Shot.Zeroing.CustomZeroing": {
+    "ownPath": "Class_a6e2adec/Field_f7791e41[0]/Field_2d7314c9",
+    "siteOwners": 12,
+    "distinctDefaults": 1
+   },
+   "WB:WeaponEntityData.WeaponFiring.PrimaryFire.FireLogic.BoltAction.BoltActionTimeCompletedFractionZoom": {
+    "ownPath": "Class_35259f6b/Field_f8822efa/Field_eebe0fd8/Field_21f2d4ee",
+    "siteOwners": 10,
+    "distinctDefaults": 5
+   },
+   "WB:WeaponEntityData.WeaponFiring.PrimaryFire.Shot.InitialSpeedVariation": {
+    "ownPath": "Class_a6e2adec/Field_f7791e41[0]/Field_2d7314c9",
+    "siteOwners": 8,
+    "distinctDefaults": 1
+   },
+   "WB:WeaponEntityData.WeaponFiring.PrimaryFire.Shot.Zeroing.MaximumCustomZeroingDistance": {
+    "ownPath": "Class_35259f6b/Field_58d70acb/Field_7d5dc312/Field_7a592b4e",
+    "siteOwners": 12,
+    "distinctDefaults": 2
+   },
+   "WB:WeaponEntityData.WeaponFiring.PrimaryFire.FireLogic.BoltAction.BoltActionTime": {
+    "ownPath": "Class_35259f6b/Field_f8822efa/Field_eebe0fd8/Field_a1abbce8",
+    "siteOwners": 10,
+    "distinctDefaults": 10
+   },
+   "WB:WeaponEntityData.WeaponFiring.PrimaryFire.FireLogic.BoltAction.SuppressionBoltActionDelay": {
+    "ownPath": "Class_a6e2adec/Field_f7791e41[0]/Field_2d7314c9",
+    "siteOwners": 10,
+    "distinctDefaults": 1
+   },
+   "WB:WeaponEntityData.WeaponFiring.PrimaryFire.FireLogic.BoltAction.BoltActionDelay": {
+    "ownPath": "Class_35259f6b/Field_f8822efa/Field_eebe0fd8/Field_caf2ace0",
+    "siteOwners": 10,
+    "distinctDefaults": 3
+   },
+   "WB:WeaponEntityData.WeaponFiring.PrimaryFire.FireLogic.BoltAction.BoltActionTimeCompletedFraction": {
+    "ownPath": "Class_35259f6b/Field_f8822efa/Field_eebe0fd8/Field_2084d4bf",
+    "siteOwners": 10,
+    "distinctDefaults": 6
+   },
+   "WB:WeaponEntityData.WeaponFiring.PrimaryFire.Shot.Zeroing.CustomZeroingDelay": {
+    "ownPath": "Class_35259f6b/Field_58d70acb/Field_7d5dc312/Field_812f7451",
+    "siteOwners": 12,
+    "distinctDefaults": 2
+   },
+   "WB:WeaponEntityData.WeaponFiring.PrimaryFire.Shot.Zeroing.MinimumCustomZeroingDistance": {
+    "ownPath": "Class_35259f6b/Field_58d70acb/Field_7d5dc312/Field_0910a3f6",
+    "siteOwners": 12,
+    "distinctDefaults": 2
+   },
+   "WB:WeaponEntityData.WeaponFiring.PrimaryFire.OverHeat.OverHeatDropDelay": {
+    "ownPath": "Class_a6e2adec/Field_f7791e41[0]/Field_2d7314c9",
+    "siteOwners": 1,
+    "distinctDefaults": 1
+   },
+   "WB:WeaponEntityData.WeaponFiring.PrimaryFire.OverHeat.OverHeatPenaltyTime": {
+    "ownPath": "Class_a6e2adec/Field_f7791e41[0]/Field_2d7314c9",
+    "siteOwners": 1,
+    "distinctDefaults": 1
+   },
+   "WB:WeaponEntityData.WeaponFiring.PrimaryFire.OverHeat.HeatDropPerSecond": {
+    "ownPath": "Class_35259f6b/Field_f8822efa/Field_c5d1c8fe/Field_91121984",
+    "siteOwners": 1,
+    "distinctDefaults": 1
+   },
+   "WB:WeaponEntityData.WeaponFiring.PrimaryFire.OverHeat.OverHeatThreshold": {
+    "ownPath": "Class_a6e2adec/Field_5645e663",
+    "siteOwners": 1,
+    "distinctDefaults": 1
+   },
+   "WB:WeaponEntityData.WeaponFiring.PrimaryFire.OverHeat.HeatPerBullet": {
+    "ownPath": "Class_35259f6b/Field_43a8d9ab/Field_72a2b562",
+    "siteOwners": 1,
+    "distinctDefaults": 1
+   },
+   "GS:DispersionBehavior.Zoomed.Stationary.IncreasePerShot": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_6b84de87/Field_0a160c57/Field_0084b1d1",
+    "siteOwners": 62,
+    "distinctDefaults": 17
+   },
+   "GS:MinMaxDispersion.Zoomed.Standing.Stationary.MinAngle": {
+    "ownPath": "Class_539cff9b/Field_a1ec29c4[9]/Field_7baf4297",
+    "siteOwners": 62,
+    "distinctDefaults": 7
+   },
+   "GS:Recoil.Unzoomed.RecoilDecreaseNorm": {
+    "ownPath": "Class_539cff9b/Field_c5d1c8fe/Field_7b609515/Field_39740463",
+    "siteOwners": 62,
+    "distinctDefaults": 4
+   },
+   "GS:StanceChangePenalties.Unzoomed.StandToProne.Duration": {
+    "ownPath": "Class_539cff9b/Field_fc724c05[2]/Field_ed10e827",
+    "siteOwners": 9,
+    "distinctDefaults": 1
+   },
+   "GS:Recoil.Zoomed.RecoilDirectionVariationMultiplier": {
+    "ownPath": "Class_539cff9b/Field_c5d1c8fe/Field_6b84de87/Field_7404fa33",
+    "siteOwners": 62,
+    "distinctDefaults": 53
+   },
+   "GS:MinMaxDispersion.Zoomed.Prone.Stationary.MaxAngle": {
+    "ownPath": "Class_539cff9b/Field_a1ec29c4[15]/Field_60e4e484",
+    "siteOwners": 62,
+    "distinctDefaults": 10
+   },
+   "GS:DispersionBehavior.Unzoomed.Stationary.FiringDecreaseOffset": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_7b609515/Field_0a160c57/Field_1b9eef5d",
+    "siteOwners": 62,
+    "distinctDefaults": 11
+   },
+   "GS:Recoil.Unzoomed.RecoilDirection": {
+    "ownPath": "Class_539cff9b/Field_c5d1c8fe/Field_7b609515/Field_f888cb38",
+    "siteOwners": 62,
+    "distinctDefaults": 28
+   },
+   "GS:CameraRecoil.SpringConstant": {
+    "ownPath": "Class_d25bd3f6/Field_01e71818",
+    "siteOwners": 62,
+    "distinctDefaults": 4
+   },
+   "GS:Recoil.Zoomed.RecoilFadeOutStart": {
+    "ownPath": "Class_539cff9b/Field_c5d1c8fe/Field_7b609515/Field_89e9f16e",
+    "siteOwners": 62,
+    "distinctDefaults": 1
+   },
+   "GS:MinMaxDispersion.Zoomed.Crouching.Moving.MinAngle": {
+    "ownPath": "Class_539cff9b/Field_a1ec29c4[13]/Field_7baf4297",
+    "siteOwners": 62,
+    "distinctDefaults": 10
+   },
+   "GS:DispersionBehavior.Zoomed.MovingJumpingSprinting.NotFiringDecreaseOffset": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_6b84de87/Field_0a160c57/Field_4d3f0635",
+    "siteOwners": 62,
+    "distinctDefaults": 5
+   },
+   "GS:CameraRecoil.IdleSpringExponentZoomed": {
+    "ownPath": "Class_d25bd3f6/Field_99f2d08c",
+    "siteOwners": 62,
+    "distinctDefaults": 2
+   },
+   "GS:Recoil.Unzoomed.RecoilDirectionVariation": {
+    "ownPath": "Class_539cff9b/Field_c5d1c8fe/Field_7b609515/Field_865174fa",
+    "siteOwners": 62,
+    "distinctDefaults": 47
+   },
+   "GS:Recoil.Zoomed.RecoilAmountMultiplierExponent": {
+    "ownPath": "Class_539cff9b/Field_c5d1c8fe/Field_7b609515/Field_22ce7cf3",
+    "siteOwners": 62,
+    "distinctDefaults": 3
+   },
+   "GS:CameraRecoil.SpringMinThresholdAngle": {
+    "ownPath": "Class_d25bd3f6/Field_560bbb82",
+    "siteOwners": 62,
+    "distinctDefaults": 2
+   },
+   "GS:Recoil.Zoomed.RecoilDuration": {
+    "ownPath": "Class_539cff9b/Field_c5d1c8fe/Field_6b84de87/Field_5a02dd65",
+    "siteOwners": 62,
+    "distinctDefaults": 4
+   },
+   "GS:CameraRecoil.IdleSpringExponent": {
+    "ownPath": "Class_d25bd3f6/Field_67cfff28",
+    "siteOwners": 62,
+    "distinctDefaults": 1
+   },
+   "GS:Recoil.Unzoomed.FirstShotMultiplierVerticalRecoil": {
+    "ownPath": "Class_539cff9b/Field_c5d1c8fe/Field_7b609515/Field_2859e2fd",
+    "siteOwners": 62,
+    "distinctDefaults": 3
+   },
+   "GS:MinMaxDispersion.Zoomed.Standing.JumpingSprinting.MinAngle": {
+    "ownPath": "Class_539cff9b/Field_a1ec29c4[11]/Field_7baf4297",
+    "siteOwners": 62,
+    "distinctDefaults": 9
+   },
+   "GS:Recoil.Zoomed.RecoilDirectionVariation": {
+    "ownPath": "Class_539cff9b/Field_c5d1c8fe/Field_6b84de87/Field_865174fa",
+    "siteOwners": 62,
+    "distinctDefaults": 47
+   },
+   "GS:Recoil.Unzoomed.UsePolarRecoil": {
+    "ownPath": "Class_539cff9b/Field_c5d1c8fe/Field_7b609515/Field_8bd6dcdd",
+    "siteOwners": 62,
+    "distinctDefaults": 2
+   },
+   "GS:DispersionBehavior.Zoomed.Stationary.DecreaseCoefficient": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_7b609515/Field_0a160c57/Field_d14921ea",
+    "siteOwners": 62,
+    "distinctDefaults": 1
+   },
+   "GS:DispersionBehavior.Unzoomed.Stationary.IdleDecreaseOffset": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_7b609515/Field_0a160c57/Field_aa558d2b",
+    "siteOwners": 62,
+    "distinctDefaults": 5
+   },
+   "GS:MinMaxDispersion.Zoomed.Standing.Moving.MaxAngle": {
+    "ownPath": "Class_539cff9b/Field_a1ec29c4[10]/Field_60e4e484",
+    "siteOwners": 62,
+    "distinctDefaults": 13
+   },
+   "GS:Recoil.Unzoomed.HorizontalRecoilLeft": {
+    "ownPath": "Class_539cff9b/Field_c5d1c8fe/Field_7b609515/Field_edbd0711",
+    "siteOwners": 62,
+    "distinctDefaults": 10
+   },
+   "GS:MinMaxDispersion.Unzoomed.Crouching.Stationary.MaxAngle": {
+    "ownPath": "Class_539cff9b/Field_a1ec29c4[3]/Field_60e4e484",
+    "siteOwners": 62,
+    "distinctDefaults": 13
+   },
+   "GS:Recoil.Unzoomed.RecoilAmount": {
+    "ownPath": "Class_539cff9b/Field_c5d1c8fe/Field_7b609515/Field_22810b21",
+    "siteOwners": 62,
+    "distinctDefaults": 61
+   },
+   "GS:DispersionBehavior.Zoomed.Stationary.NotFiringDecreaseCoefficient": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_6b84de87/Field_0a160c57/Field_b5ee0f41",
+    "siteOwners": 62,
+    "distinctDefaults": 4
+   },
+   "GS:Recoil.Zoomed.RecoilDecreaseNorm": {
+    "ownPath": "Class_539cff9b/Field_c5d1c8fe/Field_6b84de87/Field_39740463",
+    "siteOwners": 62,
+    "distinctDefaults": 4
+   },
+   "GS:Recoil.Unzoomed.RecoilFadeOutEnd": {
+    "ownPath": "Class_539cff9b/Field_c5d1c8fe/Field_7b609515/Field_89e9f16e",
+    "siteOwners": 62,
+    "distinctDefaults": 1
+   },
+   "GS:DispersionBehavior.Zoomed.MovingJumpingSprinting.IdleTime": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_6b84de87/Field_447d6d51/Field_af333987",
+    "siteOwners": 62,
+    "distinctDefaults": 5
+   },
+   "GS:MinMaxDispersion.Zoomed.Prone.Moving.MaxAngle": {
+    "ownPath": "Class_539cff9b/Field_a1ec29c4[16]/Field_60e4e484",
+    "siteOwners": 62,
+    "distinctDefaults": 12
+   },
+   "GS:CameraRecoil.SpringDamping": {
+    "ownPath": "Class_d25bd3f6/Field_bfc65eb8",
+    "siteOwners": 62,
+    "distinctDefaults": 4
+   },
+   "GS:DispersionBehavior.Unzoomed.Stationary.IdleDecreaseCoefficient": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_7b609515/Field_0a160c57/Field_66d08b86",
+    "siteOwners": 62,
+    "distinctDefaults": 5
+   },
+   "GS:DispersionBehavior.Zoomed.MovingJumpingSprinting.DecreaseCoefficient": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_7b609515/Field_0a160c57/Field_d14921ea",
+    "siteOwners": 62,
+    "distinctDefaults": 1
+   },
+   "GS:CameraRecoil.IdleSpringExponentSwitchTime": {
+    "ownPath": "Class_d25bd3f6/Field_c2d55f05",
+    "siteOwners": 62,
+    "distinctDefaults": 12
+   },
+   "GS:Recoil.Zoomed.RecoilFadeOutFactor": {
+    "ownPath": "Class_539cff9b/Field_a1ec29c4[18]/Field_60e4e484",
+    "siteOwners": 62,
+    "distinctDefaults": 1
+   },
+   "GS:MinMaxDispersion.Unzoomed.Standing.Moving.MaxAngle": {
+    "ownPath": "Class_539cff9b/Field_a1ec29c4[1]/Field_60e4e484",
+    "siteOwners": 62,
+    "distinctDefaults": 14
+   },
+   "GS:CameraRecoil.IdleSpringDampingZoomedSwitchTime": {
+    "ownPath": "Class_d25bd3f6/Field_43b22d90",
+    "siteOwners": 62,
+    "distinctDefaults": 13
+   },
+   "GS:DispersionBehavior.Unzoomed.Stationary.NotFiringDecreaseCoefficient": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_7b609515/Field_0a160c57/Field_b5ee0f41",
+    "siteOwners": 62,
+    "distinctDefaults": 6
+   },
+   "GS:StanceChangePenalties.Unzoomed.CrouchToStand.Duration": {
+    "ownPath": "Class_539cff9b/Field_fc724c05[1]/Field_ed10e827",
+    "siteOwners": 9,
+    "distinctDefaults": 1
+   },
+   "GS:StanceChangePenalties.Zoomed.ProneToStand.MinAngleOffset": {
+    "ownPath": "Class_539cff9b/Field_fc724c05[2]/Field_7ce404e6",
+    "siteOwners": 9,
+    "distinctDefaults": 1
+   },
+   "GS:Recoil.Unzoomed.RecoilPatternMultiplierYaw": {
+    "ownPath": "Class_539cff9b/Field_fc724c05[0]/Field_7ce404e6",
+    "siteOwners": 62,
+    "distinctDefaults": 1
+   },
+   "GS:DispersionBehavior.Unzoomed.Stationary.DecreaseCoefficient": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_7b609515/Field_0a160c57/Field_d14921ea",
+    "siteOwners": 62,
+    "distinctDefaults": 1
+   },
+   "GS:MinMaxDispersion.Unzoomed.Prone.Moving.MinAngle": {
+    "ownPath": "Class_539cff9b/Field_a1ec29c4[7]/Field_7baf4297",
+    "siteOwners": 62,
+    "distinctDefaults": 15
+   },
+   "GS:DispersionBehavior.Unzoomed.MovingJumpingSprinting.DecreaseOffset": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_7b609515/Field_0a160c57/Field_aea8977a",
+    "siteOwners": 62,
+    "distinctDefaults": 1
+   },
+   "GS:DispersionBehavior.Zoomed.MovingJumpingSprinting.NotFiringDecreaseCoefficient": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_6b84de87/Field_0a160c57/Field_b5ee0f41",
+    "siteOwners": 62,
+    "distinctDefaults": 4
+   },
+   "GS:StanceChangePenalties.Zoomed.StandToCrouch.Duration": {
+    "ownPath": "Class_539cff9b/Field_fc724c05[1]/Field_ed10e827",
+    "siteOwners": 9,
+    "distinctDefaults": 1
+   },
+   "GS:StanceChangePenalties.Zoomed.CrouchToStand.Duration": {
+    "ownPath": "Class_539cff9b/Field_fc724c05[1]/Field_ed10e827",
+    "siteOwners": 9,
+    "distinctDefaults": 1
+   },
+   "GS:DispersionBehavior.Unzoomed.Stationary.IdleTime": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_7b609515/Field_0a160c57/Field_af333987",
+    "siteOwners": 62,
+    "distinctDefaults": 7
+   },
+   "GS:MinMaxDispersion.Unzoomed.Prone.Moving.MaxAngle": {
+    "ownPath": "Class_539cff9b/Field_a1ec29c4[7]/Field_60e4e484",
+    "siteOwners": 62,
+    "distinctDefaults": 13
+   },
+   "GS:MinMaxDispersion.Unzoomed.Standing.Moving.MinAngle": {
+    "ownPath": "Class_539cff9b/Field_a1ec29c4[1]/Field_7baf4297",
+    "siteOwners": 62,
+    "distinctDefaults": 14
+   },
+   "GS:CameraRecoil.IdleSpringConstantZoomed": {
+    "ownPath": "Class_d25bd3f6/Field_eff75a4b",
+    "siteOwners": 62,
+    "distinctDefaults": 5
+   },
+   "GS:MinMaxDispersion.Zoomed.Standing.JumpingSprinting.MaxAngle": {
+    "ownPath": "Class_539cff9b/Field_a1ec29c4[11]/Field_60e4e484",
+    "siteOwners": 62,
+    "distinctDefaults": 13
+   },
+   "GS:StanceChangePenalties.Zoomed.StandToProne.MinAngleOffset": {
+    "ownPath": "Class_539cff9b/Field_fc724c05[2]/Field_7ce404e6",
+    "siteOwners": 9,
+    "distinctDefaults": 1
+   },
+   "GS:MinMaxDispersion.Unzoomed.Prone.Stationary.MinAngle": {
+    "ownPath": "Class_539cff9b/Field_a1ec29c4[6]/Field_7baf4297",
+    "siteOwners": 62,
+    "distinctDefaults": 13
+   },
+   "GS:Recoil.Zoomed.HorizontalRecoilDecreaseMultiplier": {
+    "ownPath": "Class_539cff9b/Field_a1ec29c4[18]/Field_60e4e484",
+    "siteOwners": 62,
+    "distinctDefaults": 1
+   },
+   "GS:StationaryZoomedMinAnglesArrayIndex": {
+    "ownPath": "Class_539cff9b/Field_fc724c05[0]/Field_7ce404e6",
+    "siteOwners": 62,
+    "distinctDefaults": 1
+   },
+   "GS:DispersionBehavior.Unzoomed.MovingJumpingSprinting.IdleDecreaseCoefficient": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_7b609515/Field_0a160c57/Field_66d08b86",
+    "siteOwners": 62,
+    "distinctDefaults": 5
+   },
+   "GS:Recoil.Unzoomed.ShootingRecoilDecreaseScale": {
+    "ownPath": "Class_539cff9b/Field_a1ec29c4[18]/Field_60e4e484",
+    "siteOwners": 62,
+    "distinctDefaults": 1
+   },
+   "GS:DispersionBehavior.Unzoomed.MovingJumpingSprinting.DecreaseExponent": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_7b609515/Field_0a160c57/Field_f7a76bcf",
+    "siteOwners": 62,
+    "distinctDefaults": 1
+   },
+   "GS:DispersionBehavior.Unzoomed.MovingJumpingSprinting.NotFiringDecreaseCoefficient": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_7b609515/Field_447d6d51/Field_b5ee0f41",
+    "siteOwners": 62,
+    "distinctDefaults": 5
+   },
+   "GS:CameraRecoil.SpringDampingZoomed": {
+    "ownPath": "Class_d25bd3f6/Field_3d7a9f12",
+    "siteOwners": 62,
+    "distinctDefaults": 3
+   },
+   "GS:DispersionBehavior.Zoomed.MovingJumpingSprinting.IncreasePerShot": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_6b84de87/Field_447d6d51/Field_0084b1d1",
+    "siteOwners": 62,
+    "distinctDefaults": 17
+   },
+   "GS:StanceChangePenalties.Zoomed.StandToProne.Duration": {
+    "ownPath": "Class_539cff9b/Field_fc724c05[2]/Field_ed10e827",
+    "siteOwners": 9,
+    "distinctDefaults": 1
+   },
+   "GS:Recoil.Zoomed.RecoilAmountMultiplier": {
+    "ownPath": "Class_539cff9b/Field_c5d1c8fe/Field_6b84de87/Field_50b8fd5b",
+    "siteOwners": 62,
+    "distinctDefaults": 25
+   },
+   "GS:Recoil.Unzoomed.RecoilAmountMultiplierExponent": {
+    "ownPath": "Class_539cff9b/Field_c5d1c8fe/Field_7b609515/Field_22ce7cf3",
+    "siteOwners": 62,
+    "distinctDefaults": 3
+   },
+   "GS:DispersionBehavior.Zoomed.Stationary.NotFiringDecreaseExponent": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_6b84de87/Field_0a160c57/Field_0f79aaed",
+    "siteOwners": 62,
+    "distinctDefaults": 5
+   },
+   "GS:StanceChangePenalties.Unzoomed.ProneToCrouch.MinAngleOffset": {
+    "ownPath": "Class_539cff9b/Field_fc724c05[2]/Field_7ce404e6",
+    "siteOwners": 9,
+    "distinctDefaults": 1
+   },
+   "GS:CameraRecoil.SpringExponent": {
+    "ownPath": "Class_d25bd3f6/Field_67cfff28",
+    "siteOwners": 62,
+    "distinctDefaults": 1
+   },
+   "GS:Recoil.Unzoomed.VerticalRecoilIncrease": {
+    "ownPath": "Class_539cff9b/Field_c5d1c8fe/Field_7b609515/Field_9546447c",
+    "siteOwners": 62,
+    "distinctDefaults": 3
+   },
+   "GS:Recoil.Zoomed.VerticalRecoilMax": {
+    "ownPath": "Class_539cff9b/Field_c5d1c8fe/Field_7b609515/Field_a63f14a6",
+    "siteOwners": 62,
+    "distinctDefaults": 6
+   },
+   "GS:CameraRecoilAmount": {
+    "ownPath": "Class_539cff9b/Field_36c2f877",
+    "siteOwners": 62,
+    "distinctDefaults": 4
+   },
+   "GS:StanceChangePenalties.Zoomed.CrouchToStand.MinAngleOffset": {
+    "ownPath": "Class_539cff9b/Field_fc724c05[101]/Field_7ce404e6",
+    "siteOwners": 9,
+    "distinctDefaults": 1
+   },
+   "GS:MinMaxDispersion.Unzoomed.Crouching.Moving.MinAngle": {
+    "ownPath": "Class_539cff9b/Field_a1ec29c4[4]/Field_7baf4297",
+    "siteOwners": 62,
+    "distinctDefaults": 13
+   },
+   "GS:MinMaxDispersion.Unzoomed.Standing.JumpingSprinting.MinAngle": {
+    "ownPath": "Class_539cff9b/Field_a1ec29c4[2]/Field_7baf4297",
+    "siteOwners": 62,
+    "distinctDefaults": 14
+   },
+   "GS:Recoil.Unzoomed.RecoilDirectionVariationMultiplier": {
+    "ownPath": "Class_539cff9b/Field_c5d1c8fe/Field_7b609515/Field_7404fa33",
+    "siteOwners": 62,
+    "distinctDefaults": 52
+   },
+   "GS:DispersionBehavior.Unzoomed.MovingJumpingSprinting.FiringDecreaseExponent": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_7b609515/Field_447d6d51/Field_f37351e6",
+    "siteOwners": 62,
+    "distinctDefaults": 6
+   },
+   "GS:Recoil.Zoomed.RecoilPatternSeed": {
+    "ownPath": "Class_539cff9b/Field_fc724c05[0]/Field_7ce404e6",
+    "siteOwners": 62,
+    "distinctDefaults": 1
+   },
+   "GS:MinMaxDispersion.Zoomed.Prone.Moving.MinAngle": {
+    "ownPath": "Class_539cff9b/Field_a1ec29c4[16]/Field_7baf4297",
+    "siteOwners": 62,
+    "distinctDefaults": 10
+   },
+   "GS:DispersionBehavior.Zoomed.Stationary.NotFiringDecreaseOffset": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_6b84de87/Field_0a160c57/Field_4d3f0635",
+    "siteOwners": 62,
+    "distinctDefaults": 5
+   },
+   "GS:Recoil.Zoomed.RecoilDecreaseExponent": {
+    "ownPath": "Class_539cff9b/Field_c5d1c8fe/Field_6b84de87/Field_9045ba17",
+    "siteOwners": 62,
+    "distinctDefaults": 4
+   },
+   "GS:Recoil.Unzoomed.MaxVerticalRecoil": {
+    "ownPath": "Class_539cff9b/Field_c5d1c8fe/Field_7b609515/Field_205e8a1c",
+    "siteOwners": 62,
+    "distinctDefaults": 4
+   },
+   "GS:CameraRecoil.IdleSpringDamping": {
+    "ownPath": "Class_d25bd3f6/Field_c7ccd1a7",
+    "siteOwners": 62,
+    "distinctDefaults": 4
+   },
+   "GS:Recoil.Zoomed.UsePolarRecoil": {
+    "ownPath": "Class_539cff9b/Field_c5d1c8fe/Field_7b609515/Field_8bd6dcdd",
+    "siteOwners": 62,
+    "distinctDefaults": 2
+   },
+   "GS:StanceChangePenalties.Unzoomed.CrouchToStand.MinAngleOffset": {
+    "ownPath": "Class_539cff9b/Field_a1ec29c4[18]/Field_60e4e484",
+    "siteOwners": 9,
+    "distinctDefaults": 1
+   },
+   "GS:StanceChangePenalties.Unzoomed.ProneToCrouch.Duration": {
+    "ownPath": "Class_539cff9b/Field_fc724c05[2]/Field_ed10e827",
+    "siteOwners": 9,
+    "distinctDefaults": 1
+   },
+   "GS:Recoil.Unzoomed.VerticalRecoilMin": {
+    "ownPath": "Class_539cff9b/Field_c5d1c8fe/Field_7b609515/Field_ce4b3347",
+    "siteOwners": 62,
+    "distinctDefaults": 6
+   },
+   "GS:DispersionBehavior.Zoomed.MovingJumpingSprinting.DistributionExponent": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_6b84de87/Field_447d6d51/Field_94efea57",
+    "siteOwners": 62,
+    "distinctDefaults": 3
+   },
+   "GS:Recoil.Zoomed.RecoilPatternMultiplierPitch": {
+    "ownPath": "Class_539cff9b/Field_fc724c05[0]/Field_7ce404e6",
+    "siteOwners": 62,
+    "distinctDefaults": 1
+   },
+   "GS:DispersionBehavior.Unzoomed.Stationary.NotFiringDecreaseOffset": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_7b609515/Field_0a160c57/Field_4d3f0635",
+    "siteOwners": 62,
+    "distinctDefaults": 5
+   },
+   "GS:StanceChangePenalties.Unzoomed.ProneToStand.Duration": {
+    "ownPath": "Class_539cff9b/Field_fc724c05[2]/Field_ed10e827",
+    "siteOwners": 9,
+    "distinctDefaults": 1
+   },
+   "GS:DispersionBehavior.Unzoomed.MovingJumpingSprinting.IdleDecreaseExponent": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_7b609515/Field_0a160c57/Field_0b26c028",
+    "siteOwners": 62,
+    "distinctDefaults": 4
+   },
+   "GS:DispersionBehavior.Zoomed.Stationary.FiringDecreaseExponent": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_6b84de87/Field_0a160c57/Field_f37351e6",
+    "siteOwners": 62,
+    "distinctDefaults": 6
+   },
+   "GS:Recoil.Zoomed.FirstShotMultiplierVerticalRecoil": {
+    "ownPath": "Class_539cff9b/Field_c5d1c8fe/Field_7b609515/Field_2859e2fd",
+    "siteOwners": 62,
+    "distinctDefaults": 3
+   },
+   "GS:StanceChangePenalties.Zoomed.ProneToStand.Duration": {
+    "ownPath": "Class_539cff9b/Field_fc724c05[2]/Field_ed10e827",
+    "siteOwners": 9,
+    "distinctDefaults": 1
+   },
+   "GS:StanceChangePenalties.Zoomed.ProneToCrouch.Duration": {
+    "ownPath": "Class_539cff9b/Field_fc724c05[2]/Field_ed10e827",
+    "siteOwners": 9,
+    "distinctDefaults": 1
+   },
+   "GS:IdleCameraRecoilWhenZoomedAmountSwitchTime": {
+    "ownPath": "Class_539cff9b/Field_38a38f94",
+    "siteOwners": 62,
+    "distinctDefaults": 3
+   },
+   "GS:DispersionBehavior.Zoomed.MovingJumpingSprinting.FiringDecreaseCoefficient": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_6b84de87/Field_0a160c57/Field_2ca8533e",
+    "siteOwners": 62,
+    "distinctDefaults": 6
+   },
+   "GS:Recoil.Zoomed.RecoilAmount": {
+    "ownPath": "Class_539cff9b/Field_c5d1c8fe/Field_6b84de87/Field_22810b21",
+    "siteOwners": 62,
+    "distinctDefaults": 61
+   },
+   "GS:MinMaxDispersion.Unzoomed.Standing.JumpingSprinting.MaxAngle": {
+    "ownPath": "Class_539cff9b/Field_a1ec29c4[2]/Field_60e4e484",
+    "siteOwners": 62,
+    "distinctDefaults": 11
+   },
+   "GS:MinMaxDispersion.Unzoomed.Crouching.Stationary.MinAngle": {
+    "ownPath": "Class_539cff9b/Field_a1ec29c4[3]/Field_7baf4297",
+    "siteOwners": 62,
+    "distinctDefaults": 13
+   },
+   "GS:DispersionBehavior.Zoomed.MovingJumpingSprinting.IdleDecreaseExponent": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_6b84de87/Field_0a160c57/Field_0b26c028",
+    "siteOwners": 62,
+    "distinctDefaults": 4
+   },
+   "GS:Recoil.Unzoomed.HorizontalRecoilDecreaseMultiplier": {
+    "ownPath": "Class_539cff9b/Field_a1ec29c4[18]/Field_60e4e484",
+    "siteOwners": 62,
+    "distinctDefaults": 1
+   },
+   "GS:DispersionBehavior.Unzoomed.Stationary.FirstShotIncreaseMultiplier": {
+    "ownPath": "Class_539cff9b/Field_a1ec29c4[18]/Field_60e4e484",
+    "siteOwners": 62,
+    "distinctDefaults": 1
+   },
+   "GS:DispersionBehavior.Unzoomed.MovingJumpingSprinting.IdleTime": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_7b609515/Field_447d6d51/Field_af333987",
+    "siteOwners": 62,
+    "distinctDefaults": 6
+   },
+   "GS:DispersionBehavior.Unzoomed.Stationary.DecreaseOffset": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_7b609515/Field_0a160c57/Field_aea8977a",
+    "siteOwners": 62,
+    "distinctDefaults": 1
+   },
+   "GS:MinMaxDispersion.Zoomed.Standing.Stationary.MaxAngle": {
+    "ownPath": "Class_539cff9b/Field_a1ec29c4[9]/Field_60e4e484",
+    "siteOwners": 62,
+    "distinctDefaults": 12
+   },
+   "GS:MinMaxDispersion.Unzoomed.Prone.Stationary.MaxAngle": {
+    "ownPath": "Class_539cff9b/Field_a1ec29c4[6]/Field_60e4e484",
+    "siteOwners": 62,
+    "distinctDefaults": 13
+   },
+   "GS:Recoil.Unzoomed.RecoilDirectionVariationMultiplierExponent": {
+    "ownPath": "Class_539cff9b/Field_c5d1c8fe/Field_7b609515/Field_02433593",
+    "siteOwners": 62,
+    "distinctDefaults": 3
+   },
+   "GS:Recoil.Zoomed.RecoilDecreaseTimeExponent": {
+    "ownPath": "Class_539cff9b/Field_c5d1c8fe/Field_6b84de87/Field_1d04f0f6",
+    "siteOwners": 62,
+    "distinctDefaults": 18
+   },
+   "GS:Recoil.Zoomed.RecoilPatternMultiplierYaw": {
+    "ownPath": "Class_539cff9b/Field_fc724c05[0]/Field_7ce404e6",
+    "siteOwners": 62,
+    "distinctDefaults": 1
+   },
+   "GS:DispersionBehavior.Zoomed.Stationary.FiringDecreaseCoefficient": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_6b84de87/Field_0a160c57/Field_2ca8533e",
+    "siteOwners": 62,
+    "distinctDefaults": 6
+   },
+   "GS:DispersionBehavior.Unzoomed.MovingJumpingSprinting.FirstShotIncreaseMultiplier": {
+    "ownPath": "Class_539cff9b/Field_a1ec29c4[18]/Field_60e4e484",
+    "siteOwners": 62,
+    "distinctDefaults": 1
+   },
+   "GS:DispersionBehavior.Zoomed.Stationary.FirstShotIncreaseMultiplier": {
+    "ownPath": "Class_539cff9b/Field_a1ec29c4[18]/Field_60e4e484",
+    "siteOwners": 62,
+    "distinctDefaults": 1
+   },
+   "GS:Recoil.Unzoomed.VerticalRecoilDecreaseMultiplier": {
+    "ownPath": "Class_539cff9b/Field_a1ec29c4[18]/Field_60e4e484",
+    "siteOwners": 62,
+    "distinctDefaults": 1
+   },
+   "GS:DispersionBehavior.Zoomed.MovingJumpingSprinting.DecreaseOffset": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_7b609515/Field_0a160c57/Field_aea8977a",
+    "siteOwners": 62,
+    "distinctDefaults": 1
+   },
+   "GS:StanceChangePenalties.Zoomed.CrouchToProne.Duration": {
+    "ownPath": "Class_539cff9b/Field_fc724c05[2]/Field_ed10e827",
+    "siteOwners": 9,
+    "distinctDefaults": 1
+   },
+   "GS:Recoil.Zoomed.RecoilFadeOutEnd": {
+    "ownPath": "Class_539cff9b/Field_c5d1c8fe/Field_7b609515/Field_89e9f16e",
+    "siteOwners": 62,
+    "distinctDefaults": 1
+   },
+   "GS:DispersionBehavior.Unzoomed.MovingJumpingSprinting.IdleDecreaseOffset": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_7b609515/Field_0a160c57/Field_aa558d2b",
+    "siteOwners": 62,
+    "distinctDefaults": 5
+   },
+   "GS:Recoil.Unzoomed.RecoilDuration": {
+    "ownPath": "Class_539cff9b/Field_c5d1c8fe/Field_7b609515/Field_5a02dd65",
+    "siteOwners": 62,
+    "distinctDefaults": 4
+   },
+   "GS:MinMaxDispersion.Unzoomed.Standing.Stationary.MaxAngle": {
+    "ownPath": "Class_539cff9b/Field_a1ec29c4[0]/Field_60e4e484",
+    "siteOwners": 62,
+    "distinctDefaults": 10
+   },
+   "GS:CameraRecoil.UseTimeSinceLastShot": {
+    "ownPath": "Class_539cff9b/Field_f53f8877",
+    "siteOwners": 62,
+    "distinctDefaults": 2
+   },
+   "GS:Recoil.Unzoomed.VerticalRecoilMax": {
+    "ownPath": "Class_539cff9b/Field_c5d1c8fe/Field_7b609515/Field_a63f14a6",
+    "siteOwners": 62,
+    "distinctDefaults": 6
+   },
+   "GS:DispersionBehavior.Unzoomed.Stationary.FiringDecreaseCoefficient": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_7b609515/Field_0a160c57/Field_2ca8533e",
+    "siteOwners": 62,
+    "distinctDefaults": 12
+   },
+   "GS:Recoil.Zoomed.HorizontalRecoilLeft": {
+    "ownPath": "Class_539cff9b/Field_c5d1c8fe/Field_6b84de87/Field_edbd0711",
+    "siteOwners": 62,
+    "distinctDefaults": 10
+   },
+   "GS:Recoil.Unzoomed.RecoilFadeOutFactor": {
+    "ownPath": "Class_539cff9b/Field_a1ec29c4[18]/Field_60e4e484",
+    "siteOwners": 62,
+    "distinctDefaults": 1
+   },
+   "GS:Recoil.Unzoomed.RecoilDecreaseOffset": {
+    "ownPath": "Class_539cff9b/Field_c5d1c8fe/Field_7b609515/Field_04490b34",
+    "siteOwners": 62,
+    "distinctDefaults": 4
+   },
+   "GS:Recoil.Unzoomed.RecoilDecreaseTimeExponent": {
+    "ownPath": "Class_539cff9b/Field_c5d1c8fe/Field_7b609515/Field_1d04f0f6",
+    "siteOwners": 62,
+    "distinctDefaults": 18
+   },
+   "GS:DispersionBehavior.Zoomed.Stationary.IdleDecreaseOffset": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_6b84de87/Field_0a160c57/Field_aa558d2b",
+    "siteOwners": 62,
+    "distinctDefaults": 14
+   },
+   "GS:DispersionBehavior.Unzoomed.MovingJumpingSprinting.NotFiringDecreaseExponent": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_7b609515/Field_447d6d51/Field_0f79aaed",
+    "siteOwners": 62,
+    "distinctDefaults": 6
+   },
+   "GS:StanceChangePenalties.Zoomed.CrouchToProne.MinAngleOffset": {
+    "ownPath": "Class_539cff9b/Field_fc724c05[2]/Field_7ce404e6",
+    "siteOwners": 9,
+    "distinctDefaults": 1
+   },
+   "GS:CameraRecoil.IdleSpringConstantSwitchTime": {
+    "ownPath": "Class_d25bd3f6/Field_abf3655a",
+    "siteOwners": 62,
+    "distinctDefaults": 13
+   },
+   "GS:Recoil.Zoomed.VerticalRecoilMin": {
+    "ownPath": "Class_539cff9b/Field_c5d1c8fe/Field_7b609515/Field_ce4b3347",
+    "siteOwners": 62,
+    "distinctDefaults": 6
+   },
+   "GS:DispersionBehavior.Unzoomed.MovingJumpingSprinting.IncreasePerShot": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_7b609515/Field_447d6d51/Field_0084b1d1",
+    "siteOwners": 62,
+    "distinctDefaults": 16
+   },
+   "GS:StanceChangePenalties.Unzoomed.StandToProne.MinAngleOffset": {
+    "ownPath": "Class_539cff9b/Field_fc724c05[2]/Field_7ce404e6",
+    "siteOwners": 9,
+    "distinctDefaults": 1
+   },
+   "GS:DispersionBehavior.Unzoomed.MovingJumpingSprinting.NotFiringDecreaseOffset": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_7b609515/Field_0a160c57/Field_4d3f0635",
+    "siteOwners": 62,
+    "distinctDefaults": 5
+   },
+   "GS:DispersionBehavior.Unzoomed.Stationary.NotFiringDecreaseExponent": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_7b609515/Field_0a160c57/Field_0f79aaed",
+    "siteOwners": 62,
+    "distinctDefaults": 5
+   },
+   "GS:CameraRecoil.IdleSpringDampingSwitchTime": {
+    "ownPath": "Class_d25bd3f6/Field_2b61552e",
+    "siteOwners": 62,
+    "distinctDefaults": 14
+   },
+   "GS:DispersionBehavior.Unzoomed.Stationary.FiringDecreaseExponent": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_7b609515/Field_0a160c57/Field_f37351e6",
+    "siteOwners": 62,
+    "distinctDefaults": 5
+   },
+   "GS:Recoil.Unzoomed.RecoilPatternSeed": {
+    "ownPath": "Class_539cff9b/Field_fc724c05[0]/Field_7ce404e6",
+    "siteOwners": 62,
+    "distinctDefaults": 1
+   },
+   "GS:CameraRecoil.SpringExponentZoomed": {
+    "ownPath": "Class_d25bd3f6/Field_469a2fb5",
+    "siteOwners": 62,
+    "distinctDefaults": 2
+   },
+   "GS:IdleDecreaseTargetDuration.MovingIndex": {
+    "ownPath": "Class_539cff9b/Field_5b6caeda/Field_6138f58f",
+    "siteOwners": 62,
+    "distinctDefaults": 7
+   },
+   "GS:Recoil.Zoomed.RecoilDirectionVariationMultiplierExponent": {
+    "ownPath": "Class_539cff9b/Field_c5d1c8fe/Field_7b609515/Field_02433593",
+    "siteOwners": 62,
+    "distinctDefaults": 3
+   },
+   "GS:DispersionBehavior.Unzoomed.Stationary.DecreaseExponent": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_7b609515/Field_0a160c57/Field_f7a76bcf",
+    "siteOwners": 62,
+    "distinctDefaults": 1
+   },
+   "GS:Recoil.Unzoomed.RecoilFadeOutStart": {
+    "ownPath": "Class_539cff9b/Field_c5d1c8fe/Field_7b609515/Field_89e9f16e",
+    "siteOwners": 62,
+    "distinctDefaults": 1
+   },
+   "GS:MinMaxDispersion.Zoomed.Prone.Stationary.MinAngle": {
+    "ownPath": "Class_539cff9b/Field_a1ec29c4[15]/Field_7baf4297",
+    "siteOwners": 62,
+    "distinctDefaults": 6
+   },
+   "GS:Recoil.Zoomed.MaxVerticalRecoil": {
+    "ownPath": "Class_539cff9b/Field_c5d1c8fe/Field_6b84de87/Field_205e8a1c",
+    "siteOwners": 62,
+    "distinctDefaults": 4
+   },
+   "GS:DispersionBehavior.Unzoomed.MovingJumpingSprinting.FiringDecreaseOffset": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_7b609515/Field_0a160c57/Field_1b9eef5d",
+    "siteOwners": 62,
+    "distinctDefaults": 11
+   },
+   "GS:DispersionBehavior.Zoomed.MovingJumpingSprinting.FiringDecreaseOffset": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_6b84de87/Field_0a160c57/Field_1b9eef5d",
+    "siteOwners": 62,
+    "distinctDefaults": 6
+   },
+   "GS:CameraRecoil.IdleSpringDampingZoomed": {
+    "ownPath": "Class_d25bd3f6/Field_bbd799e1",
+    "siteOwners": 62,
+    "distinctDefaults": 5
+   },
+   "GS:Recoil.Unzoomed.RecoilPatternMultiplierPitch": {
+    "ownPath": "Class_539cff9b/Field_fc724c05[0]/Field_7ce404e6",
+    "siteOwners": 62,
+    "distinctDefaults": 1
+   },
+   "GS:CameraRecoilUseTimeSinceLastShot": {
+    "ownPath": "Class_539cff9b/Field_f53f8877",
+    "siteOwners": 62,
+    "distinctDefaults": 2
+   },
+   "GS:DispersionBehavior.Zoomed.Stationary.DecreaseOffset": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_7b609515/Field_0a160c57/Field_aea8977a",
+    "siteOwners": 62,
+    "distinctDefaults": 1
+   },
+   "GS:Recoil.Zoomed.RecoilDecreaseOffset": {
+    "ownPath": "Class_539cff9b/Field_c5d1c8fe/Field_7b609515/Field_04490b34",
+    "siteOwners": 62,
+    "distinctDefaults": 4
+   },
+   "GS:StanceChangePenalties.Unzoomed.StandToCrouch.MinAngleOffset": {
+    "ownPath": "Class_539cff9b/Field_a1ec29c4[18]/Field_60e4e484",
+    "siteOwners": 9,
+    "distinctDefaults": 1
+   },
+   "GS:DispersionBehavior.Zoomed.Stationary.FiringDecreaseOffset": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_6b84de87/Field_0a160c57/Field_1b9eef5d",
+    "siteOwners": 62,
+    "distinctDefaults": 6
+   },
+   "GS:IdleDecreaseTargetDuration.StationaryIndex": {
+    "ownPath": "Class_539cff9b/Field_5b6caeda/Field_6138f58f",
+    "siteOwners": 62,
+    "distinctDefaults": 7
+   },
+   "GS:MinMaxDispersion.Zoomed.Crouching.Stationary.MaxAngle": {
+    "ownPath": "Class_539cff9b/Field_a1ec29c4[12]/Field_60e4e484",
+    "siteOwners": 62,
+    "distinctDefaults": 11
+   },
+   "GS:StanceChangePenalties.Unzoomed.CrouchToProne.MinAngleOffset": {
+    "ownPath": "Class_539cff9b/Field_fc724c05[2]/Field_7ce404e6",
+    "siteOwners": 9,
+    "distinctDefaults": 1
+   },
+   "GS:DispersionBehavior.Unzoomed.Stationary.DistributionExponent": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_7b609515/Field_0a160c57/Field_94efea57",
+    "siteOwners": 62,
+    "distinctDefaults": 2
+   },
+   "GS:Recoil.Zoomed.VerticalRecoilDecreaseMultiplier": {
+    "ownPath": "Class_539cff9b/Field_a1ec29c4[18]/Field_60e4e484",
+    "siteOwners": 62,
+    "distinctDefaults": 1
+   },
+   "GS:IdleCameraRecoilWhenZoomedAmount": {
+    "ownPath": "Class_539cff9b/Field_7f1bb9d4",
+    "siteOwners": 62,
+    "distinctDefaults": 5
+   },
+   "GS:CameraRecoil.IdleSpringConstantZoomedSwitchTime": {
+    "ownPath": "Class_d25bd3f6/Field_43b22d90",
+    "siteOwners": 62,
+    "distinctDefaults": 13
+   },
+   "GS:DispersionBehavior.Zoomed.Stationary.IdleDecreaseCoefficient": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_6b84de87/Field_0a160c57/Field_66d08b86",
+    "siteOwners": 62,
+    "distinctDefaults": 5
+   },
+   "GS:UnzoomedMinAnglesArrayIndex": {
+    "ownPath": "Class_539cff9b/Field_fe708077",
+    "siteOwners": 62,
+    "distinctDefaults": 6
+   },
+   "GS:MinMaxDispersion.Unzoomed.Standing.Stationary.MinAngle": {
+    "ownPath": "Class_539cff9b/Field_a1ec29c4[0]/Field_7baf4297",
+    "siteOwners": 62,
+    "distinctDefaults": 11
+   },
+   "GS:MinMaxDispersion.Zoomed.Standing.Moving.MinAngle": {
+    "ownPath": "Class_539cff9b/Field_a1ec29c4[10]/Field_7baf4297",
+    "siteOwners": 62,
+    "distinctDefaults": 9
+   },
+   "GS:DispersionBehavior.Zoomed.MovingJumpingSprinting.IdleDecreaseCoefficient": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_6b84de87/Field_447d6d51/Field_66d08b86",
+    "siteOwners": 62,
+    "distinctDefaults": 5
+   },
+   "GS:DispersionBehavior.Zoomed.Stationary.DecreaseExponent": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_7b609515/Field_0a160c57/Field_f7a76bcf",
+    "siteOwners": 62,
+    "distinctDefaults": 1
+   },
+   "GS:Recoil.Unzoomed.RecoilAmountMultiplier": {
+    "ownPath": "Class_539cff9b/Field_c5d1c8fe/Field_7b609515/Field_50b8fd5b",
+    "siteOwners": 62,
+    "distinctDefaults": 24
+   },
+   "GS:DispersionBehavior.Zoomed.MovingJumpingSprinting.FiringDecreaseExponent": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_6b84de87/Field_0a160c57/Field_f37351e6",
+    "siteOwners": 62,
+    "distinctDefaults": 6
+   },
+   "GS:DispersionBehavior.Unzoomed.Stationary.IdleDecreaseExponent": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_7b609515/Field_0a160c57/Field_0b26c028",
+    "siteOwners": 62,
+    "distinctDefaults": 4
+   },
+   "GS:Recoil.Unzoomed.RecoilDecreaseExponent": {
+    "ownPath": "Class_539cff9b/Field_c5d1c8fe/Field_7b609515/Field_9045ba17",
+    "siteOwners": 62,
+    "distinctDefaults": 4
+   },
+   "GS:DispersionBehavior.Unzoomed.MovingJumpingSprinting.DistributionExponent": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_7b609515/Field_447d6d51/Field_94efea57",
+    "siteOwners": 62,
+    "distinctDefaults": 1
+   },
+   "GS:StanceChangePenalties.Unzoomed.CrouchToProne.Duration": {
+    "ownPath": "Class_539cff9b/Field_fc724c05[2]/Field_ed10e827",
+    "siteOwners": 9,
+    "distinctDefaults": 1
+   },
+   "GS:Recoil.Zoomed.VerticalRecoilIncrease": {
+    "ownPath": "Class_539cff9b/Field_c5d1c8fe/Field_7b609515/Field_9546447c",
+    "siteOwners": 62,
+    "distinctDefaults": 3
+   },
+   "GS:StanceChangePenalties.Zoomed.StandToCrouch.MinAngleOffset": {
+    "ownPath": "Class_539cff9b/Field_fc724c05[101]/Field_7ce404e6",
+    "siteOwners": 9,
+    "distinctDefaults": 1
+   },
+   "GS:MinMaxDispersion.Zoomed.Crouching.Moving.MaxAngle": {
+    "ownPath": "Class_539cff9b/Field_a1ec29c4[13]/Field_60e4e484",
+    "siteOwners": 62,
+    "distinctDefaults": 13
+   },
+   "GS:DispersionBehavior.Zoomed.Stationary.IdleTime": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_6b84de87/Field_0a160c57/Field_af333987",
+    "siteOwners": 62,
+    "distinctDefaults": 6
+   },
+   "GS:MinMaxDispersion.Unzoomed.Crouching.Moving.MaxAngle": {
+    "ownPath": "Class_539cff9b/Field_a1ec29c4[4]/Field_60e4e484",
+    "siteOwners": 62,
+    "distinctDefaults": 12
+   },
+   "GS:DispersionBehavior.Unzoomed.Stationary.IncreasePerShot": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_7b609515/Field_0a160c57/Field_0084b1d1",
+    "siteOwners": 62,
+    "distinctDefaults": 16
+   },
+   "GS:DispersionBehavior.Zoomed.MovingJumpingSprinting.IdleDecreaseOffset": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_6b84de87/Field_0a160c57/Field_aa558d2b",
+    "siteOwners": 62,
+    "distinctDefaults": 14
+   },
+   "GS:StanceChangePenalties.Zoomed.ProneToCrouch.MinAngleOffset": {
+    "ownPath": "Class_539cff9b/Field_fc724c05[2]/Field_7ce404e6",
+    "siteOwners": 9,
+    "distinctDefaults": 1
+   },
+   "GS:Recoil.Zoomed.HorizontalRecoilRight": {
+    "ownPath": "Class_539cff9b/Field_c5d1c8fe/Field_6b84de87/Field_65700a5d",
+    "siteOwners": 62,
+    "distinctDefaults": 10
+   },
+   "GS:DispersionBehavior.Unzoomed.MovingJumpingSprinting.FiringDecreaseCoefficient": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_7b609515/Field_447d6d51/Field_2ca8533e",
+    "siteOwners": 62,
+    "distinctDefaults": 11
+   },
+   "GS:CameraRecoilWhenZoomedAmount": {
+    "ownPath": "Class_539cff9b/Field_9532eb28",
+    "siteOwners": 62,
+    "distinctDefaults": 6
+   },
+   "GS:DispersionBehavior.Zoomed.Stationary.DistributionExponent": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_6b84de87/Field_0a160c57/Field_94efea57",
+    "siteOwners": 62,
+    "distinctDefaults": 3
+   },
+   "GS:CameraRecoil.IdleSpringConstant": {
+    "ownPath": "Class_d25bd3f6/Field_74b1aad2",
+    "siteOwners": 62,
+    "distinctDefaults": 4
+   },
+   "GS:StanceChangePenalties.Unzoomed.StandToCrouch.Duration": {
+    "ownPath": "Class_539cff9b/Field_fc724c05[1]/Field_ed10e827",
+    "siteOwners": 9,
+    "distinctDefaults": 1
+   },
+   "GS:MovingZoomedMinAnglesArrayIndex": {
+    "ownPath": "Class_539cff9b/Field_d94fe6ad",
+    "siteOwners": 62,
+    "distinctDefaults": 2
+   },
+   "GS:DispersionBehavior.Zoomed.MovingJumpingSprinting.DecreaseExponent": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_7b609515/Field_0a160c57/Field_f7a76bcf",
+    "siteOwners": 62,
+    "distinctDefaults": 1
+   },
+   "GS:MinMaxDispersion.Zoomed.Crouching.Stationary.MinAngle": {
+    "ownPath": "Class_539cff9b/Field_a1ec29c4[12]/Field_7baf4297",
+    "siteOwners": 62,
+    "distinctDefaults": 6
+   },
+   "GS:CameraRecoil.IdleSpringExponentZoomedSwitchTime": {
+    "ownPath": "Class_d25bd3f6/Field_def6553a",
+    "siteOwners": 62,
+    "distinctDefaults": 12
+   },
+   "GS:DispersionBehavior.Zoomed.MovingJumpingSprinting.FirstShotIncreaseMultiplier": {
+    "ownPath": "Class_539cff9b/Field_a1ec29c4[18]/Field_60e4e484",
+    "siteOwners": 62,
+    "distinctDefaults": 1
+   },
+   "GS:StanceChangePenalties.Unzoomed.ProneToStand.MinAngleOffset": {
+    "ownPath": "Class_539cff9b/Field_fc724c05[2]/Field_7ce404e6",
+    "siteOwners": 9,
+    "distinctDefaults": 1
+   },
+   "GS:Recoil.Unzoomed.HorizontalRecoilRight": {
+    "ownPath": "Class_539cff9b/Field_c5d1c8fe/Field_7b609515/Field_65700a5d",
+    "siteOwners": 62,
+    "distinctDefaults": 10
+   },
+   "GS:Recoil.Zoomed.RecoilDirection": {
+    "ownPath": "Class_539cff9b/Field_c5d1c8fe/Field_6b84de87/Field_f888cb38",
+    "siteOwners": 62,
+    "distinctDefaults": 28
+   },
+   "GS:Recoil.Unzoomed.RecoilDecreaseFactor": {
+    "ownPath": "Class_539cff9b/Field_c5d1c8fe/Field_7b609515/Field_28df1cde",
+    "siteOwners": 62,
+    "distinctDefaults": 17
+   },
+   "GS:DispersionBehavior.Zoomed.Stationary.IdleDecreaseExponent": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_6b84de87/Field_0a160c57/Field_0b26c028",
+    "siteOwners": 62,
+    "distinctDefaults": 4
+   },
+   "GS:DispersionBehavior.Zoomed.MovingJumpingSprinting.NotFiringDecreaseExponent": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_6b84de87/Field_0a160c57/Field_0f79aaed",
+    "siteOwners": 62,
+    "distinctDefaults": 5
+   },
+   "GS:Recoil.Zoomed.ShootingRecoilDecreaseScale": {
+    "ownPath": "Class_539cff9b/Field_a1ec29c4[18]/Field_60e4e484",
+    "siteOwners": 62,
+    "distinctDefaults": 1
+   },
+   "GS:DispersionBehavior.Unzoomed.MovingJumpingSprinting.DecreaseCoefficient": {
+    "ownPath": "Class_539cff9b/Field_0a5922e0/Field_7b609515/Field_0a160c57/Field_d14921ea",
+    "siteOwners": 62,
+    "distinctDefaults": 1
+   },
+   "GS:Recoil.Zoomed.RecoilDecreaseFactor": {
+    "ownPath": "Class_539cff9b/Field_c5d1c8fe/Field_6b84de87/Field_28df1cde",
+    "siteOwners": 62,
+    "distinctDefaults": 18
+   },
+   "GS:CameraRecoil.SpringConstantZoomed": {
+    "ownPath": "Class_d25bd3f6/Field_cea8c368",
+    "siteOwners": 62,
+    "distinctDefaults": 4
+   },
+   "PD:BulletEntityData.Drag": {
+    "ownPath": "Class_23637dce/Field_30c37c24",
+    "siteOwners": 61,
+    "distinctDefaults": 8
+   },
+   "PD:BulletEntityData.DamageFalloffStartDistance": {
+    "ownPath": "Class_23637dce/Field_e5b11905",
+    "siteOwners": 61,
+    "distinctDefaults": 14
+   },
+   "PD:BulletEntityData.MeshProjectileEntityData.ProjectileEntityData.TimeToLive": {
+    "ownPath": "Class_23637dce/Field_5ef7b9a1",
+    "siteOwners": 61,
+    "distinctDefaults": 11
+   },
+   "PD:BulletEntityData.StartDamage": {
+    "ownPath": "Class_23637dce/Field_94869d67",
+    "siteOwners": 61,
+    "distinctDefaults": 19
+   },
+   "PD:BulletEntityData.EndDamage": {
+    "ownPath": "Class_23637dce/Field_bc7acc94",
+    "siteOwners": 61,
+    "distinctDefaults": 23
+   },
+   "PD:BulletEntityData.DamageMultiplier": {
+    "ownPath": "Class_23637dce/Field_d6351ede/Field_c478cc3b/Field_3901db14",
+    "siteOwners": 61,
+    "distinctDefaults": 1
+   },
+   "PD:BulletEntityData.MeshProjectileEntityData.ProjectileEntityData.InitialSpeed": {
+    "ownPath": "Class_23637dce/Field_0bf4f62b",
+    "siteOwners": 61,
+    "distinctDefaults": 5
+   },
+   "PD:BulletEntityData.DamageFalloffEndDistance": {
+    "ownPath": "Class_23637dce/Field_68be3481",
+    "siteOwners": 61,
+    "distinctDefaults": 16
+   },
+   "PD:BulletEntityData.Gravity": {
+    "ownPath": "Class_23637dce/Field_d9d33d20",
+    "siteOwners": 61,
+    "distinctDefaults": 2
+   },
+   "PD:BulletEntityData.MeshProjectileEntityData.ProjectileEntityData.ForceDisableCulling": {
+    "ownPath": "Class_23637dce/Field_5645e663",
+    "siteOwners": 8,
+    "distinctDefaults": 1
+   },
+   "PD:BulletEntityData.MeshProjectileEntityData.ProjectileEntityData.TimeToLiveUnderWater": {
+    "ownPath": "Class_23637dce/Field_5645e663",
+    "siteOwners": 4,
+    "distinctDefaults": 1
+   },
+   "PD:BulletEntityData.UnderWaterGravityScale": {
+    "ownPath": "Class_23637dce/Field_d6351ede/Field_c478cc3b/Field_3901db14",
+    "siteOwners": 4,
+    "distinctDefaults": 1
+   },
+   "PD:BulletEntityData.UnderWaterDrag": {
+    "ownPath": "Class_23637dce/Field_a36f22e9",
+    "siteOwners": 2,
+    "distinctDefaults": 1
+   }
+  },
+  "differencesOutsideSiteScope": [
+   {
+    "family": "WB",
+    "owner": "Gadget_ATMine_WB",
+    "row": "Gadget_ATMine_WB.WeaponEntityData.WeaponFiring.PrimaryFire.Shot.InitialSpeed.y",
+    "registry": 0.3330000042915344,
+    "own": -0.1,
+    "alreadyInL3314Census": false
+   },
+   {
+    "family": "WB",
+    "owner": "SupplyPouch_WB",
+    "row": "SupplyPouch_WB.WeaponEntityData.WeaponFiring.PrimaryFire.FireLogic.ReloadInfoArray[0].ReloadTime",
+    "registry": 0.0,
+    "own": 1.0,
+    "alreadyInL3314Census": false
+   },
+   {
+    "family": "WB",
+    "owner": "DeployableCover_WB",
+    "row": "DeployableCover_WB.WeaponEntityData.WeaponFiring.PrimaryFire.FireLogic.ReloadInfoArray[0].ReloadTime",
+    "registry": 0.5,
+    "own": 0.0,
+    "alreadyInL3314Census": false
+   },
+   {
+    "family": "WB",
+    "owner": "Gadget_ATMine_WB",
+    "row": "Gadget_ATMine_WB.WeaponEntityData.WeaponFiring.PrimaryFire.FireLogic.ReloadInfoArray[0].ReloadTime",
+    "registry": 0.5,
+    "own": 0.0,
+    "alreadyInL3314Census": false
+   },
+   {
+    "family": "WB",
+    "owner": "PTKM1R_WB",
+    "row": "PTKM1R_WB.WeaponEntityData.WeaponFiring.PrimaryFire.FireLogic.ReloadInfoArray[0].ReloadTime",
+    "registry": 0.5,
+    "own": 0.0,
+    "alreadyInL3314Census": false
+   },
+   {
+    "family": "WB",
+    "owner": "DeployableMortar_WB",
+    "row": "DeployableMortar_WB.WeaponEntityData.WeaponFiring.PrimaryFire.FireLogic.ReloadInfoArray[0].ReloadTime",
+    "registry": 0.5,
+    "own": 0.0,
+    "alreadyInL3314Census": false
+   },
+   {
+    "family": "WB",
+    "owner": "SniperDecoy_WB",
+    "row": "SniperDecoy_WB.WeaponEntityData.WeaponFiring.PrimaryFire.FireLogic.ReloadInfoArray[0].ReloadTime",
+    "registry": 0.5,
+    "own": 0.0,
+    "alreadyInL3314Census": false
+   },
+   {
+    "family": "WB",
+    "owner": "M4SLAM_WB",
+    "row": "M4SLAM_WB.WeaponEntityData.WeaponFiring.PrimaryFire.FireLogic.ReloadInfoArray[0].ReloadTime",
+    "registry": 0.5,
+    "own": 0.75,
+    "alreadyInL3314Census": false
+   },
+   {
+    "family": "WB",
+    "owner": "MPAPS_WB",
+    "row": "MPAPS_WB.WeaponEntityData.WeaponFiring.PrimaryFire.FireLogic.ReloadInfoArray[0].ReloadTime",
+    "registry": 0.5,
+    "own": 0.0,
+    "alreadyInL3314Census": false
+   },
+   {
+    "family": "WB",
+    "owner": "M18Claymore_WB",
+    "row": "M18Claymore_WB.WeaponEntityData.WeaponFiring.PrimaryFire.FireLogic.ReloadInfoArray[0].ReloadTime",
+    "registry": 0.5,
+    "own": 0.0,
+    "alreadyInL3314Census": false
+   },
+   {
+    "family": "WB",
+    "owner": "Gadget_ATMine_WB",
+    "row": "Gadget_ATMine_WB.WeaponEntityData.WeaponFiring.PrimaryFire.FireLogic.RateOfFire",
+    "registry": 200.0,
+    "own": 85.0,
+    "alreadyInL3314Census": false
+   },
+   {
+    "family": "WB",
+    "owner": "SniperDecoy_WB",
+    "row": "SniperDecoy_WB.WeaponEntityData.WeaponFiring.PrimaryFire.FireLogic.RateOfFire",
+    "registry": 550.0,
+    "own": 60.0,
+    "alreadyInL3314Census": false
+   },
+   {
+    "family": "WB",
+    "owner": "M18Claymore_WB",
+    "row": "M18Claymore_WB.WeaponEntityData.WeaponFiring.PrimaryFire.FireLogic.RateOfFire",
+    "registry": 300.0,
+    "own": 60.0,
+    "alreadyInL3314Census": false
+   },
+   {
+    "family": "WB",
+    "owner": "Gadget_ATMine_WB",
+    "row": "Gadget_ATMine_WB.WeaponEntityData.WeaponFiring.PrimaryFire.Shot.InitialSpeed.z",
+    "registry": 1.25,
+    "own": 3.0,
+    "alreadyInL3314Census": false
+   },
+   {
+    "family": "WB",
+    "owner": "Gadget_SupplyCrate_WB",
+    "row": "Gadget_SupplyCrate_WB.WeaponEntityData.WeaponFiring.PrimaryFire.Shot.InitialSpeed.z",
+    "registry": 6.5,
+    "own": 5.0,
+    "alreadyInL3314Census": false
+   },
+   {
+    "family": "GS",
+    "owner": "GS_RPG7v2",
+    "row": "GS_RPG7v2.MinMaxDispersion.Zoomed.Standing.Stationary.MinAngle",
+    "registry": 0.05000000074505806,
+    "own": 0.0,
+    "alreadyInL3314Census": false
+   },
+   {
+    "family": "GS",
+    "owner": "GS_AT4",
+    "row": "GS_AT4.MinMaxDispersion.Zoomed.Standing.Stationary.MinAngle",
+    "registry": 0.3499999940395355,
+    "own": 0.0,
+    "alreadyInL3314Census": false
+   },
+   {
+    "family": "GS",
+    "owner": "GS_MBTLAW",
+    "row": "GS_MBTLAW.MinMaxDispersion.Zoomed.Standing.Stationary.MinAngle",
+    "registry": 0.3499999940395355,
+    "own": 0.0,
+    "alreadyInL3314Census": false
+   },
+   {
+    "family": "GS",
+    "owner": "GS_RPG7v2",
+    "row": "GS_RPG7v2.MinMaxDispersion.Zoomed.Crouching.Moving.MinAngle",
+    "registry": 0.25,
+    "own": 0.2,
+    "alreadyInL3314Census": false
+   },
+   {
+    "family": "GS",
+    "owner": "GS_AT4",
+    "row": "GS_AT4.MinMaxDispersion.Zoomed.Crouching.Moving.MinAngle",
+    "registry": 0.6000000238418579,
+    "own": 0.2,
+    "alreadyInL3314Census": false
+   },
+   {
+    "family": "GS",
+    "owner": "GS_MBTLAW",
+    "row": "GS_MBTLAW.MinMaxDispersion.Zoomed.Crouching.Moving.MinAngle",
+    "registry": 0.6000000238418579,
+    "own": 0.2,
+    "alreadyInL3314Census": false
+   },
+   {
+    "family": "GS",
+    "owner": "GS_RPG7v2",
+    "row": "GS_RPG7v2.MinMaxDispersion.Zoomed.Prone.Moving.MinAngle",
+    "registry": 0.25,
+    "own": 0.15,
+    "alreadyInL3314Census": false
+   },
+   {
+    "family": "GS",
+    "owner": "GS_AT4",
+    "row": "GS_AT4.MinMaxDispersion.Zoomed.Prone.Moving.MinAngle",
+    "registry": 0.6000000238418579,
+    "own": 0.15,
+    "alreadyInL3314Census": false
+   },
+   {
+    "family": "GS",
+    "owner": "GS_MBTLAW",
+    "row": "GS_MBTLAW.MinMaxDispersion.Zoomed.Prone.Moving.MinAngle",
+    "registry": 0.6000000238418579,
+    "own": 0.15,
+    "alreadyInL3314Census": false
+   },
+   {
+    "family": "GS",
+    "owner": "GS_RPG7v2",
+    "row": "GS_RPG7v2.MinMaxDispersion.Zoomed.Prone.Stationary.MinAngle",
+    "registry": 0.05000000074505806,
+    "own": 0.1,
+    "alreadyInL3314Census": false
+   },
+   {
+    "family": "GS",
+    "owner": "GS_AT4",
+    "row": "GS_AT4.MinMaxDispersion.Zoomed.Prone.Stationary.MinAngle",
+    "registry": 0.3499999940395355,
+    "own": 0.1,
+    "alreadyInL3314Census": false
+   },
+   {
+    "family": "GS",
+    "owner": "GS_MBTLAW",
+    "row": "GS_MBTLAW.MinMaxDispersion.Zoomed.Prone.Stationary.MinAngle",
+    "registry": 0.3499999940395355,
+    "own": 0.1,
+    "alreadyInL3314Census": false
+   },
+   {
+    "family": "GS",
+    "owner": "GS_AT4",
+    "row": "GS_AT4.MinMaxDispersion.Zoomed.Standing.Moving.MinAngle",
+    "registry": 0.6000000238418579,
+    "own": 0.25,
+    "alreadyInL3314Census": false
+   },
+   {
+    "family": "GS",
+    "owner": "GS_MBTLAW",
+    "row": "GS_MBTLAW.MinMaxDispersion.Zoomed.Standing.Moving.MinAngle",
+    "registry": 0.6000000238418579,
+    "own": 0.25,
+    "alreadyInL3314Census": false
+   },
+   {
+    "family": "GS",
+    "owner": "GS_RPG7v2",
+    "row": "GS_RPG7v2.MinMaxDispersion.Zoomed.Crouching.Stationary.MinAngle",
+    "registry": 0.05000000074505806,
+    "own": 0.15,
+    "alreadyInL3314Census": false
+   },
+   {
+    "family": "GS",
+    "owner": "GS_AT4",
+    "row": "GS_AT4.MinMaxDispersion.Zoomed.Crouching.Stationary.MinAngle",
+    "registry": 0.3499999940395355,
+    "own": 0.15,
+    "alreadyInL3314Census": false
+   },
+   {
+    "family": "GS",
+    "owner": "GS_MBTLAW",
+    "row": "GS_MBTLAW.MinMaxDispersion.Zoomed.Crouching.Stationary.MinAngle",
+    "registry": 0.3499999940395355,
+    "own": 0.15,
+    "alreadyInL3314Census": false
+   },
+   {
+    "family": "PD",
+    "owner": "PD_Vehicles_IFV_PrimaryWeapon_HEAB",
+    "row": "PD_Vehicles_IFV_PrimaryWeapon_HEAB.BulletEntityData.Drag",
+    "registry": 0.004000000189989805,
+    "own": 0.002,
+    "alreadyInL3314Census": true
+   },
+   {
+    "family": "PD",
+    "owner": "PD_Vehicles_IFV_PrimaryWeapon_HEAB",
+    "row": "PD_Vehicles_IFV_PrimaryWeapon_HEAB.BulletEntityData.MeshProjectileEntityData.ProjectileEntityData.Explosion.ExplosionEntityData.BlastDamage",
+    "registry": 50.0,
+    "own": 30.0,
+    "alreadyInL3314Census": true
+   },
+   {
+    "family": "PD",
+    "owner": "PD_Vehicles_MBT_AmmoTypes_APFSDS",
+    "row": "PD_Vehicles_MBT_AmmoTypes_APFSDS.BulletEntityData.MeshProjectileEntityData.ProjectileEntityData.Explosion.ExplosionEntityData.BlastDamage",
+    "registry": 0.0,
+    "own": 100.0,
+    "alreadyInL3314Census": false
+   },
+   {
+    "family": "PD",
+    "owner": "PD_Railgun",
+    "row": "PD_Railgun.BulletEntityData.MeshProjectileEntityData.ProjectileEntityData.Explosion.ExplosionEntityData.BlastDamage",
+    "registry": 0.0,
+    "own": 100.0,
+    "alreadyInL3314Census": false
+   },
+   {
+    "family": "PD",
+    "owner": "PD_Vehicles_IFV_SecondaryWeapon_LightRockets",
+    "row": "PD_Vehicles_IFV_SecondaryWeapon_LightRockets.BulletEntityData.DamageFalloffStartDistance",
+    "registry": 60.0,
+    "own": 100.0,
+    "alreadyInL3314Census": true
+   },
+   {
+    "family": "PD",
+    "owner": "PD_Vehicles_MBT_AmmoTypes_MPAT",
+    "row": "PD_Vehicles_MBT_AmmoTypes_MPAT.BulletEntityData.DamageFalloffStartDistance",
+    "registry": 150.0,
+    "own": 100.0,
+    "alreadyInL3314Census": true
+   },
+   {
+    "family": "PD",
+    "owner": "PD_Vehicles_MBT_AmmoTypes_HE",
+    "row": "PD_Vehicles_MBT_AmmoTypes_HE.BulletEntityData.DamageFalloffStartDistance",
+    "registry": 150.0,
+    "own": 100.0,
+    "alreadyInL3314Census": true
+   },
+   {
+    "family": "PD",
+    "owner": "PD_Vehicles_IFV_PrimaryWeapon_HEAB",
+    "row": "PD_Vehicles_IFV_PrimaryWeapon_HEAB.BulletEntityData.DamageFalloffStartDistance",
+    "registry": 70.0,
+    "own": 25.0,
+    "alreadyInL3314Census": true
+   },
+   {
+    "family": "PD",
+    "owner": "PD_Vehicles_IFV_PrimaryWeapon_APFSDS",
+    "row": "PD_Vehicles_IFV_PrimaryWeapon_APFSDS.BulletEntityData.DamageFalloffStartDistance",
+    "registry": 90.0,
+    "own": 50.0,
+    "alreadyInL3314Census": true
+   },
+   {
+    "family": "PD",
+    "owner": "PD_Vehicles_MBT_AmmoTypes_APFSDS",
+    "row": "PD_Vehicles_MBT_AmmoTypes_APFSDS.BulletEntityData.DamageFalloffStartDistance",
+    "registry": 100.0,
+    "own": 50.0,
+    "alreadyInL3314Census": true
+   },
+   {
+    "family": "PD",
+    "owner": "PD_Vehicles_IFV_SecondaryWeapon_LightRockets",
+    "row": "PD_Vehicles_IFV_SecondaryWeapon_LightRockets.BulletEntityData.MeshProjectileEntityData.ProjectileEntityData.Explosion.ExplosionEntityData.BlastRadius",
+    "registry": 4.0,
+    "own": 5.0,
+    "alreadyInL3314Census": true
+   },
+   {
+    "family": "PD",
+    "owner": "PD_Vehicles_IFV_PrimaryWeapon_HEAB",
+    "row": "PD_Vehicles_IFV_PrimaryWeapon_HEAB.BulletEntityData.MeshProjectileEntityData.ProjectileEntityData.Explosion.ExplosionEntityData.BlastRadius",
+    "registry": 4.25,
+    "own": 5.0,
+    "alreadyInL3314Census": true
+   },
+   {
+    "family": "PD",
+    "owner": "PD_Vehicles_MBT_AmmoTypes_MPAT",
+    "row": "PD_Vehicles_MBT_AmmoTypes_MPAT.BulletEntityData.StartDamage",
+    "registry": 140.0,
+    "own": 135.0,
+    "alreadyInL3314Census": true
+   },
+   {
+    "family": "PD",
+    "owner": "PD_Vehicles_MBT_AmmoTypes_HE",
+    "row": "PD_Vehicles_MBT_AmmoTypes_HE.BulletEntityData.StartDamage",
+    "registry": 120.0,
+    "own": 110.0,
+    "alreadyInL3314Census": true
+   },
+   {
+    "family": "PD",
+    "owner": "PD_Vehicles_IFV_PrimaryWeapon_HEAB",
+    "row": "PD_Vehicles_IFV_PrimaryWeapon_HEAB.BulletEntityData.StartDamage",
+    "registry": 50.0,
+    "own": 100.0,
+    "alreadyInL3314Census": true
+   },
+   {
+    "family": "PD",
+    "owner": "PD_Vehicles_IFV_PrimaryWeapon_APFSDS",
+    "row": "PD_Vehicles_IFV_PrimaryWeapon_APFSDS.BulletEntityData.StartDamage",
+    "registry": 100.0,
+    "own": 115.0,
+    "alreadyInL3314Census": true
+   },
+   {
+    "family": "PD",
+    "owner": "PD_Vehicles_AA_PrimaryWeapon_AAHV",
+    "row": "PD_Vehicles_AA_PrimaryWeapon_AAHV.BulletEntityData.StartDamage",
+    "registry": 13.0,
+    "own": 12.0,
+    "alreadyInL3314Census": true
+   },
+   {
+    "family": "PD",
+    "owner": "PD_Vehicles_AA_PrimaryWeapon_AAAP",
+    "row": "PD_Vehicles_AA_PrimaryWeapon_AAAP.BulletEntityData.StartDamage",
+    "registry": 20.0,
+    "own": 57.0,
+    "alreadyInL3314Census": true
+   },
+   {
+    "family": "PD",
+    "owner": "PD_Vehicles_MBT_AmmoTypes_APFSDS",
+    "row": "PD_Vehicles_MBT_AmmoTypes_APFSDS.BulletEntityData.StartDamage",
+    "registry": 130.0,
+    "own": 150.0,
+    "alreadyInL3314Census": true
+   },
+   {
+    "family": "PD",
+    "owner": "PD_Vehicles_AA_PrimaryWeapon_AAGP",
+    "row": "PD_Vehicles_AA_PrimaryWeapon_AAGP.BulletEntityData.StartDamage",
+    "registry": 13.0,
+    "own": 32.0,
+    "alreadyInL3314Census": true
+   },
+   {
+    "family": "PD",
+    "owner": "PD_Vehicles_MBT_AmmoTypes_MPAT",
+    "row": "PD_Vehicles_MBT_AmmoTypes_MPAT.BulletEntityData.EndDamage",
+    "registry": 115.0,
+    "own": 135.0,
+    "alreadyInL3314Census": true
+   },
+   {
+    "family": "PD",
+    "owner": "PD_Vehicles_MBT_AmmoTypes_HE",
+    "row": "PD_Vehicles_MBT_AmmoTypes_HE.BulletEntityData.EndDamage",
+    "registry": 100.0,
+    "own": 110.0,
+    "alreadyInL3314Census": true
+   },
+   {
+    "family": "PD",
+    "owner": "PD_Vehicles_IFV_PrimaryWeapon_HEAB",
+    "row": "PD_Vehicles_IFV_PrimaryWeapon_HEAB.BulletEntityData.EndDamage",
+    "registry": 40.0,
+    "own": 100.0,
+    "alreadyInL3314Census": true
+   },
+   {
+    "family": "PD",
+    "owner": "PD_Vehicles_IFV_PrimaryWeapon_APFSDS",
+    "row": "PD_Vehicles_IFV_PrimaryWeapon_APFSDS.BulletEntityData.EndDamage",
+    "registry": 80.0,
+    "own": 100.0,
+    "alreadyInL3314Census": true
+   },
+   {
+    "family": "PD",
+    "owner": "PD_Vehicles_AA_PrimaryWeapon_AAHV",
+    "row": "PD_Vehicles_AA_PrimaryWeapon_AAHV.BulletEntityData.EndDamage",
+    "registry": 13.0,
+    "own": 12.0,
+    "alreadyInL3314Census": true
+   },
+   {
+    "family": "PD",
+    "owner": "PD_Vehicles_AA_PrimaryWeapon_AAAP",
+    "row": "PD_Vehicles_AA_PrimaryWeapon_AAAP.BulletEntityData.EndDamage",
+    "registry": 20.0,
+    "own": 57.0,
+    "alreadyInL3314Census": true
+   },
+   {
+    "family": "PD",
+    "owner": "PD_Vehicles_MBT_AmmoTypes_APFSDS",
+    "row": "PD_Vehicles_MBT_AmmoTypes_APFSDS.BulletEntityData.EndDamage",
+    "registry": 115.0,
+    "own": 135.0,
+    "alreadyInL3314Census": true
+   },
+   {
+    "family": "PD",
+    "owner": "PD_Vehicles_AA_PrimaryWeapon_AAGP",
+    "row": "PD_Vehicles_AA_PrimaryWeapon_AAGP.BulletEntityData.EndDamage",
+    "registry": 13.0,
+    "own": 32.0,
+    "alreadyInL3314Census": true
+   },
+   {
+    "family": "PD",
+    "owner": "PD_Vehicles_MBT_AmmoTypes_HE",
+    "row": "PD_Vehicles_MBT_AmmoTypes_HE.BulletEntityData.MeshProjectileEntityData.ProjectileEntityData.Explosion.ExplosionEntityData.InnerBlastRadius",
+    "registry": 2.25,
+    "own": 1.0,
+    "alreadyInL3314Census": true
+   },
+   {
+    "family": "PD",
+    "owner": "PD_Vehicles_IFV_SecondaryWeapon_LightRockets",
+    "row": "PD_Vehicles_IFV_SecondaryWeapon_LightRockets.BulletEntityData.MeshProjectileEntityData.ProjectileEntityData.Explosion.ExplosionEntityData.MinimumBlastDamage",
+    "registry": 20.0,
+    "own": 10.0,
+    "alreadyInL3314Census": false
+   },
+   {
+    "family": "PD",
+    "owner": "PD_Vehicles_IFV_PrimaryWeapon_HEAB",
+    "row": "PD_Vehicles_IFV_PrimaryWeapon_HEAB.BulletEntityData.MeshProjectileEntityData.ProjectileEntityData.Explosion.ExplosionEntityData.MinimumBlastDamage",
+    "registry": 15.0,
+    "own": 20.0,
+    "alreadyInL3314Census": false
+   },
+   {
+    "family": "PD",
+    "owner": "PD_Vehicles_IFV_SecondaryWeapon_LightRockets",
+    "row": "PD_Vehicles_IFV_SecondaryWeapon_LightRockets.BulletEntityData.DamageFalloffEndDistance",
+    "registry": 130.0,
+    "own": 200.0,
+    "alreadyInL3314Census": true
+   },
+   {
+    "family": "PD",
+    "owner": "PD_Vehicles_MBT_AmmoTypes_MPAT",
+    "row": "PD_Vehicles_MBT_AmmoTypes_MPAT.BulletEntityData.DamageFalloffEndDistance",
+    "registry": 300.0,
+    "own": 200.0,
+    "alreadyInL3314Census": true
+   },
+   {
+    "family": "PD",
+    "owner": "PD_Vehicles_MBT_AmmoTypes_HE",
+    "row": "PD_Vehicles_MBT_AmmoTypes_HE.BulletEntityData.DamageFalloffEndDistance",
+    "registry": 300.0,
+    "own": 200.0,
+    "alreadyInL3314Census": true
+   },
+   {
+    "family": "PD",
+    "owner": "PD_Vehicles_IFV_PrimaryWeapon_HEAB",
+    "row": "PD_Vehicles_IFV_PrimaryWeapon_HEAB.BulletEntityData.DamageFalloffEndDistance",
+    "registry": 120.0,
+    "own": 100.0,
+    "alreadyInL3314Census": true
+   },
+   {
+    "family": "PD",
+    "owner": "PD_Vehicles_IFV_PrimaryWeapon_APFSDS",
+    "row": "PD_Vehicles_IFV_PrimaryWeapon_APFSDS.BulletEntityData.DamageFalloffEndDistance",
+    "registry": 160.0,
+    "own": 400.0,
+    "alreadyInL3314Census": true
+   },
+   {
+    "family": "PD",
+    "owner": "PD_Vehicles_MBT_AmmoTypes_APFSDS",
+    "row": "PD_Vehicles_MBT_AmmoTypes_APFSDS.BulletEntityData.DamageFalloffEndDistance",
+    "registry": 300.0,
+    "own": 400.0,
+    "alreadyInL3314Census": true
+   },
+   {
+    "family": "PD",
+    "owner": "PD_Vehicles_IFV_PrimaryWeapon_Canister",
+    "row": "PD_Vehicles_IFV_PrimaryWeapon_Canister.BulletEntityData.DamageFalloffEndDistance",
+    "registry": 90.0,
+    "own": 110.0,
+    "alreadyInL3314Census": true
+   },
+   {
+    "family": "PD",
+    "owner": "PD_Vehicles_RWS_LMG",
+    "row": "PD_Vehicles_RWS_LMG.BulletEntityData.TweakableDamageCurve.Points[0].X",
+    "registry": 20.0,
+    "own": 25.0,
+    "alreadyInL3314Census": false
+   },
+   {
+    "family": "PD",
+    "owner": "PD_Vehicles_RWS_LMG",
+    "row": "PD_Vehicles_RWS_LMG.BulletEntityData.TweakableArmorDamageCurve.Points[1].X",
+    "registry": 75.0,
+    "own": 60.0,
+    "alreadyInL3314Census": false
+   },
+   {
+    "family": "PD",
+    "owner": "PD_Vehicles_MBT_SecondaryWeapon_CoaxLMG",
+    "row": "PD_Vehicles_MBT_SecondaryWeapon_CoaxLMG.BulletEntityData.TweakableArmorDamageCurve.Points[0].X",
+    "registry": 25.0,
+    "own": 20.0,
+    "alreadyInL3314Census": false
+   },
+   {
+    "family": "PD",
+    "owner": "PD_Vehicles_RWS_LMG",
+    "row": "PD_Vehicles_RWS_LMG.BulletEntityData.TweakableDamageCurve.Points[1].X",
+    "registry": 75.0,
+    "own": 60.0,
+    "alreadyInL3314Census": false
+   }
+  ]
+ },
+ "inference": [
+  "For the site's weapons, firing data and bullets the registry default and the own value are the same number on every compared row. The registry-or-own question that matters for vehicles and gadgets does not arise for these files, so site values taken from the own fields need no change on that ground.",
+  "All differences found by the same pass are on gadget, launcher and vehicle owners. 40 of the 74 are not in the L3314 census list; they are recorded for the vehicle and gadget work and were not examined here."
+ ],
+ "unresolved": [
+  "Rows under WeaponModifierDataAssets (attachment package priorities) were not compared.",
+  "Rows whose default is not a single number (curve point lists such as TweakableDamageCurve.XYValues) were not compared here; L3359 compared four bolt-action curves.",
+  "Site owners without a registry row or a saved file: WB: none; GS: GS_BREN3; PD: PD_545x39mm_MG, PD_9x39mm_Match, PD_9x39mm_Semi.",
+  "Equality of the two stored numbers says nothing about which one a live match reads."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-10-weapons-registry",
+  "artifacts": [
+   {
+    "file": "manifest-L4000.json",
+    "sha256": "0edc6286c0efa993dc0276d8a9073ca0671d28b6d3f6ea0a6419d004f221d11a"
+   },
+   {
+    "file": "rawchecks-L4000.json",
+    "sha256": "cdda2f7b2205dfcc807c83fb0d706439fb387557f2b8e3b1a06ea1e4e6a2432a"
+   },
+   {
+    "file": "owncmp.py",
+    "sha256": "6ee391364478d2dfd14604d2eac2344f635ee562b9ecda5e5b676482382bcf37"
+   },
+   {
+    "file": "owncmp.json",
+    "sha256": "d3bad1c6e88977015b6b509186fa2300baa0d74d3527955c7f9dfdc962cb829a"
+   },
+   {
+    "file": "spec-4000.py",
+    "sha256": "6a55e9995e2b2295decfd69766261844f79a1f6c245c2569ba7817f5e10b58c1"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-10",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L4000",
+    "title": "Registry default equals the own value on every compared row of the 63 site weapons, their firing data and their bullets (14838 values, 0 differing)",
+    "status": "finding",
+    "summary": "Registry defaults were compared with own values for the 63 site weapons' WB and GS files and the site's bullet files: 14838 values over 60 + 206 + 13 row names, 0 differing. The differences the same pass finds are all on gadget, launcher or vehicle owners (74 rows, 40 not in the L3314 census). 1488 raw-offset checks matched.",
+    "reopenWhen": "A game update changes GRX_Weapons or a weapon, GS or bullet file; rerun owncmp.py.",
+    "statusNote": "No registry-versus-own difference on any site weapon row."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Hardware/Weapons/AssaultRifle/HK433/HK433_WB",
+    "format": "raw-ebx",
+    "sha256": "c02751eac2b054343a2a115dff8f2000bc450548c96185445cd7c3b613030e0a",
+    "question": "For the 63 site weapons, their GS firing data and their bullet files, does any registry default differ from the value stored in the owning file, as it does for vehicles and gadgets (L3314, L3356)?",
+    "result": "useful",
+    "conclusion": "All compared registry rows equal the own values."
+   },
+   {
+    "path": "Common/Hardware/Weapons/AssaultRifle/HK433/GS_HK433",
+    "format": "raw-ebx",
+    "sha256": "66caca0e667d17fdf03f9fb4f620b9c5842aa1fd8de0221128ad4862895eed51",
+    "question": "For the 63 site weapons, their GS firing data and their bullet files, does any registry default differ from the value stored in the owning file, as it does for vehicles and gadgets (L3314, L3356)?",
+    "result": "useful",
+    "conclusion": "All compared registry rows equal the own values."
+   }
+  ]
+ }
+}

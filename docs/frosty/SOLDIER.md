@@ -120,7 +120,7 @@ WM_WeaponSwap retains selector7727fe65-6ddd-4d10-aeb8-e2d1e59c9054 and Class_4aa
 
 EA class guides support their own text and unlock levels, independently of UI/gameplay mapping. Duplicate ActiveFlak description identities remain separate. No new additional-family numeric interpretation or native formula is established.
 
-L848 extends the soldier atlas with exact Feature_Soldier_Suppression â†’ PresEx_Suppression and current named spotting/suppression/mode setting definitions. PresEx member names are presentation structure, not gameplay effects. The spotting owner imports BR shakedown/spectator variants; exclude these from standard MP claims. SimEx mode inputs include GameMode, GameState, IsSP, IsQuickRespawn, HasModeTweaks, IsGranite and IsGauntlet. Mode root properties remain timeout-specific. Keep health/damage multipliers and revive/death defaults separate from active overrides. Reopen only on exact caller input values and a supported compiled-resource evaluator with same-owner control. Proposals and non-recording validation predictions are in l848-result.json.
+L848 extends the soldier atlas with exact Feature_Soldier_Suppression → PresEx_Suppression and current named spotting/suppression/mode setting definitions. PresEx member names are presentation structure, not gameplay effects. The spotting owner imports BR shakedown/spectator variants; exclude these from standard MP claims. SimEx mode inputs include GameMode, GameState, IsSP, IsQuickRespawn, HasModeTweaks, IsGranite and IsGauntlet. Mode root properties remain timeout-specific. Keep health/damage multipliers and revive/death defaults separate from active overrides. Reopen only on exact caller input values and a supported compiled-resource evaluator with same-owner control. Proposals and non-recording validation predictions are in l848-result.json.
 
 L849 weapon movement and handling selections
 
@@ -128,20 +128,20 @@ All63 current WB raw hashes match the authoritative prior receipts. Current u32 
 
 | Weapon class | Count | ADS base ratio | Default sprint ms | Default deploy ms | Default holster ms |
 |---|---:|---:|---:|---:|---:|
-| Assault Rifle | 11 | 0.6Ã¢â‚¬â€œ0.6 | 166.667Ã¢â‚¬â€œ166.667 | 533.334Ã¢â‚¬â€œ533.334 | 200.001Ã¢â‚¬â€œ200.001 |
-| Carbine | 9 | 0.67Ã¢â‚¬â€œ0.67 | 133.334Ã¢â‚¬â€œ133.334 | 466.667Ã¢â‚¬â€œ466.667 | 166.667Ã¢â‚¬â€œ166.667 |
-| DMR | 6 | 0.475Ã¢â‚¬â€œ0.67 | 133.334Ã¢â‚¬â€œ233.334 | 466.667Ã¢â‚¬â€œ733.334 | 166.667Ã¢â‚¬â€œ266.667 |
-| LMG | 10 | 0.475Ã¢â‚¬â€œ0.535 | 200.001Ã¢â‚¬â€œ266.667 | 633.334Ã¢â‚¬â€œ866.667 | 233.334Ã¢â‚¬â€œ300.001 |
-| SMG | 10 | 0.745Ã¢â‚¬â€œ0.745 | 100.001Ã¢â‚¬â€œ100.001 | 400.001Ã¢â‚¬â€œ400.001 | 133.334Ã¢â‚¬â€œ133.334 |
-| Shotgun | 4 | 0.6Ã¢â‚¬â€œ0.67 | 133.334Ã¢â‚¬â€œ166.667 | 466.667Ã¢â‚¬â€œ533.334 | 166.667Ã¢â‚¬â€œ200.001 |
-| Sidearm | 7 | 0.745Ã¢â‚¬â€œ0.825 | 66.667Ã¢â‚¬â€œ100.001 | 200.001Ã¢â‚¬â€œ350.001 | 83.334Ã¢â‚¬â€œ166.667 |
-| Sniper Rifle | 6 | 0.42Ã¢â‚¬â€œ0.67 | 133.334Ã¢â‚¬â€œ233.334 | 466.667Ã¢â‚¬â€œ633.334 | 166.667Ã¢â‚¬â€œ233.334 |
+| Assault Rifle | 11 | 0.6–0.6 | 166.667–166.667 | 533.334–533.334 | 200.001–200.001 |
+| Carbine | 9 | 0.67–0.67 | 133.334–133.334 | 466.667–466.667 | 166.667–166.667 |
+| DMR | 6 | 0.475–0.67 | 133.334–233.334 | 466.667–733.334 | 166.667–266.667 |
+| LMG | 10 | 0.475–0.535 | 200.001–266.667 | 633.334–866.667 | 233.334–300.001 |
+| SMG | 10 | 0.745–0.745 | 100.001–100.001 | 400.001–400.001 | 133.334–133.334 |
+| Shotgun | 4 | 0.6–0.67 | 133.334–166.667 | 466.667–533.334 | 166.667–200.001 |
+| Sidearm | 7 | 0.745–0.825 | 66.667–100.001 | 200.001–350.001 | 83.334–166.667 |
+| Sniper Rifle | 6 | 0.42–0.67 | 133.334–233.334 | 466.667–633.334 | 166.667–233.334 |
 
 The table shows current site model ranges. Do not use class averages as source selectors. VZ61 retains the primary DTA table despite its Sidearm class. Deploy and sprint coordinates are independent.
 
-M433 source bases select ADS0.6, sprint200.001 ms, deploy633.334 ms and undeploy233.334 ms. Its default30 Rnd magazine shifts sprint and deploy by-1, so the current model displays ADS0.60Ãƒâ€”, sprint167 ms, deploy533 ms and computed holster200 ms. Existing UI cards already display the first three. A separate Holster setting card can show the fourth, with a source-setting label.
+M433 source bases select ADS 0.6, sprint 200.001 ms, deploy 633.334 ms and undeploy 233.334 ms. Its default 30 Rnd magazine shifts sprint and deploy by -1, so the current model displays ADS 0.60×, sprint 167 ms, deploy 533 ms and computed holster 200 ms. Existing UI cards already display the first three. A separate Holster setting card can show the fourth, with a source-setting label.
 
-A non-recording model check is saved: selecting M43320 Rnd gives ADS0.75Ãƒâ€”, sprint133 ms, deploy467 ms and holster167 ms with actual UI formatting. These are software predictions, not gameplay measurements.
+A non-recording model check is saved: selecting M433 20 Rnd gives ADS 0.75×, sprint 133 ms, deploy 467 ms and holster 167 ms with actual UI formatting. These are software predictions, not gameplay measurements.
 
 Absolute ADS m/s speed requires an exact soldier baseline and equation. Total weapon-swap time requires animation/state sequencing and overlap proof. Do not multiply unresolved soldier tuples or add holster and deploy as an effective swap duration. Prior table operands are carried through equal current hashes; they are not reported as new measurements.
 
@@ -695,3 +695,230 @@ Test: one rifle bullet to the chest of an armored enemy, reading health and armo
 75 raw-offset checks matched.
 
 Tests: one knife swing front and back; defibrillator on an enemy uncharged and charged; health lost per second in gas.
+
+## L4013 - Melee loadout values and sprint speed (10 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-10-L4013-melee-loadout-values-and-sprint-state.json). Loadout screen (operator): knives, Ice Axe, Serrated Blade, EOD Bot Arm and Diver's Knife show Hit Delay 100 ms, Damage 35; Sledgehammer 200 ms, 60.
+
+- Damage: `Affector_Melee_Damage` entry 0 is 35 and entry 1 is 60, so entry 1 is the Sledgehammer. Entry 2 (1500) is the takedown; entry 3 (70) is unassigned.
+- Hit delay: one unnamed block in the three melee firing files, slot D, reads 0.1 (knives) and 0.2 (Sledgehammer). The EOD arm reads 0.15 there against a displayed 100 ms.
+
+| Firing file | A | B | C | D |
+|---|---|---|---|---|
+| `Melee_Shared_WeaponFiring` | 0.1 | 0.1 | 0 | 0.1 |
+| `Melee_Shared_Sledgehammer_WeaponFiring` | 0 | -1 | 0.1 | 0.2 |
+| `Melee_Shared_EODArm_WeaponFiring` | 0.1 | 0.1 | 0.05 | 0.15 |
+
+- Sprint speed: no stored bonus for knife, defibrillator or repair tool. `MSA_Hip_Melee` and `MSA_Hip_Weapons` are both [1]; all 36 gadget blueprints use sprint settings index 0 and those files hold recovery times only; the only sprint multipliers are the soldier rows 1.857 and 2.05. An unowned gadget registry row `SprintModifier` 2.0 has no identified consumer.
+
+Test: time a fixed sprint distance holding a rifle, a knife, the defibrillator and the repair tool.
+
+24 raw-offset checks matched.
+
+## L4014 - Sprint speed: stored speeds and the fast-sprint flag (10 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-10-L4014-sprint-speed-stored-values-and-fast-sprint-flag.json). - `FastSprintRequired` (soldier public channel) is referenced once each by the abilities of Combat Knife, Geko Knife, Dino Machete, Ice Climbing Axe, EOD Arm, Dive Knife (1.4.3.0), the defibrillator and the repair tool. The Sledgehammer ability, the adrenaline shot and all weapon blueprints do not reference it.
+- `Glacier_Soldier` pose entries (`Class_7845fbab`) store two speeds, `Field_1a2b6380` and `Field_e4506828`:
+
+| Pose identifier | First speed | Second speed | Note |
+|---|---|---|---|
+| 475999738 | 3.5 | 6.05 | standing (0.6 x 1.0 x 1.2 size entry) |
+| -872007306 | 2.1 | 4.7 | crouch-sized |
+| 963439859 / 963439860 | 3 | 5.285 | narrow standing |
+| 475102768 | 0.9 | 0.9 | prone-sized |
+| 963439863 | 1.2 | 1.2 |  |
+| 963439862 | 0.9 | 0.9 |  |
+| 963439857 | 7.15 | 7.15 | low and long (1.25 x 0.25 x 1.3) |
+
+Published measurements (TheXclusiveAce, November 2025 and July 2026) against stored values:
+
+| In hand | Measured (m/s) | Stored match |
+|---|---|---|
+| Walking, any item | 3.5 | standing pose first speed 3.5 |
+| Gun except LMG, sprint | 6.05 | standing pose second speed 6.05 |
+| LMG without Support proficiency | 5.75 | 0.95 x 6.05; no stored 0.95 found |
+| Gun with adrenaline shot | about 6.65 | 1.1 x 6.05 = 6.655; two soldier rows read 1.1 |
+| Sledgehammer (July 2026) | 6.5 | 1.857 x 3.5 = 6.4995 |
+| Knife-type melee, defibrillator, repair tool | 7.15 | 2.05 x 3.5 = 7.175, or 1.1 x 6.5 = 7.15; a pose entry also stores 7.15 |
+
+- The size of the fast sprint is matched by value only; the equation is not read. This supersedes the L4013 line that no stored value relates to the bonus.
+- July 2026 timings before the EOD Bot Arm change (1.4.2.5): EOD arm 400 ms to first hit and 800 ms between hits, Sledgehammer 1100 ms between hits; the speaker says menu hit-delay values do not match in-game timing.
+
+Test: timed sprint with a rifle, an LMG, a knife and the Sledgehammer.
+
+16 raw-offset checks matched.
+
+## L4015 - Movement-speed logic: inputs and constants (10 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-10-L4015-move-speed-modifier-inputs-and-constants.json). Chain: item ability sets `FastSprintRequired` -> `SoldierMotionMachine` parameter -> `SimEx_RootLayerLogic` input 79 -> compiled resource `2bfca9f18b8f10e9`, parts `SimEx_MoveSpeedModifiers` and `SimEx_Sprinting_States`.
+
+Inputs of the movement-speed block:
+
+| Input | Name | Kind |
+|---|---|---|
+| 70 | `SprintStrafeAllowed_PerTeam` | mutator |
+| 71 | `SoldierMovementSpeedMultiplier_PerTeam` | mutator |
+| 72 | `AI_SoldierMovementSpeedMultiplier_PerTeam` | mutator |
+| 73 | `DraggingSpeedModifier` | soldier registry |
+| 75 | `LMG` | categorization tag |
+| 76 | `MachineGun` | categorization tag |
+| 77 | `CurrentStance` | soldier channel |
+| 78 | `ConcussionGrenade_Movement Speed Modifier` | gadget registry |
+| 79 | `FastSprintRequired` | soldier channel |
+| 80 | `FastSprintTopSpeedMultiplier` | soldier registry, 2.05 |
+| 81 | `DefaultStandSprintTopSpeedMultiplier` | soldier registry, 1.857 |
+| 84 | `Affector_Suppression_AdrenalineShot` | affector |
+| 85 | `Affector_MedicalTriageSprint` | affector |
+| 86 | `Affector_EnhancedFiltering` | affector |
+| 87 | `Affector_ConcussionGrenade` | affector |
+| 88 | `Affector_BarbedWire_SpeedSlowdown` | affector |
+| 89 | `Affector_SwiftTriageSprint` | affector |
+
+- Compiled constants at 4628, 4632, 4636: 1.1, 0.95, 1.1818. On the stored sprint speed 6.05 (L4014): 6.655 (adrenaline, measured about 6.65), 5.7475 (LMG, measured 5.75), 7.1499 (knife, defibrillator, repair tool, measured 7.15).
+- Not disassembled: the pairing of constant and condition is by value and adjacency. The Sledgehammer's 6.5 and the role of the 2.05 / 1.857 multipliers stay open.
+
+7 raw-offset checks matched.
+
+## L4016 - Movement-speed logic disassembled (10 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-10-L4016-move-speed-modifiers-disassembled.json). Read from the compiled resource `2bfca9f18b8f10e9` (section `SimEx_MoveSpeedModifiers`); variable names come from the `SoldierMotionMachine` parameter lists.
+
+```
+StandSprintTopSpeedMultiplier = FastSprintActive ? FastSprintTopSpeedMultiplier (2.05) : DefaultStandSprintTopSpeedMultiplier (1.857)
+
+FastSprintActive = FastSprintRequired AND NOT SP_IsSPMode AND FastSprintAllowed_PerTeam
+SprintRecoverTime = SprintRecoverTimeMultiplier * (FastSprintActive ? 1.75 : 1)
+
+if barbed wire affector:            m = 0.25
+elif concussion affector:           m = ConcussionGrenade_Movement Speed Modifier
+elif IsManDown:                     m = GraniteDownedStimActive ? 1.5 : 1
+else:
+    w = IsSPAI ? 1 : WeaponMoveSpeedMultiplierInput
+    if Sprint:
+        boost = (MedicalTriageSprint or AdrenalineShot or EnhancedFiltering or SwiftTriageSprint affector) ? 1.1 : 1
+        lmg   = (NOT flagA and (LMG tag or MachineGun tag) and stance check) ? 0.95 : 1
+        w     = w * boost * traitsprintspeed * lmg
+        cap   = FastSprintRequired ? 1 : 1.1818
+    else:
+        cap   = 1
+    m = clamp(w, 0, cap)
+WeaponMoveSpeedMultiplierOutput = m * f(firing ? 0.8 : 1, ...)      (dragging: DraggingSpeedModifier instead)
+```
+
+- Knife, defibrillator, repair tool: 3.5 x 2.05 = 7.175 m/s (measured 7.15). Sledgehammer: 3.5 x 1.857 = 6.50 (measured 6.5). The cap of 1.0 under fast sprint is why adrenaline does not stack on a knife.
+- 1.1818 is the modifier ceiling without fast sprint, not the knife bonus (corrects L4015). 1.1 is shared by four sprint affectors; 0.95 is the LMG penalty.
+- Open: guns measure 6.05, which needs a weapon input of about 0.931 that is not stored in any file searched.
+- Format notes, listing and the reader are in the run folder (`move-speed-disassembly`).
+
+30 raw-offset checks matched.
+
+## L4018 - Melee damage entry selection (10 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-10-L4018-melee-graph-damage-entry.json). Read from the compiled `SimEx_Melee` resource `25ca266bea810e41` (1.4.3.0 capture). Entries of `Affector_Melee_Damage` are 35, 60, 1500, 70 (L4013).
+
+```
+entry = switch TakedownAttackerMeleeWeaponID: case 2 -> 1, otherwise -> 0          (0x6b14)
+if cmp(HallucinationLevel, 2): entry = 3                                           (0x35cc)
+apply Affector_Melee_Damage[entry] to the target                                   (0x365c)
+single player local player: Affector_Melee_Damage_SP[entry] instead                (0x3444)
+takedown victim: Affector_Melee_Damage[2] with parameter 0.2                       (0x4a18)
+
+reach = (2 < f(AimPitch, curve) < 2.55) ? 2.55 : 1.65                              (0x2f0c)
+a second test requires -1.41 < AimPitch < -0.649 (radians, looking down)           (0x3044)
+```
+
+- Damage is chosen by melee weapon ID, not stored per weapon: ID 2 gives 60 (Sledgehammer by the loadout screen), every other ID 35.
+- Entry 3 (70) needs a state test whose variable resolves by index to `HallucinationLevel`; unconfirmed.
+- Entry 2 (1500) is the takedown kill.
+- No hit-delay constant is in this graph.
+
+19 raw-offset checks matched.
+
+## L4020 - Melee target finding and class trait graphs (10 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-10-L4020-melee-targeting-and-trait-graphs.json). Read from compiled expression graphs with `exgraph.py`; detail in the run folder (`expression-graphs/findings/melee-traits.md`).
+
+- `SimEx_FindTargets` / `SimEx_FindTargets_QuickFind`: target finding runs only for `CurrentAction` 0, 3 or 13 (QuickFind also 12 and 1). Speed threshold 2 adds 0.3 to the maximum distance and 5 degrees to the attack angle. Base limits are `GRX_Glacier_Soldier` tunables.
+- Takedown: back angle is the `TakeDown BackAngle` tunable, or -115 when a moving flag is set; the relative angle is bucketed at 45 and 135 degrees.
+- `SimEx_Melee`: three latches of the form clamp(stored + dt / T, 0, 1) with T = 0.45 (`AffectedByMeleeBlocked`), 0.1 (`BlockMeleeFiring`) and 0.25 s. `Affector_InTakeDown_DamageModifier` is applied with parameter 3.3.
+- Active Medic: sphere radius 7, tick period 1, heal and ammo affectors with parameter 1.1, self affector with parameter 10. Active Attack: radius 10, 4.9 s timeout.
+- Other traits, the freeze mechanic and the two mutator-copy graphs are tabulated in the findings file; those rows are a delegated reading and are not individually raw-checked.
+
+20 raw-offset checks matched.
+
+## L4022 - Root soldier graph: combat dive, slide and vault start rules (10 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-10-L4022-root-graph-dive-slide-vault.json). Read from compiled expression graphs with `exgraph.py`; detail in the run folder (`expression-graphs/findings/root-part-1.md`).
+
+- Combat dive (0x112c8, copy at 0x18c68): gate `CombatDiveAllowed_PerTeam`; speed > 4.0 x `AppliedSPMovementSpeedModifier`; `TimeSinceLastDiveOrSlide` > `CombatDive.CooldownDuration`; `CurrentAction` 0, or 1 within 0.134 s of `LastTimeOnGround`; then `RequestCombatDive = Sprint AND InputProne`. A 0.25 timer condition also applies.
+- Slide (0x15c04): gate `SlideAllowed_PerTeam`; speed > `Slide.AccumulatingThreshold.NeededVelocity` x `SoldierMovementSpeedMultiplier` x `AppliedSPMovementSpeedModifier`; a charge divided by `Slide.AccumulatingThreshold.NeededTime` must reach 1.0 unless a slide is already requested or buffered; `TimeSinceLastDiveOrSlide` > `Slide.CooldownDuration`; then `RequestSlide` is set.
+- Dive and slide share one timer, `TimeSinceLastDiveOrSlide`, capped at 10 and frozen during actions 13 and 25.
+- Vault: input direction thresholds +0.1 and -0.1; minimum obstacle height 0.31 (AI), 0.7 when speed exceeds 4.0, else 0.51; maximum from `Vault_StartHeightMax` or `Vault_StartHeightMaxDirectional`; after a jump the start height adds clamp(current height - `LastJumpHeight`, 0, 1).
+- `OptionSprintVaultOver`: vault-over is allowed when the option is off, or when sprinting.
+
+9 raw-offset checks matched.
+
+## L4023 - Man-down bleed-out and revive graphs (10 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-10-L4023-mandown-bleedout-and-revive-graphs.json). Read from compiled expression graphs with `exgraph.py`; detail in the run folder (`expression-graphs/findings/soldier-state.md`).
+
+- `SimEx_IsInManDown`: `IsBledout` is set when `HealthValue` < -90. Drain = rate x frame time. Rate table 1.6667, 2.2222, 3.3333, 1.1111, selected by `ManDownExperienceType`; a fast case uses 200. Divided by a request-revive slowdown tunable (separate values for multiplayer, battle royale, Gauntlet and single player) and by `HemostaticSmoke_BleedoutMulti`.
+- `SimEx_DragRevive_Team`: total time from `ReviveTotalTime`, the Support and battle royale variants and `ActiveReviveTimeReduction`, floored at 0.1. Remaining time counts down by frame time x modifier; the modifier is `DraggingReviveTimeMovingModifier` when the reviver's speed is at least `Deathflow_MovingReviveSpeedThreashold` and the revive is past its first 0.75 s and before its last 0.7 s, otherwise 1.
+- Revive completion applies `AffectorRevive_HealthRestored` (entry chosen by a per-class health rank tunable), `AffectorRevive_Regen` (parameter `PostRevive_RegenerationDuration`), conditionally `Affector_Gadget_CeramicArmor` (parameter 0.1, entry 2), and removes the man-down damage modifier.
+- Defibrillator revive (`SimEx_GetRevive`) applies `AffectorRevive_Defibrillator_Revive` with parameter 0.5.
+- Redeploy and self-kill flags are set in `SimEx_DamageReceived` (L4019). No spawn-protection or friend/foe rule was found in these graphs.
+
+11 raw-offset checks matched.
+
+## L4024 - Traversal graphs: fall bands, slide strength, ground support (10 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-10-L4024-traversal-graphs-fall-slide-support.json). Read from compiled expression graphs with `exgraph.py`; detail in the run folder (`expression-graphs/findings/traversal.md`).
+
+- `SimEx_InAirExpressions`: landing class by vertical speed vy: above -6.2 class 0, above -13 class 1, above -15.7 class 2, above -18.45 class 3, above -21.23 class 4, above -29.5 class 5, otherwise 7; class 6 for a jump landing above -13. A second copy fires only when close to ground with vy below -2. No damage is applied in this graph.
+- `SimEx_SlidingLogic`: factor = (clamp(`TimeSinceLastDiveOrSlide`, 1.25, 2.5) - 1.25) / 2.5 + 0.5; slide limit = clamp(factor x `Slide.ImpulseLength` x curve(speed) / 6.5, 0, 1); slide speed clamped to 5..100.
+- `SimEx_CheckSupport`: OnGround when ground distance < 0.1, CloseToGround when < 0.3, and a next-frame prediction using distance + vy x frame time.
+- Swimming vault (`SimEx_CheckStartVault_Swimming`): window from 1.25 up to `Vault_Swimming_StartHeightMax`, with constants 0.5, 0.4 and 0.2.
+- In-air vault runs only for non-AI soldiers holding the vault input. Parachute steering is slew-limited at 0.8 per second with drag capped at 50; ladder entry has a 75 degree facing cone; zipline and rope detach on jump, crouch, vehicle entry or abort. These rows are a delegated reading and not individually raw-checked.
+
+16 raw-offset checks matched.
+
+## L4025 - Root soldier graph: stance, prone, swimming bands, parachute, vault window, slide input (10 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-10-L4025-root-graph-stance-parachute-vault-input.json). Read from compiled expression graphs with `exgraph.py`; detail in the run folder (`expression-graphs/findings/root-part-3.md`).
+
+- Stance (0xa2c0 to 0xad78): a change between prone and stand or crouch starts a 0..1 timer advancing by frame time / `TransitionInputBlockTime`; `TransitionInputBlock` is true until it completes.
+- Prone entry (0xe4a4): requires not `ZipLineAttach`, not `HangingRopeAttached`, and `ProneAllowed_PerTeam` (AI: `AI_ProneAllowed_PerTeam`). Stance values 0, 1, 2 read as stand, crouch, prone.
+- Stance override (0xf3a4): `StanceOverride` value 7 means none; otherwise it sets the physics shape.
+- Swimming depth bands: thresholds 0.2, 0.6, 1.2 with a 0.2 s hold in the newer classifier; 0.25, 0.8, 1.5 in the legacy one.
+- Parachute (0x22964, 0x387a0): `Parachute.InCooldown` until 0.6 s after `Parachute.TimeSinceCut` and only in actions 1, 11, 25, 27; auto-deploy when ground distance is between `Parachute.AutoDeploy.DistanceToGround` - 1.5 (or 5.0 during insertion) and + 1.0; armed by a downward probe of length 0.8 x 150.
+- Slide clock (0x2a8a0): `TimeSinceLastDiveOrSlide` counts up to 10 and pauses in actions 13 and 25; slide state gate is action 0, or 1 or 12 outside certain fall-speed bands.
+- Vault window (0x3e288): while `InAirFromJump`, maximum height = `Vault_StartHeightMax` (forward or idle) or `Vault_StartHeightMaxDirectional` (other directions) minus clamp(height now - `LastJumpHeight`, -0.25, 0.67); obstacle height bands at 1.9, and 0.9 and 1.4, pick the vault variant; inputs are clamped to +-0.99 with a 0.1 dead zone.
+- Slide input (0x3a980): with the slide input held, slide if `TargetStance` is 0 or 1; otherwise `OptionSlideOnCrouchNetworked` chooses crouch toggle, crouch hold, or both. The moving test includes prone speed above 1.5 and excludes steep slopes.
+- Prone movement is limited by obstacle and ground probes (three inlined copies); detail in the findings file.
+
+18 raw-offset checks matched.
+
+## L4028 - Player-owner and gameplay feature graphs (10 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-10-L4028-player-and-feature-graphs.json). Read from compiled expression graphs with `exgraph.py`; detail in the run folder (`expression-graphs/findings/player-features.md`).
+
+- Respawn delay (`ActSimEx_PlayerOwner_UpdateOnChange`, 0x0 to 0x8b4): `GameMode_RespawnDelay_Team1/2`, else `DefaultRespawnDelay`, x `Generic_RespawnDelayMultiplier_PerTeam` x `SoldierRespawnDelayMultiplier_PerTeam`; Gauntlet subtracts `Gauntlet_Mission_PlacementRedeployTimeBonus`. In `SimEx_PlayerOwner` the redeploy timer is clamped between `MinRespawnTime` and 150 (a 100 clamp also exists).
+- Psy gas (`SimEx_PsyGasLogic`): hallucination amount 0..1 with Mid and Top thresholds, snapped to 0 below 0.0001; health regeneration blocked above `PsyGas_BlockHealthRegenThreshold`; damage over time only at hallucination level 2, with no mask, and health at or above 35. Gas volumes apply `Affector_PsyGas_Damage` with parameter 1.1 once per second.
+- Contracts: every contract-values graph is one game-mode switch (2 battle royale, 3 Conquest, 4 Breakthrough, 13 Tactical Obliteration, 10 unnamed) picking a timer and a count tunable; each objective type needs its kill switch off and its mutator on; drop rates come from `BaseDropRate_<mode>`.
+- Thermal signature: updated every 0.25 s with 0.25 smoothing and a 0.05 floor; depends on stance, water and speed; a soldier being revived fades toward 0.5.
+- Spotting: capture-point self-unspot radius 5; Rush objective 8 m for 30 s; suppression above 0.5 spots the suppressor for 5 s; ping and spot durations come from spot-duration tunables.
+- Heat zone: `Affector_Heat_StatusEffect` with parameter 0.5 every `InsideHeatZone_ExecutionInterval`; dynamic gas stops at 95 % progress (these two were checked by the reader against the 1.4.3.0 bodies only).
+
+12 raw-offset checks matched.
+
+## L4034 - Tunable defaults for names read by expression graphs (10 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-10-L4034-tunable-defaults-for-graph-names.json). Joined from the tunable files (`GRX_*`, `MutatorDatabase_*`, kill switch files); table in the run folder (`expression-graphs/tunables-joined.tsv`).
+
+- The table `expression-graphs/tunables-joined.tsv` lists 901 tunables read by simulation graphs: file, name, kind, default, minimum, maximum and the graphs that read each.
+- Soldier: stance change input block 0.95 s; vault start height 1.97 forward and 1.4 in other directions (2.4 swimming); parachute auto-deploy distance 13; revive total time 4.72 s; slide cooldown 1.0 s, slide needs speed 5.2 for 0.25 s; melee maximum distance 2.5; active revive time reduction 0.7.
+- Gadgets: defibrillator full charge 1.0 s with minimum 0.3 s, friendly range 2.0 and enemy range 1.5; EIDOS alive timer 5 s and 3 intercepts; adrenaline shot 8 s; drone out-of-bounds limit 3 s; improved jammer radius x 2; sabotage distance 2.4; mortar dispersion radius 8.
+- Other: passive mastery experience interval 30 s; minimum respawn time 1.5 s; spot duration 8 s; spot-on-fire duration 0.4 s; psy gas blocks health regeneration above 0.15; Phalanx aim rotation speed 270.
+- Defibrillator charge time from L4026 therefore defaults to clamp(1.0 - 0.7, 0.3, 1.0) = 0.3 s when the active-revive reduction applies in full (the condition for the reduction is not read).
+
+18 raw-offset checks matched.

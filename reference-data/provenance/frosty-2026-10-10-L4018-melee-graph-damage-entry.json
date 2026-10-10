@@ -1,0 +1,304 @@
+{
+ "lead": "L4018",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Read from saved raw captures; no export, no new capture."
+ },
+ "question": "How does the melee logic choose between the four damage entries of Affector_Melee_Damage (35, 60, 1500, 70)?",
+ "sourceFacts": {
+  "method": "The compiled SimEx_Melee resource 25ca266bea810e41 (1.4.3.0 capture of 23 September; 35,888 bytes) was listed with expression-graphs/exgraph.py. Imports are named from the graph's source asset: file by asset catalog GUID, object by instance GUID in the decoded imported file. Soldier variables are named from the SoldierMotionMachine parameter lists as in L4016. Full listing: expression-graphs/SimEx_Melee.listing.txt.",
+  "control": {
+   "description": "The entry values are the raw-checked L4013 values (35, 60, 1500, 70 at offsets 156, 236, 316, 396). The loadout screen shows 35 for knives and 60 for the Sledgehammer, which matches entry 0 as the default and entry 1 for one weapon ID. Greater-than and less-than are identified here by paired range tests (2 < x < 2.55; -1.41 < AimPitch < -0.649).",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\candidate-expression-resources-2026-09-23\\resources\\25ca266bea810e41.res",
+     "rawSha256": "c8911be73aea82450ad736ddef84ed7f00e38aa924704b4a7a7911aadd63bfe4",
+     "offset": 2684,
+     "type": "f32",
+     "bytesHex": "33335340",
+     "value": 3.299999952316284,
+     "expect": 3.3,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\candidate-expression-resources-2026-09-23\\resources\\25ca266bea810e41.res",
+     "rawSha256": "c8911be73aea82450ad736ddef84ed7f00e38aa924704b4a7a7911aadd63bfe4",
+     "offset": 2696,
+     "type": "f32",
+     "bytesHex": "33332340",
+     "value": 2.549999952316284,
+     "expect": 2.55,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\candidate-expression-resources-2026-09-23\\resources\\25ca266bea810e41.res",
+     "rawSha256": "c8911be73aea82450ad736ddef84ed7f00e38aa924704b4a7a7911aadd63bfe4",
+     "offset": 2700,
+     "type": "f32",
+     "bytesHex": "3333d33f",
+     "value": 1.649999976158142,
+     "expect": 1.65,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\candidate-expression-resources-2026-09-23\\resources\\25ca266bea810e41.res",
+     "rawSha256": "c8911be73aea82450ad736ddef84ed7f00e38aa924704b4a7a7911aadd63bfe4",
+     "offset": 2704,
+     "type": "f32",
+     "bytesHex": "e17ab4bf",
+     "value": -1.409999966621399,
+     "expect": -1.41,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\candidate-expression-resources-2026-09-23\\resources\\25ca266bea810e41.res",
+     "rawSha256": "c8911be73aea82450ad736ddef84ed7f00e38aa924704b4a7a7911aadd63bfe4",
+     "offset": 2708,
+     "type": "f32",
+     "bytesHex": "dd2426bf",
+     "value": -0.6489999890327454,
+     "expect": -0.649,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\candidate-expression-resources-2026-09-23\\resources\\25ca266bea810e41.res",
+     "rawSha256": "c8911be73aea82450ad736ddef84ed7f00e38aa924704b4a7a7911aadd63bfe4",
+     "offset": 2724,
+     "type": "f32",
+     "bytesHex": "cdcc4c3e",
+     "value": 0.20000000298023224,
+     "expect": 0.2,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\candidate-expression-resources-2026-09-23\\resources\\25ca266bea810e41.res",
+     "rawSha256": "c8911be73aea82450ad736ddef84ed7f00e38aa924704b4a7a7911aadd63bfe4",
+     "offset": 2692,
+     "type": "f32",
+     "bytesHex": "00000040",
+     "value": 2.0,
+     "expect": 2.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\candidate-expression-resources-2026-09-23\\resources\\25ca266bea810e41.res",
+     "rawSha256": "c8911be73aea82450ad736ddef84ed7f00e38aa924704b4a7a7911aadd63bfe4",
+     "offset": 2812,
+     "type": "i32",
+     "bytesHex": "01000000",
+     "value": 1,
+     "expect": 1,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\candidate-expression-resources-2026-09-23\\resources\\25ca266bea810e41.res",
+     "rawSha256": "c8911be73aea82450ad736ddef84ed7f00e38aa924704b4a7a7911aadd63bfe4",
+     "offset": 2816,
+     "type": "i32",
+     "bytesHex": "00000000",
+     "value": 0,
+     "expect": 0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\candidate-expression-resources-2026-09-23\\resources\\25ca266bea810e41.res",
+     "rawSha256": "c8911be73aea82450ad736ddef84ed7f00e38aa924704b4a7a7911aadd63bfe4",
+     "offset": 2824,
+     "type": "i32",
+     "bytesHex": "02000000",
+     "value": 2,
+     "expect": 2,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\candidate-expression-resources-2026-09-23\\resources\\25ca266bea810e41.res",
+     "rawSha256": "c8911be73aea82450ad736ddef84ed7f00e38aa924704b4a7a7911aadd63bfe4",
+     "offset": 2832,
+     "type": "i32",
+     "bytesHex": "03000000",
+     "value": 3,
+     "expect": 3,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\candidate-expression-resources-2026-09-23\\resources\\25ca266bea810e41.res",
+     "rawSha256": "c8911be73aea82450ad736ddef84ed7f00e38aa924704b4a7a7911aadd63bfe4",
+     "offset": 17564,
+     "type": "i32",
+     "bytesHex": "94390000",
+     "value": 14740,
+     "expect": 14740,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\candidate-expression-resources-2026-09-23\\resources\\25ca266bea810e41.res",
+     "rawSha256": "c8911be73aea82450ad736ddef84ed7f00e38aa924704b4a7a7911aadd63bfe4",
+     "offset": 17460,
+     "type": "i32",
+     "bytesHex": "e0080000",
+     "value": 2272,
+     "expect": 2272,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\candidate-expression-resources-2026-09-23\\resources\\25ca266bea810e41.res",
+     "rawSha256": "c8911be73aea82450ad736ddef84ed7f00e38aa924704b4a7a7911aadd63bfe4",
+     "offset": 17496,
+     "type": "i32",
+     "bytesHex": "8c390000",
+     "value": 14732,
+     "expect": 14732,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\candidate-expression-resources-2026-09-23\\resources\\25ca266bea810e41.res",
+     "rawSha256": "c8911be73aea82450ad736ddef84ed7f00e38aa924704b4a7a7911aadd63bfe4",
+     "offset": 31092,
+     "type": "i32",
+     "bytesHex": "d0080000",
+     "value": 2256,
+     "expect": 2256,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\candidate-expression-resources-2026-09-23\\resources\\25ca266bea810e41.res",
+     "rawSha256": "c8911be73aea82450ad736ddef84ed7f00e38aa924704b4a7a7911aadd63bfe4",
+     "offset": 22600,
+     "type": "i32",
+     "bytesHex": "74080000",
+     "value": 2164,
+     "expect": 2164,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\candidate-expression-resources-2026-09-23\\resources\\25ca266bea810e41.res",
+     "rawSha256": "c8911be73aea82450ad736ddef84ed7f00e38aa924704b4a7a7911aadd63bfe4",
+     "offset": 22616,
+     "type": "i32",
+     "bytesHex": "d8080000",
+     "value": 2264,
+     "expect": 2264,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\candidate-expression-resources-2026-09-23\\resources\\25ca266bea810e41.res",
+     "rawSha256": "c8911be73aea82450ad736ddef84ed7f00e38aa924704b4a7a7911aadd63bfe4",
+     "offset": 15760,
+     "type": "i32",
+     "bytesHex": "58080000",
+     "value": 2136,
+     "expect": 2136,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\candidate-expression-resources-2026-09-23\\resources\\25ca266bea810e41.res",
+     "rawSha256": "c8911be73aea82450ad736ddef84ed7f00e38aa924704b4a7a7911aadd63bfe4",
+     "offset": 15768,
+     "type": "i32",
+     "bytesHex": "5c080000",
+     "value": 2140,
+     "expect": 2140,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 19,
+   "matched": 19,
+   "files": 1,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "rawchecks-L4018.json"
+  },
+  "resource": "25ca266bea810e41",
+  "build": "1.4.3.0 capture; not re-captured on 1.4.3.5",
+  "codeBase": 3592,
+  "dataDelta": 560,
+  "imports": 108,
+  "pseudocode": "```\nentry = switch TakedownAttackerMeleeWeaponID: case 2 -> 1, otherwise -> 0          (0x6b14)\nif cmp(HallucinationLevel, 2): entry = 3                                           (0x35cc)\napply Affector_Melee_Damage[entry] to the target                                   (0x365c)\nsingle player local player: Affector_Melee_Damage_SP[entry] instead                (0x3444)\ntakedown victim: Affector_Melee_Damage[2] with parameter 0.2                       (0x4a18)\n\nreach = (2 < f(AimPitch, curve) < 2.55) ? 2.55 : 1.65                              (0x2f0c)\na second test requires -1.41 < AimPitch < -0.649 (radians, looking down)           (0x3044)\n```",
+  "applyAffectorFunction": "329770b8",
+  "functionHashes": {
+   "02dd315a": "greater than (float)",
+   "f3918ee3": "less than (float)"
+  },
+  "otherImports": [
+   "KillSwitches_CH1:KS_MeleeTakeDowns",
+   "GRX_Glacier_Soldier:Melee bash align distance",
+   "Affector_InTakeDown_DamageModifier (parameter 3.3)",
+   "Affector_RemoveInTakeDownDamageModifier",
+   "DQD_MeleeTargetInfo",
+   "MutatorDatabase_CH1:Shakedown_Enabled"
+  ]
+ },
+ "inference": [
+  "Melee damage is not stored per weapon. One shared affector holds four entries and the graph picks one: entry 1 (60) for melee weapon ID 2, entry 0 (35) for every other ID. Weapon ID 2 is therefore the Sledgehammer, by the loadout-screen values.",
+  "Entry 3 (70) is selected when a soldier state variable compares true against 2. The variable resolves to the name HallucinationLevel by index; that name and the direction of the comparison are not confirmed.",
+  "Entry 2 (1500) is the takedown kill, applied to the victim with a parameter of 0.2 (probably a delay in seconds).",
+  "The EOD Bot Arm is not weapon ID 2 if it deals 35 as the loadout screen shows; its separate 0.15 firing value (L4013) is not used by this graph.",
+  "Melee reach in this graph is 1.65, or 2.55 in a pitch-dependent case."
+ ],
+ "unresolved": [
+  "The ID-to-weapon table for TakedownAttackerMeleeWeaponID.",
+  "The meaning of the state that selects entry 3.",
+  "Hit timing: this graph holds no 0.1 or 0.2 hit-delay constant; the 0.2 here belongs to the takedown.",
+  "Whether the 1.4.3.5 resource is byte-identical to this 1.4.3.0 capture."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-10-weapons-registry",
+  "artifacts": [
+   {
+    "file": "manifest-L4018.json",
+    "sha256": "e3e98ed6b47bbb48ec74b8a622c8f40f9bfa910754eb512957859243c681091d"
+   },
+   {
+    "file": "rawchecks-L4018.json",
+    "sha256": "8dfd576e93c8884cacbf8d4238051b5e0ec204cb157a047bbbd86b47cf9552f5"
+   },
+   {
+    "file": "spec-4018.py",
+    "sha256": "55de95b4dfc87ed56ae577783b5be61d800ee2ea78c32029883c80770c2feda5"
+   },
+   {
+    "file": "expression-graphs/exgraph.py",
+    "sha256": "b93fa5c53773d1772b2690da395ffc517b072c93dc27323d52b40062cfbd92ea"
+   },
+   {
+    "file": "expression-graphs/SimEx_Melee.listing.txt",
+    "sha256": "a951e08a678b9bebc99cded07d97dd8ebbc8e80118cb28a0da163462f40fd05f"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-10",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L4018",
+    "title": "SimEx_Melee disassembled: the damage entry of Affector_Melee_Damage is chosen by TakedownAttackerMeleeWeaponID (2 selects entry 1 = 60, others entry 0 = 35), a state test selects entry 3 = 70, and takedowns apply entry 2 = 1500",
+    "status": "finding",
+    "summary": "The melee graph picks the damage entry of the shared melee affector: entry 1 (60) for melee weapon ID 2, entry 0 (35) otherwise, entry 3 (70) under a soldier state test, and entry 2 (1500) for takedown victims. Reach is 1.65 or 2.55. 19 raw-offset checks matched.",
+    "reopenWhen": "The melee weapon ID table is found, or an in-game hit shows 70 damage.",
+    "statusNote": "Melee damage entry selection read; ID table and the 70-damage state open."
+   }
+  ],
+  "assets": [
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/builds/1.4.3.0/capture/candidate-expression-resources-2026-09-23/resources/25ca266bea810e41.res",
+    "format": "raw-ebx",
+    "sha256": "c8911be73aea82450ad736ddef84ed7f00e38aa924704b4a7a7911aadd63bfe4",
+    "question": "How does the melee logic choose between the four damage entries of Affector_Melee_Damage (35, 60, 1500, 70)?",
+    "result": "useful",
+    "conclusion": "Damage entry switch at 0x6b14, override at 0x35cc, apply at 0x365c, takedown apply at 0x4a18."
+   }
+  ]
+ }
+}

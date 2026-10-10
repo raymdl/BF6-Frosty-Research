@@ -34,6 +34,7 @@ ap.add_argument("name", help="capture name, <topic>-<yyyy-mm-dd>; the folder und
 ap.add_argument("routes", nargs="*")
 ap.add_argument("--routes-file")
 ap.add_argument("--catalog", action="store_true")
+ap.add_argument("--resource-ids-file", help="file of 16-digit resource IDs whose raw bodies are also captured")
 ap.add_argument("--build", default="1.4.3.0")
 ap.add_argument("--into", help="output folder relative to builds/<build>/ (default reports/<name>)")
 ap.add_argument("--update-check", action="store_true", help="Stage 1 capture: skip guard and record")
@@ -45,8 +46,8 @@ a = ap.parse_args()
 routes = list(a.routes)
 if a.routes_file:
     routes = [l.strip() for l in open(a.routes_file, encoding="utf-8-sig") if l.strip()] + routes
-if not routes and not a.catalog:
-    sys.exit("Nothing to capture: give routes or --catalog.")
+if not routes and not a.catalog and not a.resource_ids_file:
+    sys.exit("Nothing to capture: give routes, --resource-ids-file or --catalog.")
 if a.update_check and not a.catalog:
     sys.exit("--update-check needs --catalog: the update comparison reads the catalog.")
 
@@ -88,6 +89,8 @@ if routes:
     cmd += ["-RoutesFile", str(routes_txt)]
 if a.catalog:
     cmd.append("-Catalog")
+if a.resource_ids_file:
+    cmd += ["-ResourceIdsFile", str(Path(a.resource_ids_file).resolve())]
 run = subprocess.run(cmd, capture_output=True, text=True)
 if run.returncode:
     print(run.stdout[-2000:], run.stderr[-2000:])
@@ -103,6 +106,13 @@ if status.exists():
         else:
             bad += 1; print(f"  FAILED {r['path']}: {r['reason']}")
 print(f"Captured {ok} routes, {bad} failed -> {out}")
+res_status = out / "resource-status.jsonl"
+if res_status.exists():
+    rs = [json.loads(l) for l in open(res_status, encoding="utf-8-sig")]
+    for r in rs:
+        if r["status"] != "success":
+            print(f"  FAILED resource {r['resourceId']}: {r['reason']}")
+    print(f"Captured {sum(r['status'] == 'success' for r in rs)} of {len(rs)} resources")
 ident = out / "capture-identity.json"
 if ident.exists():
     print("Identity:", ident.read_text(encoding="utf-8-sig").strip())

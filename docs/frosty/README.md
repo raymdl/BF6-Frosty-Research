@@ -11,6 +11,7 @@ what the hashed fields mean, how the assets link to site values, and what is sti
 | [Attachments](ATTACHMENTS.md) | Composition rules, generated site values, lights, sway, optic categories, render FOV and zoom. |
 | [UI text](UI_TEXT.md) | Strings table, weapon and attachment names, labels, descriptions, site tooltip mapping. |
 | [Vehicles](VEHICLES.md) | Vehicle firing, projectile, health, seat and loadout source evidence, tank damage, RWS AGL, inherited projectile defaults. |
+| [Progression](PROGRESSION.md) | Experience, stat events and match outcome bonuses read from the persistence graphs (L4027). |
 | [Gadgets](GADGETS.md) | Gadget UI and EA statements, stored source values, repair, healing, protection, deployment and detection findings, gadget projectiles. |
 | [Tools](TOOLS.md) | FrostyCmd, safety rules, SDK and decoder, export coverage, per-build collection, generators. |
 | [Open questions](OPEN_QUESTIONS.md) | Everything still unresolved, with the suggested test. |

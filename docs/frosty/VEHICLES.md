@@ -2775,3 +2775,58 @@ Tests: time a full turret turn with and without the gun handling upgrade; lock-o
 36 raw-offset checks matched.
 
 Tests: time a full turret turn with and without the gun handling upgrade; lock-on time against an IFV with the anti-spotting upgrade.
+
+## L4031 - Vehicle driving graphs (car, tank, aircraft, helicopter) (10 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-10-L4031-vehicle-driving-graphs.json). Read from compiled expression graphs with `exgraph.py`; detail in the run folder (`expression-graphs/findings/vehicles-tank.md`).
+
+- Car (JLTV): boost meter 0..1 drains at 0.27 per second x the boost consumption effect and refills at 0.15 per second x the recovery effect; boost can start above 0.03 x 1.1; drive input fades to zero near 120 forward and 30 in the second case (reverse or crawl, inferred), speeds in km/h; drag = min(speed, 110)^2 x 0.8 x frame time; maximum steer 45 (quad bike 35).
+- Dirt bike: no mobility or engine damage inputs; reports wheelie time to persistence.
+- Tank (Abrams): speed cap 43 x `CruiseSpeedReductionModifier`, alternative cap 42, reverse 12 (km/h); throttle fades over the last 0.25 below the cap; mobility damage sets the cap target to 0 and zeroes turning; boost drains 0.14 per second and refills 0.115 (0.175 fast); a damaged track side drives at 0.45 (inferred). Bradley caps 45 and 43; Gepard 43 and 48 with no cruise import.
+- Aircraft (F-16): grounded becomes airborne at 280 or more with pitch at or above 0 and a clear 20 m forward probe; airborne becomes grounded below 270 with pitch under 20 and a 50 m probe hit. Boost needs the meter above 0.3333, drains 0.0333 per second and refills 0.0667. Mobility damage adds 0.75 random-sign roll and -0.5 pitch. The Su-57 matches; the MQ-9 has no ground switch.
+- F-16 airstrike: bombs release every 60 / 1200 = 0.05 s, alternating two bomb types, then 7 flares. MQ-9 overwatch leaves when health is under 0.3 or its time ends; a 40 constant is read as the upgraded leave timer.
+- Helicopter (AH-64): engine target is 1 only with a driver and no damage state; spool up 3 s, down 16 s (10 s when damaged); mobility damage halves two flight parameters and adds a yaw bias of 1.1 x `TailRotor_StabilizerMultiplier`; yaw input smoothing 0.3 s (UH-60 0.5 s).
+- Helicopter flares (UH-60 ability graph): 12 flares at 400 per minute, then the remove-signature effect for `IsLockableTime` minus current lock progress; no cooldown in this graph.
+
+41 raw-offset checks matched.
+
+## L4032 - Shared vehicle ability, expression and projectile graphs (10 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-10-L4032-shared-vehicle-ability-graphs.json). Read from compiled expression graphs with `exgraph.py`; detail in the run folder (`expression-graphs/findings/vehicles-common.md`).
+
+- Weapon-slot cycling: 16 small graphs (Hellfire, Stinger, Maverick, Mk 82, AIM-9X, GBU-39 and others) increment the active launcher index and wrap to 1 past the launcher count.
+- Smoke (`SimEx_SmokeMechanics`): each cloud applies `HideFromLockOn` for the Hide Duration tunable to entities inside, optionally with missile-jammer, laser-paint removal, cloud-volume and force-minimum-angle-damage effects; tracer-dart interaction is behind a kill switch. The smokescreen ability graph holds 6.5 and 5.0 constants; the passenger smoke launcher 21 and 2.4 (roles not established).
+- Flares: 400 per minute (one every 0.15 s); then `Flares_RemoveSignature` for `IsLockableTime` minus the best active lock's progress.
+- Radar: effective range = maximum range x max(range-increase effect, 1); a target with the jam-locking-weapon effect gets range 0; spots last one tick.
+- Explosives detection: detonations staggered by 10 fixed fractions of `MaxDetonationDelay`; a 0.15 constant is present.
+- Cluster bomb (Rockeye): rings of 1, 4 and 8 bomblets (13 in all, inferred), 2 degrees per ring, random speed 0.85 to 1.15.
+- Passive anti-spotting and anti-lock abilities apply their effect while active and drop when laser-painted, damaged or slowed, with a reactivation timer.
+- Mortar illumination descent uses 58, 70 and 80 m/s by charge; the 120 mm airburst graph holds 225; bunker buster 0.525 and 0.75; thermal smoke damage 2.5; vehicle thermal signature 0.9 (roles in the findings file, several inferred).
+
+13 raw-offset checks matched.
+
+## L4033 - Boat and stationary weapon graphs (10 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-10-L4033-boat-and-stationary-weapon-graphs.json). Read from compiled expression graphs with `exgraph.py`; detail in the run folder (`expression-graphs/findings/vehicles-boat-stationary.md`).
+
+- Boats: while `Affector_Vehicles_MobilityDamage` is active, throttle to thrust is 0 (CB90 0x428c, jet ski 0x1d54; RHIB imports the same effect).
+- CB90 and RHIB boost (0x4694 to 0x5348): meter 0..1; needs sprint input, a driver, throttle above 0, brake 0 and no crawl mode; starts only above the configured threshold x 1.1; drain and recharge are scaled by the consumption and recovery effects; rates come from a vehicle configuration table.
+- CB90 capsize (inferred): thrust cut at 80 degrees tilt or more; self-righting torque 18 between 80 and 181 degrees when speed is under 5 with a driver seated.
+- Throttle response time: CB90 0.1 s; RHIB 0.375 / 0.4 s; jet ski 0.7 / 0.85 s.
+- Phalanx: slew limited to frame time x `PhalanxAimRotationSpeed`; pitch 0 to 90; aim point = position + velocity x T + 0.5 x acceleration x T^2 with T from a distance curve; a sweep offset decays toward `AimStrafeMinimum` over `AimEscalationTime`, 4 x faster against fast targets; bursts alternate `BurstDuration` and `BurstCooldown`; a target is dropped after burst duration + curve x 1.35.
+- Missile battery: launch speed = sqrt(9.8 x r^2 / (r - dz)), a 45 degree lob; reload from `CS_fSSMBattery_ReloadTime`; six tubes cycle; fires only once the turret has stopped; an owner change resets the reload timer.
+
+11 raw-offset checks matched.
+
+## L4037 - Vehicle mobility hit rule (10 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-10-L4037-vehicle-mobility-hit-rule.json). Read from compiled expression graphs with `exgraph.py`; detail in the run folder (`expression-graphs/findings/vehicle-mobility-hit.md`).
+
+- Trigger (0x214 to 0x414): for each new damage event with damage above 0, sum = damage + stored sum; if sum >= scale x `MobilityHitDamageThreshold`, apply `Affector_Vehicles_MobilityDamage` for `MobilityHitDuration` and set the sum to 0; otherwise store the sum.
+- Window (0x55c to 0x678): the sum is set to 0 when ticks since the recorded hit exceed `MobilityHitTimeFrame` / max(frame time, 1/240).
+- Removal (0x438 to 0x4ec): `Affector_Vehicles_RemoveMobilityDamge` is applied when `Vehicle Health Normalized` equals 1 and a stored flag is set.
+- Defaults (already recorded): threshold 0.5, duration 5 s, time frame 3 s.
+- Effect of a mobility hit by class (L4031, L4033): tanks lose speed and turning, boats lose thrust, helicopters have two flight parameters halved, jets get random roll and nose-down pitch.
+- Vehicle health and critical-health thresholds are not in expression graphs; they remain as recorded in L3347 and L3348.
+
+2 raw-offset checks matched.

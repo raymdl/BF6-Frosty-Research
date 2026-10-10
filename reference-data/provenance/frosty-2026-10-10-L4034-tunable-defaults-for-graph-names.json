@@ -1,0 +1,296 @@
+{
+ "lead": "L4034",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Read from saved raw captures; no export, no new capture."
+ },
+ "question": "What are the shipped default values of the tunables that the expression graphs read by name (L4016 to L4033)?",
+ "sourceFacts": {
+  "method": "Every import named in a simulation graph listing that points at a tunable file (GRX_*, MutatorDatabase_*, KST_*, KillSwitches_*) was matched by file and object name (or object identifier) to the decoded tunable object. One missing file (MutatorDatabase_CH1_S04_B3) was captured. Float tunables whose (default, minimum, maximum) triple occurs once in the raw file were located by byte search; the cited ones are raw-checked at that offset.",
+  "control": {
+   "description": "Cited float defaults are raw-offset checks against the tunable files. Field roles (default, minimum, maximum) are read from value pattern across 578 float tunables, not from a named schema.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Gameplay\\Soldier\\GRX_Glacier_Soldier.ebx",
+     "rawSha256": "9b44340483d9af272ef5f0cbda5934ad9a30ff1f055fd3fddc60fc4943e822cc",
+     "offset": 12460,
+     "type": "f32",
+     "bytesHex": "3333733f",
+     "value": 0.949999988079071,
+     "expect": 0.95,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Gameplay\\Soldier\\GRX_Glacier_Soldier.ebx",
+     "rawSha256": "9b44340483d9af272ef5f0cbda5934ad9a30ff1f055fd3fddc60fc4943e822cc",
+     "offset": 11516,
+     "type": "f32",
+     "bytesHex": "f628fc3f",
+     "value": 1.9700000286102295,
+     "expect": 1.97,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Gameplay\\Soldier\\GRX_Glacier_Soldier.ebx",
+     "rawSha256": "9b44340483d9af272ef5f0cbda5934ad9a30ff1f055fd3fddc60fc4943e822cc",
+     "offset": 25684,
+     "type": "f32",
+     "bytesHex": "3333b33f",
+     "value": 1.399999976158142,
+     "expect": 1.4,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Gameplay\\Soldier\\GRX_Glacier_Soldier.ebx",
+     "rawSha256": "9b44340483d9af272ef5f0cbda5934ad9a30ff1f055fd3fddc60fc4943e822cc",
+     "offset": 588,
+     "type": "f32",
+     "bytesHex": "00005041",
+     "value": 13.0,
+     "expect": 13.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Gameplay\\Soldier\\GRX_Glacier_Soldier.ebx",
+     "rawSha256": "9b44340483d9af272ef5f0cbda5934ad9a30ff1f055fd3fddc60fc4943e822cc",
+     "offset": 6516,
+     "type": "f32",
+     "bytesHex": "6666a640",
+     "value": 5.199999809265137,
+     "expect": 5.2,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Gameplay\\Soldier\\GRX_Glacier_Soldier.ebx",
+     "rawSha256": "9b44340483d9af272ef5f0cbda5934ad9a30ff1f055fd3fddc60fc4943e822cc",
+     "offset": 15316,
+     "type": "f32",
+     "bytesHex": "0000c841",
+     "value": 25.0,
+     "expect": 25.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Gameplay\\Soldier\\GRX_Glacier_Soldier.ebx",
+     "rawSha256": "9b44340483d9af272ef5f0cbda5934ad9a30ff1f055fd3fddc60fc4943e822cc",
+     "offset": 21092,
+     "type": "f32",
+     "bytesHex": "3333333f",
+     "value": 0.699999988079071,
+     "expect": 0.7,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Gameplay\\Soldier\\GRX_Glacier_Soldier.ebx",
+     "rawSha256": "9b44340483d9af272ef5f0cbda5934ad9a30ff1f055fd3fddc60fc4943e822cc",
+     "offset": 2884,
+     "type": "f32",
+     "bytesHex": "00000041",
+     "value": 8.0,
+     "expect": 8.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Gameplay\\Soldier\\GRX_Glacier_Soldier.ebx",
+     "rawSha256": "9b44340483d9af272ef5f0cbda5934ad9a30ff1f055fd3fddc60fc4943e822cc",
+     "offset": 22244,
+     "type": "f32",
+     "bytesHex": "00000040",
+     "value": 2.0,
+     "expect": 2.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Gameplay\\Soldier\\GRX_Glacier_Soldier.ebx",
+     "rawSha256": "9b44340483d9af272ef5f0cbda5934ad9a30ff1f055fd3fddc60fc4943e822cc",
+     "offset": 2404,
+     "type": "f32",
+     "bytesHex": "cdcccc3e",
+     "value": 0.4000000059604645,
+     "expect": 0.4,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 592740,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 725708,
+     "type": "f32",
+     "bytesHex": "9a99993e",
+     "value": 0.30000001192092896,
+     "expect": 0.3,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 223596,
+     "type": "f32",
+     "bytesHex": "00000041",
+     "value": 8.0,
+     "expect": 8.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Persistence\\Schematics2\\GRX_Persistence_Glacier.ebx",
+     "rawSha256": "44395496136b6c6461d05a01d0cb977619d0434583645f241cc4362f8dc1a271",
+     "offset": 35044,
+     "type": "f32",
+     "bytesHex": "0000f041",
+     "value": 30.0,
+     "expect": 30.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+     "rawSha256": "2040f58901e5c48da1ecc7570be538c3b8f7252468430bea22c8a0b844adbc08",
+     "offset": 280292,
+     "type": "f32",
+     "bytesHex": "00008743",
+     "value": 270.0,
+     "expect": 270.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\GameSetup\\Tweakables\\Mutators\\MutatorDatabase_CH1.ebx",
+     "rawSha256": "30d21f09d21e4d54863b05b19b361c3660ff4669fb578356d8d9eea68cf33f15",
+     "offset": 39228,
+     "type": "f32",
+     "bytesHex": "9a991940",
+     "value": 2.4000000953674316,
+     "expect": 2.4,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\GameSetup\\Tweakables\\Mutators\\MutatorDatabase_CH1.ebx",
+     "rawSha256": "30d21f09d21e4d54863b05b19b361c3660ff4669fb578356d8d9eea68cf33f15",
+     "offset": 59292,
+     "type": "f32",
+     "bytesHex": "0000c03f",
+     "value": 1.5,
+     "expect": 1.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\GameSetup\\Tweakables\\Mutators\\MutatorDatabase_CH1.ebx",
+     "rawSha256": "30d21f09d21e4d54863b05b19b361c3660ff4669fb578356d8d9eea68cf33f15",
+     "offset": 34244,
+     "type": "f32",
+     "bytesHex": "00000041",
+     "value": 8.0,
+     "expect": 8.0,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 18,
+   "matched": 18,
+   "files": 5,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "rawchecks-L4034.json"
+  },
+  "table": "expression-graphs/tunables-joined.tsv",
+  "rows": 901,
+  "points": [
+   "`TransitionInputBlockTime` (grx_glacier_soldier) = 0.95 (range 0.0 to 2.0)",
+   "`Vault_StartHeightMax` (grx_glacier_soldier) = 1.97 (range 0.0 to 3.0)",
+   "`Vault_StartHeightMaxDirectional` (grx_glacier_soldier) = 1.4 (range 0.0 to 3.0)",
+   "`Parachute.AutoDeploy.DistanceToGround` (grx_glacier_soldier) = 13.0 (range 0.0 to 50.0)",
+   "`ReviveTotalTime` (grx_glacier_soldier) = 4.72 (range 0.0 to 8.0)",
+   "`Slide.CooldownDuration` (grx_glacier_soldier) = 1.0 (range 0.0 to 10.0)",
+   "`Slide.AccumulatingThreshold.NeededVelocity` (grx_glacier_soldier) = 5.2 (range 0.0 to 0.0)",
+   "`Slide.ImpulseLength` (grx_glacier_soldier) = 25.0 (range 10.0 to 60.0)",
+   "`Melee MaxDistance` (grx_glacier_soldier) = 2.5 (range 0.0 to 3.0)",
+   "`ActiveReviveTimeReduction` (grx_glacier_soldier) = 0.7 (range 0.5 to 1.5)",
+   "`Mortar_DispersionRadius` (grx_glacier_soldier) = 8.0 (range 0.0 to 200.0)",
+   "`ImprovedJammerRadiusMulti` (grx_glacier_soldier) = 2.0 (range 1.1 to 5.0)",
+   "`SpotOnFireDuration` (grx_glacier_soldier) = 0.4 (range 0.1 to 10.0)",
+   "`Defibrillators_TimeToFullCharge` (grx_gadgets_glacier) = 1.0 (range 0.1 to 3.0)",
+   "`Defibrillators_ChargeTimeMinimum` (grx_gadgets_glacier) = 0.3 (range 0.1 to 1.0)",
+   "`EIDOS_Alive Timer` (grx_gadgets_glacier) = 5.0 (range 0.0 to 50.0)",
+   "`AdrenalineShot_Duration` (grx_gadgets_glacier) = 8.0 (range 0.1 to 10.0)",
+   "`Drone_Max Time Out Of Bounds` (grx_gadgets_glacier) = 3.0 (range 0.0 to 10.0)",
+   "`PassiveMasteryXP_Interval` (grx_persistence_glacier) = 30.0 (range 10.0 to 60.0)",
+   "`PhalanxAimRotationSpeed` (grx_vehicles) = 270.0 (range 30.0 to 720.0)",
+   "`Sabotage_Distance` (mutatordatabase_ch1) = 2.4 (range 0.0 to 5.0)",
+   "`MinRespawnTime` (mutatordatabase_ch1) = 1.5 (range 0.0 to 100.0)",
+   "`SpotDuration` (mutatordatabase_ch1) = 8.0 (range 0.0 to 100.0)",
+   "`PsyGas_BlockHealthRegenThreshold` (mutatordatabase_ch1_s02) = 0.15 (range 0.0 to 1.0)"
+  ]
+ },
+ "inference": [
+  "`Field_42c8b257` is read as the default, `Field_c06d0cbb` as the minimum and `Field_3ff76ddb` as the maximum, from their values (for example 0.95, 0, 2).",
+  "These are shipped defaults. The files are remote-tunable configuration, so live servers or game modes can override them; that is not visible in the data."
+ ],
+ "unresolved": [
+  "Five named imports were not matched to an object.",
+  "Per-team, list and boxed tunables are listed with their stored value but not interpreted.",
+  "Values imported from other asset kinds (effects, vehicle configuration tables, channels) are not in this table.",
+  "Not raw-checked (no unique byte location): ReviveTotalTime, Slide.CooldownDuration, Melee MaxDistance, EIDOS_Alive Timer, Drone_Max Time Out Of Bounds, PsyGas_BlockHealthRegenThreshold"
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-10-weapons-registry",
+  "artifacts": [
+   {
+    "file": "manifest-L4034.json",
+    "sha256": "284c3d6c4186fc49c877bed77419c6c7f78d69f882aa81437c1bd4d6b67573a6"
+   },
+   {
+    "file": "rawchecks-L4034.json",
+    "sha256": "ba1e32bc0faa39b2a4d70bd5a3848e9cb89e2f99abaf6d496e6a8eeb779a045e"
+   },
+   {
+    "file": "spec-4034.py",
+    "sha256": "c3ad9354074b845e88251e560921ca51f1e80ec707254212db6078acaf34e96c"
+   },
+   {
+    "file": "expression-graphs/tunables-joined.tsv",
+    "sha256": "9fb492e6018c39089aca1c339efbfc8f0ecbc5cf88cc2066078b831cb4801492"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-10",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L4034",
+    "title": "Tunable defaults joined to the names the expression graphs read: 901 values, including stance input block 0.95 s, vault start height 1.97, revive total time 4.72 s, slide cooldown 1.0 s, defibrillator full charge 1.0 s with a 0.3 s minimum, and EIDOS 5 s with 3 intercepts",
+    "status": "finding",
+    "summary": "The tunables that the expression graphs read by name were joined to their shipped defaults: 901 values in one table. Examples: stance change input block 0.95 s, vault start height 1.97, revive total time 4.72 s, slide cooldown 1.0 s, defibrillator full charge 1.0 s (minimum 0.3 s), EIDOS 5 s and 3 intercepts, spot duration 8 s. These are defaults and can be overridden remotely. 18 raw-offset checks matched.",
+    "reopenWhen": "A game update changes the tunable files, or a default is contradicted by an in-game measurement (which would indicate a live override).",
+    "statusNote": "Defaults joined; cited floats raw-checked."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Gameplay/Soldier/GRX_Glacier_Soldier",
+    "format": "raw-ebx",
+    "sha256": "9b44340483d9af272ef5f0cbda5934ad9a30ff1f055fd3fddc60fc4943e822cc",
+    "question": "What are the shipped default values of the tunables that the expression graphs read by name (L4016 to L4033)?",
+    "result": "useful",
+    "conclusion": "Tunable defaults read by soldier graphs"
+   }
+  ]
+ }
+}

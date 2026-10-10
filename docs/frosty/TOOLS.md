@@ -682,3 +682,27 @@ left in a record.
 
 `python scripts/frosty-curve-table-reader.py --control "<native-semantics run>/L1002/reader-control-portable-v3.json" --self-check [--out "<new overlay.json>"]` rechecks pinned source hashes and raw operands before matching controlled curve/table schemas across three atlas sources. The explicit control stays in the run folder; the installed script has no sibling input dependency. Exact schema matches authorize structural reading only. No native interpolation or axis-unit transfer is claimed. L1002 records the software-model controls and zero new semantic meanings.
 <!-- native-semantics:L1002:end -->
+
+## L4019 - Expression-graph listings (10 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-10-L4019-expression-graph-corpus-listings.json). `frosty-capture.py --resource-ids-file <file>` captures compiled resource bodies through the guarded path. Captures `expression-graph-sources-2026-10-10` (319 assets) and `expression-graph-bodies-2026-10-10` (256 bodies) are in build 1.4.3.5.
+
+The run folder `expression-graphs` holds the reader (`exdis.py`), the named lister (`exgraph.py <source.ebx>`), `bulk.py`, `graph-index.md` and 679 listings. Names: imports by catalog file GUID and instance GUID, inputs by name hash, soldier variables from the `SoldierMotionMachine` parameter lists.
+
+- No listed graph writes `WeaponMoveSpeedMultiplierInput`; the gun sprint factor (L4016) is not graph logic.
+- `SimEx_DamageReceived` is kill bookkeeping; damage arithmetic is not in a graph.
+- Several soldier sub-graphs have no body of their own and live inside `SimEx_RootLayerLogic`.
+
+3 raw-offset checks matched.
+
+## L4036 - Native function names from use, and the hipfire comparison (10 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-10-L4036-native-function-names-and-hipfire-comparison.json). Read from compiled expression graphs with `exgraph.py`; detail in the run folder (`expression-graphs/findings/native-function-names.md`).
+
+- Hipfire (`WeaponAttributesConfig_HipfireAttributeDelegate`, 0x20 to 0x68): factor = 1.2 if `IncreasePerShotFraction` != 1.0 else 1.0, then x 0.425 inside the square root. The site's rule (1 at the base value, sqrt(1.2) otherwise) is the same; any departure from 1.0 selects 1.2.
+- `c07cd1f5` is float not-equal: less-than and greater-than are other identifiers, and less-or-equal would give 1.2 at the base value, which the site's verified cases rule out.
+- `16f0b3aa` is read as float equal; `7072f0cc` integer not-equal; `c22c64f8` integer greater-than; `bb9ecb3e` integer greater-or-equal; `f78bc893` integer less-or-equal; `a46ea4fe` integer subtract.
+- The reader (`exdis.py`) and NOTATION.md carry the names with a question mark; evidence per function is in the findings file.
+- 33,083 candidate names under four hash functions matched no identifier, and the graph source assets hold no node list.
+
+3 raw-offset checks matched.

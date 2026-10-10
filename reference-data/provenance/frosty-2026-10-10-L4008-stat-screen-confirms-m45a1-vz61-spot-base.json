@@ -1,0 +1,345 @@
+{
+ "lead": "L4008",
+ "status": "proposal",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Read from saved raw captures; no export, no new capture."
+ },
+ "question": "Do the operator's attachment-panel screenshots settle the M45A1 and vz. 61 spotting base that L4001 left to an in-game test?",
+ "sourceFacts": {
+  "method": "The screenshot audit (site repo reference-data/attachment-audit/attachment-screenshot-review.json, SHA-256 c5481249e16ae6e5f165cc540e863f75774f5f4bf7e294cc6c0cca7fbc47ab6a) records the SPOT-ON-FIRE RANGE pair of every attachment panel. The pairs were tallied per weapon over panels that are neither muzzle nor ammunition, and listed for muzzle and ammunition panels of the M45A1, vz. 61 and P18. Stored bases were re-read at raw offsets.",
+  "control": {
+   "description": "The P18 reads 54 / 150 on all its non-muzzle, non-ammunition panels, 27 / 64 with Subsonic ammunition and 0 / 21 with a suppressor: the site's existing model.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\Secondary\\M45A1\\M45A1_WB.ebx",
+     "rawSha256": "1cbd8683bbb56d88db81767096a207dba2dccfa0033163d48a795faee60aca2c",
+     "offset": 4424,
+     "type": "f32",
+     "bytesHex": "0000d841",
+     "value": 27.0,
+     "expect": 27.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\Secondary\\M45A1\\M45A1_WB.ebx",
+     "rawSha256": "1cbd8683bbb56d88db81767096a207dba2dccfa0033163d48a795faee60aca2c",
+     "offset": 4428,
+     "type": "f32",
+     "bytesHex": "49928042",
+     "value": 64.28571319580078,
+     "expect": 64.285713,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\Secondary\\Skorpion\\Skorpion_WB.ebx",
+     "rawSha256": "5398a91f0ff0ac48dd1771c982aaa8d3a778fab2e8818187a1786a1011bf6d60",
+     "offset": 5128,
+     "type": "f32",
+     "bytesHex": "0000d841",
+     "value": 27.0,
+     "expect": 27.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\Secondary\\Skorpion\\Skorpion_WB.ebx",
+     "rawSha256": "5398a91f0ff0ac48dd1771c982aaa8d3a778fab2e8818187a1786a1011bf6d60",
+     "offset": 5132,
+     "type": "f32",
+     "bytesHex": "49928042",
+     "value": 64.28571319580078,
+     "expect": 64.285713,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\HK433_WB.ebx",
+     "rawSha256": "c02751eac2b054343a2a115dff8f2000bc450548c96185445cd7c3b613030e0a",
+     "offset": 4360,
+     "type": "f32",
+     "bytesHex": "00005842",
+     "value": 54.0,
+     "expect": 54.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\HK433_WB.ebx",
+     "rawSha256": "c02751eac2b054343a2a115dff8f2000bc450548c96185445cd7c3b613030e0a",
+     "offset": 4364,
+     "type": "f32",
+     "bytesHex": "00001643",
+     "value": 150.0,
+     "expect": 150.0,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 6,
+   "matched": 6,
+   "files": 3,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "rawchecks-L4008.json"
+  },
+  "panels": {
+   "M45A1": {
+    "panels": 26,
+    "nonMuzzleNonAmmo": {
+     "27 / 64": 15
+    },
+    "muzzle": {
+     "None": [
+      27,
+      64
+     ],
+     "Single-Port Brake": [
+      27,
+      64
+     ],
+     "Compensator": [
+      27,
+      64
+     ],
+     "Flash Hider": [
+      0,
+      64
+     ],
+     "Standard Suppressor": [
+      0,
+      9
+     ],
+     "CQB Suppressor": [
+      0,
+      9
+     ]
+    },
+    "ammo": {
+     "FMJ": [
+      27,
+      64
+     ],
+     "Tungsten Core": [
+      27,
+      64
+     ],
+     "Frangible": [
+      27,
+      64
+     ],
+     "Hollow Point": [
+      27,
+      64
+     ]
+    },
+    "reviewStatus": {
+     "provisional-review-required": 26
+    }
+   },
+   "VZ. 61": {
+    "panels": 29,
+    "nonMuzzleNonAmmo": {
+     "27 / 64": 18
+    },
+    "muzzle": {
+     "None": [
+      27,
+      64
+     ],
+     "Single-Port Brake": [
+      27,
+      64
+     ],
+     "Compensator": [
+      27,
+      64
+     ],
+     "Standard Suppressor": [
+      0,
+      9
+     ],
+     "CQB Suppressor": [
+      0,
+      9
+     ]
+    },
+    "ammo": {
+     "FMJ": [
+      27,
+      64
+     ],
+     "Tungsten Core": [
+      27,
+      64
+     ],
+     "Frangible": [
+      27,
+      64
+     ],
+     "Hollow Point": [
+      27,
+      64
+     ],
+     "Synthetic Tip": [
+      27,
+      64
+     ]
+    },
+    "reviewStatus": {
+     "provisional-review-required": 29
+    }
+   },
+   "P18": {
+    "panels": 28,
+    "nonMuzzleNonAmmo": {
+     "54 / 150": 15
+    },
+    "muzzle": {
+     "None": [
+      54,
+      150
+     ],
+     "Flash Hider": [
+      0,
+      150
+     ],
+     "Single-Port Brake": [
+      54,
+      150
+     ],
+     "Compensator": [
+      54,
+      150
+     ],
+     "Standard Suppressor": [
+      0,
+      21
+     ],
+     "CQB Suppressor": [
+      0,
+      21
+     ]
+    },
+    "ammo": {
+     "FMJ": [
+      54,
+      150
+     ],
+     "Tungsten Core": [
+      54,
+      150
+     ],
+     "Frangible": [
+      54,
+      150
+     ],
+     "Subsonic": [
+      27,
+      64
+     ],
+     "Subsonic HP": [
+      27,
+      64
+     ],
+     "Hollow Point": [
+      54,
+      150
+     ]
+    },
+    "reviewStatus": {
+     "provisional-review-required": 28
+    }
+   }
+  },
+  "weaponsWithBasePanels": 62,
+  "weaponsNotAt54And150": {
+   "VSSM": {
+    "0 / 9": 38,
+    "0 / 21": 1
+   },
+   "VZ. 61": {
+    "27 / 64": 18
+   },
+   "M45A1": {
+    "27 / 64": 15
+   }
+  },
+  "stored": {
+   "M45A1_WB": [
+    27.0,
+    64.285713
+   ],
+   "Skorpion_WB": [
+    27.0,
+    64.285713
+   ]
+  },
+  "site": "sim/applyAttachments.js: worldSpot = 54 x factors, minimapSpot = 150 x factors, for every weapon",
+  "captureDates": "M45A1 screenshots 31 July 2026, after update 1.3.3.0 (26 June 2026)"
+ },
+ "inference": [
+  "Three sources agree on the M45A1 and vz. 61 base: the weapon files (27 and 64.29), EA's 1.3.3.0 statement (subsonic by default) and the game's stat screen (27 m and 64 m). The site's 54 and 150 for these two weapons is wrong.",
+  "The suppressed minimap range 9 m equals 64.29 x 0.14; the smaller of 64.29 and 21 would give 21. The factors multiply, which is what the site already does.",
+  "The VSSM also differs on the stat screen (0 and 9 m on every panel); the site reaches that through its fixed suppressor and subsonic factors, so only the two sidearms need a base."
+ ],
+ "unresolved": [
+  "The screenshot records for these three weapons are marked provisional (machine-read, not yet visually reviewed). The values are identical on 15, 18 and 15 panels respectively.",
+  "The stat screen shows what the game displays. That a match applies the same ranges is the game's own claim, not a measurement here."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-10-weapons-registry",
+  "artifacts": [
+   {
+    "file": "manifest-L4008.json",
+    "sha256": "61502ab85097718ef24a0cd59f0fa9257404b7b6af488e98ce1cd02131acaeac"
+   },
+   {
+    "file": "rawchecks-L4008.json",
+    "sha256": "9d8a13fbeb29e242eaa10ac7fca0d12403fbd6fffb2cbbd8cb9d7e503b1973d3"
+   },
+   {
+    "file": "spec-4008.py",
+    "sha256": "16aaa95b564e3e9adb3ea4d95f7184e255dd9baa9a6e630a74e00b15003c6a43"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-10",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L4008",
+    "title": "The stat screen shows 27 m and 64 m spot-on-fire ranges for the M45A1 and vz. 61 (0 and 9 m suppressed); the site shows 54 and 150 (0 and 21)",
+    "status": "proposal",
+    "summary": "The operator's stat-screen screenshots show spot-on-fire ranges of 27 m and 64 m for the M45A1 and vz. 61 on every non-muzzle panel, and 0 and 9 m with a suppressor, against 54, 150 and 0, 21 on the P18. Stored values and EA's 1.3.3.0 note agree. The site uses 54 and 150 for all weapons. Proposed: per-weapon base 27 / 64.285713 for m45a1 and vz61. 6 raw-offset checks matched.",
+    "reopenWhen": "The operator approves or rejects the change, or a game update changes the two weapon files.",
+    "statusNote": "Proposal validated by the stat screen; awaiting operator approval."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Hardware/Weapons/Secondary/M45A1/M45A1_WB",
+    "format": "raw-ebx",
+    "sha256": "1cbd8683bbb56d88db81767096a207dba2dccfa0033163d48a795faee60aca2c",
+    "question": "Do the operator's attachment-panel screenshots settle the M45A1 and vz. 61 spotting base that L4001 left to an in-game test?",
+    "result": "useful",
+    "conclusion": "Stored 27 / 64.29 equals the stat screen's 27 m / 64 m."
+   },
+   {
+    "path": "Common/Hardware/Weapons/Secondary/Skorpion/Skorpion_WB",
+    "format": "raw-ebx",
+    "sha256": "5398a91f0ff0ac48dd1771c982aaa8d3a778fab2e8818187a1786a1011bf6d60",
+    "question": "Do the operator's attachment-panel screenshots settle the M45A1 and vz. 61 spotting base that L4001 left to an in-game test?",
+    "result": "useful",
+    "conclusion": "Stored 27 / 64.29 equals the stat screen's 27 m / 64 m."
+   }
+  ]
+ }
+}

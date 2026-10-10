@@ -1,0 +1,116 @@
+{
+ "lead": "L4037",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Read from saved raw captures; no export, no new capture."
+ },
+ "question": "What triggers a vehicle mobility hit and how long does it last?",
+ "sourceFacts": {
+  "method": "Compiled expression graphs were listed with expression-graphs/exgraph.py (format from L4016, names from L4017 and L4019) and read section by section by a delegated reader; each constant cited here was then checked at its raw offset in the resource file. Full reading: expression-graphs/findings/vehicle-mobility-hit.md.",
+  "control": {
+   "description": "Every cited constant is a raw-offset check against the resource body. Function meanings marked inferred in the findings file are not relied on for the checked values.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\candidate-expression-resources-2026-09-23\\resources\\bfe4dc2a628e4ebb.res",
+     "rawSha256": "5fbbb748010deda277dfa893a163f90d647618c2e408ead5106bfa6fff720c86",
+     "offset": 356,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\candidate-expression-resources-2026-09-23\\resources\\bfe4dc2a628e4ebb.res",
+     "rawSha256": "5fbbb748010deda277dfa893a163f90d647618c2e408ead5106bfa6fff720c86",
+     "offset": 360,
+     "type": "f32",
+     "bytesHex": "8988883b",
+     "value": 0.004166666883975267,
+     "expect": 0.004167,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 2,
+   "matched": 2,
+   "files": 1,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "rawchecks-L4037.json"
+  },
+  "findingsFile": "expression-graphs/findings/vehicle-mobility-hit.md",
+  "points": [
+   "Trigger (0x214 to 0x414): for each new damage event with damage above 0, sum = damage + stored sum; if sum >= scale x `MobilityHitDamageThreshold`, apply `Affector_Vehicles_MobilityDamage` for `MobilityHitDuration` and set the sum to 0; otherwise store the sum.",
+   "Window (0x55c to 0x678): the sum is set to 0 when ticks since the recorded hit exceed `MobilityHitTimeFrame` / max(frame time, 1/240).",
+   "Removal (0x438 to 0x4ec): `Affector_Vehicles_RemoveMobilityDamge` is applied when `Vehicle Health Normalized` equals 1 and a stored flag is set.",
+   "Defaults (already recorded): threshold 0.5, duration 5 s, time frame 3 s.",
+   "Effect of a mobility hit by class (L4031, L4033): tanks lose speed and turning, boats lose thrust, helicopters have two flight parameters halved, jets get random roll and nose-down pitch.",
+   "Vehicle health and critical-health thresholds are not in expression graphs; they remain as recorded in L3347 and L3348."
+  ]
+ },
+ "inference": [
+  "The scale multiplying the threshold comes from an unnamed native call; with 0.5 it is most likely maximum health (half of maximum health within 3 s).",
+  "Comparison names are from use (L4036)."
+ ],
+ "unresolved": [
+  "The scale is not identified; an in-game test (damage a tank by just under and just over half its health within 3 s) would settle it.",
+  "The stored flag that gates removal is unnamed.",
+  "The graph body is the 1.4.3.0 capture; it was not re-captured for 1.4.3.5."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-10-weapons-registry",
+  "artifacts": [
+   {
+    "file": "manifest-L4037.json",
+    "sha256": "87d09e1d6091f70d316e43999d962f1ed400727186d5fb98d01974c8da25acc5"
+   },
+   {
+    "file": "rawchecks-L4037.json",
+    "sha256": "8ba612588c305cf3d4e8bcd381abf4f1876f57e58743ba1f39f2d07ef0007385"
+   },
+   {
+    "file": "graphspec.py",
+    "sha256": "3fc28d1ddbf53f2032b59299263e12ad13f6a91194bce410a9a4c799bc596f52"
+   },
+   {
+    "file": "expression-graphs/findings/vehicle-mobility-hit.md",
+    "sha256": "c4ad8dc161b31e4e5ebfe4bbf7c5bf61890687b21c3b5b431c9e5845d661db24"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-10",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L4037",
+    "title": "Vehicle mobility hit rule read: damage is summed per vehicle and a mobility hit is applied for MobilityHitDuration when the sum reaches a scale x MobilityHitDamageThreshold within MobilityHitTimeFrame; it is removed at full health",
+    "status": "finding",
+    "summary": "`SimEx_Vehicle_MobilityDamage` was read in full. Each damage event adds to a stored sum; when the sum reaches a scale x `MobilityHitDamageThreshold` (0.5) the mobility damage effect is applied for `MobilityHitDuration` (5 s) and the sum resets. The sum also resets once `MobilityHitTimeFrame` (3 s) has passed since the recorded hit. The effect is removed when normalised health equals 1. The scale is probably maximum health. 2 raw-offset checks matched.",
+    "reopenWhen": "The scale is identified, or an in-game mobility hit contradicts the half-health reading.",
+    "statusNote": "Mobility hit rule read; scale inferred."
+   }
+  ],
+  "assets": [
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/builds/1.4.3.0/capture/candidate-expression-resources-2026-09-23/resources/bfe4dc2a628e4ebb.res",
+    "format": "raw-ebx",
+    "sha256": "5fbbb748010deda277dfa893a163f90d647618c2e408ead5106bfa6fff720c86",
+    "question": "What triggers a vehicle mobility hit and how long does it last?",
+    "result": "useful",
+    "conclusion": "Checked constants: de4=1, de8=0.00416667"
+   }
+  ]
+ }
+}

@@ -18,7 +18,7 @@ outcome. Otherwise record the limit as unresolved; do not add a capture.
 | # | Capture | Why | People / format |
 |---|---|---|---|
 | 1 | Match Trigger semi vs auto (M433; L17) | Site shows no effect; source binds about 16% less recoil and faster recovery on 24 weapons, probably semi-only | Solo; video, repeated groups |
-| 2 | Optional: hit-capsule boundary (M433; L99) | Target-view chest/abdomen split; M433 chest aim 4 → 5 hits if the source capsules hold. Target view is already labelled approximate | Enemy helper standing still; damage numbers |
+| 2 | Optional: hit-capsule boundary (M433; L99) | Target-view chest/abdomen split; M433 chest aim 4 → 5 hits if the source capsules hold. Target view is already labelled approximate | Enemy helper standing still; damage numbers **Done 10 Oct (L4010): chest zone confirmed as the site draws it; no further capture needed.** |
 
 ## Record once per session
 

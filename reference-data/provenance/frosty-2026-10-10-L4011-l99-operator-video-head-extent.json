@@ -1,0 +1,199 @@
+{
+ "lead": "L4011",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Read from saved raw captures; no export, no new capture."
+ },
+ "question": "What else does the operator video show about the head and chest hit volumes before the file is deleted?",
+ "sourceFacts": {
+  "method": "Every shot in the L4010 video was located by the change of the ammunition counter (67 shots) and classed as hit or miss by a change of the hit counter within 14 frames (53 hits). For each shot the frame two frames before the counter change, which shows the muzzle flash, was cropped around the screen centre at double size with the damage number pasted in (allshots.py, all00-03.jpg). Three native-resolution crops per shot (5 and 2 frames before, 1 after) are kept in l99-video/frames (201 files). Offsets were judged by eye in units of the visible helmet width.",
+  "control": {
+   "description": "Shots with the sight on the face or helmet give 36; shots on the chest give 26 (L4010).",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Gameplay\\Soldier\\GlacierSoldierBoneCollision.ebx",
+     "rawSha256": "25783c206f30be4eec02e56df8a42a94572a4027926de8cfb3d30e6351997342",
+     "offset": 1696,
+     "type": "f32",
+     "bytesHex": "8fc2753d",
+     "value": 0.05999999865889549,
+     "expect": 0.05999999865889549,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\collection\\raw\\Common\\Gameplay\\Soldier\\GlacierSoldierBoneCollision.ebx",
+     "rawSha256": "25783c206f30be4eec02e56df8a42a94572a4027926de8cfb3d30e6351997342",
+     "offset": 1700,
+     "type": "f32",
+     "bytesHex": "295c0f3e",
+     "value": 0.14000000059604645,
+     "expect": 0.14000000059604645,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 2,
+   "matched": 2,
+   "files": 1,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "rawchecks-L4011.json"
+  },
+  "shots": 67,
+  "hits": 53,
+  "headRegion": [
+   {
+    "shots": "29, 30",
+    "aim": "above the helmet top, about a third of a helmet width",
+    "result": "headshot 36"
+   },
+   {
+    "shots": "41, 42, 43",
+    "aim": "above the helmet top, about a quarter to a third of a helmet width (olive helmet)",
+    "result": "headshot 36"
+   },
+   {
+    "shots": "46, 49",
+    "aim": "just above the helmet top",
+    "result": "headshot 36"
+   },
+   {
+    "shots": "31, 33, 35",
+    "aim": "at or just outside the top-left corner of the helmet",
+    "result": "headshot 36"
+   },
+   {
+    "shots": "28, 51, 53",
+    "aim": "on the side edge of the helmet or hood",
+    "result": "headshot 36"
+   },
+   {
+    "shots": "65, 67",
+    "aim": "chin, throat",
+    "result": "headshot 36"
+   },
+   {
+    "shots": "44",
+    "aim": "above the helmet top, about two thirds of a helmet width",
+    "result": "miss"
+   },
+   {
+    "shots": "45, 47, 48",
+    "aim": "above the helmet top, about a third of a helmet width (white-striped helmet)",
+    "result": "miss"
+   },
+   {
+    "shots": "27, 34, 36, 50, 61",
+    "aim": "beside the helmet or cheek, about a fifth of a helmet width outside",
+    "result": "miss"
+   },
+   {
+    "shots": "52, 54",
+    "aim": "beside the ghillie hood at face height, at its outer edge",
+    "result": "miss"
+   },
+   {
+    "shots": "62, 64, 66",
+    "aim": "collar and shoulder beside the neck",
+    "result": "26"
+   }
+  ],
+  "storedHeadCapsule": {
+   "length": 0.06,
+   "radius": 0.14,
+   "widthCm": 28,
+   "heightCm": 34
+  },
+  "videoSha256": "f4eca5b6e610d3c4ea0326cad4a19aae1b31a1a4ce4e45249201567516ce0c75"
+ },
+ "inference": [
+  "The head volume extends above the visible helmet: hits register with the sight a quarter to a third of a helmet width above it. It does not extend sideways: every shot about a fifth of a helmet width beside the helmet or cheek missed.",
+  "That shape, taller than the helmet and no wider, matches the stored head capsule (28 cm wide, 34 cm tall, top near 186 cm) better than the site's head artwork (top 178 cm).",
+  "Shots just beside the cheek miss entirely. A chest sphere of radius 22.5 cm centred at 152 cm (bone-axis offsets) would have returned 26 there; the model-axis reading (centre 138 cm, top 160 cm) is consistent with these misses and, if the chest sphere takes precedence over the abdomen capsule, with the 26-to-22 change at upper-belly height in L4010.",
+  "The two helmet models differ in how far above the helmet a hit registers (olive: hit at about a third; white-striped: miss at about a third), as expected if the hit volume is fixed and the helmet models differ in height."
+ ],
+ "unresolved": [
+  "Offsets are by eye in helmet widths, not centimetres; the bots are at slightly different distances and some are moving or ducking, so the registered position may lag the picture by a frame or two.",
+  "The precedence of the chest sphere over the abdomen capsule is an inference from two observations, not a source fact.",
+  "No site change is proposed from this: the head artwork is labelled approximate and a measured test would be needed to redraw it."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-10-weapons-registry",
+  "artifacts": [
+   {
+    "file": "manifest-L4011.json",
+    "sha256": "62803dc55f417cee020fa0bbc8d9dacf3551750af815b132b97b395df584fc03"
+   },
+   {
+    "file": "rawchecks-L4011.json",
+    "sha256": "b43fb1ff3852f57a1f0349c2524a90896b19227274533c7ed3432212dac43686"
+   },
+   {
+    "file": "l99-video/allshots.py",
+    "sha256": "4bd8a6e6e0bfa7949b53ae4701fbecfa8e5d7317085a6e528e3d6969f3413936"
+   },
+   {
+    "file": "l99-video/allshots.json",
+    "sha256": "67ae967af335adf77c9898751822f663b8e280c91e305c967e0ce5b233861dd6"
+   },
+   {
+    "file": "l99-video/all00.jpg",
+    "sha256": "5192aea0500c531648bc0442d2a36ec4c565a4b98c43d45655b207af8aa2782e"
+   },
+   {
+    "file": "l99-video/all01.jpg",
+    "sha256": "3e295ab318ff27d4953047cf0f23c5ac59ea61a829cc885e3ce8ebbab30d30b7"
+   },
+   {
+    "file": "l99-video/all02.jpg",
+    "sha256": "5a84982d89e60e16c75b170e343b8a051f6c781a4bd921464da0210e418f1690"
+   },
+   {
+    "file": "l99-video/all03.jpg",
+    "sha256": "f620d9055089281cea050ce1ae32c77e4dbf2744f5934f24ab13524064d76245"
+   },
+   {
+    "file": "l99-video/keepframes.py",
+    "sha256": "febb307faf41769c76448d7f8e220d4b2a5401f66d08621c19bcfa98ca20b188"
+   },
+   {
+    "file": "spec-4011.py",
+    "sha256": "a1ab7360bee29c5581bd6995da4225482c7ff9ff1d047d0374137f32b0ec490a"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-10",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L4011",
+    "title": "Operator video, all 67 shots: headshots register up to about a third of a helmet width above the helmet, but not beside it; misses just beside the cheek rule out the chest sphere at the bone-axis position",
+    "status": "finding",
+    "summary": "All 67 shots of the operator video were extracted (53 hits). Headshots register up to about a third of a helmet width above the helmet but not beside it, matching the stored head capsule's shape. Misses just beside the cheek rule out the bone-axis position of the chest sphere and fit the model-axis reading. Native-resolution frames of every shot are kept. 2 raw-offset checks matched.",
+    "reopenWhen": "A measured head test (known distance, stationary upright target) is wanted to redraw the site's head zone.",
+    "statusNote": "Head extent observed, not measured; no site change."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Gameplay/Soldier/GlacierSoldierBoneCollision",
+    "format": "raw-ebx",
+    "sha256": "25783c206f30be4eec02e56df8a42a94572a4027926de8cfb3d30e6351997342",
+    "question": "What else does the operator video show about the head and chest hit volumes before the file is deleted?",
+    "result": "useful",
+    "conclusion": "Head capsule 0.06 / 0.14 re-read; its shape matches the observed head extent."
+   }
+  ]
+ }
+}

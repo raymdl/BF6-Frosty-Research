@@ -169,3 +169,60 @@ menu provider evaluates or whether it evaluates these behavior lists at all.
 Next evidence needed: native menu-provider/selector execution, or a controlled
 firing comparison that separates actual recoil behavior from menu display.
 Do not classify this as a gameplay attachment failure from panel captures alone.
+
+## L4006 - Parked questions screened against the registry and EA-note methods (10 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-10-L4006-parked-weapon-questions-against-new-methods.json). The methods of 9 and 10 October were applied to each parked row of the research queue. Weapon registry rows hold the same numbers as the files (L4000, L4004), add no field names (L4002), and attachment effect files (`WME_`, `WPM_`, `GDM_`, `GID_`, `AAM_`) have no registry rows at all.
+
+| ID | Question | What the new methods give | Reopen condition |
+|---|---|---|---|
+| W1 | Bipod and mounted modifiers, idle table | GS registry rows equal own values (L4000) and add no name; no EA figure | not met |
+| W2 | VSSM GS ADS +1 against WB timing | no registry row for the GS binding; no EA figure | not met |
+| W3 | M4A1 Magwell, BROD3 Cryo, SubsonicFrangible | no registry row; EA notes do not mention them | not met |
+| W4 | Reload threshold and delays, Field_440ed7fa | reload rows equal own values (L4000); Field_440ed7fa has no registry row (L4002) | not met |
+| W6 | Burst recoil, controller activation, lights, modifier order, class traits, Slim Angled | no registry row beyond package Priority values; no EA figure | not met |
+| W7 | Weapon Attributes provider, Field_b30a73ed | no registry row (L4002) | not met |
+| W8 | Grid surface and velocity candidates | outside the three methods; no new field association | not met |
+| W9 | Jump and landing inventory | no weapon registry row; soldier rows were recorded in L3350 | not met |
+| O1 | Ambiguous PiP layouts | no registry row; no EA figure | not met |
+| O2 | Riser fields, model precedence, render FOV | no registry row; no EA figure | not met |
+| O3 | Optic glint and breath control | no registry row; no EA figure | not met |
+| M1 | Regeneration and spotting activation and base values | EA 1.3.3.0 states M45A1 and vz. 61 are subsonic by default, matching their stored 27 / 64.29 ranges (L4001); soldier rows RegenerationDelay 5, RegenerationRate 10, SpotOnFireDuration 0.4 and DefaultSpotDuration 5 were already recorded | partly: official statement added, activation still open |
+| M2 | Soldier settings, abilities, suppression, movement | soldier registry rows recorded in L3350; no new consumer | not met |
+| M3 | Four soldier file GUIDs | outside the three methods | not met |
+| G1 | Mode and map overrides | outside the three methods | not met |
+
+4 raw-offset checks matched.
+
+## L4009 - Audit of earlier negative closures (10 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-10-L4009-audit-negative-closures-evidence-reread.json). - **Byte re-read.** 109 receipts of 116 leads; 65 carry byte-level evidence; 16432 recorded checks over 553 files; 0 differ, 0 files changed, 0 missing.
+- **Leads without byte checks.** 45, mostly of 23 to 26 September. Evidence kind as extracted: raw-offsets 23, decoded-values 12, counts-only 7, decision 3.
+- **Re-tests by a second route:**
+
+| Lead | Earlier claim | Independent re-test | Result |
+|---|---|---|---|
+| L34 | SpawnDelay is 0 on all 63 primary weapon files | registry row Shot.SpawnDelay (equal to own value by L4000): 0.0 on 63 of 63 | reproduced |
+| L23 | InitialSpeedVariation (Field_661b879d) is 0 on every weapon | registry row present on 8 weapons, all 0.0; own Field_661b879d {0.0: 83, -1.0: 1} over 83 owners | reproduced (one owner outside the 63 holds -1.0 on a path ending in the same hash) |
+| L36 | Only the DRS-IAR has a nonzero HeatPerBullet | registry row OverHeat.HeatPerBullet exists on ['drsiar'] only, value 0.0025 | reproduced |
+| L21 | Field_54ba3947 and Field_834a710f are 1.0 in both aim branches | own values: {1.0: 152} and {1.0: 152} | reproduced |
+| L1 | Field_c2b88435 is a 0/1 flag that differs on a few weapons | own values {0.0: 77, 1.0: 6} | reproduced |
+| L48 | Field_bd024e1d stores -1, 2 or 99 | own values {-1.0: 93, 2.0: 1, 99.0: 2} | reproduced |
+| L72 | Field_db0fcea2 holds 16 on DB-12 shells | own values {1.0: 79, 16.0: 4} | reproduced (1 elsewhere, 16 on four owners) |
+| L116 | Field_8d6d2bc1 is not set on weapon files | own values {0.0: 83} | consistent |
+| L7 | Per-weapon spot ranges are stored but no reader was found | L4001 and L4008: stored 27 / 64.29 on two sidearms; the stat screen shows them | claim stands; its consequence (leave the site at 54 / 150) was wrong and is corrected by L4008 |
+| L17, L24 | Match Trigger binds recoil and recovery effects; the site shows none | screenshot audit: all 24 Match Trigger panels show recoil amount, recoil variation, Control and Precision equal to the weapon's other panels | site equals the stat screen; a single-fire effect is not displayed there, so the panels neither confirm nor refute it |
+
+- **Lesson.** The earlier closures are accurate about file contents. The weak pattern is 'stored but no consumer found, so the site is left alone' (L7): check such values against the screenshot audit or EA notes before accepting the closure.
+- Not re-tested: 35 leads whose claims concern names, routes or counts.
+
+72 raw-offset checks matched.
+
+## L4012 - UI metadata paths (10 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-10-L4012-ui-metadata-paths-review.json). Eleven UI metadata files not read before (seven under `Common/UI/Static/Metadata`, four `CAT_*` tutorial cards) hold display text, icons and references only. Dead end, closed by the operator.
+
+- Hints, without numbers: the two knife descriptions and the Knife Sprint card say sprint speed is higher with a knife out (not on the Sledgehammer); the bipod card says accuracy improves when deployed.
+- Reviews: Datamining `reports\metadata-review-2026-10-10`.
+
+11 raw-offset checks matched.

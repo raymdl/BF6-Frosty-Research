@@ -1,0 +1,145 @@
+{
+ "lead": "L4019",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Read from saved raw captures; no export, no new capture."
+ },
+ "question": "Which compiled expression graphs can be read with names, and do any of them set the weapon move-speed input or compute soldier damage?",
+ "sourceFacts": {
+  "method": "Captures through frosty-capture.py: expression-graph-sources-2026-10-10 (319 routes: every catalog asset with SimEx in its name that had no compiled body, plus source assets missing for already captured bodies) and expression-graph-bodies-2026-10-10 (256 resource IDs taken from the decoded sources; frosty-capture.py gained --resource-ids-file for this). bulk.py listed every simulation graph and the trait, soldier, weapon-logic, gadget and game-setup graphs with exgraph.py; mkindex.py wrote graph-index.md (imports, soldier variables written and read, constants per graph). Older bodies come from the 1.4.3.0 capture of 23 September.",
+  "control": {
+   "description": "Both captures report 0 failures and the build guard passed (client belongs to 1.4.3.5). The reader reproduces the L4016, L4017 and L4018 results.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\expression-graph-bodies-2026-10-10\\resources\\ce348ee2ef9fefb7.res",
+     "rawSha256": "eb9e3d4e31dd924068d590eb49f91c08ad5a82f907aa0bd7bd1b584e0cebd919",
+     "offset": 584,
+     "type": "f32",
+     "bytesHex": "0000a040",
+     "value": 5.0,
+     "expect": 5.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\expression-graph-bodies-2026-10-10\\resources\\ce348ee2ef9fefb7.res",
+     "rawSha256": "eb9e3d4e31dd924068d590eb49f91c08ad5a82f907aa0bd7bd1b584e0cebd919",
+     "offset": 612,
+     "type": "i32",
+     "bytesHex": "03000000",
+     "value": 3,
+     "expect": 3,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\expression-graph-bodies-2026-10-10\\resources\\ce348ee2ef9fefb7.res",
+     "rawSha256": "eb9e3d4e31dd924068d590eb49f91c08ad5a82f907aa0bd7bd1b584e0cebd919",
+     "offset": 580,
+     "type": "i32",
+     "bytesHex": "02000000",
+     "value": 2,
+     "expect": 2,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 3,
+   "matched": 3,
+   "files": 1,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "rawchecks-L4019.json"
+  },
+  "capturedSources": 319,
+  "capturedBodies": 256,
+  "catalogSimulationGraphs": 641,
+  "catalogPresentationGraphs": 1023,
+  "listed": 679,
+  "noSourceAsset": 14,
+  "layoutNotFound": 32,
+  "listingFiles": 679,
+  "floatVariablesWrittenByAnyListedGraph": "VaultStartHeight, VaultStartDepth, InputThrottle, InputStrafe, StepSmoothing, AimYaw, ZoomFOV, WeaponMoveSpeedMultiplierOutput, StandSprintTopSpeedMultiplier, SprintStrafeSpeedMultiplier, SprintRecoverTime, SoldierMovementSpeedMultiplier, SPMovementSpeedModifier, HealthNormalized, HallucinationAmount, LastSoldierDamageTime and mask-duration values",
+  "index": "expression-graphs/graph-index.md",
+  "listings": "expression-graphs/listings",
+  "status": "expression-graphs/listing-status.tsv"
+ },
+ "inference": [
+  "WeaponMoveSpeedMultiplierInput and traitsprintspeed are read only by SimEx_RootLayerLogic and written by no listed graph, so the gun sprint factor of about 0.931 (L4016) is set by native code or by a graph not listed here.",
+  "SimEx_DamageReceived sets kill flags (HeadShotKill, Killshot_Killed, SoldierWasOneTapped, WasSelfKill, KilledByRailgun), classifies the damage source for HitByAffectors and applies two special affectors (Pathfinder silence for 5, M26 Dragon's Breath by distance). It contains no health, armor or multiplier arithmetic.",
+  "simex_bipod_shared and SimEx_GetTweakables are a few instructions each (a channel read and a kill-switch read) and hold no tuning values.",
+  "TacticalWeaponMovement, OnGround, JumpAcceleration, StanceTransitionLogic, ProneLogic and CombatDiveAcceleration have no compiled body of their own; they are parts of the root soldier graph."
+ ],
+ "unresolved": [
+  "32 graphs whose layout the reader does not find (mostly tiny or empty graphs).",
+  "14 bodies without a captured source asset.",
+  "Vehicle, sound, effects and UI graphs were not listed.",
+  "Most function hashes are unnamed; listings show them as hashes.",
+  "Only a few listings have been read by a person; the index is mechanical."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-10-weapons-registry",
+  "artifacts": [
+   {
+    "file": "manifest-L4019.json",
+    "sha256": "dd0d3ae44a1e8328211905b0e9c075115b26ce16350f005787e051cbc3638a00"
+   },
+   {
+    "file": "rawchecks-L4019.json",
+    "sha256": "faab6452dd110aa04fd77c7ad1faec52f90f324f8625824bd038819e8662d633"
+   },
+   {
+    "file": "spec-4019.py",
+    "sha256": "27db74f4e20938f1a301b36d89dd493d76ce16ce419c2bb635846390d7864e28"
+   },
+   {
+    "file": "expression-graphs/graph-index.md",
+    "sha256": "edde28826bfc32145afb83d6c906699668d72cc39722e8baa5407bad39f08856"
+   },
+   {
+    "file": "expression-graphs/listing-status.tsv",
+    "sha256": "63321162794ec8f40c4ee50f5b13cb58efc7f4f725c6ec3855ee282bcf697431"
+   },
+   {
+    "file": "expression-graphs/exgraph.py",
+    "sha256": "b93fa5c53773d1772b2690da395ffc517b072c93dc27323d52b40062cfbd92ea"
+   },
+   {
+    "file": "expression-graphs/bulk.py",
+    "sha256": "ede7b0ea6b9e8d3b5ea6896bb7f746d9291c8cbc65ad1cbfeab374ef46ce5a3b"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-10",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L4019",
+    "title": "Expression-graph corpus: 319 source assets and 256 compiled bodies captured on 1.4.3.5, 679 graphs listed with names; no listed graph writes WeaponMoveSpeedMultiplierInput, and SimEx_DamageReceived holds kill bookkeeping, not damage arithmetic",
+    "status": "finding",
+    "summary": "319 graph source assets and 256 compiled bodies were captured on 1.4.3.5 and 679 graphs listed with import, input and soldier-variable names. No listed graph writes the weapon move-speed input, so the gun sprint factor is not set by graph logic. SimEx_DamageReceived is kill bookkeeping only. 3 raw-offset checks matched.",
+    "reopenWhen": "A listed graph is read for a specific mechanic, or the reader is extended to the 32 unread layouts.",
+    "statusNote": "Corpus listed and indexed; reading by topic continues."
+   }
+  ],
+  "assets": [
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/builds/1.4.3.5/reports/expression-graph-bodies-2026-10-10/resources/ce348ee2ef9fefb7.res",
+    "format": "raw-ebx",
+    "sha256": "eb9e3d4e31dd924068d590eb49f91c08ad5a82f907aa0bd7bd1b584e0cebd919",
+    "question": "Which compiled expression graphs can be read with names, and do any of them set the weapon move-speed input or compute soldier damage?",
+    "result": "useful",
+    "conclusion": "SimEx_DamageReceived: kill flags and two special affectors; no damage arithmetic."
+   }
+  ]
+ }
+}

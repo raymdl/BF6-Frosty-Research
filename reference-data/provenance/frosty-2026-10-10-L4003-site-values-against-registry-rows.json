@@ -1,0 +1,994 @@
+{
+ "lead": "L4003",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Read from saved raw captures; no export, no new capture."
+ },
+ "question": "Do the site's displayed base values equal the registry rows and the 9 October datasets for all 63 weapons, including the 13 weapons EA's velocity table does not list?",
+ "sourceFacts": {
+  "method": "Three workers joined data/weapons.json, data/ballistics.json and data/hit_zones.json to the registry rows by the run crosswalk, and to the 9 October datasets (soldier-body-part-multipliers, bolt-action-sweet-spots, ea-muzzle-velocity-1-3-3-0) by the bullet file named in each weapon's damageSource. Comparisons are float32-exact or exact after rounding to the site's decimals. The registry defaults for velocity and magazine were re-read at raw offsets.",
+  "control": {
+   "description": "M433: registry InitialSpeed.z 630 and site bulletVel 630; M4A1 registry 590.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1684220,
+     "type": "f32",
+     "bytesHex": "00002a44",
+     "value": 680.0,
+     "expect": 680.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1024668,
+     "type": "i32",
+     "bytesHex": "15000000",
+     "value": 21,
+     "expect": 21,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1134004,
+     "type": "f32",
+     "bytesHex": "00003944",
+     "value": 740.0,
+     "expect": 740.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 2138348,
+     "type": "i32",
+     "bytesHex": "1f000000",
+     "value": 31,
+     "expect": 31,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 47460,
+     "type": "f32",
+     "bytesHex": "00003544",
+     "value": 724.0,
+     "expect": 724.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1547660,
+     "type": "i32",
+     "bytesHex": "1f000000",
+     "value": 31,
+     "expect": 31,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1467508,
+     "type": "f32",
+     "bytesHex": "00003544",
+     "value": 724.0,
+     "expect": 724.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1215364,
+     "type": "i32",
+     "bytesHex": "1f000000",
+     "value": 31,
+     "expect": 31,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 2207660,
+     "type": "f32",
+     "bytesHex": "00804244",
+     "value": 778.0,
+     "expect": 778.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 454028,
+     "type": "i32",
+     "bytesHex": "1f000000",
+     "value": 31,
+     "expect": 31,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 2606364,
+     "type": "f32",
+     "bytesHex": "00002a44",
+     "value": 680.0,
+     "expect": 680.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1910668,
+     "type": "i32",
+     "bytesHex": "1f000000",
+     "value": 31,
+     "expect": 31,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 2651172,
+     "type": "f32",
+     "bytesHex": "00801d44",
+     "value": 630.0,
+     "expect": 630.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1637892,
+     "type": "i32",
+     "bytesHex": "1f000000",
+     "value": 31,
+     "expect": 31,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 2028844,
+     "type": "f32",
+     "bytesHex": "00801c44",
+     "value": 626.0,
+     "expect": 626.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 2431484,
+     "type": "i32",
+     "bytesHex": "1f000000",
+     "value": 31,
+     "expect": 31,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1073908,
+     "type": "f32",
+     "bytesHex": "00004044",
+     "value": 768.0,
+     "expect": 768.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1804740,
+     "type": "i32",
+     "bytesHex": "1f000000",
+     "value": 31,
+     "expect": 31,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 2518060,
+     "type": "f32",
+     "bytesHex": "00001744",
+     "value": 604.0,
+     "expect": 604.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 2290004,
+     "type": "i32",
+     "bytesHex": "15000000",
+     "value": 21,
+     "expect": 21,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 2687652,
+     "type": "f32",
+     "bytesHex": "00002544",
+     "value": 660.0,
+     "expect": 660.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1314868,
+     "type": "i32",
+     "bytesHex": "1f000000",
+     "value": 31,
+     "expect": 31,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 263364,
+     "type": "f32",
+     "bytesHex": "00003144",
+     "value": 708.0,
+     "expect": 708.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1209268,
+     "type": "i32",
+     "bytesHex": "1f000000",
+     "value": 31,
+     "expect": 31,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 734860,
+     "type": "f32",
+     "bytesHex": "00c00c44",
+     "value": 563.0,
+     "expect": 563.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 2132292,
+     "type": "i32",
+     "bytesHex": "1f000000",
+     "value": 31,
+     "expect": 31,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 548620,
+     "type": "f32",
+     "bytesHex": "00c00c44",
+     "value": 563.0,
+     "expect": 563.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 2147596,
+     "type": "i32",
+     "bytesHex": "1f000000",
+     "value": 31,
+     "expect": 31,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 938604,
+     "type": "f32",
+     "bytesHex": "00001444",
+     "value": 592.0,
+     "expect": 592.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1067788,
+     "type": "i32",
+     "bytesHex": "15000000",
+     "value": 21,
+     "expect": 21,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1319652,
+     "type": "f32",
+     "bytesHex": "00000c44",
+     "value": 560.0,
+     "expect": 560.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1797412,
+     "type": "i32",
+     "bytesHex": "15000000",
+     "value": 21,
+     "expect": 21,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 2635012,
+     "type": "f32",
+     "bytesHex": "00801344",
+     "value": 590.0,
+     "expect": 590.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 256652,
+     "type": "i32",
+     "bytesHex": "1f000000",
+     "value": 31,
+     "expect": 31,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1202044,
+     "type": "f32",
+     "bytesHex": "00001844",
+     "value": 608.0,
+     "expect": 608.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1192164,
+     "type": "i32",
+     "bytesHex": "1f000000",
+     "value": 31,
+     "expect": 31,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1273724,
+     "type": "f32",
+     "bytesHex": "0080f143",
+     "value": 483.0,
+     "expect": 483.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1039660,
+     "type": "i32",
+     "bytesHex": "1f000000",
+     "value": 31,
+     "expect": 31,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 2440180,
+     "type": "f32",
+     "bytesHex": "00000444",
+     "value": 528.0,
+     "expect": 528.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 468,
+     "type": "i32",
+     "bytesHex": "1f000000",
+     "value": 31,
+     "expect": 31,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 370772,
+     "type": "f32",
+     "bytesHex": "00003e44",
+     "value": 760.0,
+     "expect": 760.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1115812,
+     "type": "i32",
+     "bytesHex": "15000000",
+     "value": 21,
+     "expect": 21,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 2500948,
+     "type": "f32",
+     "bytesHex": "00004844",
+     "value": 800.0,
+     "expect": 800.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 2265812,
+     "type": "i32",
+     "bytesHex": "0b000000",
+     "value": 11,
+     "expect": 11,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 57292,
+     "type": "f32",
+     "bytesHex": "00003e44",
+     "value": 760.0,
+     "expect": 760.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 2597572,
+     "type": "i32",
+     "bytesHex": "15000000",
+     "value": 21,
+     "expect": 21,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 2055348,
+     "type": "f32",
+     "bytesHex": "00003e44",
+     "value": 760.0,
+     "expect": 760.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 2464604,
+     "type": "i32",
+     "bytesHex": "0b000000",
+     "value": 11,
+     "expect": 11,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 2331052,
+     "type": "f32",
+     "bytesHex": "00002a44",
+     "value": 680.0,
+     "expect": 680.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 864724,
+     "type": "i32",
+     "bytesHex": "0b000000",
+     "value": 11,
+     "expect": 11,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1917700,
+     "type": "f32",
+     "bytesHex": "0080a043",
+     "value": 321.0,
+     "expect": 321.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1727668,
+     "type": "i32",
+     "bytesHex": "15000000",
+     "value": 21,
+     "expect": 21,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 827884,
+     "type": "f32",
+     "bytesHex": "00002a44",
+     "value": 680.0,
+     "expect": 680.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1523996,
+     "type": "i32",
+     "bytesHex": "1f000000",
+     "value": 31,
+     "expect": 31,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 487780,
+     "type": "f32",
+     "bytesHex": "00004a44",
+     "value": 808.0,
+     "expect": 808.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 699916,
+     "type": "i32",
+     "bytesHex": "3c000000",
+     "value": 60,
+     "expect": 60,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1423044,
+     "type": "f32",
+     "bytesHex": "00003944",
+     "value": 740.0,
+     "expect": 740.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 2313572,
+     "type": "i32",
+     "bytesHex": "64000000",
+     "value": 100,
+     "expect": 100,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 179092,
+     "type": "f32",
+     "bytesHex": "00000c44",
+     "value": 560.0,
+     "expect": 560.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1014004,
+     "type": "i32",
+     "bytesHex": "32000000",
+     "value": 50,
+     "expect": 50,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1471188,
+     "type": "f32",
+     "bytesHex": "00801d44",
+     "value": 630.0,
+     "expect": 630.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1884844,
+     "type": "i32",
+     "bytesHex": "64000000",
+     "value": 100,
+     "expect": 100,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1211092,
+     "type": "f32",
+     "bytesHex": "00801344",
+     "value": 590.0,
+     "expect": 590.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 547428,
+     "type": "i32",
+     "bytesHex": "32000000",
+     "value": 50,
+     "expect": 50,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 769844,
+     "type": "f32",
+     "bytesHex": "00003544",
+     "value": 724.0,
+     "expect": 724.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1394532,
+     "type": "i32",
+     "bytesHex": "32000000",
+     "value": 50,
+     "expect": 50,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 2343980,
+     "type": "f32",
+     "bytesHex": "00002a44",
+     "value": 680.0,
+     "expect": 680.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 2534948,
+     "type": "i32",
+     "bytesHex": "64000000",
+     "value": 100,
+     "expect": 100,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1940708,
+     "type": "f32",
+     "bytesHex": "00004a44",
+     "value": 808.0,
+     "expect": 808.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1423524,
+     "type": "i32",
+     "bytesHex": "2e000000",
+     "value": 46,
+     "expect": 46,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1170436,
+     "type": "f32",
+     "bytesHex": "00801d44",
+     "value": 630.0,
+     "expect": 630.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 653564,
+     "type": "i32",
+     "bytesHex": "29000000",
+     "value": 41,
+     "expect": 41,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 2409284,
+     "type": "f32",
+     "bytesHex": "0000a843",
+     "value": 336.0,
+     "expect": 336.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 2141052,
+     "type": "i32",
+     "bytesHex": "1f000000",
+     "value": 31,
+     "expect": 31,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 476036,
+     "type": "f32",
+     "bytesHex": "0000b543",
+     "value": 362.0,
+     "expect": 362.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1626684,
+     "type": "i32",
+     "bytesHex": "12000000",
+     "value": 18,
+     "expect": 18,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 1894908,
+     "type": "f32",
+     "bytesHex": "0000de43",
+     "value": 444.0,
+     "expect": 444.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 2216348,
+     "type": "i32",
+     "bytesHex": "1f000000",
+     "value": 31,
+     "expect": 31,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 2048740,
+     "type": "f32",
+     "bytesHex": "0000cc43",
+     "value": 408.0,
+     "expect": 408.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 2585796,
+     "type": "i32",
+     "bytesHex": "1f000000",
+     "value": 31,
+     "expect": 31,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 127,
+   "matched": 127,
+   "files": 1,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "rawchecks-L4003.json"
+  },
+  "velocityEqual": 63,
+  "magazineEqual": 63,
+  "rateOfFireEqual": 55,
+  "rateOfFireDiffering": [
+   {
+    "siteId": "vssm",
+    "internalId": "VSSM",
+    "property": "FireLogic.RateOfFire vs rpm",
+    "registryDefault": 799.999023,
+    "siteValue": 449.999,
+    "equal": false
+   },
+   {
+    "siteId": "m87a1",
+    "internalId": "590A1",
+    "property": "FireLogic.RateOfFire vs rpm",
+    "registryDefault": 1799.999023,
+    "siteValue": 94.73654016716576,
+    "equal": false
+   },
+   {
+    "siteId": "interdictor",
+    "internalId": "DesertTechHTI",
+    "property": "FireLogic.RateOfFire vs rpm",
+    "registryDefault": 299.998993,
+    "siteValue": 31.914882299649403,
+    "equal": false
+   },
+   {
+    "siteId": "l115",
+    "internalId": "L115A3",
+    "property": "FireLogic.RateOfFire vs rpm",
+    "registryDefault": 299.998993,
+    "siteValue": 46.14231275806206,
+    "equal": false
+   },
+   {
+    "siteId": "m2010esr",
+    "internalId": "M2010ESR",
+    "property": "FireLogic.RateOfFire vs rpm",
+    "registryDefault": 299.998993,
+    "siteValue": 43.90241,
+    "equal": false
+   },
+   {
+    "siteId": "miniscout",
+    "internalId": "MiniFix",
+    "property": "FireLogic.RateOfFire vs rpm",
+    "registryDefault": 299.998993,
+    "siteValue": 47.092969500363495,
+    "equal": false
+   },
+   {
+    "siteId": "psr",
+    "internalId": "MRAD",
+    "property": "FireLogic.RateOfFire vs rpm",
+    "registryDefault": 299.998993,
+    "siteValue": 38.663456,
+    "equal": false
+   },
+   {
+    "siteId": "sv98",
+    "internalId": "SV98M",
+    "property": "FireLogic.RateOfFire vs rpm",
+    "registryDefault": 299.998993,
+    "siteValue": 38.20751292717492,
+    "equal": false
+   }
+  ],
+  "vssm": {
+   "registryRateOfFire": 799.999023,
+   "registryRateOfFireForSingleFire": 449.998993,
+   "siteRpm": 449.999,
+   "siteDefaultMode": "semi"
+  },
+  "drag": {
+   "siteProjectiles": 64,
+   "at0.0035": 55,
+   "at0.002": 9,
+   "other": 0
+  },
+  "limb": {
+   "joined": 63,
+   "siteLimbDiffersFromStoredArray": 0
+  },
+  "boltCurves": {
+   "equalToStoredCurve": [
+    "l115",
+    "m2010esr",
+    "psr",
+    "sv98"
+   ],
+   "interdictor": "site curve equals the stored own health curve of PD_.416Barrett",
+   "miniscout": "site adds a point at 0 m with the same damage as the first stored point (21 m, 62)"
+  },
+  "weaponsOutsideEaVelocityTable": 13,
+  "workerOutputs": [
+   "w1/compare.json",
+   "w1/table.tsv",
+   "w3/result.json"
+  ]
+ },
+ "inference": [
+  "Muzzle velocity and magazine capacity equal the registry default on all 63 weapons, including the 13 that EA's 1.3.3.0 table omits.",
+  "Rate of fire equals RateOfFire on 55 weapons. The VSSM's site value is its RateOfFireForSingleFire (450), its default mode; the other seven are bolt-action and pump weapons, where the site stores a rate derived from the cycle and RateOfFire holds a placeholder (300 or 1800).",
+  "Drag is 0.0035 or 0.002 on all 64 site projectiles, the stored values of L3365. Site limb multipliers equal the stored arrays of L3362 on all 63 weapons, including the Interdictor at 1.0.",
+  "No site value changes."
+ ],
+ "unresolved": [
+  "Reload totals were not re-derived: the site's tacRld and emptyRld follow the reviewed reload formula and captures of L123 and L105, and the simple sum of ReloadTime, ReloadDelay and PostReloadDelay equals emptyRld on 42 weapons only.",
+  "The Interdictor's limb value 1.0 against EA's general sniper figure 0.67 is the stored value; EA's 1.4.3.0 notes describe the Interdictor separately (earlier update plan).",
+  "The site stores no separate abdomen value; it uses the limb value there (L99)."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-10-weapons-registry",
+  "artifacts": [
+   {
+    "file": "manifest-L4003.json",
+    "sha256": "f52c5262992ddffcf601d7413a55c57621b2fea2bbcc240ee7773996793f6c9a"
+   },
+   {
+    "file": "rawchecks-L4003.json",
+    "sha256": "226dea09157efae1bd451d411766fdcd1274a66f527a6edf3a869d96ef52ce82"
+   },
+   {
+    "file": "w1/compare.json",
+    "sha256": "1ac07b027e4bc5003601fce41b468e4b8e916bfc2e600fe779480093b60d81a0"
+   },
+   {
+    "file": "w1/table.tsv",
+    "sha256": "7b71f9bdc340708b1146965d35daa060ce80a4ddc775cea9f5707563e4d8b0eb"
+   },
+   {
+    "file": "w3/result.json",
+    "sha256": "fc0d6161f90f836200ed166c1c76453e0cf2c3b18be4deeca35876e8be706ec7"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-10",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L4003",
+    "title": "Site velocity, magazine, drag and limb values equal the stored rows for all 63 weapons; the eight rate-of-fire differences are the single-fire VSSM and seven manually cycled weapons",
+    "status": "finding",
+    "summary": "Site velocity and magazine equal the registry default on 63 of 63 weapons; rate of fire on 55, with the VSSM at its single-fire rate and seven manually cycled weapons at a derived rate. All 64 site projectiles hold drag 0.0035 or 0.002, and all 63 limb multipliers equal the stored arrays. Four bolt-action curves equal the stored curves. No site value changes. 127 raw-offset checks matched.",
+    "reopenWhen": "A game update changes the weapon registry rows, or site base values are regenerated.",
+    "statusNote": "No disagreement that changes a site value."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/GameSetup/Tweakables/GameRemixer/GRX_Weapons",
+    "format": "raw-ebx",
+    "sha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+    "question": "Do the site's displayed base values equal the registry rows and the 9 October datasets for all 63 weapons, including the 13 weapons EA's velocity table does not list?",
+    "result": "useful",
+    "conclusion": "Registry defaults for velocity and magazine equal the site on 63 weapons."
+   }
+  ]
+ }
+}

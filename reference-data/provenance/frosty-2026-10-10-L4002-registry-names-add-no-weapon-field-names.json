@@ -1,0 +1,183 @@
+{
+ "lead": "L4002",
+ "status": "exhausted",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Read from saved raw captures; no export, no new capture."
+ },
+ "question": "Can the named registry rows name the weapon and attachment fields that are still only hashes (Field_440ed7fa, Field_b30a73ed, the ADS-time modifier receiver of L121), and do they change any earlier negative closure?",
+ "sourceFacts": {
+  "method": "Value matching across owners (owncmp.py): a hashed leaf is named by a registry row when it equals that row's default on at least 90 percent of the owners and the row has at least two distinct defaults. The named hashes were compared with FIELD_MAP.md, with the 15 hashes in OPEN_QUESTIONS.md, and with every Field_ hash in the title, summary, reopen condition and receipts of the 116 weapon, attachment and soldier leads closed as exhausted, rejected, parked, needs-capture, duplicate or superseded, or as findings worded as limits (list from the lead index).",
+  "control": {
+   "description": "The match names RateOfFire as Field_14c4a054 and InitialSpeed as Field_0bf4f62b, the names already recorded in FIELD_MAP.md (L1000).",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\HK433_WB.ebx",
+     "rawSha256": "c02751eac2b054343a2a115dff8f2000bc450548c96185445cd7c3b613030e0a",
+     "offset": 832,
+     "type": "f32",
+     "bytesHex": "37b14f44",
+     "value": 830.7689819335938,
+     "expect": 830.768982,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\HK433_WB.ebx",
+     "rawSha256": "c02751eac2b054343a2a115dff8f2000bc450548c96185445cd7c3b613030e0a",
+     "offset": 908,
+     "type": "f32",
+     "bytesHex": "3108ac3d",
+     "value": 0.08399999886751175,
+     "expect": 0.084,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\M4A1\\M4A1_WB.ebx",
+     "rawSha256": "622dff6f877e798cd5d38a6bb5cf09b0b19a44dfaf81b2d43a270b1c1b7e1ac9",
+     "offset": 1676,
+     "type": "f32",
+     "bytesHex": "4c37893d",
+     "value": 0.06700000166893005,
+     "expect": 0.067,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\BoltAction\\L115A3\\L115A3_WB.ebx",
+     "rawSha256": "0ea5ee85a866abb9ba4d6a2cb20cabc07f0fb2a59983c2bdd318160a814e9024",
+     "offset": 908,
+     "type": "f32",
+     "bytesHex": "cdcccc3e",
+     "value": 0.4000000059604645,
+     "expect": 0.4,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 4,
+   "matched": 4,
+   "files": 3,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "rawchecks-L4002.json"
+  },
+  "namedLeafHashes": 102,
+  "alreadyInFieldMap": 101,
+  "notInFieldMap": {
+   "field_0fb2d151": {
+    "family": "WB",
+    "row": "WeaponEntityData.WeaponFiring.PrimaryFire.Ammo.AutoReplenishMagazine",
+    "path": "Class_35259f6b/Field_f8822efa/Field_0fb2d151",
+    "equal": 83,
+    "owners": 83,
+    "distinct": 2
+   }
+  },
+  "negativeLeadsScreened": 116,
+  "receiptsRead": 112,
+  "hashesCited": 399,
+  "citedHashesWithRegistryName": 28,
+  "citedHashesWithNewName": 0,
+  "openQuestionHashes": 15,
+  "openQuestionHashesNamed": [],
+  "field440ed7fa": {
+   "owner": "Class_35259f6b/Field_f8822efa (FireLogic)",
+   "registryRow": null,
+   "distinctValuesOn63Weapons": {
+    "0.067": 8,
+    "0.084": 17,
+    "0.1": 11,
+    "0.117": 5,
+    "0.134": 3,
+    "0.15": 1,
+    "0.167": 2,
+    "0.184": 1,
+    "0.2": 2,
+    "0.234": 1,
+    "0.267": 1,
+    "0.3": 1,
+    "0.367": 1,
+    "0.4": 9
+   },
+   "namedSiblings": [
+    "Field_0fb2d151 = AutoReplenishMagazine",
+    "Field_14c4a054 = RateOfFire",
+    "Field_2320e742 = BurstsPerMinute",
+    "Field_5bd8006c = RateOfFireForBurst",
+    "Field_be31b12d = RateOfFireForSingleFire"
+   ]
+  }
+ },
+ "inference": [
+  "The earlier field naming from registry rows was complete for these three families: 101 of 102 value-matched names are already in FIELD_MAP.md.",
+  "Field_440ed7fa sits in the FireLogic block beside RateOfFire and the reload array, and no registry row carries its values. The registry cannot name it.",
+  "No hash cited by a negative closure gains a name by this method, so none of those closures is reopened by it."
+ ],
+ "unresolved": [
+  "Field_440ed7fa, Field_b30a73ed and the ADS-time modifier receiver remain unnamed.",
+  "The one unlisted match, Field_0fb2d151 as AutoReplenishMagazine, rests on two distinct values and is a weak candidate only.",
+  "Attachment package fields were not screened: their registry rows under WeaponModifierDataAssets carry only a Priority value."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-10-weapons-registry",
+  "artifacts": [
+   {
+    "file": "manifest-L4002.json",
+    "sha256": "e7f7ef92ef10cb493679230b8d753d9ecba0627694213c5219285e791d31b9b0"
+   },
+   {
+    "file": "rawchecks-L4002.json",
+    "sha256": "b78047fd9b5f2f4bd1698e9f1356062c6f510afacba345c7c0a9ed96c25d6300"
+   },
+   {
+    "file": "owncmp.py",
+    "sha256": "6ee391364478d2dfd14604d2eac2344f635ee562b9ecda5e5b676482382bcf37"
+   },
+   {
+    "file": "spec-4002-4003.py",
+    "sha256": "9057365ab9f94b960af2b745d7d59965494b7b33c98e48f3d1bd3857608c6fdf"
+   },
+   {
+    "file": "w4/negative-leads.json",
+    "sha256": "21c8428743704ead94406b189489e2cedd3c35194f97b746339fffa2b8c4f22d"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-10",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L4002",
+    "title": "Dead end: registry row names give no new names for weapon, firing-data or bullet fields, and none for the hashes cited by 116 negative closures",
+    "status": "exhausted",
+    "summary": "Registry rows name 102 weapon, firing-data and bullet fields by value match; 101 were already in FIELD_MAP.md. None of the 15 open-question hashes and none of the 399 hashes cited by 116 negative closures gains a name. Field_440ed7fa is in the FireLogic block and has no registry row. 4 raw-offset checks matched.",
+    "reopenWhen": "A game update adds registry rows for these owners, or a field-name hash function is found.",
+    "statusNote": "No new names; earlier naming was complete.",
+    "searched": [
+     "18113 registry rows of GS_, PD_ and _WB owners against the decoded leaves of 258 owner files",
+     "FIELD_MAP.md and the 15 hashes of OPEN_QUESTIONS.md",
+     "399 Field_ hashes cited in 116 negative leads and their 112 receipts"
+    ]
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Hardware/Weapons/AssaultRifle/HK433/HK433_WB",
+    "format": "raw-ebx",
+    "sha256": "c02751eac2b054343a2a115dff8f2000bc450548c96185445cd7c3b613030e0a",
+    "question": "Can the named registry rows name the weapon and attachment fields that are still only hashes (Field_440ed7fa, Field_b30a73ed, the ADS-time modifier receiver of L121), and do they change any earlier negative closure?",
+    "result": "inconclusive",
+    "conclusion": "Field_440ed7fa is a FireLogic leaf with no registry row."
+   }
+  ]
+ }
+}

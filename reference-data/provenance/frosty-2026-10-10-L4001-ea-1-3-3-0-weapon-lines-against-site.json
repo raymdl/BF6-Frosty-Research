@@ -1,0 +1,523 @@
+{
+ "lead": "L4001",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Read from saved raw captures; no export, no new capture."
+ },
+ "question": "Which numeric weapon and attachment statements in EA's 1.3.1.0 and 1.3.3.0 notes had not been compared with the site, and do they agree?",
+ "sourceFacts": {
+  "method": "A worker extracted every weapon, attachment and firing-mechanic line containing a digit from the two saved note texts (201 lines; 67 were already compared in L3359, L3360, L3362 and L3365). The remaining lines that state a number for a site weapon or attachment were compared with data/weapons.json, data/attachments.json, data/ammo.json and data/hit_zones.json. The stored spotting ranges of the M45A1 and the Skorpion were re-read at raw offsets.",
+  "control": {
+   "description": "The velocity pattern yields exactly 50 lines from the 1.3.3.0 text, as in L3360; the M433's stored spotting ranges are the common 54 and 150.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\HK433_WB.ebx",
+     "rawSha256": "c02751eac2b054343a2a115dff8f2000bc450548c96185445cd7c3b613030e0a",
+     "offset": 4360,
+     "type": "f32",
+     "bytesHex": "00005842",
+     "value": 54.0,
+     "expect": 54.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\HK433_WB.ebx",
+     "rawSha256": "c02751eac2b054343a2a115dff8f2000bc450548c96185445cd7c3b613030e0a",
+     "offset": 4364,
+     "type": "f32",
+     "bytesHex": "00001643",
+     "value": 150.0,
+     "expect": 150.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\Secondary\\M45A1\\M45A1_WB.ebx",
+     "rawSha256": "1cbd8683bbb56d88db81767096a207dba2dccfa0033163d48a795faee60aca2c",
+     "offset": 4424,
+     "type": "f32",
+     "bytesHex": "0000d841",
+     "value": 27.0,
+     "expect": 27.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\Secondary\\M45A1\\M45A1_WB.ebx",
+     "rawSha256": "1cbd8683bbb56d88db81767096a207dba2dccfa0033163d48a795faee60aca2c",
+     "offset": 4428,
+     "type": "f32",
+     "bytesHex": "49928042",
+     "value": 64.28571319580078,
+     "expect": 64.285713,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\Secondary\\Skorpion\\Skorpion_WB.ebx",
+     "rawSha256": "5398a91f0ff0ac48dd1771c982aaa8d3a778fab2e8818187a1786a1011bf6d60",
+     "offset": 5128,
+     "type": "f32",
+     "bytesHex": "0000d841",
+     "value": 27.0,
+     "expect": 27.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\Secondary\\Skorpion\\Skorpion_WB.ebx",
+     "rawSha256": "5398a91f0ff0ac48dd1771c982aaa8d3a778fab2e8818187a1786a1011bf6d60",
+     "offset": 5132,
+     "type": "f32",
+     "bytesHex": "49928042",
+     "value": 64.28571319580078,
+     "expect": 64.285713,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 6,
+   "matched": 6,
+   "files": 3,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "rawchecks-L4001.json"
+  },
+  "dataset": "reference-data/frosty/ea-1-3-3-0-recoil-variation.json",
+  "officialSource": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-3-0",
+  "recoilVariation": {
+   "lines": 39,
+   "equal": 39,
+   "rows": [
+    {
+     "eaName": "TR-7",
+     "siteId": "tr7",
+     "eaOld": 47.1,
+     "eaNew": 40.8,
+     "siteRecoilVar": 40.8,
+     "equal": true
+    },
+    {
+     "eaName": "AK4D",
+     "siteId": "ak4d",
+     "eaOld": 25.4,
+     "eaNew": 20.0,
+     "siteRecoilVar": 20,
+     "equal": true
+    },
+    {
+     "eaName": "NVO-228E",
+     "siteId": "nvo228e",
+     "eaOld": 36.8,
+     "eaNew": 28.9,
+     "siteRecoilVar": 28.9,
+     "equal": true
+    },
+    {
+     "eaName": "VCR-2",
+     "siteId": "vcr2",
+     "eaOld": 64.9,
+     "eaNew": 50.3,
+     "siteRecoilVar": 50.3,
+     "equal": true
+    },
+    {
+     "eaName": "M433",
+     "siteId": "m433",
+     "eaOld": 50.9,
+     "eaNew": 41.4,
+     "siteRecoilVar": 41.4,
+     "equal": true
+    },
+    {
+     "eaName": "M16A4",
+     "siteId": "m16a4",
+     "eaOld": 46.4,
+     "eaNew": 37.5,
+     "siteRecoilVar": 37.5,
+     "equal": true
+    },
+    {
+     "eaName": "B36A4",
+     "siteId": "b36a4",
+     "eaOld": 37.4,
+     "eaNew": 28.0,
+     "siteRecoilVar": 28,
+     "equal": true
+    },
+    {
+     "eaName": "L85A3",
+     "siteId": "l85a3",
+     "eaOld": 29.4,
+     "eaNew": 22.8,
+     "siteRecoilVar": 22.8,
+     "equal": true
+    },
+    {
+     "eaName": "SOR-556 MK2",
+     "siteId": "sor556",
+     "eaOld": 17.3,
+     "eaNew": 12.7,
+     "siteRecoilVar": 12.7,
+     "equal": true
+    },
+    {
+     "eaName": "KORD 6P67",
+     "siteId": "kord6p67",
+     "eaOld": 35.3,
+     "eaNew": 28.9,
+     "siteRecoilVar": 28.9,
+     "equal": true
+    },
+    {
+     "eaName": "M417A2",
+     "siteId": "m417a2",
+     "eaOld": 19.8,
+     "eaNew": 15.4,
+     "siteRecoilVar": 15.4,
+     "equal": true
+    },
+    {
+     "eaName": "SG 553R",
+     "siteId": "sg553r",
+     "eaOld": 43.3,
+     "eaNew": 35.8,
+     "siteRecoilVar": 35.8,
+     "equal": true
+    },
+    {
+     "eaName": "SOR-300SC",
+     "siteId": "sor300sc",
+     "eaOld": 19.2,
+     "eaNew": 15.8,
+     "siteRecoilVar": 15.8,
+     "equal": true
+    },
+    {
+     "eaName": "M277",
+     "siteId": "m277",
+     "eaOld": 39.4,
+     "eaNew": 34.4,
+     "siteRecoilVar": 34.4,
+     "equal": true
+    },
+    {
+     "eaName": "M4A1",
+     "siteId": "m4a1",
+     "eaOld": 37.9,
+     "eaNew": 30.7,
+     "siteRecoilVar": 30.7,
+     "equal": true
+    },
+    {
+     "eaName": "GRT-BC",
+     "siteId": "grtbc",
+     "eaOld": 31.2,
+     "eaNew": 26.1,
+     "siteRecoilVar": 26.1,
+     "equal": true
+    },
+    {
+     "eaName": "QBZ-192",
+     "siteId": "qbz192",
+     "eaOld": 23.5,
+     "eaNew": 19.9,
+     "siteRecoilVar": 19.9,
+     "equal": true
+    },
+    {
+     "eaName": "AK-205",
+     "siteId": "ak205",
+     "eaOld": 7.8,
+     "eaNew": 7.4,
+     "siteRecoilVar": 7.4,
+     "equal": true
+    },
+    {
+     "eaName": "RPKM",
+     "siteId": "rpkm",
+     "eaOld": 22.7,
+     "eaNew": 17.5,
+     "siteRecoilVar": 17.5,
+     "equal": true
+    },
+    {
+     "eaName": "DRS-IAR",
+     "siteId": "drsiar",
+     "eaOld": 35.2,
+     "eaNew": 29.3,
+     "siteRecoilVar": 29.3,
+     "equal": true
+    },
+    {
+     "eaName": "KTS100 MK8",
+     "siteId": "kts100",
+     "eaOld": 10.9,
+     "eaNew": 9.5,
+     "siteRecoilVar": 9.5,
+     "equal": true
+    },
+    {
+     "eaName": "RPK-74M",
+     "siteId": "rpk74m",
+     "eaOld": 18.9,
+     "eaNew": 16.1,
+     "siteRecoilVar": 16.1,
+     "equal": true
+    },
+    {
+     "eaName": "M121 A2",
+     "siteId": "m121a2",
+     "eaOld": 39.5,
+     "eaNew": 31.8,
+     "siteRecoilVar": 31.8,
+     "equal": true
+    },
+    {
+     "eaName": "M240L",
+     "siteId": "m240l",
+     "eaOld": 41.8,
+     "eaNew": 34.5,
+     "siteRecoilVar": 34.5,
+     "equal": true
+    },
+    {
+     "eaName": "M/60",
+     "siteId": "m60",
+     "eaOld": 38.8,
+     "eaNew": 29.9,
+     "siteRecoilVar": 29.9,
+     "equal": true
+    },
+    {
+     "eaName": "M250",
+     "siteId": "m250",
+     "eaOld": 39.7,
+     "eaNew": 35.9,
+     "siteRecoilVar": 35.9,
+     "equal": true
+    },
+    {
+     "eaName": "M123K",
+     "siteId": "m123k",
+     "eaOld": 55.9,
+     "eaNew": 47.7,
+     "siteRecoilVar": 47.7,
+     "equal": true
+    },
+    {
+     "eaName": "L110",
+     "siteId": "l110",
+     "eaOld": 39.4,
+     "eaNew": 31.0,
+     "siteRecoilVar": 31,
+     "equal": true
+    },
+    {
+     "eaName": "SCW-10",
+     "siteId": "scw10",
+     "eaOld": 35.0,
+     "eaNew": 33.5,
+     "siteRecoilVar": 33.5,
+     "equal": true
+    },
+    {
+     "eaName": "UMG-40",
+     "siteId": "umg40",
+     "eaOld": 17.4,
+     "eaNew": 13.0,
+     "siteRecoilVar": 13,
+     "equal": true
+    },
+    {
+     "eaName": "KV9",
+     "siteId": "kv9",
+     "eaOld": 57.6,
+     "eaNew": 50.0,
+     "siteRecoilVar": 50,
+     "equal": true
+    },
+    {
+     "eaName": "CZ3A1",
+     "siteId": "cz3a1",
+     "eaOld": 59.1,
+     "eaNew": 50.8,
+     "siteRecoilVar": 50.8,
+     "equal": true
+    },
+    {
+     "eaName": "SGX",
+     "siteId": "sgx",
+     "eaOld": 39.8,
+     "eaNew": 31.7,
+     "siteRecoilVar": 31.7,
+     "equal": true
+    },
+    {
+     "eaName": "PW5A3",
+     "siteId": "pw5a3",
+     "eaOld": 33.2,
+     "eaNew": 28.3,
+     "siteRecoilVar": 28.3,
+     "equal": true
+    },
+    {
+     "eaName": "PP-19",
+     "siteId": "pp19",
+     "eaOld": 21.4,
+     "eaNew": 18.0,
+     "siteRecoilVar": 18,
+     "equal": true
+    },
+    {
+     "eaName": "SL9",
+     "siteId": "sl9",
+     "eaOld": 16.2,
+     "eaNew": 13.0,
+     "siteRecoilVar": 13,
+     "equal": true
+    },
+    {
+     "eaName": "USG-90",
+     "siteId": "usg90",
+     "eaOld": 42.8,
+     "eaNew": 35.5,
+     "siteRecoilVar": 35.5,
+     "equal": true
+    },
+    {
+     "eaName": "PW7A2",
+     "siteId": "pw7a2",
+     "eaOld": 33.3,
+     "eaNew": 27.8,
+     "siteRecoilVar": 27.8,
+     "equal": true
+    },
+    {
+     "eaName": "VZ. 61",
+     "siteId": "vz61",
+     "eaOld": 20.8,
+     "eaNew": 18.4,
+     "siteRecoilVar": 18.4,
+     "equal": true
+    }
+   ]
+  },
+  "headMultipliers": {
+   "ea": "automatic weapons 1.4, 1.57, 1.8 by ammunition type",
+   "site": "the automatic weapons and the vz. 61 hold 1.4, with 1.57 for hollow point and 1.8 for synthetic"
+  },
+  "costs": {
+   "l115IronSight": {
+    "ea": 15,
+    "site": 15
+   },
+   "rpk74mBallisticTip": {
+    "ea": 20,
+    "siteSynthetic": 20,
+    "join": "by name only: Ballistic Tip taken as the site's Synthetic"
+   },
+   "dvoLpvo": {
+    "ea": "10 to 25 on GRT-CPS, M121 A2 and CZ3A1 (1.3.1.0)",
+    "site": "sight cost is one figure per sight class (Variable Low 20, Variable High 25); no per-weapon optic cost"
+   }
+  },
+  "subsonicByDefault": {
+   "ea": "M45A1 and Vz.61 sidearms now use Subsonic Ammo by default.",
+   "storedSpotRanges": {
+    "HK433_WB": {
+     "world": 54.0,
+     "minimap": 150.0
+    },
+    "M45A1_WB": {
+     "world": 27.0,
+     "minimap": 64.285713
+    },
+    "Skorpion_WB": {
+     "world": 27.0,
+     "minimap": 64.285713
+    }
+   },
+   "siteWeaponsNotAt54And150": {
+    "M45A1_WB": [
+     "m45a1",
+     27.0,
+     64.285713
+    ],
+    "Skorpion_WB": [
+     "vz61",
+     27.0,
+     64.285713
+    ]
+   },
+   "siteWeaponsRead": 63,
+   "site": "sim/applyAttachments.js uses 54 / 150 for every weapon; neither weapon has a Subsonic choice in data/ammo.json"
+  }
+ },
+ "inference": [
+  "The site's recoil variation equals EA's new figure for all 39 weapons EA lists. The site value is the stat-screen figure, so this is an official cross-check of 39 displayed numbers, not a new source reading.",
+  "EA's statement that the M45A1 and vz. 61 use subsonic ammunition by default agrees with their stored spotting ranges (27 world, 64.29 minimap, against 54 and 150 on most site weapons). That is the official wording the per-weapon spot-base proposal lacked; whether the game applies the stored ranges in that way is still unverified.",
+  "Automatic head multipliers, the L115 iron sight cost and the RPK-74M 20-point ammunition cost agree with the site."
+ ],
+ "unresolved": [
+  "DVO LPVO cost 25 on three weapons: the site has no per-weapon optic cost to compare.",
+  "EA's dispersion lines (average growth up 14 percent, up to 22 percent more or 48 percent less) give no per-weapon number.",
+  "Downed-state damage reduction of 20 percent (1.3.1.0) is not a site quantity.",
+  "Test for the spotting ranges: fire an unsuppressed M45A1 and an unsuppressed P18 with a squadmate at 40 m watching the minimap; prediction, the P18 shooter appears and the M45A1 shooter does not."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-10-weapons-registry",
+  "artifacts": [
+   {
+    "file": "manifest-L4001.json",
+    "sha256": "e21e91f27c2006374cabbf6de00963a6effb656381f5cf6c8c3834f0e882004e"
+   },
+   {
+    "file": "rawchecks-L4001.json",
+    "sha256": "266930ee320a181d42f845f01182b9a314a4626707ca8d21a3468f710aeb3fae"
+   },
+   {
+    "file": "ea-1-3-3-0.txt",
+    "sha256": "f755dc18c8aad27471d33e8ba721cd377a24c5940957d23e9dd9e40a443e6b47"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-10",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L4001",
+    "title": "EA's 1.3.3.0 weapon lines against the site: recoil variation equal for 39 of 39; M45A1 and vz. 61 are subsonic by default, as their stored spotting ranges say",
+    "status": "finding",
+    "summary": "EA's 1.3.3.0 recoil variation table (39 weapons) equals the site's recoilVar on every line. EA says the M45A1 and vz. 61 use subsonic ammunition by default; their stored spotting ranges are 27 and 64.29 against 54 and 150 on most weapons, and the site shows 54 and 150 for them. Automatic head multipliers, the L115 iron sight cost and the RPK-74M 20-point cost agree with the site. 6 raw-offset checks matched.",
+    "reopenWhen": "A new EA note states weapon or attachment numbers, or the spotting test is run.",
+    "statusNote": "39 of 39 recoil variation figures equal; spot-base proposal gains an official statement."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Hardware/Weapons/Secondary/M45A1/M45A1_WB",
+    "format": "raw-ebx",
+    "sha256": "1cbd8683bbb56d88db81767096a207dba2dccfa0033163d48a795faee60aca2c",
+    "question": "Which numeric weapon and attachment statements in EA's 1.3.1.0 and 1.3.3.0 notes had not been compared with the site, and do they agree?",
+    "result": "useful",
+    "conclusion": "Stored spotting ranges 27 world and 64.29 minimap."
+   },
+   {
+    "path": "Common/Hardware/Weapons/Secondary/Skorpion/Skorpion_WB",
+    "format": "raw-ebx",
+    "sha256": "5398a91f0ff0ac48dd1771c982aaa8d3a778fab2e8818187a1786a1011bf6d60",
+    "question": "Which numeric weapon and attachment statements in EA's 1.3.1.0 and 1.3.3.0 notes had not been compared with the site, and do they agree?",
+    "result": "useful",
+    "conclusion": "Stored spotting ranges 27 world and 64.29 minimap."
+   }
+  ]
+ }
+}

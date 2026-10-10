@@ -1,0 +1,279 @@
+{
+ "lead": "L4015",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Read from saved raw captures; no export, no new capture."
+ },
+ "question": "Can the FastSprintRequired channel be traced to a modifier that sets the fast sprint speed?",
+ "sourceFacts": {
+  "method": "SoldierMotionMachine was decoded: it binds the channel to a named boolean parameter. SimEx_RootLayerLogic was decoded and its 189 input entries (object 44) were named by resolving each import through the asset catalog and the decoded source files. Its compiled resource 2bfca9f18b8f10e9 (309,904 bytes, captured 1 October 2026) was scanned for part names and float constants.",
+  "control": {
+   "description": "Inputs 80 and 81 resolve to FastSprintTopSpeedMultiplier and DefaultStandSprintTopSpeedMultiplier, the positions recorded in L845.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+     "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+     "offset": 4616,
+     "type": "f32",
+     "bytesHex": "0000803e",
+     "value": 0.25,
+     "expect": 0.25,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+     "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+     "offset": 4620,
+     "type": "f32",
+     "bytesHex": "cdcc4c3f",
+     "value": 0.800000011920929,
+     "expect": 0.8,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+     "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+     "offset": 4624,
+     "type": "f32",
+     "bytesHex": "0000c03f",
+     "value": 1.5,
+     "expect": 1.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+     "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+     "offset": 4628,
+     "type": "f32",
+     "bytesHex": "cdcc8c3f",
+     "value": 1.100000023841858,
+     "expect": 1.1,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+     "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+     "offset": 4632,
+     "type": "f32",
+     "bytesHex": "3333733f",
+     "value": 0.949999988079071,
+     "expect": 0.95,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+     "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+     "offset": 4636,
+     "type": "f32",
+     "bytesHex": "3945973f",
+     "value": 1.1818000078201294,
+     "expect": 1.1818,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+     "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+     "offset": 4640,
+     "type": "f32",
+     "bytesHex": "00007042",
+     "value": 60.0,
+     "expect": 60.0,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 7,
+   "matched": 7,
+   "files": 1,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "rawchecks-L4015.json"
+  },
+  "chain": [
+   "Item ability sets the channel FastSprintRequired true (Class_d68e0211 entry; L4014 list of items)",
+   "SoldierMotionMachine binds the channel to its boolean parameter FastSprintRequired (index 38)",
+   "SimEx_RootLayerLogic input 79 is the channel; inputs 80 and 81 are the two sprint multipliers",
+   "The compiled resource names the parts SimEx_MoveSpeedModifiers and SimEx_Sprinting_States"
+  ],
+  "moveSpeedInputBlock": [
+   {
+    "input": 70,
+    "name": "SprintStrafeAllowed_PerTeam",
+    "kind": "mutator"
+   },
+   {
+    "input": 71,
+    "name": "SoldierMovementSpeedMultiplier_PerTeam",
+    "kind": "mutator"
+   },
+   {
+    "input": 72,
+    "name": "AI_SoldierMovementSpeedMultiplier_PerTeam",
+    "kind": "mutator"
+   },
+   {
+    "input": 73,
+    "name": "DraggingSpeedModifier",
+    "kind": "soldier registry"
+   },
+   {
+    "input": 75,
+    "name": "LMG",
+    "kind": "categorization tag"
+   },
+   {
+    "input": 76,
+    "name": "MachineGun",
+    "kind": "categorization tag"
+   },
+   {
+    "input": 77,
+    "name": "CurrentStance",
+    "kind": "soldier channel"
+   },
+   {
+    "input": 78,
+    "name": "ConcussionGrenade_Movement Speed Modifier",
+    "kind": "gadget registry"
+   },
+   {
+    "input": 79,
+    "name": "FastSprintRequired",
+    "kind": "soldier channel"
+   },
+   {
+    "input": 80,
+    "name": "FastSprintTopSpeedMultiplier",
+    "kind": "soldier registry, 2.05"
+   },
+   {
+    "input": 81,
+    "name": "DefaultStandSprintTopSpeedMultiplier",
+    "kind": "soldier registry, 1.857"
+   },
+   {
+    "input": 84,
+    "name": "Affector_Suppression_AdrenalineShot",
+    "kind": "affector"
+   },
+   {
+    "input": 85,
+    "name": "Affector_MedicalTriageSprint",
+    "kind": "affector"
+   },
+   {
+    "input": 86,
+    "name": "Affector_EnhancedFiltering",
+    "kind": "affector"
+   },
+   {
+    "input": 87,
+    "name": "Affector_ConcussionGrenade",
+    "kind": "affector"
+   },
+   {
+    "input": 88,
+    "name": "Affector_BarbedWire_SpeedSlowdown",
+    "kind": "affector"
+   },
+   {
+    "input": 89,
+    "name": "Affector_SwiftTriageSprint",
+    "kind": "affector"
+   }
+  ],
+  "resource": {
+   "id": "2bfca9f18b8f10e9",
+   "sha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+   "constantPoolStart": 4576,
+   "constants": {
+    "4616": 0.25,
+    "4620": 0.8,
+    "4624": 1.5,
+    "4628": 1.1,
+    "4632": 0.95,
+    "4636": 1.1818,
+    "4640": 60.0
+   }
+  },
+  "arithmetic": {
+   "6.05 x 1.1": 6.655,
+   "6.05 x 0.95": 5.7475,
+   "6.05 x 1.1818": 7.14989,
+   "3.5 x 1.857": 6.4995,
+   "3.5 x 2.05": 7.175,
+   "1.857 x 3.5 / 6.05": 1.0743,
+   "1.1818 / 1.1": 1.07436
+  }
+ },
+ "inference": [
+  "The channel is traced to the movement-speed logic: it is one input of the same block as the two sprint multipliers, the LMG and MachineGun weapon tags and the adrenaline affector. So the knife bonus, the LMG penalty and the adrenaline boost are all applied in this one compiled part.",
+  "Three consecutive constants of the compiled code read 1.1, 0.95 and 1.1818. On the stored standing sprint speed 6.05 they give 6.655, 5.7475 and 7.1499, the measured adrenaline (about 6.65), LMG (5.75) and knife (7.15) speeds. This is the best-supported reading of the size of each effect.",
+  "The Sledgehammer's 6.5 equals 3.5 x 1.857 and also 6.05 x 1.1818 / 1.1; which applies is not known."
+ ],
+ "unresolved": [
+  "The compiled code was not disassembled: which constant is applied under which condition is inferred from values and adjacency, not read.",
+  "How the registry multipliers 2.05 and 1.857 enter the result, and why the Sledgehammer measures 6.5.",
+  "Input 82 has no resolved import.",
+  "Measured speeds are third-party (L4014)."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-10-weapons-registry",
+  "artifacts": [
+   {
+    "file": "manifest-L4015.json",
+    "sha256": "5870ec59ddb2eeb8bc094e8620c8e4d72687f5cf50a61665fea72e53687b84c4"
+   },
+   {
+    "file": "rawchecks-L4015.json",
+    "sha256": "4f276d6fa4bc64aa0619d7655a3c0028e54bd3fe098e512829f5df54c3d5b8e8"
+   },
+   {
+    "file": "spec-4015.py",
+    "sha256": "6021a2d1d308ac5158c4e41a87a040609d8f8dafcfd643a8fb436040783d63b5"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-10",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L4015",
+    "title": "FastSprintRequired feeds the compiled movement-speed logic beside the two sprint multipliers, the LMG tags and the adrenaline affector; its constant pool holds 1.1, 0.95 and 1.1818 in sequence, matching the adrenaline boost, the LMG penalty and the knife sprint ratio",
+    "status": "finding",
+    "summary": "FastSprintRequired is input 79 of the compiled movement-speed logic, beside the two sprint multipliers, the LMG tags and the adrenaline affector. The compiled constants 1.1, 0.95 and 1.1818 in sequence reproduce the measured adrenaline, LMG and knife sprint speeds from the stored 6.05. The code itself was not disassembled. 7 raw-offset checks matched.",
+    "reopenWhen": "A disassembly of the SimEx_MoveSpeedModifiers part, or a current timed sprint with rifle, LMG, knife and Sledgehammer.",
+    "statusNote": "Channel traced to the speed logic; effect sizes matched to compiled constants by value."
+   }
+  ],
+  "assets": [
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/builds/1.4.3.5/reports/soldier-frontier-2026-10-01-b6/resources/2bfca9f18b8f10e9.res",
+    "format": "raw-ebx",
+    "sha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+    "question": "Can the FastSprintRequired channel be traced to a modifier that sets the fast sprint speed?",
+    "result": "useful",
+    "conclusion": "Constants 1.1, 0.95, 1.1818 in sequence; part names SimEx_MoveSpeedModifiers and SimEx_Sprinting_States."
+   },
+   {
+    "path": "Common/Gameplay/Soldier/Traversal/SimEx_RootLayerLogic",
+    "format": "raw-ebx",
+    "sha256": "533b75fa90ff5a6c4bbad9262d113baa7ac94568b3680e8abd7f7fa1e8be50bb",
+    "question": "Can the FastSprintRequired channel be traced to a modifier that sets the fast sprint speed?",
+    "result": "useful",
+    "conclusion": "Input 79 FastSprintRequired; inputs 80 and 81 the two sprint multipliers; LMG tags and adrenaline affector in the same block."
+   }
+  ]
+ }
+}

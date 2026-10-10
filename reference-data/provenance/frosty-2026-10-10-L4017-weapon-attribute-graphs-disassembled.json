@@ -1,0 +1,497 @@
+{
+ "lead": "L4017",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Read from saved raw captures; no export, no new capture."
+ },
+ "question": "Do the compiled weapon attribute graphs confirm the site's Hipfire, Control and Mobility formulas, and what do the other three graphs compute?",
+ "sourceFacts": {
+  "method": "A general reader for SerializedExpressionNodeGraph resources (expression-graphs/exdis.py) was written from the format recovered in L4016 and run on the seven resources. The header gives data size (offset 36), code size in words (44), an 8-byte table count (56) and the call count (60); the code start is the position at which every call instruction's next field equals its own length. Operand kinds 3 and above are inputs: instruction 0x2e binds an input frame offset to a kind. Each graph's source asset lists its inputs as (name hash, frame offset); the hash is h = h * 33 xor c from 5381 over the case-sensitive name, which matches all 16 input names exactly.",
+  "control": {
+   "description": "The name hash reproduces ReturnValue (3511130244), RecoilAmount (51046935) and RateOfFire (3866082710). The reader reproduces the L4016 soldier-graph listing (code start 13976, data offset 928). The Control graph read this way is the formula the site already uses, which matched 203 menu panels.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\weapons-ui-frontier-2026-10-01-b\\resources\\481d2d6bc969c2f5.res",
+     "rawSha256": "7d4470d20e1b6ac1e90a6b76c36cf049ca69511b32ce8eb667ecd0a086079a64",
+     "offset": 148,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\weapons-ui-frontier-2026-10-01-b\\resources\\481d2d6bc969c2f5.res",
+     "rawSha256": "7d4470d20e1b6ac1e90a6b76c36cf049ca69511b32ce8eb667ecd0a086079a64",
+     "offset": 152,
+     "type": "f32",
+     "bytesHex": "9a99993f",
+     "value": 1.2000000476837158,
+     "expect": 1.2,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\weapons-ui-frontier-2026-10-01-b\\resources\\481d2d6bc969c2f5.res",
+     "rawSha256": "7d4470d20e1b6ac1e90a6b76c36cf049ca69511b32ce8eb667ecd0a086079a64",
+     "offset": 156,
+     "type": "f32",
+     "bytesHex": "9a99d93e",
+     "value": 0.42500001192092896,
+     "expect": 0.425,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\weapons-ui-frontier-2026-10-01-b\\resources\\481d2d6bc969c2f5.res",
+     "rawSha256": "7d4470d20e1b6ac1e90a6b76c36cf049ca69511b32ce8eb667ecd0a086079a64",
+     "offset": 164,
+     "type": "f32",
+     "bytesHex": "12830041",
+     "value": 8.031999588012695,
+     "expect": 8.032,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\weapons-ui-frontier-2026-10-01-b\\resources\\481d2d6bc969c2f5.res",
+     "rawSha256": "7d4470d20e1b6ac1e90a6b76c36cf049ca69511b32ce8eb667ecd0a086079a64",
+     "offset": 232,
+     "type": "f32",
+     "bytesHex": "f4fd543e",
+     "value": 0.20800000429153442,
+     "expect": 0.208,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\weapons-ui-frontier-2026-10-01-b\\resources\\481d2d6bc969c2f5.res",
+     "rawSha256": "7d4470d20e1b6ac1e90a6b76c36cf049ca69511b32ce8eb667ecd0a086079a64",
+     "offset": 236,
+     "type": "f32",
+     "bytesHex": "0000a03f",
+     "value": 1.25,
+     "expect": 1.25,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\weapons-ui-frontier-2026-10-01-b\\resources\\481d2d6bc969c2f5.res",
+     "rawSha256": "7d4470d20e1b6ac1e90a6b76c36cf049ca69511b32ce8eb667ecd0a086079a64",
+     "offset": 240,
+     "type": "f32",
+     "bytesHex": "00003443",
+     "value": 180.0,
+     "expect": 180.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\weapons-ui-frontier-2026-10-01-b\\resources\\481d2d6bc969c2f5.res",
+     "rawSha256": "7d4470d20e1b6ac1e90a6b76c36cf049ca69511b32ce8eb667ecd0a086079a64",
+     "offset": 244,
+     "type": "f32",
+     "bytesHex": "abaaa642",
+     "value": 83.33333587646484,
+     "expect": 83.333336,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\weapons-ui-frontier-2026-10-01-b\\resources\\481d2d6bc969c2f5.res",
+     "rawSha256": "7d4470d20e1b6ac1e90a6b76c36cf049ca69511b32ce8eb667ecd0a086079a64",
+     "offset": 248,
+     "type": "f32",
+     "bytesHex": "47b22342",
+     "value": 40.92409896850586,
+     "expect": 40.924099,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\weapons-ui-frontier-2026-10-01-b\\resources\\481d2d6bc969c2f5.res",
+     "rawSha256": "7d4470d20e1b6ac1e90a6b76c36cf049ca69511b32ce8eb667ecd0a086079a64",
+     "offset": 144,
+     "type": "f32",
+     "bytesHex": "00002041",
+     "value": 10.0,
+     "expect": 10.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\weapons-ui-frontier-2026-10-01-b\\resources\\481d2d6bc969c2f5.res",
+     "rawSha256": "7d4470d20e1b6ac1e90a6b76c36cf049ca69511b32ce8eb667ecd0a086079a64",
+     "offset": 260,
+     "type": "i32",
+     "bytesHex": "11000000",
+     "value": 17,
+     "expect": 17,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\weapons-ui-frontier-2026-10-01-b\\resources\\481d2d6bc969c2f5.res",
+     "rawSha256": "7d4470d20e1b6ac1e90a6b76c36cf049ca69511b32ce8eb667ecd0a086079a64",
+     "offset": 256,
+     "type": "i32",
+     "bytesHex": "12000000",
+     "value": 18,
+     "expect": 18,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\weapons-ui-frontier-2026-10-01-b\\resources\\f87920faaacb6271.res",
+     "rawSha256": "bd36b9e27c9d4f53b85b99a03191cbf925c49eb2a8dc8c5ad268c73796411591",
+     "offset": 80,
+     "type": "i32",
+     "bytesHex": "04000000",
+     "value": 4,
+     "expect": 4,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\weapons-ui-frontier-2026-10-01-b\\resources\\f87920faaacb6271.res",
+     "rawSha256": "bd36b9e27c9d4f53b85b99a03191cbf925c49eb2a8dc8c5ad268c73796411591",
+     "offset": 84,
+     "type": "i32",
+     "bytesHex": "02000000",
+     "value": 2,
+     "expect": 2,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\weapons-ui-frontier-2026-10-01-b\\resources\\f87920faaacb6271.res",
+     "rawSha256": "bd36b9e27c9d4f53b85b99a03191cbf925c49eb2a8dc8c5ad268c73796411591",
+     "offset": 92,
+     "type": "i32",
+     "bytesHex": "01000000",
+     "value": 1,
+     "expect": 1,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\weapons-ui-frontier-2026-10-01-b\\resources\\5c75c815b5fbf843.res",
+     "rawSha256": "ecd777cb6435732201b234b06691bc258a6427e485c906c0d3b099e6e2b04064",
+     "offset": 80,
+     "type": "f32",
+     "bytesHex": "00008040",
+     "value": 4.0,
+     "expect": 4.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\weapons-ui-frontier-2026-10-01-b\\resources\\5c75c815b5fbf843.res",
+     "rawSha256": "ecd777cb6435732201b234b06691bc258a6427e485c906c0d3b099e6e2b04064",
+     "offset": 84,
+     "type": "f32",
+     "bytesHex": "0000c042",
+     "value": 96.0,
+     "expect": 96.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\weapons-ui-frontier-2026-10-01-b\\resources\\5c75c815b5fbf843.res",
+     "rawSha256": "ecd777cb6435732201b234b06691bc258a6427e485c906c0d3b099e6e2b04064",
+     "offset": 88,
+     "type": "f32",
+     "bytesHex": "cdcc8c3f",
+     "value": 1.100000023841858,
+     "expect": 1.1,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\weapons-ui-frontier-2026-10-01-b\\resources\\5c75c815b5fbf843.res",
+     "rawSha256": "ecd777cb6435732201b234b06691bc258a6427e485c906c0d3b099e6e2b04064",
+     "offset": 92,
+     "type": "f32",
+     "bytesHex": "00000040",
+     "value": 2.0,
+     "expect": 2.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\weapons-ui-frontier-2026-10-01-b\\resources\\5c75c815b5fbf843.res",
+     "rawSha256": "ecd777cb6435732201b234b06691bc258a6427e485c906c0d3b099e6e2b04064",
+     "offset": 104,
+     "type": "f32",
+     "bytesHex": "0000403f",
+     "value": 0.75,
+     "expect": 0.75,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\weapons-ui-frontier-2026-10-01-b\\resources\\5c75c815b5fbf843.res",
+     "rawSha256": "ecd777cb6435732201b234b06691bc258a6427e485c906c0d3b099e6e2b04064",
+     "offset": 108,
+     "type": "f32",
+     "bytesHex": "00001040",
+     "value": 2.25,
+     "expect": 2.25,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\weapons-ui-frontier-2026-10-01-b\\resources\\821ce182db47aad3.res",
+     "rawSha256": "d296bfae0fab18bece2b1c9eabbadec65283014fba002a6ba9cac466a89eccc8",
+     "offset": 144,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\weapons-ui-frontier-2026-10-01-b\\resources\\821ce182db47aad3.res",
+     "rawSha256": "d296bfae0fab18bece2b1c9eabbadec65283014fba002a6ba9cac466a89eccc8",
+     "offset": 148,
+     "type": "f32",
+     "bytesHex": "1f85ab3f",
+     "value": 1.340000033378601,
+     "expect": 1.34,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\weapons-ui-frontier-2026-10-01-b\\resources\\821ce182db47aad3.res",
+     "rawSha256": "d296bfae0fab18bece2b1c9eabbadec65283014fba002a6ba9cac466a89eccc8",
+     "offset": 152,
+     "type": "f32",
+     "bytesHex": "0000c03f",
+     "value": 1.5,
+     "expect": 1.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\weapons-ui-frontier-2026-10-01-b\\resources\\821ce182db47aad3.res",
+     "rawSha256": "d296bfae0fab18bece2b1c9eabbadec65283014fba002a6ba9cac466a89eccc8",
+     "offset": 156,
+     "type": "f32",
+     "bytesHex": "0000e03f",
+     "value": 1.75,
+     "expect": 1.75,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\weapons-ui-frontier-2026-10-01-b\\resources\\821ce182db47aad3.res",
+     "rawSha256": "d296bfae0fab18bece2b1c9eabbadec65283014fba002a6ba9cac466a89eccc8",
+     "offset": 160,
+     "type": "f32",
+     "bytesHex": "6666e63f",
+     "value": 1.7999999523162842,
+     "expect": 1.8,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\weapons-ui-frontier-2026-10-01-b\\resources\\821ce182db47aad3.res",
+     "rawSha256": "d296bfae0fab18bece2b1c9eabbadec65283014fba002a6ba9cac466a89eccc8",
+     "offset": 164,
+     "type": "f32",
+     "bytesHex": "3333b33f",
+     "value": 1.399999976158142,
+     "expect": 1.4,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\weapons-ui-frontier-2026-10-01-b\\resources\\821ce182db47aad3.res",
+     "rawSha256": "d296bfae0fab18bece2b1c9eabbadec65283014fba002a6ba9cac466a89eccc8",
+     "offset": 168,
+     "type": "f32",
+     "bytesHex": "c3f5c83f",
+     "value": 1.5700000524520874,
+     "expect": 1.57,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\weapons-ui-frontier-2026-10-01-b\\resources\\821ce182db47aad3.res",
+     "rawSha256": "d296bfae0fab18bece2b1c9eabbadec65283014fba002a6ba9cac466a89eccc8",
+     "offset": 176,
+     "type": "i32",
+     "bytesHex": "0f000000",
+     "value": 15,
+     "expect": 15,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\weapons-ui-frontier-2026-10-01-b\\resources\\3b6ffcd338c6429b.res",
+     "rawSha256": "5ca79d446a1f8404229a5c70d4967389d6c2216f658d0651529da8a504f63b0d",
+     "offset": 80,
+     "type": "f32",
+     "bytesHex": "6f12033b",
+     "value": 0.0020000000949949026,
+     "expect": 0.002,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\weapons-ui-frontier-2026-10-01-b\\resources\\fb59faf31e5e634b.res",
+     "rawSha256": "181a3ca260e328f72392a89fb2ed5417bfaa41c0620f19536e2f2d06f7d99da4",
+     "offset": 188,
+     "type": "i32",
+     "bytesHex": "0a000000",
+     "value": 10,
+     "expect": 10,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\weapons-ui-frontier-2026-10-01-b\\resources\\e1326238c98c66b9.res",
+     "rawSha256": "9e95ff424a61d32f6808820e398a4d808a19a8b374ec36a332d1101a61105adc",
+     "offset": 80,
+     "type": "f32",
+     "bytesHex": "00009a42",
+     "value": 77.0,
+     "expect": 77.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\weapons-ui-frontier-2026-10-01-b\\resources\\e1326238c98c66b9.res",
+     "rawSha256": "9e95ff424a61d32f6808820e398a4d808a19a8b374ec36a332d1101a61105adc",
+     "offset": 84,
+     "type": "f32",
+     "bytesHex": "1f852b3f",
+     "value": 0.6700000166893005,
+     "expect": 0.67,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\weapons-ui-frontier-2026-10-01-b\\resources\\e1326238c98c66b9.res",
+     "rawSha256": "9e95ff424a61d32f6808820e398a4d808a19a8b374ec36a332d1101a61105adc",
+     "offset": 88,
+     "type": "f32",
+     "bytesHex": "0000e03f",
+     "value": 1.75,
+     "expect": 1.75,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 34,
+   "matched": 34,
+   "files": 7,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "rawchecks-L4017.json"
+  },
+  "reader": "expression-graphs/exdis.py",
+  "pseudocode": "```\nControl (ControlAttributeDelegate1)\n  = 4 + 96 / (1.1 * (2 * RecoilAmount * f(RecoilVariation * pi / 180)) / (2 * RecoilVariation * pi / 180) + 0.75) ^ 2.25\n  RateOfFire is declared as an input but has no frame slot and is not read.\n\nHipfire\n  F     = cmpA(IncreasePerShotFraction, 1.0) ? 1.2 : 1\n  angle = cmpB(MinAngleIndex, 0) ? table18[clampInt(MinAngleIndex, 0, 17)] : MinAngle\n  H     = angle + StandDispersionMinAngle\n  Hipfire = 10 * g( (F * 0.425) / h(1.25 * H * pi / 180) * 83.3333 / 40.9241 )\n\nMobility\n  = float(WeaponDeployTimeIndex + 4 * AnimationZoomSettingsIndex + SprintSettingsIndex\n          + 2 * WeaponZoomedMoveSpeedMultiplierIndex + 4 * MovingZoomedMinAnglesIndex)\n    + float(CanFireWhileSprinting == 1 ? 4 : 0)\n\nHeadshot Multiplier = table15[DamageProtectionMultiplierIndex]\n  table15 = 1, 1.34, 1.5, 1.75, 1.8, 1, 1, 1, 1, 1, 1, 1.4, 1.57, 1.8, 1.8\nCollateral Multiplier = table10[DamagePenetrationMultiplierIndex]\nRate of Fire = RateOfFire + 0.002\nControlAttributeDelegate (older, one input) = 77 / (RecoilAmount + 0.67) ^ 1.75\n```",
+  "inputs": {
+   "Control1": {
+    "RecoilAmount": 8,
+    "RecoilVariation": 16,
+    "RateOfFire": "no slot"
+   },
+   "Hipfire": {
+    "IncreasePerShotFraction": 16,
+    "MinAngle": 24,
+    "StandDispersionMinAngle": 32,
+    "MinAngleIndex": 40
+   },
+   "Mobility": {
+    "WeaponDeployTimeIndex": 8,
+    "AnimationZoomSettingsIndex": 16,
+    "SprintSettingsIndex": 24,
+    "WeaponZoomedMoveSpeedMultiplierIndex": 32,
+    "MovingZoomedMinAnglesIndex": 40,
+    "CanFireWhileSprinting": 48
+   },
+   "HeadshotMultiplier": {
+    "DamageProtectionMultiplierIndex": 16
+   },
+   "CollateralMultiplier": {
+    "DamagePenetrationMultiplierIndex": 16
+   },
+   "RateOfFire": {
+    "RateOfFire": 8
+   }
+  },
+  "functionHashes": {
+   "30364d4d": "float multiply",
+   "ce900afc": "float add",
+   "4a80cf2b": "float divide",
+   "01106f97": "power",
+   "445f06ce": "integer multiply",
+   "e881624e": "integer add",
+   "8e3f8bbf": "integer to float",
+   "b2bdfdbc": "equal",
+   "3ee9cb97": "f in Control (sine fits)",
+   "cb74bbb0": "h in Hipfire (tangent fits)",
+   "437bec49": "g in Hipfire (square root fits)",
+   "c07cd1f5": "cmpA, float comparison, direction unknown",
+   "bb9ecb3e": "cmpB, integer comparison, direction unknown",
+   "14b3e15e": "integer clamp",
+   "8aefc858": "build table",
+   "e68f1c89": "index table"
+  }
+ },
+ "inference": [
+  "Control and Mobility are the site's formulas term for term, with the same inputs. Control does not read RateOfFire.",
+  "Hipfire: the 1.2 is applied inside the root, which equals the site's sqrt(1.2) factor. It is chosen by comparing IncreasePerShotFraction with the constant 1.0, so the site's rule (factor applies when the fraction is not 1) is consistent with a not-equal, less-than or greater-than test; the direction is not read.",
+  "Hipfire uses the 18-entry table only when a test on MinAngleIndex passes; otherwise it uses the MinAngle input directly. The index is clamped to 0..17 before the lookup.",
+  "None of the seven graphs clamps its result. The site's min(100) for Hipfire is not in the graph; if the game limits the bar it does so elsewhere.",
+  "Arithmetic function meanings (multiply, add, divide, power) follow from the Control graph reproducing the known formula. Sine, tangent and square root are the functions that make the formulas match the panels; their hashes are not independently named."
+ ],
+ "unresolved": [
+  "Direction of the two Hipfire comparisons.",
+  "Whether the divide function guards a zero RecoilVariation (the graph has no guard of its own).",
+  "Whether table indexing clamps out-of-range indices for the headshot and collateral tables.",
+  "The Precision bar has no graph here."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-10-weapons-registry",
+  "artifacts": [
+   {
+    "file": "manifest-L4017.json",
+    "sha256": "8cb811bafcefeba675d910cffd42692a0852414edf380afa25871b33fe9a1a58"
+   },
+   {
+    "file": "rawchecks-L4017.json",
+    "sha256": "5c1b2953f8692fe124f820775cb6cc85e246c516694478609536da0430c4f4ff"
+   },
+   {
+    "file": "spec-4017.py",
+    "sha256": "8faf08ea79962d479f6794036625808334ca7bcc284d617eb1417823b3368226"
+   },
+   {
+    "file": "expression-graphs/exdis.py",
+    "sha256": "7bf910686f646645c92585135b9c127f2ad49cfb5f3765c3d77362fd655e7213"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-10",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L4017",
+    "title": "The seven weapon attribute graphs disassembled with named inputs: Control and Mobility match the site formulas term for term, Hipfire's 1.2 factor is selected by a comparison of IncreasePerShotFraction with 1.0, and none of the graphs contains a final clamp",
+    "status": "finding",
+    "summary": "The seven weapon attribute graphs were disassembled with input names matched by hash. Control and Mobility equal the site formulas term for term. Hipfire's 1.2 factor is selected by comparing IncreasePerShotFraction with 1.0, and the graph falls back to the raw MinAngle input when a test on MinAngleIndex fails. No graph clamps its result. Headshot and collateral multipliers are table lookups; rate of fire is the input plus 0.002. 34 raw-offset checks matched.",
+    "reopenWhen": "The two comparison functions are identified, or a panel shows Hipfire above 100.",
+    "statusNote": "Attribute graphs read; site formulas confirmed; no site change proposed."
+   }
+  ],
+  "assets": [
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/builds/1.4.3.5/reports/weapons-ui-frontier-2026-10-01-b/resources/481d2d6bc969c2f5.res",
+    "format": "raw-ebx",
+    "sha256": "7d4470d20e1b6ac1e90a6b76c36cf049ca69511b32ce8eb667ecd0a086079a64",
+    "question": "Do the compiled weapon attribute graphs confirm the site's Hipfire, Control and Mobility formulas, and what do the other three graphs compute?",
+    "result": "useful",
+    "conclusion": "Hipfire: comparison with 1.0 selects 1.2; 18-entry table; no clamp."
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/builds/1.4.3.5/reports/weapons-ui-frontier-2026-10-01-b/resources/f87920faaacb6271.res",
+    "format": "raw-ebx",
+    "sha256": "bd36b9e27c9d4f53b85b99a03191cbf925c49eb2a8dc8c5ad268c73796411591",
+    "question": "Do the compiled weapon attribute graphs confirm the site's Hipfire, Control and Mobility formulas, and what do the other three graphs compute?",
+    "result": "useful",
+    "conclusion": "Mobility: integer weights 1, 4, 1, 2, 4 and 4 for sprint fire."
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/builds/1.4.3.5/reports/weapons-ui-frontier-2026-10-01-b/resources/5c75c815b5fbf843.res",
+    "format": "raw-ebx",
+    "sha256": "ecd777cb6435732201b234b06691bc258a6427e485c906c0d3b099e6e2b04064",
+    "question": "Do the compiled weapon attribute graphs confirm the site's Hipfire, Control and Mobility formulas, and what do the other three graphs compute?",
+    "result": "useful",
+    "conclusion": "Control: 4 + 96 / (1.1 R f(v) / v + 0.75) ^ 2.25."
+   }
+  ]
+ }
+}

@@ -2208,3 +2208,334 @@ Test: L115 with Basic Barrel, velocity on the stat card or time of flight at a k
 - Match still has less drag than standard (0.002 against 0.0035).
 
 172 raw-offset checks matched.
+
+## L4000 - Registry default equals the own value on every site weapon row (10 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-10-L4000-weapon-registry-default-equals-own.json). Dataset: `reference-data/frosty/weapon-registry-own-comparison.json`. Vehicles and gadgets store two numbers for some properties, a registry default and an own value, and EA's figures follow the registry (L3356). The same comparison for the site's weapons:
+
+| Family | Site owners | With registry rows and a saved file | Row names compared | Values compared | Differing |
+|---|---|---|---|---|---|
+| Weapon file (`_WB`) | 63 | 63 | 60 | 2771 | 0 |
+| Firing data (`GS_`) | 63 | 62 | 206 | 11500 | 0 |
+| Bullet file (`PD_`) | 64 | 61 | 13 | 567 | 0 |
+
+- No row differs. Site values read from the own fields need no change on this ground.
+- Not compared: rows under `WeaponModifierDataAssets`, and rows whose default is a list (damage curve points). Site owners without a row or saved file: WB: none; GS: GS_BREN3; PD: PD_545x39mm_MG, PD_9x39mm_Match, PD_9x39mm_Semi.
+- The own path chosen for each row name is in the dataset; the rate-of-fire, reload, magazine and bolt paths equal the names already in FIELD_MAP.md.
+
+Differences on other owners found by the same pass and not in the L3314 census (gadget and vehicle work, not examined here):
+
+| Owner | Row | Registry default | Own value |
+|---|---|---|---|
+| `Gadget_ATMine_WB` | `eaponEntityData.WeaponFiring.PrimaryFire.Shot.InitialSpeed.y` | 0.333 | -0.1 |
+| `SupplyPouch_WB` | `onFiring.PrimaryFire.FireLogic.ReloadInfoArray[0].ReloadTime` | 0 | 1 |
+| `DeployableCover_WB` | `onFiring.PrimaryFire.FireLogic.ReloadInfoArray[0].ReloadTime` | 0.5 | 0 |
+| `Gadget_ATMine_WB` | `onFiring.PrimaryFire.FireLogic.ReloadInfoArray[0].ReloadTime` | 0.5 | 0 |
+| `PTKM1R_WB` | `onFiring.PrimaryFire.FireLogic.ReloadInfoArray[0].ReloadTime` | 0.5 | 0 |
+| `DeployableMortar_WB` | `onFiring.PrimaryFire.FireLogic.ReloadInfoArray[0].ReloadTime` | 0.5 | 0 |
+| `SniperDecoy_WB` | `onFiring.PrimaryFire.FireLogic.ReloadInfoArray[0].ReloadTime` | 0.5 | 0 |
+| `M4SLAM_WB` | `onFiring.PrimaryFire.FireLogic.ReloadInfoArray[0].ReloadTime` | 0.5 | 0.75 |
+| `MPAPS_WB` | `onFiring.PrimaryFire.FireLogic.ReloadInfoArray[0].ReloadTime` | 0.5 | 0 |
+| `M18Claymore_WB` | `onFiring.PrimaryFire.FireLogic.ReloadInfoArray[0].ReloadTime` | 0.5 | 0 |
+| `Gadget_ATMine_WB` | `aponEntityData.WeaponFiring.PrimaryFire.FireLogic.RateOfFire` | 200 | 85 |
+| `SniperDecoy_WB` | `aponEntityData.WeaponFiring.PrimaryFire.FireLogic.RateOfFire` | 550 | 60 |
+| `M18Claymore_WB` | `aponEntityData.WeaponFiring.PrimaryFire.FireLogic.RateOfFire` | 300 | 60 |
+| `Gadget_ATMine_WB` | `eaponEntityData.WeaponFiring.PrimaryFire.Shot.InitialSpeed.z` | 1.25 | 3 |
+| `Gadget_SupplyCrate_WB` | `eaponEntityData.WeaponFiring.PrimaryFire.Shot.InitialSpeed.z` | 6.5 | 5 |
+| `GS_RPG7v2` | `MinMaxDispersion.Zoomed.Standing.Stationary.MinAngle` | 0.05 | 0 |
+| `GS_AT4` | `MinMaxDispersion.Zoomed.Standing.Stationary.MinAngle` | 0.35 | 0 |
+| `GS_MBTLAW` | `MinMaxDispersion.Zoomed.Standing.Stationary.MinAngle` | 0.35 | 0 |
+| `GS_RPG7v2` | `MinMaxDispersion.Zoomed.Crouching.Moving.MinAngle` | 0.25 | 0.2 |
+| `GS_AT4` | `MinMaxDispersion.Zoomed.Crouching.Moving.MinAngle` | 0.6 | 0.2 |
+| `GS_MBTLAW` | `MinMaxDispersion.Zoomed.Crouching.Moving.MinAngle` | 0.6 | 0.2 |
+| `GS_RPG7v2` | `MinMaxDispersion.Zoomed.Prone.Moving.MinAngle` | 0.25 | 0.15 |
+| `GS_AT4` | `MinMaxDispersion.Zoomed.Prone.Moving.MinAngle` | 0.6 | 0.15 |
+| `GS_MBTLAW` | `MinMaxDispersion.Zoomed.Prone.Moving.MinAngle` | 0.6 | 0.15 |
+| `GS_RPG7v2` | `MinMaxDispersion.Zoomed.Prone.Stationary.MinAngle` | 0.05 | 0.1 |
+| `GS_AT4` | `MinMaxDispersion.Zoomed.Prone.Stationary.MinAngle` | 0.35 | 0.1 |
+| `GS_MBTLAW` | `MinMaxDispersion.Zoomed.Prone.Stationary.MinAngle` | 0.35 | 0.1 |
+| `GS_AT4` | `MinMaxDispersion.Zoomed.Standing.Moving.MinAngle` | 0.6 | 0.25 |
+| `GS_MBTLAW` | `MinMaxDispersion.Zoomed.Standing.Moving.MinAngle` | 0.6 | 0.25 |
+| `GS_RPG7v2` | `MinMaxDispersion.Zoomed.Crouching.Stationary.MinAngle` | 0.05 | 0.15 |
+| `GS_AT4` | `MinMaxDispersion.Zoomed.Crouching.Stationary.MinAngle` | 0.35 | 0.15 |
+| `GS_MBTLAW` | `MinMaxDispersion.Zoomed.Crouching.Stationary.MinAngle` | 0.35 | 0.15 |
+| `PD_Vehicles_MBT_AmmoTypes_APFSDS` | `ojectileEntityData.Explosion.ExplosionEntityData.BlastDamage` | 0 | 100 |
+| `PD_Railgun` | `ojectileEntityData.Explosion.ExplosionEntityData.BlastDamage` | 0 | 100 |
+| `PD_Vehicles_IFV_SecondaryWeapon_LightRockets` | `eEntityData.Explosion.ExplosionEntityData.MinimumBlastDamage` | 20 | 10 |
+| `PD_Vehicles_IFV_PrimaryWeapon_HEAB` | `eEntityData.Explosion.ExplosionEntityData.MinimumBlastDamage` | 15 | 20 |
+| `PD_Vehicles_RWS_LMG` | `BulletEntityData.TweakableDamageCurve.Points[0].X` | 20 | 25 |
+| `PD_Vehicles_RWS_LMG` | `BulletEntityData.TweakableArmorDamageCurve.Points[1].X` | 75 | 60 |
+| `PD_Vehicles_MBT_SecondaryWeapon_CoaxLMG` | `BulletEntityData.TweakableArmorDamageCurve.Points[0].X` | 25 | 20 |
+| `PD_Vehicles_RWS_LMG` | `BulletEntityData.TweakableDamageCurve.Points[1].X` | 75 | 60 |
+
+1488 raw-offset checks matched.
+
+## L4001 - EA's 1.3.3.0 weapon lines against the site (10 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-10-L4001-ea-1-3-3-0-weapon-lines-against-site.json). Dataset: `reference-data/frosty/ea-1-3-3-0-recoil-variation.json`. Numeric weapon lines of EA's [1.3.3.0 notes](https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-3-0) and 1.3.1.0 notes not compared before (velocity, sweet spots, body parts and drag are in L3359 to L3365).
+
+- **Recoil variation.** 39 lines, 39 equal to the site's `recoilVar` (table below). The site value is the stat-screen figure.
+- **Subsonic by default.** EA: "M45A1 and Vz.61 sidearms now use Subsonic Ammo by default." Stored spotting ranges (`Class_542ac52c/Field_5ebda408`, world `Field_9918e670`, minimap `Field_31022dc5`) on the 63 site weapon files: all 54 and 150 except m45a1 27 and 64.2857; vz61 27 and 64.2857. The site uses 54 and 150 for every weapon. This is the official statement behind the per-weapon spot-base proposal in the queue.
+- **Head multipliers.** EA's automatic 1.4, 1.57 and 1.8 are the site's standard, hollow point and synthetic values on the automatic weapons.
+- **Costs.** L115 iron sight 15 (site 15). RPK-74M Ballistic Tip 20 (site Synthetic 20; joined by name only). DVO LPVO 25 on three weapons: the site has one cost per sight class, so nothing to compare.
+- No per-weapon number: the dispersion lines and the downed-state damage reduction.
+
+| EA name | Site id | EA old | EA new | Site `recoilVar` |
+|---|---|---|---|---|
+| TR-7 | `tr7` | 47.1 | 40.8 | 40.8 |
+| AK4D | `ak4d` | 25.4 | 20 | 20 |
+| NVO-228E | `nvo228e` | 36.8 | 28.9 | 28.9 |
+| VCR-2 | `vcr2` | 64.9 | 50.3 | 50.3 |
+| M433 | `m433` | 50.9 | 41.4 | 41.4 |
+| M16A4 | `m16a4` | 46.4 | 37.5 | 37.5 |
+| B36A4 | `b36a4` | 37.4 | 28 | 28 |
+| L85A3 | `l85a3` | 29.4 | 22.8 | 22.8 |
+| SOR-556 MK2 | `sor556` | 17.3 | 12.7 | 12.7 |
+| KORD 6P67 | `kord6p67` | 35.3 | 28.9 | 28.9 |
+| M417A2 | `m417a2` | 19.8 | 15.4 | 15.4 |
+| SG 553R | `sg553r` | 43.3 | 35.8 | 35.8 |
+| SOR-300SC | `sor300sc` | 19.2 | 15.8 | 15.8 |
+| M277 | `m277` | 39.4 | 34.4 | 34.4 |
+| M4A1 | `m4a1` | 37.9 | 30.7 | 30.7 |
+| GRT-BC | `grtbc` | 31.2 | 26.1 | 26.1 |
+| QBZ-192 | `qbz192` | 23.5 | 19.9 | 19.9 |
+| AK-205 | `ak205` | 7.8 | 7.4 | 7.4 |
+| RPKM | `rpkm` | 22.7 | 17.5 | 17.5 |
+| DRS-IAR | `drsiar` | 35.2 | 29.3 | 29.3 |
+| KTS100 MK8 | `kts100` | 10.9 | 9.5 | 9.5 |
+| RPK-74M | `rpk74m` | 18.9 | 16.1 | 16.1 |
+| M121 A2 | `m121a2` | 39.5 | 31.8 | 31.8 |
+| M240L | `m240l` | 41.8 | 34.5 | 34.5 |
+| M/60 | `m60` | 38.8 | 29.9 | 29.9 |
+| M250 | `m250` | 39.7 | 35.9 | 35.9 |
+| M123K | `m123k` | 55.9 | 47.7 | 47.7 |
+| L110 | `l110` | 39.4 | 31 | 31 |
+| SCW-10 | `scw10` | 35 | 33.5 | 33.5 |
+| UMG-40 | `umg40` | 17.4 | 13 | 13 |
+| KV9 | `kv9` | 57.6 | 50 | 50 |
+| CZ3A1 | `cz3a1` | 59.1 | 50.8 | 50.8 |
+| SGX | `sgx` | 39.8 | 31.7 | 31.7 |
+| PW5A3 | `pw5a3` | 33.2 | 28.3 | 28.3 |
+| PP-19 | `pp19` | 21.4 | 18 | 18 |
+| SL9 | `sl9` | 16.2 | 13 | 13 |
+| USG-90 | `usg90` | 42.8 | 35.5 | 35.5 |
+| PW7A2 | `pw7a2` | 33.3 | 27.8 | 27.8 |
+| VZ. 61 | `vz61` | 20.8 | 18.4 | 18.4 |
+
+Test: unsuppressed M45A1 against unsuppressed P18, a squadmate 40 m away watching the minimap; the P18 shooter should appear and the M45A1 shooter should not.
+
+6 raw-offset checks matched.
+
+## L4003 - Site base values against the registry rows and the 9 October datasets (10 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-10-L4003-site-values-against-registry-rows.json). - Muzzle velocity: 63 of 63 site values equal the registry default (`Shot.InitialSpeed.z`), including the 13 weapons EA's 1.3.3.0 table omits.
+- Magazine capacity: 63 of 63.
+- Rate of fire: 55 of 63 equal `RateOfFire`. The other eight (table) are the VSSM, whose site value is `RateOfFireForSingleFire` 450 for its default mode, and seven bolt-action and pump weapons where the site stores a cycle-derived rate.
+- Drag: all 64 site projectiles hold 0.0035 (55) or 0.002 (9 Match), the stored values of L3365.
+- Limb multiplier: 63 of 63 equal the stored arrays of L3362. The Interdictor is 1.0 in both.
+- Bolt-action curves: L115, M2010 ESR, PSR and SV-98 equal the stored curves of L3359; the Interdictor equals the stored `PD_.416Barrett` health curve; the Mini Scout adds a 0 m point with the first stored damage.
+- Not re-derived: reload totals (L123, L105).
+
+| Site id | Registry `RateOfFire` | Site `rpm` |
+|---|---|---|
+| `vssm` | 799.999 | 449.999 |
+| `m87a1` | 1800 | 94.7365 |
+| `interdictor` | 299.999 | 31.9149 |
+| `l115` | 299.999 | 46.1423 |
+| `m2010esr` | 299.999 | 43.9024 |
+| `miniscout` | 299.999 | 47.093 |
+| `psr` | 299.999 | 38.6635 |
+| `sv98` | 299.999 | 38.2075 |
+
+No site value changes. 127 raw-offset checks matched.
+
+## L4004 - Bullet damage curves: registry, own and site (10 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-10-L4004-bullet-damage-curves-registry-own-site.json). Dataset: `reference-data/frosty/bullet-damage-curves-registry-own.json`. L4000 compared single numbers. The curve rows (`TweakableDamageCurve.XYValues`, `TweakableArmorDamageCurve.XYValues`) for all 88 files under `_Bullets`:
+
+| Curve | Registry default equals own | Own curve, no registry row | No curve stored |
+|---|---|---|---|
+| Health | 63 | 3 | 22 |
+| Armor | 63 | 3 | 22 |
+
+- No curve differs between registry and own.
+- Own curve without a registry row: `PD_9x39mm_Semi`, `PD_9x39mm_Match` (VSSM) and one single-player file.
+- Site base curves against the base bullet's own health curve (float32): 59 equal, 3 equal with an added 0 m point, 1 different (the reviewed M45A1 step between 54 and 75 m, kept since 13 September).
+
+No site value changes. 101 raw-offset checks matched.
+
+## L4005 - Weapon and attachment figures in the other EA notes (10 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-10-L4005-ea-other-updates-weapon-lines-against-site.json). The saved notes for 1.1.3.0 to 1.4.3.0, apart from 1.3.1.0 and 1.3.3.0 (L4001):
+
+| Update | EA statement | Site | Result |
+|---|---|---|---|
+| 1.1.3.0 | L110 and M123K 200-round magazine cost 55 to 50; ADS movement dispersion penalty removed | 200 Rnd 50 points on both; moving ADS spread modifier 0 | equal |
+| 1.2.1.0 | World spotting range when firing unsuppressed 75 to 54 m; suppressed minimap range 15 to 21 m | 54 m base (L4001: 61 of 63 weapon files store 54); 21 m in the 23 September spotting review | equal |
+| 1.2.1.0 | Mini Scout muzzle velocity 880 to 800 m/s | 760, the later 1.3.3.0 figure (L3360) | superseded |
+| 1.3.2.0 | L115 1.50x Thermal Sight cost 15 to 25 | Thermal sight class 25 | equal |
+| 1.4.3.0 | Interdictor (L740; the extraction placed these lines under a BROD3 heading): minimum damage 62 to 80, sweet spot damage 150 to 100, sweet spot range 120 to 160 m | site curve [[100, 80], [120, 100], [160, 100], [180, 80], [200, 80]]; stored own curve [[100.0, 80.0], [120.0, 100.0], [160.0, 100.0], [180.0, 80.0], [200.0, 80.0]] | equal |
+| 1.1.3.0 | Mini Scout minimum time between shots up by 100 ms | site rate 47.09 per minute is derived from the stored bolt cycle; EA gives no absolute figure | not comparable |
+
+No site value changes. 10 raw-offset checks matched.
+
+## L4007 - Follow-ups to L4003: head index, cycle rate, reload sums and two EA lines (10 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-10-L4007-head-index-cycle-rate-reload-and-ea-limb-lines.json). - **Head multiplier.** Registry `DamageProtectionMultiplierIndex` equals the site's `protectionIndex` on 63 of 63 weapons, and the L3362 head table at that index equals the site's head value on 63 of 63. Index 11 (1.4): the automatic weapons and the vz. 61. Index 3 (1.75): the six sniper rifles. Indexes 1, 2 and 4: DMRs and sidearms. Index 0: shotguns.
+- **Cycle rate.** The seven rates that differ from `RateOfFire` equal 60 / (60 / RateOfFire + BoltActionDelay + BoltActionTime / BoltActionSpeed):
+
+| Site id | `RateOfFire` | Delay | Time | Speed | Cycle rate | Site `rpm` |
+|---|---|---|---|---|---|---|
+| `m2010esr` | 299.999 | 0 | 1.2 | 1.02857 | 43.9024 | 43.9024 |
+| `sv98` | 299.999 | 0 | 1.23333 | 0.9 | 38.2075 | 38.2075 |
+| `psr` | 299.999 | 0 | 1.21667 | 0.9 | 38.6635 | 38.6635 |
+| `miniscout` | 299.999 | 0 | 1 | 0.931034 | 47.093 | 47.093 |
+| `l115` | 299.999 | 0 | 1.13333 | 1.03 | 46.1423 | 46.1423 |
+| `interdictor` | 299.999 | 0 | 1.68 | 1 | 31.9149 | 31.9149 |
+| `m87a1` | 1800 | 0.100001 | 0.500001 | 1 | 94.7365 | 94.7365 |
+
+- **Reload.** Tactical = `ReloadInfoArray[0]` ReloadDelay + PostReloadDelay + ReloadTimeBulletsLeft on 48 of 63; empty = `ReloadInfoArray[1]` ReloadTimeBulletsLeft on 45 of 58. The others (table) are the capture-based values of L123 and L105, mostly a whole number of 1/60 s frames above the stored sum:
+
+| Site id | Site tactical | Stored | Frames over | Site empty | Stored | Frames over |
+|---|---|---|---|---|---|---|
+| `tr7` | 2.4 | 2.35 | 3 | 3.3670034 | 3.3 | 4.02 |
+| `nvo228e` | 2.5 | 2.434 | 3.96 | 3.0000021 | 2.9 | 6.0 |
+| `l85a3` | 2.767 | 2.7 | 4.02 | 2.8340023 | 2.667 | 10.02 |
+| `vcr2` | 2.434 | 2.334 | 6 | 3.117003 | 3.0 | 7.02 |
+| `m4a1` | 2.2 | 2.15 | 3 | 2.634 | 2.634 | 0.0 |
+| `m277` | 2.384 | 2.334 | 3 | 2.5500004 | 2.5 | 3.0 |
+| `ak205` | 2.484 | 2.384 | 6 | 2.9170008 | 2.8 | 7.02 |
+| `sg553r` | 2.5 | 2.45 | 3 | 2.934001 | 2.867 | 4.02 |
+| `pw5a3` | 2.517 | 2.517 | 0 | 3.0000021 | 2.9 | 6.0 |
+| `pw7a2` | 2.184 | 2.1 | 5.04 | 3.0670028 | 2.967 | 6.0 |
+| `usg90` | 3 | 2.867 | 7.98 | 3.2840025 | 3.167 | 7.02 |
+| `scw10` | 2.6 | 2.55 | 3 | 3.117003 | 3.05 | 4.02 |
+| `sl9` | 2.65 | 2.734 | -5.04 | 3.184 | 3.284 | -6.0 |
+| `pp19` | 2.467 | 2.417 | 3 | 2.967 | 2.967 | 0.0 |
+| `m60` | 7.35 | 7.284 | 3.96 | 8.150001 | 8.05 | 6.0 |
+| `m240l` | 4.25 | 4.034 | 12.96 | 5.6 | 5.6 | 0.0 |
+
+- **Interdictor limb 1.0.** EA: "Limb damage now matches chest damage". The stored array and the site hold 1.0; the sniper figure 0.67 of 1.3.3.0 does not apply.
+- **Match Trigger.** EA: "The Match Trigger attachment no longer affects fully automatic fire on the BROD and EF88.". An effect on automatic fire is treated as a defect, which supports the single-fire reading of L17. Wording only; the L17 test still applies.
+
+No site value changes. 166 raw-offset checks matched.
+
+## L4008 - The stat screen confirms the M45A1 and vz. 61 spotting base (10 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-10-L4008-stat-screen-confirms-m45a1-vz61-spot-base.json). Spot-on-fire ranges in the operator's attachment-panel screenshots (world / minimap, metres):
+
+| Weapon | Panels that are not muzzle or ammunition | No muzzle | Flash Hider | Suppressor | Subsonic ammunition |
+|---|---|---|---|---|---|
+| M45A1 | 27 / 64 on all 15 | 27 / 64 | 0 / 64 | 0 / 9 | not offered |
+| vz. 61 | 27 / 64 on all 18 | 27 / 64 | not offered | 0 / 9 | not offered |
+| P18 | 54 / 150 on all 15 | 54 / 150 | 0 / 150 | 0 / 21 | 27 / 64 |
+
+- Stored bases (L4001): 27 and 64.285713 on the M45A1 and Skorpion files, 54 and 150 on the other 61. EA 1.3.3.0: both sidearms use subsonic ammunition by default.
+- 64.29 x 0.14 = 9: the suppressor factor multiplies the base. The site already multiplies.
+- Site: 54 / 150 for every weapon, so it shows 54 / 150 and 0 / 21 for these two where the game shows 27 / 64 and 0 / 9.
+- Proposal: per-weapon base 27 / 64.285713 for `m45a1` and `vz61` in `sim/applyAttachments.js`. No in-game test is needed; the L4001 test is withdrawn.
+- The screenshot records for these weapons are still marked provisional (machine-read).
+
+6 raw-offset checks matched.
+
+## L4010 - Operator video against the L99 capsule prediction (10 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-10-L4010-l99-operator-video-chest-zone.json). M433, bot soldiers at 5 m in a custom range, single shots with damage numbers; 56 hits located by the hit counter. Body shots with a clear aim point:
+
+| Hit | Aim point (by eye) | Damage |
+|---|---|---|
+| 1 | thigh | 22 |
+| 2 | thigh | 22 |
+| 3 | hip, belt line | 22 |
+| 4 | belt line | 22 |
+| 5 | lower abdomen | 22 |
+| 6 | mid chest, below the hands | 26 |
+| 7 | belly | 22 |
+| 8 | belly | 22 |
+| 9 | upper belly | 26 |
+| 10 | belly, slightly lower than 9 | 22 |
+| 11 | centre of chest rig | 26 |
+| 12 | upper chest | 26 |
+| 13 | upper chest | 26 |
+| 14 | upper chest | 26 |
+| 15 | upper arm | 22 |
+| 16 | upper arm | 22 |
+| 17 | shoulder and arm | 22 |
+| 18 | upper chest, base of neck | 26 |
+| 19 | upper chest | 26 |
+| 20 | shoulder | 26 |
+| 21 | arm | 22 |
+| 22 | chest | 26 |
+| 23 | chest | 26 |
+| 38 | chin and collar | 26 |
+| 39 | upper chest | 26 |
+| 49 | shoulder beside the head | 26 |
+| 50 | shoulder and arm | 22 |
+| 52 | upper chest | 26 |
+| 53 | upper chest | 26 |
+| 55 | upper chest | 26 |
+
+- Mid chest and upper chest: 26. Belly, arms, legs: 22. Head: 36 (26 headshots).
+- The 26-to-22 change is at upper-belly height (hits 9 and 10, 6 and 7), where the site draws it. The L99 rest-pose projection predicted 22 up to 136 cm; that is not what the game shows for a soldier in the aiming stance. The site's chest zone is kept and the L99 proposal is withdrawn.
+- Several headshots registered with the sight just beside or above the visible helmet, in line with the larger stored head capsule. Not measured.
+- Limits: aim points judged by eye; bots facing the shooter in an aiming stance; no upright or back-view test.
+
+2 raw-offset checks matched.
+
+## L4011 - Head extent in the operator video (10 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-10-L4011-l99-operator-video-head-extent.json). All 67 shots (53 hits), sight position at the firing frame:
+
+| Shots | Sight at the firing frame, relative to the visible head | Result |
+|---|---|---|
+| 29, 30 | above the helmet top, about a third of a helmet width | headshot 36 |
+| 41, 42, 43 | above the helmet top, about a quarter to a third of a helmet width (olive helmet) | headshot 36 |
+| 46, 49 | just above the helmet top | headshot 36 |
+| 31, 33, 35 | at or just outside the top-left corner of the helmet | headshot 36 |
+| 28, 51, 53 | on the side edge of the helmet or hood | headshot 36 |
+| 65, 67 | chin, throat | headshot 36 |
+| 44 | above the helmet top, about two thirds of a helmet width | miss |
+| 45, 47, 48 | above the helmet top, about a third of a helmet width (white-striped helmet) | miss |
+| 27, 34, 36, 50, 61 | beside the helmet or cheek, about a fifth of a helmet width outside | miss |
+| 52, 54 | beside the ghillie hood at face height, at its outer edge | miss |
+| 62, 64, 66 | collar and shoulder beside the neck | 26 |
+
+- The head volume reaches above the visible helmet but not beside it, the shape of the stored head capsule (28 cm wide, 34 cm tall).
+- Misses beside the cheek exclude a chest sphere centred at 152 cm; the model-axis reading (centre 138 cm) fits these and the L4010 boundary if the chest sphere takes precedence over the abdomen capsule.
+- By eye, in helmet widths; frames kept in the run folder (`l99-video/frames`). No site change.
+
+2 raw-offset checks matched.
+
+## L4017 - Weapon attribute graphs disassembled (10 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-10-L4017-weapon-attribute-graphs-disassembled.json). Read from the seven compiled `WeaponAttributesConfig_*` resources with `exdis.py` (run folder, `expression-graphs`). Input names are matched by hash from each graph's source asset.
+
+```
+Control (ControlAttributeDelegate1)
+  = 4 + 96 / (1.1 * (2 * RecoilAmount * f(RecoilVariation * pi / 180)) / (2 * RecoilVariation * pi / 180) + 0.75) ^ 2.25
+  RateOfFire is declared as an input but has no frame slot and is not read.
+
+Hipfire
+  F     = cmpA(IncreasePerShotFraction, 1.0) ? 1.2 : 1
+  angle = cmpB(MinAngleIndex, 0) ? table18[clampInt(MinAngleIndex, 0, 17)] : MinAngle
+  H     = angle + StandDispersionMinAngle
+  Hipfire = 10 * g( (F * 0.425) / h(1.25 * H * pi / 180) * 83.3333 / 40.9241 )
+
+Mobility
+  = float(WeaponDeployTimeIndex + 4 * AnimationZoomSettingsIndex + SprintSettingsIndex
+          + 2 * WeaponZoomedMoveSpeedMultiplierIndex + 4 * MovingZoomedMinAnglesIndex)
+    + float(CanFireWhileSprinting == 1 ? 4 : 0)
+
+Headshot Multiplier = table15[DamageProtectionMultiplierIndex]
+  table15 = 1, 1.34, 1.5, 1.75, 1.8, 1, 1, 1, 1, 1, 1, 1.4, 1.57, 1.8, 1.8
+Collateral Multiplier = table10[DamagePenetrationMultiplierIndex]
+Rate of Fire = RateOfFire + 0.002
+ControlAttributeDelegate (older, one input) = 77 / (RecoilAmount + 0.67) ^ 1.75
+```
+
+- Control and Mobility equal the site formulas term for term. Control does not read RateOfFire.
+- Hipfire: `1.2` inside the root is the site's `sqrt(1.2)`; it is selected by comparing `IncreasePerShotFraction` with 1.0 (direction not read). The table is used only when a test on `MinAngleIndex` passes; otherwise the raw `MinAngle` input is used.
+- No graph clamps its result; the site's `min(100)` is not in the Hipfire graph.
+- `f`, `h`, `g` fit sine, tangent and square root; their hashes are not independently named.
+
+34 raw-offset checks matched.

@@ -1,0 +1,369 @@
+{
+ "lead": "L4014",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Read from saved raw captures; no export, no new capture."
+ },
+ "question": "Which stored values and references produce the sprint speeds measured in game for guns, melee weapons, the defibrillator and the repair tool?",
+ "sourceFacts": {
+  "method": "The public soldier channel FastSprintRequired (instance 684df80a-4ff7-4421-96da-6b8ad7808048, SoldierOnlyPublicChannels) was searched as raw bytes in all 23,555 files of the 60769 collection and in every melee, defibrillator, repair and adrenaline file of builds 1.4.2.5, 1.4.3.0 and 1.4.3.5. Glacier_Soldier was decoded and its eight pose entries (Class_7845fbab) listed. Measured speeds are from two TheXclusiveAce videos (3 November 2025, fECz0xSSFjk; 7 July 2026, q5EXVB7iVyM), supplied by the operator.",
+  "control": {
+   "description": "Published walk speed 3.5 m/s and gun sprint speed 6.05 m/s equal the two speed fields of the standing pose entry.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\Melee\\CombatKnife\\Ability_Melee_CombatKnife.ebx",
+     "rawSha256": "e3ff8573144739839a83122a4ad3ed9b5b1f32f45a5e1b48e87d956b719247fd",
+     "offset": 1676,
+     "type": "i32",
+     "bytesHex": "0af84d68",
+     "value": 1749940234,
+     "expect": 1749940234,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\Melee\\DinoMachete\\Ability_Melee_DinoMachete.ebx",
+     "rawSha256": "181dabe153e5ef1476741e3a2c625259e2b370be51f731bda0a7ee7f6c933a0d",
+     "offset": 1676,
+     "type": "i32",
+     "bytesHex": "0af84d68",
+     "value": 1749940234,
+     "expect": 1749940234,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\Melee\\EODArm\\Ability_Melee_EODArm.ebx",
+     "rawSha256": "24cb7a19cdb8b43aaeb4b0d6b25e958f5b4eb5ef33091e3c10145a6a2dde67ca",
+     "offset": 1562,
+     "type": "i32",
+     "bytesHex": "0af84d68",
+     "value": 1749940234,
+     "expect": 1749940234,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\Melee\\GekoKnife\\Ability_Melee_GekoKnife.ebx",
+     "rawSha256": "7e0f2391396ef044dc73d835c59fd04b68509e185512a0783fa5a7425c0d9ea0",
+     "offset": 1704,
+     "type": "i32",
+     "bytesHex": "0af84d68",
+     "value": 1749940234,
+     "expect": 1749940234,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\Melee\\IceClimbingAxe\\Ability_Melee_IceClimbingAxe.ebx",
+     "rawSha256": "d7e48f1ce196d33e524a15a8f3728c047ca71f88860150b6195a0c0a76ba64bd",
+     "offset": 1682,
+     "type": "i32",
+     "bytesHex": "0af84d68",
+     "value": 1749940234,
+     "expect": 1749940234,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\weapon-audit-2026-09-23\\raw\\Common\\Hardware\\Weapons\\Melee\\DiveKnife\\Ability_Melee_DiveKnife.ebx",
+     "rawSha256": "5024d23bf4f6eaba84e46c8742abe1fbb34e8d0b8dac8af3c75889e84a1ec3ab",
+     "offset": 1704,
+     "type": "i32",
+     "bytesHex": "0af84d68",
+     "value": 1749940234,
+     "expect": 1749940234,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Misc\\Defibrillator\\Ability_Defibrillator_Equipped.ebx",
+     "rawSha256": "59c2c8868227bc31c8eaf254d8b6af369144ba7e477d3e2771713fa17aec0f8a",
+     "offset": 2154,
+     "type": "i32",
+     "bytesHex": "0af84d68",
+     "value": 1749940234,
+     "expect": 1749940234,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\carry-forward-2026-09-30\\raw\\Common\\Hardware\\Gadgets\\Tools\\Repair\\Basic\\RepairTool_Ability.ebx",
+     "rawSha256": "b534687c4e70447586f9a43baca0add08cb5e52b4635e5294de946f98f092085",
+     "offset": 1754,
+     "type": "i32",
+     "bytesHex": "0af84d68",
+     "value": 1749940234,
+     "expect": 1749940234,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Gameplay\\Soldier\\Glacier_Soldier.ebx",
+     "rawSha256": "22e0ccf07219f8094eed17f57585041b0b075196c120b071fe8dd0870351bf19",
+     "offset": 3216,
+     "type": "f32",
+     "bytesHex": "9a99c140",
+     "value": 6.050000190734863,
+     "expect": 6.05,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Gameplay\\Soldier\\Glacier_Soldier.ebx",
+     "rawSha256": "22e0ccf07219f8094eed17f57585041b0b075196c120b071fe8dd0870351bf19",
+     "offset": 3224,
+     "type": "f32",
+     "bytesHex": "00006040",
+     "value": 3.5,
+     "expect": 3.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Gameplay\\Soldier\\Glacier_Soldier.ebx",
+     "rawSha256": "22e0ccf07219f8094eed17f57585041b0b075196c120b071fe8dd0870351bf19",
+     "offset": 4112,
+     "type": "f32",
+     "bytesHex": "cdcce440",
+     "value": 7.150000095367432,
+     "expect": 7.15,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Gameplay\\Soldier\\Glacier_Soldier.ebx",
+     "rawSha256": "22e0ccf07219f8094eed17f57585041b0b075196c120b071fe8dd0870351bf19",
+     "offset": 4120,
+     "type": "f32",
+     "bytesHex": "cdcce440",
+     "value": 7.150000095367432,
+     "expect": 7.15,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Gameplay\\Soldier\\GRX_Glacier_Soldier.ebx",
+     "rawSha256": "9b44340483d9af272ef5f0cbda5934ad9a30ff1f055fd3fddc60fc4943e822cc",
+     "offset": 4508,
+     "type": "f32",
+     "bytesHex": "cdcc8c3f",
+     "value": 1.100000023841858,
+     "expect": 1.1,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Gameplay\\Soldier\\GRX_Glacier_Soldier.ebx",
+     "rawSha256": "9b44340483d9af272ef5f0cbda5934ad9a30ff1f055fd3fddc60fc4943e822cc",
+     "offset": 17868,
+     "type": "f32",
+     "bytesHex": "33330340",
+     "value": 2.049999952316284,
+     "expect": 2.05,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Gameplay\\Soldier\\GRX_Glacier_Soldier.ebx",
+     "rawSha256": "9b44340483d9af272ef5f0cbda5934ad9a30ff1f055fd3fddc60fc4943e822cc",
+     "offset": 23188,
+     "type": "f32",
+     "bytesHex": "2db2ed3f",
+     "value": 1.8569999933242798,
+     "expect": 1.857,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Gameplay\\Soldier\\GRX_Glacier_Soldier.ebx",
+     "rawSha256": "9b44340483d9af272ef5f0cbda5934ad9a30ff1f055fd3fddc60fc4943e822cc",
+     "offset": 24436,
+     "type": "f32",
+     "bytesHex": "cdcc8c3f",
+     "value": 1.100000023841858,
+     "expect": 1.1,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 16,
+   "matched": 16,
+   "files": 10,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "rawchecks-L4014.json"
+  },
+  "fastSprintChannel": {
+   "name": "FastSprintRequired",
+   "instanceGuid": "684df80a-4ff7-4421-96da-6b8ad7808048",
+   "referencedBy": {
+    "Combat Knife": 1676,
+    "Dino Machete": 1676,
+    "EOD Arm": 1562,
+    "Geko Knife": 1704,
+    "Ice Climbing Axe": 1682,
+    "Dive Knife (1.4.3.0 capture)": 1704,
+    "Defibrillator": 2154,
+    "Repair Tool": 1754
+   },
+   "notReferencedBy": [
+    "Ability_Melee_Sledgehammer",
+    "Ability_AdrenalineShot",
+    "Defibrillators_Equipped_WB",
+    "any weapon blueprint in the collection"
+   ],
+   "otherFilesWithIt": [
+    "SoldierOnlyPublicChannels (definition)",
+    "SoldierMotionMachine"
+   ]
+  },
+  "poses": [
+   {
+    "id": "475999738",
+    "Field_1a2b6380": 3.5,
+    "Field_e4506828": 6.05,
+    "note": "standing (0.6 x 1.0 x 1.2 size entry)"
+   },
+   {
+    "id": "-872007306",
+    "Field_1a2b6380": 2.1,
+    "Field_e4506828": 4.7,
+    "note": "crouch-sized"
+   },
+   {
+    "id": "963439859 / 963439860",
+    "Field_1a2b6380": 3.0,
+    "Field_e4506828": 5.285,
+    "note": "narrow standing"
+   },
+   {
+    "id": "475102768",
+    "Field_1a2b6380": 0.9,
+    "Field_e4506828": 0.9,
+    "note": "prone-sized"
+   },
+   {
+    "id": "963439863",
+    "Field_1a2b6380": 1.2,
+    "Field_e4506828": 1.2,
+    "note": ""
+   },
+   {
+    "id": "963439862",
+    "Field_1a2b6380": 0.9,
+    "Field_e4506828": 0.9,
+    "note": ""
+   },
+   {
+    "id": "963439857",
+    "Field_1a2b6380": 7.15,
+    "Field_e4506828": 7.15,
+    "note": "low and long (1.25 x 0.25 x 1.3)"
+   }
+  ],
+  "registry": {
+   "ImproviserSprintIncrease": 1.1,
+   "FastSprintTopSpeedMultiplier": 2.05,
+   "DefaultStandSprintTopSpeedMultiplier": 1.857,
+   "SERETrainingSprintIncrease": 1.1
+  },
+  "measured": {
+   "walk": 3.5,
+   "gunSprint": 6.05,
+   "lmgSprint": 5.75,
+   "adrenalineGunSprint": 6.65,
+   "sledgehammerSprintNov2025": 6.05,
+   "sledgehammerSprintJul2026": 6.5,
+   "knifeDefibRepairSprint": 7.15,
+   "source": "TheXclusiveAce videos fECz0xSSFjk (2025-11-03) and q5EXVB7iVyM (2026-07-07); third-party measurements"
+  },
+  "meleeTimingsJuly2026": {
+   "note": "Before update 1.4.2.5 changed the EOD Bot Arm.",
+   "eodArmPreHitDelayMs": 400,
+   "eodArmBetweenHitsMs": 800,
+   "sledgehammerBetweenHitsMs": 1100,
+   "speakerNote": "Menu hit-delay values do not match in-game timing."
+  }
+ },
+ "inference": [
+  "Which items sprint fast is a source fact: the abilities of the five knife-type melee weapons in the current build (and the Dive Knife in 1.4.3.0), the defibrillator and the repair tool each reference FastSprintRequired once; the Sledgehammer ability does not. This is the same list the videos and the operator report.",
+  "Field_1a2b6380 and Field_e4506828 of the pose entry are the walk and sprint speed of the pose: the standing entry reads 3.5 and 6.05, the published values.",
+  "The fast speed 7.15 is within measurement error of 2.05 x 3.5 (FastSprintTopSpeedMultiplier on the walk speed) and equals 1.1 x 6.5; the Sledgehammer's 6.5 equals 1.857 x 3.5 (DefaultStandSprintTopSpeedMultiplier). The numbers fit a reading in which melee-type items sprint at walk speed times a multiplier while guns use the pose sprint speed, but the equation is not read from source.",
+  "L4013's statement that no stored value gives the bonus is superseded for the selection (the channel) and narrowed for the size (candidates above)."
+ ],
+ "unresolved": [
+  "Why guns sprint at 6.05 and the Sledgehammer at 6.5; the Sledgehammer was measured at 6.05 in November 2025 and 6.5 in July 2026, so a change between those dates is likely but not found in the saved patch notes.",
+  "The LMG 5 percent penalty and the adrenaline 10 percent boost have no identified operand; ImproviserSprintIncrease and SERETrainingSprintIncrease (both 1.1) are candidates by value only.",
+  "The role of the pose entry storing 7.15 / 7.15.",
+  "The measurements are third-party and up to 11 months old."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-10-weapons-registry",
+  "artifacts": [
+   {
+    "file": "manifest-L4014.json",
+    "sha256": "919fb563ccdfe863f0aacff1509ca6d004ecf5a25aea4e3b480eb1ae05749630"
+   },
+   {
+    "file": "rawchecks-L4014.json",
+    "sha256": "9aa837d22c6cdb83f3e776dd8efc4552398ea6991a59947e56d8a081dbe76ed4"
+   },
+   {
+    "file": "spec-4014.py",
+    "sha256": "fabcdcd0a894854a719924464257a177ec3496f9070cb2a2b6e72c2ae2f2e771"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-10",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L4014",
+    "title": "Sprint speed: the soldier file stores walk 3.5 and sprint 6.05 m/s for the standing pose, and the FastSprintRequired channel is referenced by exactly the knife-type melee abilities, the defibrillator and the repair tool, not the Sledgehammer",
+    "status": "finding",
+    "summary": "The soldier file stores the published walk (3.5) and gun sprint (6.05 m/s) speeds, and the FastSprintRequired channel is referenced by exactly the knife-type melee abilities, the defibrillator and the repair tool, not the Sledgehammer. The fast speed 7.15 fits 2.05 x 3.5 or 1.1 x 6.5; the equation is not read. 16 raw-offset checks matched.",
+    "reopenWhen": "A current timed sprint with a rifle, an LMG, a knife and the Sledgehammer, or a read of how SoldierMotionMachine uses the channel and the two multipliers.",
+    "statusNote": "Selection traced; size matched by value."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Gameplay/Soldier/Glacier_Soldier",
+    "format": "raw-ebx",
+    "sha256": "22e0ccf07219f8094eed17f57585041b0b075196c120b071fe8dd0870351bf19",
+    "question": "Which stored values and references produce the sprint speeds measured in game for guns, melee weapons, the defibrillator and the repair tool?",
+    "result": "useful",
+    "conclusion": "Standing pose stores 3.5 and 6.05; another pose stores 7.15 / 7.15."
+   },
+   {
+    "path": "Common/Hardware/Weapons/Melee/CombatKnife/Ability_Melee_CombatKnife",
+    "format": "raw-ebx",
+    "sha256": "e3ff8573144739839a83122a4ad3ed9b5b1f32f45a5e1b48e87d956b719247fd",
+    "question": "Which stored values and references produce the sprint speeds measured in game for guns, melee weapons, the defibrillator and the repair tool?",
+    "result": "useful",
+    "conclusion": "References FastSprintRequired at offset 1676."
+   },
+   {
+    "path": "Common/Hardware/Gadgets/Misc/Defibrillator/Ability_Defibrillator_Equipped",
+    "format": "raw-ebx",
+    "sha256": "59c2c8868227bc31c8eaf254d8b6af369144ba7e477d3e2771713fa17aec0f8a",
+    "question": "Which stored values and references produce the sprint speeds measured in game for guns, melee weapons, the defibrillator and the repair tool?",
+    "result": "useful",
+    "conclusion": "References FastSprintRequired at offset 2154."
+   },
+   {
+    "path": "Common/Hardware/Gadgets/Tools/Repair/Basic/RepairTool_Ability",
+    "format": "raw-ebx",
+    "sha256": "b534687c4e70447586f9a43baca0add08cb5e52b4635e5294de946f98f092085",
+    "question": "Which stored values and references produce the sprint speeds measured in game for guns, melee weapons, the defibrillator and the repair tool?",
+    "result": "useful",
+    "conclusion": "References FastSprintRequired at offset 1754."
+   },
+   {
+    "path": "Common/Hardware/Weapons/Melee/SledgeHammer/Ability_Melee_Sledgehammer",
+    "format": "raw-ebx",
+    "sha256": "31c80063c315622d413470ebbde4206a7f7af0a0b97d2ef36108f567cc531535",
+    "question": "Which stored values and references produce the sprint speeds measured in game for guns, melee weapons, the defibrillator and the repair tool?",
+    "result": "useful",
+    "conclusion": "No reference to FastSprintRequired."
+   }
+  ]
+ }
+}

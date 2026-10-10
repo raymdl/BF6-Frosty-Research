@@ -1,0 +1,405 @@
+{
+ "lead": "L4013",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Read from saved raw captures; no export, no new capture."
+ },
+ "question": "Which stored values match the melee figures on the loadout screen, and is the sprint-speed change from holding a knife, defibrillator or repair tool stored?",
+ "sourceFacts": {
+  "method": "Operator report of the loadout screen (10 October 2026): Combat Knife, Hunting Knife, Ice Axe, Serrated Blade, EOD Bot Arm and Diver's Knife show Hit Delay 100 ms and Damage 35; Sledgehammer shows 200 ms and 60. Operator observation: sprint is faster holding a knife, the defibrillator or the repair tool. The three melee firing files, the melee damage affector, the melee and weapon move-speed arrays and the registry rows containing 'sprint' (449) or 'melee' (19) were read from saved raw.",
+  "control": {
+   "description": "Affector_Melee_Damage entry 0 reads 35 and entry 1 reads 60, the values recorded in L3381.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Gameplay\\Soldier\\Melee\\Melee_Shared_WeaponFiring.ebx",
+     "rawSha256": "3b87bdaf0b47fbfa88472cd943ed09a8df37fd2425bac243c11d82fa7293b212",
+     "offset": 1228,
+     "type": "f32",
+     "bytesHex": "cdcccc3d",
+     "value": 0.10000000149011612,
+     "expect": 0.1,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Gameplay\\Soldier\\Melee\\Melee_Shared_WeaponFiring.ebx",
+     "rawSha256": "3b87bdaf0b47fbfa88472cd943ed09a8df37fd2425bac243c11d82fa7293b212",
+     "offset": 1240,
+     "type": "f32",
+     "bytesHex": "cdcccc3d",
+     "value": 0.10000000149011612,
+     "expect": 0.1,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Gameplay\\Soldier\\Melee\\Melee_Shared_WeaponFiring.ebx",
+     "rawSha256": "3b87bdaf0b47fbfa88472cd943ed09a8df37fd2425bac243c11d82fa7293b212",
+     "offset": 1248,
+     "type": "f32",
+     "bytesHex": "00000000",
+     "value": 0.0,
+     "expect": 0.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Gameplay\\Soldier\\Melee\\Melee_Shared_WeaponFiring.ebx",
+     "rawSha256": "3b87bdaf0b47fbfa88472cd943ed09a8df37fd2425bac243c11d82fa7293b212",
+     "offset": 1256,
+     "type": "f32",
+     "bytesHex": "cdcccc3d",
+     "value": 0.10000000149011612,
+     "expect": 0.1,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Gameplay\\Soldier\\Melee\\Melee_Shared_Sledgehammer_WeaponFiring.ebx",
+     "rawSha256": "2dc63cba970efb6370428c0d2ad93431992d91b5d1ef38fe01d785c983abfdb4",
+     "offset": 2348,
+     "type": "f32",
+     "bytesHex": "00000000",
+     "value": 0.0,
+     "expect": 0.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Gameplay\\Soldier\\Melee\\Melee_Shared_Sledgehammer_WeaponFiring.ebx",
+     "rawSha256": "2dc63cba970efb6370428c0d2ad93431992d91b5d1ef38fe01d785c983abfdb4",
+     "offset": 2360,
+     "type": "f32",
+     "bytesHex": "000080bf",
+     "value": -1.0,
+     "expect": -1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Gameplay\\Soldier\\Melee\\Melee_Shared_Sledgehammer_WeaponFiring.ebx",
+     "rawSha256": "2dc63cba970efb6370428c0d2ad93431992d91b5d1ef38fe01d785c983abfdb4",
+     "offset": 2368,
+     "type": "f32",
+     "bytesHex": "cdcccc3d",
+     "value": 0.10000000149011612,
+     "expect": 0.1,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Gameplay\\Soldier\\Melee\\Melee_Shared_Sledgehammer_WeaponFiring.ebx",
+     "rawSha256": "2dc63cba970efb6370428c0d2ad93431992d91b5d1ef38fe01d785c983abfdb4",
+     "offset": 2376,
+     "type": "f32",
+     "bytesHex": "cdcc4c3e",
+     "value": 0.20000000298023224,
+     "expect": 0.2,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Gameplay\\Soldier\\Melee\\Melee_Shared_EODArm_WeaponFiring.ebx",
+     "rawSha256": "44886dcd0f376b8a6bd102044f9d05361ae21324d1e01df21120adc0ddaacd13",
+     "offset": 1524,
+     "type": "f32",
+     "bytesHex": "cdcccc3d",
+     "value": 0.10000000149011612,
+     "expect": 0.1,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Gameplay\\Soldier\\Melee\\Melee_Shared_EODArm_WeaponFiring.ebx",
+     "rawSha256": "44886dcd0f376b8a6bd102044f9d05361ae21324d1e01df21120adc0ddaacd13",
+     "offset": 1536,
+     "type": "f32",
+     "bytesHex": "cdcccc3d",
+     "value": 0.10000000149011612,
+     "expect": 0.1,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Gameplay\\Soldier\\Melee\\Melee_Shared_EODArm_WeaponFiring.ebx",
+     "rawSha256": "44886dcd0f376b8a6bd102044f9d05361ae21324d1e01df21120adc0ddaacd13",
+     "offset": 1544,
+     "type": "f32",
+     "bytesHex": "cdcc4c3d",
+     "value": 0.05000000074505806,
+     "expect": 0.05,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Gameplay\\Soldier\\Melee\\Melee_Shared_EODArm_WeaponFiring.ebx",
+     "rawSha256": "44886dcd0f376b8a6bd102044f9d05361ae21324d1e01df21120adc0ddaacd13",
+     "offset": 1552,
+     "type": "f32",
+     "bytesHex": "9a99193e",
+     "value": 0.15000000596046448,
+     "expect": 0.15,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gunfight-soldier-2026-10-01-b2\\raw\\Common\\Gameplay\\Soldier\\Melee\\Affector_Melee_Damage.ebx",
+     "rawSha256": "4b49e2bda8081ced240cbe6d11781d9e86063c7ad1a78c33e5d7f95f1a57fe23",
+     "offset": 156,
+     "type": "f32",
+     "bytesHex": "00000c42",
+     "value": 35.0,
+     "expect": 35.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gunfight-soldier-2026-10-01-b2\\raw\\Common\\Gameplay\\Soldier\\Melee\\Affector_Melee_Damage.ebx",
+     "rawSha256": "4b49e2bda8081ced240cbe6d11781d9e86063c7ad1a78c33e5d7f95f1a57fe23",
+     "offset": 236,
+     "type": "f32",
+     "bytesHex": "00007042",
+     "value": 60.0,
+     "expect": 60.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gunfight-soldier-2026-10-01-b2\\raw\\Common\\Gameplay\\Soldier\\Melee\\Affector_Melee_Damage.ebx",
+     "rawSha256": "4b49e2bda8081ced240cbe6d11781d9e86063c7ad1a78c33e5d7f95f1a57fe23",
+     "offset": 316,
+     "type": "f32",
+     "bytesHex": "0080bb44",
+     "value": 1500.0,
+     "expect": 1500.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\gunfight-soldier-2026-10-01-b2\\raw\\Common\\Gameplay\\Soldier\\Melee\\Affector_Melee_Damage.ebx",
+     "rawSha256": "4b49e2bda8081ced240cbe6d11781d9e86063c7ad1a78c33e5d7f95f1a57fe23",
+     "offset": 396,
+     "type": "f32",
+     "bytesHex": "00008c42",
+     "value": 70.0,
+     "expect": 70.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\MoveSpeed\\MSA_Hip_Melee.ebx",
+     "rawSha256": "50935ed6a49feb61c91a9827b77476650efc458c7929a1f86cf493db0500e2bf",
+     "offset": 132,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\MoveSpeed\\MSA_Hip_Weapons.ebx",
+     "rawSha256": "374e8396aa1f0805a11cfe2c5224956e2658e7cb29d7e1d7cbc8bff9bed89a80",
+     "offset": 132,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Gameplay\\Soldier\\GRX_Glacier_Soldier.ebx",
+     "rawSha256": "9b44340483d9af272ef5f0cbda5934ad9a30ff1f055fd3fddc60fc4943e822cc",
+     "offset": 17868,
+     "type": "f32",
+     "bytesHex": "33330340",
+     "value": 2.049999952316284,
+     "expect": 2.05,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Gameplay\\Soldier\\GRX_Glacier_Soldier.ebx",
+     "rawSha256": "9b44340483d9af272ef5f0cbda5934ad9a30ff1f055fd3fddc60fc4943e822cc",
+     "offset": 23188,
+     "type": "f32",
+     "bytesHex": "2db2ed3f",
+     "value": 1.8569999933242798,
+     "expect": 1.857,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 2255028,
+     "type": "i32",
+     "bytesHex": "06000000",
+     "value": 6,
+     "expect": 6,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 424612,
+     "type": "i32",
+     "bytesHex": "00000000",
+     "value": 0,
+     "expect": 0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 646724,
+     "type": "i32",
+     "bytesHex": "00000000",
+     "value": 0,
+     "expect": 0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+     "rawSha256": "09a745a2e42e3d921834f9d982c35882e0cbb3e2ec9331bbcd7c7a554fa6119f",
+     "offset": 667924,
+     "type": "f32",
+     "bytesHex": "00000040",
+     "value": 2.0,
+     "expect": 2.0,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 24,
+   "matched": 24,
+   "files": 9,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "rawchecks-L4013.json"
+  },
+  "loadoutScreen": {
+   "knivesAndEodArm": {
+    "hitDelayMs": 100,
+    "damage": 35
+   },
+   "sledgehammer": {
+    "hitDelayMs": 200,
+    "damage": 60
+   },
+   "source": "operator report, not a screenshot"
+  },
+  "meleeDamageAffector": {
+   "entry0": 35,
+   "entry1": 60,
+   "entry2": 1500,
+   "entry3": 70
+  },
+  "firingDelayBlock": {
+   "note": "Four float slots of one unnamed structure, at the same relative positions in each file (slots A, B, C, D at +0, +12, +20, +28).",
+   "knife": {
+    "A": 0.1,
+    "B": 0.1,
+    "C": 0.0,
+    "D": 0.1
+   },
+   "sledgehammer": {
+    "A": 0.0,
+    "B": -1.0,
+    "C": 0.1,
+    "D": 0.2
+   },
+   "eodArm": {
+    "A": 0.1,
+    "B": 0.1,
+    "C": 0.05,
+    "D": 0.15
+   }
+  },
+  "moveSpeedArrays": {
+   "MSA_Hip_Melee": [
+    1.0
+   ],
+   "MSA_Hip_Weapons": [
+    1.0
+   ]
+  },
+  "registry": {
+   "FastSprintTopSpeedMultiplier": 2.05,
+   "DefaultStandSprintTopSpeedMultiplier": 1.857,
+   "M4A1_WB.SprintSettingsIndex.Index": 6,
+   "Defibrillators_Equipped_WB.SprintSettingsIndex.Index": 0,
+   "RepairTool_Weapon Blueprint.SprintSettingsIndex.Index": 0,
+   "SprintModifier": 2.0
+  },
+  "sprintSettingsIndexByGroup": "0 for all 36 gadget blueprints including defibrillator and repair tool; 2 LMGs; 3 to 9 other weapons. The indexed SprintSettings_T00-T11 files store recovery times only (L106). Melee blueprints have no registry row."
+ },
+ "inference": [
+  "Damage 35 is melee affector entry 0 and damage 60 is entry 1: entry 1 is the Sledgehammer hit. Entry 2 (1500) is the takedown; entry 3 (70) is still unassigned.",
+  "Slot D of the firing block reads 0.1 for the shared knife firing file and 0.2 for the Sledgehammer, equal to the displayed 100 and 200 ms hit delay. It is the candidate for the displayed value, not a named field.",
+  "The EOD arm firing file reads 0.15 in slot D while the screen shows 100 ms for the EOD Bot Arm. Either the screen does not read that slot or the EOD arm figure is displayed from a shared value.",
+  "No stored operand gives a sprint-speed bonus for the knife, defibrillator or repair tool: the melee and weapon hip move-speed arrays are both [1], sprint settings hold recovery times, and the only sprint speed multipliers are the two soldier rows 1.857 and 2.05. The effect is real in game (operator, knife description text in L4012) but its size must be measured."
+ ],
+ "unresolved": [
+  "Slots A to D are not named; MeleeAttackTimeDelay, ProhibitFireDelay and AffectedBlockTimeDelay are named in the same chain (L745) but not tied to these slots.",
+  "The gadget registry row SprintModifier 2.0 (minimum 1) has no owner prefix; its consumer is not identified.",
+  "Whether holding a knife selects the fast sprint multiplier 2.05 in place of 1.857 (a ratio of 1.104) is a guess to test, not a source fact.",
+  "Swing interval (time between hits) is not displayed and not identified."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-10-weapons-registry",
+  "artifacts": [
+   {
+    "file": "manifest-L4013.json",
+    "sha256": "4cc698a6e4ae830f1383adbf06c42c1d67aa0efaf53ee98f2d99b023e3827aff"
+   },
+   {
+    "file": "rawchecks-L4013.json",
+    "sha256": "2b6a1794a4bc00a672e3798baacb4ed10b2cd04811bdcd408b6fd594b58fe2d8"
+   },
+   {
+    "file": "spec-4012-4013.py",
+    "sha256": "bfbbd22f792825da1aef56fc4b36b935db3972e5e43ccd74ee8f7da5d421d913"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-10",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L4013",
+    "title": "Melee: the loadout screen's 35 and 60 damage equal melee affector entries 0 and 1, and its 100 / 200 ms hit delay equals one stored firing value for the knives and the Sledgehammer; no stored value gives the knife, defibrillator or repair tool sprint bonus",
+    "status": "finding",
+    "summary": "The loadout screen's melee damage (35, Sledgehammer 60) equals melee affector entries 0 and 1, and its hit delay (100 ms, Sledgehammer 200 ms) equals one stored firing value for the knives and the Sledgehammer, though the EOD arm stores 0.15 there. No stored value gives the sprint bonus for knife, defibrillator or repair tool. 24 raw-offset checks matched.",
+    "reopenWhen": "A timed sprint over a fixed distance with a rifle, a knife, the defibrillator and the repair tool, or a decoded field name for the firing block.",
+    "statusNote": "Damage matched; hit delay candidate; sprint bonus not stored."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Gameplay/Soldier/Melee/Melee_Shared_WeaponFiring",
+    "format": "raw-ebx",
+    "sha256": "3b87bdaf0b47fbfa88472cd943ed09a8df37fd2425bac243c11d82fa7293b212",
+    "question": "Which stored values match the melee figures on the loadout screen, and is the sprint-speed change from holding a knife, defibrillator or repair tool stored?",
+    "result": "useful",
+    "conclusion": "Delay block slot D 0.1."
+   },
+   {
+    "path": "Common/Gameplay/Soldier/Melee/Melee_Shared_Sledgehammer_WeaponFiring",
+    "format": "raw-ebx",
+    "sha256": "2dc63cba970efb6370428c0d2ad93431992d91b5d1ef38fe01d785c983abfdb4",
+    "question": "Which stored values match the melee figures on the loadout screen, and is the sprint-speed change from holding a knife, defibrillator or repair tool stored?",
+    "result": "useful",
+    "conclusion": "Delay block slot D 0.2."
+   },
+   {
+    "path": "Common/Gameplay/Soldier/Melee/Melee_Shared_EODArm_WeaponFiring",
+    "format": "raw-ebx",
+    "sha256": "44886dcd0f376b8a6bd102044f9d05361ae21324d1e01df21120adc0ddaacd13",
+    "question": "Which stored values match the melee figures on the loadout screen, and is the sprint-speed change from holding a knife, defibrillator or repair tool stored?",
+    "result": "useful",
+    "conclusion": "Delay block slot D 0.15."
+   },
+   {
+    "path": "Common/Gameplay/Soldier/Melee/Affector_Melee_Damage",
+    "format": "raw-ebx",
+    "sha256": "4b49e2bda8081ced240cbe6d11781d9e86063c7ad1a78c33e5d7f95f1a57fe23",
+    "question": "Which stored values match the melee figures on the loadout screen, and is the sprint-speed change from holding a knife, defibrillator or repair tool stored?",
+    "result": "useful",
+    "conclusion": "Entries 35 / 60 / 1500 / 70."
+   }
+  ]
+ }
+}

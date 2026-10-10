@@ -1,0 +1,438 @@
+{
+ "lead": "L4016",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Read from saved raw captures; no export, no new capture."
+ },
+ "question": "What does the compiled SimEx_MoveSpeedModifiers code do with FastSprintRequired, the two sprint multipliers and the constants 1.1, 0.95 and 1.1818?",
+ "sourceFacts": {
+  "method": "The compiled resource 2bfca9f18b8f10e9 was disassembled far enough to read one section. Format recovered: instructions start at file offset 13976; low byte of the first word is the operation, the upper 24 bits a code offset; operations 0x00 to 0x10 are calls with (operation + 1) operands of (kind, value) pairs after a 12-byte header, and a table of 4,725 (function hash, instruction offset) pairs at file offset 272036 names the called function; 0x26 is jump-if-false, 0x3B is select, 0x20 and 0x1E are moves. Kind 0 operands are data-block offsets: import slots are the offsets of the EBX input list (L4015), float literals and variable keys are at data offset + 928 in the file, and each variable key is a (scope, index) into the SoldierMotionMachine parameter lists, which give its name. Listing and tools are in move-speed-disassembly.",
+  "control": {
+   "description": "Four independent checks of the reading: IsAI selects AI_SoldierMovementSpeedMultiplier_PerTeam over SoldierMovementSpeedMultiplier_PerTeam; SprintStrafeAllowed_PerTeam selects 1 over 0 for SprintStrafeSpeedMultiplier; the clamp function is used elsewhere with (-1, 1), (0, 1) and (-0.99, 0.99); float keys resolve to StandSprintTopSpeedMultiplier, WeaponMoveSpeedMultiplierInput/Output and traitsprintspeed.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+     "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+     "offset": 4600,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0,
+     "expect": 1.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+     "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+     "offset": 4620,
+     "type": "f32",
+     "bytesHex": "cdcc4c3f",
+     "value": 0.800000011920929,
+     "expect": 0.8,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+     "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+     "offset": 4624,
+     "type": "f32",
+     "bytesHex": "0000c03f",
+     "value": 1.5,
+     "expect": 1.5,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+     "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+     "offset": 4628,
+     "type": "f32",
+     "bytesHex": "cdcc8c3f",
+     "value": 1.100000023841858,
+     "expect": 1.1,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+     "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+     "offset": 4632,
+     "type": "f32",
+     "bytesHex": "3333733f",
+     "value": 0.949999988079071,
+     "expect": 0.95,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+     "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+     "offset": 4636,
+     "type": "f32",
+     "bytesHex": "3945973f",
+     "value": 1.1818000078201294,
+     "expect": 1.1818,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+     "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+     "offset": 4648,
+     "type": "f32",
+     "bytesHex": "0000e03f",
+     "value": 1.75,
+     "expect": 1.75,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+     "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+     "offset": 4616,
+     "type": "f32",
+     "bytesHex": "0000803e",
+     "value": 0.25,
+     "expect": 0.25,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+     "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+     "offset": 5420,
+     "type": "i32",
+     "bytesHex": "08000000",
+     "value": 8,
+     "expect": 8,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+     "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+     "offset": 5416,
+     "type": "i32",
+     "bytesHex": "14000001",
+     "value": 16777236,
+     "expect": 16777236,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+     "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+     "offset": 5424,
+     "type": "i32",
+     "bytesHex": "06000001",
+     "value": 16777222,
+     "expect": 16777222,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+     "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+     "offset": 5440,
+     "type": "i32",
+     "bytesHex": "05000001",
+     "value": 16777221,
+     "expect": 16777221,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+     "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+     "offset": 5448,
+     "type": "i32",
+     "bytesHex": "1f000000",
+     "value": 31,
+     "expect": 31,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+     "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+     "offset": 5444,
+     "type": "i32",
+     "bytesHex": "58000000",
+     "value": 88,
+     "expect": 88,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+     "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+     "offset": 21060,
+     "type": "i32",
+     "bytesHex": "26bc1b00",
+     "value": 1817638,
+     "expect": 1817638,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+     "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+     "offset": 21072,
+     "type": "i32",
+     "bytesHex": "d81b0000",
+     "value": 7128,
+     "expect": 7128,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+     "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+     "offset": 21092,
+     "type": "i32",
+     "bytesHex": "38060000",
+     "value": 1592,
+     "expect": 1592,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+     "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+     "offset": 21120,
+     "type": "i32",
+     "bytesHex": "40060000",
+     "value": 1600,
+     "expect": 1600,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+     "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+     "offset": 23048,
+     "type": "i32",
+     "bytesHex": "3ba82300",
+     "value": 2336827,
+     "expect": 2336827,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+     "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+     "offset": 23064,
+     "type": "i32",
+     "bytesHex": "580e0000",
+     "value": 3672,
+     "expect": 3672,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+     "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+     "offset": 23072,
+     "type": "i32",
+     "bytesHex": "7c0e0000",
+     "value": 3708,
+     "expect": 3708,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+     "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+     "offset": 23028,
+     "type": "i32",
+     "bytesHex": "10040000",
+     "value": 1040,
+     "expect": 1040,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+     "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+     "offset": 22580,
+     "type": "i32",
+     "bytesHex": "3bc02100",
+     "value": 2211899,
+     "expect": 2211899,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+     "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+     "offset": 22596,
+     "type": "i32",
+     "bytesHex": "740e0000",
+     "value": 3700,
+     "expect": 3700,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+     "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+     "offset": 22868,
+     "type": "i32",
+     "bytesHex": "3be02200",
+     "value": 2285627,
+     "expect": 2285627,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+     "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+     "offset": 22884,
+     "type": "i32",
+     "bytesHex": "780e0000",
+     "value": 3704,
+     "expect": 3704,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+     "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+     "offset": 23128,
+     "type": "i32",
+     "bytesHex": "3c0e0000",
+     "value": 3644,
+     "expect": 3644,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+     "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+     "offset": 26160,
+     "type": "i32",
+     "bytesHex": "3bbc2f00",
+     "value": 3128379,
+     "expect": 3128379,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+     "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+     "offset": 26176,
+     "type": "i32",
+     "bytesHex": "880e0000",
+     "value": 3720,
+     "expect": 3720,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+     "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+     "offset": 25968,
+     "type": "i32",
+     "bytesHex": "a8080000",
+     "value": 2216,
+     "expect": 2216,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 30,
+   "matched": 30,
+   "files": 1,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "rawchecks-L4016.json"
+  },
+  "resourceSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+  "codeBase": 13976,
+  "literalDelta": 928,
+  "callTable": {
+   "offset": 272036,
+   "entries": 4725,
+   "distinctFunctions": 160
+  },
+  "literals": {
+   "0xe58": 1.0,
+   "0xe6c": 0.8,
+   "0xe70": 1.5,
+   "0xe74": 1.1,
+   "0xe78": 0.95,
+   "0xe7c": 1.1818,
+   "0xe88": 1.75,
+   "0xe68": 0.25
+  },
+  "variableKeys": {
+   "0x118c": 8,
+   "0x1188": 16777236,
+   "0x1190": 16777222,
+   "0x11a0": 16777221,
+   "0x11a8": 31,
+   "0x11a4": 88
+  },
+  "variableNames": {
+   "bool 0/8": "FastSprintActive",
+   "bool 0/0x58": "Sprint",
+   "float 1/0x14": "StandSprintTopSpeedMultiplier",
+   "float 1/5": "WeaponMoveSpeedMultiplierInput",
+   "float 1/6": "WeaponMoveSpeedMultiplierOutput",
+   "float 0/0x1f": "traitsprintspeed"
+  },
+  "pseudocode": "```\nStandSprintTopSpeedMultiplier = FastSprintActive ? FastSprintTopSpeedMultiplier (2.05) : DefaultStandSprintTopSpeedMultiplier (1.857)\n\nFastSprintActive = FastSprintRequired AND NOT SP_IsSPMode AND FastSprintAllowed_PerTeam\nSprintRecoverTime = SprintRecoverTimeMultiplier * (FastSprintActive ? 1.75 : 1)\n\nif barbed wire affector:            m = 0.25\nelif concussion affector:           m = ConcussionGrenade_Movement Speed Modifier\nelif IsManDown:                     m = GraniteDownedStimActive ? 1.5 : 1\nelse:\n    w = IsSPAI ? 1 : WeaponMoveSpeedMultiplierInput\n    if Sprint:\n        boost = (MedicalTriageSprint or AdrenalineShot or EnhancedFiltering or SwiftTriageSprint affector) ? 1.1 : 1\n        lmg   = (NOT flagA and (LMG tag or MachineGun tag) and stance check) ? 0.95 : 1\n        w     = w * boost * traitsprintspeed * lmg\n        cap   = FastSprintRequired ? 1 : 1.1818\n    else:\n        cap   = 1\n    m = clamp(w, 0, cap)\nWeaponMoveSpeedMultiplierOutput = m * f(firing ? 0.8 : 1, ...)      (dragging: DraggingSpeedModifier instead)\n```",
+  "speedFit": {
+   "model": "speed = 3.5 x StandSprintTopSpeedMultiplier x modifier",
+   "knifeDefibRepair": "3.5 x 2.05 x 1.0 = 7.175 (measured 7.15)",
+   "sledgehammer": "3.5 x 1.857 x 1.0 = 6.4995 (measured 6.5)",
+   "gun": "measured 6.05 needs WeaponMoveSpeedMultiplierInput 0.9308; no such stored value found",
+   "gunAdrenaline": "x 1.1 = 6.655 (measured about 6.65)",
+   "lmg": "x 0.95 = 5.75 (measured 5.75)"
+  }
+ },
+ "inference": [
+  "FastSprintRequired has two effects. It makes FastSprintActive true (outside single player and when the per-team mutator allows it), which selects the top-speed multiplier 2.05 instead of 1.857; and while sprinting it caps the weapon speed modifier at 1.0 instead of 1.1818. The cap is why the adrenaline boost does not stack on a knife.",
+  "1.1 is one shared sprint boost for four affectors (Medical Triage sprint, Adrenaline Shot, Enhanced Filtering, Swift Triage sprint); it multiplies with the traitsprintspeed input. 0.95 is the LMG penalty, applied on the LMG or MachineGun tag unless a flag that is probably the Support proficiency is set, and only in one stance.",
+  "1.1818 is the ceiling on the combined weapon speed modifier for items without fast sprint, not the knife bonus itself. This corrects L4015, which matched it to the knife by value.",
+  "Fast sprint also multiplies sprint recovery time by 1.75.",
+  "Knife 7.175 and Sledgehammer 6.4995 follow from walk speed 3.5 times the selected multiplier, matching the measurements within their precision."
+ ],
+ "unresolved": [
+  "Why guns measure 6.05: it needs WeaponMoveSpeedMultiplierInput of about 0.931, or the stored standing sprint speed 6.05 applies to guns by a rule outside this code. The input is written by native weapon code; no stored 0.93 factor was found in 21,091 gameplay and hardware files.",
+  "The four functions read as OR, AND and multiply are named from use, not from a known hash; equality, NOT, select, clamp and jump-if-false are confirmed by the controls.",
+  "The flag suppressing the LMG penalty and the stance compared are not named.",
+  "Only this one section was read; SimEx_Sprinting_States and the rest of the resource were not."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-10-weapons-registry",
+  "artifacts": [
+   {
+    "file": "manifest-L4016.json",
+    "sha256": "d88e9572bbb8ff8fe9d72c402b13f2fae1234b65d54ad382c02b2933d03936bc"
+   },
+   {
+    "file": "rawchecks-L4016.json",
+    "sha256": "a671b0776531ac629824bb283f58da4e89bb1f23d25aa86a02fde4b91d22ec68"
+   },
+   {
+    "file": "spec-4016.py",
+    "sha256": "e0a13d396c377062c49bec198570a116ff50f9644fc3b197f1b2ab756af915fa"
+   },
+   {
+    "file": "move-speed-disassembly/calls2.py",
+    "sha256": "13145b266a3143111cb7cec8c630e0cb19d61445a7bb1132748ab95ff40f98dc"
+   },
+   {
+    "file": "move-speed-disassembly/speed-section.txt",
+    "sha256": "1bbc57f1253ca66d473c55a729a774c8c24c52039d59efd75251f9ac9172a04a"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-10",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L4016",
+    "title": "Movement-speed logic disassembled: FastSprintRequired makes FastSprintActive, which selects the 2.05 sprint top-speed multiplier in place of 1.857 and caps the weapon speed modifier at 1.0; 1.1, 0.95 and 1.1818 are the sprint-affector boost, the LMG penalty and the modifier cap without fast sprint",
+    "status": "finding",
+    "summary": "The compiled movement-speed section was disassembled. FastSprintRequired makes FastSprintActive, which selects the sprint top-speed multiplier 2.05 instead of 1.857 and caps the weapon speed modifier at 1.0; without it the cap is 1.1818. The sprint-affector boost is 1.1 and the LMG penalty 0.95. Knife (7.175) and Sledgehammer (6.5) speeds follow; the gun's 6.05 is not explained by this code. 30 raw-offset checks matched.",
+    "reopenWhen": "The source of WeaponMoveSpeedMultiplierInput for guns is found, or a current timed sprint is recorded.",
+    "statusNote": "Fast-sprint logic read from compiled code; gun base speed open."
+   }
+  ],
+  "assets": [
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/builds/1.4.3.5/reports/soldier-frontier-2026-10-01-b6/resources/2bfca9f18b8f10e9.res",
+    "format": "raw-ebx",
+    "sha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+    "question": "What does the compiled SimEx_MoveSpeedModifiers code do with FastSprintRequired, the two sprint multipliers and the constants 1.1, 0.95 and 1.1818?",
+    "result": "useful",
+    "conclusion": "Section at code offsets 0x1800 to 0x3010 read; select instructions at 0x1bac, 0x219c, 0x22bc, 0x2370 and 0x2f98."
+   }
+  ]
+ }
+}

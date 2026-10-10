@@ -840,3 +840,73 @@ Damage entries (both damage affectors, material 479), per application, times the
 81 raw-offset checks matched.
 
 Tests: repair time of a damaged tank with one and with two repairers; health an enemy tank loses in 5 s of Repair Tool use.
+
+## L4021 - Explosive, throwable and supply gadget graphs (10 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-10-L4021-explosive-and-supply-gadget-graphs.json). Read from compiled expression graphs with `exgraph.py`; detail in the run folder (`expression-graphs/findings/gadgets-explosives-supply.md`).
+
+- Claymore (`SimEx_ClaymoreFrag`): damage = BaseDamage x pellets x sprint modifier x range term x (0.67 if the target's armour is above 0), rounded to steps of 5. Pellets come from PelletCount, a stance factor and distance, with constants 2.3 and 25, clamped to PelletLimit. A -3 offset enters the range term. The tunable values themselves are not in the graph.
+- Supply crate (`SimEx_SupplyCrate_Granite`): tick period 5 s (floor 0.01); each tick applies a per-weapon-class ammunition affector with parameter 4.95; the target must have health above 0.
+- Flashbang, Stun Drill and Stun Drill trigger flash share one rule: effect class from view angle (in front, sides, behind) and close or far range, six duration tunables, plus 0.2 s, through `Affector_Flashbang`.
+- Concussion grenade: three rings (close, mid, max radius tunables), each with its own duration tunable and its own entry of `Affector_ConcussionGrenade`.
+- PTKM1R: only vehicles faster than `VehicleMovingThreshold` and between MinimumRange and MaximumRange trigger it; scan period 0.1 s; an owner-state branch uses a 180 half-angle and 1.5 x MaximumRange.
+- Incendiary, thermobaric, proximity grenade and others are described in the findings file; those rows are a delegated reading and are not individually raw-checked.
+
+14 raw-offset checks matched.
+
+## L4026 - Tool and miscellaneous gadget graphs (10 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-10-L4026-tool-and-misc-gadget-graphs.json). Read from compiled expression graphs with `exgraph.py`; detail in the run folder (`expression-graphs/findings/gadgets-tools-misc.md`).
+
+- Defibrillator (`SimEx_Defib`): charge time = clamp(`TimeToFullCharge` - `ActiveReviveTimeReduction`, `ChargeTimeMinimum`, `TimeToFullCharge`). Effects: `Affector_Damage_Defibrillator` parameter 0.5, `AffectorRevive_Defibrillator_Ranked` parameter 2.0 (entry 6 when the action enum is 24), `Affector_Supercharge` parameter 5.0 when an upgrade test passes. Search radius is the larger of the friendly and enemy range tunables.
+- EIDOS (`SimEx_EIDOS_Logic_GameVolume`): alive time = `EIDOS_Alive Timer` + `PerimeterDefenseTimerExtension` (upgrade only); ends when the timer completes or intercepts reach `EIDOS_Max Intercepts` + `PerimeterDefenseProjectileAddition` (upgrade only); intercept search every 0.1 s within `EIDOS_Max Intercept Range`. MPAPS has the same structure with its own tunables.
+- Mobile jammer: radius x `ImprovedJammerRadiusMulti` with the upgrade; jam, lock-jam and projectile-jam effects applied with parameter 0.2; self-jam uses `JammingDuration_Self`.
+- Drone out-of-bounds timer: rises at 1 x and decays at 2 x frame time, capped at `Drone_Max Time Out Of Bounds`, checked every 0.25 s.
+- Adrenaline shot: three self effects (flak, suppression, debuff removal) all take `AdrenalineShot_Duration`.
+- Gas mask, TUGS, laser designator, repair tool, deployable cover, Lancet and tracer dart are described in the findings file; those rows are a delegated reading and not individually raw-checked.
+
+10 raw-offset checks matched.
+
+## L4029 - Game-mode graphs (battle royale, Gauntlet, shared modes, single player) (10 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-10-L4029-game-mode-graphs.json). Read from compiled expression graphs with `exgraph.py`; detail in the run folder (`expression-graphs/findings/gamemodes.md`).
+
+- Sabotage gadget: arming 30 s (needs on ground), interact fill 0.45 s, search range = `Sabotage_Distance` + 1 (+ `ImprovisorDistanceAdd` with the upgrade), applies the disable-all-vehicle-weapons effect for 29 s; blocked during the insertion sequence.
+- Sabotage projectile: the vehicle-sabotaged effect lasts 26 s; state steps at 28.7 s and at 6.5 s and 10.5 s after attach; immobilise duration = 26 - state 1 duration.
+- Capture rate (`TeamInsideVolume`): `CaptureSpeedMultipliers`[clamp(players, 0, 4)], x `fAssaultClassCaptureModifier` when the assault-class kill switch is on.
+- Battle royale loadout crate points: radius = zone radius x random^0.66, 20 tries per crate.
+- Battle royale airdrop placement: small-ring mode when ring radius < `BR_Airdrop_Small_Ring_Radius`; slope accepted below 0.1; a buffer ratio pulls the point toward the centre; reward-drop search constant 0.35.
+- Night Raid (single player) speed modifier: (0.715 + 0.285 x clamp((d - 2) / 13, 0, 1)) x 0.85, otherwise 0.87.
+- Contract counters (damage, headshot, kill, vehicle, capture, loot) are squad accumulators with thresholds passed in.
+- MCOM interaction graphs hold 60 and 4 constants (read as seconds; role inferred).
+
+13 raw-offset checks matched.
+
+## L4030 - In-round progression, remaining gadget and AI graphs (10 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-10-L4030-in-round-progression-and-remaining-gadget-graphs.json). Read from compiled expression graphs with `exgraph.py`; detail in the run folder (`expression-graphs/findings/gadgets-perks-ai.md`).
+
+- Passive upgrades (period / effect duration): low profile 1.0 / 1.1 s, stance flak 1.0 / 1.1 s, mechanized infantry 2.0 / 2.1 s, vehicle health plus 2.0 / 2.0 s, enhanced filtering every 0.333 s.
+- Active Medic: 7 m radius, crate-healing and ammo effects of 1.1 s, plus a 10 s self buff. Active Attack: 10 m squad radius, ends after 4.9 s. Active Repair and Anti-Repair: 10 s.
+- Combat High: kills within 5 s of each other raise a stack from 0 to 5; each stack applies `Healing_CombatHigh` with parameter 0.1. Repeatable Reward stacks to 4.
+- Mortar fire support: a ranging shot, then volleys; shells spawn 300 above the target with vertical velocity -100, landing in a random disc of `Mortar_DispersionRadius`; `FireSupportActive` multiplies shell count by `Artillery_IncreaseShellCountPerVolley`.
+- Sniper decoy: every 2 s applies an anti-glint effect (2.1 s) within 5 m; fires a fake effect every 1.5 to 6 s at random.
+- AI health ping: starts below 95 health and clears at 100; a squad leader counts as recently damaged for 2.0 s.
+- Sabotage timings repeat L4029 (29 s weapon disable, 26 s sabotaged).
+
+11 raw-offset checks matched.
+
+## L4035 - Values in the effect assets that graphs apply (10 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-10-L4035-effect-asset-values-for-graph-effects.json). Decoded from the effect (affector) assets named by the expression graphs; table in the run folder (`expression-graphs/affectors-table.tsv`).
+
+- The table `expression-graphs/affectors-table.tsv` lists the 208 effect assets named by simulation graphs with their class and non-default stored fields.
+- Defibrillator: both revive effects (`AffectorRevive_Defibrillator_Revive`, `_Ranked`) hold six entries of 50, 60, 70, 80, 90, 100 (read as health restored, chosen by entry index); the damage effect holds entries rising from 50 in steps of 10. `AffectorRevive_HealthRestored` holds 100, 90, 80, 75, 70, 60, 50, 40, 30, 25, 20.
+- Explosive damage multipliers: `Affector_Flak` 0.67 (the same 0.67 the Claymore graph uses, L4021), adrenaline shot flak 0.8, giga shield 0.5.
+- Combat High healing entries 5, 6, 7, 8, 9, 10 (one per stack). Medical triage healing 20 with 1.0; emergency damage control extra heal 70 with 2.0. Auto-regeneration: resilient 30 and 2.5; hemostatic smoke 12.5 and 2.5.
+- Spotting: low profile spot duration x 0.667 and spot delay 1.2; improved jammer target spot duration x 0.5 and time until spot 1.5; anti-air anti-spotting spot time x 0.75.
+- Lock-on: mark target 1.34; anti-air and attack helicopter passive lock-on time 0.8; tracer dart locking signature multiplier 11; smoke discharger locking jammer 25, 15 and 0.2.
+- Mechanic overheat: stationaries 0.5, vehicles 0.9. Gadget over-repair 20. Ceramic armour entries 121 and 242 (and 40, 80) with 0.5. Race-mode catch-up boost entries are 1.02^n, from 1.0 to 1.148685.
+- Defibrillator charge against EA: stored full charge 1.0 s matches the 1.2.3.0 note; the stored minimum is 0.3 s where the note says 0.35 s (L232). The graph rule gives 1.0 - 0.7 = 0.3 s when the active-revive reduction applies.
+
+52 raw-offset checks matched.

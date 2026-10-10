@@ -1,0 +1,927 @@
+{
+ "lead": "L4004",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909067,
+  "client": "1.0.443.60769",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Read from saved raw captures; no export, no new capture."
+ },
+ "question": "L4000 left out registry rows whose default is a list. Do the registry default damage curves differ from the own curves of any bullet file, and do the site's base curves equal the own curves?",
+ "sourceFacts": {
+  "method": "The L3359 reader (boltcurves.py, run on every file under _Bullets) decodes each bullet's own health and armor curves and follows the import to the registry row's default curve. Site base curves (data/weapons.json dmg) were compared with the own health curve of the weapon's base projectile in data/ballistics.json, as float32 values.",
+  "control": {
+   "description": "The four bolt-action bullets of L3359 return the same points as in that receipt (for example PD_.338LapuaMagnum2: 75/80, 100/100, 133/100, 175/62).",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_.300BLK_Carbine.ebx",
+     "rawSha256": "8f2fcc8a198f32d5a2e261e91c74d73ba4cc647b8ca20e99290e0275d09f8d66",
+     "offset": 1464,
+     "type": "f32",
+     "bytesHex": "48e10c42",
+     "value": 35.220001220703125,
+     "expect": 35.220001,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 3195476,
+     "type": "f32",
+     "bytesHex": "48e10c42",
+     "value": 35.220001220703125,
+     "expect": 35.220001,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_.300WinMag.ebx",
+     "rawSha256": "a654e9001d8d953286df4d749967e26258f6414b8c86d6c4c7fc4da52626ff56",
+     "offset": 1208,
+     "type": "f32",
+     "bytesHex": "0000a042",
+     "value": 80.0,
+     "expect": 80.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 2982584,
+     "type": "f32",
+     "bytesHex": "0000a042",
+     "value": 80.0,
+     "expect": 80.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_.300WinMag_Match.ebx",
+     "rawSha256": "412f3e0783d68c665a7c900f0019cb4d707ae2541bba33074d489ea56ab67cb1",
+     "offset": 1440,
+     "type": "f32",
+     "bytesHex": "0000a042",
+     "value": 80.0,
+     "expect": 80.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_.338LapuaMagnum2.ebx",
+     "rawSha256": "e810c9223cd062f7953d05908e95d04bbfe14d25d38fb72ab2923a46294a6563",
+     "offset": 1440,
+     "type": "f32",
+     "bytesHex": "0000a042",
+     "value": 80.0,
+     "expect": 80.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 3113308,
+     "type": "f32",
+     "bytesHex": "0000a042",
+     "value": 80.0,
+     "expect": 80.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_.338LapuaMagnum2_Match.ebx",
+     "rawSha256": "e6000c984978765672624e6702965e8ea9dcf8df326dff512feae35698f25379",
+     "offset": 1208,
+     "type": "f32",
+     "bytesHex": "0000a042",
+     "value": 80.0,
+     "expect": 80.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_.338LapuaMagnum_Semi.ebx",
+     "rawSha256": "dc0f0e9c8ab8ce044c510fd2c60e9c973ba4a2295d888802ee0c36b7b2b7cae9",
+     "offset": 1252,
+     "type": "f32",
+     "bytesHex": "66668542",
+     "value": 66.69999694824219,
+     "expect": 66.699997,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 3131940,
+     "type": "f32",
+     "bytesHex": "66668542",
+     "value": 66.69999694824219,
+     "expect": 66.699997,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_.338LapuaMagnum_Semi_Match.ebx",
+     "rawSha256": "ba63de28bc7b07c75083ea4d07fcc2015f56b03a7870cc487ce5e38dd79c21a4",
+     "offset": 1540,
+     "type": "f32",
+     "bytesHex": "66668542",
+     "value": 66.69999694824219,
+     "expect": 66.699997,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_.338NormaMagnum.ebx",
+     "rawSha256": "a415566eb10eaf3e7c79bdde533de0ca658e1e09cddf3e2f01e72581f4cfe599",
+     "offset": 1208,
+     "type": "f32",
+     "bytesHex": "0000a042",
+     "value": 80.0,
+     "expect": 80.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 3031232,
+     "type": "f32",
+     "bytesHex": "0000a042",
+     "value": 80.0,
+     "expect": 80.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_.338NormaMagnum_Match.ebx",
+     "rawSha256": "30777163d2e17cb943283db6af889ae0864f4f3e2de3c5f94c836bed836cb766",
+     "offset": 1324,
+     "type": "f32",
+     "bytesHex": "0000a042",
+     "value": 80.0,
+     "expect": 80.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_.357Magnum.ebx",
+     "rawSha256": "c66d4043b3c88b8162a30a7e26b189ae8902b502ddb6b631c1a72473a8baafe7",
+     "offset": 1796,
+     "type": "f32",
+     "bytesHex": "00004842",
+     "value": 50.0,
+     "expect": 50.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 3192696,
+     "type": "f32",
+     "bytesHex": "00004842",
+     "value": 50.0,
+     "expect": 50.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_.40SW.ebx",
+     "rawSha256": "5a0e4500a9d48164eb8dbd8b223555f71366584e15b5f7b5f98f3cf0a777df59",
+     "offset": 1284,
+     "type": "f32",
+     "bytesHex": "0000c841",
+     "value": 25.0,
+     "expect": 25.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 3206976,
+     "type": "f32",
+     "bytesHex": "0000c841",
+     "value": 25.0,
+     "expect": 25.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_.40SW_PDW.ebx",
+     "rawSha256": "07ab7ed1be2d3d099261d300ac35ceb65428ccfaea790131a2b492cc6562fb3f",
+     "offset": 1208,
+     "type": "f32",
+     "bytesHex": "6666d041",
+     "value": 26.049999237060547,
+     "expect": 26.049999,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 2979580,
+     "type": "f32",
+     "bytesHex": "6666d041",
+     "value": 26.049999237060547,
+     "expect": 26.049999,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_.416Barrett.ebx",
+     "rawSha256": "5d685e3cf48356429f42a0d1504146a2f1658f306a2a20427455150909bf371d",
+     "offset": 1496,
+     "type": "f32",
+     "bytesHex": "0000a042",
+     "value": 80.0,
+     "expect": 80.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 2975580,
+     "type": "f32",
+     "bytesHex": "0000a042",
+     "value": 80.0,
+     "expect": 80.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_.416Barrett_Match.ebx",
+     "rawSha256": "7ef218e21d0c88657b4484fe8aff9c632109cc59335ab281085f196e6a9bcee3",
+     "offset": 1396,
+     "type": "f32",
+     "bytesHex": "0000a042",
+     "value": 80.0,
+     "expect": 80.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_.44Magnum.ebx",
+     "rawSha256": "cccbb21d860dcf7aa4ca5b8cb3b889a5134183b45fd2961b0dd32c252d74de23",
+     "offset": 1208,
+     "type": "f32",
+     "bytesHex": "66668542",
+     "value": 66.69999694824219,
+     "expect": 66.699997,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 2916272,
+     "type": "f32",
+     "bytesHex": "66668542",
+     "value": 66.69999694824219,
+     "expect": 66.699997,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_.45ACP.ebx",
+     "rawSha256": "54ce0ad70d6fcebc99003efe18261f7f12b11c7f97c0335292b7fc641e6382df",
+     "offset": 1208,
+     "type": "f32",
+     "bytesHex": "9a990542",
+     "value": 33.400001525878906,
+     "expect": 33.400002,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 3062960,
+     "type": "f32",
+     "bytesHex": "9a990542",
+     "value": 33.400001525878906,
+     "expect": 33.400002,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_10x25mm_PDW.ebx",
+     "rawSha256": "e3bcaab03ac1023d17508b3a362442ad8172b9d647f50eae07413184d0a390e7",
+     "offset": 1796,
+     "type": "f32",
+     "bytesHex": "48e10c42",
+     "value": 35.220001220703125,
+     "expect": 35.220001,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_12gaFlechette275_Pump.ebx",
+     "rawSha256": "984e61563eeb3e3d0d4aab62d0cb0ff279f0034f6ec9b4a561fed954c3849b93",
+     "offset": 1540,
+     "type": "f32",
+     "bytesHex": "3333b340",
+     "value": 5.599999904632568,
+     "expect": 5.6,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 3087784,
+     "type": "f32",
+     "bytesHex": "3333b340",
+     "value": 5.599999904632568,
+     "expect": 5.6,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_12gaFlechette275_Semi.ebx",
+     "rawSha256": "312d4d616fb3639b473273ae21cd21c898f17f13c685f173a8eb0b1baa85fdd7",
+     "offset": 1352,
+     "type": "f32",
+     "bytesHex": "0000a040",
+     "value": 5.0,
+     "expect": 5.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 3103704,
+     "type": "f32",
+     "bytesHex": "0000a040",
+     "value": 5.0,
+     "expect": 5.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_12gaFlechette300_Pump.ebx",
+     "rawSha256": "1f72bd41f2a2336367d0a02c6074b60e7e7be441757f85617e29d0dbdf7be0a4",
+     "offset": 1408,
+     "type": "f32",
+     "bytesHex": "66660641",
+     "value": 8.399999618530273,
+     "expect": 8.4,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 2919412,
+     "type": "f32",
+     "bytesHex": "66660641",
+     "value": 8.399999618530273,
+     "expect": 8.4,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_12gaFlechette300_Semi.ebx",
+     "rawSha256": "2791c8d08f80a8ea63680e7e31ca129122fa10d1047ebce342c136e47596afd3",
+     "offset": 1208,
+     "type": "f32",
+     "bytesHex": "6666e640",
+     "value": 7.199999809265137,
+     "expect": 7.2,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 2914024,
+     "type": "f32",
+     "bytesHex": "6666e640",
+     "value": 7.199999809265137,
+     "expect": 7.2,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_12gaNo00Buck275_Pump.ebx",
+     "rawSha256": "80aa332243fa6b8eb9e7bea27754a53103d689996c771b6000b55566868bb12b",
+     "offset": 1352,
+     "type": "f32",
+     "bytesHex": "33333341",
+     "value": 11.199999809265137,
+     "expect": 11.2,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 3198748,
+     "type": "f32",
+     "bytesHex": "33333341",
+     "value": 11.199999809265137,
+     "expect": 11.2,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_12gaNo00Buck275_Semi.ebx",
+     "rawSha256": "96504c896b90457dafa66de2916d111fc7f3997395f076e1df1a7b590e32420f",
+     "offset": 1208,
+     "type": "f32",
+     "bytesHex": "00002041",
+     "value": 10.0,
+     "expect": 10.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 2953800,
+     "type": "f32",
+     "bytesHex": "00002041",
+     "value": 10.0,
+     "expect": 10.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_12gaNo00Buck300_Pump.ebx",
+     "rawSha256": "ff2e70b85c03191065a1a7ed737310548a0c5762fb56a0a1046fb628b543e148",
+     "offset": 1408,
+     "type": "f32",
+     "bytesHex": "66668641",
+     "value": 16.799999237060547,
+     "expect": 16.799999,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 3095916,
+     "type": "f32",
+     "bytesHex": "66668641",
+     "value": 16.799999237060547,
+     "expect": 16.799999,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_12gaNo00Buck300_Semi.ebx",
+     "rawSha256": "d1c5a123c2c3133a2e354303e51bd01704062514166130f456a421383bf467a6",
+     "offset": 1208,
+     "type": "f32",
+     "bytesHex": "66666641",
+     "value": 14.399999618530273,
+     "expect": 14.4,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 3076040,
+     "type": "f32",
+     "bytesHex": "66666641",
+     "value": 14.399999618530273,
+     "expect": 14.4,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_12gaNo01Buck275_Pump.ebx",
+     "rawSha256": "5f9b7a055279331e84dc6800cc9c9377aa842ec1e59107baf3ad1920685d985c",
+     "offset": 1496,
+     "type": "f32",
+     "bytesHex": "3333b340",
+     "value": 5.599999904632568,
+     "expect": 5.6,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_12gaNo01Buck275_Semi.ebx",
+     "rawSha256": "1948da3cd67ef0742e25f20ef710e2b81b8fbc510954c75940c70fc19fa78595",
+     "offset": 1352,
+     "type": "f32",
+     "bytesHex": "0000a040",
+     "value": 5.0,
+     "expect": 5.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_12gaNo01Buck300_Pump.ebx",
+     "rawSha256": "ec36517b09e5a7a0be8e3cd3200ff41b263d416f96f7f9e712dd6c74dfcd4bb3",
+     "offset": 1608,
+     "type": "f32",
+     "bytesHex": "66660641",
+     "value": 8.399999618530273,
+     "expect": 8.4,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_12gaNo01Buck300_Semi.ebx",
+     "rawSha256": "d20a859f30842a30cfb48369565f6c489ebaa0b6f4fe5e085c3efbd2039786b4",
+     "offset": 1208,
+     "type": "f32",
+     "bytesHex": "6666e640",
+     "value": 7.199999809265137,
+     "expect": 7.2,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_12gaSlug275_Pump.ebx",
+     "rawSha256": "08691cd115362ac69e4008c68c11ce8e123a8c541f2160da59b5e78a79caf68f",
+     "offset": 1464,
+     "type": "f32",
+     "bytesHex": "00009642",
+     "value": 75.0,
+     "expect": 75.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 3009888,
+     "type": "f32",
+     "bytesHex": "00009642",
+     "value": 75.0,
+     "expect": 75.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_12gaSlug275_Semi.ebx",
+     "rawSha256": "b289e6135340ea5b915d2b750a94ba59c312997e8608d71b333acd7dded40c2c",
+     "offset": 1208,
+     "type": "f32",
+     "bytesHex": "00009642",
+     "value": 75.0,
+     "expect": 75.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 2982776,
+     "type": "f32",
+     "bytesHex": "00009642",
+     "value": 75.0,
+     "expect": 75.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_12gaSlug300_Pump.ebx",
+     "rawSha256": "26cd0b3b4410dd637d27fbd622ce23e64ce4ed25378cb50e9fde369f8513d09f",
+     "offset": 1720,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 3215784,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_12gaSlug300_Semi.ebx",
+     "rawSha256": "78b50481fa01c8624dadb67404704ebbb61c6a40c9ef3bb5f6b40419731ddc84",
+     "offset": 1720,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 2899856,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0,
+     "expect": 100.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_32ACP_PDW.ebx",
+     "rawSha256": "4ed2bc524c6496bfbb2d5c0faa6aca4bef1ec7fa59a0f9031b37ba83723c2ca5",
+     "offset": 1796,
+     "type": "f32",
+     "bytesHex": "3d0a8941",
+     "value": 17.1299991607666,
+     "expect": 17.129999,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 3111376,
+     "type": "f32",
+     "bytesHex": "3d0a8941",
+     "value": 17.1299991607666,
+     "expect": 17.129999,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_46x30_PDW.ebx",
+     "rawSha256": "abec5d2f6d94e7fe7fe25c5855c6849a1fa3abf29f3e91716f410e1ed800bff8",
+     "offset": 1208,
+     "type": "f32",
+     "bytesHex": "3d0a8941",
+     "value": 17.1299991607666,
+     "expect": 17.129999,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 3032184,
+     "type": "f32",
+     "bytesHex": "3d0a8941",
+     "value": 17.1299991607666,
+     "expect": 17.129999,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_545x39mm.ebx",
+     "rawSha256": "159f5173c329d48cdf515507bbb250901894d8b2e83b937486ab12897aa14612",
+     "offset": 1252,
+     "type": "f32",
+     "bytesHex": "295ca541",
+     "value": 20.670000076293945,
+     "expect": 20.67,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 3291732,
+     "type": "f32",
+     "bytesHex": "295ca541",
+     "value": 20.670000076293945,
+     "expect": 20.67,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_545x39mm_Carbine.ebx",
+     "rawSha256": "61358f220b743e14da577792c74417acca7b18d6a1075370e9c1a62a95013fab",
+     "offset": 1540,
+     "type": "f32",
+     "bytesHex": "295ca541",
+     "value": 20.670000076293945,
+     "expect": 20.67,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 2897672,
+     "type": "f32",
+     "bytesHex": "295ca541",
+     "value": 20.670000076293945,
+     "expect": 20.67,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_545x39mm_MG.ebx",
+     "rawSha256": "073d0c73716b827873110bd1536735ff226dc650e3392d13559fec1ae7fd2c26",
+     "offset": 1396,
+     "type": "f32",
+     "bytesHex": "295ca541",
+     "value": 20.670000076293945,
+     "expect": 20.67,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_556x45mmNATO.ebx",
+     "rawSha256": "b95a26a37f7483d024a3b6cc12edf4e1484be4fa1ecd1792b59b7038338921ed",
+     "offset": 1252,
+     "type": "f32",
+     "bytesHex": "6666d041",
+     "value": 26.049999237060547,
+     "expect": 26.049999,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 2910984,
+     "type": "f32",
+     "bytesHex": "6666d041",
+     "value": 26.049999237060547,
+     "expect": 26.049999,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_556x45mmNATO_Bolt.ebx",
+     "rawSha256": "8a8abc2217d735a5cc93aa68726182f605229d3fa88e4df65aa1d32db0886791",
+     "offset": 1208,
+     "type": "f32",
+     "bytesHex": "00007842",
+     "value": 62.0,
+     "expect": 62.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 2900192,
+     "type": "f32",
+     "bytesHex": "00007842",
+     "value": 62.0,
+     "expect": 62.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_556x45mmNATO_Carbine.ebx",
+     "rawSha256": "6f3d4ed4dfdd563f2dcac4aee4a4923836d11fd3178dcbdfa4ee662120e34f25",
+     "offset": 1208,
+     "type": "f32",
+     "bytesHex": "6666d041",
+     "value": 26.049999237060547,
+     "expect": 26.049999,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_556x45mmNATO_MG.ebx",
+     "rawSha256": "f84c26acddc92050e09788e60d33b12443d89fb79340780ea06ed41b45aa6d44",
+     "offset": 1208,
+     "type": "f32",
+     "bytesHex": "6666d041",
+     "value": 26.049999237060547,
+     "expect": 26.049999,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_556x45mmNATO_Semi.ebx",
+     "rawSha256": "8de3921ee00a6cd5cb1f2a2f07b485ca63f0dc32fcea4240cd24face1c1a6dbf",
+     "offset": 1352,
+     "type": "f32",
+     "bytesHex": "3333eb41",
+     "value": 29.399999618530273,
+     "expect": 29.4,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 3267640,
+     "type": "f32",
+     "bytesHex": "3333eb41",
+     "value": 29.399999618530273,
+     "expect": 29.4,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_57x28mm.ebx",
+     "rawSha256": "112bca3d23860231fed5455d20d116a78d8149d3e0a04a275e5ed0942096ad99",
+     "offset": 1796,
+     "type": "f32",
+     "bytesHex": "0000a041",
+     "value": 20.0,
+     "expect": 20.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 3174340,
+     "type": "f32",
+     "bytesHex": "0000a041",
+     "value": 20.0,
+     "expect": 20.0,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_57x28mm_PDW.ebx",
+     "rawSha256": "31454d4bc3c828e17d3c048535e0340b0ab819cb2fe1916a3cd3ca688930e3f9",
+     "offset": 1796,
+     "type": "f32",
+     "bytesHex": "295ca541",
+     "value": 20.670000076293945,
+     "expect": 20.67,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_58x42mm_Carbine.ebx",
+     "rawSha256": "12555af0d34224436c23fd405bf65faf45bf44a16bd1620d40172e1b9ca607fb",
+     "offset": 1208,
+     "type": "f32",
+     "bytesHex": "6666d041",
+     "value": 26.049999237060547,
+     "expect": 26.049999,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_68x51mm_Carbine.ebx",
+     "rawSha256": "5cb3eabed5daaff651f06f06a8ca0b2664ee76dda43f9ef91f8fc6ebca5680d8",
+     "offset": 1348,
+     "type": "f32",
+     "bytesHex": "6666d041",
+     "value": 26.049999237060547,
+     "expect": 26.049999,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "98897bb375d5116300b05134042d4bac9849cc9d73064eb0b309966e98afa7c7",
+     "offset": 2958072,
+     "type": "f32",
+     "bytesHex": "6666d041",
+     "value": 26.049999237060547,
+     "expect": 26.049999,
+     "matches": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_68x51mm_MG.ebx",
+     "rawSha256": "8d50e56075a3ec8667ad5ed68c1cd78a9dd350bd366ac55ca5f32f9ee3c72017",
+     "offset": 1272,
+     "type": "f32",
+     "bytesHex": "6666d041",
+     "value": 26.049999237060547,
+     "expect": 26.049999,
+     "matches": true
+    }
+   ]
+  },
+  "rawCheckSummary": {
+   "checks": 101,
+   "matched": 101,
+   "files": 63,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "rawchecks-L4004.json"
+  },
+  "dataset": "reference-data/frosty/bullet-damage-curves-registry-own.json",
+  "bulletFiles": 88,
+  "healthCurve": {
+   "equal": 63,
+   "own only": 3,
+   "no curve": 22
+  },
+  "armorCurve": {
+   "equal": 63,
+   "own only": 3,
+   "no curve": 22
+  },
+  "siteBaseCurves": {
+   "equal": 59,
+   "equal with an added 0 m point": 3,
+   "differ": 1
+  },
+  "siteNotes": [
+   "m250",
+   "m277",
+   "m45a1 (differs)",
+   "miniscout"
+  ],
+  "ownOnly": [
+   "PD_.300BLK_Carbine_SP_PS_Silenced",
+   "PD_9x39mm_Match",
+   "PD_9x39mm_Semi"
+  ]
+ },
+ "inference": [
+  "No bullet file's registry default curve differs from its own curve, for the health curve or the armor curve. Together with L4000 this covers every numeric and curve row of the site's bullets.",
+  "The site's base damage curves are the stored own curves. The one functional difference is the M45A1 step between 54 and 75 m, which was reviewed on 13 September and kept."
+ ],
+ "unresolved": [
+  "Three bullet files have an own curve and no registry curve row: PD_9x39mm_Semi and PD_9x39mm_Match (VSSM) and a single-player suppressed .300 BLK file.",
+  "22 bullet files store no curve (shotgun, single-player and other files); none is a site projectile's missing curve.",
+  "Per-ammunition site curves in data/ammo.json were audited in L580 to L582 and were not re-read here."
+ ],
+ "siteImpact": "None. No Analyzer data, simulation or UI change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-10-weapons-registry",
+  "artifacts": [
+   {
+    "file": "manifest-L4004.json",
+    "sha256": "a54c1cf51c2e90bedd8121976cf704c339cec662da9f8a2c2acdca5cf7709135"
+   },
+   {
+    "file": "rawchecks-L4004.json",
+    "sha256": "8bf383d10f72a353ec0e6a825ae76406faaa61adac300c44f934b05ce1f6dfdd"
+   },
+   {
+    "file": "curves-all.py",
+    "sha256": "6ba6df97b27752c283d7e6e33846dc796e333b3bdb9a52bc4307c9c5eb895fb4"
+   },
+   {
+    "file": "curves-all.json",
+    "sha256": "608a3f97640ac1b5770d43274e35dae83e8021cf7777b6952818acd32f9af00d"
+   },
+   {
+    "file": "spec-4004.py",
+    "sha256": "008a6d917f33491d093c67f6d77f7dfb05dfafd11e753bfe22e5f019c60171af"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-10",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L4004",
+    "title": "Bullet damage curves: registry default equals the own curve on all 63 bullet files that have both; site base curves equal the own curve on 62 of 63 weapons",
+    "status": "finding",
+    "summary": "Registry default damage curves equal the own curves on all 63 bullet files that have both (health and armor). Site base curves equal the base bullet's own health curve on 62 of 63 weapons as float32 values, 3 of them with an added 0 m point; the M45A1 keeps its reviewed step. No site value changes. 101 raw-offset checks matched.",
+    "reopenWhen": "A game update changes a bullet file or the weapon registry.",
+    "statusNote": "No curve differs; no site change."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Hardware/Weapons/_Bullets/PD_556x45mmNATO",
+    "format": "raw-ebx",
+    "sha256": "b95a26a37f7483d024a3b6cc12edf4e1484be4fa1ecd1792b59b7038338921ed",
+    "question": "L4000 left out registry rows whose default is a list. Do the registry default damage curves differ from the own curves of any bullet file, and do the site's base curves equal the own curves?",
+    "result": "useful",
+    "conclusion": "Own health and armor curves equal the registry default curves."
+   },
+   {
+    "path": "Common/Hardware/Weapons/_Bullets/PD_.45ACP",
+    "format": "raw-ebx",
+    "sha256": "54ce0ad70d6fcebc99003efe18261f7f12b11c7f97c0335292b7fc641e6382df",
+    "question": "L4000 left out registry rows whose default is a list. Do the registry default damage curves differ from the own curves of any bullet file, and do the site's base curves equal the own curves?",
+    "result": "useful",
+    "conclusion": "Own curve ends 54/14.3 then 75/12.5; the site keeps the reviewed step at 75 m."
+   }
+  ]
+ }
+}
