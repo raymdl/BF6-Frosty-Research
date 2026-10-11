@@ -88,16 +88,16 @@ Run: `BF6 Datamining/reports/weapon-analyzer-research/2026-10-10-weapons-registr
 
 | Lead | Status | Result | Commit |
 |---|---|---|---|
-| L4000 | finding | Registry default equals the own value on every compared row of the 63 site weapons, their firing data and their bullets. The registry-or-own question of L3356 does not arise for weapons. | `30eeb32` |
-| L4001 | finding | EA 1.3.3.0 recoil variation equals the site on 39 of 39 weapons. EA states the M45A1 and vz. 61 are subsonic by default; their stored spotting ranges are 27 / 64.29 against 54 / 150 on the other 61 weapons. | `e41d991` |
-| L4002 | exhausted | Registry rows name 102 weapon fields; 101 were already in FIELD_MAP.md. No hash cited by 116 earlier negative closures gains a name. `Field_440ed7fa` has no registry row. | `ab0b996` |
-| L4003 | finding | Site velocity, magazine, drag and limb values equal the stored rows on all 63 weapons; the eight rate-of-fire differences are the single-fire VSSM and seven manually cycled weapons. | `5427c9a` |
-| L4004 | finding | Bullet damage curves are equal between registry, own files and the site; the M45A1 keeps its reviewed step. | `4a5a1a1` |
-| L4005 | finding | Weapon and attachment figures in EA notes 1.1.3.0 to 1.4.3.0 agree with the site or were superseded. | `4a06208` |
-| L4006 | exhausted | Parked questions W1-W9, O1-O3, M1-M3 and G1 screened against the three methods; none is reopened. | `93ca8af` |
-| L4007 | finding | Head-table index equal on 63 of 63; seven manually cycled rates reproduced from stored bolt fields; reload sums equal on 48 tactical and 45 of 58 empty values, the rest are reviewed capture values. EA: Interdictor limb damage matches chest; Match Trigger must not affect automatic fire. | `9f1c636` |
-| L4008 | proposal, implemented | The operator's stat-screen screenshots show 27 / 64 m for the M45A1 and vz. 61 (0 / 9 m suppressed). Source, EA and the stat screen agree; the site's 54 / 150 was wrong for these two. | `92077f6` |
-| L4009 | finding | Audit of 116 earlier negative closures: 16,432 recorded byte checks all match the current files; ten claims from the 45 leads without byte checks were re-tested by a second route and none is contradicted. | `30aad04` |
+| L4000 | finding | Registry default equals the own value on every compared row of the 63 site weapons, their firing data and their bullets. The registry-or-own question of L3356 does not arise for weapons. | `5279418` |
+| L4001 | finding | EA 1.3.3.0 recoil variation equals the site on 39 of 39 weapons. EA states the M45A1 and vz. 61 are subsonic by default; their stored spotting ranges are 27 / 64.29 against 54 / 150 on the other 61 weapons. | `5279418` |
+| L4002 | exhausted | Registry rows name 102 weapon fields; 101 were already in FIELD_MAP.md. No hash cited by 116 earlier negative closures gains a name. `Field_440ed7fa` has no registry row. | `5279418` |
+| L4003 | finding | Site velocity, magazine, drag and limb values equal the stored rows on all 63 weapons; the eight rate-of-fire differences are the single-fire VSSM and seven manually cycled weapons. | `5279418` |
+| L4004 | finding | Bullet damage curves are equal between registry, own files and the site; the M45A1 keeps its reviewed step. | `5279418` |
+| L4005 | finding | Weapon and attachment figures in EA notes 1.1.3.0 to 1.4.3.0 agree with the site or were superseded. | `5279418` |
+| L4006 | exhausted | Parked questions W1-W9, O1-O3, M1-M3 and G1 screened against the three methods; none is reopened. | `5279418` |
+| L4007 | finding | Head-table index equal on 63 of 63; seven manually cycled rates reproduced from stored bolt fields; reload sums equal on 48 tactical and 45 of 58 empty values, the rest are reviewed capture values. EA: Interdictor limb damage matches chest; Match Trigger must not affect automatic fire. | `5279418` |
+| L4008 | proposal, implemented | The operator's stat-screen screenshots show 27 / 64 m for the M45A1 and vz. 61 (0 / 9 m suppressed). Source, EA and the stat screen agree; the site's 54 / 150 was wrong for these two. | `5279418` |
+| L4009 | finding | Audit of 116 earlier negative closures: 16,432 recorded byte checks all match the current files; ten claims from the 45 leads without byte checks were re-tested by a second route and none is contradicted. | `5279418` |
 
 - **One site change, approved by the operator:** spot-on-fire base 27 / 64.285713 for `m45a1` and `vz61` (site commit `b6da447`, not pushed).
 - **Audit of earlier closures (L4002, L4009).** Registry names recover nothing the earlier runs missed; all recorded bytes are intact; re-tested claims hold. The one wrong outcome was the consequence drawn from L7 (one spot base for all weapons). Closures of the form "stored but no consumer found" should be checked against the screenshot audit or EA notes before they are accepted.
