@@ -70,7 +70,10 @@ Neither result assigns a semantic name from a matching number alone.
 | Layout and archive | `BF6 Datamining\README.md` (with the old-to-new path map); historical files in `BF6 Datamining\_archive\` |
 
 From the Analyzer repository, pass `--root "../BF6 Datamining/builds/<build>/xml"` to
-tools that read the XML tree. Older reports keep old absolute paths; the
+tools that read the XML tree. The generator scripts also read the raw capture directly
+(`--raw <folder>` repeatable, `--descriptors`, `--catalog`; see
+[raw mode](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/MAINTENANCE.md#raw-mode)), through
+`scripts/frosty-raw-tree.py`, so new work needs no XML export. Older reports keep old absolute paths; the
 [path map](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/DATA_SOURCES.md#local-frosty-export-location) gives the current location.
 
 ## Build snapshots
@@ -156,14 +159,15 @@ Build only FrostyCmd, so the existing FrostySdk and FrostyHash builds stay uncha
 - **Generators write by default.** Several `scripts/frosty-*.py` write into Analyzer data
   or provenance. Pass explicit output paths and check `git status` after each run.
   `frosty-attachment-tooltips.py` writes back into its `--mapping-json` input: copy the
-  dated file to a new date first.
+  dated file to a new date first. The same applies in
+  [raw mode](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/MAINTENANCE.md#raw-mode).
 
 ## Raw EBX scripts
 
 | Script | Use |
 |---|---|
 | `scripts/frosty-capture.py <name> <route ...> \| --routes-file <file> [--catalog] [--build]` | **Use this for every capture** instead of running the collector by hand. Takes an exclusive lock (`<datamining>\.frosty-capture.lock`), refuses if a FrostyCmd or collector process is running, runs `guard`, runs the collector into a new `builds\<build>\reports\<name>\` (or `--into <dir under the build>`), prints failed routes and runs `record`. Exits non-zero if any step fails. `--update-check` (Stage 1 of the update guide) skips `guard` and `record`. The lock covers captures started through this script; the process check catches the rest, but a capture started by hand at the same moment can still slip past it. |
-| `scripts/frosty-capture-compare.py <baseline collection> <new collection> <out.json>` | Update check: catalog added/removed/GUID/size/SHA-1 changes and raw SHA-256 changes by area. Lists baseline routes missing from the new capture (and the reverse) and new failures, and exits 1 when coverage is incomplete. |
+| `scripts/frosty-capture-compare.py <baseline collection> <new collection> <out.json> [--baseline-catalog <dir>]` | Update check: catalog added/removed/GUID/size/SHA-1 changes and raw SHA-256 changes by area. Re-hashes every compared raw file on disk against `raw-status.jsonl`. Lists baseline routes missing from the new capture (and the reverse), new failures and files that do not match their recorded hash, and exits 1 when coverage is incomplete. `--baseline-catalog` takes the baseline catalog from another folder (a rebuilt-cache catalog beside a loaded-cache raw capture). |
 | `scripts/frosty-ui-text.py <raw .ebx ...> [--strings] [--descriptors] [--catalog] [--out]` | One row per UI metadata object with its text resolved against `fs_us_loc` and imports resolved to catalog paths ([UI text](UI_TEXT.md)). Defaults are the 1.4.3.1 baseline. |
 | `scripts/frosty-collect-raw.ps1` (site repo) | Optional routes-file raw set, without object decoding, plus a small `capture-identity.json` (Head, SDK version). The full catalog (about 110 MB) is written only with `-Catalog`: use it for build and hotfix captures, and for captures read by `frosty-audit-coverage --collection-dir` or `frosty-audit-capture-review`. Use a new output directory per capture. |
 | `scripts/frosty-raw-assets.ps1` | Raw dump of specific routes (routes in its header; has a size limit). |
@@ -478,7 +482,8 @@ textures and `.physics` assets are excluded on purpose. The full record is the
 ## Generators and checks after an update
 
 Run the consumer for each evidence source on the new export and compare with the dated
-baseline.
+baseline. The `frosty-*` generators below also run on the raw capture with no XML export:
+see [raw mode](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/MAINTENANCE.md#raw-mode).
 
 | Area | Command or check | Baseline |
 |---|---|---|

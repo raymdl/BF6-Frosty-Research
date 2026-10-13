@@ -136,10 +136,15 @@ every route where the signals disagree. Do not judge which signal is right.
 ```text
 TASK - diff triage for batch <n>. Inputs: <RUN>/batch-<n>.tsv with route, old raw path, new
 raw path. Decode old with <old descriptors> and new with <new descriptors>.
-For each file match objects by $guid and $class; for objects with a null $guid match by class
-and position and say so. Compare field paths inside matched objects, keeping array order.
-Write changes.tsv: route, object class, field path, old value, new value, category.
+For each file match objects by $guid and $class. For objects with a null $guid, pair by class
+and position only as a candidate, then confirm the pair: both objects must be referenced from
+the same field path of an already matched object, or be the only object of that class in both
+files. Give every row a match column: guid, confirmed or uncertain. Report field differences
+on uncertain pairs with category "uncertain"; they are not changes until the orchestrator has
+checked them. Compare field paths inside matched objects, keeping array order.
+Write changes.tsv: route, object class, match, field path, old value, new value, category.
 Category rules, in this order:
+  uncertain      the object pair is not confirmed (above)
   string-id      field is Field_8cf424e7 or Field_fefe9de1
   expression     field is Field_0c18a620, Field_aa4fa860 or Field_c7ffe639
   fx-reference   field is Field_0679f638
@@ -147,7 +152,8 @@ Category rules, in this order:
   reordered      object identities, values, references and array order all agree
   other          everything else (do not classify further)
 In summary.txt: per file, the count per category, and the full list of "other" changes for
-files with fewer than 30 of them. List files where objects could not be matched.
+files with fewer than 30 of them. List files where objects could not be matched, and every
+uncertain pair.
 Also list "control" files: in the batch but with zero changes.
 ```
 
@@ -185,4 +191,37 @@ paths for the "from" values) and <RUN>/checklist.tsv. For every located field pa
 new raw file with the new descriptors and write confirm.tsv: item, field path, old value,
 new value, EA from, EA to, and match (yes / no / field missing). In summary.txt list every
 "no" and "field missing", and every checklist row that had no located field path.
+```
+
+### H. Availability census (Stage 7, new content; `haiku-worker`)
+
+```text
+TASK - availability census. Input: <RUN>/new-assets.tsv (catalog-added routes) and the new
+build's raw files. For every added Attachment_* record, ammunition record, weapon and gadget
+write census.tsv: item (file name), weapon, has_attachment_record, has_ability_branch
+(<weapon>_ability branch list Field_d7605aab binds it), in_modifier_list (<weapon>_WB
+Field_0cd9f20f holds its package), kill_switch_value (the stored value of its KST_* row, or
+"no row"), in_weapon_aam (the weapon's AAM_* map lists it), in_game_name (from the AAM record
+or name metadata, or "not found").
+Report the stored kill-switch value as it is: true or false. Do not translate it to
+"enabled" or "disabled", and do not classify items as live or not live; the main session
+does that. In summary.txt list every item that lacks one of the columns.
+```
+
+### I. New-weapon part (Stage 9; one `haiku-worker` per part, or a larger model for part C)
+
+```text
+TASK - site data for the new weapons, part <A weapon records | B ammunition and ballistics |
+C attachments>. Read "Adding a new weapon" in
+C:/Users/royal/Documents/BF6 Weapon Analyzer/docs/GAME_UPDATE_GUIDE.md.
+Site fields in this part: <list of data files and keys>.
+STEP 1 (required before step 2): write an extractor that reads these fields from the new
+build's raw files, run it for every existing site weapon, and write validation.json: per
+field, how many weapons match the site, and every mismatch with both values. Do not adjust
+the extractor to hide a mismatch; name its cause or mark it "cause not found".
+STEP 2: run the same extractor on <new weapons>. Write proposed.json: fragments keyed by
+target file and JSON path, each with the route and field it came from.
+Write "not found" for any value the files do not give; do not fill it from another weapon.
+In summary.txt: the validation table, every mismatch, every "not found", and values that
+look like game data errors. Do not write to the site repo.
 ```

@@ -332,7 +332,8 @@ Action" and magazine 8, and SV-98 shows fire rate 25. Nine records have no block
 `AD_*` assets under `Common/UI/Static/Metadata/Attachments/` hold two pointers to
 `Class_fbe1d3bc` objects: `Field_33a358a7` (label) and `Field_490f0dd0` (description).
 [frosty-descriptions.py](../../scripts/frosty-descriptions.py) resolves both against
-the strings table.
+the strings table. It also reads a raw capture
+([raw mode](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/MAINTENANCE.md#raw-mode)).
 
 - 1,003 assets exported without error: 990 labels and 997 descriptions resolve (984
   both); 131 distinct labels, 211 distinct descriptions.
@@ -473,10 +474,11 @@ a separate RGT record, so the AAM name is not simply a typo.
 ### Regeneration and verification
 
 Copy the newest dated mapping files to a new date first, because the generator writes
-back into them ([Tools](TOOLS.md#safety-rules)).
+back into them ([Tools](TOOLS.md#safety-rules)). To run on a raw capture instead of an XML
+export, see [raw mode](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/MAINTENANCE.md#raw-mode).
 
 ```powershell
-python scripts/frosty-attachment-tooltips.py outputs/frosty-description-probe/aam data/attachment-tooltips.json --frosty-root '<Frosty export root>' --mapping-json reference-data/provenance/frosty-site-attachment-mapping-<date>.json --optic-mapping-json reference-data/provenance/frosty-optic-category-mapping-<date>.json
+python scripts/frosty-attachment-tooltips.py '<Frosty export root>/Common/Hardware/Weapons' data/attachment-tooltips.json --frosty-root '<Frosty export root>' --mapping-json reference-data/provenance/frosty-site-attachment-mapping-<date>.json --optic-mapping-json reference-data/provenance/frosty-optic-category-mapping-<date>.json
 python scripts/frosty-attachment-tooltips.test.py
 node --test scripts/attachment-effects.test.mjs scripts/optic-costs.test.mjs
 node scripts/validate-data.mjs

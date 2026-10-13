@@ -288,6 +288,8 @@ this review; conservative descriptor-layout warnings remain.
 All generators accept `--root <Frosty export root>`; most accept `--check` for a
 read-only comparison. They stop when a generated field loses its source mapping or the
 input hashes change. Commands: [maintenance](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/MAINTENANCE.md#regenerate-attachment-modifiers).
+They also read a raw capture directly instead of `--root`: see
+[raw mode](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/MAINTENANCE.md#raw-mode).
 
 ### Handling details
 

@@ -1693,6 +1693,9 @@ damage, timing or live activation.
 - History: [global-candidates audit](../archive/FROSTY_GLOBAL_CANDIDATES_2026-09-13.md) and
   [stat discovery](../archive/FROSTY_STAT_DISCOVERY_2026-09-13.md).
 
+`frosty-ballistics.py` also reads a raw capture instead of `--root`
+([raw mode](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/MAINTENANCE.md#raw-mode)).
+
 ```powershell
 python scripts/frosty-ballistics.py --root '<Frosty export root>' --trace reference-data/provenance/frosty-hit-zones-<date>.json
 python scripts/frosty-global-operands.py --root '<Frosty export root>' --out reference-data/provenance/frosty-global-operands-<date>.json --grid <raw grid 1> --grid <raw grid 2> --descriptors '<runtime>/SharedTypeDescriptors.ebx'

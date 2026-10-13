@@ -305,6 +305,9 @@ The separately approved panel-text pass requires an unresolved description (or a
 
 ### Regeneration and verification
 
+The folder `outputs/frosty-description-probe/aam` in the command below no longer exists; the current
+command is in [UI text](../frosty/UI_TEXT.md).
+
 ```powershell
 python scripts/frosty-attachment-tooltips.py outputs/frosty-description-probe/aam data/attachment-tooltips.json --frosty-root 'C:/Users/royal/Documents/BF6 Datamining/Frosty Exports/1.4.2.5' --mapping-json reference-data/provenance/frosty-site-attachment-mapping-2026-09-13.json --optic-mapping-json reference-data/provenance/frosty-optic-category-mapping-2026-09-13.json
 python scripts/frosty-attachment-tooltips.test.py

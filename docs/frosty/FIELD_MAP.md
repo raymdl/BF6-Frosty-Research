@@ -93,7 +93,7 @@ not known.
 | `Class_d11a23a2` / `Class_e85fff64` | `Field_fbfacac9` | Penetration / protection steps (`P05` = 1, `P15` = 3) | Value |
 | `Class_5830cb87` | `Field_8359723e` | Health regeneration delay added, seconds | Value |
 | `Class_0045e7fa` | `Field_d98b0371` / `Field_6f8d5f40` | Minimap / in-world spot range factors | Value |
-| WB `Class_542ac52c` | `Field_5ebda408/Field_31022dc5` / `Field_5ebda408/Field_9918e670` | Minimap / in-world spot-on-fire base candidates, m (150/54 on 61 weapons) | Raw values checked; role inferred, native consumer unresolved ([report](../../reference-data/provenance/frosty-spot-range-bases-2026-09-23.json)) |
+| WB `Class_542ac52c` | `Field_5ebda408/Field_31022dc5` / `Field_5ebda408/Field_9918e670` | Minimap / in-world spot-on-fire base, m (150/54 on 61 weapons in 1.4.3.5; in 2.1.1.0 the in-world value is 75 on `HK433_WB`, `MPX_WB`, `Minimi_WB` and `M18_WB`) | Raw values checked. In-world role confirmed in game: after the 2.1.1.0 change to 75, the operator read 75 m on the weapon panel (13 October 2026; weapons checked not recorded). Minimap role inferred; native consumer unresolved ([report](../../reference-data/provenance/frosty-spot-range-bases-2026-09-23.json)) |
 | `Class_c6c66955` | `Field_ffba8126` | Silenced flag | Value |
 | `WME_DynamicPivot` | `Field_f235e44f`, `Field_a4f104cc` | X/Y/Z multipliers (M10 1.333333, P10 0.75, P20 0.5625) | Probable |
 | `WME_*` muzzle velocity | `Field_6a5c4efd` | Velocity tier factor 0.8^n | Value |

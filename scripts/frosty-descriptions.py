@@ -2,9 +2,9 @@
 
 import argparse
 import hashlib
+import importlib.util
 import json
 from pathlib import Path
-import xml.etree.ElementTree as ET
 
 
 def sha256(path):
@@ -33,10 +33,18 @@ def resolve(root, reference, strings):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("xml_root", type=Path)
+    spec = importlib.util.spec_from_file_location("frosty_raw_tree", Path(__file__).resolve().parent / "frosty-raw-tree.py")
+    raw_tree = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(raw_tree)
+    parser.add_argument("xml_root", type=Path,
+                        help="Folder holding the AD_* XML files; with --raw, a folder inside the raw export")
     parser.add_argument("strings_tsv", type=Path)
     parser.add_argument("output_json", type=Path)
+    raw_tree.add_raw_arguments(parser)
     args = parser.parse_args()
+    export = raw_tree.open_input(parser, args, None if args.raw else args.xml_root)
+    if args.raw:
+        args.xml_root = export.root / args.xml_root
 
     strings = {}
     duplicates = []
@@ -49,12 +57,12 @@ def main():
 
     records = []
     for path in sorted(args.xml_root.rglob("AD_*.xml")):
-        root = ET.parse(path).getroot()
+        root, digest = export.load(path.relative_to(export.root).as_posix())
         main_asset = root.find("Class_535682be")
         asset = main_asset.findtext("Field_0c59fa06") if main_asset is not None else None
         records.append({
             "asset": asset,
-            "xmlSha256": sha256(path),
+            "xmlSha256": digest,
             "label": resolve(root, "Field_33a358a7", strings),
             "description": resolve(root, "Field_490f0dd0", strings),
         })
@@ -73,7 +81,7 @@ def main():
         "attachments": records,
     }
     args.output_json.parent.mkdir(parents=True, exist_ok=True)
-    args.output_json.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    args.output_json.write_text(json.dumps(export.mark(result), ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     errors = [(item["asset"], key, item[key]["error"])
               for item in records for key in ("label", "description") if "error" in item[key]]
     print(f"{len(records)} records, {len(errors)} resolution errors, {len(duplicates)} duplicate string ids")
