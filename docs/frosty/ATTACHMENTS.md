@@ -91,7 +91,7 @@ condition. No capture was needed.
 | [BARRELS.worldSpotMult](../../reference-data/provenance/frosty-site-audit-attachments-barrels-worldspotmult-2026-10-01.json) | 2 | Both VSSM choices match source world factor 0. |
 | [GRIPS.movingAdsSpreadTierMod](../../reference-data/provenance/frosty-site-audit-attachments-grips-movingadsspreadtiermod-2026-10-01.json) | 12 | Twelve defaults: no comparable bound scalar in retained review; class (d), no lead. |
 | [GRIPS.adsRecoilTierMod](../../reference-data/provenance/frosty-site-audit-attachments-grips-adsrecoiltiermod-2026-10-01.json) | 8 | Eight defaults: no comparable bound scalar in retained review; class (d), no lead. |
-| [GRIPS.frostyModifiers.movingAdsSpreadTierMod](../../reference-data/provenance/frosty-site-audit-attachments-grips-frostymodifiers-movingadsspreadtiermod-2026-10-01.json) | 2 | KS18K Slim Angled zero is intentional (bug 1b); L115 QD Grip Pod has no comparable scalar, class (d). |
+| [GRIPS.frostyModifiers.movingAdsSpreadTierMod](../../reference-data/provenance/frosty-site-audit-attachments-grips-frostymodifiers-movingadsspreadtiermod-2026-10-01.json) | 2 | KS18K Slim Angled zero is intentional (a rejected bug finding, 21 September); L115 QD Grip Pod has no comparable scalar, class (d). |
 | [ACCESSORIES.pts](../../reference-data/provenance/frosty-site-audit-attachments-accessories-pts-2026-10-01.json) | 4 | AG Coating: all six current raw costs match 10; prior paid accessory costs match 5/10; None=0 is a site contract. |
 | [WEAPON_MAG.tacRldOverrideMs](../../reference-data/provenance/frosty-site-audit-attachments-weapon-mag-tacrldoverridems-2026-10-01.json) | 5 | Five integer-ms rounding cases, class (b), under L107; no proposal. |
 
@@ -108,7 +108,7 @@ hash; 90 reused raw bodies were rehashed against current capture. Reuse is not a
 new field extraction. No-route defaults do not establish source zero or native
 absence. Spotting operands remain conditional on native composition; the four
 existing SP suppressor minimap candidates (.10 versus .14, L47/L49) remain unresolved
-and do not become a new mismatch claim. Reviewed bugs 1b, 6 and 12 remain in force.
+and do not become a new mismatch claim. Reviewed bugs 6 and 12 and the KS18K Slim Angled zero remain in force.
 No site data, simulation or UI edits, source-generator runs, underbarrel profiles
 or in-game tests were included.
 
@@ -398,7 +398,7 @@ Applied follow-ups:
   duration override.
 - Mini Scout Tungsten: −7 amount steps (combined −1/−6 links).
 - Slim Angled: moving-ADS index −1 on PSR, SV-98, L115, Mini Scout and
-  Interdictor (bug entry 1a). KS18K is excluded; see the trace below.
+  Interdictor (bug entry 1). KS18K is excluded; see the trace below.
 
 The [current muzzle operand audit](../../reference-data/provenance/frosty-site-muzzle-operands-2026-09-23.json)
 checks 172 recoil/spread/handling leaves: 151 match selected source operands and
