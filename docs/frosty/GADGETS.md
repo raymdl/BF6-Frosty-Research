@@ -4,6 +4,8 @@ Gadgets are research for a possible future Analyzer section. Vehicles are a sepa
 
 This page records what the saved game data says about each gadget: attributed UI text, dated EA statements, stored source values and the selection chains that reach them. It does not say what a gadget does in a match.
 
+**Season 5 (2.1.1.0).** Most values below were read at 1.4.3.5. Where a stated value changed in 2.1.1.0, the new value follows it as `(2.1.1.0: x)`; `registry` means the registry row changed and the file value did not. Derived columns (products, hit counts, EA comparisons) are not recomputed. Source: `builds\2.1.1.0\reports\registry-diff-2026-10-14\` and the 13 October update trace (`2026-10-13-update-2110-post\STAGE6-8-TRACE-RESULTS.md`).
+
 ## Evidence classes
 
 Every statement below belongs to one class. A source value can be quoted next to a UI or EA statement, but the page never converts one into the other.
@@ -271,7 +273,7 @@ Ammunition and replenish rows by registry owner (`-1` is stored as written; its 
 | `SniperDecoy_WB` | 1 | 3 | -1 | true | -1 | 12 |
 | `SpawnBeacon_Weapon Blueprint` | 1 | 1 | -1 | true | -1 | 30 |
 | `Stinger_Weapon Blueprint` | 1 | 3 | -1 | true | -1 | 18 |
-| `SupplyPouch_WB` | 1 | 3 | -1 | true | -1 | 39 |
+| `SupplyPouch_WB` | 1 (2.1.1.0: 3) | 3 (2.1.1.0: 1) | -1 | true (2.1.1.0: false) | -1 (2.1.1.0: 1) | 39 |
 | `TUGS_Weapon Blueprint` | 1 | 1 | -1 | true | -1 | 30 |
 | `ThrowingKnife_WB` | 1 | 5 | -1 | true | -1 | 15 |
 | `TracerDart_Weapon Blueprint` | 1 | 3 | -1 | true | -1 | 9 |
@@ -289,7 +291,7 @@ Effect rules (flat rows):
 
 | Topic | Stored defaults |
 |---|---|
-| Grenade fuse | Frag and default: minimum time before detonation 1.1, delay after bounce 1.4. Concussion: 0.7 and 0.4. Flashbang: 1.1 and 1.4. |
+| Grenade fuse | Frag and default: minimum time before detonation 1.1, delay after bounce 1.4 (2.1.1.0, frag: 1.1). Concussion: 0.7 and 0.4. Flashbang: 1.1 and 1.4. |
 | Flash and stun | Flashbang, M320 flash and stun drill store the same rows: duration in front 3.5 close / 2.5 far, sides 1.5 / 1.0, behind 0.6 / 0.2; close range 6, max range 12; angle in front 60, sides 90. |
 | Concussion grenade | Duration 3.5 within 5, 2.5 within 7, 1.5 within 9. |
 | Incendiary | Grenade radius 1.7, height 1.0; `Fire damage duration` 2.5; thermobaric fire damage duration 4.0. |

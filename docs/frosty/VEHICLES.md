@@ -4,6 +4,8 @@ Vehicles are research for a possible future Analyzer section. Cosmetics, skins a
 
 Evidence classes stay apart on this page: a stored source value (read by exact owner, member, offset and hash), an inherited declared default, an attributed UI statement, a dated EA statement, a hypothesis, and effective runtime behaviour, which nothing here reaches. **Registry defaults are not selected values**: a selected export's own value is never replaced by, or averaged with, the registry or leaf default. Foundation research for a future vehicles and gadgets version of the site, not tied to current site outputs.
 
+**Season 5 (2.1.1.0).** Most values below were read at 1.4.3.5. Where a stated value changed in 2.1.1.0, the new value follows it as `(2.1.1.0: x)`; `registry` means the registry row changed and the file value did not. Derived columns (products, hit counts, EA comparisons) are not recomputed. Source: `builds\2.1.1.0\reports\registry-diff-2026-10-14\` and the 13 October update trace (`2026-10-13-update-2110-post\STAGE6-8-TRACE-RESULTS.md`).
+
 ## Saved coverage merge and comparison map (L3018)
 
 [L3018](../../reference-data/provenance/frosty-2026-09-30-L3018-vehicle-stat-map.json) merges the parent-reviewed L3011 coverage proposal into [vehicle-coverage.json](../../reference-data/frosty/vehicle-coverage.json). The original census and capture rows are retained. Each of the 46 exact blueprint roots has its reviewed profile and branch evidence pointers. There are 38 blueprint families, five separate role reviews, a Gepard/Cheetah customization alias and a distinct TRV150 spectator support role.
@@ -49,13 +51,13 @@ The worker retained 114 new raw reads; the parent review found 124 unique retain
 |---|---|---|---|---|---|---|---|
 | WF_Vehicles_RWS_AGL | 1 | 325.0 | 5 | 10 | -1 | 5.0 | [0.0, 1.2699999809265137, 100.0] |
 | WF_Vehicles_RWS_LMG | 5 | 720.0 | 250 | 1 | -1 | 5.0 | [0.0, 0.0, 600.0] |
-| WF_Vehicles_RWS_HMG | 3 | 400.0 | 250 | 1 | -1 | 5.0 | [0.0, 0.0, 760.0] |
+| WF_Vehicles_RWS_HMG | 3 | 400.0 (2.1.1.0 registry: 450) | 250 | 1 | -1 | 5.0 | [0.0, 0.0, 760.0] |
 | WF_Vehicles_IFV_SecondaryWeapon_HomingATGM | 4 | 150.0 | 1 | 6 | -1 | 20.0 | [0.0, 0.0, 80.0] |
 | WF_Vehicles_IFV_PrimaryWeapon_Canister | 9 | 200.0 | 12 | 20 | -1 | 20.0 | [0.0, 0.0, 700.0] |
 | WF_Vehicles_IFV_SecondaryWeapon_LightRockets | 6 | 300.0 | 2 | 4 | -1 | 20.0 | [0.0, 0.0, 120.0] |
 | WF_Vehicles_IFV_PrimaryWeapon_APFSDST | 6 | 200.0 | 12 | 20 | -1 | 20.0 | [0.0, 0.0, 375.0] |
 | WF_Vehicles_RWS_TargetDesignator | 1 | 550.0 | -1 | 1 | -1 | 5.0 | [0.0, 0.0, 350.0] |
-| WF_Vehicles_IFV_SecondaryWeapon_TOW | 2 | 150.0 | 1 | 6 | -1 | 20.0 | [0.0, 0.0, 50.0] |
+| WF_Vehicles_IFV_SecondaryWeapon_TOW | 2 | 150.0 | 1 | 6 | -1 | 20.0 | [0.0, 0.0, 50.0] (2.1.1.0 registry: z 76) |
 | WF_Vehicles_IFV_PrimaryWeapon_HEAB | 2 | 200.0 | 12 | 20 | -1 | 20.0 | [0.0, 0.0, 250.0] |
 
 Tank/AAV7A1: Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/RWS/WF_Vehicles_RWS_AGL-SP retains an unmatched firing owner 35259f6b/503dde81ed5cf4d154423f8a6d296a95; no name transfer or follow-up.
@@ -70,8 +72,8 @@ Configured values do not establish units, loaded/reserve rounds, infinite ammuni
 
 | Selected WF | Firing object | RateOfFire | MagazineCapacity | NumberOfMagazines | InitialAmmo | AutoReplenishDelay | Shot.InitialSpeed |
 |---|---|---|---|---|---|---|---|
-| WF_Vehicles_AA_PrimaryWeapon_AAGP | 2 | 600.0 | 6 | 28 | -1 | 8.0 | [0.0, 0.0, 850.0] |
-| WF_Vehicles_AA_PrimaryWeapon_AAAP | 6 | 240.0 | 8 | 16 | -1 | 8.0 | [0.0, 0.0, 560.0] |
+| WF_Vehicles_AA_PrimaryWeapon_AAGP | 2 | 600.0 (2.1.1.0: 550) | 6 | 28 | -1 | 8.0 | [0.0, 0.0, 850.0] (2.1.1.0 registry: z 1,175) |
+| WF_Vehicles_AA_PrimaryWeapon_AAAP | 6 | 240.0 (2.1.1.0: 480) | 8 (2.1.1.0 registry: 4) | 16 (2.1.1.0 registry: 32) | -1 | 8.0 | [0.0, 0.0, 560.0] (2.1.1.0 registry: z 900) |
 | WF_Vehicles_AA_SecondaryWeapon_AimGuidedMissile | 1 | 120.0 | 2 | 3 | -1 | 16.0 | [0.0, 0.0, 50.0] |
 | WF_Vehicles_AA_PrimaryWeapon_AAHV | 4 | 720.0 | 250 | 1 | -1 | 8.0 | [0.0, 0.0, 1175.0] |
 | WF_Vehicles_AA_SecondaryWeapon_HighVelocityMissile | 4 | 60.0 | 4 | 2 | -1 | 16.0 | [0.0, 0.0, 117.5] |
@@ -88,7 +90,7 @@ Configured values do not establish units, loaded/reserve rounds, infinite ammuni
 | WF_Vehicles_OpenGunner_HMG | 10 | 500.0 | 250 | 1 | -1 | 5.0 | [0.0, 0.0, 760.0] |
 | WF_Vehicles_RWS_AGL | 1 | 325.0 | 5 | 10 | -1 | 5.0 | [0.0, 1.2699999809265137, 100.0] |
 | WF_Vehicles_RWS_LMG | 5 | 720.0 | 250 | 1 | -1 | 5.0 | [0.0, 0.0, 600.0] |
-| WF_Vehicles_RWS_HMG | 3 | 400.0 | 250 | 1 | -1 | 5.0 | [0.0, 0.0, 760.0] |
+| WF_Vehicles_RWS_HMG | 3 | 400.0 (2.1.1.0 registry: 450) | 250 | 1 | -1 | 5.0 | [0.0, 0.0, 760.0] |
 
 Configured values do not establish units, loaded/reserve rounds, infinite ammunition, effective fire rate, active/default loadouts, projectile damage or radius. No gameplay recording was made. Projectile damage/radius remains unresolved where no exact same-owner name control was available.
 
@@ -183,11 +185,11 @@ Configured values do not establish units, loaded/reserve rounds, infinite ammuni
 
 | Selected WF | Firing object | RateOfFire | MagazineCapacity | NumberOfMagazines | InitialAmmo | AutoReplenishDelay | Shot.InitialSpeed |
 |---|---|---|---|---|---|---|---|
-| WF_Vehicles_Stationary_TOW | 3 | 150.0 | 1 | -1 | -1 | 5.0 | [0.0, 0.0, 50.0] |
+| WF_Vehicles_Stationary_TOW | 3 | 150.0 | 1 | -1 | -1 | 5.0 | [0.0, 0.0, 50.0] (2.1.1.0 registry: z 76) |
 | WF_127_CWSCROWS_HMG | 1 | 500.0 | 150 | 1 | -1 | 5.0 | [0.0, 0.0, 800.0] |
 | WF_CWSCROWS_Spike | 4 | 150.0 | 1 | 10 | -1 | 5.0 | [0.0, 0.0, 50.0] |
 | WF_CWS_AGL | 3 | 150.0 | 30 | 1 | -1 | 5.0 | [0.0, 1.2699999809265137, 100.0] |
-| WF_Vehicles_Stationary_AntiAir | 2 | 720.0 | -1 | -1 | -1 | 8.0 | [0.0, 0.0, 1175.0] |
+| WF_Vehicles_Stationary_AntiAir | 2 | 720.0 (2.1.1.0 registry: 1,100) | -1 | -1 | -1 | 8.0 | [0.0, 0.0, 1175.0] |
 | WF_Vehicles_OpenGunner_HMG | 10 | 500.0 | 250 | 1 | -1 | 5.0 | [0.0, 0.0, 760.0] |
 | WF_Vehicles_SAA_PrimaryWeapon_20mmRotaryCannon | 1 | 1200.0 | -1 | -1 | -1 | 20.0 | [0.0, 0.0, 1100.0] |
 | WF_Vehicles_SSMBattery_SecondaryWeapon_AntiAirMissile | 1 | 120.0 | 1 | -1 | -1 | 10.0 | [0.0, 0.0, 20.0] |
@@ -1172,9 +1174,9 @@ Method: the exact vehicle, weapon, firing and projectile selection, plus the sel
 
 | Owner | Class | Values |
 |---|---|---|
-| PB_Missile_TOW2B | Stored source value | Own Damage 150, Drag 0, MaxSpeed 150 (offsets 868, 800, 684; two `Field_` hashes hold 150.0); blast six values. |
+| PB_Missile_TOW2B | Stored source value | Own Damage 150, Drag 0 (2.1.1.0 registry: 0.000454), MaxSpeed 150 (offsets 868, 800, 684; two `Field_` hashes hold 150.0); blast six values. |
 | PB_Missile_TOW2B_AirVehicle | Stored source value | Own ten fields; the registry leaf 120 / 20 differs from the receiver 90 / 0 (the own receiver value is the one stored). |
-| PRJ_Missile_Hydra70 | Stored source value | Own Damage 15, Drag 0, MaxSpeed 740; local blast six values. |
+| PRJ_Missile_Hydra70 | Stored source value | Own Damage 15 (2.1.1.0 registry: 12), Drag 0, MaxSpeed 740; local blast six values. |
 | IFV APFSDS | Stored source value | Five own-wrapper values; StartDamage 150 against registry default 130. Other APFSDS variants and registry defaults are separate. |
 | Guided missiles (MBT guided, stationary TOW, AA aim-guided) | Stored source value | Own nine fields each; own MinimumBlastDamage 0 / 0 (a serialized value only). EngineStrength 150 / 50 / 50, EngineTimeToLive 1 / 3.95 / 3.95, MaxTurnAngle 6 / 90 / 90, TurnAngleMultiplier 1 / 1.5 / 1.5. GuidanceMethod is numeric 3 with no readable label; UnderWaterDrag and FlightRegimeEnabled are own-name stops. |
 | Bombs (Rockeye, GBU39, BunkerBuster, Mk82AIR) | Stored source value | 29 own fields on the first three, nine on Mk82AIR. Rockeye blast 0 is not total damage; GBU39 leaf 240 against receiver 200. |
@@ -1550,8 +1552,8 @@ Ammunition, rate of fire and reload rows (`-1` is stored as written; its meaning
 | Owner | Magazine capacity | Magazines | Auto replenish magazine | Auto replenish rounds | Auto replenish delay | Rate of fire | Reload time | Reload speed |
 |---|---|---|---|---|---|---|---|---|
 | `ALQ99 Jammer` | -1 | 1 | false | -1 | 5 | 360 | - | - |
-| `WF_Vehicles_AA_PrimaryWeapon_AAAP` | 8 | 16 | true | -1 | 8 | 240 | 2.4 | 1 |
-| `WF_Vehicles_AA_PrimaryWeapon_AAGP` | 6 | 28 | true | -1 | 8 | 600 | 1.2 | 1 |
+| `WF_Vehicles_AA_PrimaryWeapon_AAAP` | 8 (2.1.1.0: 4) | 16 (2.1.1.0: 32) | true | -1 | 8 | 240 (2.1.1.0: 480) | 2.4 (2.1.1.0: 1.2) | 1 |
+| `WF_Vehicles_AA_PrimaryWeapon_AAGP` | 6 | 28 | true | -1 | 8 | 600 (2.1.1.0: 550) | 1.2 | 1 |
 | `WF_Vehicles_AA_PrimaryWeapon_AAHV` | 250 | 1 | false | 25 | 8 | 720 | 1.7 | 1 |
 | `WF_Vehicles_AA_SecondaryWeapon_AimGuidedMissile` | 1 | 4 | true | -1 | 16 | 120 | 2 | 1 |
 | `WF_Vehicles_AA_SecondaryWeapon_AntiAirMissile` | 2 | 2 | true | -1 | 16 | 120 | 8 | 1 |
@@ -1618,7 +1620,7 @@ Each mine's explosion object stores a material ID. The level material grid cell 
 |---|---|---|---|---|---|---|
 | EOD Bot mine | `PB_NS_EODBot_Mines` | 96 | 150 (asset own value, no registry row) | 2 | 300 | 300 |
 | M15 AV Mine | `PBNS_ATMine` | 96 | 195 (registry default; asset own value 300) | 2 | 390 | 390 |
-| PTKM-1R | `PB_PRJ_PTKM1R_EFP` | 650 | 160 (asset own value, no registry row) | 3 | 480 | 480 |
+| PTKM-1R | `PB_PRJ_PTKM1R_EFP` | 650 | 160 (2.1.1.0: 142) (asset own value, no registry row) | 3 | 480 | 480 |
 
 The M15 matches only with the registry default 195; its own 300 would give 600 (see L3320 in `docs/working/ROSTER_VALUES.md`). The PTKM-1R uses a different material and grid value, so it is an independent match. This is a correspondence on three items, not a proof of the game's operation.
 
@@ -1651,10 +1653,10 @@ Still open, with the test that would settle each:
 
 | Ammunition | Owner | Projectile material | Registry StartDamage | Grid value | Product | EA number | EA / product |
 |---|---|---|---|---|---|---|---|
-| High velocity | `PD_Vehicles_AA_PrimaryWeapon_AAHV` | 642 | 13 | 2 (targets 121, 669) | 26 | 52 (helicopters) | 2 |
+| High velocity | `PD_Vehicles_AA_PrimaryWeapon_AAHV` | 642 | 13 (2.1.1.0: 25) | 2 (targets 121, 669) | 26 | 52 (helicopters) | 2 |
 | High velocity | same | 642 | 13 | 2.5 (targets 120, 207, 233, 670) | 32.5 | 65 (jets) | 2 |
-| Armour piercing | `PD_Vehicles_AA_PrimaryWeapon_AAAP` | 577 | 20 | 5 (all six targets) | 100 | 200 (aircraft) | 2 |
-| General purpose | `PD_Vehicles_AA_PrimaryWeapon_AAGP` | 577 | 13 | 5 (all six targets) | 65 | 130 (aircraft) | 2 |
+| Armour piercing | `PD_Vehicles_AA_PrimaryWeapon_AAAP` | 577 | 20 (2.1.1.0: 50) | 5 (all six targets) | 100 | 200 (aircraft) | 2 |
+| General purpose | `PD_Vehicles_AA_PrimaryWeapon_AAGP` | 577 | 13 (2.1.1.0: 34) | 5 (all six targets) | 65 | 130 (aircraft) | 2 |
 
 The grid reproduces the helicopter to jet ratio and the single aircraft number, and EA's figures are exactly twice the product every time. That last factor 2 is not traced. Each cell also stores `Field_7fa53094` = 2, but the mine cells of L3321 store the same 2 and need no extra factor. Which targets are helicopters and which are jets is inferred from EA's numbers only. Values are equal in the Abbasid and Badlands grids. Official names are joined to owners by name only.
 
@@ -1683,7 +1685,7 @@ All four EA figures reproduced exactly (24 numbers). Official names are joined t
 | 120mm HEMP-T Rounds | `PD_Vehicles_MBT_AmmoTypes_HE` | 120 | 2 / 9 / 10 | 100 (1 / 2) | 180 to 480 | 180 to 480 | 1180 | 1180 | 1000 | 1000 |
 | 120mm HEAT-MP-T Rounds | `PD_Vehicles_MBT_AmmoTypes_MPAT` | 140 | 2 / 9 / 10 | 100 (1 / 2) | 210 to 560 | 210 to 560 | 1360 | 1360 | 1000 | 1000 |
 | IFV Light Rockets | `PD_Vehicles_IFV_SecondaryWeapon_LightRockets` | 50 | 2 / 9 / 10 | 100 (1 / 2) | 75 to 200 | 75 to 200 | 550 | 550 | 700 | 700 |
-| Helicopter Light Rockets | `PRJ_Missile_Hydra70` | 15 | 2 / 9 / 10 | 90 (1 / 2) | 23 to 60 | 23 to 60 | 225 | 225 | 330 | 330 |
+| Helicopter Light Rockets | `PRJ_Missile_Hydra70` | 15 (2.1.1.0: 12) | 2 / 9 / 10 | 90 (1 / 2) | 23 to 60 | 23 to 60 | 225 | 225 | 330 | 330 |
 | Helicopter Aim-Guided Rockets | `PRJ_Missile_APKWS-II` | 30 | 2.2 / 8 / 10 | 80 (1 / 2) | 50 to 132 | 50 to 132 | 320 | 320 | 460 | 460 |
 | IFV AP shells | `PD_Vehicles_IFV_PrimaryWeapon_APFSDS` | 100 | 0.3 / 1 / 1 | none | 23 to 60 | 23 to 60 | 100 | 100 | 100 | 100 |
 
@@ -1952,7 +1954,7 @@ Equal (22 rows):
 | Ground vehicle TOW missiles remain at 90 m/s | `PB_Missile_TOW2B.MissileEntityData.MaxSpeed` | 90 | 90 |
 | MBT-LAW initial missile speed 30 to 100 m/s | `MBTLAW_Weapon Blueprint.WeaponEntityData.WeaponFiring.PrimaryFire.Shot.InitialSpeed.z` | 100 | 100 |
 | MAS 148 Glaive maximum missile speed 60 to 70 m/s | `PB_Javelin.MissileEntityData.MaxSpeed` | 70 | 70 |
-| High Velocity anti-air heat per bullet 4.2% to 3.6% | `WF_Vehicles_AA_PrimaryWeapon_AAHV.PrimaryFire.OverHeat.HeatPerBullet` | 0.036 (x 100 = 3.6) | 3.6 |
+| High Velocity anti-air heat per bullet 4.2% to 3.6% | `WF_Vehicles_AA_PrimaryWeapon_AAHV.PrimaryFire.OverHeat.HeatPerBullet` | 0.036 (x 100 = 3.6) (2.1.1.0: 0.13) | 3.6 |
 | Armoured vehicle regeneration delay 6 to 12 s (only the CB90 has a row) | `VB_VEH_Boat_CB90.RegenerationDelay` | 12 | 12 |
 | Regeneration rate about 5% to 10% per second (CB90 row, health 1000) | `VB_VEH_Boat_CB90.RegenerationRate` | 100 (x 0.1 = 10) | 10 |
 
@@ -1992,14 +1994,14 @@ Tests that would settle them:
 
 | Registry owner | BlastDamage | MinimumBlastDamage | Share | Inner radius | Blast radius |
 |---|---|---|---|---|---|
-| `PB_Missile_TOW2B` | 100 | 20 | 20% | 1.75 | 4 |
+| `PB_Missile_TOW2B` | 100 | 20 | 20% | 1.75 (2.1.1.0: 2.0) | 4 |
 | `PB_Missile_TOW2B_AirVehicle` | 100 | 20 | 20% | 1.75 | 4 |
 | `PB_NS_Missile_AA_Secondary_AimGuided` | 75 | 20 | 26.7% | 1.75 | 3 |
 | `PB_NS_Missile_AA_Secondary_HighVelocity` | 75 | 20 | 26.7% | 1.75 | 3 |
 | `PB_Vehicle_AGL_Grenade` | 70 | 20 | 28.6% | 1 | 4 |
 | `PD_Vehicles_IFV_PrimaryWeapon_HEAB` | 50 | 15 | 30% | 1 | 4.25 |
 | `PD_Vehicles_IFV_SecondaryWeapon_LightRockets` | 100 | 20 | 20% | 1 | 4 |
-| `PD_Vehicles_MBT_AmmoTypes_HE` | 100 | 20 | 20% | 2.25 | 5 |
+| `PD_Vehicles_MBT_AmmoTypes_HE` | 100 | 20 (2.1.1.0: 17.13) | 20% | 2.25 (2.1.1.0: 2.3) | 5 (2.1.1.0: 6) |
 | `PD_Vehicles_MBT_AmmoTypes_MPAT` | 100 | 20 | 20% | 1 | 5 |
 | `WF_Vehicles_ScoutHeli_PrimaryWeapon_LR30` | 30 | 30 | 100% | 1.75 | 1.76 |
 
@@ -2011,7 +2013,7 @@ Radii against EA's notes (shell names joined by name only):
 
 | EA statement | Row | Stored | EA |
 |---|---|---|---|
-| HEMP-T inner blast radius 2 to 2.25 m (1.3.1.0) | `PD_Vehicles_MBT_AmmoTypes_HE` InnerBlastRadius | 2.25 | 2.25 |
+| HEMP-T inner blast radius 2 to 2.25 m (1.3.1.0) | `PD_Vehicles_MBT_AmmoTypes_HE` InnerBlastRadius | 2.25 (2.1.1.0: 2.3) | 2.25 |
 | HEAT-MP-T total blast radius 4 to 5 m ([1.3.3.0](https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-3-0)) | `PD_Vehicles_MBT_AmmoTypes_MPAT` BlastRadius | 5 | 5 |
 | HEAT-MP-T lethal radius 1 to 1.25 m (1.3.3.0) | `PD_Vehicles_MBT_AmmoTypes_MPAT` InnerBlastRadius | 1 | 1.25 |
 
@@ -2089,7 +2091,7 @@ Tests that would confirm the current build:
 | Curve file | Points (angle in degrees, multiplier) | Used for |
 |---|---|---|
 | `AngleDamageCurve_SimplifiedTank_Turret` | (90, 0.75) | turret zones: four side faces and the bottom |
-| `AngleDamageCurve_SimplifiedTank_Top` | (90, 1) | top face of body and turret |
+| `AngleDamageCurve_SimplifiedTank_Top` | (90, 1) (2.1.1.0: first angle 50) | top face of body and turret |
 | `AngleDamageCurve_SimplifiedTank_Front` | no curve object (null) | body front face |
 | `AngleDamageCurve_SimplifiedTank_Sides` | (70, 1) (70.001, 1.5) (109.999, 1.5) (110, 1) | body left and right faces |
 | `AngleDamageCurve_SimplifiedTank_Rear` | (55, 1) (55.001, 2) (124.999, 2) (125, 1) | body rear face |
@@ -2455,7 +2457,7 @@ The own value is the number before the change and the registry default the numbe
 | Grenade launcher station (AGL) | `PB_Vehicle_AGL_Grenade` | 32 / 32 | 70 | 32 + 70 | 9.6 | 64 + 210 | 96 + 189 | 40 + 105 | 83.2 + 175 |
 | Attack helicopter gunner chaingun | `WF_Vehicles_AttackHeli_Passenger_PrimaryWeapon_Chaingun` | 22 (own 50) / 22 (own 50) | 30 | 22 + 30 | 22 | 88 | 110 | 27.5 + 30 | 57.2 + 30 |
 | Jet cannon | `WF_Vehicles_Airplane_PrimaryWeapon_Cannon` | 34 / 34 | - | 51 | 10.2 | 36.04 | 73.1 | 42.5 | 88.4 |
-| Stationary anti-air gun | `PD_Vehicles_Stationary_AntiAir` | 30 / 22 | - | 30 | 10.5 | 60 | 75 | 37.5 | 78 |
+| Stationary anti-air gun | `PD_Vehicles_Stationary_AntiAir` | 30 / 22 (2.1.1.0: 34 / 34) | - | 30 | 10.5 | 60 | 75 | 37.5 | 78 |
 | Stationary 20 mm rotary cannon | `WF_Vehicles_SAA_PrimaryWeapon_20mmRotaryCannon` | 10 / 10 | - | 10 | 10 | 40 | 50 | 12.5 | 26 |
 
 - Canister pellets do nothing to armour (grid value 0). Pellets per shot were not read.
@@ -2648,7 +2650,7 @@ The 11 differences:
 
 | Firing file | Property | Own value | Registry default | EA |
 |---|---|---|---|---|
-| `WF_Vehicles_AA_PrimaryWeapon_AAHV` | HeatPerBullet | 0.042 | 0.036 | 1.3.3.0: heat per bullet 4.2% to 3.6% |
+| `WF_Vehicles_AA_PrimaryWeapon_AAHV` | HeatPerBullet | 0.042 (2.1.1.0: 0.125) | 0.036 (2.1.1.0: 0.13) | 1.3.3.0: heat per bullet 4.2% to 3.6% |
 | `WF_Vehicles_AA_SecondaryWeapon_AimGuidedMissile` | MagazineCapacity | 2 | 1 | no line on file |
 | `WF_Vehicles_Airplane_Bomb_Mk82AIR` | RateOfFire | 300 | 1200 | no line on file |
 | `WF_Vehicles_IFV_PrimaryWeapon_APFSDST` | RateOfFire | 200 | 160 | 1.3.1.0: 200 to 120; 1.3.3.0: 120 to 160 |
@@ -2674,7 +2676,7 @@ Test: count Scout Helicopter minigun shots to overheat (112 or 150).
 
 | Affector file | Health (`9040392c`) | `6f28bf9c` | `cbf2ad7c` | `8e30ee56` |
 |---|---|---|---|---|
-| `Affector_Vehicles_MP_DisabledStateHealthRegeneration` | 0 | 0 | 0.25 | 1 |
+| `Affector_Vehicles_MP_DisabledStateHealthRegeneration` | 0 | 0 | 0.25 (2.1.1.0: 0.3) | 1 |
 | `Affector_UH60VehicleHealthOverride_F2P` | 1250 | 200 | 0 | 1 |
 | `Affector_IFVVehicleHealthOverride_F2P` | 750 | 200 | 0 | 1 |
 | `Affector_TankVehicleHealthOverride_F2P` | 800 | 200 | 0 | 1 |

@@ -64,6 +64,9 @@ another file; match fileGuid against the "fileGuid" of other decoded files to fo
 Field and class names are hashes. Numbers are 32-bit floats: 0.85 is stored as 0.8500000238,
 so compare with a tolerance of 1e-4. Angles may be degrees or radians, times seconds,
 percentages fractions (3.6% = 0.036): check each plausible encoding.
+Patch-note and EA values are rounded. A stored value matches a stated value when it rounds to
+the digits the statement gives: 449.998993 matches "450", 0.833333 matches "0.833". Record
+the stored value as read, and mark the match "rounded" rather than "no".
 
 Method for every target value:
   1. Decode the named files. Search every numeric leaf for the target value (with tolerance).
@@ -81,6 +84,8 @@ Rules:
     Read grid values from DOCS or DATA instead.
   - Never invent a value or a field meaning. "Not found" and "candidate" are valid answers.
   - Keep printed output small: write big results to files, print summaries.
+  - Do not write .md files: the harness refuses them from workers. Use .txt, .tsv or .json, and
+    put the report itself in your final reply.
 
 Required outputs in your output folder:
   result.json  one entry per target: status (located|candidate|not found), file route, object
