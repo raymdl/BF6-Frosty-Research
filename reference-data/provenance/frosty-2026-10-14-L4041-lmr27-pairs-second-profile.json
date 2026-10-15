@@ -1,0 +1,138 @@
+{
+ "lead": "L4041",
+ "status": "finding",
+ "build": {
+  "current": "2.1.1.0 game client (site data 2.1.1.0)",
+  "note": "In-game capture; LMR27 recoil operands as in current data/weapons.json."
+ },
+ "question": "Does the recovery factor scale measured on the AK-205 (about 0.8) transfer to the LMR27, whose recovery profile has factor 13.7 and time exponent 0.56?",
+ "capture": {
+  "date": "2026-10-14",
+  "weapon": "LMR27",
+  "loadout": "21.5\" Factory barrel, FMJ, 20 Rnd, SF G2 5.00x, Standard then Lightened Suppressor",
+  "conditions": "standing ADS, about 27 m, FOV 103 (operator), 120 fps with audio, side-step and 2 s pause between pairs; ten pairs per band at 133, 233, 333/350 and 433 ms",
+  "recordings": [
+   {
+    "file": "reference-data\\Recordings\\10142026\\LMR27 Single-Fire Pairs\\LMR27_Single-Fire_Pairs_200ms_Lightened_Suppressor.mp4",
+    "sha256": "a0d53f04d255607ebfd9c5820847500c2b2d401ddb8be4c526ce0c1ff5166bf3"
+   },
+   {
+    "file": "reference-data\\Recordings\\10142026\\LMR27 Single-Fire Pairs\\LMR27_Single-Fire_Pairs_200ms_Standard_Suppressor.mp4",
+    "sha256": "d8d0efc68752ced05f226c5d74d8ffb1e4ba599d203737bdfc069e1844b9e956"
+   },
+   {
+    "file": "reference-data\\Recordings\\10142026\\LMR27 Single-Fire Pairs\\LMR27_Single-Fire_Pairs_300ms_Lightened_Suppressor.mp4",
+    "sha256": "741fea6ee7cae381970a40603ca7efd5baf76a2096f78df122b16385d87c1f8e"
+   },
+   {
+    "file": "reference-data\\Recordings\\10142026\\LMR27 Single-Fire Pairs\\LMR27_Single-Fire_Pairs_300ms_Standard_Suppressor.mp4",
+    "sha256": "51805d3fea95218fef1bed3c0bd051fe26e096718cf457ef28d21c6629882930"
+   },
+   {
+    "file": "reference-data\\Recordings\\10142026\\LMR27 Single-Fire Pairs\\LMR27_Single-Fire_Pairs_33ms_Lightened_Suppressor.mp4",
+    "sha256": "b57da96762117fc9b2f70ab2c74927beca76a469721b256ba78478adf3ba35c6"
+   },
+   {
+    "file": "reference-data\\Recordings\\10142026\\LMR27 Single-Fire Pairs\\LMR27_Single-Fire_Pairs_33ms_Standard_Suppressor.mp4",
+    "sha256": "9c43e93ee64af5f288ee291b408d7d855e563aaf4b76acd221ad2a17bb54c161"
+   },
+   {
+    "file": "reference-data\\Recordings\\10142026\\LMR27 Single-Fire Pairs\\LMR27_Single-Fire_Pairs_400ms_Lightened_Suppressor.mp4",
+    "sha256": "01568a4933c18cf2b289d5fbf7498f251725f28ef639a88ebe0269fbe58f02c2"
+   },
+   {
+    "file": "reference-data\\Recordings\\10142026\\LMR27 Single-Fire Pairs\\LMR27_Single-Fire_Pairs_400ms_Standard_Suppressor.mp4",
+    "sha256": "1b573a75be53c5678d74d2ff9de0e7c22e09822b4f71a021332053303ed197ef"
+   }
+  ]
+ },
+ "sourceFacts": {
+  "method": "Same pipeline as L4040 (HUD-counter shot frames, blurred-maxima pair marks, lens scale from cluster spacings, predictions from the site law at the measured gaps), plus a two-Gaussian fit as a second estimator. See ANALYSIS.md.",
+  "control": {
+   "description": "Lens magnification 4.98 over 1x (AK-205 run: 5.00); every clip decodes as ten pairs; the lower mark of each pair sits on the reticle dot.",
+   "passed": true
+  },
+  "points": [
+   "233 ms band: Standard 0.384 +- 0.014 deg, Lightened 0.322 +- 0.018 (maxima; two-Gaussian 0.372 / 0.339) against stored-factor predictions 0.319 / 0.271 and x0.8 predictions 0.403 / 0.349. Effective factor scale 0.85 to 0.9.",
+   "133 ms band compromised: on this weapon shot 2 lands where the reticle top arc is drawn, and the arc mask cuts the star; measured range 0.50 to 0.75 deg, consistent with both predictions (0.598 / 0.649 Standard).",
+   "333 to 433 ms bands below the resolution floor of both estimators (about 25 px, 0.28 deg; the two-Gaussian fit returns 20 to 25 px for overlapping stars on the AK-205 400 ms band too).",
+   "Standard minus Lightened at 233 ms: 0.062 +- 0.023 (maxima) or 0.033 +- 0.017 (Gaussian) against 0.048 to 0.054 predicted: the x1.2 operand is consistent.",
+   "Method systematic: the two estimators differ by about 3 px at 25 px separations; the AK-205 short-band excess (0.06 to 0.08 deg) stands with that allowance."
+  ]
+ },
+ "inference": [
+  "A single factor constant of about 0.8 to 0.9 fits the one clean LMR27 band and the AK-205 bands and bursts; the constant transfers across the two recovery profiles within one band's error. Whether it is exactly common needs a second clean LMR27 band at 180 to 200 ms."
+ ],
+ "unresolved": [
+  "The 133 ms band (reticle arc), the bands beyond 300 ms (resolution floor), and the exact value of the constant on the slow profile."
+ ],
+ "siteImpact": "Supports the L4040 proposal (recovery factor x0.8 on all weapons) as transferable across profiles; the LMR27 band alone would put the scale nearer 0.85.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-14-lmr27-recovery-capture",
+  "artifacts": [
+   {
+    "file": "ANALYSIS.md",
+    "sha256": "aad0f661781ca5b07968ad26a8c65e52b2412db9a79a4cdc0a56be73af90260c"
+   },
+   {
+    "file": "shots.json",
+    "sha256": "195c38418bffab7d9324229a620b56f2c1d29cf7fdc08522b931941d4b4b1186"
+   },
+   {
+    "file": "marks.json",
+    "sha256": "c7173518f32a2c8fc73e9eab892d8931c388bdd617551956f1ccbc650e10c10d"
+   },
+   {
+    "file": "pairs2.json",
+    "sha256": "1f6751ec0ce9e1ade98424c32dcad4f1c6b8faef478aa8dedbfe99b21251f511"
+   },
+   {
+    "file": "pairs3.json",
+    "sha256": "9a8b7249b24c0637e145ecba3b9f68cdf224f0b2435baf7b1ebc76ed58b23285"
+   },
+   {
+    "file": "screenshot-clusters.json",
+    "sha256": "01302f1625c8faacb3a40c7956d9eee0e471b1ee248efaad341252d8c1c5efe3"
+   },
+   {
+    "file": "predict-gaps.json",
+    "sha256": "abea9646449c879329fa1285b04fa8133b6d49dfb4d31878eb7fe5c2acd873ce"
+   },
+   {
+    "file": "analysis.json",
+    "sha256": "915434cd83649ed306af4482b3e338a0822dcc6f951f66118d8ec0c8870630e6"
+   },
+   {
+    "file": "pairs3.py",
+    "sha256": "6807960ca3026824f44c07c2d0eb953d47c22129a4490019d337e6a6de507610"
+   },
+   {
+    "file": "pairs4.py",
+    "sha256": "b08938576dfa173d670786b130df38896e17345100367be2b273accb81be1c80"
+   },
+   {
+    "file": "glyphs_lib.py",
+    "sha256": "7f9cca5518a01fae083007962f4d5212f519594f3ee78be3ae0e7daf0b6ab535"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-14",
+  "build": "site-only",
+  "binding": "research",
+  "refs": [
+   "capture-plan"
+  ],
+  "leads": [
+   {
+    "id": "L4041",
+    "title": "LMR27 pairs: the recovery factor scale transfers to the slow profile (about 0.85 to 0.9 at 233 ms); 133 ms band lost to the reticle arc, longer bands below resolution",
+    "status": "finding",
+    "summary": "At 233 ms the LMR27 pairs sit 0.05 to 0.065 deg above the stored-factor law and at the x0.8 law (effective scale 0.85 to 0.9, both suppressors), so the AK-205 constant transfers to the second recovery profile within one band; the x1.2 Lightened operand is consistent.",
+    "reopenWhen": "A second clean LMR27 band at 180 to 200 ms, or an estimator validated below 25 px separation."
+   }
+  ]
+ }
+}

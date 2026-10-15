@@ -501,6 +501,11 @@ binding. The raw branch values (53 × 100, 2 × 1001, 1000, 28) are `Int32`, not
 input enum. The site uses 0.8836 as its controller amount multiplier at the operator's
 request; native activation is not decoded.
 
+[L4038](../../reference-data/provenance/frosty-2026-10-14-L4038-gun-sway-modifier-header-flags.json) (14 October): of the 110 gun-sway modifier roots in 1.4.3.5, `GRM_Recoil_Controller_03` is
+the only one whose shared header integer `Field_94752c29` is not 0 (it is 2, at object offset
+32, unchanged in 2.1.1.0). A device or platform selector is the natural reading; the
+enumeration is not decoded, and the six sniper rifles still have no binding.
+
 The [L19 raw and registry check](../../reference-data/provenance/frosty-2026-09-24-L19-controller-recovery-operand.json)
 finds a distinct 0.8836 multiply operand on `Field_54ba3947`, named
 `VerticalRecoilDecreaseMultiplier`, in both aim states. The horizontal counterpart
@@ -939,7 +944,11 @@ The same review establishes the following configuration in the M4A1 trace:
   The `GRM_MountedPlus*` variants are non-neutral (+3 / -2, L108), and
   `GRM_BipodDeployed_Bolt_BTM_P50` is +30 / -5 beside the +10 / -4 above; the root
   booleans differ only in the state flag (`Field_93dd77b9` Vertical, `Field_b0057325`
-  Horizontal, `Field_b574fa40` bipod).
+  Horizontal, `Field_b574fa40` bipod). [L4038](../../reference-data/provenance/frosty-2026-10-14-L4038-gun-sway-modifier-header-flags.json) reads these as the mounted-up, mounted-side
+  and bipod/grip-pod conditions of the shared modifier header (the executable's
+  `DispersionAsRecoil_OnlyWhenMountedUp/Side/BenefittingFromBipod` vocabulary, [L4039](../../reference-data/provenance/frosty-2026-10-14-L4039-recoil-strings-and-consumes-aim-tweakables.json));
+  the non-neutral `GRM_MountedPlus*` pair sets no header flag, so the mounted effect is
+  selected elsewhere.
 - Mounted ADS reload packages are in WB `Field_0cd9f20f[109:111]`. They contain
   state selectors and boolean effects. Their `Field_3f680d24` values 11/12 are not
   established operation codes or reload speeds; the general field map calls that
@@ -1062,6 +1071,14 @@ The next recording must separate aim displacement, camera motion and projectile
 spread before selecting a different model.
 
 - Recoil amount `Field_22810b21`, direction variation `Field_865174fa`.
+- Compensation: the registry rows `RecoilCompensationConsumesAimPitch` and `...Yaw` are true
+  ([L4039](../../reference-data/provenance/frosty-2026-10-14-L4039-recoil-strings-and-consumes-aim-tweakables.json), raw-checked in `GRX_WeaponsAndGadgets`; executable tweakables
+  `TweakableRefType_GS_RecoilConsumesAimPitch/Yaw`). Counter-aim input is subtracted from the
+  recoil state, so compensating also reduces the later recovery; the site's recoil-control
+  slider does the same to the delivered vector. The executable also names
+  `WeaponComponent_RecoilForceTicksBits` (recoil force replicated as a tick count),
+  `WeaponAttribute_RecoilSmoothness` and `_RecoilDecayMultiplier` (the two Smooth operands),
+  and the `DispersionAsRecoil_*` enumeration; none has a decoded consumer.
 - All 62 supported GS records, both aims: `RecoilDecreaseOffset` 0.06,
   `RecoilDecreaseNorm` 1, `ShootingRecoilDecreaseScale` 1, `RecoilDuration` 0.025; hip
   equals ADS for factor and offset. Factor and time exponent form 13 profiles (for

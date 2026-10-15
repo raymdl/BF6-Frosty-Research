@@ -19,6 +19,7 @@ outcome. Otherwise record the limit as unresolved; do not add a capture.
 |---|---|---|---|
 | 1 | Match Trigger semi vs auto (M433; L17) | Site shows no effect; source binds about 16% less recoil and faster recovery on 24 weapons, probably semi-only | Solo; video, repeated groups |
 | 2 | Optional: hit-capsule boundary (M433; L99) | Target-view chest/abdomen split; M433 chest aim 4 → 5 hits if the source capsules hold. Target view is already labelled approximate | Enemy helper standing still; damage numbers **Done 10 Oct (L4010): chest zone confirmed as the site draws it; no further capture needed.** |
+| 3 | Recoil recovery by impacts (AK-205, Standard and Lightened Suppressor) | Every spray on the site uses an assumed recovery law. The 14 October replay of the September recordings rejects two alternatives but leaves the M4A1 15-round climb 20% above the model and a 33 ms post-shot dead time as the one-parameter explanation; AK-205 15-round groups differ by 13 cm at 20 m between the two laws | Solo; video with audio and HUD, screenshots of each group; about 840 rounds (plus 500 optional M4A1) |
 
 ## Record once per session
 
@@ -89,6 +90,47 @@ change. Shots above the helmet are exploratory only, and the range dummy is not 
 validation target (different head length and materials). Keep site geometry
 unchanged pending the result. See the
 [L99 receipt](../../reference-data/provenance/frosty-2026-09-27-L99-soldier-hit-capsules.json).
+
+## 3. Recoil recovery by impacts (AK-205)
+
+**Brief:** Datamining `reports\review-2026-10-14\CAPTURE_BRIEF_recoil_recovery.md`, with
+predictions in `recovery-variants\capture-predictions.json` (`predict-capture.mjs`).
+
+**Four-part rule.** (1) The recovery law feeds every recoil path the site draws; the
+September M4A1 impact screenshots sit 20% above the model at 15 rounds and the camera
+fits need a different factor scale per weapon (M4A1 0.77, TR7 and AK4D 0.91). A fixed
+dead time of about 33 ms after each shot fits all three with one parameter; if it holds,
+sustained-fire climb changes on every automatic weapon (AK-205 15-round group 69 → 82 cm
+at 20 m). (2) Source gives the recovery operands but not the equation, the stat screen
+shows only the per-shot amount, the screenshot audit has no sustained-fire measurement,
+and the Sym pages describe the law without its constants; the 14 October replay used every
+existing recording. (3) Predicted differences are 9 to 13 cm on 10- and 15-round group
+height against 2.4 cm burst-to-burst scatter on the AK-205 (variation 7.4°), and 4 to 10 cm
+of remaining recoil at 133 to 200 ms in single-fire pairs against 1.2 cm scatter.
+(4) One weapon, two muzzles, the default loadout otherwise; the brief states the prediction
+for each band and what changes on the site for each outcome.
+
+**What it tests.** Part A, single-fire pairs at 133 to 400 ms gaps: the production law says
+the AK-205 is back on the aim point by 300 ms (9.5 cm remaining at 133 ms, 4.0 at 200);
+a nonzero mean at 300 ms falsifies the factor or time exponent with no camera model.
+Standard against Lightened at 133 and 200 ms tests the ×1.2 recovery operand (about 1 cm
+difference, three standard errors with 15 pairs per band). Part B, automatic bursts of 5,
+10 and 15 rounds, 10 each: the 15-round Standard mean decides between 69 cm (production
+law) and 82 cm (33 ms dead time); between the two gives the implied dead time. Part C,
+optional M4A1 10- and 15-round bursts, ties the result to the September screenshots
+(230 cm observed at 15 rounds against 192 and 222 cm predicted).
+
+**First attempt, 14 October.** Ten Part A clips were recorded (120 fps, audio, Mini Flex, the range's grey door beyond 20 m). Timing is usable (130 to 140 ms at the trigger cap); impacts are not, because every shot merged into one light decal smear. The no-bloom condition for single fire was confirmed on the spread indicator. The brief now requires the highest-magnification optic with PiP off (sights carry no recoil or spread effect in site data), about 40 m so decals separate, and a side-step then a 2 s pause between pairs; the retake is pending.
+
+**Result, 14 October ([L4040](../../reference-data/provenance/frosty-2026-10-14-L4040-ak205-recoil-recovery-capture.json)).** Retake recorded and analysed the same day (run folder `2026-10-14-ak205-recovery-capture`, `ANALYSIS.md`). Lens magnification measured at 5.00 over 1x in every clip. Pairs: 0.331 / 0.302 deg (Standard / Lightened) at 133 ms and 0.264 / 0.225 at 167 ms against 0.271 / 0.244 and 0.190 / 0.145 from the production law; bursts 1.36 / 2.13 / 2.41 deg (Standard 5/10/15) against 1.17 / 1.74 / 1.97. A factor scale of 0.8 fits all ten; the 33 ms dead time fits bursts only and is rejected by the pairs; the x1.2 Lightened operand is supported. The 1x FOV was confirmed by the operator as 103 (14 October). Open: a second weapon profile. Proposal in the queue.
+
+**Follow-up capture: LMR27 pairs.** Brief in Datamining `reports\review-2026-10-14\CAPTURE_BRIEF_lmr27_pairs.md`: four bands (133, 233, 300, 400 ms), 15/15/15/10 pairs per suppressor, same setup as the AK-205 retake. Predictions under the stored factor and x0.8 differ by 5 to 8 px at 233 ms and beyond (300 ms Standard: 17 px stored, 24 px x0.8) against about 1 px of band error, so one session decides whether the 0.8 transfers to the slow recovery profile (factor 13.7, time exponent 0.56). **Recorded and analysed 14 October ([L4041](../../reference-data/provenance/frosty-2026-10-14-L4041-lmr27-pairs-second-profile.json)):** at 233 ms, 0.384 / 0.322 deg (Standard / Lightened) against 0.319 / 0.271 stored and 0.403 / 0.349 at x0.8; effective scale 0.85 to 0.9, so the constant transfers. The 133 ms band was unusable (shot 2 lands under the reticle's top arc) and the 300 and 400 ms bands are below the 25 px resolution floor; a 180 to 200 ms band would tighten the value. **Applied 14 October:** the operator approved the proposal and the site now scales every recovery factor by 0.8 (`RECOIL_RECOVERY_SCALE` in `sim/core.js`); L4040 closed as site-fixed.
+
+**Revisits** the 28 September removal of "idle recovery and recoil return" (reason: a video
+cannot pin the recovery equation). It cannot pin it from an open fit; it can choose
+between stated laws when each has a prediction, which is what the brief gives. Results go
+to the Analyzer `docs/RECOIL_SPREAD_MODEL.md` ("The recovery law against the BF1
+community formula") and a dated receipt; no site change without the operator's approval.
 
 ## Removed captures (28 September 2026)
 

@@ -1,0 +1,93 @@
+{
+ "lead": "L4039",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909002,
+  "client": "1.4.3.5 release (collection captured 2026-09-30)",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Read from the sealed 1.4.3.5 raw capture with its own descriptors; no export, no new capture. The same assets were also decoded from the open 2.1.1.0 capture: 109 of the 110 header-bearing modifier files are byte-identical there, and the changed one (GRM_Recoil_Controller_03, operands 0.8836 to 0.95) keeps the same header values."
+ },
+ "question": "Which recoil and dispersion mechanics do the executable's readable strings and the tweakables registry state, beyond field names?",
+ "sourceFacts": {
+  "method": "The matching-strings list recorded on 7 October from bf6.exe (inspection.json, read-only PE inspection, no execution) was re-read for mechanic statements. The two tweakable rows it names were located in GRX_WeaponsAndGadgets of the sealed 1.4.3.5 capture by row name (Field_0c59fa06) and their boolean Field_42c8b257 re-read at the byte offset derived from the descriptor table (manifest-L4039.json, rawchecks-L4039.json).",
+  "control": {
+   "description": "Row names resolve to exactly one instance each (instances 5 and 6 of the registry file); the boolean read at the computed offset equals the decoded value.",
+   "passed": true
+  },
+  "rawCheckSummary": {
+   "checks": 2,
+   "matched": 2,
+   "files": 1,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "rawchecks-L4039.json"
+  },
+  "points": [
+   "GRX_WeaponsAndGadgets rows RecoilCompensationConsumesAimPitch (instance 5, Field_42c8b257 at file offset 552) and RecoilCompensationConsumesAimYaw (instance 6, offset 640) are both true. The executable carries the matching tweakable names TweakableRefType_GS_RecoilConsumesAimPitch and _Yaw. Reading: the player's counter-aim input is subtracted from the recoil state rather than only moving the camera, so compensation also reduces the later recovery, which depends on the remaining displacement. The site's recoil-control slider subtracts the expected kick from the delivered vector, which has the same effect on the state.",
+   "The executable holds the enumeration DispersionAsRecoil_Never, _Always, _OnlyWhenBenefittingFromBipod, _OnlyWhenMountedUp, _OnlyWhenMountedSide, _OnlyWhenSupported and the dispersion fields UseDispersionAsRecoilOnly and AddDispersionAsRecoilOnly (engine dump). Deployed and mounted fire can convert dispersion into recoil; the vocabulary (bipod, mounted up, mounted side) matches the three modifier conditions read in L4038. Which weapons or states select a value other than Never is not read: no GS dispersion field has been identified as the enumeration.",
+   "WeaponComponent_RecoilForceTicksBits names a replicated tick count for recoil force. A tick-quantized delivery is a concrete mechanism for a fixed post-shot pause before recovery, which the 14 October replay (Analyzer RECOIL_SPREAD_MODEL.md) found fits the September recordings at about 33 ms; this is a lead, not a decoded rule.",
+   "WeaponAttribute_RecoilSmoothness and WeaponAttribute_RecoilDecayMultiplier are the attribute names behind the two Smooth-recoil operands (RecoilDuration override, decay-factor multiply); WeaponAttribute_RecoilAmount, _RecoilVariation, _RecoilDirection, _ADSStationaryDispersion, _ADSDispersionIncrease, _ADSMoveDispersion and _HipFireDispersionIncrease name the other attribute channels.",
+   "GunSwayDispersionAction_{Default, Moving, Jumping, Sprinting} and GunSwayDispersionBehaviorAction_{Default, MovingJumpingSprinting} are the native movement-state enumerations behind the stationary and moving dispersion rows: Jumping is a separate angle action from Moving but shares the moving behavior.",
+   "TweakableRefType_KS_DisableSuppressionEffectOnGunsway and the GunSwaySuppression* members in the engine dump show a suppression penalty path on gun sway; no BF6 GS field has been tied to it."
+  ]
+ },
+ "inference": [
+  "Names in the executable establish that the mechanism exists in the code; they do not give its arithmetic or which assets activate it."
+ ],
+ "unresolved": [
+  "The field or enum that selects DispersionAsRecoil per weapon or state; the tick length behind RecoilForceTicksBits; whether the suppression gun-sway path is active in multiplayer."
+ ],
+ "siteImpact": "None. Document the compensation reading beside the recoil-control slider; no numeric change.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-14-modifier-flags",
+  "artifacts": [
+   {
+    "file": "manifest-L4039.json",
+    "sha256": "3d47a5ca36b2c4c762a43df31d5d63a728b98038c64657e0d52d20e23b64df40"
+   },
+   {
+    "file": "rawchecks-L4039.json",
+    "sha256": "048d009c7ffb70256a0b95cec66f8288e85eb36cb2b7237c62ce29fada941a25"
+   }
+  ],
+  "referenceFiles": [
+   {
+    "file": "reports\\native-recoil-feasibility-2026-10-07\\inspection.json",
+    "sha256": "9f059e61d3e7e45452209977f55250cb0e246fa3f198c8d9aae27227a40d4f5e",
+    "use": "matchingStrings[3..77]: readable strings of bf6.exe (read-only inspection, 7 October)"
+   },
+   {
+    "file": "FrostyToolsuite-battlefield6\\FrostyPlugin\\Sdk\\Bf6-Strings.txt",
+    "sha256": "e0fc9fb74a1b8ad1c51c9b8297db03c208bfd3b565d2d09fb3ac9d0a88108d23",
+    "use": "GunSwayDispersionSettings and GunSwaySuppression* member names"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-14",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L4039",
+    "title": "Recoil compensation consumes aim (two true tweakables), and the executable's dispersion-as-recoil, recoil-force-tick and attribute names",
+    "status": "finding",
+    "summary": "GRX_WeaponsAndGadgets rows RecoilCompensationConsumesAimPitch and Yaw are true (raw-checked), so counter-aim input is subtracted from recoil state; the executable names a DispersionAsRecoil enumeration (never, always, bipod, mounted up, mounted side), a replicated recoil-force tick count, the Smooth attribute names RecoilSmoothness and RecoilDecayMultiplier, and the movement-state dispersion actions.",
+    "reopenWhen": "A GS field or enum resolves DispersionAsRecoil per weapon, a readable implementation gives the tick length, or an in-game test shows compensation changing recovery."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/GameSetup/Tweakables/GameRemixer/GRX_WeaponsAndGadgets",
+    "format": "raw-ebx",
+    "sha256": "c55104c5064443b5c9a4e5cfe8deab3bde28b7bd5633f621af49dfa85ebe88bb",
+    "question": "Are the recoil-compensation-consumes-aim rows true?",
+    "result": "useful",
+    "conclusion": "Both named rows exist as instances 5 and 6; Field_42c8b257 is true on each at the computed offsets."
+   }
+  ]
+ }
+}

@@ -1,0 +1,276 @@
+{
+ "lead": "L4038",
+ "status": "finding",
+ "build": {
+  "current": "1.4.3.5",
+  "head": 4909002,
+  "client": "1.4.3.5 release (collection captured 2026-09-30)",
+  "descriptorSha256": "4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1",
+  "capture": "builds\\1.4.3.5\\capture\\collection",
+  "note": "Read from the sealed 1.4.3.5 raw capture with its own descriptors; no export, no new capture. The same assets were also decoded from the open 2.1.1.0 capture: 109 of the 110 header-bearing modifier files are byte-identical there, and the changed one (GRM_Recoil_Controller_03, operands 0.8836 to 0.95) keeps the same header values."
+ },
+ "question": "What are the seven booleans and the integer that every gun-sway modifier root (GDM, GBM, GRM and the two sibling classes) carries before its per-zoom branches, and can the engine type dump name them?",
+ "sourceFacts": {
+  "method": "All 723 _WeaponModifiers raw files of the sealed 1.4.3.5 capture were decoded with the build descriptors (flag-table.py). 110 root instances in five classes (Class_5e5631ff 28, Class_bb838ff6 29, Class_743a3ce0 14, Class_bb7f4ea1 5, Class_219954e8 34) carry the same inherited header; the seven booleans and the integer were tabulated per asset (flag-table-L4038.json). For thirteen cited assets the header byte offsets were derived from the descriptor field table including inherited fields (flag-offsets.py) and every value re-read with scripts/frosty-raw-check.py (manifest-L4038.json, rawchecks-L4038.json).",
+  "control": {
+   "description": "Known case from L61: Field_b574fa40 true on GDM_Array_HipDispersion_BTM_P20 and false on its _NoBipod twin, re-read at byte offset 39 of each root instance before the other flags were interpreted.",
+   "passed": true
+  },
+  "rawCheckSummary": {
+   "checks": 104,
+   "matched": 104,
+   "files": 13,
+   "tool": "scripts/frosty-raw-check.py --manifest",
+   "artifact": "rawchecks-L4038.json"
+  },
+  "layoutOrder": {
+   "Field_94752c29": 32,
+   "Field_9ca063e9": 36,
+   "Field_b0057325": 37,
+   "Field_897a3f2c": 38,
+   "Field_b574fa40": 39,
+   "Field_92cdfefc": 40,
+   "Field_93dd77b9": 41,
+   "Field_15cae63e": 42
+  },
+  "trueOn": {
+   "Field_9ca063e9": [
+    "GBM_NoIncrease_ERG_P00",
+    "GBM_NoIncrease_Semi_P00",
+    "GRM_MatchTrigger_ERG_P15",
+    "GRM_RecoilConversion_ERG_P10",
+    "GRM_Recoil_ERG_P10",
+    "GRM_Recoil_ERG_P20"
+   ],
+   "Field_b0057325": [
+    "GRM_MountedHorizontal"
+   ],
+   "Field_897a3f2c": [
+    "GBM_Increase_Hip_A30_RGT_P10",
+    "GBM_Increase_Hip_A35_RGT_P10",
+    "GBM_Increase_Hip_A40_RGT_P10",
+    "GBM_Increase_Hip_A45_RGT_P10",
+    "GBM_Increase_Hip_A50_RGT_P10",
+    "GBM_Increase_Hip_A55_RGT_P10",
+    "GBM_Increase_Hip_A60_RGT_P10",
+    "GBM_Increase_Hip_S1_RGT_P10",
+    "GBM_Increase_Hip_S2_RGT_P10",
+    "GBM_Increase_Hip_S3_RGT_P10",
+    "GBM_Increase_Hip_S4_RGT_P10",
+    "GBM_Increase_Hip_S5_RGT_P10"
+   ],
+   "Field_b574fa40": [
+    "GBM_Increase_ADS_30_BTM_Bipod",
+    "GBM_Increase_ADS_35_BTM_Bipod",
+    "GBM_Increase_ADS_40_BTM_Bipod",
+    "GBM_Increase_ADS_45_BTM_Bipod",
+    "GBM_Increase_ADS_50_BTM_Bipod",
+    "GDM_Array_HipDispersion_BTM_P20",
+    "GRM_BipodDeployed_BTM_P50",
+    "GRM_BipodDeployed_Bolt_BTM_P50",
+    "GRM_GrippodDeployed_BTM_P30"
+   ],
+   "Field_92cdfefc": [
+    "GDM_Array_ADSMoveDispersion_TOP_P10",
+    "GDM_Array_HipDispersion_TOP_P10",
+    "GDM_Array_HipDispersion_TOP_P20",
+    "GDM_Array_HipDispersion_TOP_P30"
+   ],
+   "Field_93dd77b9": [
+    "GRM_MountedVertical"
+   ],
+   "Field_15cae63e": []
+  },
+  "nonZeroInt": {
+   "GRM_Recoil_Controller_03": 2
+  },
+  "points": [
+   "Layout order of the shared header (object offsets): Field_94752c29 int32 at 32; booleans Field_9ca063e9 36, Field_b0057325 37, Field_897a3f2c 38, Field_b574fa40 39, Field_92cdfefc 40, Field_93dd77b9 41, Field_15cae63e 42. The decoder's JSON key order is not this order.",
+   "Field_897a3f2c is true on exactly the twelve GBM_Increase_Hip_*_RGT_P10 light modifiers and on no other modifier. The Frosty plugin's engine type dump (Bf6-Strings.txt, identical here to Bf2042-Strings.txt) lists a boolean OnlyOnWeaponLightEnabled on GunSwayModifierData. By value this is the field: the light hip-dispersion effect is gated on the light being switched on.",
+   "Field_b574fa40 is true on the nine bipod and grip-pod modifiers (GRM_BipodDeployed_BTM_P50, GRM_BipodDeployed_Bolt_BTM_P50, GRM_GrippodDeployed_BTM_P30, GDM_Array_HipDispersion_BTM_P20, GBM_Increase_ADS_30..50_BTM_Bipod) and nothing else. The dump's OnlyInSupportedShooting is the value-supported candidate name (supported shooting = bipod or grip pod deployed).",
+   "Field_93dd77b9 is true only on GRM_MountedVertical and Field_b0057325 only on GRM_MountedHorizontal. The executable string set holds DispersionAsRecoil_OnlyWhenMountedUp and _OnlyWhenMountedSide (L4039), so these two are mounted-up and mounted-side conditions; the engine dump predates them and gives no name.",
+   "Field_9ca063e9 is true on exactly six modifiers: GBM_NoIncrease_ERG_P00, GBM_NoIncrease_Semi_P00, GRM_MatchTrigger_ERG_P15, GRM_RecoilConversion_ERG_P10, GRM_Recoil_ERG_P10 and GRM_Recoil_ERG_P20. These are the fire-mode-bound modifiers (semi, burst): the flag is a fire-mode gate. GBM_NoIncrease_Semi_P00's semi-only activation was observed in game on 25 September (L63); Match Trigger carries the same flag, which supports the semi-only reading of L17 without a capture.",
+   "Field_92cdfefc is true only on the four GDM_Array_*Dispersion_TOP_P* arrays (ADSMove TOP_P10, Hip TOP_P10/P20/P30); its condition is not named by the dump or the executable strings.",
+   "Field_15cae63e is false on all 110 roots. The dump's third boolean, ApplyRecoilOverTime, is not true on any Smooth modifier (GRM_SmoothRecoil_P10 has every flag false), so either it is this never-set field or it no longer exists; the Smooth effect is carried by the RecoilDuration override alone.",
+   "Field_94752c29 is 0 on 109 roots and 2 on GRM_Recoil_Controller_03 alone, in both 1.4.3.5 and 2.1.1.0. An input-device or platform selector is the natural reading; the enumeration is not decoded.",
+   "The dump's declaration order (ApplyRecoilOverTime, OnlyOnWeaponLightEnabled, OnlyInSupportedShooting) does not match the BF6 layout order of any three of the seven booleans, so order-based naming is not possible here; the names above rest on values alone."
+  ]
+ },
+ "inference": [
+  "The seven booleans are activation conditions of the modifier, evaluated by the native gun-sway code; which state each tests is read from the assets that set it, not from a decoded consumer.",
+  "The Match Trigger semi-only reading (L17) is supported by the shared flag with the observed semi-only no-bloom modifier; it is still not a measurement of the Match Trigger effect itself."
+ ],
+ "unresolved": [
+  "The meaning of Field_92cdfefc (TOP-rail arrays) and the enumeration behind Field_94752c29 = 2.",
+  "Whether Field_15cae63e is ApplyRecoilOverTime or something else; it is never set.",
+  "Composition when several conditions are true on one modifier (none in the data) and the order against other modifiers on the same field.",
+  "The GRM_MountedPlus* and GRM_MountedVertical/Horizontal split: the flagged pair has neutral operands and the non-neutral MountedPlus pair has no flag, so the mounted effect is selected elsewhere (L108 remains deferred)."
+ ],
+ "siteImpact": "None now. The site already treats a selected light as on; the flag says the game applies the light factors only while the light is switched on, which the attachment panel text can state. Match Trigger stays unmodeled pending the capture-plan item.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-14-modifier-flags",
+  "artifacts": [
+   {
+    "file": "flag-offsets.py",
+    "sha256": "d628354bb4bb0ce3ccaaf6f267b6ef8401380677cb44641032b99fb6c7fe2cee"
+   },
+   {
+    "file": "flag-table.py",
+    "sha256": "364a9735f8dde259f41282697250fd91425310abf33cc540c745b782a2efd938"
+   },
+   {
+    "file": "manifest-L4038.json",
+    "sha256": "811ffc33a5b4b840513572562a4728209de10de077944657a554c59b452a6b83"
+   },
+   {
+    "file": "rawchecks-L4038.json",
+    "sha256": "ef9fb74170227ceebfb708932cfda3de972d3ad31e32471c918b1c73248e8a65"
+   },
+   {
+    "file": "flag-table-L4038.json",
+    "sha256": "eb368b66b3126fef27c2d3cee17e6f03b36be64356a4f2298055d31dcb72e0ae"
+   },
+   {
+    "file": "header-field-order.json",
+    "sha256": "b4df0e2d8ee94a9c1892db984f8074e9da2a888f18544e6abc00af34c9832bac"
+   }
+  ],
+  "referenceFiles": [
+   {
+    "file": "FrostyToolsuite-battlefield6\\FrostyPlugin\\Sdk\\Bf6-Strings.txt",
+    "sha256": "e0fc9fb74a1b8ad1c51c9b8297db03c208bfd3b565d2d09fb3ac9d0a88108d23",
+    "use": "engine type member names in declaration order; its hashes are not the Field_ hashes"
+   },
+   {
+    "file": "FrostyToolsuite-battlefield6\\FrostyPlugin\\Sdk\\Bf2042-Strings.txt",
+    "sha256": "93c8b810b6d6088e3b2cd8b94ade94ae497038ee603fe785213655f90ffdcc7b",
+    "use": "same GunSway member lists as the BF6 dump"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-14",
+  "build": "1.4.3.5",
+  "binding": "research",
+  "refs": [
+   "open-questions"
+  ],
+  "leads": [
+   {
+    "id": "L4038",
+    "title": "Gun-sway modifier header flags read by value: light-enabled, bipod/grip-pod, mounted up/side and fire-mode gates, plus the controller modifier's device selector",
+    "status": "finding",
+    "summary": "Every gun-sway modifier root carries an int32 at offset 32 and seven booleans at 36..42; by value they are light enabled (Field_897a3f2c, the twelve light modifiers only), bipod or grip pod deployed (Field_b574fa40, nine assets), mounted side and up (Field_b0057325, Field_93dd77b9, one asset each), a fire-mode gate (Field_9ca063e9, the six ERG/Semi modifiers including Match Trigger), a TOP-array flag (Field_92cdfefc) and one never-set flag; the integer is 2 on GRM_Recoil_Controller_03 alone.",
+    "reopenWhen": "A decoded native consumer, a modifier that sets two flags, or a new modifier whose flag contradicts the value-based reading; the TOP flag and the integer enumeration need a consumer or an in-game test."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Hardware/Weapons/_WeaponModifiers/Recoil/GRM_MountedHorizontal",
+    "format": "raw-ebx",
+    "sha256": "c4d06bfc75f438d8a3fe2c56fda78e9f5abf321233d58fa44b42185f1a41e334",
+    "question": "Which header booleans and integer does this modifier root set?",
+    "result": "useful",
+    "conclusion": "Only asset with Field_b0057325 true (offset 37); all other header flags false."
+   },
+   {
+    "path": "Common/Hardware/Weapons/_WeaponModifiers/Recoil/GRM_MountedVertical",
+    "format": "raw-ebx",
+    "sha256": "0ad8133a7286e5aa4e1518a3f223b8efe19b63b6c431867dbfa8547f0f095d2a",
+    "question": "Which header booleans and integer does this modifier root set?",
+    "result": "useful",
+    "conclusion": "Only asset with Field_93dd77b9 true (offset 41); all other header flags false."
+   },
+   {
+    "path": "Common/Hardware/Weapons/_WeaponModifiers/Bipod/GRM_BipodDeployed_BTM_P50",
+    "format": "raw-ebx",
+    "sha256": "a3b86c301d13bd71d0b32c4b1e7553233229755a4e4417147eb01da92fb88a78",
+    "question": "Which header booleans and integer does this modifier root set?",
+    "result": "useful",
+    "conclusion": "Field_b574fa40 true (offset 39), as on the other eight bipod and grip-pod modifiers."
+   },
+   {
+    "path": "Common/Hardware/Weapons/_WeaponModifiers/Grippod/GRM_GrippodDeployed_BTM_P30",
+    "format": "raw-ebx",
+    "sha256": "1222856bc9b7f9335c71a5432dd5e0daae76b286e6d358a800f687992b11e8b1",
+    "question": "Which header booleans and integer does this modifier root set?",
+    "result": "useful",
+    "conclusion": "Field_b574fa40 true: the grip pods share the bipod flag."
+   },
+   {
+    "path": "Common/Hardware/weapons/_WeaponModifiers/HipDispersion/GDM_Array_HipDispersion_BTM_P20",
+    "format": "raw-ebx",
+    "sha256": "6ee13b01ff20d13c4ea7f44f05632e2d3ad1bada3af6f8b3628a523d2a243b2c",
+    "question": "Which header booleans and integer does this modifier root set?",
+    "result": "useful",
+    "conclusion": "Field_b574fa40 true; its _NoBipod twin has every flag false, so the flag is the only serialized difference besides the name."
+   },
+   {
+    "path": "Common/Hardware/weapons/_WeaponModifiers/HipDispersion/GDM_Array_HipDispersion_BTM_P20_NoBipod",
+    "format": "raw-ebx",
+    "sha256": "1c2ecf2174b4664b17606af69b3df99417655b052e97bd5671f974ee9c9cedf8",
+    "question": "Which header booleans and integer does this modifier root set?",
+    "result": "useful",
+    "conclusion": "Every header flag false; same class and operands as the _BTM_P20 asset."
+   },
+   {
+    "path": "Common/Hardware/Weapons/_WeaponModifiers/DispersionIncrease/GBM_Increase_Hip_A30_RGT_P10",
+    "format": "raw-ebx",
+    "sha256": "7523aa538a383e059532f2671922b67e88ce396df327895dc7ff7dd1fdd4c932",
+    "question": "Which header booleans and integer does this modifier root set?",
+    "result": "useful",
+    "conclusion": "Field_897a3f2c true (offset 38), as on all twelve light hip-dispersion modifiers and on nothing else."
+   },
+   {
+    "path": "Common/Hardware/Weapons/_WeaponModifiers/DispersionIncrease/GBM_Increase_Hip_S1_RGT_P10",
+    "format": "raw-ebx",
+    "sha256": "2d83df1e02656fd4b1ffaa6c2c9b4bc9a930f6872c55619d8bd41b881b2e7b9c",
+    "question": "Which header booleans and integer does this modifier root set?",
+    "result": "useful",
+    "conclusion": "Field_897a3f2c true, as on all twelve light hip-dispersion modifiers and on nothing else."
+   },
+   {
+    "path": "Common/Hardware/weapons/_WeaponModifiers/HipDispersion/GDM_Array_HipDispersion_TOP_P10",
+    "format": "raw-ebx",
+    "sha256": "5b1680ef728ff0e2843b35906a618f8628beb026c009a6fc3e73e4bce3c1be43",
+    "question": "Which header booleans and integer does this modifier root set?",
+    "result": "useful",
+    "conclusion": "Field_92cdfefc true (offset 40), shared only by the four GDM_*_TOP_* dispersion arrays."
+   },
+   {
+    "path": "Common/Hardware/Weapons/_WeaponModifiers/DispersionIncrease/GBM_NoIncrease_Semi_P00",
+    "format": "raw-ebx",
+    "sha256": "71f3d764208ea84b8c4ab9d9c2f3d88f6f636af47f84af9163632b30757ccb6d",
+    "question": "Which header booleans and integer does this modifier root set?",
+    "result": "useful",
+    "conclusion": "Field_9ca063e9 true (offset 36); the modifier whose semi-only activation the 25 September capture observed."
+   },
+   {
+    "path": "Common/Hardware/Weapons/_WeaponModifiers/Recoil/GRM_MatchTrigger_ERG_P15",
+    "format": "raw-ebx",
+    "sha256": "d7785a0b638a8d238c906d772481639137b244181f26dacb46f45c0461e32fa1",
+    "question": "Which header booleans and integer does this modifier root set?",
+    "result": "useful",
+    "conclusion": "Field_9ca063e9 true: Match Trigger carries the same gate flag as GBM_NoIncrease_Semi_P00."
+   },
+   {
+    "path": "Common/Hardware/Weapons/_WeaponModifiers/SmoothRecoil/GRM_SmoothRecoil_P10",
+    "format": "raw-ebx",
+    "sha256": "07bc56237a9e07e4539a6a6e5bde85b58c7ca39a8fa80d67466031a53d766bd3",
+    "question": "Which header booleans and integer does this modifier root set?",
+    "result": "useful",
+    "conclusion": "All seven header flags false and the integer 0: the Smooth modifiers are unconditional at this level; their effect is the RecoilDuration override and the decay-factor multiply."
+   },
+   {
+    "path": "Common/Hardware/Weapons/_WeaponModifiers/Recoil/GRM_Recoil_Controller_03",
+    "format": "raw-ebx",
+    "sha256": "c847f914b534484c1a014c2b63ef0451caae86826a256c1b7bf4619574bd8c3f",
+    "question": "Which header booleans and integer does this modifier root set?",
+    "result": "useful",
+    "conclusion": "Only asset in the set with a non-zero header integer: Field_94752c29 = 2 (offset 32). All seven flags false."
+   }
+  ]
+ }
+}

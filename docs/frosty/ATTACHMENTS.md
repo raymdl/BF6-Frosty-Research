@@ -490,8 +490,11 @@ two hip branches (`Field_447d6d51`, `Field_0a160c57`), each with
 | `Field_aa558d2b` | `IdleDecreaseOffset` | ×0.666667 |
 
 Links cover 62 weapons. The site applies these factors to 137 supported light
-selections, treats a selected light as on, and does not model idle recovery. Native
-activation is not decoded.
+selections, treats a selected light as on, and does not model idle recovery. The
+activation condition is now read from source: all twelve assets, and no other gun-sway
+modifier, set the shared header boolean `Field_897a3f2c` ([L4038](../../reference-data/provenance/frosty-2026-10-14-L4038-gun-sway-modifier-header-flags.json)), which by value is the
+engine dump's `OnlyOnWeaponLightEnabled`. The factors apply while the light is switched
+on; the native consumer is still not decoded.
 
 ### Laser visibility remains a semantic blocker
 
