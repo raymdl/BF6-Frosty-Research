@@ -1,0 +1,134 @@
+{
+ "lead": "L4042",
+ "status": "finding",
+ "build": {
+  "current": "2.1.1.0 game client (site data 2.1.1.0)",
+  "note": "Re-analysis of the 14 October recordings (L4040, L4041); no new capture."
+ },
+ "question": "What do the 14 October pair bands beyond 233 ms (AK-205) and 300 ms (LMR27) say about the recovery law, once an estimator can separate overlapping bullet marks?",
+ "sourceFacts": {
+  "method": "Two-star template fit with a generic bullet-mark template (median of 19 isolated marks), FFT-correlation grid, non-negative amplitudes; see ANALYSIS-template-fit.md.",
+  "control": {
+   "description": "Agrees with the blurred-maxima estimator within 1 to 2 px on the six bands both resolve; synthetic pairs on real backgrounds are recovered unbiased within 1 px from 6 px up, with a 4 to 7 px floor at zero; the null test (isolated star, search into empty wall) resolves 2 of 20.",
+   "passed": true
+  },
+  "points": [
+   "AK-205 Standard: 0.326, 0.248, 0.152, 0.101, 0.084 deg at 133, 167, 233, 292, 333 ms (SE 0.017); the x0.8 law gives 0.307, 0.230, 0.101, 0.021, 0.000. The last 0.1 deg (20% of the kick) recovers by about 400 ms, not 290 ms. 433 ms is at the estimator floor.",
+   "AK-205 Lightened: 0.309, 0.214, 0.135, 0.073 deg at 133, 167, 233, 296 ms against 0.284, 0.199, 0.067, 0.000 at x0.8.",
+   "LMR27 Standard: 0.360, 0.186, 0.096 deg at 233, 333, 433 ms against 0.403 / 0.363, 0.209 / 0.169, 0.081 / 0.051 at x0.8 / x0.9: effective scale 0.8 to 0.9 on every band.",
+   "LMR27 Lightened: 0.304 at 233 ms (x0.8 0.348, x0.9 0.307) but 0.191 at 350 ms against 0.128 (x0.8) and 0.170 (x0.7), equal to the Standard at 333 ms: the x1.2 recovery operand shows at 133 to 233 ms on both weapons and is gone by 350 ms.",
+   "Law scan (18 clean bands plus 6 AK-205 bursts): stored chi2 737; applied x0.8 258; best in the family (C=0.9 or 0.8, offset 0) 207; recoil power 1.25 to 1.5, time-exponent scale 0.7 to 0.85 and dead time 33 to 83 ms are all worse. The misfit is structural (tail and Lightened tail)."
+  ]
+ },
+ "inference": [
+  "The factor scale 0.8 to 0.9 is confirmed on both profiles on the bands where the law is far from zero. Beyond that, the game keeps a slow tail for the last 10 to 20% of the kick that no variant of the site law reproduces, and the Lightened Suppressor's faster recovery does not reach into that tail. The offset term, which drives the site law to zero, is the first suspect; the mechanism cannot be settled offline."
+ ],
+ "unresolved": [
+  "Whether the tail decays to zero or leaves a residual (needs 450 to 600 ms bands on a large-kick weapon); whether the Lightened effect is absent in the tail on a second weapon; the third recovery profile (TR-7). All three are in the 15 October brief."
+ ],
+ "siteImpact": "None applied. The x0.8 scale stands. A tail term would raise sustained-fire climb slightly further and would change nothing about per-shot kick.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-14-lmr27-recovery-capture",
+  "artifacts": [
+   {
+    "file": "ANALYSIS-template-fit.md",
+    "sha256": "20c10b7795101a9ca9d24b21ebb957ee1b8f49e84cf376f72f2186b0d5da820a"
+   },
+   {
+    "file": "pairs6.py",
+    "sha256": "557e9c6f171f1ba6e677f54ac74b2e34acafd69f390d4a306d019bd9f86deb5f"
+   },
+   {
+    "file": "startemplate.py",
+    "sha256": "d339f78bdd54de061bef503c6caa1702ef65134f03411bc51739f7c30beb90bd"
+   },
+   {
+    "file": "star-template.npy",
+    "sha256": "25f92dbae7c1fc639694dac4798062f0ce8e07179d3a91823b281d911ce9c677"
+   },
+   {
+    "file": "synthbias.py",
+    "sha256": "f4049b6ec89c75b304a2a10d60acfeb353023dcc9b5efd40aef05ea7c2e642b9"
+   },
+   {
+    "file": "synthbias.json",
+    "sha256": "2df78921c56ae1e8596162f8a61de9e5edf15b29e037a1f3bf81bf411668f0e5"
+   },
+   {
+    "file": "pairs6-null.json",
+    "sha256": "ed00d75a5e91109bfec6089e1e2c98cbb071a551b61dff67701d7451cfa8b3d8"
+   },
+   {
+    "file": "pairs6.json",
+    "sha256": "85e476500eb071f8ddd3325f35be4f61e6388764589e8964ba68e2b94c6b7c25"
+   },
+   {
+    "file": "pairs6-summary.json",
+    "sha256": "5ed917afc1bdf38acda99325778f4a2991e2fb38c285c3162c03761ed1d2b3b5"
+   },
+   {
+    "file": "summarize6.py",
+    "sha256": "e21b6cbe2b601f89ad064cb2bcef53a70f8bd1e737b0079be011af06bc99ae94"
+   },
+   {
+    "file": "fit-tail.mjs",
+    "sha256": "a954ccf1d660962381ac3560347b4636991506aecf14981e2cf0cdb34ad66ab8"
+   },
+   {
+    "file": "fit-tail2.json",
+    "sha256": "6f8d6aceeacc3348279f36e58dd05e71e89c751705f02e1919e80ad54567926e"
+   },
+   {
+    "file": "predict-weapon.mjs",
+    "sha256": "33630321a050723c8c43968263c3b1ed617f99a1d676d4ffb4ddd00032fc153a"
+   },
+   {
+    "file": "variant-sim.mjs",
+    "sha256": "6c0b1428072540fb588e1e55cc1aeffe379170a5ecdc071d7993ac4760cbb4b3"
+   },
+   {
+    "file": "predict-ak205.json",
+    "sha256": "e39152129911ab71dfd096c5d02549fb2c24816d9383f0cb2221abfa9bffbb9f"
+   },
+   {
+    "file": "predict-lmr27.json",
+    "sha256": "0a907f056faba0f973a9b50d3f87b47265f137ca5bb94f98914d005db6251e6c"
+   },
+   {
+    "file": "predict-tr7.json",
+    "sha256": "ec23daa5ce1f484c2fcf0aa833991f7b904f28403feb8575f865184e8031c356"
+   },
+   {
+    "file": "../2026-10-14-ak205-recovery-capture/pairs6.json",
+    "sha256": "fdbcaa307c65b00cab67f79d51c392af06bdd2056e105ce318b5a04fe3a7575a"
+   },
+   {
+    "file": "../2026-10-14-ak205-recovery-capture/pairs6-summary.json",
+    "sha256": "4294e3360e889fc8d02ed0bebd469647e02f7478a12c92624f9e3fe3300a27e2"
+   },
+   {
+    "file": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\review-2026-10-14\\CAPTURE_BRIEF_tail_and_tr7.md",
+    "sha256": "d4c90d0317d25e70bd4ca07306345d025a2d62b3acc8c8563ab126dd5a2ecb0b"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-15",
+  "build": "site-only",
+  "binding": "research",
+  "refs": [
+   "capture-plan"
+  ],
+  "leads": [
+   {
+    "id": "L4042",
+    "title": "Template-fit re-analysis of the 14 October pairs: factor scale 0.8 to 0.9 confirmed on all resolved bands; a slow recovery tail (last 10 to 20% of the kick) and no Lightened advantage beyond 300 ms, which no variant of the site law reproduces",
+    "status": "finding",
+    "summary": "A two-star template fit (validated unbiased from 6 px, floor 4 to 7 px) measures all twenty 14 October bands. AK-205 Standard keeps 0.10 deg at 292 ms and 0.08 at 333 ms where the x0.8 law is at zero; the LMR27 Lightened at 350 ms (0.191 deg) equals the Standard. A scan over factor, time exponent, offset, recoil power and dead time bottoms out at chi2 207 for 26 observations (stored 737, applied 258).",
+    "reopenWhen": "The 15 October captures (TR-7 bands to 600 ms with bursts, LMR27 200 and 300 ms replicate, AK-205 long gaps) are analysed, or a readable implementation gives the native recovery law."
+   }
+  ]
+ }
+}

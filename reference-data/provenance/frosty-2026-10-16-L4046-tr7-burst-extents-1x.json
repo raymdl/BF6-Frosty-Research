@@ -1,0 +1,248 @@
+{
+ "lead": "L4046",
+ "status": "finding",
+ "build": {
+  "current": "2.1.1.0 game client (site data 2.1.1.0)",
+  "note": "Re-measurement of the 15 October TR-7 burst screenshots (L4043); no new capture, game not launched."
+ },
+ "question": "Are the 15 October close-up extents of the TR-7 bursts (11.2 deg Standard, 9.6 Lightened at 15 rounds) right, given that the camera track (L4045) puts the shot-15 aim at 8.5 / 7.6 deg?",
+ "sourceFacts": {
+  "method": "measure.py: the 1x screenshot taken from the firing position (17.77 px/deg at FOV 103, rectilinear) is measured directly with a sensitive star detector inside the wall panel (gray > 105 on the 20 m clips, > 90 on the 27 m clips), sprays split by k-means on x, one component over the round count dropped by distance from the spray centre; the close-up is re-measured with the panel width and height as rulers; every pick is drawn in annotated/. Sprays map to bursts left to right (pre-burst video frames of three clips show the previous spray on the left). Fits rerun with fit-shape.mjs on the re-measured TR-7 extents. See ANALYSIS.md.",
+  "control": {
+   "description": "The 1x detector finds 15 of 15 marks in 7 of the 18 fifteen-round sprays and 11 to 14 in the rest, 5 of 5 in 19 of 20 five-round sprays; the panel width and height rulers of the close-up disagree by 6 to 10%, and the close-up star picks include the panel frame highlight at the top and the weapon at the bottom (annotated/*_close.png); the 1x extents of the 15-round sprays sit on the camera aim at shot 15 plus the model spread.",
+   "passed": true
+  },
+  "points": [
+   "1x extents, degrees: 15 rounds Standard 8.62 +- 0.10 (n 9) against 11.19 from the close-ups and 8.67 for the x0.8 law; Lightened 7.59 +- 0.10 (n 9) against 9.58 and 8.03. 10 rounds Standard 6.38 +- 0.28 (n 9) (close-up 6.02, law 6.47), Lightened 6.04 +- 0.07 (n 6) (5.98, 6.13); 5 rounds Standard 3.58 +- 0.11 (n 10) (3.30, 3.37), Lightened 2.97 +- 0.19 (n 10) (3.32, 3.28).",
+   "1x extent minus the camera aim at shot 15, well-tracked bursts: Standard +0.08 (sd 0.28, n 7), Lightened -0.12 (sd 0.26, n 5); the x0.8 model gives +0.35 / +0.41. The impacts sit on the aim; the \"spray top 1 to 1.5 deg above the aim\" of L4045 was the dust cloud, not marks.",
+   "Why the close-ups were high: with the panel-width ruler and the 15 October star box the close-up detections include the panel frame highlight at the top edge and the weapon or scope at the bottom edge of the panel, which the k-means split attaches to the nearest spray (annotated/*_close.png); the ruler itself is consistent (width ratio 3.0 to 3.2, height ratio 2.7 to 2.8, the difference being the picture-in-picture view and the HUD table clipping the panel top).",
+   "Fits over the 14 and 15 October observations with the TR-7 extents re-measured (45 observations): applied x0.8 329.7, best of the offset family 290.1, recovery-rate cap 8 deg/s 611.2, two-pool 215.2, best setting twoPool S=0.1 F2=2 C=0.8 offset=0.06 215.2; the TR-7 15-round rows are now 8.617 observed against 8.673 predicted at x0.8."
+  ]
+ },
+ "inference": [
+  "The 15-round TR-7 excess of L4043 was a measurement artefact of the close-up method; measured directly at 1x the extents of the 5, 10 and 15-round bursts on both suppressors all sit on the x0.8 law within their errors, in agreement with the camera track. The TR-7 burst evidence now supports the site law with the 0.8 scale with nothing left over; the rate cap that improved the burst fit in L4044 loses its motivation. What remains open from this weapon is the pair tail at 290 to 350 ms and the post-burst recovery rate."
+ ],
+ "unresolved": [
+  "The 290 to 350 ms pair tail and the missing Lightened advantage in the LMR27 tail (unchanged); the post-burst recovery rate limit (L4045)."
+ ],
+ "siteImpact": "None applied; the x0.8 scale stands and now fits every TR-7 burst observation. The L4043 siteImpact sentence (site under-predicts long-burst climb on the 104 / 1.459 profile by about 25%) is withdrawn.",
+ "supersedes": [
+  "frosty-2026-10-15-L4043-tr7-lmr27-tail-capture.json (burst extents only)"
+ ],
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-16-tr7-closeup-extents",
+  "artifacts": [
+   {
+    "file": "ANALYSIS.md",
+    "sha256": "902f8f52b089719d2db242bbef3e5897c4fa55e44011498ec216032feeeaccfd"
+   },
+   {
+    "file": "measure.py",
+    "sha256": "7c6594c50ce18c589d683dbeb37d08237c37a15f9bc83a1b249886539f474b3c"
+   },
+   {
+    "file": "measure.json",
+    "sha256": "f97727835a2f7abe5324c9b9fa932ae96cea89b6a9cb75ade7df0ccebbda21f7"
+   },
+   {
+    "file": "measure.md",
+    "sha256": "5b0f48029f6c06d943aaf6f3bc0e386c00c9ee3a15b02380e4ecc4be92c81358"
+   },
+   {
+    "file": "bursts-summary-1x.json",
+    "sha256": "218b32a92eba40e3e85418f1cbe6aeeea454d489937e4a24c8296c65458a94e0"
+   },
+   {
+    "file": "extent-vs-camera.py",
+    "sha256": "05eb81b4c8c1b1be022ffc5db1c5c16d8877804e87507678d6966a60760ed26f"
+   },
+   {
+    "file": "extent-vs-camera.md",
+    "sha256": "148051c0201295d8b8e439704ae3b1f3456dbe548778beb7b96769c7de268ea8"
+   },
+   {
+    "file": "extent-vs-camera.json",
+    "sha256": "2162da14936681205816bfebc08ac1c045c587656bc6eed6317502cc0eab9c13"
+   },
+   {
+    "file": "fit-spec-1x.json",
+    "sha256": "dd07f52db1114cafaa8f7b840d393d3ef4170916fdce95d68cf055ed8ac2c883"
+   },
+   {
+    "file": "fit-shape-1x.json",
+    "sha256": "3a2164be77938df8fa9248bc2415f7661dd3d1bdc67635bac20bdc77b378de3e"
+   },
+   {
+    "file": "fit-shape-1x.log",
+    "sha256": "2b9be8f6640877975773b1aacdd0f5116462ac36543c34145e75a826ffe6e59f"
+   },
+   {
+    "file": "frames/ppressor_C_1_half.png",
+    "sha256": "90c22ce6b2fbc866df3f5b283e9aa82a66dd72ed989cf33ca981e38e1116897c"
+   },
+   {
+    "file": "frames/ppressor_C_pre_b1_f717.png",
+    "sha256": "14ecb2182e59087567812f36d0729e6b297194bf2b17fcab76c265dd1c813187"
+   },
+   {
+    "file": "frames/ppressor_C_pre_b2_f1531.png",
+    "sha256": "9c987f21136275680ed7aa10d4f9cb3551ed4e793406bfebfb5ae59491e7a439"
+   },
+   {
+    "file": "frames/Suppressor_A_pre_b1.png",
+    "sha256": "096f6edcec1acc548e4bbdc521d01763b9b6cb35a35b48906a530bcac184fa83"
+   },
+   {
+    "file": "frames/Suppressor_A_pre_b2.png",
+    "sha256": "252892853bce86016e5f45a302916c647df3db57cf9203fbc5fce429372d3533"
+   },
+   {
+    "file": "frames/stdC_1x_panel_2x.png",
+    "sha256": "b26ff23394eaa132bbfe16cfcef329b5367ca4c9b20b56a3d5d07ad99b2eb357"
+   },
+   {
+    "file": "frames/stdC_close_panel_half.png",
+    "sha256": "15750abd1c805ff328dd198a812c28dca1be43bfe71fa8278399f695f09a8afe"
+   },
+   {
+    "file": "annotated/TR-7_10rnd_Burst_Lightened_Suppressor_A_1x.png",
+    "sha256": "9fdf96714c50d61ba1ede6b5c8723660962eda826659455b64d05fd19213852e"
+   },
+   {
+    "file": "annotated/TR-7_10rnd_Burst_Lightened_Suppressor_A_close.png",
+    "sha256": "c551a7a1deed76419f22afdde410b1263c2067edeb0e7a2c9640cbce58301c3b"
+   },
+   {
+    "file": "annotated/TR-7_10rnd_Burst_Lightened_Suppressor_B_1x.png",
+    "sha256": "4a0147c1298f8671b28849ba1a93e31b052dc72fef3751c85f651a086722a57c"
+   },
+   {
+    "file": "annotated/TR-7_10rnd_Burst_Lightened_Suppressor_B_close.png",
+    "sha256": "8e04cdd44e6377a68e60c6563168b7f9cc302c61243dd675c830813f30305419"
+   },
+   {
+    "file": "annotated/TR-7_10rnd_Burst_Standard_Suppressor_A_1x.png",
+    "sha256": "ca5c8c25b9510f120439ae0f331bff7bb56a722f50dba41e84a07e481b025803"
+   },
+   {
+    "file": "annotated/TR-7_10rnd_Burst_Standard_Suppressor_A_close.png",
+    "sha256": "209d895c732e18e8826a81ad1f78c009b7a68955b3a289545dfb952991dc14cd"
+   },
+   {
+    "file": "annotated/TR-7_10rnd_Burst_Standard_Suppressor_B_1x.png",
+    "sha256": "fd5e657297d53289f133057ab10fe8aeee895fab50f57c56daaca83751358f1f"
+   },
+   {
+    "file": "annotated/TR-7_10rnd_Burst_Standard_Suppressor_B_close.png",
+    "sha256": "331d45f2fee06523085a862155c357c83adac22f72683899c45a4eda7b487035"
+   },
+   {
+    "file": "annotated/TR-7_10rnd_Burst_Standard_Suppressor_C_1x.png",
+    "sha256": "5d34a24933fcfa3a7a0b36d66cf1d98b6cc64b5f3ce5344eeb507f260e94eb52"
+   },
+   {
+    "file": "annotated/TR-7_10rnd_Burst_Standard_Suppressor_C_close.png",
+    "sha256": "813391db376fe8c0e2b6fa62be9017cdab88a632a249f8b832fdd1c0d0300eca"
+   },
+   {
+    "file": "annotated/TR-7_15rnd_Burst_Lightened_Suppressor_A_1x.png",
+    "sha256": "264c0bdc73b7a3de802d36532e78ccccf3551f069e3814d6ea27cc13f2ac8fa7"
+   },
+   {
+    "file": "annotated/TR-7_15rnd_Burst_Lightened_Suppressor_A_close.png",
+    "sha256": "9e5a7fbe6d0a8bcd930763c53acef3536295e8bd4d0631f8f92409caadcd5432"
+   },
+   {
+    "file": "annotated/TR-7_15rnd_Burst_Lightened_Suppressor_B_1x.png",
+    "sha256": "85edd08b9a32ded13b8ed7f74a108caf8da22f0948c1971f4a435da61c852b95"
+   },
+   {
+    "file": "annotated/TR-7_15rnd_Burst_Lightened_Suppressor_B_close.png",
+    "sha256": "a71008d9486584093c95fdaa08fe5a374b8556959d439eb8b27905a694c9158d"
+   },
+   {
+    "file": "annotated/TR-7_15rnd_Burst_Lightened_Suppressor_C_1x.png",
+    "sha256": "26c8dd4dfe81f4f9686bdf073c6c281429a6e2db6193032232006240ceef4d30"
+   },
+   {
+    "file": "annotated/TR-7_15rnd_Burst_Lightened_Suppressor_C_close.png",
+    "sha256": "082704509c6c574461308b7b94b42af5696eea47d58e564068b483bedc41c4e8"
+   },
+   {
+    "file": "annotated/TR-7_15rnd_Burst_Standard_Suppressor_A_1x.png",
+    "sha256": "bb4d83376aae8bebdfeb1d485e235255a818ab9f389ffa014a080250688ac226"
+   },
+   {
+    "file": "annotated/TR-7_15rnd_Burst_Standard_Suppressor_A_close.png",
+    "sha256": "2ade4f1ed0b379bcf0741594d9ee4d599535659a52422c2cbeb45ba2c58bdafd"
+   },
+   {
+    "file": "annotated/TR-7_15rnd_Burst_Standard_Suppressor_B_1x.png",
+    "sha256": "1fde8f8bce10140d3aac61b6f4b7bdd9ce0567ac9543aa6c7008b5012f352258"
+   },
+   {
+    "file": "annotated/TR-7_15rnd_Burst_Standard_Suppressor_B_close.png",
+    "sha256": "4f933895f483cd84c76154c9714c20dac533104dce697f287d6b84775d7faa97"
+   },
+   {
+    "file": "annotated/TR-7_15rnd_Burst_Standard_Suppressor_C_1x.png",
+    "sha256": "2df1b9abfc7326dff78417cefc00f64418a482a18bab847ec082cdf52380a71c"
+   },
+   {
+    "file": "annotated/TR-7_15rnd_Burst_Standard_Suppressor_C_close.png",
+    "sha256": "475994d030aa44dcad42b3e05f53193e642a50c38efab8ddf0a3bf386ad9c934"
+   },
+   {
+    "file": "annotated/TR-7_5rnd_Burst_Lightened_Suppressor_A_1x.png",
+    "sha256": "375b9d7f998ad83d89ff0c1bb282b2546ae72026419dd4efd601cdf4aad4e8e1"
+   },
+   {
+    "file": "annotated/TR-7_5rnd_Burst_Lightened_Suppressor_A_close.png",
+    "sha256": "fbfaf3ddfd8f6e74f30ad1aefb0fc05e91537752f1f0b6fd38db5683c7e0c2ab"
+   },
+   {
+    "file": "annotated/TR-7_5rnd_Burst_Lightened_Suppressor_B_1x.png",
+    "sha256": "bd387d67bdff13cb5a7484213f716d33c6469554a49087e31c6ca2f608abbd39"
+   },
+   {
+    "file": "annotated/TR-7_5rnd_Burst_Lightened_Suppressor_B_close.png",
+    "sha256": "64354dbc789468f525fffcebb5bc544cce2042ce0ac644b4fb711d9a16fb94a5"
+   },
+   {
+    "file": "annotated/TR-7_5rnd_Burst_Standard_Suppressor_A_1x.png",
+    "sha256": "6eb4f65fcb3ebc6207fa68012aebb6e1ab6e7a7552a7b1e9e1efa81047380623"
+   },
+   {
+    "file": "annotated/TR-7_5rnd_Burst_Standard_Suppressor_A_close.png",
+    "sha256": "8088ddd128f0fde5acf4b11fdaeeb03ff2477c49290d97d36c7bc5b2ba18412e"
+   },
+   {
+    "file": "annotated/TR-7_5rnd_Burst_Standard_Suppressor_B_1x.png",
+    "sha256": "68bf730c49123608fb9c1f33abc54a6151df31597f9eb1e0034653b5fbdae009"
+   },
+   {
+    "file": "annotated/TR-7_5rnd_Burst_Standard_Suppressor_B_close.png",
+    "sha256": "9f804995e8dde90d80e148f9ef0739a2cb3ad309d029caafef3569bfd3991ddd"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-16",
+  "build": "site-only",
+  "binding": "research",
+  "refs": [
+   "capture-plan"
+  ],
+  "leads": [
+   {
+    "id": "L4046",
+    "title": "TR-7 burst extents re-measured on the 1x screenshots: 15 rounds 8.62 / 7.59 deg, not 11.2 / 9.6; the close-up method counted the panel frame and the weapon as marks; every TR-7 burst now sits on the x0.8 law",
+    "status": "finding",
+    "summary": "Measured directly on the 1x screenshots the TR-7 extents are 8.62 / 7.59 deg at 15 rounds (law 8.67 / 8.03), 6.38 / 6.04 at 10 (6.47 / 6.13) and 3.58 / 2.97 at 5 (3.37 / 3.28), and the 15-round extents sit +0.08 / -0.12 deg from the camera aim at shot 15. The close-ups had attached the panel frame highlight and the weapon to the sprays. Refitted, the applied x0.8 law scores 329.7 on 45 observations and the rate cap no longer helps.",
+    "reopenWhen": "A burst capture on the 72 / 1.2 profile (M433) measured at 1x, or a readable implementation of the recovery law."
+   }
+  ]
+ }
+}

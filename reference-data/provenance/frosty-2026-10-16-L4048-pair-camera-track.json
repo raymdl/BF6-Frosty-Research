@@ -1,0 +1,146 @@
+{
+ "lead": "L4048",
+ "status": "finding",
+ "build": {
+  "current": "2.1.1.0 game client (site data 2.1.1.0)",
+  "note": "Re-analysis of the 14 and 15 October single-shot pair recordings (L4040, L4042, L4043); no new capture, game not launched."
+ },
+ "question": "Which of the candidate mechanisms for the recovery tail (two-pool recovery, a camera spring between the recoil state and the view, a recovery clock not reset by the second shot) does the camera track of the pair videos show, and does the camera at shot 2 agree with the bullet-hole pair separations?",
+ "sourceFacts": {
+  "method": "camera-track-pairs.py: the burst camera-track method of L4045 applied to every pair in the AK-205 (6 bands), LMR27 (3 bands, two days) and TR-7 (5 bands) clips, both suppressors; the 1x layer left of the scope registered to a fixed reference frame before shot 1 (direct track) and to the previous frame (chain cross-check) by gradient cross-correlation with a sub-pixel peak; kick onsets found on the track near the HUD counter frames; curve A pooled after shot 1 per weapon and load, curve B per band after shot 2; predict-pairs.mjs gives the simulator mean trace at 1 ms under the stored law, the x0.8 law, the two-pool variant of L4044 and a no-reset variant; cross-check against pairs6-summary.json of each run. See ANALYSIS.md.",
+  "control": {
+   "description": "356 of 377 pairs pass the quality check (onsets at the HUD gap within 2 frames, correlation to the reference at least 0.3, chain within 0.1 deg of the direct track); the pre-shot baseline is flat to 0.003 deg; the camera at shot 2 reproduces the hole separation on the AK-205 133 ms bands (+0.015 / +0.041) and reaches zero or slightly below on every band from 430 ms, where the hole values are the two-star fit floor.",
+   "passed": true
+  },
+  "points": [
+   "Ringing after every kick: peak on frame 4 after the onset (5 to 7 on the LMR27), a dip 2 to 3 frames later, a second maximum on frame 14 (117 ms) on all six weapon-load combinations; settled after 8 (AK-205), 6 (LMR27) and 10 (TR-7) frames, not ordered by kick size; dip depth 0.22 / 0.41 deg on the AK-205 / TR-7 (0.44 / 0.35 of the kick), 0.09 on the LMR27, halved by the Lightened Suppressor's 50 ms delivery.",
+   "Return after a single shot against the x0.8 law: AK-205 +0.12 deg from 200 to 300 ms (0.23 of the kick), zero at 408 ms (law 289); TR-7 +0.25 to +0.33 from 200 to 330 ms (0.23 to 0.29 of the kick), zero at 458 / 433 ms (law 374 / 347) with an undershoot of -0.04 / -0.05; LMR27 within 0.06 to 300 ms and +0.05 to +0.07 from 330 to 500 ms, zero at 625 ms (Lightened; law 493). The law with its time axis stretched by x1.35 / x1.40 (AK-205), x1.35 / x1.40 (TR-7) and x1.10 / x1.05 (LMR27) fits the camera from 167 to 400 ms to an rms of 0.002 / 0.005, 0.024 / 0.036 and 0.036 / 0.034 deg (plain law 0.096, 0.233, 0.052).",
+   "Descent rate from 200 to 330 ms: 1.3 to 1.8 deg/s on the AK-205 and 3.2 to 3.9 deg/s on the TR-7, near-constant while the displacement falls by a factor 2.5 to 3, where the law decelerates from the same rate to zero; the same signature as the 28 to 31 deg/s descent after the 15-round bursts (L4045), scaled to the starting displacement, so not a fixed rate cap.",
+   "Clock test: the return after shot 2 minus the return after shot 1 at the same elapsed time matches the reset law within 0.03 deg (AK-205), 0.04 (LMR27) and 0.1 (TR-7) on all 36 bands; the no-reset variant is 0.1 to 0.6 deg off at 100 to 267 ms after shot 2.",
+   "Camera at shot 2 minus the hole separation: AK-205 +0.041 / +0.015 at 133 ms, +0.080 / +0.104 at 167, +0.065 / +0.075 at 233, +0.029 / +0.048 at 292 to 296, -0.009 / -0.021 at 333 ms; LMR27 +0.098 / +0.122 at 233 ms (15 Oct), +0.077 / +0.022 at 342 to 350 ms (14 Oct +0.096 / -0.003); TR-7 +0.292 / +0.362 at 267 ms, +0.137 / +0.126 at 350 ms (Standard / Lightened, degrees; standard errors 0.017 to 0.04). From 430 ms the camera is at -0.03 to +0.01 on every band. The camera shows the Lightened Suppressor advantage on the LMR27 at 300 to 400 ms (0.06 to 0.07 deg, law 0.05 to 0.06) that the holes lack."
+  ]
+ },
+ "inference": [
+  "The recovery clock is reset by every shot, as the site law assumes. The pair tail at 290 to 350 ms is real in the camera, and on the AK-205 and the LMR27 Lightened the camera and the holes agree there, so the tail is in the aim the bullets follow; it is the end of a descent that runs at a near-constant rate instead of decelerating, which is the same thing the 15-round bursts showed at 30 deg/s, scaled to the displacement. A two-pool recovery in its fitted form (10% of the kick at 2/s) does not match: the camera excess over the law is 2 to 5 times larger at 230 to 330 ms, is not a fixed fraction of the kick across weapons (0.23 to 0.29 on the AK-205 and TR-7, 0.06 to 0.08 on the LMR27), has no bend and vanishes with an undershoot by 400 to 460 ms. A camera layer between the recoil state and the view exists: every kick rings with a fixed period for 7 to 10 frames, and from 167 to 350 ms the camera sits 4 to 8 standard errors above the holes on the AK-205, LMR27 Standard and TR-7 by an amount that grows with the kick and fades by 330 to 430 ms, so the bullets do not follow the camera in full. The pair data cannot separate a stretched aim plus a small camera offset from a law aim plus a large camera offset on the TR-7; the AK-205 tail and the LMR27 Lightened tail are the places where the two coincide."
+ ],
+ "unresolved": [
+  "What the slow kick-proportional camera offset is (a second mode of the camera spring, or the aim itself with the holes under-reading); the LMR27 Standard holes at 333 to 433 ms, which sit 0.07 to 0.10 below the camera while the Lightened holes sit on it; the 0.03 to 0.05 deg undershoot after the return on the TR-7."
+ ],
+ "siteImpact": "None applied; the x0.8 scale and the per-shot clock reset stand. A time-stretched recovery (x1.35 to 1.40 on the 48 / 0.905 and 104 / 1.459 profiles, x1.05 to 1.10 on 13.7 / 0.556) would describe the camera but is not shown to be the aim the bullets follow; no change is proposed from this lead.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-16-pair-camera-track",
+  "artifacts": [
+   {
+    "file": "ANALYSIS.md",
+    "sha256": "ca35f94a3b2be2251f26c89ae7d695d1f79b35a8f93fe5539290df31b7e79da7"
+   },
+   {
+    "file": "camera-track-pairs.py",
+    "sha256": "6ef7ecd791ca5145fdd41f26cdc33aa819b406da46f757e2ce9ada5d2e757463"
+   },
+   {
+    "file": "analyze-pairs.py",
+    "sha256": "02caeab200ed3281973ea165ba30d4a4b8596a0a621c6598ba725cda843f16ba"
+   },
+   {
+    "file": "analysis.json",
+    "sha256": "090c09be2fec3538b089bf9bc457d0cbd4bff926b0f7b20768c7c2a3ecaae224"
+   },
+   {
+    "file": "curves.md",
+    "sha256": "7e4ceba14de30b4459af39354816e9507e324464c8a5970cc407a0e3a665ef69"
+   },
+   {
+    "file": "metrics.py",
+    "sha256": "5b1c07905844ec852d49ad3f7af9f5f88c3c2e69bbbfd3dac1b49e42635401ef"
+   },
+   {
+    "file": "metrics.json",
+    "sha256": "3d37f430c5916c96530ab1463d1daa66e6fd1ed7fc60579f3dab7d8bb8b0faa3"
+   },
+   {
+    "file": "metrics.md",
+    "sha256": "1556d024787b069c55bab8938434ac01da3c88f1684019d7e5399ebcaddb67b5"
+   },
+   {
+    "file": "predict-pairs.mjs",
+    "sha256": "800569d3bde39c425b6a9ab5879231042087254905b32923b3f23b9cba6ed7cd"
+   },
+   {
+    "file": "variant-sim2.mjs",
+    "sha256": "0b2d60fea6f914f2c691b41c788868da39caef9757fe00ace94e734426472936"
+   },
+   {
+    "file": "predict-pairs.json",
+    "sha256": "c978800902acb008e0d53b40808621cf7537c77255cb48bfbd63bff0ff9c71a7"
+   },
+   {
+    "file": "predict-pairs.log",
+    "sha256": "aab318e1e152d4706874b24f92bc57ce54e038a89ceeea6c61bb798ac5c0c562"
+   },
+   {
+    "file": "write-analysis.py",
+    "sha256": "c9b7b19a3ddbf4f71d14b9c3c876ce7c315608af2276e77cfc66245e6de67a64"
+   },
+   {
+    "file": "camera-track-ak205-standard.json",
+    "sha256": "6ea6cdb022bde198de5f3678843cd0cbe31a76378b43e35ec31720e8b358954a"
+   },
+   {
+    "file": "camera-track-ak205-lightened.json",
+    "sha256": "b2f4d5b5eb007719df7d483b6e35d3ebec57e5990a687f55c69132f8ccc41a9e"
+   },
+   {
+    "file": "camera-track-lmr27-14oct.json",
+    "sha256": "aea6cf8d507015e0db93284c7df890d95362bcb5a4dfa88ab5a4110885eb45af"
+   },
+   {
+    "file": "camera-track-lmr27-15oct.json",
+    "sha256": "5b2e80b9fb972eabc517f4aae78f870ffbbb5c7ff24aa679e253e0ed4bdd6036"
+   },
+   {
+    "file": "camera-track-tr7-15oct.json",
+    "sha256": "63ec881f0aefe39e96efb67473e83b562acdcb970cbb24958d7538d262d6b6f7"
+   },
+   {
+    "file": "track-ak205-standard.log",
+    "sha256": "0caf4d3e15d63e869432fee8d1b69ff09f56bacc9f77cb9a78b8e60116d75e78"
+   },
+   {
+    "file": "track-ak205-lightened.log",
+    "sha256": "188947c07d1356f18ebc32f0a3c054708e1ae3b4b76d23a4b9de10098a84cc81"
+   },
+   {
+    "file": "track-lmr27-14oct.log",
+    "sha256": "586a31df8dc3699901c5e697f4fd06aa0fe4766c682cf2145872f76f8b81c0bb"
+   },
+   {
+    "file": "track-lmr27-15oct.log",
+    "sha256": "90097ec906f7f09b9b60e61bc4be656e37a5019351104d2d259c119666d810e2"
+   },
+   {
+    "file": "track-tr7-15oct.log",
+    "sha256": "116cbb4da137b666effc735c7ab05b70105a12329035d9a83f35f0a4d351ed99"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-16",
+  "build": "site-only",
+  "binding": "research",
+  "refs": [
+   "capture-plan"
+  ],
+  "leads": [
+   {
+    "id": "L4048",
+    "title": "Camera track of the single-shot pair videos: the recovery clock resets per shot, the camera rings for 7 to 10 frames after every kick and then follows the x0.8 law stretched in time (x1.35 to 1.40 on the AK-205 and TR-7, x1.05 to 1.10 on the LMR27), sitting above the hole separations by a kick-proportional amount that fades by 350 ms",
+    "status": "finding",
+    "summary": "356 of 377 pairs tracked at 120 fps. The return after shot 2 equals the return after shot 1 plus the residual it started from (no-reset excluded on all 36 bands). After a single shot the camera is above the x0.8 law by +0.12 (AK-205) and +0.25 to +0.33 deg (TR-7) from 200 to 330 ms, within 0.06 on the LMR27, and reaches zero at 408 to 458 ms with a 0.04 undershoot on the TR-7; a two-pool slow pool does not fit (no bend, not a fixed fraction, vanishes by 450 ms). At shot 2 the camera is 0.07 to 0.36 deg above the holes at 167 to 300 ms (4 to 8 standard errors, growing with the kick) and equals them at 333 to 350 ms on the AK-205 and LMR27 Lightened. Descent rate 1.3 to 1.8 deg/s (AK-205) and 3.2 to 3.9 (TR-7), near-constant, the burst signature scaled down.",
+    "reopenWhen": "A capture that places the bullets against the camera on one shot (impact position per shot on a wall with a reference grid), or a readable implementation of the recovery and camera layers."
+   }
+  ]
+ }
+}

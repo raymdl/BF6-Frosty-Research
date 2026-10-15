@@ -1,0 +1,142 @@
+{
+ "lead": "L4049",
+ "status": "finding",
+ "build": {
+  "current": "2.1.1.0 game client (site data 2.1.1.0)",
+  "note": "Offline fit of the 14 to 16 October bullet-hole observations (L4040 to L4047) and the L4048 pair camera curves; no new capture, game not launched."
+ },
+ "question": "Does a recovery law whose time term stops accelerating in the tail (a saturating time term, a lower time exponent with a compensating factor, or a descent that holds its early rate) fit the bullet-hole captures better than the applied x0.8 law, does it reproduce the stretched camera descent of L4048 on all three weapons with one set of constants, and is it worth proposing for the site?",
+ "sourceFacts": {
+  "method": "variant-sim3.mjs (copy of the L4044 simulator with softCap, holdRate and a compensated exponent scaling added) and fit-stretch.mjs (the L4044 fit-shape.mjs scoring with C refitted per setting by golden-section search at 200 seeds, final scores at 500 seeds, chi-square per weapon) against the 56 observations of the L4047 set (38 pair bands, 8 floor-bounded, 18 burst extents; AK-205, LMR27, TR-7, M433). camera-traces.mjs and camera-compare.py compare the single-shot mean aim trace with the pooled camera return after shot 1 of L4048 from 150 ms to the zero crossing (rms with nothing free, with a free offset, and the time stretch that best fits with no offset), with a C scan per family. climb-tables.mjs gives the site climb the best hole settings would produce. See ANALYSIS.md.",
+  "control": {
+   "description": "The reference settings reproduce L4047 exactly at 500 seeds: applied x0.8 359.2, two-pool 241.8, stored law 1099.5; the free-C fit of the current law lands at C = 0.808 (358.9), on the applied scale; the camera comparison reproduces the L4048 stretch of the applied law (x1.35 / 1.38 / 1.11 / 1.08 / 1.33 / 1.38 on the AK-205 S / L, LMR27 S / L, TR-7 S / L).",
+   "passed": true
+  },
+  "points": [
+   "Holes, time-term variants at their fitted C (chi2 on 56 observations; per weapon AK-205 / LMR27 / TR-7 / M433; applied x0.8 359.2, 92.9 / 56.9 / 179.9 / 29.5): hard cap min(t, T0) best at T0 = 0.19 to 0.2 s, C 0.82 to 0.83, 294.9 (98.8 / 33.9 / 136.6 / 25.6), better on the LMR27 and TR-7, worse on the AK-205; soft cap T0 (1 - exp(-t / T0)) worse at every T0 (best 367.9 at T0 = 0.4 s, C = 0.9); lower exponent with one global C 438 (x0.9) to 5124 (x0.5), with the factor compensated per weapon at 0.1 s 341.3 (x0.9) rising to 1470.2 (x0.5); held rate from Th = 0.03 to 0.15 s best 698.9 (Th = 0.15, C = 0.77), 870 at 0.1 s: the LMR27 342 to 350 ms bands fall to 0.01 to 0.12 deg against 0.18 to 0.19 observed. Two-pool reference 241.8.",
+   "Holes, offset: the current law with RecoilDecreaseOffset 0 and C = 0.865 scores 270.6 (51.3 / 47.1 / 147.4 / 24.9), below the applied law on every weapon; with a 0.22 s hard cap on top 245.2 (C = 0.875; 55.8 / 52.2 / 109.8 / 27.4), level with the two-pool. The offset is a source operand (0.06 on every weapon measured) and the change was not the question of this lead. C fitted per weapon for the current law: 0.78 to 0.87 (sum 341 against 359 with one C). The camera-preferred scale C = 0.45 scores 5959.4 on the holes.",
+   "Camera (pooled single-shot return of L4048 from 150 ms, time stretch left at the hole-fitted C, AK-205 S / L, LMR27 S / L, TR-7 S / L): applied x0.8 1.35 / 1.38 / 1.11 / 1.08 / 1.33 / 1.38; hard cap T0 = 0.2 1.36 / 1.39 / 1.07 / 1.06 / 1.30 / 1.38; soft cap T0 = 0.3 1.32 / 1.35 / 1.11 / 1.09 / 1.19 / 1.26; exponent x0.9 1.30 / 1.33 / 1.00 / 0.98 / 1.33 / 1.40; held rate Th = 0.15 1.38 / 1.39 / 1.17 / 1.16 / 1.29 / 1.37. No setting within 100 of the applied law on the holes brings the AK-205 or TR-7 below x1.25. With a free offset the rms from 150 ms to the zero crossing is 0.043 to 0.066 deg for every setting (applied 0.060).",
+   "Camera, C the camera itself prefers: plain law C = 0.45 over all six curves (rms 0.065; AK-205 Standard rms 0.005 at stretch x1.00, TR-7 Standard 0.044 at x1.05) but the LMR27 wants C = 0.7 (x0.77 at 0.45); in every family the LMR27's best C is 0.7 to 0.9 against 0.3 to 0.5 for the AK-205 and TR-7, and at the all-six best C the LMR27 is at x0.73 to 0.97 where the AK-205 is at x0.99 to 1.18. A time stretch s of the production law equals a factor scale 1 / s^(p + 1): x1.35 is C 0.8 to 0.45 (AK-205, p 0.905) and 0.38 (TR-7, p 1.459); x1.05 to 1.10 is 0.8 to 0.65 to 0.71 (LMR27, p 0.556).",
+   "Site climb the best hole settings would give (mean pre-shot aim before shot 15, site default loadout, degrees; applied x0.8 / hard cap 0.22 s offset 0 C 0.875 / two-pool): AK-205 2.34 / 2.21 / 2.36; LMR27 2.42 / 2.25 / 2.47; TR-7 8.32 / 8.00 / 7.99; M433 5.40 / 5.20 / 5.25. For the record only."
+  ]
+ },
+ "inference": [
+  "The applied x0.8 law stands. No recovery law whose time term stops accelerating beats it on every weapon on both the holes and the camera: the hard cap at 0.2 s improves the hole fit on the LMR27 and TR-7 but not the AK-205 and stays 50 above the two-pool; the soft cap, the lower exponent and the held rate are worse than the applied law on the holes, the held rate (which is the camera's descent shape) by a factor 2. The camera's stretched descent is a weapon-dependent factor scale (0.45 on the AK-205 and TR-7, 0.7 on the LMR27) that no one-constant family produces and that the holes exclude outright; the LMR27's smaller stretch is not a consequence of its slower profile under any of these forms. This is the L4048 reading from the other side: the bullets follow the decelerating law at x0.8 and the camera layer sits above them by a kick-proportional amount; the holes remain the measure of aim. The only hole-only improvement found is RecoilDecreaseOffset 0 with C about 0.87 (271, or 245 with a 0.2 s cap), a change to a source operand that this lead did not set out to test and does not propose."
+ ],
+ "unresolved": [
+  "Whether RecoilDecreaseOffset 0.06 acts as the site applies it (the offset-0 fit is better on every weapon but overrides a source operand and does not touch the camera stretch); the kick-proportional camera layer of L4048 remains unexplained; a capture placing the bullets against the camera on one shot would still separate a stretched aim from a camera offset."
+ ],
+ "siteImpact": "None applied, none proposed; the x0.8 scale, the stored time exponent and offset and the per-shot clock reset stand.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-17-stretched-time-fit",
+  "artifacts": [
+   {
+    "file": "ANALYSIS.md",
+    "sha256": "071c6914ced061fd4eb3c5312debdc0259b68ff41cc3e4c55fa3bc4f3844e34f"
+   },
+   {
+    "file": "variant-sim3.mjs",
+    "sha256": "b44498748437f9ae4f1de7c29f009f1be1dcf3e084fa6becfee71d6ec97c07d2"
+   },
+   {
+    "file": "fit-stretch.mjs",
+    "sha256": "b9361b68e57314c73f70e68d001a47126afec09f5d6e8abc19134d1be9bcafe2"
+   },
+   {
+    "file": "fit-spec-all.json",
+    "sha256": "e83fd0de0269c0916252de8a5fa4f57cb982005cc7f5df580bf0028db73bc993"
+   },
+   {
+    "file": "fit-stretch.json",
+    "sha256": "d2dcd8f47f79ff7d84b7608dd28a450ce204321930457ca3ca143eb622d4f40b"
+   },
+   {
+    "file": "fit-stretch.log",
+    "sha256": "53f8e473d4b67b8874e89ac78f2b5fb29e3d04e330bc88ac3b0f6648ef6072bb"
+   },
+   {
+    "file": "fit-stretch-sweep2.json",
+    "sha256": "ec3f43a593e31570e7850221e9ae62d85dd33ef09e029f8a31e669ebc0e624bb"
+   },
+   {
+    "file": "fit-stretch-sweep2.log",
+    "sha256": "d8a73ab13a45e49fcf5263bc17ef05809aa35869be50de4318ddc82563284176"
+   },
+   {
+    "file": "fit-stretch-perweapon.json",
+    "sha256": "53e8c3993c44ebb34db52a995bbc7d6e9ef823a1c0fe108203e0788eeae442ff"
+   },
+   {
+    "file": "fit-stretch-perweapon.log",
+    "sha256": "e42a588c6837707c07b6d4bf7127a4239b1dd4c3febb727178e73ddbd4437084"
+   },
+   {
+    "file": "fit-stretch-extra.json",
+    "sha256": "1016386cc38d7448e080c029d8f960ea8f3504429df94fff36035ec546abdbe1"
+   },
+   {
+    "file": "camera-traces.mjs",
+    "sha256": "3b04a7b5768f939d2fa55b9d0bf4d455171ef650f54b209b0b509ad619bff304"
+   },
+   {
+    "file": "camera-traces.json",
+    "sha256": "9f7b916a6408fa040485dbf4441b47e3f55e694af2f3035cf2a7011f01feb642"
+   },
+   {
+    "file": "camera-traces-sweep2.json",
+    "sha256": "f936f7dd65f4a5f6a4c12ff78f6af5c52e82ddfc44447618ba9c06516e96b00a"
+   },
+   {
+    "file": "camera-compare.py",
+    "sha256": "ebde1e78809179c8fb986063b34d41022e84e45d1ebf8bf129ea24808c09b3c4"
+   },
+   {
+    "file": "camera-compare.json",
+    "sha256": "d38092688e7082ca6c3aaa036405b7a3c56a945e6167af2c28adcc2194cec648"
+   },
+   {
+    "file": "camera-compare.md",
+    "sha256": "b6b67e5d4425f739e537ff643feba5dfe51186efb7017b3d23e03802c02d7b8a"
+   },
+   {
+    "file": "camera-compare-sweep2.json",
+    "sha256": "3d9b5512dc2f5c3dd51968b67da283df200f2349b5fb4bd80bbae2d2d114a17a"
+   },
+   {
+    "file": "camera-compare-sweep2.md",
+    "sha256": "21bc4989eab35e57a3e3f10148747d93e1dca70cb4c4e6f89dc626b336c3d3cb"
+   },
+   {
+    "file": "climb-tables.mjs",
+    "sha256": "f074e64caa0995a28cbbe7edc9f22de32dea3595dba688d46d115958965a80c7"
+   },
+   {
+    "file": "climb-tables.json",
+    "sha256": "6434e72d0749dbf16acce4c0f864825b75f4d2a595c48ab712971ee74a40a446"
+   },
+   {
+    "file": "write-analysis.py",
+    "sha256": "cf5fbd7df5805720197406139043f5fc7487f0682e34584b4d8bd68eac228f9a"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-17",
+  "build": "site-only",
+  "binding": "research",
+  "refs": [
+   "capture-plan"
+  ],
+  "leads": [
+   {
+    "id": "L4049",
+    "title": "Recovery law with a time term that stops accelerating (saturating time term, lower exponent, held rate) fitted to the 56 bullet-hole observations and the L4048 camera curves: none beats the applied x0.8 law on every weapon on both; the camera stretch is a weapon-dependent factor scale the holes exclude",
+    "status": "finding",
+    "summary": "Hard cap min(t, 0.2 s) 294.9 against applied 359.2 (two-pool 241.8) but worse on the AK-205 and no camera gain; soft cap, lower exponent (global or compensated C) and held rate worse than the applied law on the holes (367.9, 341.3, 698.9); every setting within 100 of the applied law leaves the AK-205 and TR-7 camera stretched x1.25 to 1.39; the camera's own scale (C 0.45 on the AK-205 and TR-7, 0.7 on the LMR27) scores 5959.4 on the holes. Offset 0 with C 0.87 scores 270.6 (245 with a cap), a source-operand change not proposed. The x0.8 law stands.",
+    "reopenWhen": "A capture that places the bullets against the camera on one shot, or a readable implementation of the recovery law (offset, time term) and the camera layer."
+   }
+  ]
+ }
+}

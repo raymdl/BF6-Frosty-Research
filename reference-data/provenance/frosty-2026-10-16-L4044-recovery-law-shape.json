@@ -1,0 +1,227 @@
+{
+ "lead": "L4044",
+ "status": "finding",
+ "build": {
+  "current": "2.1.1.0 game client (site data 2.1.1.0)",
+  "note": "Offline modelling on the 14 and 15 October captures (L4040 to L4043) and read-only decoding of 2.1.1.0 GS assets; no new capture, game not launched."
+ },
+ "question": "Does a structural change to the recovery law (two-term recovery, a cap on recovery rate, a cap on the time term) reproduce the three 15 October symptoms (the 290 to 350 ms tail, the missing Lightened advantage in the LMR27 tail, the 15-round TR-7 excess)? Where in a 15-round TR-7 burst do game and model diverge? Do the unread recoil fields separate the steep-profile weapons from the AK-205?",
+ "sourceFacts": {
+  "method": "variant-sim2.mjs (copy of the 14 October integrator with twoRate, twoPool, rateCap and timeCap variants; identical to variant-sim.mjs on the base variants) fitted with fit-shape.mjs (same 46 observations, 500 seeds and scoring as fit-tail3.mjs; the TR-7 200 ms Standard band is now actually excluded, see ANALYSIS.md). Per-shot climb from a re-detection of the stars in the six 15-round close-up screenshots with the bursts1x.py detector. Fields from frosty-ebx-decode.py on the 2.1.1.0 GS assets (the Z84M from the season-5 uncaptured-routes report) cross-checked against the 1.4.3.0 raw audit.",
+  "control": {
+   "description": "variant-sim2 equals variant-sim to 0 on 3 weapons x 3 base settings x 2 seeds x 15 shots; the re-detected panel boxes equal bursts1x.json; every 2.1.1.0 field value read equals the 1.4.3.0 raw audit value for the eight weapons both cover.",
+   "passed": true
+  },
+  "points": [
+   "Fits over 45 usable observations: applied x0.8 476.7, best of the 15 October family 432.5; two-rate (rate sum, no offset) 446.4 at best; two-pool (10% of each kick into a slow pool at 2/s) 410.4; time cap 0.2 s 420.5; recovery-rate cap 8 deg/s with x0.8 and offset 0.03 347.5 (bursts 97.6 against 182.6); best combination timeCap Tcap=0.2 C=0.8 offset=0.06 + Rmax=8 329.8.",
+   "No variant reproduces all three symptoms. The 290 to 350 ms tail (observed 0.105 deg mean over three bands) is at most 0.1 deg in any variant under chi2 500; the LMR27 Lightened band at 340 to 350 ms stays below the Standard in every variant (best 0.163 against 0.225, observed 0.185 and 0.189); the rate cap lifts the 15-round TR-7 Standard from 8.673 to 9.522 deg (observed 11.19) but pushes the 10-round from 6.474 to 6.662 (observed 6.02).",
+   "Per-shot climb: the six 15-round close-ups resolve 7 to 14 marks per spray (none all 15). The fraction of marks in the lower half of a spray is 0.591 (Standard, 4 sprays) and 0.674 (Lightened, 7) against 0.406 / 0.391 for the x0.8 law with spread, 0.45 for the rate cap and 0.53 for a linear climb: the game climbs less than the law over the first half of the burst and more over the second; the law is concave where the game is convex.",
+   "Unread fields (2.1.1.0, ADS): VerticalRecoilIncrease 0 on all nine except the LMR27 (0.6); VerticalRecoilMin/Max 0.578/0.578 on all six steep-profile weapons, 0.42/0.42 AK-205, 0.6/0 LMR27, 0/0 M433; MaxVerticalRecoil 20; FirstShotMultiplierVerticalRecoil 1; RecoilPatternMultiplierPitch/Yaw 0 and seed 0; HorizontalRecoilLeft/Right 0.3/-0.6 on the steep profile, 0.2/-0.3 AK-205 and M433, 0.2/-0.2 LMR27; CameraRecoil springs 1500/1500, damping 0.94/0.5, exponent 30/50, UseTimeSinceLastShot true on all nine. The Smooth modifier (GRM_SmoothRecoil_P10) carries RecoilDecreaseFactor x1.2 and RecoilDuration override 0.05 in both aim states and nothing else."
+  ]
+ },
+ "inference": [
+  "The misfit is not in the shape of the recovery term alone: no single- or two-term recovery, rate cap or time cap reproduces the tail, the Lightened tail and the TR-7 late climb together, and the burst evidence now says the game's climb accelerates through a 15-round burst, which no recovery-only law can produce (recovery can only slow the climb as recoil accumulates). The missing piece acts on the kick or on recovery as a function of accumulated recoil, and the unread GS fields offer no per-weapon operand that would single out the steep profile: the only values that differ are VerticalRecoilMin/Max (0.578 against 0.42) and the horizontal bounds."
+ ],
+ "unresolved": [
+  "Per-shot impact positions from the burst videos (the close-ups merge early marks); whether VerticalRecoilMin/Max or MaxVerticalRecoil enter the live climb; the native composition of the Smooth multiply with a tail."
+ ],
+ "siteImpact": "None applied; the x0.8 scale stands. A recovery-rate cap near 8 deg/s would improve the 15-round TR-7 fit but worsen the 10-round one and has no mechanism; not proposed.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-16-recovery-law-shape",
+  "artifacts": [
+   {
+    "file": "ANALYSIS.md",
+    "sha256": "ca5fa0db4e758173aa4287e03ca3c6b0c31d39d6768edb20df6ec4c37b993a9f"
+   },
+   {
+    "file": "variant-sim2.mjs",
+    "sha256": "0b2d60fea6f914f2c691b41c788868da39caef9757fe00ace94e734426472936"
+   },
+   {
+    "file": "fit-shape.mjs",
+    "sha256": "45e135539b6eb17c4d64f63b0faff99626146ee0600d05a0d7a9d61b0b5fd51c"
+   },
+   {
+    "file": "fit-spec-all.json",
+    "sha256": "f3e77c459a1516a9be7e97563a563042f81cb43b7074e8fc3083834076f57c77"
+   },
+   {
+    "file": "fit-shape.json",
+    "sha256": "43249370de417c3cd9d099881a26bb46158ce3bbae3074c48643aa9492122c55"
+   },
+   {
+    "file": "fit-shape.log",
+    "sha256": "63a14af56e786b8ebf85a592ec566091e55971fae572db71ac039f19ef497f39"
+   },
+   {
+    "file": "predict-climb.mjs",
+    "sha256": "f23609dfbb552cbd27ace49daacb9bbd1dfaae949dc687c0fecde46a2e4a7b29"
+   },
+   {
+    "file": "predict-climb-tr7-15.json",
+    "sha256": "a77c12b8dbf965a3f109c680377de45f4ce211e569851e6b4c5b722d0818a5ef"
+   },
+   {
+    "file": "climb-stars.py",
+    "sha256": "70899bd5d977bfbd6a9d19b464e102bf90bac4a26723970402c9f4eeee5dca45"
+   },
+   {
+    "file": "climb-stars.json",
+    "sha256": "f706e68b911cf8254bbf7e3f94ebb9e35ec0bd880629a463d94aa85594b76d37"
+   },
+   {
+    "file": "climb-stars.md",
+    "sha256": "0209c0af63e78a8e3b27b15204cf911cb370f33392024b05d15a507f365e4c0f"
+   },
+   {
+    "file": "recoil-fields.py",
+    "sha256": "a95b3a7c6c52b2e23b75bc8b54d9a7d3395c0591b70eb7d478ececee820d38a6"
+   },
+   {
+    "file": "recoil-fields.json",
+    "sha256": "be0143cd80c2de0934d1de8c2ed84498b3cdec5a35fa66ebfd89513d986b2959"
+   },
+   {
+    "file": "recoil-fields.md",
+    "sha256": "11b76b52a98f52d4ede63f94f6a54eb43e44c970e760f8450a90a0050c015e1f"
+   },
+   {
+    "file": "decoded-2110/decoded.json",
+    "sha256": "5c88e049a0c67a1e573c671be8acb807c35e8cec54c6fea1269a47aeb830c410"
+   },
+   {
+    "file": "decoded-2110/decoded-pkm.json",
+    "sha256": "f369660f7e865da52ddbb900d3c5efa083380744020ec502c682d7748e46accb"
+   },
+   {
+    "file": "decoded-2110/ebx-list.txt",
+    "sha256": "781a0c07c356d86309148c056d4e90656104b713050f9f80fdef348cfca8fd1a"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-16",
+  "build": "site-only",
+  "binding": "research",
+  "refs": [
+   "capture-plan"
+  ],
+  "assets": [
+   {
+    "path": "Common/Hardware/Weapons/AssaultRifle/G3A4/GS_G3A4",
+    "format": "raw-ebx",
+    "sha256": "537f3e565144597b88e1d72890cba11fd5440ffe85f43b1ff032887f1ddebd9e",
+    "question": "Recoil fields the site does not read (VerticalRecoil*, MaxVerticalRecoil, FirstShotMultiplier, RecoilPattern*, CameraRecoil.Spring*, UseTimeSinceLastShot) or, for the Smooth modifiers, their recoil operands",
+    "result": "useful",
+    "conclusion": "AK4D (2.1.1.0, ADS = hip): factor 104, time exponent 1.459, VerticalRecoilIncrease 0, VerticalRecoilMin/Max 0.578/0.578, MaxVerticalRecoil 20, FirstShotMultiplierVerticalRecoil 1, RecoilPatternMultiplierPitch/Yaw 0/0, seed 0, HorizontalRecoilLeft/Right 0.3/-0.6, CameraRecoil SpringConstant 1500/1500, damping 0.94/0.5, exponent 30/50, UseTimeSinceLastShot True."
+   },
+   {
+    "path": "Common/Hardware/Weapons/AssaultRifle/HK433/GS_HK433",
+    "format": "raw-ebx",
+    "sha256": "61b8c5791b177e0b2becff5cdb00c8c9a6649515ff41a6fc1572ff7efadb7dda",
+    "question": "Recoil fields the site does not read (VerticalRecoil*, MaxVerticalRecoil, FirstShotMultiplier, RecoilPattern*, CameraRecoil.Spring*, UseTimeSinceLastShot) or, for the Smooth modifiers, their recoil operands",
+    "result": "useful",
+    "conclusion": "M433 (2.1.1.0, ADS = hip): factor 72, time exponent 1.2, VerticalRecoilIncrease 0, VerticalRecoilMin/Max 0/0, MaxVerticalRecoil 20, FirstShotMultiplierVerticalRecoil 1, RecoilPatternMultiplierPitch/Yaw 0/0, seed 0, HorizontalRecoilLeft/Right 0.2/-0.3, CameraRecoil SpringConstant 1500/1500, damping 0.94/0.5, exponent 30/50, UseTimeSinceLastShot True."
+   },
+   {
+    "path": "Common/Hardware/Weapons/AssaultRifle/Tavor7/GS_Tavor7",
+    "format": "raw-ebx",
+    "sha256": "eebd591470a02a4c119bb72d46df347c6a2c188f1d9f6e30dcdf3597c4259241",
+    "question": "Recoil fields the site does not read (VerticalRecoil*, MaxVerticalRecoil, FirstShotMultiplier, RecoilPattern*, CameraRecoil.Spring*, UseTimeSinceLastShot) or, for the Smooth modifiers, their recoil operands",
+    "result": "useful",
+    "conclusion": "TR-7 (2.1.1.0, ADS = hip): factor 104, time exponent 1.459, VerticalRecoilIncrease 0, VerticalRecoilMin/Max 0.578/0.578, MaxVerticalRecoil 20, FirstShotMultiplierVerticalRecoil 1, RecoilPatternMultiplierPitch/Yaw 0/0, seed 0, HorizontalRecoilLeft/Right 0.3/-0.6, CameraRecoil SpringConstant 1500/1500, damping 0.94/0.5, exponent 30/50, UseTimeSinceLastShot True."
+   },
+   {
+    "path": "Common/Hardware/Weapons/Carbine/AK205/GS_AK205",
+    "format": "raw-ebx",
+    "sha256": "1400cdcf4c9c6324933070cc37ec9a4fb34b8f2463fed1ab019322255690ae57",
+    "question": "Recoil fields the site does not read (VerticalRecoil*, MaxVerticalRecoil, FirstShotMultiplier, RecoilPattern*, CameraRecoil.Spring*, UseTimeSinceLastShot) or, for the Smooth modifiers, their recoil operands",
+    "result": "useful",
+    "conclusion": "AK-205 (2.1.1.0, ADS = hip): factor 48, time exponent 0.905, VerticalRecoilIncrease 0, VerticalRecoilMin/Max 0.42/0.42, MaxVerticalRecoil 20, FirstShotMultiplierVerticalRecoil 1, RecoilPatternMultiplierPitch/Yaw 0/0, seed 0, HorizontalRecoilLeft/Right 0.2/-0.3, CameraRecoil SpringConstant 1500/1500, damping 0.94/0.5, exponent 30/50, UseTimeSinceLastShot True."
+   },
+   {
+    "path": "Common/Hardware/Weapons/DMR/ARADMR/GS_ARADMR",
+    "format": "raw-ebx",
+    "sha256": "2bca70883ad778a668a30db2f90f65593d9b759733c123742304fdc532ff9931",
+    "question": "Recoil fields the site does not read (VerticalRecoil*, MaxVerticalRecoil, FirstShotMultiplier, RecoilPattern*, CameraRecoil.Spring*, UseTimeSinceLastShot) or, for the Smooth modifiers, their recoil operands",
+    "result": "useful",
+    "conclusion": "LMR27 (2.1.1.0, ADS = hip): factor 13.7, time exponent 0.5555, VerticalRecoilIncrease 0.6, VerticalRecoilMin/Max 0.6/0, MaxVerticalRecoil 20, FirstShotMultiplierVerticalRecoil 1, RecoilPatternMultiplierPitch/Yaw 0/0, seed 0, HorizontalRecoilLeft/Right 0.2/-0.2, CameraRecoil SpringConstant 1500/1500, damping 0.94/0.5, exponent 30/50, UseTimeSinceLastShot True."
+   },
+   {
+    "path": "Common/Hardware/Weapons/MG/M240L/GS_M240L",
+    "format": "raw-ebx",
+    "sha256": "540c8720f0bfc5df712649c43b9d2a0f1e861b7853926510c8b01802fa6d53c5",
+    "question": "Recoil fields the site does not read (VerticalRecoil*, MaxVerticalRecoil, FirstShotMultiplier, RecoilPattern*, CameraRecoil.Spring*, UseTimeSinceLastShot) or, for the Smooth modifiers, their recoil operands",
+    "result": "useful",
+    "conclusion": "M240L (2.1.1.0, ADS = hip): factor 104, time exponent 1.459, VerticalRecoilIncrease 0, VerticalRecoilMin/Max 0.578/0.578, MaxVerticalRecoil 20, FirstShotMultiplierVerticalRecoil 1, RecoilPatternMultiplierPitch/Yaw 0/0, seed 0, HorizontalRecoilLeft/Right 0.3/-0.6, CameraRecoil SpringConstant 1500/1500, damping 0.94/0.5, exponent 30/50, UseTimeSinceLastShot True."
+   },
+   {
+    "path": "Common/Hardware/Weapons/MG/M60E6/GS_M60E6",
+    "format": "raw-ebx",
+    "sha256": "79fd50bf19a7b072fe312f0e6aafe79f90c66bbe0b7ff581c24b91b7bde96895",
+    "question": "Recoil fields the site does not read (VerticalRecoil*, MaxVerticalRecoil, FirstShotMultiplier, RecoilPattern*, CameraRecoil.Spring*, UseTimeSinceLastShot) or, for the Smooth modifiers, their recoil operands",
+    "result": "useful",
+    "conclusion": "M/60 (2.1.1.0, ADS = hip): factor 104, time exponent 1.459, VerticalRecoilIncrease 0, VerticalRecoilMin/Max 0.578/0.578, MaxVerticalRecoil 20, FirstShotMultiplierVerticalRecoil 1, RecoilPatternMultiplierPitch/Yaw 0/0, seed 0, HorizontalRecoilLeft/Right 0.3/-0.6, CameraRecoil SpringConstant 1500/1500, damping 0.94/0.5, exponent 30/50, UseTimeSinceLastShot True."
+   },
+   {
+    "path": "Common/Hardware/Weapons/MG/MG5/GS_MG5",
+    "format": "raw-ebx",
+    "sha256": "8ea6e096969499e8c158b6845d0a301b4474501ece011454efa9988e8a159725",
+    "question": "Recoil fields the site does not read (VerticalRecoil*, MaxVerticalRecoil, FirstShotMultiplier, RecoilPattern*, CameraRecoil.Spring*, UseTimeSinceLastShot) or, for the Smooth modifiers, their recoil operands",
+    "result": "useful",
+    "conclusion": "M121 A2 (2.1.1.0, ADS = hip): factor 104, time exponent 1.459, VerticalRecoilIncrease 0, VerticalRecoilMin/Max 0.578/0.578, MaxVerticalRecoil 20, FirstShotMultiplierVerticalRecoil 1, RecoilPatternMultiplierPitch/Yaw 0/0, seed 0, HorizontalRecoilLeft/Right 0.3/-0.6, CameraRecoil SpringConstant 1500/1500, damping 0.94/0.5, exponent 30/50, UseTimeSinceLastShot True."
+   },
+   {
+    "path": "Common/Hardware/Weapons/_WeaponModifiers/SmoothRecoil/GRM_SmoothRecoilBolt_Compensator_P10",
+    "format": "raw-ebx",
+    "sha256": "9d3704701c034c8ab1c449fe0be6620b5cd734e40916de564ae00e2a0215cd47",
+    "question": "Recoil fields the site does not read (VerticalRecoil*, MaxVerticalRecoil, FirstShotMultiplier, RecoilPattern*, CameraRecoil.Spring*, UseTimeSinceLastShot) or, for the Smooth modifiers, their recoil operands",
+    "result": "useful",
+    "conclusion": "Decoded with the 2.1.1.0 SharedTypeDescriptors: RecoilDecreaseFactor multiply 1.2 (1.728 on the Bolt variants, with time exponent add -0.5) and RecoilDuration override 0.05 (0.066667 Bolt) in both aim states; nothing else non-neutral."
+   },
+   {
+    "path": "Common/Hardware/Weapons/_WeaponModifiers/SmoothRecoil/GRM_SmoothRecoilBolt_P10",
+    "format": "raw-ebx",
+    "sha256": "a26b7b7bd4a77f22ebb939f0eb1e9eb4d665d67a8381b1f984798eab7cb0c77a",
+    "question": "Recoil fields the site does not read (VerticalRecoil*, MaxVerticalRecoil, FirstShotMultiplier, RecoilPattern*, CameraRecoil.Spring*, UseTimeSinceLastShot) or, for the Smooth modifiers, their recoil operands",
+    "result": "useful",
+    "conclusion": "Decoded with the 2.1.1.0 SharedTypeDescriptors: RecoilDecreaseFactor multiply 1.2 (1.728 on the Bolt variants, with time exponent add -0.5) and RecoilDuration override 0.05 (0.066667 Bolt) in both aim states; nothing else non-neutral."
+   },
+   {
+    "path": "Common/Hardware/Weapons/_WeaponModifiers/SmoothRecoil/GRM_SmoothRecoil_Compensator_P10",
+    "format": "raw-ebx",
+    "sha256": "acf9fbace9d067707be5ef6b6734352afb756444aee7f40c62d1b244156b45bd",
+    "question": "Recoil fields the site does not read (VerticalRecoil*, MaxVerticalRecoil, FirstShotMultiplier, RecoilPattern*, CameraRecoil.Spring*, UseTimeSinceLastShot) or, for the Smooth modifiers, their recoil operands",
+    "result": "useful",
+    "conclusion": "Decoded with the 2.1.1.0 SharedTypeDescriptors: RecoilDecreaseFactor multiply 1.2 (1.728 on the Bolt variants, with time exponent add -0.5) and RecoilDuration override 0.05 (0.066667 Bolt) in both aim states; nothing else non-neutral."
+   },
+   {
+    "path": "Common/Hardware/Weapons/_WeaponModifiers/SmoothRecoil/GRM_SmoothRecoil_P10",
+    "format": "raw-ebx",
+    "sha256": "07bc56237a9e07e4539a6a6e5bde85b58c7ca39a8fa80d67466031a53d766bd3",
+    "question": "Recoil fields the site does not read (VerticalRecoil*, MaxVerticalRecoil, FirstShotMultiplier, RecoilPattern*, CameraRecoil.Spring*, UseTimeSinceLastShot) or, for the Smooth modifiers, their recoil operands",
+    "result": "useful",
+    "conclusion": "Decoded with the 2.1.1.0 SharedTypeDescriptors: RecoilDecreaseFactor multiply 1.2 (1.728 on the Bolt variants, with time exponent add -0.5) and RecoilDuration override 0.05 (0.066667 Bolt) in both aim states; nothing else non-neutral."
+   },
+   {
+    "path": "Common/Hardware/Weapons/MG/PKM/GS_PKM",
+    "format": "raw-ebx",
+    "sha256": "e9fc89cb7734ec8a75a46af0180f13a582676fe9b1b35c3844caf52c97a51393",
+    "question": "Recoil fields the site does not read (VerticalRecoil*, MaxVerticalRecoil, FirstShotMultiplier, RecoilPattern*, CameraRecoil.Spring*, UseTimeSinceLastShot) or, for the Smooth modifiers, their recoil operands",
+    "result": "useful",
+    "conclusion": "Z84M (2.1.1.0, ADS = hip): factor 104, time exponent 1.459, VerticalRecoilIncrease 0, VerticalRecoilMin/Max 0.578/0.578, MaxVerticalRecoil 20, FirstShotMultiplierVerticalRecoil 1, RecoilPatternMultiplierPitch/Yaw 0/0, seed 0, HorizontalRecoilLeft/Right 0.3/-0.6, CameraRecoil SpringConstant 1500/1500, damping 0.94/0.5, exponent 30/50, UseTimeSinceLastShot True."
+   }
+  ],
+  "leads": [
+   {
+    "id": "L4044",
+    "title": "Recovery-law shape study: no two-term, rate-capped or time-capped recovery reproduces the tail, the Lightened tail and the TR-7 late climb together; the 15-round TR-7 climb is convex where every recovery law is concave; the unread recoil fields do not single out the steep profile",
+    "status": "finding",
+    "summary": "Over the 14 and 15 October observations the applied x0.8 law scores 476.7, the best offset variant 432.5, a two-pool recovery 410.4, a time cap 420.5, a recovery-rate cap of 8 deg/s 347.5 and the best combination 329.8; none matches the 290 to 350 ms tail, the equal Lightened and Standard LMR27 bands at 340 to 350 ms, or the 15-round TR-7 extent without over-predicting the 10-round one. The 15-round TR-7 close-ups put 0.591 to 0.674 of the marks in the lower half of the spray against 0.39 to 0.41 for the law: the climb accelerates through the burst. The nine weapons' unread fields (2.1.1.0) differ only in VerticalRecoilMin/Max and the horizontal bounds; the Smooth modifier is x1.2 on the factor and 0.05 s duration, nothing more.",
+    "reopenWhen": "Per-shot impact positions from the burst videos, or a capture on the 72 / 1.2 profile with 10, 15 and 20-round bursts, or a readable implementation of the recoil kick and recovery."
+   }
+  ]
+ }
+}

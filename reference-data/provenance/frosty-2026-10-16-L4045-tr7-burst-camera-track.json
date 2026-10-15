@@ -1,0 +1,157 @@
+{
+ "lead": "L4045",
+ "status": "finding",
+ "build": {
+  "current": "2.1.1.0 game client (site data 2.1.1.0)",
+  "note": "Re-analysis of the 15 October 15-round TR-7 burst recordings (L4043); no new capture, game not launched."
+ },
+ "question": "Shot by shot, where does the TR-7 15-round burst diverge from the site law: is the climb convex as the close-up marks suggested (L4044), and where does the 15-round extent excess come from?",
+ "capture": {
+  "date": "2026-10-15",
+  "weapons": [
+   "TR-7"
+  ],
+  "recordings": [
+   {
+    "file": "reference-data\\Recordings\\10152026\\TR-7 5-10-15rnd Bursts\\TR-7_15rnd_Burst_Lightened_Suppressor_A.mp4",
+    "sha256": "69772a5e897571fcf4098fdf3cbaf8820b817e4d8d5919be9974932e1b565e8a",
+    "sizeBytes": 16934478
+   },
+   {
+    "file": "reference-data\\Recordings\\10152026\\TR-7 5-10-15rnd Bursts\\TR-7_15rnd_Burst_Lightened_Suppressor_B.mp4",
+    "sha256": "7d218a0d04930bb1652126b6eeb8b4cdc580257e2d6107b23e0d0ec6ab75776d",
+    "sizeBytes": 15916648
+   },
+   {
+    "file": "reference-data\\Recordings\\10152026\\TR-7 5-10-15rnd Bursts\\TR-7_15rnd_Burst_Lightened_Suppressor_C.mp4",
+    "sha256": "aa7d1141e2db5eb3bbd0b708e83b5695ddf5d120d928b8e73d955f1d74da2cb3",
+    "sizeBytes": 16431504
+   },
+   {
+    "file": "reference-data\\Recordings\\10152026\\TR-7 5-10-15rnd Bursts\\TR-7_15rnd_Burst_Standard_Suppressor_A.mp4",
+    "sha256": "57358dbacbf17c09919f9a9e5015a3ca21e853534b7bbf9fe88ed590c9df01d6",
+    "sizeBytes": 18782325
+   },
+   {
+    "file": "reference-data\\Recordings\\10152026\\TR-7 5-10-15rnd Bursts\\TR-7_15rnd_Burst_Standard_Suppressor_B.mp4",
+    "sha256": "963f50cc6d5d0696fbe3b2c232ce347f07305d2d0a42826516ea6453fa8e108a",
+    "sizeBytes": 19536987
+   },
+   {
+    "file": "reference-data\\Recordings\\10152026\\TR-7 5-10-15rnd Bursts\\TR-7_15rnd_Burst_Standard_Suppressor_C.mp4",
+    "sha256": "a86df6882a44af56f23731b29415d19844c80db8d4a7a407ae80e728d6dc53f5",
+    "sizeBytes": 19069704
+   }
+  ],
+  "note": "Six clips, 18 bursts of 15 rounds (the HUD counter undercounted six of them), both suppressors, standing ADS with the SF G2 5.00x, 120 fps."
+ },
+ "sourceFacts": {
+  "method": "camera-track.py: the world around the scope (the whole ADS frame is rendered at the scope magnification, 88.40 px/deg from the pairs lens scale) is registered frame to frame by gradient cross-correlation; the cumulative vertical shift is the camera pitch. Shots are placed on the fixed 83.3 ms cadence from the first detected kick; the pre-shot aim is the plateau before each kick, after the camera spring settles. Cross-check with a second crop; bursts kept when the crops agree within 0.3 deg at every shot. climb-video.py compares with predict-climb.mjs (mean pre-shot aim and 1 ms trace over 500 seeds). See ANALYSIS.md section 2b.",
+  "control": {
+   "description": "Two independent crops agree within 0.3 deg at every shot on 12 of 18 bursts; the detected kick cadence is 10 frames (83.3 ms) as stored; on the bursts whose end frame is a clean return to the start the chain drift is 0.1 to 0.4 deg; the first kick seen by the camera is 1.03 deg against the stored 1.16.",
+   "passed": true
+  },
+  "points": [
+   "Pre-shot camera climb above shot 1, mean over the well-tracked bursts, minus the x0.8 law at shots 2 to 15: Standard [-0.03, 0.05, 0.1, 0.12, 0.19, 0.24, 0.34, 0.38, 0.32, 0.28, 0.29, 0.34, 0.28, 0.19] (7 bursts, 8.51 against 8.32 at shot 15; the stored law gives 7.40); Lightened [0.06, -0.02, 0.02, 0.07, 0.0, 0.04, -0.07, -0.25, -0.08, -0.11, -0.09, -0.03, -0.07, -0.01] (5 bursts, 7.61 against 7.62). First increment 0.91 / 0.98 against 0.93 / 0.92.",
+   "Fraction of pre-shot aims in the lower half of the shot-15 climb: 0.37 Standard, 0.36 Lightened, against 0.40 / 0.33 for the law: the climb is concave like the law. The convex reading from the close-up marks (L4044 section 2a) is withdrawn.",
+   "Spray top from the recovery frames where the camera is 3.3 deg above the start: 6.0 deg above the camera, i.e. about 9.3 to 9.6 deg above shot 1 in Standard C burst 0, against a shot-15 aim of 8.1 there and 8.5 on average; the model puts the top impact 0.35 above the aim. The close-up extents (11.2 / 9.6) are 1 to 2 deg above the video spray top.",
+   "Recovery after the 15th shot, climb above shot 1 at 200 / 300 / 400 / 500 ms, Standard: 6.44 / 3.46 / 0.75 / -0.28 against the x0.8 trace 5.21 / 1.79 / 0.27 / 0.00; Lightened 5.24 / 2.40 / 0.19 / -0.42 against 4.29 / 1.18 / 0.09 / 0.00. The camera descends at a near-constant 28 to 31 deg/s from 6.4 deg to 0.7 where the law runs at 37 falling to 10 deg/s.",
+   "Each kick is delivered over 3 frames (6 with the Lightened Suppressor, its 50 ms duration), overshoots, dips and settles on a plateau 7 to 9 frames after the onset; the camera-spring dip settles 0.36 to 0.46 deg above the pre-shot."
+  ]
+ },
+ "inference": [
+  "The site law with the 0.8 scale reproduces the TR-7's pre-shot aim through a 15-round burst on both suppressors to within 0.4 deg; there is no late-burst excess in the aim. The 15-round extent excess is in the bullets' deviation from the aim (about 1 deg of extra upward scatter at the top of the spray) and the close-up extents overstate it by a further 1 to 2 deg. After the burst the recovery from 6 to 8 deg is rate-limited near 30 deg/s, which the pairs and the burst climb cannot see; this is the one place a structural change to the law is indicated by these data."
+ ],
+ "unresolved": [
+  "The source of the extra upward impact deviation at high recoil (VerticalRecoilMin/Max 0.578 on this profile is the candidate operand); the post-burst undershoot of 0.3 to 0.4 deg at 500 ms (within the chain drift); the close-up extent method."
+ ],
+ "siteImpact": "None applied; the x0.8 scale stands and the burst climb supports it. A recovery-rate limit near 30 deg/s would change only recovery after large displacements (long bursts followed by a pause) and needs a capture designed for it.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-16-recovery-law-shape",
+  "artifacts": [
+   {
+    "file": "ANALYSIS.md",
+    "sha256": "c8fbd57fd79231cf32e03bacc401826f8caf72ab9991499cd54495bcce8a182a"
+   },
+   {
+    "file": "camera-track.py",
+    "sha256": "a8803899448fdfc5ed68ac559e51e0ed722b56136a12c02ecaf4f05327a14a8b"
+   },
+   {
+    "file": "camera-track.json",
+    "sha256": "a61cc65177d5e8b87549222dfa16850fad5b9e838e82d3b5043d44cb34cf3a23"
+   },
+   {
+    "file": "camera-track-crop350_130_320_850.json",
+    "sha256": "1bb5ac9d6ec2be9fc991447b5b8e218a573a3fbd96c779d1828a81989289b5e0"
+   },
+   {
+    "file": "camera-track.log",
+    "sha256": "a6a0f1f68092998eb7b939d9013a2ffc530a19a88ab0d71e68318e772b63ee1b"
+   },
+   {
+    "file": "climb-video.py",
+    "sha256": "f801aaa57b285fa0991f8747691df801073a95b2937ede4009efd6dd2687962f"
+   },
+   {
+    "file": "climb-video.json",
+    "sha256": "ab4ab7aba556babedfb533c3e1246a1d0db83415f9553dfa0f3cc922fb1e6935"
+   },
+   {
+    "file": "climb-video.md",
+    "sha256": "383b9ec06f6c6627d0d595318cbab73685a59730c74767318b7cb8b62ab88d69"
+   },
+   {
+    "file": "predict-climb.mjs",
+    "sha256": "f23609dfbb552cbd27ace49daacb9bbd1dfaae949dc687c0fecde46a2e4a7b29"
+   },
+   {
+    "file": "predict-climb-tr7-15-trace.json",
+    "sha256": "04663d26fa77c24907a334aada7c6ef3a6d81d52e2c82c4bc24df2e5eab5d334"
+   },
+   {
+    "file": "frames/stdC_160.png",
+    "sha256": "e06d3afc1f359ded4ef43ab126de2d9031f732345800100fc9eb62904e0f47f1"
+   },
+   {
+    "file": "frames/stdC_179.png",
+    "sha256": "8228d64d6bbdc6c72a8be89344606e4674e59924f6f9c8f3cbdbc173fad9d89a"
+   },
+   {
+    "file": "frames/stdC_309.png",
+    "sha256": "a61450f87933b232a192397382482b5ca4fed3821b3bf994a8608247a5f0e03a"
+   },
+   {
+    "file": "frames/stdC_325.png",
+    "sha256": "edff07efe5a1ffaa4768a971d052adc75a5af4b790a4426054c80ae6710ac564"
+   },
+   {
+    "file": "frames/stdC_340.png",
+    "sha256": "d6a640b28407063ff3e271f6d0306eebf6447187bb6e34f6743ff5792cd2700e"
+   },
+   {
+    "file": "frames/stdC_395.png",
+    "sha256": "d68495850e683bd3229047cfdb4f141cfacc89c4ac3b1ea545c9794da0585614"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-16",
+  "build": "site-only",
+  "binding": "research",
+  "refs": [
+   "capture-plan"
+  ],
+  "leads": [
+   {
+    "id": "L4045",
+    "title": "TR-7 15-round burst videos, camera track: the pre-shot aim follows the x0.8 law to within 0.4 deg through all 15 shots on both suppressors (the convex-climb reading of L4044 is withdrawn); the extent excess is impact deviation above the aim; recovery after the burst is rate-limited near 30 deg/s",
+    "status": "finding",
+    "summary": "Frame-by-frame registration of the world around the scope in 18 bursts gives the camera pitch at 120 fps; the plateau before each kick is the pre-shot aim. Standard reaches 8.51 deg at shot 15 against 8.32 for the x0.8 law (stored 7.40), Lightened 7.61 against 7.62, every shot within 0.4 deg; lower-half fraction 0.37 / 0.36 against 0.40 / 0.33. The spray top sits 1.0 to 1.5 deg above the shot-15 aim (model 0.35), and the recovery after the last shot descends at a near-constant 28 to 31 deg/s where the law runs at 37 falling to 10.",
+    "reopenWhen": "A capture of long bursts followed by a held aim on two profiles (recovery-rate limit), or a mark-per-shot measurement of impact against aim (the upward deviation), or a readable implementation of the recoil kick and recovery."
+   }
+  ]
+ }
+}
