@@ -1,0 +1,190 @@
+{
+ "lead": "L4050",
+ "status": "finding",
+ "build": {
+  "current": "2.1.1.0 game client (site data 2.1.1.0)",
+  "note": "Offline analysis of the M433 burst clips recorded for L4047 (15 October evening); M433 spread operands as in current data/weapons.json (ADS: minimum 0.05 deg, increase 0.36 deg per shot, firing recovery 2.7 + 1.2 x delta^2.5 deg/s, not-firing 7.2 deg/s). The game was not launched."
+ },
+ "question": "Does the site's spread law (increase per shot, firing recovery between shots, one firing interval after the last shot then not-firing recovery) reproduce the in-game spread indicator through 5, 10 and 15-round automatic bursts, and what are the indicator's units?",
+ "capture": {
+  "date": "2026-10-15",
+  "weapons": [
+   "M433"
+  ],
+  "loadout": "factory barrel, FMJ, standard magazine, ST Prism 5.00x, Standard then Lightened Suppressor, Bipod equipped and not deployed",
+  "conditions": "standing ADS, FOV 103, 27 m, 10 Mbps, 1440p, 120 fps, spread indicator on",
+  "recordings": [
+   {
+    "file": "reference-data\\Recordings\\10152026\\M433 5-10-15rnd Bursts\\M433_10rnd_Burst_Lightened_Suppressor_A.mp4",
+    "sha256": "ed6bec10ab85b53dc538a9c865589532f1729cdc85f201b0f75ff808136c012f",
+    "sizeBytes": 19202111
+   },
+   {
+    "file": "reference-data\\Recordings\\10152026\\M433 5-10-15rnd Bursts\\M433_10rnd_Burst_Lightened_Suppressor_B.mp4",
+    "sha256": "1afc976d84c76bfbba7db541c8865a8a43ee98dc2a1afcf8db49f2ffe78191ee",
+    "sizeBytes": 18404764
+   },
+   {
+    "file": "reference-data\\Recordings\\10152026\\M433 5-10-15rnd Bursts\\M433_10rnd_Burst_Standard_Suppressor_A.mp4",
+    "sha256": "9f05b25d828036cd7d179d5a2cf88b93db09e3507048077706c397644b56f295",
+    "sizeBytes": 16366072
+   },
+   {
+    "file": "reference-data\\Recordings\\10152026\\M433 5-10-15rnd Bursts\\M433_10rnd_Burst_Standard_Suppressor_B.mp4",
+    "sha256": "d57f4f5b25629a5839fff882e4b7a10f231e0a410e13456ee4dd5af4b8c42da5",
+    "sizeBytes": 16863351
+   },
+   {
+    "file": "reference-data\\Recordings\\10152026\\M433 5-10-15rnd Bursts\\M433_15rnd_Burst_Lightened_Suppressor_A.mp4",
+    "sha256": "a3d4ec48ceac8247c88edd7f5eb3a50ed138cdb343de56eb9fb2599c08b31986",
+    "sizeBytes": 22461746
+   },
+   {
+    "file": "reference-data\\Recordings\\10152026\\M433 5-10-15rnd Bursts\\M433_15rnd_Burst_Lightened_Suppressor_B.mp4",
+    "sha256": "fb792b87a6c2255877917df9bb48c00d444e42939bcd038f0f7c2192d5bbfbda",
+    "sizeBytes": 20929430
+   },
+   {
+    "file": "reference-data\\Recordings\\10152026\\M433 5-10-15rnd Bursts\\M433_15rnd_Burst_Standard_Suppressor_A.mp4",
+    "sha256": "4cbf2394e728a767bdb00f1a29925c6c6fe3a07236ac24e7451919980e3b757d",
+    "sizeBytes": 21551525
+   },
+   {
+    "file": "reference-data\\Recordings\\10152026\\M433 5-10-15rnd Bursts\\M433_15rnd_Burst_Standard_Suppressor_B.mp4",
+    "sha256": "957d7d5c965fddae1d32a6f3894c0f5df8b38389bf31feb8c4d6c4263ee5650a",
+    "sizeBytes": 21060856
+   },
+   {
+    "file": "reference-data\\Recordings\\10152026\\M433 5-10-15rnd Bursts\\M433_5rnd_Burst_Lightened_Suppressor_A.mp4",
+    "sha256": "d4f97cbb61aa088959c350bb957344ff4c5c3cdc0a0655e81fc51fe7560317ae",
+    "sizeBytes": 19401970
+   },
+   {
+    "file": "reference-data\\Recordings\\10152026\\M433 5-10-15rnd Bursts\\M433_5rnd_Burst_Lightened_Suppressor_B.mp4",
+    "sha256": "95369e5fe4416baf0c4473407e61c125dbe0818bed09ae22570fc2bb37c3619e",
+    "sizeBytes": 18308983
+   },
+   {
+    "file": "reference-data\\Recordings\\10152026\\M433 5-10-15rnd Bursts\\M433_5rnd_Burst_Standard_Suppressor_A.mp4",
+    "sha256": "25931454f97a347f9e9cedb63b15cee70aec0f7694b80c4a499a07bc544b2c48",
+    "sizeBytes": 18517456
+   },
+   {
+    "file": "reference-data\\Recordings\\10152026\\M433 5-10-15rnd Bursts\\M433_5rnd_Burst_Standard_Suppressor_B.mp4",
+    "sha256": "d9ab42c0c860fd46608c138670b28bd74ceaae1b8255d96bd10537992813d20b",
+    "sizeBytes": 17398279
+   }
+  ]
+ },
+ "sourceFacts": {
+  "method": "Outer width of the green parentheses on every frame of the 12 burst clips (52 bursts; shot frames from the HUD ammo counter, m433-bursts/shots.json). The site law (spread-ops.json, dumped from sim/core.js) integrated at 1 ms on each burst's measured shot frames and compared at the frame times; rates measured directly as least-squares slopes between shots and after the last shot. See ANALYSIS.md, section \"Spread indicator against the site's spread law\".",
+  "control": {
+   "description": "Three independent scale readings agree at 179 px per degree of spread (twice the lens scale of 89.5 px/deg): the 57 px width while side-stepping equals the site moving-ADS minimum 0.32 deg (0.318), the 9 px width at the end of a side-step equals the standing minimum 0.05 deg (0.050), and a zero-intercept linear fit of the law gives 184 px/deg.",
+   "passed": true
+  },
+  "points": [
+   "Between shots the width falls at 2.68 / 2.97 / 3.62 / 4.42 deg/s at spread 0.42 / 0.70 / 0.98 / 1.26 deg (102 / 106 / 126 / 80 intervals) against 2.80 / 3.11 / 3.70 / 4.63 from 2.7 + 1.2 x delta^2.5: ratios 0.96, 0.95, 0.98, 0.96.",
+   "After the last shot the width falls at 7.13 deg/s from frame 10 on (37 bursts) against the 7.2 deg/s not-firing operand, and the handover from the firing rate is visible 8 to 10 frames (one shot interval, 8.7 frames) after the last shot in every burst.",
+   "Observed peak after each shot minus the law's post-increment spread at 179 px/deg, median over bursts, shots 1 to 15: -2, -3, -3, +4, +2, +1, +5, +4, +3, +6, +7, +6, +8, +5, +6 px (0.045 deg at most). Phase means: shots 1 to 5 -6 px, 6 to 10 +5, 11 to 15 +6.",
+   "The indicator ramps over two to three frames after each shot (43, 59, 87, 93 px) rather than stepping, so the measured jump (median 48 px, 0.27 deg) is a lower bound on the 0.36 deg increase; frame-level rms within a burst is 26 to 42 px for that reason and a 5 to 30 ms display lag does not remove it.",
+   "Freeing one operand at a time (increase, firing offset, firing coefficient, not-firing offset) gains under 3 px rms on 32; the joint fit gains 7 px by trading the scale against the rates and contradicts the direct rate measurements, so it is a fit to the ramp.",
+   "Standard and Lightened series are the same; the two loads share every spread operand on the site.",
+   "The indicator hides below about 55 px (0.3 deg) after a burst and is never drawn during semi-auto pairs (L4047)."
+  ]
+ },
+ "inference": [
+  "The site's spread law reproduces the M433 ADS indicator through automatic bursts: the per-shot increase, the level-dependent firing recovery (offset and delta^2.5 term within 5% at four levels), the one-interval firing segment after the last shot and the not-firing rate (within 1%). The indicator draws the spread radius at the optic's magnification (each parenthesis at spread x lens px/deg), which fixes its units. The idle state after 0.4 s is never reached in a 0.2 s tail and stays unmodelled."
+ ],
+ "unresolved": [
+  "Whether the drawn radius is the radius the game samples bullets from (the indicator shows spread, not impacts); the two to three frame display ramp; the hide threshold near 0.3 deg; the idle state after 0.4 s."
+ ],
+ "siteImpact": "None; the spread law is confirmed as implemented. No change proposed.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-16-m433-profile-capture",
+  "artifacts": [
+   {
+    "file": "ANALYSIS.md",
+    "sha256": "7739af4149b992371e68c8e28ca78467fc9703d1ec1c5871c374626d40fd665f"
+   },
+   {
+    "file": "dump-spread-ops.mjs",
+    "sha256": "4ea7cf47adad05840687f25ae52eea721908f8f9e59d25be6096c9fc43fe3247"
+   },
+   {
+    "file": "spread-ops.json",
+    "sha256": "3224997c3d9e3d979a769c3bd039f1fecfe2b266b00454773ea2be6fcb006b00"
+   },
+   {
+    "file": "spreadfit.py",
+    "sha256": "a84c5d14c73c63e6877a0058adc0cace8fffc7919f2da5be66ad37dfa1668e13"
+   },
+   {
+    "file": "spreadfit.json",
+    "sha256": "aa944a8e0af3097be4826c1708a3d2c2e34bbbdf39a125da9e9ff6c9029c82d3"
+   },
+   {
+    "file": "spreadfit.md",
+    "sha256": "bde466cbe91818a727333739f5adc8060f1d8861115d13fa6f9b0aaa58bbcb25"
+   },
+   {
+    "file": "spread-series.json",
+    "sha256": "2f31a230c2b1ea105668a5f27da54a57c07c58f2e7b64f9dae292f9a7d86b846"
+   },
+   {
+    "file": "spreadfit2.py",
+    "sha256": "65eb06a0d51deee6a0a71308a54119202667a626098a0a16df08959bf21b251b"
+   },
+   {
+    "file": "spreadfit2.json",
+    "sha256": "aa497ebf25bebd7ae318a18bd08ae150f50af6f35f2cbced7b74830a8391ea8e"
+   },
+   {
+    "file": "spreadfit2.md",
+    "sha256": "1c138a946117397394bd911458c234e17527879ebe2c65c77a8f549bb764a41a"
+   },
+   {
+    "file": "spreaddiag.py",
+    "sha256": "1edc60631c64ceeee19cc9e1abd5b25c7dfb86b01e8b717b4e40a9686221c290"
+   },
+   {
+    "file": "spreaddiag.json",
+    "sha256": "a147972bcd283d03ab8a57d37a71bd7d05747ee0bb9e000678ba2899ba9c0edd"
+   },
+   {
+    "file": "spreadfit3.py",
+    "sha256": "66f18dd27840988f0c1f53aac0b26afd75cb492790ed4022d595414a5eef49fd"
+   },
+   {
+    "file": "spreadfit3-k179-tau0.json",
+    "sha256": "1708418bf0146fe1cd0a7f64d74b32c9b5fad08a74ffbeff49b35617da221a41"
+   },
+   {
+    "file": "spreadfit3-k158-tau0.json",
+    "sha256": "51ba43924cd4777eab5564b5bc22ced07bf35b4f8ff6c505f592500ed11b6ea0"
+   },
+   {
+    "file": "m433-bursts/shots.json",
+    "sha256": "8e16fa7ca3f5ea82129a35738916895b7dfaa188bda73961d6747a766a316023"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-15",
+  "build": "site-only",
+  "binding": "research",
+  "refs": [
+   "capture-plan"
+  ],
+  "leads": [
+   {
+    "id": "L4050",
+    "title": "M433 spread indicator against the site spread law: increase, firing recovery (2.7 + 1.2 x delta^2.5) and not-firing recovery (7.2 deg/s) reproduced within 5% through 5, 10 and 15-round bursts; the indicator draws the spread radius at the lens scale (179 px/deg)",
+    "status": "finding",
+    "summary": "Between-shot recovery 2.68 / 2.97 / 3.62 / 4.42 deg/s at 0.42 / 0.70 / 0.98 / 1.26 deg against 2.80 / 3.11 / 3.70 / 4.63; not-firing 7.13 against 7.2; handover one shot interval after the last shot; peaks within 0.045 deg of the law at every shot. Scale fixed by the moving (0.32) and standing (0.05) minima and the lens scale. No site change.",
+    "reopenWhen": "A capture that places impacts against the indicator radius, or a pause past 0.4 s to see the idle state."
+   }
+  ]
+ }
+}

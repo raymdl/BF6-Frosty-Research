@@ -896,6 +896,12 @@ minimum, as in the site's `applySpreadRecovery`.
   generic branch. Recordings show about 0.21 s
   ([analysis](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/archive/RECORDING_REUSE_ANALYSIS_2026-09-12.md)), which supports a
   switch to not-firing recovery soon after the burst and no idle before about 0.2 s.
+- **M433 ADS check (L4050, 15 October 2026).** The spread indicator through 52 automatic bursts of
+  5, 10 and 15 rounds at 120 fps: between shots the spread falls at 2.68 / 2.97 / 3.62 / 4.42°/s at
+  0.42 / 0.70 / 0.98 / 1.26° against 2.80 / 3.11 / 3.70 / 4.63 from `2.7 + 1.2·Δ^2.5` (firing branch),
+  and after the last shot at 7.13°/s against the 7.2 not-firing offset, starting one shot interval
+  after it; peaks within 0.045° of the site law at every shot. The indicator draws the spread radius
+  at the lens scale (179 px/° at 5.04x). [Receipt](../../reference-data/provenance/frosty-2026-10-15-L4050-m433-spread-indicator-law.json).
 
 ### No per-shot increase: semi-auto and deployed
 
@@ -1059,8 +1065,10 @@ multiplayer default.
 Named camera spring values have outliers. `SpringConstantZoomed` is 1500 on 57
 site weapons, 200 on four, and 1000 on two. Other spring and damping distributions
 are in the receipt. These names and configured values do not establish the output
-channel or native spring equation. The site's current per-axis recovery law,
-reset-on-shot clock and impulse delivery remain model assumptions.
+channel or native spring equation. The site's per-axis recovery law and impulse
+delivery remain model assumptions; the reset-on-shot clock was confirmed by the pair camera
+track (L4048) and the factor runs at 0.8 of the stored operand on four profiles (L4040 to
+L4049; see the recovery captures below).
 
 All site weapons store pattern seed 0, pitch/yaw pattern multipliers 0, fade-out
 start/end −1, fade factor 1 and first-shot vertical multiplier 1. These values
@@ -1091,6 +1099,28 @@ spread before selecting a different model.
   Their runtime composition remains unverified.
 - Sniper brakes: `GRM_Recoil_MZL_Bolt_P10` adds 6 amount tiers (ADS and hip);
   `scripts/frosty-sniper-brakes.py` generates 16 weapon/brake pairs.
+
+### Recovery captures (14 to 17 October 2026, L4040 to L4049)
+
+Bullet-hole pairs and bursts under a 5x optic on the AK-205, LMR27, TR-7 and M433 (four of the
+13 factor/time-exponent profiles) all sit on the site law with the factor scaled by 0.8, which the site
+applied on 14 October (`RECOIL_RECOVERY_SCALE`). Pairs at 133 to 650 ms and 5/10/15-round bursts:
+stored law chi-square about 1100 over 56 observations, x0.8 about 360. Camera tracks at 120 fps confirm
+the per-shot clock reset and show a camera layer that rings 7 to 10 frames after each kick and sits a
+kick-proportional amount above the holes. Not reproduced by any variant tried (two-pool, rate cap,
+time cap, stretched time, lower exponent, dead time): the last tenth of a kick lingering about 100 ms on
+the AK-205 and TR-7, and the Lightened Suppressor's x1.2 recovery advantage absent in the LMR27 tail at
+350 ms. The spread indicator confirmed the spread law separately (L4050, above). Receipts:
+[L4040](../../reference-data/provenance/frosty-2026-10-14-L4040-ak205-recoil-recovery-capture.json),
+[L4041](../../reference-data/provenance/frosty-2026-10-14-L4041-lmr27-pairs-second-profile.json),
+[L4042](../../reference-data/provenance/frosty-2026-10-15-L4042-recovery-tail-template-fit.json),
+[L4043](../../reference-data/provenance/frosty-2026-10-15-L4043-tr7-lmr27-tail-capture.json),
+[L4044](../../reference-data/provenance/frosty-2026-10-16-L4044-recovery-law-shape.json),
+[L4045](../../reference-data/provenance/frosty-2026-10-16-L4045-tr7-burst-camera-track.json),
+[L4046](../../reference-data/provenance/frosty-2026-10-16-L4046-tr7-burst-extents-1x.json),
+[L4047](../../reference-data/provenance/frosty-2026-10-16-L4047-m433-profile-capture.json),
+[L4048](../../reference-data/provenance/frosty-2026-10-16-L4048-pair-camera-track.json),
+[L4049](../../reference-data/provenance/frosty-2026-10-17-L4049-stretched-time-fit.json).
 
 ### Anonymous WB recoil candidates
 
