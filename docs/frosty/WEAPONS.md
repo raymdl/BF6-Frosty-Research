@@ -1820,6 +1820,15 @@ Keep the existing unavailable pellet-impact statistics until a typed consumer or
 controlled impact result supports a model. The single direction plotted per shell
 is not a pellet simulation. No random-only runtime mechanism is established.
 
+Controlled impact result, 22 October 2026: the operator's Firing Range wall
+recordings (Analyzer `reference-data/provenance/shotgun-pattern-measurement-2026-10-22.md`)
+put every pellet of a shell inside a cone whose radius is the blueprint
+firing-dispersion angle (KS-18K 0.8°, M87A1 1.0°, DB-12 1.2°), at ADS and standing
+hipfire alike, with the hip spread moving the shell rather than widening the
+pattern, random centre-weighted placement, and no widening across rapid ADS
+strings. The Analyzer's Firing Range now samples pellets on that model; the
+source mechanism and the density law remain untraced.
+
 ## DB-12 pellet-field naming limit (L72, 26 September 2026)
 
 The [L72 bounded direct-registry check](../../reference-data/provenance/frosty-2026-09-26-L72-pellet-field-naming-limit.json)
