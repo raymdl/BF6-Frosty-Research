@@ -602,6 +602,10 @@ Worker review passed 292 unique raw checks. Parent rereads confirm one text id a
 
 Client **1.4.3.1, Head 4892087**, descriptor `99b49cfd8bdb5bb6f0181df8ac0d93a0396c1b7f07a1ba3ce8ca1cea45969640`.
 The retained `builds/1.4.3.0` folder name does not identify the client version.
+On 2.1.1.0 the four assets are byte-identical ([L4056](../../reference-data/provenance/frosty-2026-10-21-L4056-class-perk-recheck-2110.json));
+only the string table changed four texts. Class record (`Class_b2e0b933`) trait fields:
+`Field_aff0eb51` signature-trait name and `Field_59ba3119` signature-trait text (MISSION FOCUSED,
+MECHANIZED INFANTRY, and from 2.1.1.0 AIM-SPOT; Support's two ids are still missing).
 [Table and source links (L400)](../../reference-data/provenance/frosty-2026-09-30-L400-class-trait-ui.json)
 contain 17 class records, 12 training paths, 102 perk records and 24 presets.
 The receipt keeps explicit columns for class, description, signature trait,

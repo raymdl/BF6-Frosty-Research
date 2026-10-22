@@ -298,6 +298,35 @@ Current named local objects use `Class_3038efcc.Field_b6657270` as exact enum de
 The final enum method tests exact retained UI choice/value bindings. Current widget-to-zeroing DBD pointers, exported GUIDs and local keys pass the source identity control. The selected enum 536 UI array is empty, and its retained UI text list has zero records. Five selected spotting reset entries store exact INT32 values 0, 0 and 31; they are not established named enum choices. No complete named UI choice/value mapping exists in the inspected selected artifacts. This scoped limit does not establish absence elsewhere. Missing contracts and exact reopen conditions are in the two result rows. No zeroing or spotting enum meaning is promoted. See the [receipt](../../reference-data/provenance/frosty-2026-10-01-L1008-ui-enum-binding-control.json).
 <!-- native-semantics:L1008:end -->
 
+## L4056 - Class traits, training paths and perks on 2.1.1.0 (21 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-21-L4056-class-perk-recheck-2110.json). Full per-slot table: `BF6 Datamining/reports/weapon-analyzer-research/2026-10-21-class-perks/perks-2110.md` (SHA-256 `fb67e6cf…`).
+
+What was compared: the 1.4.3.5 pre-update capture against the 2.1.1.0 capture, each decoded with its own descriptors and read with its own English string table.
+
+- **Unchanged:** the four class/path/perk UI metadata assets (same bytes as L400 and L840), all 16 `FieldUpgradePath_*` and `U_FieldUpgradePath_*` assets (eight multiplayer paths, four slots each, same order), and every stored affector scalar reached from the 32 multiplayer slots (FasterRegen 30 / 2.5, StanceFlak 0.75, MechanicOverheat 0.5 / 0.9, LowProfile 0.667 and CommandingPresenceRegen 3.5). Of 61 byte-changed `InRoundProgression` assets, 59 differ only in compiled type indices, body hashes, resource ids and a new affector header field `Field_492c22c3` = 3. The 29 captured graph bodies hold the same constants as the 10 October listings. The Season 5 training-path revisions announced for Battle Royale leave the multiplayer path assets untouched.
+- **Flak:** `Ability_Flak` now imports a new `Affector_FlakJacket` (0.67, explosive) instead of `Affector_Flak` (0.67, explosive); the value is the same. `Affector_Flak` is still imported by the Engineer Mechanized Infantry graph. The perk text gained "increased by 33%", which matches 1 - 0.67.
+- **Quick Plating (Battle Royale Pointman path):** text changed from "33% faster" to "25% faster" (string `3EA804EE`), but the `SimEx_Ability_Pointman_Base` and `SimEx_FasterArmorReplate` bodies still store 1.5 with the stat id in call `239dc415` moving from 34 to 35. Where the 25% is set is open; this perk is not on a multiplayer path.
+- **Recon class record:** `Field_aff0eb51` / `Field_59ba3119` now resolve to "AIM-SPOT" and the aim-down-sights spotting paragraph, the same fields that hold MISSION FOCUSED (Assault) and MECHANIZED INFANTRY (Engineer). The Support record's two trait strings are still missing from the English table, and the `Ability_ReconSniper_Base` ("Passive Spotting") perk record lost its strings in the same table change.
+- **Catalog:** new affectors Bombardier, FlakJacket, MoralSupport, Reciprocity and four `ReservesF2P` redeploy-ammo affectors; removed EnhancedFiltering and GasReveal graphs, ImprovedTargeting, the HemostaticSmoke `U_` asset and the PrepperBase trio (all Battle Royale or gas-mask content). Soldier registry: one row added (`ArmorGrantSpawnPlate`), none changed.
+
+Multiplayer path slots and their UI text on 2.1.1.0 (slot order as stored; the `_1`/`_2` path to UI title join is not stored, the loadout presets `MP_<class>_1/_2` carry the same titles):
+
+| Path | Slot 0 | Slot 1 | Slot 2 | Slot 3 (active) |
+|---|---|---|---|---|
+| Assault_1 | Adrenaline Rush | Soft Landing | Quick Recovery | Rally Squad* |
+| Assault_2 | Extra Grenades | Agile Shooter | Unrelenting Reload | Rally Squad* |
+| Engineer_1 | Extra Rockets | Launcher Proficiency | Devastating Impact | Thermal Overdrive |
+| Engineer_2 | Gadget Fortification | Overheat Control | Mine Detection† | Thermal Overdrive |
+| Recon_1 | Enhanced Perception | Target Acquired | Confirmed Kill | UAV Overwatch* |
+| Recon_2 | Stealth Tactics* | Gadget Awareness‡ | Low Profile | UAV Overwatch* |
+| Support_1 | Urgent Aid | Revive Recovery* | Defense-Focused | Restock Allies |
+| Support_2 | Logistics Expert | Explosives Resistant | Steady Aim | Restock Allies |
+
+\* UI record found by its text, not by internal name (the record's internal name differs: Ability_ActiveFlak, Ability_ActiveUAVCallin, Ability_ConcealedRescue, Ability_CrateHealPlus). † Internal name differs by case only (`Ability_Mechanic_base`). ‡ Matched by display name; the record's internal name is `Ability_PathfinderBase`. None of these is a stored join (L840).
+
+Open: a stored UI-to-gameplay join; which UI path title is `_1` and which `_2`; the consumer of the Quick Plating speed; why `Affector_Flak` was duplicated rather than edited.
+
 ## L3309 - Spotting and detection registry values (9 October 2026)
 
 [Receipt](../../reference-data/provenance/frosty-2026-10-09-L3309-spotting-detection.json). Dataset: `reference-data/frosty/registry-spotting-detection.json` (212 rows, each default read back at its raw offset). These are registry defaults from `GRX_Glacier_Soldier`; meaning is read from the row name, and units and use in a match are unconfirmed.

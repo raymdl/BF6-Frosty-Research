@@ -1,0 +1,97 @@
+{
+  "lead": "L4056",
+  "status": "finding",
+  "build": {
+    "current": "2.1.1.0 (capture Head 5382784, descriptor c477622c1074a9a4ea612cf9c60e26f666129721c733174192c121c808873ff6; resource bodies captured on the 15 October hotfix client, Head 5383474, layout-identical)",
+    "compared": "1.4.3.5 pre-update capture (builds/1.4.3.5/capture/pre-update-60769-2026-10-12, descriptor 4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1) and its English string table"
+  },
+  "question": "Recheck class, training-path and perk UI metadata and the stored values behind each multiplayer path slot on 2.1.1.0 (Season 5), and list what changed from 1.4.3.5.",
+  "method": [
+    "SHA-256 of the four class/path/perk UI metadata assets and the 16 FieldUpgradePath_* assets in the 2.1.1.0 capture against the L400/L840 bytes and the 1.4.3.5 pre-update capture.",
+    "frosty-ui-text.py on the four UI assets with each build's own strings, descriptors and catalog; row-by-row text diff.",
+    "frosty-ebx-decode.py with each build's descriptors over the 165 Common/Gameplay/InRoundProgression routes (157 in both builds, 8 new in 2.1.1.0 from the season5-uncaptured capture, 7 removed from the 2.1.1.0 catalog); leaf-by-leaf diff (diff-decoded.py) with compiled type indices, body hashes, resource ids and the new affector header field Field_492c22c3 classified as layout noise.",
+    "perks-table.py: FieldUpgradePath_* slot imports resolved through the 2.1.1.0 catalog to Ability assets, joined to UI records by internal name (case-insensitive) or, for five slots, by a text alias; stored affectors reached through U_/FL_/SimEx_ imports with their non-default payload scalars.",
+    "Capture class-perk-graphs-2026-10-21 (29 SerializedExpressionNodeGraph bodies referenced by the decoded SimEx assets, plus the two Pointman/replate SimEx routes); listings with a 2.1.1.0 copy of exgraph.py; constants, imports and tweakables compared with the 10 October listings (compare-constants.py)."
+  ],
+  "sourceFacts": {
+    "uiAssetsUnchanged": "UIClassMetadata, UIGlacierFieldUpgradePathMetadata, UIPlayerAbilityDescriptionMetadata and UISoldierLoadoutPresetMetadata have the same SHA-256 on 2.1.1.0 as in L400 (1.4.3.0) and L840. All 16 FieldUpgradePath_* and U_FieldUpgradePath_* assets are byte-identical to the 1.4.3.5 pre-update capture: the eight multiplayer paths keep their four slots and slot order.",
+    "stringChanges": [
+      {"stringId": "3EA804EE", "record": "UIPlayerAbilityDescriptionMetadata object 269 Ability_Pointman_Base (QUICK PLATING)", "old": "Armor replating is 33% faster.", "new": "Armor replating is 25% faster."},
+      {"stringId": "FF6C97C1", "record": "UIPlayerAbilityDescriptionMetadata object 322 Ability_Flak (FLAK)", "old": "Resistance to explosive damage.", "new": "Resistance to explosive damage increased by 33%."},
+      {"stringId": "9FF81C82 / 3AE7E765", "record": "UIClassMetadata object 31 Recon, Field_aff0eb51 / Field_59ba3119", "old": "missing", "new": "AIM-SPOT / the aim-down-sights spotting paragraph"},
+      {"stringId": "68BD6275 / 1833C5B3", "record": "UIPlayerAbilityDescriptionMetadata object 373 Ability_ReconSniper_Base (Passive Spotting)", "old": "Passive Spotting / the same paragraph", "new": "missing from the 2.1.1.0 English table"}
+    ],
+    "abilityAssetChanges": {
+      "byteChanged": 61,
+      "noiseOnly": 59,
+      "substantive": [
+        "Flak/Ability_Flak: Field_a21a7b29[0] now imports Flak/Affector_FlakJacket (new asset, class Class_7d3d8a5c, Field_658381bd 0.67 at raw offset 216, explosive flag true, bullet flag false) instead of Flak/Affector_Flak (same class and the same 0.67/true/false, offset 216). Affector_Flak is still imported by MechanizedInfantry/SimEx_Ability_MechanizedInfantry.",
+        "SimEx_BR_ApplyProgressionWeapon: import table reordered and one row added (MUT_CH2_S01:RespawnWeaponsLevelBonus); Battle Royale only."
+      ],
+      "newAssets": ["Bombardier/Affector_Bombardier", "Flak/Affector_FlakJacket", "MoralSupport/Affector_Healing_MoralSupport", "Reciprocity/Affector_Healing_Reciprocity", "ReservesF2P/Affector_Granite_RedeployAmmo_{Assault,Engineer,Recon,Support}"],
+      "removedFromCatalog": ["EnhancedFiltering/SimEx_Ability_EnhancedFiltering", "GasReveal/SimEx_Ability_GasReveal", "HemostaticSmoke/U_Ability_HemostaticSmoke", "ImprovedTargeting/SimEx_ImprovedTargeting", "_BaseTraits/PrepperBase/{Ability_PrepperBase,U_Ability_PrepperBase,Affector_Granite_SharedAmmoMax_Prepared_Armor}"],
+      "layoutNote": "Every Class_bc373eac/Class_7d3d8a5c/Class_1486fe7f affector gained header field Field_492c22c3 = 3 and is flagged layoutAmbiguous by the decoder; payload scalars at their raw offsets are unchanged."
+    },
+    "pathSlotValues": "Stored affector scalars reached from the 32 multiplayer slots on 2.1.1.0: Affector_FasterRegen 30 / 2.5 (Quick Recovery), Affector_StanceFlak 0.75 explosive (Explosives Resistant), Affector_MechanicOverheat_Stationaries 0.5 and _Vehicles 0.9 (Overheat Control), Affector_LowProfile_SpotDuration 0.667 and Affector_CommandingPresenceRegen 3.5 (Low Profile). All equal the 1.4.3.5 values recorded in L843, L3315 and L4030. Full table: perks-2110.md in the run folder.",
+    "graphBodies": "29 bodies captured. Constant multisets equal the 10 October listings for every graph that has one; the differences are import-name resolution (hash to name), extra zero-valued data words printed by the catalog-named reader, and the FasterArmorReplate/Pointman stat id 34 -> 35. SimEx_Ability_Pointman_Base (resource 03bf46cd9c5bc85d) and SimEx_FasterArmorReplate (f0dbf44d597de801) are byte-identical 304-byte bodies: f32 1.5 at file offset 100, i32 35 at 104. The 1.4.3.5 FasterArmorReplate body (8ba631f00fef6b83) stores 1.5 and 34 at the same offsets. SimEx_Ability_ArmorGrant (Battle Royale) now reads GRX_Glacier_Soldier:ArmorGrantSpawnPlate (new registry row, true). SimEx_Ability_MedicalTriage has no earlier listing.",
+    "registry": "GRX_Glacier_Soldier: one row added (ArmorGrantSpawnPlate), none changed or removed (registry-diff-2026-10-14). GRX_Granite: WFD_CeramicArmor.SpawnDelay 3.0 -> 2.3."
+  },
+  "inference": [
+    "Multiplayer class traits, training paths and perks are unchanged in structure and stored values between 1.4.3.5 and 2.1.1.0. The Season 5 training-path revisions announced for Battle Royale do not appear in the eight multiplayer path assets.",
+    "The Flak text now states 33%, which matches the stored 0.67 explosive multiplier (1 - 0.67). The re-pointing to Affector_FlakJacket changes no value.",
+    "The Quick Plating text changed from 33% to 25% faster, but the only stored replate constant found (1.5 in both the Pointman_Base and FasterArmorReplate graphs) is unchanged. Either the text was corrected to a different reading of 1.5 (1/1.5 = 0.667 is 33% less time, not 25%), or the effective value is set elsewhere (the unidentified stat id 34 -> 35, or a registry row not named for plating). Quick Plating belongs to the Battle Royale Pointman path, not to a multiplayer slot.",
+    "The Recon class record now carries its signature trait text (AIM-SPOT) in the same fields the Assault (MISSION FOCUSED) and Engineer (MECHANIZED INFANTRY) records use; the Support record's two trait strings are still missing from the English table. The Passive Spotting perk record lost its strings in the same table change."
+  ],
+  "unresolved": [
+    "UI record to gameplay asset identity remains a name match: 24 of 32 slots by internal name (one case-only), 2 by display name, 5 by text alias, 1 (Ability_ActiveUAVOverwatch) by folder name; no stored pointer exists (L840).",
+    "Which of the two UI path records per class (Breacher/Frontliner, Anti-Armor/Combat Engineer, Sniper/Spec Ops, Combat Medic/Fire Support) is FieldUpgradePath_<class>_1 or _2 is not stored; the loadout preset names MP_<class>_1/_2 carry the same titles but are not a join either.",
+    "Where the game reads the Quick Plating speed; the role of stat id 35 in call 239dc415.",
+    "Why Affector_Flak was replaced by an identical Affector_FlakJacket (a consumer other than Ability_Flak may read the old one)."
+  ],
+  "siteImpact": "None. No site value reads these assets. The class-trait display proposals of L861 keep their text basis; the Flak statement can now cite the in-game 33% wording.",
+  "evidence": {
+    "runFolder": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-21-class-perks",
+    "files": [
+      {"file": "perks-2110.md", "sha256": "fb67e6cf19bd91e2de95f9400d1dbff4ad676c937a9e88c5970ae562ed28aed3", "content": "class records, path UI records, 8 paths x 4 slots with UI text and stored affectors, 73 ability UI records not reached from a multiplayer path"},
+      {"file": "perks-table.py", "sha256": "f2e21be17b1527c99f66370033f539ac97c6a1e9ed1ef013b5ffb6214d1e15dc"},
+      {"file": "diff-abilities.json", "sha256": "17423c4b2c593dc51e7fd3e45605bbee784259e5c47f8e7e3a2827ee66c3f17d", "content": "leaf diff of the 157 shared ability routes"},
+      {"file": "constants-compare.json", "sha256": "7a8f763c6231074f59ba296a18aa0ce7286d0069c53a2814c7910ba1c16ff7c0"},
+      {"file": "ui-1435.json / ui-2110.json", "content": "frosty-ui-text.py output per build"},
+      {"file": "lst/*.txt", "content": "29 graph listings on 2.1.1.0 (exgraph2110/, a path-switched copy of the 10 October reader)"}
+    ],
+    "capture": {"folder": "builds/2.1.1.0/reports/class-perk-graphs-2026-10-21", "gameHead": 5383474, "resources": 29, "routes": 2},
+    "strings": {"2.1.1.0": "298cb12484edd5c09d9021d4e094e02fa1758ce788c651dd62b93a781b7a4840", "1.4.3.5": "1ec449fa2a12bc3d307bfa5878ee7d8c56af14fae65ea1f6c6286e85d98e7392"},
+    "rawChecks": [
+      {"path": "builds/2.1.1.0/reports/class-perk-graphs-2026-10-21/resources/03bf46cd9c5bc85d.res", "sha256": "bc45b518d0dfcba4d246e37a01aeecf9429e5876bc832e47ac9399b5a8f47614", "offset": 100, "type": "f32", "bytesHex": "0000c03f", "value": 1.5},
+      {"path": "builds/2.1.1.0/reports/class-perk-graphs-2026-10-21/resources/03bf46cd9c5bc85d.res", "offset": 104, "type": "i32", "bytesHex": "23000000", "value": 35},
+      {"path": "builds/1.4.3.0/capture/candidate-expression-resources-2026-09-23/resources/8ba631f00fef6b83.res", "sha256": "9906786599531f37bc78ba76c70b4a600281a45fca80b4f9abff017f53d66769", "offset": 100, "type": "f32", "bytesHex": "0000c03f", "value": 1.5},
+      {"path": "builds/2.1.1.0/reports/season5-uncaptured-2026-10-13/raw/Common/Gameplay/InRoundProgression/Flak/Affector_FlakJacket.ebx", "sha256": "c7b2d474a87c29b1719b6ff8236744579e47773ef1c8d4958583774b9340facf", "offset": 216, "type": "f32", "value": 0.67},
+      {"path": "builds/2.1.1.0/capture/collection/raw/Common/Gameplay/InRoundProgression/Flak/Affector_Flak.ebx", "sha256": "8e3356d3b38d149b9b20216bf668d99c6014ba20f98694cd9376e8f3888fa04a", "offset": 216, "type": "f32", "value": 0.67}
+    ]
+  },
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-10-21",
+    "build": "mixed",
+    "binding": "research",
+    "leads": [
+      {
+        "id": "L4056",
+        "title": "Class traits, training paths and perks rechecked on 2.1.1.0: UI assets, path assets and multiplayer stored values unchanged; Flak re-pointed to an identical Flak Jacket affector; four perk strings changed, Quick Plating text 33% -> 25% with the stored 1.5 unchanged",
+        "status": "finding",
+        "summary": "Four UI metadata assets and all 16 FieldUpgradePath assets are byte-identical to 1.4.3.5; of 61 byte-changed ability assets 59 differ only in compiled type indices, body hashes and a new affector header field, Ability_Flak imports the new Affector_FlakJacket (0.67 explosive, same as Affector_Flak) and the BR weapon-grant table was reordered; the English table changed Quick Plating to 25% faster (Pointman and FasterArmorReplate bodies still store 1.5 with stat id 34 -> 35), added 33% to Flak (matches 0.67), moved the AIM-SPOT trait text onto the Recon class record and dropped the Passive Spotting perk strings.",
+        "reopenWhen": "A stored join from UI perk records to Ability assets, a consumer that reads the Quick Plating speed (stat id 35), or a later update that changes a FieldUpgradePath_* asset or a multiplayer affector payload."
+      }
+    ],
+    "assets": [
+      {"path": "Common/UI/Static/Metadata/UIClassMetadata", "format": "raw-ebx", "sha256": "7d0cea5ea186ab72a63506b76fb9e726959dc85605bd0c621106a74d12baf23a", "question": "Did the class records change on 2.1.1.0?", "result": "useful", "conclusion": "Bytes equal L400; through the 2.1.1.0 string table the Recon record gains AIM-SPOT trait text in Field_aff0eb51/Field_59ba3119; Support's two trait strings still missing."},
+      {"path": "Common/UI/Static/Metadata/UIGlacierFieldUpgradePathMetadata", "format": "raw-ebx", "sha256": "7f6ab3b21b11719d0ce01630d27faf248ddd9dee1adf159911f1b5f919b9bde0", "question": "Did the training-path records change?", "result": "useful", "conclusion": "Bytes and the 12 resolved texts equal 1.4.3.5 (8 multiplayer, 4 Battle Royale paths)."},
+      {"path": "Common/UI/MetaData/UIPlayerAbilityDescriptionMetadata", "format": "raw-ebx", "sha256": "393af3d78e2e52851ee23fad8b4be3c8eec1d9d01bfdde0472c715b4fd876ab4", "question": "Did the perk records or their text change?", "result": "useful", "conclusion": "Bytes equal L400; 102 records; three records' text changed through the string table (Quick Plating 25%, Flak 33%, Passive Spotting strings missing)."},
+      {"path": "Common/UI/Static/Metadata/UISoldierLoadoutPresetMetadata", "format": "raw-ebx", "sha256": "7d54c722138df93b4bf13282b040a433755646cbebf82011b469d399ed80deec", "question": "Did the preset records change?", "result": "useful", "conclusion": "Bytes and the 24 texts equal 1.4.3.5; MP_<class>_1/_2 presets carry the training-path titles."},
+      {"path": "Common/Gameplay/InRoundProgression/Flak/Ability_Flak", "format": "raw-ebx", "sha256": "b84989db436448b6c79efaf194071ab73ce338170fa21936242404a8cb663da0", "question": "What changed in the Flak ability on 2.1.1.0?", "result": "useful", "conclusion": "Affector import re-pointed from Affector_Flak to the new Affector_FlakJacket; Field_46409036 removed, Field_e59acd2d added (layout)."},
+      {"path": "Common/Gameplay/InRoundProgression/Flak/Affector_FlakJacket", "format": "raw-ebx", "sha256": "c7b2d474a87c29b1719b6ff8236744579e47773ef1c8d4958583774b9340facf", "question": "Stored values of the new Flak affector.", "result": "useful", "conclusion": "Class_7d3d8a5c; multiplier 0.67 (offset 216), explosive true, bullet false: identical to Affector_Flak."},
+      {"path": "Common/Gameplay/InRoundProgression/_BaseTraits/Pointman_Base/SimEx_Ability_Pointman_Base", "format": "raw-ebx", "sha256": "c629dcea6aa2d8a5b1f2f0f314e171c3db0316872371661907319c79a2e3d299", "question": "Stored value behind the Quick Plating 25% text.", "result": "useful", "conclusion": "Body 03bf46cd9c5bc85d stores 1.5 and stat id 35 in call 239dc415; no 25% or 1.25/1.333 constant; the body equals SimEx_FasterArmorReplate's."}
+    ]
+  }
+}

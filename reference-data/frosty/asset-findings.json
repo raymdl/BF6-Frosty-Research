@@ -1972,6 +1972,10 @@
     "frosty-2026-10-16-L4044-recovery-law-shape": {
       "path": "reference-data/provenance/frosty-2026-10-16-L4044-recovery-law-shape.json",
       "reportSha256": "2c77ed00474268ab2bc7e7f6bc29346fb09a50709e752cd48e2846d071d70bf1"
+    },
+    "frosty-2026-10-21-L4056-class-perk-recheck-2110": {
+      "path": "reference-data/provenance/frosty-2026-10-21-L4056-class-perk-recheck-2110.json",
+      "reportSha256": "3d5ddc78c287b91e98c00e3db743aaa83ff620d462e74a95466da63953e31164"
     }
   },
   "assets": {
@@ -26783,6 +26787,35 @@
           "revisitWhen": [
             "StandardMP class/loadout selection is traced.",
             "Compiled expression/native consumer is decoded or controlled gameplay measured."
+          ]
+        },
+        {
+          "question": "What changed in the Flak ability on 2.1.1.0?",
+          "result": "useful",
+          "conclusion": "Affector import re-pointed from Affector_Flak to the new Affector_FlakJacket; Field_46409036 removed, Field_e59acd2d added (layout).",
+          "buildInspected": {
+            "label": "several builds compared in one record",
+            "exactBuildVerified": false,
+            "basis": "record.build mixed"
+          },
+          "evidence": [
+            {
+              "source": "frosty-2026-10-21-L4056-class-perk-recheck-2110",
+              "pointer": "/record"
+            }
+          ],
+          "assetHashesAtInspection": [
+            {
+              "format": "raw-ebx",
+              "sha256": "b84989db436448b6c79efaf194071ab73ce338170fa21936242404a8cb663da0"
+            }
+          ],
+          "inspectionDate": "2026-10-21",
+          "revisitWhen": [
+            "Asset content or relevant dependency changes.",
+            "New evidence identifies a consumer or changes the interpretation.",
+            "The research question requires fields or methods outside the inspected scope.",
+            "A stored join from UI perk records to Ability assets, a consumer that reads the Quick Plating speed (stat id 35), or a later update that changes a FieldUpgradePath_* asset or a multiplayer affector payload."
           ]
         }
       ]
@@ -74125,6 +74158,35 @@
             "The research question requires fields or methods outside the inspected scope.",
             "Trace exact GUID consumers or obtain missing localized StringId sources."
           ]
+        },
+        {
+          "question": "Did the preset records change?",
+          "result": "useful",
+          "conclusion": "Bytes and the 24 texts equal 1.4.3.5; MP_<class>_1/_2 presets carry the training-path titles.",
+          "buildInspected": {
+            "label": "several builds compared in one record",
+            "exactBuildVerified": false,
+            "basis": "record.build mixed"
+          },
+          "evidence": [
+            {
+              "source": "frosty-2026-10-21-L4056-class-perk-recheck-2110",
+              "pointer": "/record"
+            }
+          ],
+          "assetHashesAtInspection": [
+            {
+              "format": "raw-ebx",
+              "sha256": "7d54c722138df93b4bf13282b040a433755646cbebf82011b469d399ed80deec"
+            }
+          ],
+          "inspectionDate": "2026-10-21",
+          "revisitWhen": [
+            "Asset content or relevant dependency changes.",
+            "New evidence identifies a consumer or changes the interpretation.",
+            "The research question requires fields or methods outside the inspected scope.",
+            "A stored join from UI perk records to Ability assets, a consumer that reads the Quick Plating speed (stat id 35), or a later update that changes a FieldUpgradePath_* asset or a multiplayer affector payload."
+          ]
         }
       ]
     },
@@ -74332,6 +74394,35 @@
             "New evidence identifies a consumer or changes the interpretation.",
             "The research question requires fields or methods outside the inspected scope.",
             "Exact next affector/class/UI consumers and same-owner numeric controls become available."
+          ]
+        },
+        {
+          "question": "Did the perk records or their text change?",
+          "result": "useful",
+          "conclusion": "Bytes equal L400; 102 records; three records' text changed through the string table (Quick Plating 25%, Flak 33%, Passive Spotting strings missing).",
+          "buildInspected": {
+            "label": "several builds compared in one record",
+            "exactBuildVerified": false,
+            "basis": "record.build mixed"
+          },
+          "evidence": [
+            {
+              "source": "frosty-2026-10-21-L4056-class-perk-recheck-2110",
+              "pointer": "/record"
+            }
+          ],
+          "assetHashesAtInspection": [
+            {
+              "format": "raw-ebx",
+              "sha256": "393af3d78e2e52851ee23fad8b4be3c8eec1d9d01bfdde0472c715b4fd876ab4"
+            }
+          ],
+          "inspectionDate": "2026-10-21",
+          "revisitWhen": [
+            "Asset content or relevant dependency changes.",
+            "New evidence identifies a consumer or changes the interpretation.",
+            "The research question requires fields or methods outside the inspected scope.",
+            "A stored join from UI perk records to Ability assets, a consumer that reads the Quick Plating speed (stat id 35), or a later update that changes a FieldUpgradePath_* asset or a multiplayer affector payload."
           ]
         }
       ]
@@ -78373,6 +78464,35 @@
             "The research question requires fields or methods outside the inspected scope.",
             "Trace exact GUID consumers or obtain missing localized StringId sources."
           ]
+        },
+        {
+          "question": "Did the class records change on 2.1.1.0?",
+          "result": "useful",
+          "conclusion": "Bytes equal L400; through the 2.1.1.0 string table the Recon record gains AIM-SPOT trait text in Field_aff0eb51/Field_59ba3119; Support's two trait strings still missing.",
+          "buildInspected": {
+            "label": "several builds compared in one record",
+            "exactBuildVerified": false,
+            "basis": "record.build mixed"
+          },
+          "evidence": [
+            {
+              "source": "frosty-2026-10-21-L4056-class-perk-recheck-2110",
+              "pointer": "/record"
+            }
+          ],
+          "assetHashesAtInspection": [
+            {
+              "format": "raw-ebx",
+              "sha256": "7d0cea5ea186ab72a63506b76fb9e726959dc85605bd0c621106a74d12baf23a"
+            }
+          ],
+          "inspectionDate": "2026-10-21",
+          "revisitWhen": [
+            "Asset content or relevant dependency changes.",
+            "New evidence identifies a consumer or changes the interpretation.",
+            "The research question requires fields or methods outside the inspected scope.",
+            "A stored join from UI perk records to Ability assets, a consumer that reads the Quick Plating speed (stat id 35), or a later update that changes a FieldUpgradePath_* asset or a multiplayer affector payload."
+          ]
         }
       ]
     },
@@ -78435,6 +78555,35 @@
             "New evidence identifies a consumer or changes the interpretation.",
             "The research question requires fields or methods outside the inspected scope.",
             "Trace exact GUID consumers or obtain missing localized StringId sources."
+          ]
+        },
+        {
+          "question": "Did the training-path records change?",
+          "result": "useful",
+          "conclusion": "Bytes and the 12 resolved texts equal 1.4.3.5 (8 multiplayer, 4 Battle Royale paths).",
+          "buildInspected": {
+            "label": "several builds compared in one record",
+            "exactBuildVerified": false,
+            "basis": "record.build mixed"
+          },
+          "evidence": [
+            {
+              "source": "frosty-2026-10-21-L4056-class-perk-recheck-2110",
+              "pointer": "/record"
+            }
+          ],
+          "assetHashesAtInspection": [
+            {
+              "format": "raw-ebx",
+              "sha256": "7f6ab3b21b11719d0ce01630d27faf248ddd9dee1adf159911f1b5f919b9bde0"
+            }
+          ],
+          "inspectionDate": "2026-10-21",
+          "revisitWhen": [
+            "Asset content or relevant dependency changes.",
+            "New evidence identifies a consumer or changes the interpretation.",
+            "The research question requires fields or methods outside the inspected scope.",
+            "A stored join from UI perk records to Ability assets, a consumer that reads the Quick Plating speed (stat id 35), or a later update that changes a FieldUpgradePath_* asset or a multiplayer affector payload."
           ]
         }
       ]
@@ -95976,6 +96125,74 @@
             "New evidence identifies a consumer or changes the interpretation.",
             "The research question requires fields or methods outside the inspected scope.",
             "Per-shot impact positions from the burst videos, or a capture on the 72 / 1.2 profile with 10, 15 and 20-round bursts, or a readable implementation of the recoil kick and recovery."
+          ]
+        }
+      ]
+    },
+    "Common/Gameplay/InRoundProgression/Flak/Affector_FlakJacket": {
+      "contents": "Traced by frosty-2026-10-21-L4056-class-perk-recheck-2110.",
+      "findings": [
+        {
+          "question": "Stored values of the new Flak affector.",
+          "result": "useful",
+          "conclusion": "Class_7d3d8a5c; multiplier 0.67 (offset 216), explosive true, bullet false: identical to Affector_Flak.",
+          "buildInspected": {
+            "label": "several builds compared in one record",
+            "exactBuildVerified": false,
+            "basis": "record.build mixed"
+          },
+          "evidence": [
+            {
+              "source": "frosty-2026-10-21-L4056-class-perk-recheck-2110",
+              "pointer": "/record"
+            }
+          ],
+          "assetHashesAtInspection": [
+            {
+              "format": "raw-ebx",
+              "sha256": "c7b2d474a87c29b1719b6ff8236744579e47773ef1c8d4958583774b9340facf"
+            }
+          ],
+          "inspectionDate": "2026-10-21",
+          "revisitWhen": [
+            "Asset content or relevant dependency changes.",
+            "New evidence identifies a consumer or changes the interpretation.",
+            "The research question requires fields or methods outside the inspected scope.",
+            "A stored join from UI perk records to Ability assets, a consumer that reads the Quick Plating speed (stat id 35), or a later update that changes a FieldUpgradePath_* asset or a multiplayer affector payload."
+          ]
+        }
+      ]
+    },
+    "Common/Gameplay/InRoundProgression/_BaseTraits/Pointman_Base/SimEx_Ability_Pointman_Base": {
+      "contents": "Traced by frosty-2026-10-21-L4056-class-perk-recheck-2110.",
+      "findings": [
+        {
+          "question": "Stored value behind the Quick Plating 25% text.",
+          "result": "useful",
+          "conclusion": "Body 03bf46cd9c5bc85d stores 1.5 and stat id 35 in call 239dc415; no 25% or 1.25/1.333 constant; the body equals SimEx_FasterArmorReplate's.",
+          "buildInspected": {
+            "label": "several builds compared in one record",
+            "exactBuildVerified": false,
+            "basis": "record.build mixed"
+          },
+          "evidence": [
+            {
+              "source": "frosty-2026-10-21-L4056-class-perk-recheck-2110",
+              "pointer": "/record"
+            }
+          ],
+          "assetHashesAtInspection": [
+            {
+              "format": "raw-ebx",
+              "sha256": "c629dcea6aa2d8a5b1f2f0f314e171c3db0316872371661907319c79a2e3d299"
+            }
+          ],
+          "inspectionDate": "2026-10-21",
+          "revisitWhen": [
+            "Asset content or relevant dependency changes.",
+            "New evidence identifies a consumer or changes the interpretation.",
+            "The research question requires fields or methods outside the inspected scope.",
+            "A stored join from UI perk records to Ability assets, a consumer that reads the Quick Plating speed (stat id 35), or a later update that changes a FieldUpgradePath_* asset or a multiplayer affector payload."
           ]
         }
       ]

@@ -399,7 +399,8 @@ named blocks, not a native consumer or a proof of units.
 | `Field_7a592b4e` | MaximumCustomZeroingDistance = 1000 | Named; 12 matching records |
 | `Field_812f7451` | CustomZeroingDelay = 0.4 | Named; 12 matching records; units unverified |
 | `Field_4e34fabb` | RangeFindingInAdsOnly = true in the named group | Value; only true boolean in that block |
-| `Field_4b636fc6`, `Field_4449ee55` | Both false; RangeFinder and CustomZeroing are also false | Individual assignment unresolved |
+| `Field_4b636fc6` | RangeFinder; false on all 69 weapon blueprints (2.1.1.0), true in the FN Elity package `WPM_RGT_RangeFinder_W10` | Named: the `GRX_Weapons` `CDX40_WB….Shot.Zeroing` node pairs its hash array with its named child rows ([19 Oct note](../working/SEASON5_ATTACHMENTS_2026-10-19.md)) |
+| `Field_4449ee55` | CustomZeroing; true on `CDX40_WB` (ELR-40) only, false on the other 68, true in the FN Elity package | Named, same pairing; registry row `CDX40_WB….Zeroing.CustomZeroing` = true |
 | `Field_410f6aa8` | Integer list in the zeroing block: single 60/75/100 or 100–500 | Structure; list role and active selection unresolved |
 
 ## Additional current raw registry names (1.4.3.0)

@@ -88,11 +88,11 @@ Run: `BF6 Datamining/reports/weapon-analyzer-research/2026-10-10-weapons-registr
 
 | Lead | Status | Result | Commit |
 |---|---|---|---|
-| L4000 | finding | Registry default equals the own value on every compared row of the 63 site weapons, their firing data and their bullets. The registry-or-own question of L3356 does not arise for weapons. | `5279418` |
+| L4000 | finding | Registry default equals the own value on every compared row of the 63 site weapons, their firing data and their bullets. The registry-or-own question of L3356 does not arise for weapons. **Rechecked on 2.1.1.0 (19 Oct): still 0 differing over 14,838 values (279 row names); six defaults moved (M39 EMR and SVDM recoil), the own value moved with each ([L4051](#current-weapons-registry-recheck-19-october-2026)).** | `5279418` |
 | L4001 | finding | EA 1.3.3.0 recoil variation equals the site on 39 of 39 weapons. EA states the M45A1 and vz. 61 are subsonic by default; their stored spotting ranges are 27 / 64.29 against 54 / 150 on the other 61 weapons. | `5279418` |
-| L4002 | exhausted | Registry rows name 102 weapon fields; 101 were already in FIELD_MAP.md. No hash cited by 116 earlier negative closures gains a name. `Field_440ed7fa` has no registry row. | `5279418` |
-| L4003 | finding | Site velocity, magazine, drag and limb values equal the stored rows on all 63 weapons; the eight rate-of-fire differences are the single-fire VSSM and seven manually cycled weapons. | `5279418` |
-| L4004 | finding | Bullet damage curves are equal between registry, own files and the site; the M45A1 keeps its reviewed step. | `5279418` |
+| L4002 | exhausted | Registry rows name 102 weapon fields; 101 were already in FIELD_MAP.md. No hash cited by 116 earlier negative closures gains a name. `Field_440ed7fa` has no registry row. **Rechecked on 2.1.1.0: row suffixes unchanged (332), no new name; 1,836 value rows added, all on the new weapons, five new bullets and M240L stance rows (L4053).** | `5279418` |
+| L4003 | finding | Site velocity, magazine, drag and limb values equal the stored rows on all 63 weapons; the eight rate-of-fire differences are the single-fire VSSM and seven manually cycled weapons. **Rechecked on 2.1.1.0: all 441 records identical; site equals source on every existing weapon (L4051).** | `5279418` |
+| L4004 | finding | Bullet damage curves are equal between registry, own files and the site; the M45A1 keeps its reviewed step. **Rechecked on 2.1.1.0: health curves unchanged; 13 armor curves changed, registry and own together (L4052).** | `5279418` |
 | L4005 | finding | Weapon and attachment figures in EA notes 1.1.3.0 to 1.4.3.0 agree with the site or were superseded. | `5279418` |
 | L4006 | exhausted | Parked questions W1-W9, O1-O3, M1-M3 and G1 screened against the three methods; none is reopened. | `5279418` |
 | L4007 | finding | Head-table index equal on 63 of 63; seven manually cycled rates reproduced from stored bolt fields; reload sums equal on 48 tactical and 45 of 58 empty values, the rest are reviewed capture values. EA: Interdictor limb damage matches chest; Match Trigger must not affect automatic fire. | `5279418` |
@@ -105,6 +105,23 @@ Run: `BF6 Datamining/reports/weapon-analyzer-research/2026-10-10-weapons-registr
 - **Outside this run's scope.** The L4000 pass lists 74 registry-against-own differences on gadget, launcher and vehicle owners, 40 of them not in the L3314 census (for example `GS_AT4`, `GS_MBTLAW` and `GS_RPG7v2` zoomed dispersion). They are in `reference-data/frosty/weapon-registry-own-comparison.json` for the vehicle and gadget work.
 - **Tests for the operator:** none new. The L4001 spotting test is withdrawn (L4008). The Match Trigger capture (L17) remains optional: all 24 Match Trigger stat panels equal the site's display, so it would only decide whether to model a single-fire effect the game does not show.
 <!-- weapons-registry-2026-10-10:end -->
+
+<!-- weapons-registry-recheck-2026-10-19:start -->
+## Current weapons registry recheck (19 October 2026)
+
+Run: `BF6 Datamining/builds/2.1.1.0/reports/weapon-registry-recheck-2026-10-19/`, note [WEAPON_REGISTRY_RECHECK_2026-10-19.md](WEAPON_REGISTRY_RECHECK_2026-10-19.md), build 2.1.1.0 (hotfix capture). Read from saved raw files only; no capture, no site edit, no commit, no push. Re-run of L4000, L4002, L4003, L4004 and L604. The brief asked for rows from L4020; L4020 to L4050 are closed leads with receipts, so these rows are L4051 onward. They have no receipts yet.
+
+| Lead | Status | Result | Commit |
+|---|---|---|---|
+| L4051 | finding | L4000 and L4003 repeated: 14,838 registry-against-own values (279 row names, 63 weapons) equal on both builds; 6 defaults moved (M39 EMR, SVDM recoil), own value with them. Site equals the source on every existing weapon (441 records identical to 10 October); the SVDM and M39 EMR edits of 13 October match. Own leaves: 2,006 differences over 74 files, all in six classes (priority index shifts, recoil, spot-on-fire 54 to 75, class profile, array entries, armor curves). | - |
+| L4052 | finding | L4004 repeated: health curves unchanged on all bullet files; 13 armor curves changed (own and registry together, equal); site `dmg` lists unchanged. | - |
+| L4053 | exhausted | L4002 repeated: 1,836 value rows added (tsv: 2,150 in `GRX_Weapons`; the 1,846 figure does not reproduce); row suffixes unchanged (332); 106 value-matched names, all in FIELD_MAP.md; none for the open-question or negative-closure hashes. | - |
+| L4054 | finding | L604 repeated: mode lists and rates unchanged on 63 of 63, 12 branch files byte-identical. SGX and L110 lost the `_Ergo/CMU_SemiAuto` import; M433 gained a Match Trigger W15 import. | - |
+| L4055 | open | Site `mag` 8 for the ELR-40 against registry and own 1 (7 Rnd default in `WEAPON_MAG`); `M16A3_WB - InitialSpeed.z` 720 odd row; M433 Match Trigger import untraced; 13 armor curves unanalysed. | - |
+
+- **Operator action:** none. The ELR-40 magazine (L4055) is a site question to settle before the next site edit.
+<!-- weapons-registry-recheck-2026-10-19:end -->
+
 
 <!-- gunfight-mechanics:start -->
 ## Current gunfight mechanics run (closed 1 October 2026)
@@ -254,7 +271,7 @@ underbarrel work, in-game tests or pushes were performed.
 
 ## Current fire-modes run (30 September 2026)
 
-Run: `BF6 Datamining/reports/weapon-analyzer-research/2026-09-30T2323-0400-fire-modes/`, L600-L604, on 1.4.3.5 / Head 4909002. All 63 weapons are covered in `fire-modes.json`: 110 source mode rows and 12 mode-changing branches, including 10 site choices. All controls and worker reviews passed. The four XML-missing modifier imports were resolved from existing raw; no capture was needed. Generic unmatched graph joins remain explicit and do not supply runtime negatives. Count predictions, named toggle validation and conditional L63/L17 effects are in the proposal row and [findings](../frosty/WEAPONS.md#fire-mode-selector-source-data-1435-l600-l604). No site implementation or in-game tests were included. Local source commit: `dc7aa6c`; site evidence index: `b4e6074`. The run handoff records verification, limits and cleanup. No push.
+Run: `BF6 Datamining/reports/weapon-analyzer-research/2026-09-30T2323-0400-fire-modes/`, L600-L604, on 1.4.3.5 / Head 4909002. All 63 weapons are covered in `fire-modes.json`: 110 source mode rows and 12 mode-changing branches, including 10 site choices. All controls and worker reviews passed. The four XML-missing modifier imports were resolved from existing raw; no capture was needed. Generic unmatched graph joins remain explicit and do not supply runtime negatives. Count predictions, named toggle validation and conditional L63/L17 effects are in the proposal row and [findings](../frosty/WEAPONS.md#fire-mode-selector-source-data-1435-l600-l604). No site implementation or in-game tests were included. Local source commit: `dc7aa6c`; site evidence index: `b4e6074`. The run handoff records verification, limits and cleanup. No push. **L604 rechecked on 2.1.1.0 (19 Oct): mode lists and rates unchanged on all 63 weapons, the 12 branch files byte-identical; SGX and L110 lost the `CMU_SemiAuto` import (L4054).**
 
 ## Current site audit run (tables)
 
@@ -339,6 +356,9 @@ operator approval; none is implemented unless stated.
 
 | Proposal | Affected data/code | Evidence and remaining validation |
 |---|---|---|
+| **Hold until released: DD Vertical grip (Season 5, U44)** | `data/attachments.json` GRIPS (new id) and the grip lists of 49 weapons | Source: GS `GRM_Recoil_BTM_P30` (+3 amount exponent, both aim branches) and WB `WME_DynamicPivot_M10`; no moving-ADS or ADS-move effect; cost 30. By the vertical-grip family mapping: ADS recoil 3, hip recoil 3, moving ADS 0. Not in the game at 2.1.1.0 (kill switch `KST_CH2_S1_Weapons`, later Season 5 phase); add when it appears, and read the display name from the loadout screen then. [Working note](SEASON5_ATTACHMENTS_2026-10-19.md). |
+| **Hold until released: FML 1.00x thermal on seven sidearms (Season 5, U44)** | `data/attachments.json` SIGHTS and the sidearm sight lists; `optic_category` rule in `scripts/frosty-attachment-tooltips.py` | 1.00x thermal (ES 5.7, GGH-22, P18, M45A1, M44, vz. 61, M357 Trait), 25 points. Unlike every rifle thermal it does not import `WME_ADSMoveSpeed_M05`, so the Thermal category's ADS-move shift must not apply to it. Not in the game at 2.1.1.0 (same kill switch, later Season 5 phase); add when it appears. [Working note](SEASON5_ATTACHMENTS_2026-10-19.md). |
+| **ELR-40 custom zeroing without the FN Elity (operator report, 19 Oct)** | Game-bugs document candidate; no site data | `CDX40_WB` zeroing block CustomZeroing (`Field_4449ee55`, now named from the registry hash pairing) true, the only weapon; registry row agrees. The FN Elity package sets RangeFinder and CustomZeroing; the ELR-40 has the second built in. Not in the game's text. [Working note](SEASON5_ATTACHMENTS_2026-10-19.md). |
 | **Soldier frontier (L861): Holster setting** | Add the existing resolved `_undeployTimeMs` setting to loadout comparison. | L849: M433 default 30 Rnd model rounds to 200 ms; 20 Rnd rounds to 167 ms. Existing model/formatter check predicts ADS 0.75×, sprint 133 ms and deploy 467 ms for 20 Rnd. Re-run that exact model/formatter check before implementation. This is a handling setting; total swap/readiness remains unresolved. |
 | **Soldier frontier (L861): Quicker Recovery description — parked, research only (operator, 1 Oct; the site has no class/perk surface)** | Show the Frontliner perk's stated recovery benefit. | [EA Assault guide](https://www.ea.com/games/battlefield/battlefield-6/news/assault-class): passive healing starts sooner and recovers faster. Validation prediction: the guide's Frontliner level 2 states both effects. L846 has source role settings 30/2.5/0 versus baseline 10/5/0; native units/composition remain unresolved, so display qualitative guide text. |
 | **Soldier frontier (L861): Soft Landing description — parked, research only (operator, 1 Oct; the site has no class/perk surface)** | Show reduced falling/jumping impact for the Frontliner perk. | [EA Assault guide](https://www.ea.com/games/battlefield/battlefield-6/news/assault-class): reduced impact. Validation prediction: Frontliner level 1 states falling and jumping. L850/L854 trace Featherweight source selection and CT addresses; they do not establish damage thresholds or exact UI identity. Confirm the current UI selection before binding this guide description. |
