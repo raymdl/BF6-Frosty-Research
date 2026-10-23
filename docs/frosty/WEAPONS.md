@@ -960,6 +960,58 @@ The same review establishes the following configuration in the M4A1 trace:
   established operation codes or reload speeds; the general field map calls that
   field Priority. No new timing multiplier follows from these records.
 
+### Mounted and deployed recoil (2.1.1.0, 23 October 2026)
+
+The deployed-bipod condition is the `Field_b574fa40` header flag (`BenefittingFromBipod`,
+L4038). Three recoil packages carry it, read from the 2.1.1.0 raw capture
+(`BF6 Datamining/builds/1.4.3.0/xml/xml-overlay/Common/Hardware/Weapons/_WeaponModifiers/`):
+
+| Asset | Amount exponent | Variation exponent | Bound under |
+|---|---:|---:|---|
+| `Bipod/GRM_BipodDeployed_BTM_P50` | +10 | −4 | the bipod part selector `a5578cf4` on automatic weapons and DMRs |
+| `Grippod/GRM_GrippodDeployed_BTM_P30` | +8 | −4 | the PTT, QD and Classic grip pod selectors on every grip pod weapon |
+| `Bipod/GRM_BipodDeployed_Bolt_BTM_P50` | +30 | −5 | the bipod on bolt-actions; also the QD and Classic grip pods on PSR, M2010 ESR, SV-98 and Mini Scout (ELR-40 binds both packages; Interdictor and L115 grip pods bind only `_P30`) |
+
+The `_P30` and `_P50` files differ only in the two amount operands (`Field_4692836a`
+0x08 against 0x0a). Grip pods also bind `GRM_Recoil_BTM_P20` (+2 amount tiers) with no
+condition, so on an automatic weapon a deployed grip pod totals +10, the same as a deployed
+bipod. The five `GBM_Increase_ADS_{30..50}_BTM_Bipod` files are byte-identical apart from
+name and GUID (increase and offsets × 1/3, firing coefficient × 5.196152 = 3^1.5); the
+suffix carries no value. The plain `GRM_MountedHorizontal` / `GRM_MountedVertical`
+modifiers are identity operands, so mounting without a bipod changes nothing in the
+files; the only non-neutral mounted effect remains the Steady Aim `MountedPlus` perk
+(+3 / −2, L108).
+
+**Measured (operator recordings, 23 October 2026, client 2.1.1.0;
+[receipt](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/reference-data/provenance/deployed-recoil-measurement-2026-10-23.md)).**
+M277 full-auto magazines on the firing range, standing and rested on the counter, with
+no grip, Bipod, PTT, QD and Classic Grip Pod. Camera climb before shot 20, tracked on the
+range signs, relative to the two no-grip standing clips (126 px, agreeing to 0.2 px):
+
+| State | Measured ratio | Predicted (`0.9433^tiers`) |
+|---|---:|---:|
+| Standing with a grip pod (three clips) | 0.80 | 0.890 (+2) |
+| Mounted without a bipod | 0.92 | 1.000 |
+| Deployed bipod | 0.53 | 0.558 (+10) |
+| Deployed grip pods (three clips, 61 to 68 px) | 0.52 | 0.558 (+2 +8) |
+
+The deployed tiers compose as the site's exponent ladder predicts, within the clip-to-clip
+spread of about 8%; the deployed bipod and the deployed grip pods are indistinguishable,
+as the +10 totals predict; mounting without a bipod gives no deployed reduction. The
+per-shot kick halves deployed (median 3.3 to 4.3 px against 7.0 to 9.6 px). The horizontal
+track is not usable (the wall texture repeats at the template search scale), so the −4
+variation tier is unmeasured on the M277.
+
+PSR (four shots per clip, feature-tracked camera; bipod, QD and Classic grip pods, no PTT):
+the four standing clips and the mounted-without-bipod clip agree (settled net pitch 31 to
+34 px); the three deployed clips settle at 5.1 px, a ratio of 0.163 against the predicted
+`0.94^30` = 0.156, and are identical to each other, as the shared Bolt package predicts.
+The camera trace is a dip, a peak at about 90 ms, an oscillation and a settle by 250 ms;
+only the settled net pitch follows the exponent ladder (the 15-frame peak ratio is 0.305).
+Horizontal variation did not rise when deployed (jump SD ratio 0.52 against the predicted
+1.51 for the −5 variation tier; four shots per clip, weak). Whether the variation exponent
+acts with the sign the site assumes is therefore open.
+
 ### Idle duration table (1.4.3.0, 23 September 2026)
 
 The [direct GS/table/registry trace](../../reference-data/provenance/frosty-idle-duration-2026-09-23.json)
