@@ -391,15 +391,16 @@ labels ("Aiming Down Sight Speed", "Zoom Level") and ids missing from the table.
 
 ## Current site mapping
 
-All 3,011 non-optic site choices have reviewed Frosty source identities. The runtime
-tooltip file describes 2,966 of them: 2,948 with Frosty English text and 18 with
-approved game-panel text. The other 45 are deferred and carry
-`description-review-required` in the mapping report.
+All 3,250 non-optic site choices have reviewed Frosty source identities, and the runtime
+tooltip file describes all of them (24 October 2026, build 2.1.1.0): 3,179 with Frosty
+English text, 26 with approved game-panel text and 45 through a missing string ID that
+an approved panel resolves. None are deferred.
 
-All 350 generic optic choices map to 1,927 Frosty sight records for the 63 weapons.
+All 374 generic optic choices map to 2,064 classified Frosty sight records for the 67
+weapons (8 of 2,072 sight records stay unresolved).
 Fixed scopes are Standard Optic; Variable Low and Variable High group the 20- and
 25-point variable optics (not a magnification threshold). Iron Sights has a tooltip on
-all 63 weapons (3,030 tooltips in total). The site shows the iron-sight name as
+all 67 weapons (3,317 tooltips in total). The site shows the iron-sight name as
 "Iron Sights (1.50x)" ([Attachments](ATTACHMENTS.md#optic-render-fov-and-zoom)).
 
 - **Iron-sight defaults.** M16A4 (Classic) and UMG-40 (basic aperture) are user-selected.
@@ -409,20 +410,38 @@ all 63 weapons (3,030 tooltips in total). The site shows the iron-sight name as
   shows the linked text pending approved panel captures. Four missing iron UI links
   use the weapon's `AD_<weapon>_Sight`. M121 A2 uses
   `Common/Hardware/Weapons/MG/MG5/AD_MG5_IronSights` (description `0BB6AC0B`).
-- **Panel text.** 18 approved panels supply tooltips. 15 replace missing strings; three
-  (AK4D 20 Rnd fast, SV-98 Lightened Suppressor, SCW-10 Extended) replace linked text
-  that differs from the live panel (`status: linked-text-differs-from-panel`). Evidence:
-  `panelLinkageInvestigation` in the identity follow-up report.
+- **Panel text.** 26 approved panels supply tooltips. 17 replace missing strings (the
+  Mk 24 and RSPR aimed taclights rest on an operator confirmation with no saved image);
+  nine (AK4D 20 Rnd fast, SV-98 Lightened Suppressor, SCW-10 Extended, and Subsonic and
+  Subsonic HP on P18, GGH-22 and ES 5.7) replace linked text that differs from the live
+  panel (`status: linked-text-differs-from-panel`). Evidence: `panelLinkageInvestigation`
+  in the identity follow-up report.
 
 | Captured selection | Weapons receiving panel text |
 |---|---|
 | Taclight - Hipfire | M433, B36A4, M277, M417 A2 |
-| Taclight - Aimed | VCR-2, GRT-BC, BROD 3, EF88, ES 5.7, M45A1 |
+| Taclight - Aimed | VCR-2, GRT-BC, BROD 3, EF88, ES 5.7, M45A1, Mk 24, RSPR |
 | 50 MW Violet | GRT-BC, L110, DRS-IAR, DB-12 |
 | 30 Fast magazine | RPKM |
 | 20 Fast magazine (linked text differs) | AK4D |
 | Lightened Suppressor (linked text differs) | SV-98 |
 | Extended barrel, 200MM Custom (linked text is `[REDACTED]`) | SCW-10 |
+| Subsonic, Subsonic HP (linked text differs) | P18, GGH-22, ES 5.7 |
+
+- **Panel-resolved string IDs.** The taclight panels above resolve three IDs that are
+  missing from the English table, which fills 45 more choices:
+
+| String ID | Linked descriptor | Resolving panels | Choices filled |
+|---|---|---|---|
+| `FC443C65` (Taclight - Hipfire) | `Shared/AD_SFScout_LeftRail`, `Shared/AD_SFScout_RightRail` | M433, B36A4, M277, M417 A2 | 39 |
+| `BC1F219E` (Taclight - Aimed) | `MSBSGROTB/AD_ModuleMk3` | VCR-2, GRT-BC, BROD 3, EF88, Mk 24, RSPR | 2: DB-12, M16A4 |
+| `2897A9DF` (Taclight - Aimed) | `Shared/AD_LMDPEIR1` | ES 5.7, M45A1 | 4: GGH-22, M357 Trait, P18, vz. 61 |
+
+  The 39 hipfire choices: AK-205, AK4D, DRS-IAR, GRT-BC, KORD 6P67, 18.5KS-K,
+  KTS100 MK8, KV9, L110, L115, L85A3, LMR27, M1014, M123K, M2010 ESR, M240L, M250,
+  M39 EMR, M/60, M87A1, NVO-228E, PSR, PW5A3, PW7A2, QBZ-192, RPK-74M, RPKM, SCW-10,
+  SG 553R, SGX, SL9, SOR-300SC, SOR-556 Mk2, SV-98, SVDM, SVK-8.6, TR-7, UMG-40 and
+  USG-90.
 
 RPKM's AAM title resolves to "30rnd Fast Mag", matching its panel. DRS-IAR and DB-12
 have TOP hardware and panels but RGT names in their ANPEQ16B AAM records; DB-12 also has
@@ -431,14 +450,17 @@ a separate RGT record, so the AAM name is not simply a typo.
 ### Files
 
 - `data/attachment-tooltips.json`: runtime descriptions and per-weapon links.
-- `reference-data/provenance/frosty-site-attachment-mapping-2026-09-13.json`: every site
+- `reference-data/provenance/frosty-site-attachment-mapping-2026-10-24.json`: every site
   choice with hardware paths, progression and attachment GUIDs, ability branches,
-  selectors, UI links, review flags and input hashes.
-- `reference-data/provenance/frosty-optic-category-mapping-2026-09-15.json`: optic
-  category members, labels, descriptions and hashes (the 2026-09-13 file is the 1.4.2.5
-  baseline).
+  selectors, UI links, review flags and input hashes. Current; the 2026-10-13 file is the
+  first 2.1.1.0 run and the 2026-09-13 file the 1.4.2.5 baseline.
+- `reference-data/provenance/frosty-optic-category-mapping-2026-10-24.json`: optic
+  category members, labels, descriptions and hashes. Its content matches the 2026-10-13
+  file, which the site's `optic-tooltips.py` command still reads.
 - `reference-data/provenance/frosty-attachment-identity-followup-2026-09-13.json`:
-  further identities and screenshot reviews with image hashes.
+  further identities and screenshot reviews with image hashes. The approved VSSM 200MM
+  ASM image now sits in the audit folder's `VSSM/Old/` subfolder; the file at the
+  original path is a newer capture with different text, so the review points to `Old/`.
 
 ### Resolution rules
 
@@ -454,8 +476,13 @@ a separate RGT record, so the AAM name is not simply a typo.
 - The panel-text pass needs an unresolved (or `linked-text-differs-from-panel`)
   description, one matching hardware source, the unchanged UI link and the saved image
   hash. It writes `screenshot:<weapon>:<slot>:<attachment>` keys (not localization ids)
-  and marks the choice `screenshot-verified`. Panel text is never copied to other
-  weapons.
+  and marks the choice `screenshot-verified`.
+- A panel also resolves its missing string ID for every choice whose linked descriptor
+  carries that ID, because the game shows one string per ID. Only IDs absent from the
+  English table qualify, every approved panel for one ID must show the same text (the
+  generator stops otherwise), and the real ID is the runtime key. These choices are marked
+  `panel-resolved-string-id`. Panel text is never matched to an unrelated ID by its
+  wording.
 
 ### Corrections from this audit
 
@@ -476,6 +503,11 @@ a separate RGT record, so the AAM name is not simply a typo.
 Copy the newest dated mapping files to a new date first, because the generator writes
 back into them ([Tools](TOOLS.md#safety-rules)). To run on a raw capture instead of an XML
 export, see [raw mode](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/MAINTENANCE.md#raw-mode).
+On build 2.1.1.0 the collection capture lacks the Season 5 weapons, so the 24 October run
+gave `--raw capture/collection/raw` first and then one `--raw` for each of
+`reports/season5-uncaptured-2026-10-13/raw`, `reports/season5-descriptors-2026-10-13/raw`,
+`reports/season5-names-availability-2026-10-13/raw` and
+`reports/season5-generator-gaps-2026-10-13/raw` (no file appears in more than one).
 
 ```powershell
 python scripts/frosty-attachment-tooltips.py '<Frosty export root>/Common/Hardware/Weapons' data/attachment-tooltips.json --frosty-root '<Frosty export root>' --mapping-json reference-data/provenance/frosty-site-attachment-mapping-<date>.json --optic-mapping-json reference-data/provenance/frosty-optic-category-mapping-<date>.json
@@ -487,8 +519,9 @@ node scripts/validate-ship-surface.mjs
 
 The coverage check compares the report with the menu availability functions, every
 runtime description reference and deferred choice, current hashes and all optic
-members. Totals: 2,967 described non-optic choices, 63 iron-sight tooltips, 45 deferred
-choices, 350 optic categories.
+members. Totals (24 October 2026): 3,250 described non-optic choices (3,179 Frosty text,
+26 panel text, 45 panel-resolved string IDs), 67 iron-sight tooltips, 0 deferred choices,
+374 optic categories.
 
 ## Weapon Attributes UI
 
