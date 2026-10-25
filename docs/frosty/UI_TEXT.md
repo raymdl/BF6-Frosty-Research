@@ -5,7 +5,8 @@
 How the site resolves English weapon names, attachment and optic names, labels and
 descriptions from BF6 game data, and what the current site mapping contains.
 The gadget section records captured 1.4.3.1 text separately from site data.
-Snapshot: 1.4.2.5 export (13–14 September 2026), strings rechecked on 1.4.3.0.
+Snapshot: 1.4.2.5 export (13–14 September 2026), strings rechecked on 1.4.3.0. The
+[current site mapping](#current-site-mapping) and the Season 5 names were read on 2.1.1.0 (13 and 24 October).
 
 Results:
 
@@ -96,10 +97,12 @@ Common/UI/Static/Metadata/S3/UIWeaponAbilityMetaData_S3B1
 Common/UI/Static/Metadata/S3/UIWeaponAbilityMetaData_S3B2
 Common/UI/Static/Metadata/S3/UIWeaponAbilityMetaData_S3B3
 Common/UI/Static/Metadata/S4/UIWeaponAbilityMetaData_S4B1
+Common/UI/Static/Metadata/S5/UIWeaponAbilityMetaData_S5B1
 ```
 
 Newer seasons can add assets; check the manifest for more `UIWeaponAbilityMetaData_*`
-names. `S3B2` is an empty container in 1.4.2.5.
+names. `S3B2` is an empty container in 1.4.2.5. `S5B1` is new at 2.1.1.0 and names the four
+Season 5 site weapons (Mk 24, ELR-40, Z84M, RSPR) and two others ([2.1.1.0 checklist](../updates/2.1.1.0-checklist.md)).
 
 To find the assets again after a large update, run `scan-string-usage` with the ids of
 the strings whose text equals each site weapon name, plus a control id (for example the
@@ -140,7 +143,9 @@ image links and a pointer to an object that holds one 32-bit id.
 
 ### Result
 
-- All 63 site weapons link to their in-game name (for example `HK433` → M433).
+- All 63 site weapons of 1.4.2.5 link to their in-game name (for example `HK433` → M433).
+  The four Season 5 weapons link through `S5B1` on 2.1.1.0
+  ([Season 5 identities](../../reference-data/provenance/frosty-weapon-identities-season5-2026-10-13.json)).
 - Three site names were corrected to the game spelling: **TR-7**, **SOR-556 Mk2**,
   **vz. 61**.
 - `KSG` is the **KSG-12** and is not on the site.
@@ -297,7 +302,7 @@ identity route or a specific essential capture that can settle a named join.
 Each weapon record has a description pointer (`Field_490f0dd0`), a category pointer
 (`Field_f8c63ce7`), three role tags (`Field_8c7f991f`) and a numerical stat block.
 
-**Descriptions.** 61 of 63 resolve. Two ids are missing from the English table; the
+**Descriptions.** At 1.4.2.5, 61 of 63 resolve. Two ids are missing from the English table; the
 game panels (13 September) show text that exists under other ids:
 
 | Weapon | Record pointer | Text id | Text | Site sweet spot |
@@ -307,10 +312,10 @@ game panels (13 September) show text that exists under other ids:
 
 No metadata record uses either text id; the match comes from the caliber, magazine note
 and range. The other sniper descriptions agree with `deriveSweetSpot`: PSR 90m-120m
-(`84FCD536`), L115 100m-133m (`7A9C24A9`), Interdictor 120m-150m (`A89AE617`).
+(`84FCD536`), L115 100m-133m (`7A9C24A9`), Interdictor 120m-160m (`A89AE617`; the 150 m reading is the historical text, see [L905](#weapon-description-quantities-and-current-text-corrections-l905)).
 
-All 63 records in `data/weapons.json` include `description`, shown in weapon button and
-comparison heading tooltips. Keep the source distinction (61 Frosty, 2 screenshot
+All 67 records in `data/weapons.json` include `description`, shown in weapon button and
+comparison heading tooltips. Keep the source distinction (among the 63 of 1.4.2.5: 61 Frosty, 2 screenshot
 transcriptions) when refreshing.
 
 **Role tags.** [data/weapon-role-tags.json](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/data/weapon-role-tags.json) keeps
@@ -708,7 +713,7 @@ The numeric key/property receiver that connects a selected attachment to an AAM 
 
 [L905](../../reference-data/provenance/frosty-2026-10-01-L905-weapon-ui-statements.json) classifies all 41 numeric token occurrences in the 63 weapon descriptions. Eleven are sourced effect/count values: ten endpoints of five peak-damage intervals and the eight-shot M357 cylinder. Thirty are cartridge/shell designations, model identifiers or historical ordinals, retained as unmapped context rather than gameplay modifiers. All 528 independent metadata, curve and capacity raw reads pass.
 
-The current TSV entry `A89AE617`, selected by the raw Interdictor metadata pointer, states 120 m to 160 m. It is in the pinned current table with SHA-256 `1ec449fa2a12bc3d307bfa5878ee7d8c56af14fae65ea1f6c6286e85d98e7392`. L740's assertion that the current localization still ended at 150 m was stale; its receipt supplied no exact localization-ID/raw-text proof for that assertion. L905 retains the older receipt and the historical 150 m description separately. The implemented site wording and selected curve already use 160 m, so no new site edit is proposed.
+The current TSV entry `A89AE617`, selected by the raw Interdictor metadata pointer, states 120 m to 160 m. It is in the pinned 1.4.3.5 table with SHA-256 `1ec449fa2a12bc3d307bfa5878ee7d8c56af14fae65ea1f6c6286e85d98e7392`; the 2.1.1.0 table (`298cb124…`) keeps the same text. L740's assertion that the current localization still ended at 150 m was stale; its receipt supplied no exact localization-ID/raw-text proof for that assertion. L905 retains the older receipt and the historical 150 m description separately. The implemented site wording and selected curve already use 160 m, so no new site edit is proposed.
 <!-- L905-weapon-statements:end -->
 
 <!-- L904-metadata-closure:start -->

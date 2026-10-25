@@ -86,7 +86,7 @@ No operation control (add, replace or multiply) exists for any of these. Equal n
 
 ## Supply, medic and ActiveMedic (L233)
 
-[L233](../../reference-data/provenance/frosty-2026-10-02-L233-healing-resupply-functional-dossiers.json). UI text is from client 1.4.3.1, Head 4892087; source is current Head 4909002 where stated. Granite and BR material is excluded; Standalone Medic Crate and Ammo Bag are identity candidates, not confirmed multiplayer items; Supply Drop has no relevant multiplayer caller.
+[L233](../../reference-data/provenance/frosty-2026-10-02-L233-healing-resupply-functional-dossiers.json). UI text is from client 1.4.3.1, Head 4892087; source is 1.4.3.5, Head 4909002, where stated. Granite and BR material is excluded; Standalone Medic Crate and Ammo Bag are identity candidates, not confirmed multiplayer items; Supply Drop has no relevant multiplayer caller.
 
 | Item | Class | Statement |
 |---|---|---|
@@ -118,7 +118,7 @@ The Vehicle Supply Crate side of this run is on the [vehicle page](VEHICLES.md#f
 
 ## Deployment and lifecycle (L235)
 
-[L235](../../reference-data/provenance/frosty-2026-10-02-L235-deployment-lifecycle-functional-handoff.json). Historical Head 4892087 and current Head 4909002, each stated; current byte equality is checked per asset.
+[L235](../../reference-data/provenance/frosty-2026-10-02-L235-deployment-lifecycle-functional-handoff.json). Historical Head 4892087 and 1.4.3.5 Head 4909002, each stated; current byte equality is checked per asset.
 
 | Item | Class | Statement |
 |---|---|---|
@@ -284,6 +284,14 @@ Ammunition and replenish rows by registry owner (`-1` is stored as written; its 
 | `WB_M26Mass` | 5 | 2 | -1 | true | -1 | 60 |
 | `WB_VehicleSupplyCrate` | 1 | 1 | -1 | true | -1 | 120 |
 | `X95BRE_BreachingDart` | 1 | 3 | -1 | true | -1 | 15 |
+
+The 2.1.1.0 values in this table are registry-row changes, as everywhere in this table; the
+`SupplyPouch_WB` file also changed (6,462 to 8,554 bytes) and its own tuple was not re-read.
+Of the nine changed `GRX_Gadgets_Glacier` values, this page annotates five (the four Supply
+Pouch values above and the frag bounce delay below) and leaves four off: Supply Pouch
+`ReloadTime` 0 to 1 and the second `AutoReplenishRounds` field (`Field_c06d0cbb`) -1 to 0,
+`AssaultLadderConfig.RampAngle` 52 to 45, and a bare `Range` row 3 to 15 whose owner the row
+name does not give (`builds\2.1.1.0\reports\registry-diff-2026-10-14\registry-diff.tsv`).
 
 Ability rows: `Ability_AdrenalineShot` active 1, recharge 0; `DeployableCover_Ability` active 1, recharge 0; `DeployableMortar_Ability` active 1, recharge 0; `Gadget_ATMine_Ability` active 1.8, recharge 0; `Gadget_SupplyCrate_Ability` active 1, recharge 0; `MPAPS_Ability` active 0, recharge 20.
 

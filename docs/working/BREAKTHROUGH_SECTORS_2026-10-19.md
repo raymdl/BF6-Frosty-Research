@@ -6,7 +6,8 @@ Working note, not a closed lead. Source captures (all under `builds\2.1.1.0\repo
 `breakthrough-gems2-2026-10-19` (GEM blueprints, GMPF variants, model interfaces),
 `breakthrough-registries-2026-10-19`, `breakthrough-mi-2026-10-19`, `breakthrough-globals-2026-10-19`
 (gameplay global layers, plus the lowercase Atoll and Golmud Breakthrough layers).
-Decoded with `frosty-ebx-decode.py`; extraction script and per-map text files are in the session scratchpad.
+Decoded with `frosty-ebx-decode.py`; extracted with `scripts/frosty-breakthrough-extract.py`. Its per-map text output is kept as
+`BREAKTHROUGH_SECTORS_2026-10-19.extraction.txt` (the scratchpad `bt-maps.txt`, with the faction name spelling corrected).
 
 ## How the data encodes it
 
@@ -242,7 +243,7 @@ Operator (19 Oct 2026): battle pickups are not currently active in Breakthrough.
 the placements below (the 1.1.3.0 notes once tied their spawn to the sector enabling), so treat this as
 dormant data: a layout toggle or server setting keeps them off, and nothing in the client marks that.
 Variants: 0 Minigun, 1 Railgun, 2 SmokeScreen, 3 ArtilleryStrike, 4 DSPulse (no map uses 4). Nearest
-layer object in brackets (indices as in the scratchpad map files).
+layer object in brackets (indices as in `BREAKTHROUGH_SECTORS_2026-10-19.extraction.txt`).
 
 | Map | Pickups |
 |---|---|
@@ -286,7 +287,7 @@ Strip, Hagental Base or Mirak Valley. Positions and nearest HQ are in `bt-extras
 - `Breakthrough_Layout00-03` are empty marker assets (316 bytes each): the layout is a selector value,
   the layout content lives in the per-map schematic toggles.
 
-## Per-map sector chains (spatial inference by subagents, Opus-reviewed; indices refer to the scratchpad map files)
+## Per-map sector chains (spatial inference by subagents, Opus-reviewed; indices refer to `BREAKTHROUGH_SECTORS_2026-10-19.extraction.txt`)
 
 Numbers are the instance index after "@" in the map files. Side rule: spawners in the sector being attacked serve defenders, spawners in the previously captured sector or the start base serve attackers.
 

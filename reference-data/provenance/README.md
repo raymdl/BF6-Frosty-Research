@@ -115,5 +115,5 @@ does not fetch this provenance directory.
 
 [Corrected GRT-BC direction review](grtbc-direction-review-2026-09-21.json) retains
 measured comparisons, model hypotheses, and source-image hashes. The
-[analysis report](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/working/GRTBC_RECOIL_PATTERN_REVIEW.md) explains why
+[analysis report](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/archive/GRTBC_RECOIL_PATTERN_REVIEW.md) explains why
 burst gameplay activation remains unresolved.

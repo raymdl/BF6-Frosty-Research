@@ -93,6 +93,11 @@ tools that read the XML tree. The generator scripts also read the raw capture di
   to it (export into its `xml\` or `capture\` folder, then `record`).
 - **Sealed build:** read-only reference for comparisons. Derived comparison results go into
   the newer build's `reports\` folder.
+- **Current state (25 October 2026):** 1.4.2.5, 1.4.3.0 and 1.4.3.5 sealed (61,366,
+  159,247 and 120,200 files); 2.1.1.0 open (104,043 files, 1.78 GiB) with three clients:
+  the 13 October release (Head 5382784) and the 15 and 22 October hotfixes (Heads 5383474
+  and 5383516), whose type layouts equal the release's
+  ([update ladder](../updates/README.md)).
 - **Recorded state (16 September 2026):** 1.4.2.5 sealed (61,366 files, 2.7 GiB); 1.4.3.0
   open (63,326 files, 3.7 GiB) with two clients: the 1.4.3.0 release and the 16 September
   hotfix. The hotfix has identical type layouts, and only 2 non-gameplay assets changed
@@ -475,6 +480,8 @@ configuration; they do not supply native equations or active mode settings.
 |---|---|---|
 | 1.4.2.5 | `builds/1.4.2.5/capture/collection/collection-manifest.json` | Partial; 23,557 raw captures, 464,499-path catalog. Archive head `4420709` differs from SDK `4414275`. |
 | 1.4.3.0 | `builds/1.4.3.0/capture/collection/collection-manifest.json` | Partial; 23,709 asset rows, schema-valid, 24,565 files re-verified by hash. Archive head `4892017`. |
+| 1.4.3.5 | `builds/1.4.3.5/capture/collection/raw-status.jsonl`; extended pre-update capture in `builds/1.4.3.5/capture/pre-update-60769-2026-10-12/` | Partial; 23,554 of 23,557 routes (30 September, archive head `4909002`). The 12 October pre-update capture holds 31,981 of the extended 31,984-route list (client 1.0.443.60769, head `4909067`). |
+| 2.1.1.0 | `builds/2.1.1.0/capture/collection/raw-status.jsonl` | Partial; 31,432 of the 31,984 routes (13 October, archive head `5382784`). Season 5 additions are in the `reports/season5-*-2026-10-13/raw` captures ([2.1.1.0 checklist](../updates/2.1.1.0-checklist.md), Stage 2). |
 
 The 1.4.3.0 capture reuses the 1.4.2.5 route list, adds the 12 assets the update
 introduced and 152 dependency routes. Animation routes, `_af/` tag collections, decal

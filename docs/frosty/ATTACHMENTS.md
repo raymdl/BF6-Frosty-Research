@@ -1173,8 +1173,10 @@ the [L70 capture-limit receipt](../../reference-data/provenance/frosty-2026-09-2
 Source release evidence and the unverified live capture build remain separate.
 
 The [L24 family check](../../reference-data/provenance/frosty-2026-09-24-L24-match-trigger-family.json)
-confirms the same exact GBM and GRM targets for all 24 current Match Trigger
-selections. The parent fresh-decoded each WB and GS and checked the selector
+confirms the same exact GBM and GRM targets for all 24 Match Trigger
+selections of 24 September (1.4.3.0). The site now lists Match Trigger on 26 weapons,
+including the Mk 24 and RSPR; SGX and L110 lost the import at 2.1.1.0
+([checklist](../updates/2.1.1.0-checklist.md) U45). The parent fresh-decoded each WB and GS and checked the selector
 array, local references, embedded identifier and both GS imports. Source priority
 values differ between weapons. Shared targets extend source coverage; they do
 not establish universal activation, stacking or a single final multiplier.
@@ -1488,7 +1490,7 @@ no named recoil/spread, ADS movement, regeneration-delay or spotting owner in
 that graph. This establishes configured absence only. It does not establish
 native runtime zero, activation, global default conditions or composition.
 Sniper Tungsten exceptions and sidearm Subsonic omission retain
-ATTACHMENT_BUGS.md entries 13 and 5. The older 30 September receipts remain frozen;
+ATTACHMENT_BUGS.md entry 13 and former entry 5 (removed 14 October). The older 30 September receipts remain frozen;
 the two new family receipts supersede their partial modifier coverage.
 No new non-precision value mismatch was found. No Analyzer change is proposed.
 

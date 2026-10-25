@@ -11,6 +11,8 @@ what the hashed fields mean, how the assets link to site values, and what is sti
 | [Attachments](ATTACHMENTS.md) | Composition rules, generated site values, lights, sway, optic categories, render FOV and zoom. |
 | [UI text](UI_TEXT.md) | Strings table, weapon and attachment names, labels, descriptions, site tooltip mapping. |
 | [Vehicles](VEHICLES.md) | Vehicle firing, projectile, health, seat and loadout source evidence, tank damage, RWS AGL, inherited projectile defaults. |
+| [Soldier](SOLDIER.md) | Multiplayer soldier source configuration: health, regeneration, movement, class traits and perks, display proposals. |
+| [Site audit tables](SITE_AUDIT_TABLES.md) | The 1.4.3.5 audit of the remaining site data tables (L700-L739). |
 | [Progression](PROGRESSION.md) | Experience, stat events and match outcome bonuses read from the persistence graphs (L4027). |
 | [Gadgets](GADGETS.md) | Gadget UI and EA statements, stored source values, repair, healing, protection, deployment and detection findings, gadget projectiles. |
 | [Tools](TOOLS.md) | FrostyCmd, safety rules, SDK and decoder, export coverage, per-build collection, generators. |
@@ -20,6 +22,10 @@ what the hashed fields mean, how the assets link to site values, and what is sti
 Research status: [active source leads, proposals and parked questions](../working/FROSTY_RESEARCH_QUEUE.md).
 Gadget research for future site additions: [gadget leads and proposals](../working/GADGET_SITE_ADDITIONS.md).
 Vehicle research for future site additions: [vehicle findings and proposals](../working/VEHICLE_SITE_ADDITIONS.md).
+Roster values: [1.4.3.5 pass](../working/ROSTER_VALUES.md) and its [2.1.1.0 refresh (19 October)](../working/roster-refresh-2-1-1-0-2026-10-19.md).
+Game modes on 2.1.1.0 (working notes): [Breakthrough sectors (19 October)](../working/BREAKTHROUGH_SECTORS_2026-10-19.md) and [other modes (21 October)](../working/GAME_MODES_2026-10-21.md).
+Recoil context: [developer and community statements (16 October)](../working/EXTERNAL_RECOIL_STATEMENTS.md).
+Game updates: [Haiku worker briefs](../working/game-update-haiku-briefs.md) for the update guide's worker plan.
 
 ## What is already known, and where
 
@@ -32,7 +38,7 @@ searches all of the Markdown and JSON layers below except the external ledger.
 | Is this site value sourced, and from what? | The site-input ledger: every `data/*.json` leaf and `sim/*.js` input with a review status and evidence receipt ([summary receipt](../../reference-data/provenance/frosty-site-input-review-final-v2-2026-09-23.json); rows in the external `site-input-reviewed.jsonl`). It is a 23 September snapshot; the [inventory v4 and delta ledger](../../reference-data/provenance/frosty-site-input-inventory-v4-2026-09-28.json) (28 September) classify the data leaves changed since, `frosty-records.py ledger-drift` lists later changes, and [`site-evidence.json`](../../reference-data/frosty/site-evidence.json) maps site pointers to the receipts recorded since. |
 | Has this asset been traced, for what question, and with what result? | [`asset-findings.json`](../../reference-data/frosty/asset-findings.json), generated from the frozen 23 September base plus each record's assets (per-asset question, result and conclusion). The 28 September backfill (67 receipts, 281 findings) covers the 24-28 September lead receipts; receipts that record no per-asset hash are found through the lead index. |
 | What does this hashed field mean? | [Field map](FIELD_MAP.md). |
-| What do the game files say about a vehicle or gadget stat or description? | [Vehicles](VEHICLES.md) and [Gadgets](GADGETS.md): stored source values, inherited defaults, UI and dated EA statements are kept as separate classes. Vehicle leads are L3000 and up (latest L3300-L3304); gadget leads are L137-L236 and L640-L651. Earlier gadget selection chains are in [Data graph](DATA_GRAPH.md#gadget-routes-hotfix-head-4892087). |
+| What do the game files say about a vehicle or gadget stat or description? | [Vehicles](VEHICLES.md) and [Gadgets](GADGETS.md): stored source values, inherited defaults, UI and dated EA statements are kept as separate classes. Vehicle leads are L3000 and up (latest L3386, 9 October, then L4031-L4033 and L4037 on 10 October); gadget leads are L137-L236 and L640-L651. Earlier gadget selection chains are in [Data graph](DATA_GRAPH.md#gadget-routes-hotfix-head-4892087). |
 | How does this mechanic work, and what does the site do with it? | The topic pages above. |
 | Was this lead investigated, what did it find, and what would reopen it? | [`lead-index.json`](../../reference-data/frosty/lead-index.json): every recorded lead with status, receipts, summary and reopen condition. |
 | What exactly was measured, from which bytes? | Dated receipts in `reference-data/provenance/`, found through the lead index. |
@@ -43,8 +49,8 @@ A lead is closed when its record passes `python scripts/frosty-records.py check`
 receipt with a `record`, the topic page edited in place, and its queue row removed (a lead answered directly may have none).
 Capture work: [ranked in-game capture plan](../working/BF6_CAPTURE_PRIORITIES.md).
 
-The current audit starts from every `data/*.json` entry and `sim/*.js` input or
-equation across all 63 site weapons. The queue links the current per-input review
+The site-input audit starts from every `data/*.json` entry and `sim/*.js` input or
+equation across the 63 site weapons of the 23 September ledger (the site now has 67). The queue links the current per-input review
 and its remaining work. Topic pages explain findings; compact JSON receipts in
 `reference-data/provenance/` pin field paths, builds and hashes. Large comparison
 tables and raw evidence stay in the external Datamining reports directory.

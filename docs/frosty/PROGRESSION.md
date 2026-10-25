@@ -24,7 +24,10 @@ amounts are tunables (defaults in L4034, [Soldier](SOLDIER.md)). Game-mode rules
 
 Shipped defaults decoded from `GRX_Persistence_Glacier` and `MutatorDatabase_CH1`; the full list is the L4034 table
 (`expression-graphs/tunables-joined.tsv` in the run folder). These rows are decoded values, not individually raw-checked,
-and can be overridden remotely.
+and can be overridden remotely. Read at 1.4.3.5 (10 October). The 2.1.1.0 registry diff
+(`builds/2.1.1.0/reports/registry-diff-2026-10-14/registry-diff.tsv`) changes no existing `GRX_Persistence_Glacier`
+row; it adds Rapid Royale and per-mode survival rows and removes `PlayerSurvivalBonus_TeamsEliminatedMod` and
+`PlayerSurvivalTop_PlacementThreshold`. The defaults below were not re-read on 2.1.1.0.
 
 | Rule | Default |
 |---|---|

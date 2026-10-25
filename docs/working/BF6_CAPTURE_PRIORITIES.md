@@ -19,7 +19,6 @@ outcome. Otherwise record the limit as unresolved; do not add a capture.
 |---|---|---|---|
 | 1 | Match Trigger semi vs auto (M433; L17) | Site shows no effect; source binds about 16% less recoil and faster recovery on 24 weapons, probably semi-only | Solo; video, repeated groups |
 | 2 | Optional: hit-capsule boundary (M433; L99) | Target-view chest/abdomen split; M433 chest aim 4 → 5 hits if the source capsules hold. Target view is already labelled approximate | Enemy helper standing still; damage numbers **Done 10 Oct (L4010): chest zone confirmed as the site draws it; no further capture needed.** |
-| 3 | Recoil recovery by impacts (AK-205, Standard and Lightened Suppressor) | Every spray on the site uses an assumed recovery law. The 14 October replay of the September recordings rejects two alternatives but leaves the M4A1 15-round climb 20% above the model and a 33 ms post-shot dead time as the one-parameter explanation; AK-205 15-round groups differ by 13 cm at 20 m between the two laws | Solo; video with audio and HUD, screenshots of each group; about 840 rounds (plus 500 optional M4A1) |
 
 ## Record once per session
 
@@ -82,6 +81,12 @@ operator order and broader weapon coverage remain separate questions. See
 [L17 evidence](../../reference-data/provenance/frosty-2026-09-24-L17-match-trigger-indirect-effects.json).
 
 ## 2. Optional: hit-capsule boundary (L99)
+
+**Done 10 October ([L4010](../../reference-data/provenance/frosty-2026-10-10-L4010-l99-operator-video-chest-zone.json)).**
+The operator's M433 video against bots at 5 m shows full damage at mid-chest, so the
+site's chest zone stands and no further capture is needed. The head zone was then placed
+from the stored head capsule (L4011; site commits `99ed8f6`, `c54b33f`). The plan below is
+kept as written.
 
 M433 single shots up the centre line of a standing helper in MP at 10 m. Record
 loadout, target orientation, aim position and per-shot damage. Damage numbers

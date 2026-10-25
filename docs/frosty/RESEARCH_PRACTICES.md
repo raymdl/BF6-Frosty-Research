@@ -105,11 +105,16 @@ prior-work search and from the reader who looks in the topic page.
 ### Do not create
 
 - A Markdown file per investigation, lead, run, family or date, anywhere in the
-  repo. This includes `*_SUMMARY.md`, `*_REVIEW.md`, `*_FINDINGS.md`, `*_NOTES.md`,
+  repo, other than the dated working notes allowed below. This includes `*_SUMMARY.md`, `*_REVIEW.md`, `*_FINDINGS.md`, `*_NOTES.md`,
   `*_PLAN.md` and `HANDOFF*.md`.
-- A new file in `docs/frosty/` or `docs/working/`. The set of pages in each is
-  fixed. A new topic page or working doc needs the operator's approval first, and
-  must be added to the [index](README.md) in the same commit.
+- A new file in `docs/frosty/`. The set of topic pages is fixed. A new topic page
+  needs the operator's approval first, and must be added to the [index](README.md)
+  in the same commit.
+- A new file in `docs/working/` without the operator's approval. An approved working
+  note for a multi-day topic may carry its date in the name (for example
+  `GAME_MODES_2026-10-21.md`, with its per-item files in a matching dated folder);
+  link it from the index's research-status lines in the same commit. Whether it is
+  later folded into a topic page or archived is decided at cleanup.
 - A new folder at the repo root, under `docs/` or under `reference-data/`.
 - Anything in `docs/archive/`. Archiving is done at cleanup, by the operator's
   session, not by a run.

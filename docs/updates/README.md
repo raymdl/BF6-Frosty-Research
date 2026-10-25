@@ -12,6 +12,8 @@ work proceeds.
 
 | Update | Checklist | Result | Run folders |
 |---|---|---|---|
+| Hotfix, 22 October 2026 (archive head 5383516) | None | Hotfix, same build: type layouts identical; 6 catalog record changes (four single-player face BindAssets, `SimEx_BR_ApplyProgressionWeapon`, DataVersion); raw 4 changed, no stored values | `builds\2.1.1.0\reports\client-new-check-2026-10-22\` |
+| Hotfix, 15 October 2026 (archive head 5383474) | None | Hotfix, same build: type layouts identical; 19 catalog record changes (13 non-English string tables, four single-player face BindAssets, sound MasterPatch, DataVersion); raw 3 changed | `builds\2.1.1.0\reports\client-new-check-2026-10-15\` |
 | 2.1.1.0 (Season 5), 13 October 2026 | [2.1.1.0-checklist.md](2.1.1.0-checklist.md) | New build | `2026-10-12-update-2110-pretrace`, `2026-10-13-update-2110-post` |
 | 1.4.3.5, 30 September 2026 | [1.4.3.5-report.md](1.4.3.5-report.md) (report from before the checklist template) | New build | `builds\1.4.3.5\reports\`, `2026-10-01T001542-0400-patch-notes-coverage` |
 | Hotfix, client 1.0.443.60769, 3 October 2026 | None | Hotfix, same build: only DataVersion changed in raw; the catalog's 1,014 added entries came from a loaded versus rebuilt cache | `builds\1.4.3.5\reports\client-60769-check-2026-10-03\` |

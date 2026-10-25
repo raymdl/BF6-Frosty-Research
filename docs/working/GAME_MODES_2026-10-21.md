@@ -11,8 +11,8 @@ assets that sit directly under `_layers_gameplay/` such as `Conquest0`, `Rush_Gl
 shared layers `SharedAssets_*`, `_small_modes*`, `esc_cq_*`), `modes-gems-2026-10-21` (150 routes: GEM
 blueprints and prefabs the other modes use, Gauntlet core). The mode rule assets `MUT_*` of the live
 modes were already in `capture\collection\raw`. Decoded with `frosty-ebx-decode.py`; extraction by
-`modes_extract.py` (a mode-agnostic version of `frosty-breakthrough-extract.py`, in the scratchpad) and
-`modes_mut.py`; variant keys resolved through each mode's own `AD_Objective_<Mode>` table.
+`modes_extract.py` (a mode-agnostic version of `frosty-breakthrough-extract.py`, kept as `scripts/frosty-modes-extract.py`) and
+`modes_mut.py` (kept as `scripts/frosty-modes-tweakables.py`); variant keys resolved through each mode's own `AD_Objective_<Mode>` table.
 Per-map analyses were written by one Sonnet subagent per mode from the extraction text files; I merged
 their results and corrected where the second capture changed the data. Patch-note passages for modes
 and maps: `reference-data/patch-notes/modes-and-maps-passages-2026-10-21.md` (through WebFetch's

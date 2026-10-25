@@ -222,7 +222,7 @@ The 1.4.3.5 update check decides carry-forward. No live stat, default loadout, a
 
 The card's selected external pointer is the tank icon. The selected Abrams/Leopard metadata image pointer targets the shared Abrams image, rather than either blueprint root. Field_1636b8bd lookup arrays retain their exact ids, but their gameplay consumer/domain is not proved. No end-to-end card-to-root chain passed on this selected route. No family receives seat counts, roles or tags from this result. This bounded finding does not establish that no other exact join exists.
 
-The receipt keeps the original Head 4892087 identities for reused L3023 raw data and current Head 4909002 identities for the new targets. Prior cited bytes carry forward by the saved raw-hash comparison. Twelve unique worker reads and the parent image-import reread pass. Native UI selection and runtime vehicle behavior remain unresolved.
+The receipt keeps the original Head 4892087 identities for reused L3023 raw data and 1.4.3.5 Head 4909002 identities for the new targets. Prior cited bytes carry forward by the saved raw-hash comparison. Twelve unique worker reads and the parent image-import reread pass. Native UI selection and runtime vehicle behavior remain unresolved.
 
 ## Customization category join attempt (L3032)
 
@@ -268,7 +268,7 @@ The second community pass retains 29 mechanic leads. Titles and chapters are can
 
 ## Pre-Season 5 vehicle raw baseline (L3034)
 
-[L3034](../../reference-data/provenance/frosty-2026-10-01-L3034-vehicle-baseline.json) extracts current 1.4.3.5 raw for all 46 exact vehicle roots and their selected damage-zone/part chains. All values are **pre-Season 5 baseline; meaning unconfirmed**. The baseline retains 183 local descriptor families, 27,473 raw reads and 85 raw-file identities. Selected zone dependencies are present; no array read is left unsupported in this batch. Original semantic names are restricted to the controlled CB90 owner; other schemas stay hash-only.
+[L3034](../../reference-data/provenance/frosty-2026-10-01-L3034-vehicle-baseline.json) extracts 1.4.3.5 raw (the build then open) for all 46 exact vehicle roots and their selected damage-zone/part chains. All values are **pre-Season 5 baseline; meaning unconfirmed**. The baseline retains 183 local descriptor families, 27,473 raw reads and 85 raw-file identities. Selected zone dependencies are present; no array read is left unsupported in this batch. Original semantic names are restricted to the controlled CB90 owner; other schemas stay hash-only.
 
 The same-owner CB90 control passes: MaxHealth 1000, offset 440, bytes `00007a44`, SHA-256 `2d8e05398f8f3f2b79159a8db1ec5a87d3033ac7c2469d0cb5f3c6c3f6911ad3`. Parent review checks all 46 scoped rows and independently reads the control. Source tuple/array values do not establish regeneration timing, directional damage composition, weak spots, armor, effective health or disable behavior. Durability validation remains excluded. The [baseline](../../../BF6%20Datamining/reports/weapon-analyzer-research/2026-10-01T011608-0400-vehicles-open-frontier/L3034/baseline.json) preserves exact owners, field identities, offsets and hashes for a later update diff.
 

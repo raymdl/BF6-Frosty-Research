@@ -81,7 +81,7 @@ There is no newly qualified missing current target or supported new comparison s
 
 ## Current weapon field atlas (1.4.3.5, L819)
 
-[L819](../../reference-data/provenance/frosty-2026-10-01-L819-current-weapon-field-atlas.json) publishes the [current field atlas](../../reference-data/frosty/weapon-frontier/field-atlas.json): 5,351 exact descriptor/path identities in 12,168 source contexts, across 458 declaring class hashes. All seven requested owner groups and all 63 site weapons are covered. There are 5,212 real field identities and 139 structural markers. The 337 added identities and 481 added contexts retain their exact source proofs. Known controls, native review, independent parent operands and the publication contract checks passed.
+[L819](../../reference-data/provenance/frosty-2026-10-01-L819-current-weapon-field-atlas.json) publishes the [current field atlas](../../reference-data/frosty/weapon-frontier/field-atlas.json): 5,351 exact descriptor/path identities in 12,168 source contexts, across 458 declaring class hashes. All seven requested owner groups and all 63 site weapons are covered. There are 5,212 real field identities and 139 structural markers. The 337 added identities and 481 added contexts retain their exact source proofs. Known controls, native review, independent parent operands and the publication contract checks passed. The atlas predates 2.1.1.0: it was not re-run for the four Season 5 weapons (Mk 24, ELR-40, Z84M, RSPR), and no 2.1.1.0 atlas receipt exists.
 
 The current view applies all 299 [L810 scalar corrections](../../reference-data/frosty/weapon-frontier/scalar-variation-correction-L810.json): 298 combine one exact scalar from each of the 63 weapons; one remains a single-weapon source. Profiles and source occurrence frequency remain separate. Original source classifications, the [Stage 1 baseline](../../reference-data/frosty/weapon-frontier/field-atlas-baseline.json) and the [lossless original source archive](../../reference-data/frosty/weapon-frontier/field-atlas-full.json.zip) are preserved.
 
@@ -239,7 +239,9 @@ This is not a global no-change result. Old raw is absent for 753 summary entries
 including 110 catalog-hash changes and three material grids. Current bounded grids
 agree across maps but cannot prove unchanged damage multipliers across the update.
 The announced APHEI/carrier damage restriction and AI water-navigation fix remain
-unverified against retained old raw. No site numeric data was changed.
+unverified against retained old raw. The APHEI owner search (L3033, 30 September) ended
+exhausted without an exact owner; no lead has traced the AI water-navigation fix (L741
+asked about water-target damage, a different question). No site numeric data was changed.
 See the [dated update receipt](../../reference-data/provenance/frosty-update-1.4.3.5-2026-09-30.json)
 for hashed reports, scope and proposed validation steps.
 
@@ -285,7 +287,7 @@ collection-only lookup missed it.
   180/80, 200/80 ([1.4.3.0 record](../archive/FROSTY_1.4.3.0_UPDATE_PLAN.md)).
 - Review: [frosty-damage-curve-review-2026-09-13.json](../../reference-data/provenance/frosty-damage-curve-review-2026-09-13.json).
 
-The [current projectile audit](../../reference-data/provenance/frosty-site-projectile-2026-09-23.json)
+The [23 September projectile audit](../../reference-data/provenance/frosty-site-projectile-2026-09-23.json)
 inventories 64 PD assets and compares 63 base curves plus 328 ammo selections.
 All stored drag/gravity pairs agree with the captured fields. The two separately
 referenced health curves differ in 41 assets; that count is not a comparison of
@@ -310,8 +312,9 @@ The dated Sym disagreement count does not establish a build change by itself.
   raw EBX with the bounded reader ([Tools](TOOLS.md#raw-ebx-scripts)); never export them
   as XML.
 - `scripts/frosty-hit-zones.py` maps each weapon/ammo projectile material to the head,
-  torso and limb arrays. 63 weapons and 328 ammo choices; both maps (MP_Abbasid,
-  MP_Badlands) agree.
+  torso and limb arrays. At the 1.4.3.0 run ([receipt](../../reference-data/provenance/frosty-hit-zones-2026-09-15.json)):
+  63 weapons and 328 ammo choices; both maps (MP_Abbasid, MP_Badlands) agree. The site
+  file now also lists the four Season 5 weapons.
 - 1.4.3.0: the Interdictor projectile material moved 781 → 784 and its limb multiplier
   0.67 → 1.0; headshot stays 1.75.
 - Evidence: [frosty-hit-zones-2026-09-15.json](../../reference-data/provenance/frosty-hit-zones-2026-09-15.json)
@@ -495,11 +498,13 @@ correction or useful comparison proposal.
 
 ## Controller recoil
 
-`GRM_Recoil_Controller_03` holds 0.8836 (`Field_bbbfe9cc`, enabled) in both aim states,
-bound on 57 weapons. L115, M2010 ESR, Mini Scout, PSR, SV-98 and Interdictor have no
-binding. The raw branch values (53 × 100, 2 × 1001, 1000, 28) are `Int32`, not a named
-input enum. The site uses 0.8836 as its controller amount multiplier at the operator's
-request; native activation is not decoded.
+`GRM_Recoil_Controller_03` holds 0.95 (`Field_bbbfe9cc`, enabled) in both aim states from
+2.1.1.0 (EA: gamepad recoil compensation 11% to 5%; [checklist](../updates/2.1.1.0-checklist.md)
+E3); the 1.4.3.5 value was 0.8836. It was bound on 57 weapons at 1.4.3.5. L115, M2010 ESR,
+Mini Scout, PSR, SV-98 and Interdictor have no binding. The raw branch values (53 × 100,
+2 × 1001, 1000, 28) are `Int32`, not a named input enum. The site uses 0.95 (0.8836 before
+2.1.1.0) as its controller amount multiplier at the operator's request; native activation
+is not decoded.
 
 [L4038](../../reference-data/provenance/frosty-2026-10-14-L4038-gun-sway-modifier-header-flags.json) (14 October): of the 110 gun-sway modifier roots in 1.4.3.5, `GRM_Recoil_Controller_03` is
 the only one whose shared header integer `Field_94752c29` is not 0 (it is 2, at object offset
@@ -624,6 +629,14 @@ GRX anchor found in the inspected structure
 remove this source/model difference; the code is unchanged. Identity rests on
 values, block structure and the modifier
 class; the native consumer and multiplier composition remain open.
+
+**Later changes.** The site has used 27 / 64.285713 for the M45A1 and vz. 61 since
+10 October ([L4008](#l4008---the-stat-screen-confirms-the-m45a1-and-vz-61-spotting-base-10-october-2026)).
+At 2.1.1.0 the world base went from 54 to 75 on `HK433_WB` (M433), `MPX_WB` (SGX),
+`Minimi_WB` (L110) and `M18_WB` (P18); the minimap base stays 150 and the patch notes do
+not mention it ([checklist](../updates/2.1.1.0-checklist.md) U24). The operator saw 75 m on
+the in-game panels, and the site uses 75 / 150 for those four (site
+[bug 17](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/ATTACHMENT_BUGS.md)).
 
 The [current spotting review](../../reference-data/provenance/frosty-spotting-reviewed-2026-09-23.json)
 records release operands separately from fresh hotfix feature/expression captures.
@@ -1429,9 +1442,12 @@ lists `NumberOfBulletsPerBurst`, so the name is probable.
 
 ### Fire-mode selector source data (1.4.3.5, L600-L604)
 
-Source data for all 63 site weapons now feeds the implemented mode-selection,
-simulation and share-state code ([ab5a0d2](https://github.com/raymdl/BF6-Weapon-Analyzer/commit/ab5a0d265b692a0960957c78c71c5f4a8e1af5c4)).
-The selector row is currently hidden pending UI placement ([7a23b8c](https://github.com/raymdl/BF6-Weapon-Analyzer/commit/7a23b8cc21a34872526662d6eea8636cf72f5571)); the implementation remains.
+Source data for all 63 site weapons of 1.4.3.5 feeds the implemented mode-selection,
+simulation and share-state code ([ab5a0d2](https://github.com/raymdl/BF6-Weapon-Analyzer/commit/ab5a0d265b692a0960957c78c71c5f4a8e1af5c4));
+the four Season 5 weapons carry `fireModes` from the 2.1.1.0 data refresh.
+The selector row was hidden pending UI placement ([7a23b8c](https://github.com/raymdl/BF6-Weapon-Analyzer/commit/7a23b8cc21a34872526662d6eea8636cf72f5571));
+the Firing Range selector ([81371d5](https://github.com/raymdl/BF6-Weapon-Analyzer/commit/81371d5882f0938c7fb42a03700811a6301c5a66))
+and the header fire-mode badges ([b341984](https://github.com/raymdl/BF6-Weapon-Analyzer/commit/b341984e8166a770b299d4c863cd56b92474b531)) exposed it on 24 October.
 This software status does not establish native activation or composition. New raw reads
 use Head 4909002 and descriptor `4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1`.
 The run file `BF6 Datamining/reports/weapon-analyzer-research/2026-09-30T2323-0400-fire-modes/fire-modes.json` contains 110 rows, one per weapon and
@@ -1559,7 +1575,8 @@ Each class has an `Ability_<Class>Trait` and a `U_Ability_<Class>Trait` selector
 `Common/Gameplay/InRoundProgression/WeaponTraits/<Class>/`. Carbines, DMRs,
 shotguns and sidearms have no trait. Membership was checked against all 63 site
 roots: each trait reaches exactly the site weapons of its class, with no
-exceptions. The official class guide (EA Help, "How do classes work in
+exceptions. The four Season 5 weapons (Mk 24, ELR-40, Z84M, RSPR) were not checked;
+with them the site has 12 assault rifles, 11 LMGs, 11 SMGs and 7 sniper rifles. The official class guide (EA Help, "How do classes work in
 Battlefield 6?") says the bonus applies when that class equips its signature
 weapon; most modes use open weapons. Native activation is not decoded, and the
 site does not model traits.
@@ -1592,6 +1609,9 @@ The 30 September run examined nine perks on client **1.4.3.1 / Head 4892087**.
 [UI table and proficiency comparison (L400)](../../reference-data/provenance/frosty-2026-09-30-L400-class-trait-ui.json)
 keep the older L100-L104 release operands separate. No direct proficiency conflict
 was found. Support sprint exemption and Recon breath control still lack operands.
+The perk-text proposals below are not live: the operator parked perk descriptions on
+1 October (research only; the site has no class/perk surface), as the queue's five L861
+rows record. The class-trait proposal (L100-L104, L400-L403) stays in the queue for review.
 
 | Perk text | Source finding | Serialized path or activation limit | Site proposal and validation prediction |
 |---|---|---|---|
@@ -1827,7 +1847,8 @@ available single mode also store the field. Fire-rate modifiers can set main
 and single rates separately (800/400 in WME_Firerate900_M10). These facts support
 separate configured coordinates, not a universal runtime limit.
 
-The Analyzer does not expose a general manual single-fire mode. M4A1's source
+At this review the Analyzer did not expose a general manual single-fire mode (the
+fire-mode selector was added later; see [Fire-mode selector source data](#fire-mode-selector-source-data-1435-l600-l604)). M4A1's source
 main/single pair (899.999023/399.998993) gives a useful alternate-mode cadence
 test before adding that feature. Keep mode availability, input buffering and
 accepted-shot timing unresolved. [Receipt and reproduction](../../reference-data/provenance/frosty-2026-09-24-L14-single-fire-cadence.json).
@@ -2124,7 +2145,7 @@ The site numerical curve matches. L740 originally recorded a 150 m description c
 
 ## Patch-note coverage questions (1 October 2026)
 
-[Coverage receipt](../../reference-data/provenance/frosty-2026-10-01-patch-notes-coverage.json). L741 asks whether the announced removal of unintended water-target reductions has a named consumer for the selected Match projectiles. L745 asks for normal melee damage/cadence; L746 asks for one exact destructible-cover owner. These could add conditional damage or comparison stats. The existing projectile/profile inventory does not establish those rules. Each question has its own EA prediction and missing-control gate in the coverage receipt. L740 is the completed text/curve conflict above.
+[Coverage receipt](../../reference-data/provenance/frosty-2026-10-01-patch-notes-coverage.json). L741 asks whether the announced removal of unintended water-target reductions has a named consumer for the selected Match projectiles. L745 asks for normal melee damage/cadence; L746 asks for one exact destructible-cover owner. These could add conditional damage or comparison stats. All three are now closed as route-limit findings, each with its reopen condition: L741 and L746 in the [ranked gunfight route qualification](#ranked-gunfight-route-qualification) at the top of this page, L745 in [Soldier](SOLDIER.md#ranked-melee-ping-and-sneaking-route-qualification). The existing projectile/profile inventory does not establish those rules. Each question has its own EA prediction and missing-control gate in the coverage receipt. L740 is the completed text/curve conflict above.
 
 All 153 official sources were read; the final coverage files preserve item-level mappings and release state. Only current released questions were ranked. No new recording, native execution claim or site edit.
 

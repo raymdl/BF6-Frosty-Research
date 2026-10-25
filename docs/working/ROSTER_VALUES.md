@@ -1,6 +1,6 @@
 # Roster values: every vehicle, gadget and vehicle equipment stat entry (L3307)
 
-Build 1.4.3.5, game head 4909067. Research only: no site data, simulation or UI change is authorized by this page.
+Build 1.4.3.5, game head 4909067. Research only: no site data, simulation or UI change is authorized by this page. The pass was re-run on 2.1.1.0 on 19 October: [roster refresh](roster-refresh-2-1-1-0-2026-10-19.md) lists the values that moved.
 
 The game keeps three stat rosters under `Persistence/StatCategories/StatCategorization`: 33 vehicles, 68 gadgets and 66 vehicle equipment items. This page records, for each of the 167 entries, what the saved game data stores about it. The full data is in `reference-data/frosty/roster-values.json` (one line per entry); the tables below are a reading aid generated from it.
 

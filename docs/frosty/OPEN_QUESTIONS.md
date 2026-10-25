@@ -17,6 +17,23 @@ Active investigations with their own files:
 - [Composite stats](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/archive/COMPOSITE_STATS_FINDINGS.md) (includes which native
   provider supplies Precision)
 
+## 2.1.1.0 update limits (13 October 2026)
+
+From the [2.1.1.0 checklist](../updates/2.1.1.0-checklist.md#outcome) ("Still open" and
+"Open questions carried in"). Working files are in the post-update run folder's
+`STAGE6-8-TRACE-RESULTS.md`.
+
+| Question | Next step |
+|---|---|
+| Patch-note rows not found in the data: B4, C2, C3 | No source asset known; the 13 October grid trace did not find B4 either. |
+| Does the Bradley use the SimplifiedTank curves (A3)? `VEHICLES.md` records null pointers | In-game test. |
+| Transport helicopter hits-to-kill: the dataset says 7, EA's "from" says 11 (B5) | Re-read helicopter health, then an in-game test. |
+| RPG-7V2: registry Damage 125 gives the 250 base; the file's own wrapper names 135 | Carried into the update; not settled by it. |
+| AAHV heat per shot: file 0.042, registry 0.036 (C5) | Carried into the update; not settled by it. |
+| 283 changed gameplay assets captured after the update have no 1.4.3.5 capture | They cannot be diffed; do not substitute current bytes for old. |
+| Unnamed fields with a changed value | Candidates only, listed in `STAGE6-8-TRACE-RESULTS.md`. |
+| In-game tests listed by the checklist: A1 and A2 damage against the video, A3, A4, A6 regeneration timing, B5, D3, D4, D5, D6, E4, attachment bug 14, the SU-230 recoil fix, C-4 against a tank | Not yet in the [capture plan](../working/BF6_CAPTURE_PRIORITIES.md). |
+
 ## 1.4.3.5 update limits (30 September 2026)
 
 The [update receipt](../../reference-data/provenance/frosty-update-1.4.3.5-2026-09-30.json)
@@ -25,8 +42,8 @@ pins the current evidence and the exact missing routes.
 | Question | Next step |
 |---|---|
 | Content changes in 751 patch-summary routes with no retained old raw, including 110 catalog-hash changes | A search of 70 other retained captures recovered 2 more (both drone gadget features, byte-identical; `supplemental-old-raw-search.json` in the 1.4.3.5 reports). Obtain a retained pre-update capture for the rest; do not substitute current bytes. |
-| Before/after damage multipliers in the three current changed-record material grids | Obtain old raw for the exact maps, then use the bounded reader with each build's own descriptors. Current cross-map agreement is insufficient. |
-| Asset/consumer implementing the announced APHEI/carrier damage restriction and shallow-water AI fix | Join exact consumers and compare old/current source; patch wording and current-only AI records are not proof. |
+| Before/after damage multipliers in the three current changed-record material grids | Obtain old raw for the exact maps, then use the bounded reader with each build's own descriptors. Current cross-map agreement is insufficient. The 13 October grid trace (two levels, same result; [2.1.1.0 checklist](../updates/2.1.1.0-checklist.md#outcome)) compared 1.4.3.5 with 2.1.1.0 only; the 1.4.3.0 values before 1.4.3.5 still have no old raw. |
+| Asset/consumer implementing the announced APHEI/carrier damage restriction and shallow-water AI fix | Join exact consumers and compare old/current source; patch wording and current-only AI records are not proof. APHEI: [L3033](../../reference-data/provenance/frosty-2026-09-30-L3033-vehicle-aphei-current-only.json) is exhausted (30 September): four vehicle UI assets and two named cannon candidates did not establish an exact owner; reopen with a current APHEI text record and an exact serialized owner-selection join. The shallow-water AI fix has no lead. |
 | Native significance of Class_d8dce156 enum member classRef changes | Resolve the descriptor metadata targets. Integer offsets, class size and alignment are unchanged; no instance-offset change is established. |
 | Native effect of two purchase deeplinks moving from KST_Glacier_Meta to GRX_Online | Trace the store consumer. The serialized ownership move is established, not its runtime effect. |
 | Three Blacklight selector inputs outside current/reference raw coverage | Capture exact inputs before a complete selector-graph claim. This does not block the listed unrelated attachment-bug retention. |
@@ -46,9 +63,9 @@ pins the current evidence and the exact missing routes.
 
 | Question | Next step |
 |---|---|
-| Complete source review of Analyzer inputs | Every input is classified in the final ledger, but about 1,176 rows remain blocked. Work the [active source leads](../working/FROSTY_RESEARCH_QUEUE.md#active-source-leads). All 63 site weapons are in scope; KSG is a source-only reference with proven campaign roots. Follow non-site branches only when they can affect a displayed or proposed value. Capture coverage is not semantic review. |
+| Complete source review of Analyzer inputs | Every input is classified in the final ledger, but about 1,176 rows remained blocked at the 23 September ledger, which covered the 63 site weapons of that date (the site now has 67). Work the [active source leads](../working/FROSTY_RESEARCH_QUEUE.md#active-source-leads). All site weapons are in scope; KSG is a source-only reference with proven campaign roots. Follow non-site branches only when they can affect a displayed or proposed value. Capture coverage is not semantic review. |
 | Five imported object GUIDs absent from captured target files | [Verified caller report](../../reference-data/provenance/frosty-audit-object-targets-reviewed-2026-09-23.json): 15 raw pointer callers reach absent objects in PB_AT4, KST_Vehicles and SPC_RenderLayers. Need target definitions or resolution evidence; do not infer runtime failure. Keep shader caller mode scope unresolved. |
-| Serialized expression resource format | [22 core-weapon resource bodies are captured](../../reference-data/provenance/frosty-audit-core-resources-2026-09-23.json). The [four-sample review](../../reference-data/provenance/frosty-audit-expression-resources-validation-2026-09-23.json) found no body reader in the inspected SDK source. Establish boundaries, fields and EBX metadata relationships before naming operations or treating embedded asset strings as runtime imports. |
+| Serialized expression resource format | [22 core-weapon resource bodies are captured](../../reference-data/provenance/frosty-audit-core-resources-2026-09-23.json). The [four-sample review](../../reference-data/provenance/frosty-audit-expression-resources-validation-2026-09-23.json) found no body reader in the inspected SDK source. Establish boundaries, fields and EBX metadata relationships before naming operations or treating embedded asset strings as runtime imports. Since then: [L1004](../../reference-data/provenance/frosty-2026-10-01-L1004-compiled-expression-qualification.json) (1 October, exhausted) found no independent check of the operation grammar; the 10 October reader listed 679 graphs from 256 compiled bodies captured on 1.4.3.5 ([L4019](../../reference-data/provenance/frosty-2026-10-10-L4019-expression-graph-corpus-listings.json)), disassembled the weapon attribute graphs ([L4017](../../reference-data/provenance/frosty-2026-10-10-L4017-weapon-attribute-graphs-disassembled.json)), joined tunable defaults ([L4034](../../reference-data/provenance/frosty-2026-10-10-L4034-tunable-defaults-for-graph-names.json)) and named seven native functions from use ([L4036](../../reference-data/provenance/frosty-2026-10-10-L4036-native-function-names-and-hipfire-comparison.json)). Still open: the 32 layouts the reader does not read. |
 
 ## Weapons
 
@@ -66,7 +83,7 @@ pins the current evidence and the exact missing routes.
 | DLC Bolt (`ads_bolt`): effective sniper fire rate while scoped | The site keeps base RPM and marks the attachment unmodeled. Trace the exact ADS-bolt effect against ordinary/zoomed completion fields for all six snipers, retain the scoped/unscoped readiness and overlap question while holding Recon trait fixed. The former bolt-cadence recording request was removed ([operator removal decision, 28 September 2026](../working/BF6_CAPTURE_PRIORITIES.md#removed-captures-28-september-2026)). A true capability operand alone does not quantify the cadence change. |
 | General soldier/class settings: FasterHealing, Flak/StanceFlak, DamageSpot, LowProfile and movement defaults | Exact source operands and links are retained in the topic notes. Need a standard MP class/loadout selection path and the compiled/native consumer before assigning effective bonuses. Record class/specialization and mode settings in captures. |
 | Mode/map application of shared health, damage, regeneration and spotting settings | [Registry, Conquest/Breakthrough and two-map source checks](WEAPONS.md#mode-and-map-context) are complete within the bounded pass. Need compiled/inherited application or live server values; registry membership, tags and stored defaults do not establish effective rules. Keep mode and round state fixed in captures; avoid Breakthrough retreat phases for baseline spotting. |
-| Bipod and mounted states (recoil, no per-shot spread increase) | Not modeled; decide whether to model. |
+| Bipod and mounted states (recoil, no per-shot spread increase) | Not modeled. Bipods do not change hip dispersion ([L61](../../reference-data/provenance/frosty-2026-09-24-L61-bipod-hip-dispersion.json), site-supported). The recoil operands are sourced ([L108](../../reference-data/provenance/frosty-2026-09-28-L106-L111-orchestrator-trial.json)); the operator deferred the model proposal on 28 September ([queue](../working/FROSTY_RESEARCH_QUEUE.md)). The header flags that gate the bipod/grip-pod and mounted modifiers are read by value ([L4038](../../reference-data/provenance/frosty-2026-10-14-L4038-gun-sway-modifier-header-flags.json)); activation, the state flags' meaning and the unnamed `WM_MountedPlus*` vectors stay open. |
 | Collateral: native lookup code (the clamp rule is confirmed) | None needed for the site. |
 
 ## Attachments
@@ -107,7 +124,7 @@ The full list of Frosty records without a site match is the
 |---|---|
 | 1.4.3.0 `Aim_*_PiP` comparisons retain provisional field semantics | [Bounded layout review](TOOLS.md#sdk-and-decoding) reproduces one pair through exact type keys and nested class references. Shared decoded values match; one import was added. Keep warnings until affected fields have independent layout/consumer evidence. |
 | 1.4.3.0 patch note "incorrect impact visual effects": no matching asset change in the captured set | Widen the capture to impact effects. |
-| Collections for 1.4.2.5 and 1.4.3.0 are partial | See [Tools](TOOLS.md#per-build-collection-rules). |
+| Collections for 1.4.2.5, 1.4.3.0, 1.4.3.5 and 2.1.1.0 are partial | See [Tools](TOOLS.md#per-build-collection-rules). |
 
 ### Unresolved soldier file GUIDs
 
@@ -134,10 +151,10 @@ the 16 caller assets are indexed in `asset-findings.json`.
   KS18K Slim Angled moving-ADS penalty is no longer pending: source collection,
   menu score and twelve indicator captures support zero. Trace the native consumer
   to name the alternate field; do not infer it from the modifier asset name.
-- Hipfire `IncreasePerShotFraction`: confirm the native comparison behind the
-  inferred conditional factor. Confirm the native Control sine operation and
-  zero-variation behavior. Precision native provider and all fallback rules remain
-  incompletely decoded.
+- Precision native provider and all fallback rules remain incompletely decoded.
+  (Answered: the Hipfire comparison is float not-equal, so the 1.2 factor applies
+  whenever `IncreasePerShotFraction` differs from 1.0 ([L4036](../../reference-data/provenance/frosty-2026-10-10-L4036-native-function-names-and-hipfire-comparison.json));
+  Control and Mobility match the site formulas term for term ([L4017](WEAPONS.md#l4017---weapon-attribute-graphs-disassembled-10-october-2026)).)
 - Mobility uses ADS animation index, not necessarily the zoom-transition index.
   L115 bases are 2 and 1 respectively. The runtime score now preserves this distinction.
 

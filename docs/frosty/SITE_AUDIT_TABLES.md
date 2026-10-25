@@ -1,6 +1,6 @@
 # Remaining site data audit, 1.4.3.5
 
-Run: `BF6 Datamining/reports/weapon-analyzer-research/2026-09-30T2359-0400-site-audit-tables/`. Reserved leads: L700-L739. Current build: 1.4.3.5, Head 4909002, descriptor `4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1`.
+Run: `BF6 Datamining/reports/weapon-analyzer-research/2026-09-30T2359-0400-site-audit-tables/`. Reserved leads: L700-L739. Build at the run: 1.4.3.5, Head 4909002, descriptor `4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1`.
 
 The [L700 census](../../reference-data/provenance/frosty-2026-10-01-L700-tables-audit-census.json) covers seven files. The orchestrator completed Stage 1 without workers. It records 69 numeric or Boolean field families in the four CUR files, including 35,832 numeric leaves. Existing September field reviews cover their values. The three Precision RPM leaves changed since that review are accepted L107 precision edits. The source-backed table operands carry forward by raw hash with their original Head 4892017 retained. The external census lists every family, owner, prior receipt, exclusion and raw-reuse group.
 
