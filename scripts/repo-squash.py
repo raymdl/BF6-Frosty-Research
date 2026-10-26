@@ -7,13 +7,16 @@
 plan: lists unpushed commits (origin/<branch>..<branch>, oldest first), classifies each as
   site (touches a site path) or research, and groups consecutive research commits into
   sessions (a gap longer than --gap-minutes starts a new session; --by-day starts one per
-  calendar day instead, for parallel sessions whose commits interleave). Site commits stay single.
-  Writes plan.json with a proposed message per research group; edit groups or messages there.
+  calendar day instead, for parallel sessions whose commits interleave). Each site commit gets its
+  own group. Writes plan.json with a proposed message per research group; edit groups or messages
+  there. Consecutive site groups for one feature (its follow-up tweaks and reversals) may be
+  merged into one site group, which then needs a "message".
   A group's message ends with the union of its commits' Co-Authored-By trailers, so work
   from different agents keeps each agent's attribution.
 apply: first re-checks the plan: origin/<branch> must still be the plan's base and an ancestor
-  of the branch, the groups must list exactly the unpushed commits in order, each site group
-  must be one site commit and no research group may contain a site commit. Then it rebuilds the unpushed history with git commit-tree from each group's final tree, so the
+  of the branch, the groups must list exactly the unpushed commits in order, a site group may
+  hold only site commits (and needs a message when it holds more than one), and no research
+  group may contain a site commit. Then it rebuilds the unpushed history with git commit-tree from each group's final tree, so the
   new tip has exactly the old tip's tree and the working tree is never touched. Creates
   refs/backup/pre-squash-<timestamp> at the old tip, then moves the branch with a
   compare-and-swap update-ref (fails if anything was committed meanwhile). Records the
@@ -128,8 +131,10 @@ def apply(plan_path):
         sys.exit("The plan's groups do not list exactly the unpushed commits, in order; fix the plan or re-run it.")
     for i, g in enumerate(p["groups"], 1):
         site = [c for c in g["commits"] if is_site_commit(repo, c)]
-        if g["kind"] == "site" and (len(g["commits"]) != 1 or not site):
-            sys.exit(f"Group {i}: a site group must be exactly one site commit.")
+        if g["kind"] == "site" and len(site) != len(g["commits"]):
+            sys.exit(f"Group {i}: a site group may hold only site commits.")
+        if g["kind"] == "site" and len(g["commits"]) > 1 and not g.get("message", "").strip():
+            sys.exit(f"Group {i}: a site group of several commits needs a message naming the feature.")
         if g["kind"] == "research" and site:
             sys.exit(f"Group {i}: research group contains site commit {site[0][:10]}; site commits stay single.")
         if g["kind"] not in ("site", "research"):
@@ -142,7 +147,12 @@ def apply(plan_path):
         meta = git(repo, "show", "-s", "--format=%an%x00%ae%x00%aI%x00%cn%x00%ce%x00%cI%x00%B", last).split("\x00")
         env = dict(os.environ, GIT_AUTHOR_NAME=meta[0], GIT_AUTHOR_EMAIL=meta[1], GIT_AUTHOR_DATE=meta[2],
                    GIT_COMMITTER_NAME=meta[3], GIT_COMMITTER_EMAIL=meta[4], GIT_COMMITTER_DATE=meta[5])
-        message = meta[6] if g["kind"] == "site" else g["message"]
+        message = meta[6] if g["kind"] == "site" and len(g["commits"]) == 1 else g["message"]
+        if g["kind"] == "site" and len(g["commits"]) > 1:
+            # A merged feature keeps every member commit's co-author trailer.
+            missing = [t for t in co_authors(repo, g["commits"]) if t not in message]
+            if missing:
+                message = message.rstrip() + "\n\n" + "\n".join(missing) + "\n"
         tree = git(repo, "rev-parse", f"{last}^{{tree}}").strip()
         new = git(repo, "commit-tree", tree, "-p", parent, env=env, input=message).strip()
         for old in g["commits"]:
