@@ -42,6 +42,23 @@ No damage, interval, combined ping latency, attenuation or audible-radius value 
 ## Fatal-damage precision route qualification
 
 [L742](../../reference-data/provenance/frosty-2026-10-01-gunfight-ranked-damage-qualification.json) checks the retained soldier health and healing-state routes. Their exact regeneration imports do not name the lethal comparison or its rounding operation. No death-threshold control was available. EA's reported near-99 case does not set a 99-damage death threshold. The site's epsilon arithmetic remains a software policy. Reopen with the exact damage-resolution caller and a known-answer lethal/nonlethal control. No negative gameplay conclusion follows.
+
+### Kill threshold: firing-range tests (27 October 2026)
+
+The operator ran firing-range tests on build 2.1.1.0, reading the on-screen damage number after each shot. Totals are computed from the site's Frosty damage values (stored as 32-bit floats; the 2-decimal site values reproduce them exactly) and the 1.4 / 1.57 / 1.8 headshot multipliers.
+
+| Case | Hits | Computed total | Shown | Result |
+|---|---|---|---|---|
+| QBZ-192 Synthetic, 10 m | 2 head + 1 chest | 99.18 | 99 | no kill, next shot kills |
+| QBZ-192 Standard, 50 m | 2 head + 3 chest | 99.35 | 99 | no kill, next shot kills |
+| QBZ-192 Synthetic, 50 m | 1 head + 4 chest | 99.35 | 99 | no kill, next shot kills |
+| AK-205 Standard, 10 m | 4 head | 99.34 | 99 | no kill, next shot kills |
+| vz. 61 Standard, 50 m | 2 head + 5 chest | 99.53 | 99 | no kill, next shot kills |
+
+- **Threshold:** no total from 99.18 to 99.53 killed. The site's kill-at-100 rule stands; a threshold in 99.53–100 is not excluded.
+- **EA 1.4.3.0 note:** "Corrected an issue where a precise damage calculation could occasionally kill a soldier who had received roughly 99 damage." A community spreadsheet (SheetOnMyFace) recorded kills at 99.34–99.63 and modelled a 99.5 threshold; its tests predate this fix, so those kills are the fixed bug, not current behaviour.
+- **QBZ-192 table:** the operator's 0/1/2-headshot BTK table for Standard, Hollow Point and Synthetic at 10–50 m matches the site exactly. The 75 m marker sits on the 75 m tier boundary; a re-run from just past 75 m matches the 14.62 tier (7/7/7, 7/7/6, 7/7/6).
+- **Display:** the shown number is the running total, rounded as described in [UI_TEXT: hit indicator damage numbers](UI_TEXT.md#hit-indicator-damage-numbers-27-october-2026). The 99.53 case showed 99 because of the display rule, not a lower total.
 <!-- gunfight-fatal-precision:end -->
 
 <!-- gunfight-L1104:start -->

@@ -812,3 +812,39 @@ Build 1.4.3.5, Head 4909002, descriptor SHA-256 `4c28ad656c175d9a8540245a3e6b572
 Two parallel closeouts used L3151 and L3152 during this run. Their receipts remain committed. The final L3151 `vehicle-ui-equipment-default-controls` receipt retains the same 25 exact asset/hash identities as the parallel closeout. The final L3152 `vehicle-ui-seat-equipment-definitions` receipt extends the parallel four-definition scope to six UI definition/customization siblings. The decision explicitly supersedes the two parallel `vehicle-default-ui-controls` receipts and identifies the final evidence for each lead.
 
 The exact source/UI reader controls pass. All three functional default controls remain unpassed. No gameplay/default claim changes and no existing commit or receipt is rewritten or removed.
+
+## Hit indicator damage numbers (27 October 2026)
+
+Captured on 2.1.1.0 (game head 5383516) in `BF6 Datamining\builds\2.1.1.0\reports\hit-indicator-number-2026-10-27` and `hit-indicator-number-b-2026-10-27` (raw EBX plus decoded JSON).
+
+- **Setting.** Options "Hit Indicator Number" (`3D5D7D17` Enabled, `F151B2CB` Opacity, `46CF054D` Size, `085B8F40` / `3E0AE1CE` offsets); help text `1E918ECA`: "Hit Indicator Number shows the amount of damage individually dealt to enemies." Option assets `Common/GameSetup/Options/OptionEnableDamageNumbers` and `Options/HUD/OptionHitDamageNumber*` only hold the setting; `CrosshairAndHitIndicatorScreenLogic` only gates `UI.EnableCrosshair` / `UI.EnableHitIndicator`.
+- **Binding.** `Common/UI/HUD/Crosshair/Databindings/HitIndicatorNumber_SoldierDBD` (`HitIndicatorDamageNumber`) carries `HitDamage` with the same float type as `Alpha` and `Duration`: the UI receives unrounded damage. In firing-range tests the value shown is the running total on the target.
+- **Display expression.** `Widgets/HitIndicatorOutgoing/HitIndicatorOutgoingNumberCell_Soldier`, `_SoldierHeadshot` and `_SoldierKill` hold the same expression (object 15, `Class_71bfdf3f`):
+
+  ```
+  x = HitDamage
+  if (x > 99 && x < 100) x = floor(x)   // a live target never shows 100
+  if (x < 1)             x = ceil(x)    // chip damage never shows 0
+  ```
+
+  The text then shows x rounded to the nearest integer. Kill-shot numbers in the tests read rounded up (116.48 shown 117, 124.18 shown 125, 112.29 shown 113, 102.08 shown 103); this expression has no rule above 100, so the round-up comes from native code or a different value sent on the kill.
+- **Fit.** Against 47 shown numbers from the 27 October tests ([SOLDIER: kill threshold](SOLDIER.md#kill-threshold-firing-range-tests-27-october-2026)): 37 match with this expression and nearest rounding, 42 with a kill-shot round-up added. The other 5 are mid-run vz. 61 numbers (see [open questions](OPEN_QUESTIONS.md#weapons)).
+
+### UI expression bytecode (EBX `Field_9f5a51b5`)
+
+Read from 284 expressions in 5,086 captured 2.1.1.0 UI assets. This is the in-EBX UI expression format, not the serialized expression resource bodies in the open question on resource format. Ops are `Field_81cbda77` rows: opcode `Field_97a3169c`, destination register `Field_aee62a28` (a), operand `Field_0eaa6aac` (c: constant bits, name hash or left register), right register `Field_4767b705` (b). Registers are separate banks for bool, int and float. Call argument lists are `Field_f8aef2de` blocks indexed by b. Names use the 5381/×33/xor string hash (`HitDamage` = 1505634491).
+
+| Opcode | Meaning | Evidence |
+|---|---|---|
+| 1 | load int constant | `CrosshairType`, `AmmoMagCapacity` comparisons |
+| 2 | load float constant (c = float bits) | 1.0, 99.0, 100.0 |
+| 3 / 4 / 5 | load bool / int / float input by name hash | `IsLookedAt`, `Index`, `HitDamage` |
+| 10 / 11 | bool or / and (a = c op b) | `IsLookedAt && !IsZooming` |
+| 12 / 16 | int comparisons (probably > and <) | `AmmoMagCapacity op12 99`, `CrosshairType op16 2`; not separately confirmed |
+| 13 | float greater-than | `Alpha > 0` in `DamageNumberLayoutOptions` |
+| 17 | float less-than | pairs with 13 as 12 does with 16; only sensible reading of the damage expression |
+| 60 | bool not | |
+| 67 | call function by name hash, arguments from block b | `ceil`, `floor`, `iff(cond, then, else)` |
+| 68 | return | |
+
+Opcodes 9, 19, 23, 26, 27, 31, 32, 36, 44 and 46 were seen but not named.
