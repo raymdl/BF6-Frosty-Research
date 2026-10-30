@@ -1,0 +1,1125 @@
+{
+ "lead": "L4067",
+ "status": "proposal",
+ "build": {
+  "name": "2.1.1.0",
+  "head": 5382784,
+  "descriptorSha256": "c477622c1074a9a4ea612cf9c60e26f666129721c733174192c121c808873ff6"
+ },
+ "question": "ADS-out time per weapon (L114/L125) re-read on 2.1.1.0 for 67 weapons, whether attachments or the registry name an ADS-out path, and a Mobility ADS Out row proposal.",
+ "sourceFacts": {
+  "control": {
+   "description": "M4A1 WB WeaponZoomTransitionIndex (u32 at /Field_db03e8a9/Field_2b6f2936) must equal site defAds 4, select General_01 = site ADS-in (250 ms) and General_10 = 200 ms.",
+   "passed": true,
+   "siteField": "data/attachments.json:/WEAPON_MAG/m4a1/defAds (=4); sim/applyAttachments.js:583-591 computes adsIdx = defAds - magAdsTimeTierShift + combinedAdsTimeTierMod and _adsTimeMs = ADS_SPD_TIERS[adsIdx]",
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\M4A1\\M4A1_WB.ebx",
+     "rawSha256": "deeb876b845b66b7bca5f3350e9c399bbc02b83d05d19493a3e35b71c642bee9",
+     "offset": 4912,
+     "type": "u32",
+     "bytesHex": "04000000",
+     "value": 4
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\ZoomTransitions\\FZTT_General_01_T4.ebx",
+     "rawSha256": "9b0f23d781772b5c26207550f7dac2760d459ecd9f08a2bfb39eb93404dae50f",
+     "offset": 100,
+     "type": "f32",
+     "bytesHex": "0000803e",
+     "value": 0.25
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\ZoomTransitions\\FZTT_General_10_T4.ebx",
+     "rawSha256": "12267ff2666b845d9896665e3c9e55b76ebedff4bf65f195c025a8cd0f41d274",
+     "offset": 100,
+     "type": "f32",
+     "bytesHex": "cdcc4c3e",
+     "value": 0.20000000298023224
+    }
+   ]
+  },
+  "weaponIndexRawChecks": [
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\G3A4\\G3A4_WB.ebx",
+    "rawSha256": "0cd268470321e088a1df9f286ff254e077af1a47550937e40e95f4a39a9601d9",
+    "offset": 4144,
+    "type": "u32",
+    "bytesHex": "03000000",
+    "value": 3
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\G36\\G36_WB.ebx",
+    "rawSha256": "d5d0b7b26d0095b5d7a6b5b74057dee2a0a61c601e6abb4bfece179323da5fdf",
+    "offset": 6624,
+    "type": "u32",
+    "bytesHex": "03000000",
+    "value": 3
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\EF88\\EF88_WB.ebx",
+    "rawSha256": "d3d13effc174df607a3bc2a73ff9dcad391361fe457679ba1bf5441397196307",
+    "offset": 3952,
+    "type": "u32",
+    "bytesHex": "03000000",
+    "value": 3
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\6p67\\6P67_WB.ebx",
+    "rawSha256": "66283ddbd50ef52618d3209ae635d47cc66d3e87073a0e3fae270a9d4e5c056f",
+    "offset": 4336,
+    "type": "u32",
+    "bytesHex": "03000000",
+    "value": 3
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\L85A3\\L85A3_WB.ebx",
+    "rawSha256": "e35815d7f5b5bcb403479dd9c98bfbcab039cb96b3ec94cafef5ab7fb797e559",
+    "offset": 4144,
+    "type": "u32",
+    "bytesHex": "03000000",
+    "value": 3
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\M16A3\\M16A3_WB.ebx",
+    "rawSha256": "0bc997efac44f297d27a57201adaa9388dfbda51e7472ae8b0eb0790321eacd2",
+    "offset": 3952,
+    "type": "u32",
+    "bytesHex": "03000000",
+    "value": 3
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\HK433_WB.ebx",
+    "rawSha256": "3f33f2ca3613e4965490e2aa82f32453a94ee9ae41f8eec6e227ef87bf6bb73b",
+    "offset": 4048,
+    "type": "u32",
+    "bytesHex": "03000000",
+    "value": 3
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\ACE32\\ACE32_WB.ebx",
+    "rawSha256": "8da6d8a0c4e1f4594838695a7c431886819ec72ddc661cd12d259190d03d68df",
+    "offset": 4144,
+    "type": "u32",
+    "bytesHex": "03000000",
+    "value": 3
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\SCARL\\SCARL_WB.ebx",
+    "rawSha256": "805c04882ec500520d95948298ee239d9c7465bac0b3240de7b49b1c477e64d1",
+    "offset": 4144,
+    "type": "u32",
+    "bytesHex": "03000000",
+    "value": 3
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\Tavor7\\Tavor7_WB.ebx",
+    "rawSha256": "8b428a7459fbdfa6f2ea0854abd8129e0f121dc0271ca9fd5a396697a2aaf167",
+    "offset": 4144,
+    "type": "u32",
+    "bytesHex": "03000000",
+    "value": 3
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\VHS2\\VHS2_WB.ebx",
+    "rawSha256": "d97da41b8873b2d9f0bba59221a78669a781a537d45c3f96c6b50fccdd43a507",
+    "offset": 4336,
+    "type": "u32",
+    "bytesHex": "03000000",
+    "value": 3
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\AK205\\AK205_WB.ebx",
+    "rawSha256": "53fed45cd7d9699ecf85d4c87c56059b24d26d77c438f2c1d956f1f2d3292cf0",
+    "offset": 4144,
+    "type": "u32",
+    "bytesHex": "04000000",
+    "value": 4
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\BREN3\\BREN3_WB.ebx",
+    "rawSha256": "61828df60d6a514753be68d161b3c6a0af9c40bb60ad782e15f7379b145ac82d",
+    "offset": 3952,
+    "type": "u32",
+    "bytesHex": "04000000",
+    "value": 4
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\MSBSGROTB\\MSBSGROTB_WB.ebx",
+    "rawSha256": "2a4229c3ac175578742fe925e67e58518e12d7fdfa08c7f4f6b33383f23af1b6",
+    "offset": 4144,
+    "type": "u32",
+    "bytesHex": "04000000",
+    "value": 4
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\XM7\\XM7_WB.ebx",
+    "rawSha256": "e14511c6f52edf160d739e1cbe80ce86c4309ca3cb5776d622fcea9392cbcebf",
+    "offset": 4144,
+    "type": "u32",
+    "bytesHex": "04000000",
+    "value": 4
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\HK417A2\\HK417A2_WB.ebx",
+    "rawSha256": "e0a6c75c8de1ef25b75367c58dc22625b521084a453d5ac7241143f768031ac7",
+    "offset": 4144,
+    "type": "u32",
+    "bytesHex": "04000000",
+    "value": 4
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\M4A1\\M4A1_WB.ebx",
+    "rawSha256": "deeb876b845b66b7bca5f3350e9c399bbc02b83d05d19493a3e35b71c642bee9",
+    "offset": 4912,
+    "type": "u32",
+    "bytesHex": "04000000",
+    "value": 4
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\QBZ192\\QBZ192_WB.ebx",
+    "rawSha256": "37ea7c255b9af9cc563421fd80da8a5e39ae2b9313278fe9394ede6c65365e0c",
+    "offset": 4144,
+    "type": "u32",
+    "bytesHex": "04000000",
+    "value": 4
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\SIG553R\\SIG553R_WB.ebx",
+    "rawSha256": "500f46c3323898626cfaffbd653d18fd1cdd120c376e48e6ab4471c2e1fd54c1",
+    "offset": 4144,
+    "type": "u32",
+    "bytesHex": "04000000",
+    "value": 4
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\SCARSC\\SCARSC_WB.ebx",
+    "rawSha256": "e311dbbd6ad5d91bd7de3d8b489d8007b37f9c5c01567e1edf7a87adc1f843e0",
+    "offset": 4144,
+    "type": "u32",
+    "bytesHex": "04000000",
+    "value": 4
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\MSBSGROTCPS\\MSBSGROTCPS_WB.ebx",
+    "rawSha256": "4003c7878486c12506f8119ff3bb1ec812922fa689d04ac604fc1366669c05d0",
+    "offset": 5008,
+    "type": "u32",
+    "bytesHex": "03000000",
+    "value": 3
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\ARADMR\\ARADMR_WB.ebx",
+    "rawSha256": "628296aeaac478fb6808a2b13ed5b8c4680f7e610dafb52484125cfd42be98fe",
+    "offset": 16544,
+    "type": "u32",
+    "bytesHex": "03000000",
+    "value": 3
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\M39EMR\\M39EMR_WB.ebx",
+    "rawSha256": "366949478e292eebc5dc80aaf5e6c45645659c991f9e163cad965197fad3eff3",
+    "offset": 16544,
+    "type": "u32",
+    "bytesHex": "02000000",
+    "value": 2
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\SVDM\\SVDM_WB.ebx",
+    "rawSha256": "19e25370622387a83f0818ca5a7d54450ec997dd52e78459a9defef76e5bedc2",
+    "offset": 16544,
+    "type": "u32",
+    "bytesHex": "02000000",
+    "value": 2
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\SVCh\\SVCh_WB.ebx",
+    "rawSha256": "9a2abcf1f1f84bf064ffc64cfb28fe0a2266ae1e0653c0be50d587f8ffe178b4",
+    "offset": 16544,
+    "type": "u32",
+    "bytesHex": "01000000",
+    "value": 1
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\VSSM\\VSSM_WB.ebx",
+    "rawSha256": "0b3bc0a91071d9c89dbba8343d98e52e5472356425991c0ad185460b50f3f451",
+    "offset": 3952,
+    "type": "u32",
+    "bytesHex": "04000000",
+    "value": 4
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\M27IAR\\M27IAR_WB.ebx",
+    "rawSha256": "2cc8bd7609e80cd48c91449bef172d71bd315dfb6de6b7ab79943163bdd2a9e2",
+    "offset": 3952,
+    "type": "u32",
+    "bytesHex": "02000000",
+    "value": 2
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\Ultimax\\Ultimax_WB.ebx",
+    "rawSha256": "1886bd49aa9a689dc1aa4857fd7243c988b4d600a23796c8b8114f93c078c7f4",
+    "offset": 4144,
+    "type": "u32",
+    "bytesHex": "02000000",
+    "value": 2
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\Minimi\\Minimi_WB.ebx",
+    "rawSha256": "6519c820b5cc0e776d0b5cececb5f93695011a841dc65afd3e51f0be90027136",
+    "offset": 4048,
+    "type": "u32",
+    "bytesHex": "01000000",
+    "value": 1
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\MG5\\MG5_WB.ebx",
+    "rawSha256": "60eaa4ac92a6c37d5b5590975e264a25018bd5a628b5683490b6fb481b327e0b",
+    "offset": 4336,
+    "type": "u32",
+    "bytesHex": "01000000",
+    "value": 1
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\MG4K\\MG4K_WB.ebx",
+    "rawSha256": "c01664b4ab5f8f64ed4e85fe9913a3dff1618e94ffe950a41549221f8629eac9",
+    "offset": 4144,
+    "type": "u32",
+    "bytesHex": "01000000",
+    "value": 1
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\M240L\\M240L_WB.ebx",
+    "rawSha256": "23cffd4f038683a75c382e4fb61669faf3fa89a4060bc04423c3ec604f9829ae",
+    "offset": 4144,
+    "type": "u32",
+    "bytesHex": "01000000",
+    "value": 1
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\M250\\M250_WB.ebx",
+    "rawSha256": "1ca410a2a9d8638b2c5dd8d79aec66023adedddc2f25a2ed256edd30d6371ded",
+    "offset": 4912,
+    "type": "u32",
+    "bytesHex": "01000000",
+    "value": 1
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\M60E6\\M60E6_WB.ebx",
+    "rawSha256": "24dc0aa9c50c72425ebdfa86edf30c41680d33a43afe983d0a60e0b367756437",
+    "offset": 4144,
+    "type": "u32",
+    "bytesHex": "01000000",
+    "value": 1
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\RPK74M\\RPK74M_WB.ebx",
+    "rawSha256": "f783b7ed4a61884522a1287e8932c55ac7e90aba94b60be971cc5558aeb6c2a8",
+    "offset": 4720,
+    "type": "u32",
+    "bytesHex": "02000000",
+    "value": 2
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\RPKM\\RPKM_WB.ebx",
+    "rawSha256": "67624b45955ad3ab0feee7581aa3815e57a7c35fb5b0eea7aa5781afca86e1b2",
+    "offset": 4144,
+    "type": "u32",
+    "bytesHex": "02000000",
+    "value": 2
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\SMG\\ScorpionEvo3\\ScorpionEvo3_WB.ebx",
+    "rawSha256": "65a13f23e44fe20145b7f79c0a26abe6aa7ce594c7b9691afb6b87d77d7c3709",
+    "offset": 4336,
+    "type": "u32",
+    "bytesHex": "05000000",
+    "value": 5
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\SMG\\Vector\\Vector_WB.ebx",
+    "rawSha256": "381a162dafa8cc959b114e91258e806555a91dcef56e9429ac72e0c6ac11b4ee",
+    "offset": 4144,
+    "type": "u32",
+    "bytesHex": "05000000",
+    "value": 5
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\SMG\\PP19\\PP19_WB.ebx",
+    "rawSha256": "b47d2b6fd4af0a0e5a2d3e838f5ed603acaa329f1a013c503f2d67ccd3974968",
+    "offset": 3952,
+    "type": "u32",
+    "bytesHex": "05000000",
+    "value": 5
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\SMG\\MP5MLI\\MP5MLI_WB.ebx",
+    "rawSha256": "a4ebebc0987a403430672e93b79c449a85c3463898b25ca6099607fe34e39fbf",
+    "offset": 4144,
+    "type": "u32",
+    "bytesHex": "05000000",
+    "value": 5
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\SMG\\MP7A2\\MP7A2_WB.ebx",
+    "rawSha256": "c97f8a34bb3f8720255c5dbad634973a8f68ee44764954db8695876ce7b8c04c",
+    "offset": 4144,
+    "type": "u32",
+    "bytesHex": "05000000",
+    "value": 5
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\SMG\\APC10\\APC10_WB.ebx",
+    "rawSha256": "3091b8f57d9b4adb822f6ba4be9e508898920ba757a51e8936e96d81ac0615bd",
+    "offset": 4048,
+    "type": "u32",
+    "bytesHex": "05000000",
+    "value": 5
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\SMG\\MPX\\MPX_WB.ebx",
+    "rawSha256": "6f06d1e495fc99eabbfba2c3fae06c7d94e2641b16f16d2bfe0a421a8d64fa28",
+    "offset": 4048,
+    "type": "u32",
+    "bytesHex": "05000000",
+    "value": 5
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\SMG\\APDW\\APDW_WB.ebx",
+    "rawSha256": "d524f9f84a7ef443bbf00d3a4c8978d2d79b46c894b061d3bbd3a7e8155068f0",
+    "offset": 4336,
+    "type": "u32",
+    "bytesHex": "05000000",
+    "value": 5
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\SMG\\UMP40\\UMP40_WB.ebx",
+    "rawSha256": "3f963b06d6fc38cb0c7a876f8062d449dfa46b6fd79971617fca2714e0ad7d51",
+    "offset": 4144,
+    "type": "u32",
+    "bytesHex": "05000000",
+    "value": 5
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\SMG\\P90\\P90_WB.ebx",
+    "rawSha256": "cfeeb17bdfd1fc83344b573024d3cc80c94d1a443b25ab68aafbab09a9717d1e",
+    "offset": 4144,
+    "type": "u32",
+    "bytesHex": "05000000",
+    "value": 5
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Shotgun\\DP12\\DP12_WB.ebx",
+    "rawSha256": "c2e2dc3355828fdb41fb05f2098632a7f9e20330847d2ff186b6a0c9758dfe4d",
+    "offset": 4144,
+    "type": "u32",
+    "bytesHex": "04000000",
+    "value": 4
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Shotgun\\185KSK\\185KSK_WB.ebx",
+    "rawSha256": "49e695d57274040920ff2604dc5012900a5de1d7bb190f417d131808be354bf4",
+    "offset": 4912,
+    "type": "u32",
+    "bytesHex": "04000000",
+    "value": 4
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Shotgun\\M1014\\M1014_WB.ebx",
+    "rawSha256": "d6580d96c97c4b14e45b7ec1ca9fbbc5d3a4f412ac2fbeb61af051326e06925a",
+    "offset": 4144,
+    "type": "u32",
+    "bytesHex": "03000000",
+    "value": 3
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Shotgun\\590A1\\590A1_WB.ebx",
+    "rawSha256": "b170fc0f0a6b11e6799a73e0e64fab622ec8421bc10e3cf4125f8b53356d66b1",
+    "offset": 4144,
+    "type": "u32",
+    "bytesHex": "03000000",
+    "value": 3
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Secondary\\FiveSeven\\FiveSeven_WB.ebx",
+    "rawSha256": "f28c5692c572cc214f0b0576c687ec8ee61b250419585bf894631142f0282e0d",
+    "offset": 4016,
+    "type": "u32",
+    "bytesHex": "06000000",
+    "value": 6
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Secondary\\G22\\G22_WB.ebx",
+    "rawSha256": "6d54c71263b6d52ee7c55df459f68b91df2f2245a242d9e00322d0f6bc1adf7d",
+    "offset": 4016,
+    "type": "u32",
+    "bytesHex": "05000000",
+    "value": 5
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Secondary\\TRR8\\TRR8_WB.ebx",
+    "rawSha256": "1c03834603a9662d6f8fc28b6e9b737c9978051641daf2d472c646d659ab7bf8",
+    "offset": 4512,
+    "type": "u32",
+    "bytesHex": "05000000",
+    "value": 5
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Secondary\\RagingHunter\\RagingHunter_WB.ebx",
+    "rawSha256": "3973770696f0af2d8e2293d6301ac69bd52cbf770e0a5407cfa8b4da846b2e73",
+    "offset": 4320,
+    "type": "u32",
+    "bytesHex": "04000000",
+    "value": 4
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Secondary\\M45A1\\M45A1_WB.ebx",
+    "rawSha256": "8abd7cc29b21e1f9c7f7f40960392e98f19d067c4a63684db2a08dbc8d39c2e1",
+    "offset": 4016,
+    "type": "u32",
+    "bytesHex": "05000000",
+    "value": 5
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Secondary\\M18\\M18_WB.ebx",
+    "rawSha256": "0f10f3ad5e3b0685607962c44e32d6e549ce9734e1e39ae9caf5a6b0080422de",
+    "offset": 3824,
+    "type": "u32",
+    "bytesHex": "05000000",
+    "value": 5
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Secondary\\Skorpion\\Skorpion_WB.ebx",
+    "rawSha256": "dfd789bce66f72a87b5006f1db5a579345c9f732002eb5ebfd338d8dff7b950f",
+    "offset": 4720,
+    "type": "u32",
+    "bytesHex": "05000000",
+    "value": 5
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\BoltAction\\DesertTechHTI\\DesertTechHTI_WB.ebx",
+    "rawSha256": "3f213da760f93fbd6c51a805b42278e65d2e6d2e657b32d67ce61f34786925b8",
+    "offset": 6928,
+    "type": "u32",
+    "bytesHex": "00000000",
+    "value": 0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\BoltAction\\L115A3\\L115A3_WB.ebx",
+    "rawSha256": "81c45a3d10ce65453f0a1b7bb319d5ef3a83d3cc3de44a4627b1e34f2c053a80",
+    "offset": 6928,
+    "type": "u32",
+    "bytesHex": "01000000",
+    "value": 1
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\BoltAction\\M2010ESR\\M2010ESR_WB.ebx",
+    "rawSha256": "949163d462c1720063eff1e08f024d0991ebd1dc2cc098e40fc433e66e165dfa",
+    "offset": 8016,
+    "type": "u32",
+    "bytesHex": "02000000",
+    "value": 2
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\BoltAction\\MiniFix\\MiniFix_WB.ebx",
+    "rawSha256": "985477b47840364f6b332275678dac26da8aafdfd43db78cf8d9d7f33a5df54d",
+    "offset": 18528,
+    "type": "u32",
+    "bytesHex": "03000000",
+    "value": 3
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\BoltAction\\MRAD\\MRAD_WB.ebx",
+    "rawSha256": "b17afbe86870919de99cfb141bc277f74c686a48863edf7e5d8dbed20ef9ab73",
+    "offset": 19520,
+    "type": "u32",
+    "bytesHex": "01000000",
+    "value": 1
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\BoltAction\\SV98M\\SV98M_WB.ebx",
+    "rawSha256": "a2df1c1591526e5f44e026739045b11f53ba56e4b89e5b567b8193af138bc4fe",
+    "offset": 19616,
+    "type": "u32",
+    "bytesHex": "02000000",
+    "value": 2
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\MRGGA\\MRGGA_WB.ebx",
+    "rawSha256": "362be4ae90e4168e4f709a8ea9879f06af2052f3cc90cc4a21c53054dc576492",
+    "offset": 5936,
+    "type": "u32",
+    "bytesHex": "03000000",
+    "value": 3
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\BoltAction\\CDX40\\CDX40_WB.ebx",
+    "rawSha256": "ec78973b271ca1a0c4ed201eb442e8f1717c01006bab04164b49238d44fa605b",
+    "offset": 6928,
+    "type": "u32",
+    "bytesHex": "01000000",
+    "value": 1
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\MG\\PKM\\PKM_WB.ebx",
+    "rawSha256": "f1e6657c274daea16e289cf183402bae508049954e69f5edce609c8c5b56d851",
+    "offset": 4720,
+    "type": "u32",
+    "bytesHex": "01000000",
+    "value": 1
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\SMG\\RSAR999\\RSAR999_WB.ebx",
+    "rawSha256": "4ddb8c581a7da362f01b40c4133687095a6f91d2027ecdded7eb05e2695c0f22",
+    "offset": 3952,
+    "type": "u32",
+    "bytesHex": "05000000",
+    "value": 5
+   }
+  ],
+  "ladders": [
+   {
+    "index": 0,
+    "general01Ms": 500.0,
+    "general10Ms": 400.0,
+    "siteAdsInMs": 500.00033,
+    "rawChecks": [
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\ZoomTransitions\\FZTT_General_01_T0.ebx",
+      "rawSha256": "ecc3f10274866343241b1c763462a7385e885319bfbcc0f929ffa361544e245c",
+      "offset": 100,
+      "type": "f32",
+      "bytesHex": "0000003f",
+      "value": 0.5
+     },
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\ZoomTransitions\\FZTT_General_10_T0.ebx",
+      "rawSha256": "3fe4fe7a06a0bf28f979c51b67ac3ade2395e658eab7d4fc9952e8ca864308a3",
+      "offset": 100,
+      "type": "f32",
+      "bytesHex": "cdcccc3e",
+      "value": 0.4000000059604645
+     }
+    ]
+   },
+   {
+    "index": 1,
+    "general01Ms": 433.334,
+    "general10Ms": 333.334,
+    "siteAdsInMs": 433.33432,
+    "rawChecks": [
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\ZoomTransitions\\FZTT_General_01_T1.ebx",
+      "rawSha256": "4097f1b65dc0c253f62afdee561dd9a988224a382123cbfc36b6b46bdf80e54c",
+      "offset": 100,
+      "type": "f32",
+      "bytesHex": "f4dddd3e",
+      "value": 0.43333399295806885
+     },
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\ZoomTransitions\\FZTT_General_10_T1.ebx",
+      "rawSha256": "05767fd6bbb47fa65c30c3511308fc43d986067de9827cf3b1e919496ba641e6",
+      "offset": 100,
+      "type": "f32",
+      "bytesHex": "c1aaaa3e",
+      "value": 0.3333339989185333
+     }
+    ]
+   },
+   {
+    "index": 2,
+    "general01Ms": 366.667,
+    "general10Ms": 266.667,
+    "siteAdsInMs": 366.66733,
+    "rawChecks": [
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\ZoomTransitions\\FZTT_General_01_T2.ebx",
+      "rawSha256": "c850ebc71d804a504a8a8c6747b968264e7adeba322fe9aded3a1aecc34a0fe3",
+      "offset": 100,
+      "type": "f32",
+      "bytesHex": "c7bbbb3e",
+      "value": 0.3666670024394989
+     },
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\ZoomTransitions\\FZTT_General_10_T2.ebx",
+      "rawSha256": "a63959e4a889941c0fa79ab9933946af7af6ec9529876f4773a3aae91f539a85",
+      "offset": 100,
+      "type": "f32",
+      "bytesHex": "9488883e",
+      "value": 0.2666670083999634
+     }
+    ]
+   },
+   {
+    "index": 3,
+    "general01Ms": 300.0,
+    "general10Ms": 233.334,
+    "siteAdsInMs": 300.00034,
+    "rawChecks": [
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\ZoomTransitions\\FZTT_General_01_T3.ebx",
+      "rawSha256": "8bbe6e3b09df289cde7f002e6dca0c653815722a559f5e232cdf3ca348ac1bc0",
+      "offset": 100,
+      "type": "f32",
+      "bytesHex": "9a99993e",
+      "value": 0.30000001192092896
+     },
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\ZoomTransitions\\FZTT_General_10_T3.ebx",
+      "rawSha256": "a7dc9d3d08e69f9cbaf097c46b34df4568d972e40a67402b7870a55f7924cfaa",
+      "offset": 100,
+      "type": "f32",
+      "bytesHex": "1cef6e3e",
+      "value": 0.2333340048789978
+     }
+    ]
+   },
+   {
+    "index": 4,
+    "general01Ms": 250.0,
+    "general10Ms": 200.0,
+    "siteAdsInMs": 250.00033,
+    "rawChecks": [
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\ZoomTransitions\\FZTT_General_01_T4.ebx",
+      "rawSha256": "9b0f23d781772b5c26207550f7dac2760d459ecd9f08a2bfb39eb93404dae50f",
+      "offset": 100,
+      "type": "f32",
+      "bytesHex": "0000803e",
+      "value": 0.25
+     },
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\ZoomTransitions\\FZTT_General_10_T4.ebx",
+      "rawSha256": "12267ff2666b845d9896665e3c9e55b76ebedff4bf65f195c025a8cd0f41d274",
+      "offset": 100,
+      "type": "f32",
+      "bytesHex": "cdcc4c3e",
+      "value": 0.20000000298023224
+     }
+    ]
+   },
+   {
+    "index": 5,
+    "general01Ms": 200.0,
+    "general10Ms": 166.667,
+    "siteAdsInMs": 200.00033,
+    "rawChecks": [
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\ZoomTransitions\\FZTT_General_01_T5.ebx",
+      "rawSha256": "7c225e62326c468aedb40cdf9b8e02dd5f00a3e107ba48f6a370d6ea10e2417f",
+      "offset": 100,
+      "type": "f32",
+      "bytesHex": "cdcc4c3e",
+      "value": 0.20000000298023224
+     },
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\ZoomTransitions\\FZTT_General_10_T5.ebx",
+      "rawSha256": "6a8b8f5046d34cd356e418438b8622526758b0904f422b03ea3dba3fc7d5faa9",
+      "offset": 100,
+      "type": "f32",
+      "bytesHex": "c1aa2a3e",
+      "value": 0.16666699945926666
+     }
+    ]
+   },
+   {
+    "index": 6,
+    "general01Ms": 166.667,
+    "general10Ms": 133.334,
+    "siteAdsInMs": 166.66733,
+    "rawChecks": [
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\ZoomTransitions\\FZTT_General_01_T6.ebx",
+      "rawSha256": "2f816052b8142504eda2e121c6dcedf9607fec2b24fe73e4bd8632ba99891136",
+      "offset": 100,
+      "type": "f32",
+      "bytesHex": "c1aa2a3e",
+      "value": 0.16666699945926666
+     },
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\ZoomTransitions\\FZTT_General_10_T6.ebx",
+      "rawSha256": "b43a633db13ae3aacfd7d189be72591044a56f01e09f85ac01895f14b964b938",
+      "offset": 100,
+      "type": "f32",
+      "bytesHex": "b588083e",
+      "value": 0.1333339959383011
+     }
+    ]
+   },
+   {
+    "index": 7,
+    "general01Ms": 133.334,
+    "general10Ms": 100.0,
+    "siteAdsInMs": 133.33433,
+    "rawChecks": [
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\ZoomTransitions\\FZTT_General_01_T7.ebx",
+      "rawSha256": "5be09620b47e4ac400fada690c11e8caa57152e161838a5728d5879319656565",
+      "offset": 100,
+      "type": "f32",
+      "bytesHex": "b588083e",
+      "value": 0.1333339959383011
+     },
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\ZoomTransitions\\FZTT_General_10_T7.ebx",
+      "rawSha256": "53049bce36d7300fab2015b21462f3fc55fbfb976fd2fcc375500876243e09fd",
+      "offset": 100,
+      "type": "f32",
+      "bytesHex": "cdcccc3d",
+      "value": 0.10000000149011612
+     }
+    ]
+   }
+  ],
+  "fztWeaponsPairing": {
+   "entries0to7": [
+    [
+     "FZTT_General_01_T0",
+     "FZTT_General_10_T0"
+    ],
+    [
+     "FZTT_General_01_T1",
+     "FZTT_General_10_T1"
+    ],
+    [
+     "FZTT_General_01_T2",
+     "FZTT_General_10_T2"
+    ],
+    [
+     "FZTT_General_01_T3",
+     "FZTT_General_10_T3"
+    ],
+    [
+     "FZTT_General_01_T4",
+     "FZTT_General_10_T4"
+    ],
+    [
+     "FZTT_General_01_T5",
+     "FZTT_General_10_T5"
+    ],
+    [
+     "FZTT_General_01_T6",
+     "FZTT_General_10_T6"
+    ],
+    [
+     "FZTT_General_01_T7",
+     "FZTT_General_10_T7"
+    ]
+   ],
+   "pairedGeneral01General10AtSameIndex": true,
+   "fztWeaponsSha256": "ec7b177e1ffa6f69be7e4a8e15a32d323e411dbc75b26823619da48496d03881",
+   "array": "Field_e2c9902e (80 entries)"
+  },
+  "registryNameSearch": {
+   "allrowsPath": "C:/Users/royal/Documents/BF6 Datamining/builds/2.1.1.0/reports/weapon-registry-recheck-2026-10-19/allrows.json",
+   "allrowsSha256": "b75d975254b610eec1a070a4c04323951ac18073fa4d7784ab908dbc48dd17a8",
+   "rowsSearched": 34340,
+   "counts": {
+    "ZoomTransition": 108,
+    "ADSOut": 0,
+    "Unzoom": 7265,
+    "ZoomOut": 0,
+    "AnimationZoom": 216,
+    "ADSTime": 0,
+    "ZoomIndex": 711
+   },
+   "findings": [
+    "WeaponZoomTransitionIndex.Index is named on 66 of the 67 site WB owners (71 rows in GRX_Weapons including non-site owners such as DSPulse, Minigun, Railgun); registry values equal the raw WB values and site defAds for all 66 (pair-status.json). RSAR999_WB has no row.",
+    "No row matches ADSOut, ZoomOut or ADS.?Time. 'Unzoom' hits are Unzoomed recoil/dispersion leaves, not transition rows. No row on any owner names an ADS-out duration or an ADS-time modifier receiver.",
+    "Nearby names: AnimationZoomSettingsIndex.Index, AltAnimationZoomSettingsIndex.Index, WeaponZoomedMoveSpeedMultiplierIndex.Index; WeaponModifierDataAssets[..].Modifiers[..] rows expose only Priority.",
+    "Field_9540bd8e and Field_4692836a appear in no registry row; receiver still unnamed. The nine GID/WME_ADSTime assets are byte-identical in 1.4.3.5 and 2.1.1.0."
+   ],
+   "evidenceFor": "The registry names the index field WeaponZoomTransitionIndex; the same index addresses the General_01 entry (site ADS-in ladder) and its paired General_10 entry.",
+   "evidenceAgainstOrMissing": "No name or consumer for ADS-out; attachment-step receiver unnamed."
+  },
+  "notes": [
+   "62 WB files differ from the L114 receipt hashes, P90 equals; offsets relocated by 2.1.1.0 descriptor decode; the index field is UINT32.",
+   "FZTT General_01 and General_10 files are byte-identical to 1.4.3.5."
+  ]
+ },
+ "inference": "General_01 and General_10 at the same index are paired in FZT_Weapons; General_01 equals the site ADS-in ladder and the WB index equals defAds, which supports the reading that General_10 is the ADS-out duration at that index. This is inference from pairing, value match and naming, not a traced consumer. The registry does not name an ADS-out field, so attachment shifts of ADS-out are unsupported.",
+ "unresolved": [
+  "Runtime role: no consumer of FZTT_General_10 or of the FZT_Weapons pairing was traced; General_10 as ADS-out and General_01 as ADS-in rest on paired entries, the value match of General_01 to the site ADS-in ladder (L125) and the transition names (01/10, LPVO_12/21 read as from-to labels), not on a consumer.",
+  "Whether ADS-time attachments (WME Field_9540bd8e, GID Field_4692836a) shift ADS-out: no 2.1.1.0 registry row names either receiver; the nine ADSTime GID/WME assets are byte-identical to 1.4.3.5, so L121 carries. Do not apply ADS-in shifts to ADS-out.",
+  "RSAR999_WB has no WeaponZoomTransitionIndex.Index registry row (66 of 67 weapons have one); its index is raw-verified only.",
+  "FZT_Weapons holds 80 array entries; entries 0-7 pair General_01 and General_10 at the same index, entries 8-79 are larger sets (General_01..80, LPVO, 0010/0011/1000/1100) that also contain General_10_Tn. Which entry a weapon index addresses at runtime was not resolved beyond L114's index-equals-array-index reading.",
+  "Perceived ADS-out time may include animation delay or input-release timing; unmeasured."
+ ],
+ "siteImpact": "Proposal only; no site number changes now. If validated, add an 'ADS Out' row beside 'ADS Time' on the Mobility card (ui/app.js ADS Time rows near lines 1487 and 3484; ui/weapon-attributes.js mobility card list), base value only: a new per-weapon field in data/weapons.json (proposed name adsOutMs) = General_10[WB index] from values.json, unshifted by attachments, with a caveat.",
+ "evidence": {
+  "paths": [
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4067\\L4067-result.json",
+    "sha256": "92b681fa4b69108289926cc16a344fcde75f83d83fc930bb369cc8177ae28dd2"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4067\\values.json",
+    "sha256": "942a832854d70775564fb9d2751ebc8ecd307188c815d31f014dcc72d1c9dc87"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4067\\rawchecks-wb-transition.json",
+    "sha256": "ba2b45573c563a4380f8f3c072839004cf909b77b574866d31d52019e861968b"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4067\\rawchecks-fzt.json",
+    "sha256": "be08f5a5f864af0f258c9754641408c78cb240c9eec75efba2cc1456c9734509"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4067\\fzt-weapons-array.json",
+    "sha256": "4b19f750e015c6421533eaad538f0c8cc6e17bd4859611959a210e2451769eb1"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4067\\registry-name-search.json",
+    "sha256": "f8b081212353d96c0078a1a96af29d44eaa510849f2b8f367d21eb5380a9d5db"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4067\\proposal.md",
+    "sha256": "78c10a7bcf976b4e0c5191ba074def4bbba773a769f33bfee351571ff5f9b2d5"
+   }
+  ],
+  "commands": [
+   {
+    "label": "reconstructed from session history; not a rerun",
+    "exe": "python",
+    "args": [
+     "s1.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4067",
+    "note": "compares 2.1.1.0 WB hashes with L114 receipt hashes: 1 of 63 equal (P90), so offsets were relocated for all"
+   },
+   {
+    "exe": "python",
+    "args": [
+     "loc.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4067",
+    "note": "locator validation: G3A4 WB offset 4144 reproduced on 1.4.3.0 and 2.1.1.0"
+   },
+   {
+    "exe": "python",
+    "args": [
+     "s2.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4067",
+    "out": [
+     "s2.json",
+     "manifest-wb-transition.json"
+    ]
+   },
+   {
+    "exe": "python",
+    "args": [
+     "frosty_raw_check.py",
+     "--manifest",
+     "manifest-wb-transition.json",
+     "--out",
+     "rawchecks-wb-transition.json"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4067",
+    "out": [
+     "rawchecks-wb-transition.json"
+    ]
+   },
+   {
+    "exe": "python",
+    "args": [
+     "s3.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4067"
+   },
+   {
+    "exe": "python",
+    "args": [
+     "s3c.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4067",
+    "out": [
+     "fzt-weapons-array.json"
+    ]
+   },
+   {
+    "exe": "python",
+    "args": [
+     "s4.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4067",
+    "out": [
+     "manifest-fzt.json",
+     "rawchecks-fzt.json"
+    ]
+   },
+   {
+    "exe": "python",
+    "args": [
+     "s5.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4067",
+    "out": [
+     "registry-name-search.json"
+    ]
+   },
+   {
+    "exe": "python",
+    "args": [
+     "s6.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4067"
+   },
+   {
+    "exe": "python",
+    "args": [
+     "s7.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4067"
+   },
+   {
+    "exe": "python",
+    "args": [
+     "s8.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4067"
+   },
+   {
+    "exe": "python",
+    "args": [
+     "build.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4067",
+    "out": [
+     "values.json",
+     "L4067-result.json"
+    ]
+   }
+  ],
+  "helperSha256": {
+   "frosty_ebx_decode.py": "149d39cdc3aaef39d7166ad67a8e4651049c7e7bd11efeebdd41e1a9e00d3fc5",
+   "frosty_raw_check.py": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3",
+   "loc.py": "55329ea8dd9f04a8c19a8a69beb6bd2b9d52a28e82ef311acbab4cbdbba7106f",
+   "s1.py": "5e7d2c95e459d4d1f2dcd24e04ff6149b31272f56a78342139aaf9d979b8b468",
+   "s2.py": "21c8e252f9d679e05cfe6798a4195046993ffa84dc4ab3acfd51b2070bbd7282",
+   "s3.py": "fb019f63144d4d245d289c98f80b03cb11c0bd7bc457fed5d267d81ed1eabfb4",
+   "s3b.py": "b155ce38136c9b9bd2d3cacc329946d76c29db084b709afbbab78e1b95f4a9d7",
+   "s3c.py": "f2f981f8b2a6d1e5650bd3fe642f3a9c28353b4758380dc9f8d9990e5af727dc",
+   "s4.py": "aec5d43159944646c6382a90617f0e1a68bc3d5b74682a41a5754817b9d90acd",
+   "s5.py": "2865deaf148ddbc28d9666c790cee352fcf6cf381e1e1cd39bf5b2dbbb85c2f4",
+   "s6.py": "8bdb7c5b0f30b20dcf4e6d146db897191b116c2cdae38240343025ac3aec92ea",
+   "s7.py": "16ecb54660e2144dfa30b90ba63bb9583cec1b401b3c39fd7513bbd5e1bb0206",
+   "s8.py": "4b13d7a44685f41860b65370454df111cb8791c72784e1139150b4b0c7099534",
+   "build.py": "af981cdb52324624259ea43745e4f37f6964801fa0b4eed7d2d2366dbc46b1d8",
+   "mk2.py": "1909f22a696119d48c672652749976d40b05921486ae33f95a9e3a2b2a4a0cfe"
+  }
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-30",
+  "build": "2.1.1.0",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L4067",
+    "title": "ADS Out row on the Mobility card (L114/L125 on 2.1.1.0)",
+    "status": "proposal",
+    "summary": "Each of the 67 weapon bodies stores a WeaponZoomTransitionIndex equal to the site ADS-in index; the paired FZT General_10 entry at that index (400 to 100 ms) is a candidate ADS-out base, but no consumer, attachment-shift receiver or registry name for ADS-out exists.",
+    "reopenWhen": "Reopen when a consumer of FZTT_General_10 or the receiver of the ADS-time WME/GID steps is named, or when an ADS-out recording is available.",
+    "statusNote": "Index re-read on 67 of 67 weapons incl. Season 5; validation recording proposed"
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Hardware/Weapons/Carbine/M4A1/M4A1_WB",
+    "format": "raw-ebx",
+    "sha256": "deeb876b845b66b7bca5f3350e9c399bbc02b83d05d19493a3e35b71c642bee9",
+    "question": "Which transition index does the M4A1 body select (control)?",
+    "result": "useful",
+    "conclusion": "u32 at offset 4912 (/Field_db03e8a9/Field_2b6f2936) is 4 = site defAds; selects General_01 250 ms and General_10 200 ms."
+   },
+   {
+    "path": "Common/Hardware/Common/Arrays/ZoomTransitions/FZT_Weapons",
+    "format": "raw-ebx",
+    "sha256": "ec7b177e1ffa6f69be7e4a8e15a32d323e411dbc75b26823619da48496d03881",
+    "question": "Do array entries 0-7 pair General_01 and General_10 at the same index?",
+    "result": "useful",
+    "conclusion": "Field_e2c9902e entries 0-7 each import FZTT_General_01_Tn and FZTT_General_10_Tn; entries 8-79 are larger sets."
+   },
+   {
+    "path": "Common/Hardware/Common/Arrays/ZoomTransitions/FZTT_General_01_T4",
+    "format": "raw-ebx",
+    "sha256": "9b0f23d781772b5c26207550f7dac2760d459ecd9f08a2bfb39eb93404dae50f",
+    "question": "General_01 value at index 4?",
+    "result": "useful",
+    "conclusion": "f32 at offset 100 is 0.25 s = 250 ms, equal to site ADS_SPD_TIERS[4] within 0.34 microsecond."
+   },
+   {
+    "path": "Common/Hardware/Common/Arrays/ZoomTransitions/FZTT_General_10_T4",
+    "format": "raw-ebx",
+    "sha256": "12267ff2666b845d9896665e3c9e55b76ebedff4bf65f195c025a8cd0f41d274",
+    "question": "General_10 value at index 4?",
+    "result": "useful",
+    "conclusion": "f32 at offset 100 is 0.2 s = 200 ms; the full General_10 ladder is 400/333.334/266.667/233.334/200/166.667/133.334/100 ms (values.json)."
+   },
+   {
+    "path": "Common/Hardware/Weapons/AssaultRifle/MRGGA/MRGGA_WB",
+    "format": "raw-ebx",
+    "sha256": "362be4ae90e4168e4f709a8ea9879f06af2052f3cc90cc4a21c53054dc576492",
+    "question": "Season 5 weapon transition index?",
+    "result": "useful",
+    "conclusion": "u32 at offset 5936 is 3 (= site defAds); General_10 233.334 ms."
+   },
+   {
+    "path": "Common/Hardware/Weapons/BoltAction/CDX40/CDX40_WB",
+    "format": "raw-ebx",
+    "sha256": "ec78973b271ca1a0c4ed201eb442e8f1717c01006bab04164b49238d44fa605b",
+    "question": "Season 5 weapon transition index?",
+    "result": "useful",
+    "conclusion": "u32 at offset 6928 is 1 (= site defAds); General_10 333.334 ms."
+   },
+   {
+    "path": "Common/Hardware/Weapons/MG/PKM/PKM_WB",
+    "format": "raw-ebx",
+    "sha256": "f1e6657c274daea16e289cf183402bae508049954e69f5edce609c8c5b56d851",
+    "question": "Season 5 weapon transition index?",
+    "result": "useful",
+    "conclusion": "u32 at offset 4720 is 1 (= site defAds); General_10 333.334 ms."
+   },
+   {
+    "path": "Common/Hardware/Weapons/SMG/RSAR999/RSAR999_WB",
+    "format": "raw-ebx",
+    "sha256": "4ddb8c581a7da362f01b40c4133687095a6f91d2027ecdded7eb05e2695c0f22",
+    "question": "Season 5 weapon transition index?",
+    "result": "useful",
+    "conclusion": "u32 at offset 3952 is 5 (= site defAds); General_10 166.667 ms."
+   }
+  ],
+  "site": [
+   {
+    "pointer": "data/weapons.json:/[id=m4a1]/adsOutMs",
+    "value": 200.0,
+    "relation": "proposed"
+   },
+   {
+    "pointer": "data/attachments.json:/WEAPON_MAG/m4a1/defAds",
+    "value": 4,
+    "relation": "context"
+   },
+   {
+    "pointer": "data/balance_tables.json:/ADS_SPD_TIERS",
+    "value": [
+     500.00033,
+     433.33432,
+     366.66733,
+     300.00034,
+     250.00033,
+     200.00033,
+     166.66733,
+     133.33433
+    ],
+    "relation": "context"
+   }
+  ]
+ },
+ "run": {
+  "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps",
+  "leadFolder": "L4067"
+ }
+}

@@ -1,0 +1,1905 @@
+{
+ "lead": "L4069",
+ "status": "proposal",
+ "build": "2.1.1.0",
+ "question": "Re-read the 24 StanceChangePenalties leaves on the 67 GS files and the HDA H2-H5 / ZDA Field_97ff0ca4 posture rows for M433, M39 EMR and DB-12 on 2.1.1.0; compare with L120/L69 and the site table; propose a posture dimension with a validation glance.",
+ "sourceFacts": {
+  "knownAnswerControl": {
+   "passed": true,
+   "description": "M433 GS_HK433 Unzoomed Stand->Prone StanceChangePenalties leaf (index 2) must read the L120 receipt value, and the site M433 standing hip minimum must equal the source standing row. L120 receipt quote (HK433 asset conclusion, build 1.4.3.0): \"Unzoomed.StandToProne.Duration=0.8999999761581421; Unzoomed.StandToProne.MinAngleOffset=6.0\". Read now on 2.1.1.0: MinAngleOffset 6.0 at 3056, Duration 0.8999999761581421 at 3060 (the L120 control offsets 3216/3220 and 4640 also read 6.0/0.9/0.2). Registry caveat: GRX_Weapons on 2.1.1.0 has no StanceChangePenalties row for GS_HK433 (nor for 52 other site owners); the registry-named rows exist for 14 other site owners and all 360 equal the own value at the index-rule element, which validates the index rule used for M433. Site: data/weapons.json:/[id=m433]/spread/hipStand/0 = 2.432 equals HDA selected row Field_1867639b 2.432 and GS MinMaxDispersion.Unzoomed.Standing.Stationary.MinAngle 2.432.",
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+     "rawSha256": "61b8c5791b177e0b2becff5cdb00c8c9a6649515ff41a6fc1572ff7efadb7dda",
+     "offset": 3056,
+     "type": "f32",
+     "bytesHex": "0000c040",
+     "value": 6.0,
+     "label": "CONTROL m433 Unzoomed.StandToProne.MinAngleOffset (index 2)"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+     "rawSha256": "61b8c5791b177e0b2becff5cdb00c8c9a6649515ff41a6fc1572ff7efadb7dda",
+     "offset": 3060,
+     "type": "f32",
+     "bytesHex": "6666663f",
+     "value": 0.8999999761581421,
+     "label": "CONTROL m433 Unzoomed.StandToProne.Duration (index 2)"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+     "rawSha256": "61b8c5791b177e0b2becff5cdb00c8c9a6649515ff41a6fc1572ff7efadb7dda",
+     "offset": 3216,
+     "type": "f32",
+     "bytesHex": "0000c040",
+     "value": 6.0,
+     "label": "L120 control offset: Unzoomed.CrouchToProne.MinAngleOffset (index 12)"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+     "rawSha256": "61b8c5791b177e0b2becff5cdb00c8c9a6649515ff41a6fc1572ff7efadb7dda",
+     "offset": 3220,
+     "type": "f32",
+     "bytesHex": "6666663f",
+     "value": 0.8999999761581421,
+     "label": "L120 control offset: Unzoomed.CrouchToProne.Duration (index 12)"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+     "rawSha256": "61b8c5791b177e0b2becff5cdb00c8c9a6649515ff41a6fc1572ff7efadb7dda",
+     "offset": 4640,
+     "type": "f32",
+     "bytesHex": "cdcc4c3e",
+     "value": 0.20000000298023224,
+     "label": "L120 control offset: Zoomed.StandToCrouch.MinAngleOffset (index 101)"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\DispersionHip\\HDA_Weapons.ebx",
+     "rawSha256": "b17420840ff04f49661bce2c6b88f8106a82e0d88cd57e0b803fdb21533c0012",
+     "offset": 688,
+     "type": "f32",
+     "bytesHex": "e3a51b40",
+     "value": 2.431999921798706,
+     "label": "m433 HDA row obj 8 Field_1867639b HipStandStationary(site hipStand)"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+     "rawSha256": "61b8c5791b177e0b2becff5cdb00c8c9a6649515ff41a6fc1572ff7efadb7dda",
+     "offset": 2056,
+     "type": "f32",
+     "bytesHex": "e3a51b40",
+     "value": 2.431999921798706,
+     "label": "m433 GS MinMaxDispersion.Unzoomed.Standing.Stationary.MinAngle idx0"
+    }
+   ]
+  },
+  "stanceChangeLeaves": {
+   "scope": "67 GS owners (63 launch + MK24/ELR-40/Z84M/RSPR) x 24 leaves = 1,608 f32 reads, all matching their decoded values",
+   "indexRule": "Field_fc724c05 array, 200 elements, 16-byte stride from offset 3024 in every GS; leaf index = 10 x from + to (Stand 0, Crouch 1, Prone 2), +100 zoomed; Field_7ce404e6 MinAngleOffset at element +0, Field_ed10e827 Duration at +4 (f32)",
+   "profiles": {
+    "A": {
+     "count": 57,
+     "weapons": [
+      "ak4d",
+      "b36a4",
+      "ef88",
+      "kord6p67",
+      "l85a3",
+      "m16a4",
+      "m433",
+      "nvo228e",
+      "sor556",
+      "tr7",
+      "vcr2",
+      "ak205",
+      "brod3",
+      "grtbc",
+      "m277",
+      "m417a2",
+      "m4a1",
+      "qbz192",
+      "sg553r",
+      "grtcps",
+      "lmr27",
+      "m39emr",
+      "svdm",
+      "svk86",
+      "vssm",
+      "drsiar",
+      "kts100",
+      "m121a2",
+      "m123k",
+      "m240l",
+      "m250",
+      "m60",
+      "rpk74m",
+      "rpkm",
+      "cz3a1",
+      "kv9",
+      "pp19",
+      "pw5a3",
+      "pw7a2",
+      "scw10",
+      "sgx",
+      "sl9",
+      "umg40",
+      "usg90",
+      "ks18k",
+      "m1014",
+      "m87a1",
+      "vz61",
+      "interdictor",
+      "l115",
+      "m2010esr",
+      "miniscout",
+      "psr",
+      "sv98",
+      "elr40",
+      "z84m",
+      "rspr"
+     ],
+     "leaves": {
+      "Unzoomed.StandToCrouch": {
+       "MinAngleOffsetDeg": 1.0,
+       "DurationS": 0.3
+      },
+      "Unzoomed.StandToProne": {
+       "MinAngleOffsetDeg": 6.0,
+       "DurationS": 0.9
+      },
+      "Unzoomed.CrouchToStand": {
+       "MinAngleOffsetDeg": 1.0,
+       "DurationS": 0.3
+      },
+      "Unzoomed.CrouchToProne": {
+       "MinAngleOffsetDeg": 6.0,
+       "DurationS": 0.9
+      },
+      "Unzoomed.ProneToStand": {
+       "MinAngleOffsetDeg": 6.0,
+       "DurationS": 0.9
+      },
+      "Unzoomed.ProneToCrouch": {
+       "MinAngleOffsetDeg": 6.0,
+       "DurationS": 0.9
+      },
+      "Zoomed.StandToCrouch": {
+       "MinAngleOffsetDeg": 0.2,
+       "DurationS": 0.3
+      },
+      "Zoomed.StandToProne": {
+       "MinAngleOffsetDeg": 6.0,
+       "DurationS": 0.9
+      },
+      "Zoomed.CrouchToStand": {
+       "MinAngleOffsetDeg": 0.2,
+       "DurationS": 0.3
+      },
+      "Zoomed.CrouchToProne": {
+       "MinAngleOffsetDeg": 6.0,
+       "DurationS": 0.9
+      },
+      "Zoomed.ProneToStand": {
+       "MinAngleOffsetDeg": 6.0,
+       "DurationS": 0.9
+      },
+      "Zoomed.ProneToCrouch": {
+       "MinAngleOffsetDeg": 6.0,
+       "DurationS": 0.9
+      }
+     }
+    },
+    "C": {
+     "count": 4,
+     "weapons": [
+      "sor300sc",
+      "l110",
+      "db12",
+      "mk24"
+     ],
+     "leaves": {
+      "Unzoomed.StandToCrouch": {
+       "MinAngleOffsetDeg": 0.2,
+       "DurationS": 0.3
+      },
+      "Unzoomed.StandToProne": {
+       "MinAngleOffsetDeg": 7.0,
+       "DurationS": 0.9
+      },
+      "Unzoomed.CrouchToStand": {
+       "MinAngleOffsetDeg": 0.2,
+       "DurationS": 0.3
+      },
+      "Unzoomed.CrouchToProne": {
+       "MinAngleOffsetDeg": 7.0,
+       "DurationS": 0.6
+      },
+      "Unzoomed.ProneToStand": {
+       "MinAngleOffsetDeg": 3.0,
+       "DurationS": 0.8
+      },
+      "Unzoomed.ProneToCrouch": {
+       "MinAngleOffsetDeg": 7.0,
+       "DurationS": 0.6
+      },
+      "Zoomed.StandToCrouch": {
+       "MinAngleOffsetDeg": 0.2,
+       "DurationS": 0.3
+      },
+      "Zoomed.StandToProne": {
+       "MinAngleOffsetDeg": 3.0,
+       "DurationS": 0.9
+      },
+      "Zoomed.CrouchToStand": {
+       "MinAngleOffsetDeg": 0.2,
+       "DurationS": 0.3
+      },
+      "Zoomed.CrouchToProne": {
+       "MinAngleOffsetDeg": 7.0,
+       "DurationS": 0.6
+      },
+      "Zoomed.ProneToStand": {
+       "MinAngleOffsetDeg": 2.0,
+       "DurationS": 0.8
+      },
+      "Zoomed.ProneToCrouch": {
+       "MinAngleOffsetDeg": 7.0,
+       "DurationS": 0.6
+      }
+     }
+    },
+    "B": {
+     "count": 5,
+     "weapons": [
+      "es57",
+      "ggh22",
+      "m44",
+      "m45a1",
+      "p18"
+     ],
+     "leaves": {
+      "Unzoomed.StandToCrouch": {
+       "MinAngleOffsetDeg": 0.5,
+       "DurationS": 0.3
+      },
+      "Unzoomed.StandToProne": {
+       "MinAngleOffsetDeg": 3.0,
+       "DurationS": 0.9
+      },
+      "Unzoomed.CrouchToStand": {
+       "MinAngleOffsetDeg": 0.5,
+       "DurationS": 0.3
+      },
+      "Unzoomed.CrouchToProne": {
+       "MinAngleOffsetDeg": 3.0,
+       "DurationS": 0.9
+      },
+      "Unzoomed.ProneToStand": {
+       "MinAngleOffsetDeg": 3.0,
+       "DurationS": 0.9
+      },
+      "Unzoomed.ProneToCrouch": {
+       "MinAngleOffsetDeg": 3.0,
+       "DurationS": 0.9
+      },
+      "Zoomed.StandToCrouch": {
+       "MinAngleOffsetDeg": 0.2,
+       "DurationS": 0.3
+      },
+      "Zoomed.StandToProne": {
+       "MinAngleOffsetDeg": 3.0,
+       "DurationS": 0.9
+      },
+      "Zoomed.CrouchToStand": {
+       "MinAngleOffsetDeg": 0.2,
+       "DurationS": 0.3
+      },
+      "Zoomed.CrouchToProne": {
+       "MinAngleOffsetDeg": 3.0,
+       "DurationS": 0.9
+      },
+      "Zoomed.ProneToStand": {
+       "MinAngleOffsetDeg": 3.0,
+       "DurationS": 0.9
+      },
+      "Zoomed.ProneToCrouch": {
+       "MinAngleOffsetDeg": 3.0,
+       "DurationS": 0.9
+      }
+     }
+    },
+    "D": {
+     "count": 1,
+     "weapons": [
+      "m357trait"
+     ],
+     "leaves": {
+      "Unzoomed.StandToCrouch": {
+       "MinAngleOffsetDeg": 0.2,
+       "DurationS": 0.3
+      },
+      "Unzoomed.StandToProne": {
+       "MinAngleOffsetDeg": 4.0,
+       "DurationS": 0.9
+      },
+      "Unzoomed.CrouchToStand": {
+       "MinAngleOffsetDeg": 0.2,
+       "DurationS": 0.3
+      },
+      "Unzoomed.CrouchToProne": {
+       "MinAngleOffsetDeg": 0.5,
+       "DurationS": 0.6
+      },
+      "Unzoomed.ProneToStand": {
+       "MinAngleOffsetDeg": 2.0,
+       "DurationS": 0.7
+      },
+      "Unzoomed.ProneToCrouch": {
+       "MinAngleOffsetDeg": 0.5,
+       "DurationS": 0.6
+      },
+      "Zoomed.StandToCrouch": {
+       "MinAngleOffsetDeg": 0.2,
+       "DurationS": 0.3
+      },
+      "Zoomed.StandToProne": {
+       "MinAngleOffsetDeg": 2.0,
+       "DurationS": 0.9
+      },
+      "Zoomed.CrouchToStand": {
+       "MinAngleOffsetDeg": 0.2,
+       "DurationS": 0.3
+      },
+      "Zoomed.CrouchToProne": {
+       "MinAngleOffsetDeg": 0.5,
+       "DurationS": 0.6
+      },
+      "Zoomed.ProneToStand": {
+       "MinAngleOffsetDeg": 1.0,
+       "DurationS": 0.7
+      },
+      "Zoomed.ProneToCrouch": {
+       "MinAngleOffsetDeg": 0.5,
+       "DurationS": 0.6
+      }
+     }
+    }
+   },
+   "changesVsL120": "none on the 63 launch weapons; Season 5: MK24 profile C, ELR-40/Z84M/RSPR profile A",
+   "noZeroProneLeaf": true,
+   "perWeaponValuesAndRawChecks": "values.json and l4069-result.json rows (offsets, sha256, bytes, values)",
+   "registryRows": "360 GRX_Weapons StanceChangePenalties rows on 14 owners equal own value at the index-rule element (registry-vs-own.json, rawchecks-D-registry.json); none on GS_HK433"
+  },
+  "postureMinima": {
+   "tables": {
+    "HDA_Weapons sha256": "b17420840ff04f49661bce2c6b88f8106a82e0d88cd57e0b803fdb21533c0012",
+    "ZDA_Moving_Weapons sha256": "24f8a82f7deb2b642310f818170a670b71b2f0e56b4aaf46e9857bb8e67625c6",
+    "note": "both identical to 1.4.3.5"
+   },
+   "weapons": {
+    "m433": {
+     "selectors": {
+      "hdaSel": 3,
+      "zdaMovSel": 3,
+      "zdaStatSel": 0,
+      "hdaOff": 1856,
+      "zdaOff": 1888,
+      "zdaStatOff": 1872
+     },
+     "hdaColumns": {
+      "HipStandStationary(site hipStand) Field_1867639b": 2.432,
+      "HipStandMoving(site hipMove) Field_c5401fc2": 3.04,
+      "H1 Field_160ef028": 6.08,
+      "H2 Field_b3ab862b": 1.824,
+      "H3 Field_1ef3a223": 2.432,
+      "H4 Field_553bcee0": 1.216,
+      "H5 Field_39b31415": 1.824
+     },
+     "zdaColumns": {
+      "Field_6c73f45b": 0.32,
+      "Field_624b1a88": 0.32,
+      "Field_97ff0ca4": 0.32,
+      "Field_bd300f62": 1.13
+     },
+     "gsMinMaxDispersionMinAngle": {
+      "Unzoomed.Standing.Stationary": 2.432,
+      "Unzoomed.Standing.Moving": 3.04,
+      "Unzoomed.Standing.JumpingSprinting": 4.256,
+      "Unzoomed.Crouching.Stationary": 1.824,
+      "Unzoomed.Crouching.Moving": 2.432,
+      "Unzoomed.Prone.Stationary": 1.216,
+      "Unzoomed.Prone.Moving": 1.824,
+      "Zoomed.Standing.Stationary": 0.05,
+      "Zoomed.Standing.Moving": 0.35,
+      "Zoomed.Standing.JumpingSprinting": 0.6,
+      "Zoomed.Crouching.Stationary": 0.05,
+      "Zoomed.Crouching.Moving": 0.35,
+      "Zoomed.Prone.Stationary": 0.05,
+      "Zoomed.Prone.Moving": 0.35
+     },
+     "siteSpread": {
+      "adsStand": [
+       0.05,
+       7
+      ],
+      "adsMove": [
+       0.32,
+       8
+      ],
+      "hipStand": [
+       2.432,
+       7
+      ],
+      "hipMove": [
+       3.04,
+       8
+      ]
+     },
+     "siteHipTableRow": {
+      "hipStand": 2.432,
+      "hipMove": 3.04,
+      "Field_160ef028": 6.08,
+      "Field_b3ab862b": 1.824,
+      "Field_1ef3a223": 2.432,
+      "Field_553bcee0": 1.216,
+      "Field_39b31415": 1.824
+     },
+     "siteRatios": {
+      "index": 3,
+      "crouchStat/standStat": 0.75,
+      "proneStat/standStat": 0.5,
+      "crouchMove/standMove": 0.7999999999999999,
+      "proneMove/standMove": 0.6,
+      "standMove/standStat": 1.25,
+      "H1/standStat": 2.5
+     }
+    },
+    "m39emr": {
+     "selectors": {
+      "hdaSel": 2,
+      "zdaMovSel": 3,
+      "zdaStatSel": 0,
+      "hdaOff": 1856,
+      "zdaOff": 1888,
+      "zdaStatOff": 1872
+     },
+     "hdaColumns": {
+      "HipStandStationary(site hipStand) Field_1867639b": 3.352,
+      "HipStandMoving(site hipMove) Field_c5401fc2": 4.19,
+      "H1 Field_160ef028": 8.38,
+      "H2 Field_b3ab862b": 2.514,
+      "H3 Field_1ef3a223": 3.352,
+      "H4 Field_553bcee0": 1.676,
+      "H5 Field_39b31415": 2.514
+     },
+     "zdaColumns": {
+      "Field_6c73f45b": 0.32,
+      "Field_624b1a88": 0.32,
+      "Field_97ff0ca4": 0.32,
+      "Field_bd300f62": 1.13
+     },
+     "gsMinMaxDispersionMinAngle": {
+      "Unzoomed.Standing.Stationary": 3.352,
+      "Unzoomed.Standing.Moving": 4.19,
+      "Unzoomed.Standing.JumpingSprinting": 5.866,
+      "Unzoomed.Crouching.Stationary": 2.514,
+      "Unzoomed.Crouching.Moving": 3.352,
+      "Unzoomed.Prone.Stationary": 1.676,
+      "Unzoomed.Prone.Moving": 2.514,
+      "Zoomed.Standing.Stationary": 0.05,
+      "Zoomed.Standing.Moving": 0.35,
+      "Zoomed.Standing.JumpingSprinting": 0.6,
+      "Zoomed.Crouching.Stationary": 0.05,
+      "Zoomed.Crouching.Moving": 0.35,
+      "Zoomed.Prone.Stationary": 0.05,
+      "Zoomed.Prone.Moving": 0.35
+     },
+     "siteSpread": {
+      "adsStand": [
+       0.05,
+       9
+      ],
+      "adsMove": [
+       0.32,
+       10
+      ],
+      "hipStand": [
+       3.352,
+       9
+      ],
+      "hipMove": [
+       4.19,
+       10
+      ]
+     },
+     "siteHipTableRow": {
+      "hipStand": 3.352,
+      "hipMove": 4.19,
+      "Field_160ef028": 8.38,
+      "Field_b3ab862b": 2.514,
+      "Field_1ef3a223": 3.352,
+      "Field_553bcee0": 1.676,
+      "Field_39b31415": 2.514
+     },
+     "siteRatios": {
+      "index": 2,
+      "crouchStat/standStat": 0.75,
+      "proneStat/standStat": 0.5,
+      "crouchMove/standMove": 0.7999999999999999,
+      "proneMove/standMove": 0.5999999999999999,
+      "standMove/standStat": 1.2500000000000002,
+      "H1/standStat": 2.5000000000000004
+     }
+    },
+    "db12": {
+     "selectors": {
+      "hdaSel": 3,
+      "zdaMovSel": 3,
+      "zdaStatSel": 0,
+      "hdaOff": 1856,
+      "zdaOff": 1888,
+      "zdaStatOff": 1872
+     },
+     "hdaColumns": {
+      "HipStandStationary(site hipStand) Field_1867639b": 2.432,
+      "HipStandMoving(site hipMove) Field_c5401fc2": 3.04,
+      "H1 Field_160ef028": 6.08,
+      "H2 Field_b3ab862b": 1.824,
+      "H3 Field_1ef3a223": 2.432,
+      "H4 Field_553bcee0": 1.216,
+      "H5 Field_39b31415": 1.824
+     },
+     "zdaColumns": {
+      "Field_6c73f45b": 0.32,
+      "Field_624b1a88": 0.32,
+      "Field_97ff0ca4": 0.32,
+      "Field_bd300f62": 1.13
+     },
+     "gsMinMaxDispersionMinAngle": {
+      "Unzoomed.Standing.Stationary": 0.784,
+      "Unzoomed.Standing.Moving": 0.98,
+      "Unzoomed.Standing.JumpingSprinting": 1.372,
+      "Unzoomed.Crouching.Stationary": 0.588,
+      "Unzoomed.Crouching.Moving": 0.784,
+      "Unzoomed.Prone.Stationary": 0.392,
+      "Unzoomed.Prone.Moving": 0.588,
+      "Zoomed.Standing.Stationary": 0.05,
+      "Zoomed.Standing.Moving": 0.35,
+      "Zoomed.Standing.JumpingSprinting": 0.6,
+      "Zoomed.Crouching.Stationary": 0.05,
+      "Zoomed.Crouching.Moving": 0.35,
+      "Zoomed.Prone.Stationary": 0.05,
+      "Zoomed.Prone.Moving": 0.35
+     },
+     "siteSpread": {
+      "adsStand": [
+       0.05,
+       5
+      ],
+      "adsMove": [
+       0.32,
+       5
+      ],
+      "hipStand": [
+       2.432,
+       5
+      ],
+      "hipMove": [
+       3.04,
+       5
+      ]
+     },
+     "siteHipTableRow": {
+      "hipStand": 2.432,
+      "hipMove": 3.04,
+      "Field_160ef028": 6.08,
+      "Field_b3ab862b": 1.824,
+      "Field_1ef3a223": 2.432,
+      "Field_553bcee0": 1.216,
+      "Field_39b31415": 1.824
+     },
+     "siteRatios": {
+      "index": 3,
+      "crouchStat/standStat": 0.75,
+      "proneStat/standStat": 0.5,
+      "crouchMove/standMove": 0.7999999999999999,
+      "proneMove/standMove": 0.6,
+      "standMove/standStat": 1.25,
+      "H1/standStat": 2.5
+     }
+    }
+   },
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+     "rawSha256": "61b8c5791b177e0b2becff5cdb00c8c9a6649515ff41a6fc1572ff7efadb7dda",
+     "offset": 1856,
+     "type": "u32",
+     "bytesHex": "03000000",
+     "value": 3,
+     "label": "m433 GS Field_fe708077 (Unzoomed row selector)"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+     "rawSha256": "61b8c5791b177e0b2becff5cdb00c8c9a6649515ff41a6fc1572ff7efadb7dda",
+     "offset": 1888,
+     "type": "u32",
+     "bytesHex": "03000000",
+     "value": 3,
+     "label": "m433 GS Field_d94fe6ad (moving zoomed row selector)"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\DispersionHip\\HDA_Weapons.ebx",
+     "rawSha256": "b17420840ff04f49661bce2c6b88f8106a82e0d88cd57e0b803fdb21533c0012",
+     "offset": 1600,
+     "type": "i32",
+     "bytesHex": "58fcffff",
+     "value": -936,
+     "label": "m433 HDA list entry 3 relative offset (target = entry offset + value = row at 664)"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\DispersionADS\\ZDA_Moving_Weapons.ebx",
+     "rawSha256": "24f8a82f7deb2b642310f818170a670b71b2f0e56b4aaf46e9857bb8e67625c6",
+     "offset": 608,
+     "type": "i32",
+     "bytesHex": "90feffff",
+     "value": -368,
+     "label": "m433 ZDA list entry 3 relative offset (target = row at 240)"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\DispersionHip\\HDA_Weapons.ebx",
+     "rawSha256": "b17420840ff04f49661bce2c6b88f8106a82e0d88cd57e0b803fdb21533c0012",
+     "offset": 688,
+     "type": "f32",
+     "bytesHex": "e3a51b40",
+     "value": 2.431999921798706,
+     "label": "m433 HDA row obj 8 Field_1867639b HipStandStationary(site hipStand)"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\DispersionHip\\HDA_Weapons.ebx",
+     "rawSha256": "b17420840ff04f49661bce2c6b88f8106a82e0d88cd57e0b803fdb21533c0012",
+     "offset": 692,
+     "type": "f32",
+     "bytesHex": "5c8f4240",
+     "value": 3.0399999618530273,
+     "label": "m433 HDA row obj 8 Field_c5401fc2 HipStandMoving(site hipMove)"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\DispersionHip\\HDA_Weapons.ebx",
+     "rawSha256": "b17420840ff04f49661bce2c6b88f8106a82e0d88cd57e0b803fdb21533c0012",
+     "offset": 696,
+     "type": "f32",
+     "bytesHex": "5c8fc240",
+     "value": 6.079999923706055,
+     "label": "m433 HDA row obj 8 Field_160ef028 H1"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\DispersionHip\\HDA_Weapons.ebx",
+     "rawSha256": "b17420840ff04f49661bce2c6b88f8106a82e0d88cd57e0b803fdb21533c0012",
+     "offset": 700,
+     "type": "f32",
+     "bytesHex": "d578e93f",
+     "value": 1.8240000009536743,
+     "label": "m433 HDA row obj 8 Field_b3ab862b H2"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\DispersionHip\\HDA_Weapons.ebx",
+     "rawSha256": "b17420840ff04f49661bce2c6b88f8106a82e0d88cd57e0b803fdb21533c0012",
+     "offset": 704,
+     "type": "f32",
+     "bytesHex": "e3a51b40",
+     "value": 2.431999921798706,
+     "label": "m433 HDA row obj 8 Field_1ef3a223 H3"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\DispersionHip\\HDA_Weapons.ebx",
+     "rawSha256": "b17420840ff04f49661bce2c6b88f8106a82e0d88cd57e0b803fdb21533c0012",
+     "offset": 708,
+     "type": "f32",
+     "bytesHex": "e3a59b3f",
+     "value": 1.215999960899353,
+     "label": "m433 HDA row obj 8 Field_553bcee0 H4"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\DispersionHip\\HDA_Weapons.ebx",
+     "rawSha256": "b17420840ff04f49661bce2c6b88f8106a82e0d88cd57e0b803fdb21533c0012",
+     "offset": 712,
+     "type": "f32",
+     "bytesHex": "d578e93f",
+     "value": 1.8240000009536743,
+     "label": "m433 HDA row obj 8 Field_39b31415 H5"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\DispersionADS\\ZDA_Moving_Weapons.ebx",
+     "rawSha256": "24f8a82f7deb2b642310f818170a670b71b2f0e56b4aaf46e9857bb8e67625c6",
+     "offset": 264,
+     "type": "f32",
+     "bytesHex": "0ad7a33e",
+     "value": 0.3199999928474426,
+     "label": "m433 ZDA row obj 3 Field_6c73f45b"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\DispersionADS\\ZDA_Moving_Weapons.ebx",
+     "rawSha256": "24f8a82f7deb2b642310f818170a670b71b2f0e56b4aaf46e9857bb8e67625c6",
+     "offset": 268,
+     "type": "f32",
+     "bytesHex": "0ad7a33e",
+     "value": 0.3199999928474426,
+     "label": "m433 ZDA row obj 3 Field_624b1a88"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\DispersionADS\\ZDA_Moving_Weapons.ebx",
+     "rawSha256": "24f8a82f7deb2b642310f818170a670b71b2f0e56b4aaf46e9857bb8e67625c6",
+     "offset": 272,
+     "type": "f32",
+     "bytesHex": "0ad7a33e",
+     "value": 0.3199999928474426,
+     "label": "m433 ZDA row obj 3 Field_97ff0ca4"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\DispersionADS\\ZDA_Moving_Weapons.ebx",
+     "rawSha256": "24f8a82f7deb2b642310f818170a670b71b2f0e56b4aaf46e9857bb8e67625c6",
+     "offset": 276,
+     "type": "f32",
+     "bytesHex": "d7a3903f",
+     "value": 1.1299999952316284,
+     "label": "m433 ZDA row obj 3 Field_bd300f62"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+     "rawSha256": "61b8c5791b177e0b2becff5cdb00c8c9a6649515ff41a6fc1572ff7efadb7dda",
+     "offset": 2056,
+     "type": "f32",
+     "bytesHex": "e3a51b40",
+     "value": 2.431999921798706,
+     "label": "m433 GS MinMaxDispersion.Unzoomed.Standing.Stationary.MinAngle idx0"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+     "rawSha256": "61b8c5791b177e0b2becff5cdb00c8c9a6649515ff41a6fc1572ff7efadb7dda",
+     "offset": 2072,
+     "type": "f32",
+     "bytesHex": "5c8f4240",
+     "value": 3.0399999618530273,
+     "label": "m433 GS MinMaxDispersion.Unzoomed.Standing.Moving.MinAngle idx1"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+     "rawSha256": "61b8c5791b177e0b2becff5cdb00c8c9a6649515ff41a6fc1572ff7efadb7dda",
+     "offset": 2088,
+     "type": "f32",
+     "bytesHex": "27318840",
+     "value": 4.25600004196167,
+     "label": "m433 GS MinMaxDispersion.Unzoomed.Standing.JumpingSprinting.MinAngle idx2"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+     "rawSha256": "61b8c5791b177e0b2becff5cdb00c8c9a6649515ff41a6fc1572ff7efadb7dda",
+     "offset": 2104,
+     "type": "f32",
+     "bytesHex": "d578e93f",
+     "value": 1.8240000009536743,
+     "label": "m433 GS MinMaxDispersion.Unzoomed.Crouching.Stationary.MinAngle idx3"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+     "rawSha256": "61b8c5791b177e0b2becff5cdb00c8c9a6649515ff41a6fc1572ff7efadb7dda",
+     "offset": 2120,
+     "type": "f32",
+     "bytesHex": "e3a51b40",
+     "value": 2.431999921798706,
+     "label": "m433 GS MinMaxDispersion.Unzoomed.Crouching.Moving.MinAngle idx4"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+     "rawSha256": "61b8c5791b177e0b2becff5cdb00c8c9a6649515ff41a6fc1572ff7efadb7dda",
+     "offset": 2152,
+     "type": "f32",
+     "bytesHex": "e3a59b3f",
+     "value": 1.215999960899353,
+     "label": "m433 GS MinMaxDispersion.Unzoomed.Prone.Stationary.MinAngle idx6"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+     "rawSha256": "61b8c5791b177e0b2becff5cdb00c8c9a6649515ff41a6fc1572ff7efadb7dda",
+     "offset": 2168,
+     "type": "f32",
+     "bytesHex": "d578e93f",
+     "value": 1.8240000009536743,
+     "label": "m433 GS MinMaxDispersion.Unzoomed.Prone.Moving.MinAngle idx7"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+     "rawSha256": "61b8c5791b177e0b2becff5cdb00c8c9a6649515ff41a6fc1572ff7efadb7dda",
+     "offset": 2200,
+     "type": "f32",
+     "bytesHex": "cdcc4c3d",
+     "value": 0.05000000074505806,
+     "label": "m433 GS MinMaxDispersion.Zoomed.Standing.Stationary.MinAngle idx9"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+     "rawSha256": "61b8c5791b177e0b2becff5cdb00c8c9a6649515ff41a6fc1572ff7efadb7dda",
+     "offset": 2216,
+     "type": "f32",
+     "bytesHex": "3333b33e",
+     "value": 0.3499999940395355,
+     "label": "m433 GS MinMaxDispersion.Zoomed.Standing.Moving.MinAngle idx10"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+     "rawSha256": "61b8c5791b177e0b2becff5cdb00c8c9a6649515ff41a6fc1572ff7efadb7dda",
+     "offset": 2232,
+     "type": "f32",
+     "bytesHex": "9a99193f",
+     "value": 0.6000000238418579,
+     "label": "m433 GS MinMaxDispersion.Zoomed.Standing.JumpingSprinting.MinAngle idx11"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+     "rawSha256": "61b8c5791b177e0b2becff5cdb00c8c9a6649515ff41a6fc1572ff7efadb7dda",
+     "offset": 2248,
+     "type": "f32",
+     "bytesHex": "cdcc4c3d",
+     "value": 0.05000000074505806,
+     "label": "m433 GS MinMaxDispersion.Zoomed.Crouching.Stationary.MinAngle idx12"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+     "rawSha256": "61b8c5791b177e0b2becff5cdb00c8c9a6649515ff41a6fc1572ff7efadb7dda",
+     "offset": 2264,
+     "type": "f32",
+     "bytesHex": "3333b33e",
+     "value": 0.3499999940395355,
+     "label": "m433 GS MinMaxDispersion.Zoomed.Crouching.Moving.MinAngle idx13"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+     "rawSha256": "61b8c5791b177e0b2becff5cdb00c8c9a6649515ff41a6fc1572ff7efadb7dda",
+     "offset": 2296,
+     "type": "f32",
+     "bytesHex": "cdcc4c3d",
+     "value": 0.05000000074505806,
+     "label": "m433 GS MinMaxDispersion.Zoomed.Prone.Stationary.MinAngle idx15"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+     "rawSha256": "61b8c5791b177e0b2becff5cdb00c8c9a6649515ff41a6fc1572ff7efadb7dda",
+     "offset": 2312,
+     "type": "f32",
+     "bytesHex": "3333b33e",
+     "value": 0.3499999940395355,
+     "label": "m433 GS MinMaxDispersion.Zoomed.Prone.Moving.MinAngle idx16"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\M39EMR\\GS_M39EMR.ebx",
+     "rawSha256": "e2036593a9491eb7fb94e301472046e5dd76b3fabac6c525ad4dd3427613a4c3",
+     "offset": 1856,
+     "type": "u32",
+     "bytesHex": "02000000",
+     "value": 2,
+     "label": "m39emr GS Field_fe708077 (Unzoomed row selector)"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\M39EMR\\GS_M39EMR.ebx",
+     "rawSha256": "e2036593a9491eb7fb94e301472046e5dd76b3fabac6c525ad4dd3427613a4c3",
+     "offset": 1888,
+     "type": "u32",
+     "bytesHex": "03000000",
+     "value": 3,
+     "label": "m39emr GS Field_d94fe6ad (moving zoomed row selector)"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\DispersionHip\\HDA_Weapons.ebx",
+     "rawSha256": "b17420840ff04f49661bce2c6b88f8106a82e0d88cd57e0b803fdb21533c0012",
+     "offset": 1592,
+     "type": "i32",
+     "bytesHex": "c0fbffff",
+     "value": -1088,
+     "label": "m39emr HDA list entry 2 relative offset (target = entry offset + value = row at 504)"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\DispersionADS\\ZDA_Moving_Weapons.ebx",
+     "rawSha256": "24f8a82f7deb2b642310f818170a670b71b2f0e56b4aaf46e9857bb8e67625c6",
+     "offset": 608,
+     "type": "i32",
+     "bytesHex": "90feffff",
+     "value": -368,
+     "label": "m39emr ZDA list entry 3 relative offset (target = row at 240)"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\DispersionHip\\HDA_Weapons.ebx",
+     "rawSha256": "b17420840ff04f49661bce2c6b88f8106a82e0d88cd57e0b803fdb21533c0012",
+     "offset": 528,
+     "type": "f32",
+     "bytesHex": "2b875640",
+     "value": 3.3519999980926514,
+     "label": "m39emr HDA row obj 6 Field_1867639b HipStandStationary(site hipStand)"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\DispersionHip\\HDA_Weapons.ebx",
+     "rawSha256": "b17420840ff04f49661bce2c6b88f8106a82e0d88cd57e0b803fdb21533c0012",
+     "offset": 532,
+     "type": "f32",
+     "bytesHex": "7b148640",
+     "value": 4.190000057220459,
+     "label": "m39emr HDA row obj 6 Field_c5401fc2 HipStandMoving(site hipMove)"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\DispersionHip\\HDA_Weapons.ebx",
+     "rawSha256": "b17420840ff04f49661bce2c6b88f8106a82e0d88cd57e0b803fdb21533c0012",
+     "offset": 536,
+     "type": "f32",
+     "bytesHex": "7b140641",
+     "value": 8.380000114440918,
+     "label": "m39emr HDA row obj 6 Field_160ef028 H1"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\DispersionHip\\HDA_Weapons.ebx",
+     "rawSha256": "b17420840ff04f49661bce2c6b88f8106a82e0d88cd57e0b803fdb21533c0012",
+     "offset": 540,
+     "type": "f32",
+     "bytesHex": "60e52040",
+     "value": 2.5139999389648438,
+     "label": "m39emr HDA row obj 6 Field_b3ab862b H2"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\DispersionHip\\HDA_Weapons.ebx",
+     "rawSha256": "b17420840ff04f49661bce2c6b88f8106a82e0d88cd57e0b803fdb21533c0012",
+     "offset": 544,
+     "type": "f32",
+     "bytesHex": "2b875640",
+     "value": 3.3519999980926514,
+     "label": "m39emr HDA row obj 6 Field_1ef3a223 H3"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\DispersionHip\\HDA_Weapons.ebx",
+     "rawSha256": "b17420840ff04f49661bce2c6b88f8106a82e0d88cd57e0b803fdb21533c0012",
+     "offset": 548,
+     "type": "f32",
+     "bytesHex": "2b87d63f",
+     "value": 1.6759999990463257,
+     "label": "m39emr HDA row obj 6 Field_553bcee0 H4"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\DispersionHip\\HDA_Weapons.ebx",
+     "rawSha256": "b17420840ff04f49661bce2c6b88f8106a82e0d88cd57e0b803fdb21533c0012",
+     "offset": 552,
+     "type": "f32",
+     "bytesHex": "60e52040",
+     "value": 2.5139999389648438,
+     "label": "m39emr HDA row obj 6 Field_39b31415 H5"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\DispersionADS\\ZDA_Moving_Weapons.ebx",
+     "rawSha256": "24f8a82f7deb2b642310f818170a670b71b2f0e56b4aaf46e9857bb8e67625c6",
+     "offset": 264,
+     "type": "f32",
+     "bytesHex": "0ad7a33e",
+     "value": 0.3199999928474426,
+     "label": "m39emr ZDA row obj 3 Field_6c73f45b"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\DispersionADS\\ZDA_Moving_Weapons.ebx",
+     "rawSha256": "24f8a82f7deb2b642310f818170a670b71b2f0e56b4aaf46e9857bb8e67625c6",
+     "offset": 268,
+     "type": "f32",
+     "bytesHex": "0ad7a33e",
+     "value": 0.3199999928474426,
+     "label": "m39emr ZDA row obj 3 Field_624b1a88"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\DispersionADS\\ZDA_Moving_Weapons.ebx",
+     "rawSha256": "24f8a82f7deb2b642310f818170a670b71b2f0e56b4aaf46e9857bb8e67625c6",
+     "offset": 272,
+     "type": "f32",
+     "bytesHex": "0ad7a33e",
+     "value": 0.3199999928474426,
+     "label": "m39emr ZDA row obj 3 Field_97ff0ca4"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\DispersionADS\\ZDA_Moving_Weapons.ebx",
+     "rawSha256": "24f8a82f7deb2b642310f818170a670b71b2f0e56b4aaf46e9857bb8e67625c6",
+     "offset": 276,
+     "type": "f32",
+     "bytesHex": "d7a3903f",
+     "value": 1.1299999952316284,
+     "label": "m39emr ZDA row obj 3 Field_bd300f62"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\M39EMR\\GS_M39EMR.ebx",
+     "rawSha256": "e2036593a9491eb7fb94e301472046e5dd76b3fabac6c525ad4dd3427613a4c3",
+     "offset": 2056,
+     "type": "f32",
+     "bytesHex": "2b875640",
+     "value": 3.3519999980926514,
+     "label": "m39emr GS MinMaxDispersion.Unzoomed.Standing.Stationary.MinAngle idx0"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\M39EMR\\GS_M39EMR.ebx",
+     "rawSha256": "e2036593a9491eb7fb94e301472046e5dd76b3fabac6c525ad4dd3427613a4c3",
+     "offset": 2072,
+     "type": "f32",
+     "bytesHex": "7b148640",
+     "value": 4.190000057220459,
+     "label": "m39emr GS MinMaxDispersion.Unzoomed.Standing.Moving.MinAngle idx1"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\M39EMR\\GS_M39EMR.ebx",
+     "rawSha256": "e2036593a9491eb7fb94e301472046e5dd76b3fabac6c525ad4dd3427613a4c3",
+     "offset": 2088,
+     "type": "f32",
+     "bytesHex": "46b6bb40",
+     "value": 5.866000175476074,
+     "label": "m39emr GS MinMaxDispersion.Unzoomed.Standing.JumpingSprinting.MinAngle idx2"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\M39EMR\\GS_M39EMR.ebx",
+     "rawSha256": "e2036593a9491eb7fb94e301472046e5dd76b3fabac6c525ad4dd3427613a4c3",
+     "offset": 2104,
+     "type": "f32",
+     "bytesHex": "60e52040",
+     "value": 2.5139999389648438,
+     "label": "m39emr GS MinMaxDispersion.Unzoomed.Crouching.Stationary.MinAngle idx3"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\M39EMR\\GS_M39EMR.ebx",
+     "rawSha256": "e2036593a9491eb7fb94e301472046e5dd76b3fabac6c525ad4dd3427613a4c3",
+     "offset": 2120,
+     "type": "f32",
+     "bytesHex": "2b875640",
+     "value": 3.3519999980926514,
+     "label": "m39emr GS MinMaxDispersion.Unzoomed.Crouching.Moving.MinAngle idx4"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\M39EMR\\GS_M39EMR.ebx",
+     "rawSha256": "e2036593a9491eb7fb94e301472046e5dd76b3fabac6c525ad4dd3427613a4c3",
+     "offset": 2152,
+     "type": "f32",
+     "bytesHex": "2b87d63f",
+     "value": 1.6759999990463257,
+     "label": "m39emr GS MinMaxDispersion.Unzoomed.Prone.Stationary.MinAngle idx6"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\M39EMR\\GS_M39EMR.ebx",
+     "rawSha256": "e2036593a9491eb7fb94e301472046e5dd76b3fabac6c525ad4dd3427613a4c3",
+     "offset": 2168,
+     "type": "f32",
+     "bytesHex": "60e52040",
+     "value": 2.5139999389648438,
+     "label": "m39emr GS MinMaxDispersion.Unzoomed.Prone.Moving.MinAngle idx7"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\M39EMR\\GS_M39EMR.ebx",
+     "rawSha256": "e2036593a9491eb7fb94e301472046e5dd76b3fabac6c525ad4dd3427613a4c3",
+     "offset": 2200,
+     "type": "f32",
+     "bytesHex": "cdcc4c3d",
+     "value": 0.05000000074505806,
+     "label": "m39emr GS MinMaxDispersion.Zoomed.Standing.Stationary.MinAngle idx9"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\M39EMR\\GS_M39EMR.ebx",
+     "rawSha256": "e2036593a9491eb7fb94e301472046e5dd76b3fabac6c525ad4dd3427613a4c3",
+     "offset": 2216,
+     "type": "f32",
+     "bytesHex": "3333b33e",
+     "value": 0.3499999940395355,
+     "label": "m39emr GS MinMaxDispersion.Zoomed.Standing.Moving.MinAngle idx10"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\M39EMR\\GS_M39EMR.ebx",
+     "rawSha256": "e2036593a9491eb7fb94e301472046e5dd76b3fabac6c525ad4dd3427613a4c3",
+     "offset": 2232,
+     "type": "f32",
+     "bytesHex": "9a99193f",
+     "value": 0.6000000238418579,
+     "label": "m39emr GS MinMaxDispersion.Zoomed.Standing.JumpingSprinting.MinAngle idx11"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\M39EMR\\GS_M39EMR.ebx",
+     "rawSha256": "e2036593a9491eb7fb94e301472046e5dd76b3fabac6c525ad4dd3427613a4c3",
+     "offset": 2248,
+     "type": "f32",
+     "bytesHex": "cdcc4c3d",
+     "value": 0.05000000074505806,
+     "label": "m39emr GS MinMaxDispersion.Zoomed.Crouching.Stationary.MinAngle idx12"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\M39EMR\\GS_M39EMR.ebx",
+     "rawSha256": "e2036593a9491eb7fb94e301472046e5dd76b3fabac6c525ad4dd3427613a4c3",
+     "offset": 2264,
+     "type": "f32",
+     "bytesHex": "3333b33e",
+     "value": 0.3499999940395355,
+     "label": "m39emr GS MinMaxDispersion.Zoomed.Crouching.Moving.MinAngle idx13"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\M39EMR\\GS_M39EMR.ebx",
+     "rawSha256": "e2036593a9491eb7fb94e301472046e5dd76b3fabac6c525ad4dd3427613a4c3",
+     "offset": 2296,
+     "type": "f32",
+     "bytesHex": "cdcc4c3d",
+     "value": 0.05000000074505806,
+     "label": "m39emr GS MinMaxDispersion.Zoomed.Prone.Stationary.MinAngle idx15"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\M39EMR\\GS_M39EMR.ebx",
+     "rawSha256": "e2036593a9491eb7fb94e301472046e5dd76b3fabac6c525ad4dd3427613a4c3",
+     "offset": 2312,
+     "type": "f32",
+     "bytesHex": "3333b33e",
+     "value": 0.3499999940395355,
+     "label": "m39emr GS MinMaxDispersion.Zoomed.Prone.Moving.MinAngle idx16"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Shotgun\\DP12\\GS_DP12.ebx",
+     "rawSha256": "4c01f33a17fc2b4e7fb31f0908887a5794a0d6a3d5888f7c0a7db42ea53fe5dd",
+     "offset": 1856,
+     "type": "u32",
+     "bytesHex": "03000000",
+     "value": 3,
+     "label": "db12 GS Field_fe708077 (Unzoomed row selector)"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Shotgun\\DP12\\GS_DP12.ebx",
+     "rawSha256": "4c01f33a17fc2b4e7fb31f0908887a5794a0d6a3d5888f7c0a7db42ea53fe5dd",
+     "offset": 1888,
+     "type": "u32",
+     "bytesHex": "03000000",
+     "value": 3,
+     "label": "db12 GS Field_d94fe6ad (moving zoomed row selector)"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\DispersionHip\\HDA_Weapons.ebx",
+     "rawSha256": "b17420840ff04f49661bce2c6b88f8106a82e0d88cd57e0b803fdb21533c0012",
+     "offset": 1600,
+     "type": "i32",
+     "bytesHex": "58fcffff",
+     "value": -936,
+     "label": "db12 HDA list entry 3 relative offset (target = entry offset + value = row at 664)"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\DispersionADS\\ZDA_Moving_Weapons.ebx",
+     "rawSha256": "24f8a82f7deb2b642310f818170a670b71b2f0e56b4aaf46e9857bb8e67625c6",
+     "offset": 608,
+     "type": "i32",
+     "bytesHex": "90feffff",
+     "value": -368,
+     "label": "db12 ZDA list entry 3 relative offset (target = row at 240)"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\DispersionHip\\HDA_Weapons.ebx",
+     "rawSha256": "b17420840ff04f49661bce2c6b88f8106a82e0d88cd57e0b803fdb21533c0012",
+     "offset": 688,
+     "type": "f32",
+     "bytesHex": "e3a51b40",
+     "value": 2.431999921798706,
+     "label": "db12 HDA row obj 8 Field_1867639b HipStandStationary(site hipStand)"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\DispersionHip\\HDA_Weapons.ebx",
+     "rawSha256": "b17420840ff04f49661bce2c6b88f8106a82e0d88cd57e0b803fdb21533c0012",
+     "offset": 692,
+     "type": "f32",
+     "bytesHex": "5c8f4240",
+     "value": 3.0399999618530273,
+     "label": "db12 HDA row obj 8 Field_c5401fc2 HipStandMoving(site hipMove)"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\DispersionHip\\HDA_Weapons.ebx",
+     "rawSha256": "b17420840ff04f49661bce2c6b88f8106a82e0d88cd57e0b803fdb21533c0012",
+     "offset": 696,
+     "type": "f32",
+     "bytesHex": "5c8fc240",
+     "value": 6.079999923706055,
+     "label": "db12 HDA row obj 8 Field_160ef028 H1"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\DispersionHip\\HDA_Weapons.ebx",
+     "rawSha256": "b17420840ff04f49661bce2c6b88f8106a82e0d88cd57e0b803fdb21533c0012",
+     "offset": 700,
+     "type": "f32",
+     "bytesHex": "d578e93f",
+     "value": 1.8240000009536743,
+     "label": "db12 HDA row obj 8 Field_b3ab862b H2"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\DispersionHip\\HDA_Weapons.ebx",
+     "rawSha256": "b17420840ff04f49661bce2c6b88f8106a82e0d88cd57e0b803fdb21533c0012",
+     "offset": 704,
+     "type": "f32",
+     "bytesHex": "e3a51b40",
+     "value": 2.431999921798706,
+     "label": "db12 HDA row obj 8 Field_1ef3a223 H3"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\DispersionHip\\HDA_Weapons.ebx",
+     "rawSha256": "b17420840ff04f49661bce2c6b88f8106a82e0d88cd57e0b803fdb21533c0012",
+     "offset": 708,
+     "type": "f32",
+     "bytesHex": "e3a59b3f",
+     "value": 1.215999960899353,
+     "label": "db12 HDA row obj 8 Field_553bcee0 H4"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\DispersionHip\\HDA_Weapons.ebx",
+     "rawSha256": "b17420840ff04f49661bce2c6b88f8106a82e0d88cd57e0b803fdb21533c0012",
+     "offset": 712,
+     "type": "f32",
+     "bytesHex": "d578e93f",
+     "value": 1.8240000009536743,
+     "label": "db12 HDA row obj 8 Field_39b31415 H5"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\DispersionADS\\ZDA_Moving_Weapons.ebx",
+     "rawSha256": "24f8a82f7deb2b642310f818170a670b71b2f0e56b4aaf46e9857bb8e67625c6",
+     "offset": 264,
+     "type": "f32",
+     "bytesHex": "0ad7a33e",
+     "value": 0.3199999928474426,
+     "label": "db12 ZDA row obj 3 Field_6c73f45b"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\DispersionADS\\ZDA_Moving_Weapons.ebx",
+     "rawSha256": "24f8a82f7deb2b642310f818170a670b71b2f0e56b4aaf46e9857bb8e67625c6",
+     "offset": 268,
+     "type": "f32",
+     "bytesHex": "0ad7a33e",
+     "value": 0.3199999928474426,
+     "label": "db12 ZDA row obj 3 Field_624b1a88"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\DispersionADS\\ZDA_Moving_Weapons.ebx",
+     "rawSha256": "24f8a82f7deb2b642310f818170a670b71b2f0e56b4aaf46e9857bb8e67625c6",
+     "offset": 272,
+     "type": "f32",
+     "bytesHex": "0ad7a33e",
+     "value": 0.3199999928474426,
+     "label": "db12 ZDA row obj 3 Field_97ff0ca4"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\DispersionADS\\ZDA_Moving_Weapons.ebx",
+     "rawSha256": "24f8a82f7deb2b642310f818170a670b71b2f0e56b4aaf46e9857bb8e67625c6",
+     "offset": 276,
+     "type": "f32",
+     "bytesHex": "d7a3903f",
+     "value": 1.1299999952316284,
+     "label": "db12 ZDA row obj 3 Field_bd300f62"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Shotgun\\DP12\\GS_DP12.ebx",
+     "rawSha256": "4c01f33a17fc2b4e7fb31f0908887a5794a0d6a3d5888f7c0a7db42ea53fe5dd",
+     "offset": 2056,
+     "type": "f32",
+     "bytesHex": "39b4483f",
+     "value": 0.7839999794960022,
+     "label": "db12 GS MinMaxDispersion.Unzoomed.Standing.Stationary.MinAngle idx0"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Shotgun\\DP12\\GS_DP12.ebx",
+     "rawSha256": "4c01f33a17fc2b4e7fb31f0908887a5794a0d6a3d5888f7c0a7db42ea53fe5dd",
+     "offset": 2072,
+     "type": "f32",
+     "bytesHex": "48e17a3f",
+     "value": 0.9800000190734863,
+     "label": "db12 GS MinMaxDispersion.Unzoomed.Standing.Moving.MinAngle idx1"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Shotgun\\DP12\\GS_DP12.ebx",
+     "rawSha256": "4c01f33a17fc2b4e7fb31f0908887a5794a0d6a3d5888f7c0a7db42ea53fe5dd",
+     "offset": 2088,
+     "type": "f32",
+     "bytesHex": "b29daf3f",
+     "value": 1.371999979019165,
+     "label": "db12 GS MinMaxDispersion.Unzoomed.Standing.JumpingSprinting.MinAngle idx2"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Shotgun\\DP12\\GS_DP12.ebx",
+     "rawSha256": "4c01f33a17fc2b4e7fb31f0908887a5794a0d6a3d5888f7c0a7db42ea53fe5dd",
+     "offset": 2104,
+     "type": "f32",
+     "bytesHex": "2b87163f",
+     "value": 0.5879999995231628,
+     "label": "db12 GS MinMaxDispersion.Unzoomed.Crouching.Stationary.MinAngle idx3"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Shotgun\\DP12\\GS_DP12.ebx",
+     "rawSha256": "4c01f33a17fc2b4e7fb31f0908887a5794a0d6a3d5888f7c0a7db42ea53fe5dd",
+     "offset": 2120,
+     "type": "f32",
+     "bytesHex": "39b4483f",
+     "value": 0.7839999794960022,
+     "label": "db12 GS MinMaxDispersion.Unzoomed.Crouching.Moving.MinAngle idx4"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Shotgun\\DP12\\GS_DP12.ebx",
+     "rawSha256": "4c01f33a17fc2b4e7fb31f0908887a5794a0d6a3d5888f7c0a7db42ea53fe5dd",
+     "offset": 2152,
+     "type": "f32",
+     "bytesHex": "39b4c83e",
+     "value": 0.3919999897480011,
+     "label": "db12 GS MinMaxDispersion.Unzoomed.Prone.Stationary.MinAngle idx6"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Shotgun\\DP12\\GS_DP12.ebx",
+     "rawSha256": "4c01f33a17fc2b4e7fb31f0908887a5794a0d6a3d5888f7c0a7db42ea53fe5dd",
+     "offset": 2168,
+     "type": "f32",
+     "bytesHex": "2b87163f",
+     "value": 0.5879999995231628,
+     "label": "db12 GS MinMaxDispersion.Unzoomed.Prone.Moving.MinAngle idx7"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Shotgun\\DP12\\GS_DP12.ebx",
+     "rawSha256": "4c01f33a17fc2b4e7fb31f0908887a5794a0d6a3d5888f7c0a7db42ea53fe5dd",
+     "offset": 2200,
+     "type": "f32",
+     "bytesHex": "cdcc4c3d",
+     "value": 0.05000000074505806,
+     "label": "db12 GS MinMaxDispersion.Zoomed.Standing.Stationary.MinAngle idx9"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Shotgun\\DP12\\GS_DP12.ebx",
+     "rawSha256": "4c01f33a17fc2b4e7fb31f0908887a5794a0d6a3d5888f7c0a7db42ea53fe5dd",
+     "offset": 2216,
+     "type": "f32",
+     "bytesHex": "3333b33e",
+     "value": 0.3499999940395355,
+     "label": "db12 GS MinMaxDispersion.Zoomed.Standing.Moving.MinAngle idx10"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Shotgun\\DP12\\GS_DP12.ebx",
+     "rawSha256": "4c01f33a17fc2b4e7fb31f0908887a5794a0d6a3d5888f7c0a7db42ea53fe5dd",
+     "offset": 2232,
+     "type": "f32",
+     "bytesHex": "9a99193f",
+     "value": 0.6000000238418579,
+     "label": "db12 GS MinMaxDispersion.Zoomed.Standing.JumpingSprinting.MinAngle idx11"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Shotgun\\DP12\\GS_DP12.ebx",
+     "rawSha256": "4c01f33a17fc2b4e7fb31f0908887a5794a0d6a3d5888f7c0a7db42ea53fe5dd",
+     "offset": 2248,
+     "type": "f32",
+     "bytesHex": "cdcc4c3d",
+     "value": 0.05000000074505806,
+     "label": "db12 GS MinMaxDispersion.Zoomed.Crouching.Stationary.MinAngle idx12"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Shotgun\\DP12\\GS_DP12.ebx",
+     "rawSha256": "4c01f33a17fc2b4e7fb31f0908887a5794a0d6a3d5888f7c0a7db42ea53fe5dd",
+     "offset": 2264,
+     "type": "f32",
+     "bytesHex": "3333b33e",
+     "value": 0.3499999940395355,
+     "label": "db12 GS MinMaxDispersion.Zoomed.Crouching.Moving.MinAngle idx13"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Shotgun\\DP12\\GS_DP12.ebx",
+     "rawSha256": "4c01f33a17fc2b4e7fb31f0908887a5794a0d6a3d5888f7c0a7db42ea53fe5dd",
+     "offset": 2296,
+     "type": "f32",
+     "bytesHex": "cdcc4c3d",
+     "value": 0.05000000074505806,
+     "label": "db12 GS MinMaxDispersion.Zoomed.Prone.Stationary.MinAngle idx15"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Shotgun\\DP12\\GS_DP12.ebx",
+     "rawSha256": "4c01f33a17fc2b4e7fb31f0908887a5794a0d6a3d5888f7c0a7db42ea53fe5dd",
+     "offset": 2312,
+     "type": "f32",
+     "bytesHex": "3333b33e",
+     "value": 0.3499999940395355,
+     "label": "db12 GS MinMaxDispersion.Zoomed.Prone.Moving.MinAngle idx16"
+    }
+   ]
+  },
+  "siteConsumption": "only hipStand/hipMove (HIP_SPREAD_TABLE) and MOVING_ACC_TIERS are read by sim/applyAttachments.js and sim/core.js spreadBounds; Field_b3ab862b, Field_1ef3a223, Field_553bcee0, Field_39b31415 appear only in data/balance_tables.json and docs"
+ },
+ "inference": [
+  "MinAngleOffset/Duration naming suggests a transient angular offset after a stance transition; runtime use, composition (additive or replacing) and decay are unproven.",
+  "Hip crouch/prone posture labels for H2-H5 rest on the GS-named MinMaxDispersion rows and the L69 Sym crosswalk; the stance-change array is indexed 10 x from + to (L124), confirmed here by 360 registry-named rows.",
+  "ADS static minima are posture-independent in the source (ZDA 0.32 in three columns; GS stationary 0.05 in three postures)."
+ ],
+ "unresolved": [
+  "Runtime activation, composition (additive vs replacing) and decay of the stance-change leaves.",
+  "DB-12 GS-named MinMaxDispersion Unzoomed minima (0.784/0.588/0.392) differ from the selected HDA row (2.432/1.824/1.216); same on 1.4.3.5; which one the game uses is unresolved.",
+  "ZDA stationary table / GS stationary selector (Field_cee5ebfe) not re-read here; ADS stationary posture values rest on GS-named 0.05 rows.",
+  "No GRX_Weapons StanceChangePenalties row for M433 and 52 other site owners on 2.1.1.0 (registry rows exist for 14 owners only); the M433 leaves are joined by the L124 index rule.",
+  "No in-game observation yet; proposal depends on the glance."
+ ],
+ "siteImpact": "None today. Conditional: (a) if the in-game glance shows hip crosshair 100/75/50 percent standing/crouch/prone (moving 100/80/60), add a posture selector to the hip spread rows using the existing, unread HIP_SPREAD_TABLE columns Field_b3ab862b/1ef3a223/553bcee0/39b31415 (no new numbers); (b) if a transient widening of about 0.9 s is seen on drop-prone, add the stance-change angle/duration line per weapon (four profiles cover 67 weapons), with additive versus replacing composition decided by the hip peak (7.2 vs 6.0 degrees on the M433); ADS cannot separate the two (static 0.05). No ADS posture selector: static ADS minima are posture-independent in the source. Without the glance the proposal stays source-only.",
+ "evidence": [
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4069\\leaves.json",
+   "sha256": "5c5e06ae939a7ba538485dd64d98545885e07df3215f2c4978eda5513ca78a7c",
+   "what": "24 leaves x 67 GS with offsets"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4069\\diff-vs-L120.json",
+   "sha256": "41f0e39da787a69191437b5b79b3c877ff8959d1dcf93565843ab1fe079bac7e",
+   "what": "per-weapon diff against the L120 receipt"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4069\\registry-vs-own.json",
+   "sha256": "2d398e3a5a094c78bb562d517b8314f909f33b34e6b207b15fc1c5e3aa9744f0",
+   "what": "360 registry rows vs own values"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4069\\posture-decoded.json",
+   "sha256": "c884b554502bc0bc4bbd4254758d35d135b89170d14adcec707544d0921d9211",
+   "what": "HDA/ZDA/GS posture decode"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4069\\site-compare.json",
+   "sha256": "751f929a2aa91bd6d1759063703e138d7b9fe3c7b2660086feed6af5f4a8eb92",
+   "what": "site table comparison and ratios"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4069\\manifest-A-leaves.json",
+   "sha256": "58f97e6d2f7673ef6219e7a41f364c8d4b3194ccd9ec761d94dacb85ec3941a2",
+   "what": "raw-check manifest"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4069\\rawchecks-A-leaves.json",
+   "sha256": "bd1f0bb468ad8d4d4c6982d6e501c10d58bc6419ef5df7cbde1404ba125f07dc",
+   "what": "1608 leaf raw checks"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4069\\manifest-B-control.json",
+   "sha256": "a1b473c95cb4e7f4b512f6575e2e274de29be7114bfd0dc22790e914e6c52722",
+   "what": "control manifest"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4069\\rawchecks-B-control.json",
+   "sha256": "d3ec1b8a3e748056f8facf292fb7f3f3b18379e4aa66f4a327370c4648d75fa9",
+   "what": "control raw checks"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4069\\manifest-C-posture.json",
+   "sha256": "f00829e03a8f29e465d0f929f7fa1f7f2df43b76a5e19f4306f3bd4627736e88",
+   "what": "posture manifest"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4069\\rawchecks-C-posture.json",
+   "sha256": "121d312dae31d2a868cd3be9c937ff65e70c3f9f47cbf995061fb4341a28f57d",
+   "what": "posture raw checks"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4069\\manifest-D-registry.json",
+   "sha256": "feeb5f9175d5ba270b41d202ebb87e31a60a2afed72b77ba7d6911cc95b28b7b",
+   "what": "registry manifest"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4069\\rawchecks-D-registry.json",
+   "sha256": "cd752e7bf0a5da28e21a6de94f2220edf72c51a1ec61fc88423fa8dd1be3ccd4",
+   "what": "registry raw checks"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4069\\gs-paths.json",
+   "sha256": "afb56f451aa3ce8d8b5d0a55b8fa2f49a712a47c19a1bf4e2788b68824a52831",
+   "what": "GS paths and sha256"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4069\\values.json",
+   "sha256": "804fd2758aa12ddddacdc441a41a8f4704961481920e2d5dbd7f45ceb277dbf0",
+   "what": "per-weapon values with raw checks"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4069\\l4069-result.json",
+   "sha256": "e2f34cc0fb59f3288140718b267594a6fb4dbb2ced8a6a05623a9ccdf633592c",
+   "what": "result"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4069\\proposal.md",
+   "sha256": "c2abc16fbd7e2231fd5910cc446ca703f5b210aecab34ef53d40e1add58c2688",
+   "what": "proposal"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4069\\s10_manifests.py",
+   "sha256": "80ffc35bb47bf34bf66ac3849f05bdfb3333df4026c61637fdb97cc21e572322",
+   "what": "helper script"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4069\\s11_site.py",
+   "sha256": "49cbdd4a1bd2baf7876af461be24293b80656e0080d30fc70e2f66fd352da4cb",
+   "what": "helper script"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4069\\s12_build_values.py",
+   "sha256": "cadd532c4b61ee2410681c94f2972f5353894557ef30932ff28861272cf98ee0",
+   "what": "helper script"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4069\\s13_build_result.py",
+   "sha256": "61a8e6965e36e48c14974897e6b46c744b6f1b4f597061d0355ab92f7b3d59c8",
+   "what": "helper script"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4069\\s15_summary.py",
+   "sha256": "a168106e38ad3a7f7ef2e66f2ca09e312b0c005bf787027f2bed6af780cc2055",
+   "what": "helper script"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4069\\s1_paths.py",
+   "sha256": "7ca4ba1c85736cc52d30c88250d3cf0c8326ffced5cfede2a86e7c2523ce8619",
+   "what": "helper script"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4069\\s2_probe.py",
+   "sha256": "625a084ef87677c874702c47a10cbd70642bd255646f0e0eabf35e1d458a53e7",
+   "what": "helper script"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4069\\s3_extract.py",
+   "sha256": "1b71227b657c7e88cf0ffad5a4335d6780190499bc1c9449012c2f6ab2808206",
+   "what": "helper script"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4069\\s4_diff.py",
+   "sha256": "c48c1b32dbbd55b4cc300e3b45f942eaf97809cb0a23164e7d33162850f75df3",
+   "what": "helper script"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4069\\s5_reg.py",
+   "sha256": "2cd53fca880c6830d837880553e36749d892d1e36d0c770e1b67cff769a0a529",
+   "what": "helper script"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4069\\s6_regcmp.py",
+   "sha256": "699f0f49726965924dcc21521ee5aa2684802a006da10eb147fa744a7003532f",
+   "what": "helper script"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4069\\s7_probe_hda.py",
+   "sha256": "ef487423a18feeac8e25f72f041e098ab44c41368581a70905c2118d0de8023b",
+   "what": "helper script"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4069\\s8_probe_list.py",
+   "sha256": "0a50487477604f47c1b5bcbc0493651b09ecec58ac3f43a01bf9edb6bd4af86b",
+   "what": "helper script"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4069\\s9_posture.py",
+   "sha256": "41f5969e1515d939f62c66ddff795a7cf8e1ff4ebe5cc8f5c00835205c0b5a16",
+   "what": "helper script"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4069\\common.py",
+   "sha256": "982378dde2bc25c607d00ac2019cf90614087f79cb0da2810384eb5569b6bd67",
+   "what": "helper script"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\weapon-registry-recheck-2026-10-19\\allrows.json",
+   "sha256": "b75d975254b610eec1a070a4c04323951ac18073fa4d7784ab908dbc48dd17a8",
+   "what": "registry rows read (input)"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\weapon-crosswalk.json",
+   "sha256": "19ad8a74188dcf48c146b6c359688ac97f8cf617b78251a39a0502080079f535",
+   "what": "weapon crosswalk (input)"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-09-29-L120-stance-change-penalties.json",
+   "sha256": "7d127a59a772798c5c169935f9e5fb5c1c0aa1d66e4f168093d0061699c968b9",
+   "what": "L120 receipt compared against (input)"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer\\data\\weapons.json",
+   "sha256": "5c1a461b5f5f7d0a1ef2607b998f8a16f1b43289ffc66704a5ab4c39e7a4cf53",
+   "what": "site data read at commit 03b4134"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer\\data\\balance_tables.json",
+   "sha256": "e5f17593da83af2f7a75917c64654a873fdd0c96adc6f8c6fa6884e56080e410",
+   "what": "site data read at commit 03b4134"
+  },
+  {
+   "commands": [
+    {
+     "executable": "python",
+     "args": [
+      "s1_paths.py"
+     ],
+     "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4069",
+     "outputs": [
+      "gs-paths.json"
+     ]
+    },
+    {
+     "executable": "python",
+     "args": [
+      "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-ebx-decode.py",
+      "--descriptors",
+      "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\toolchain\\SharedTypeDescriptors.ebx",
+      "--ebx-list",
+      "gs-list.txt",
+      "--out",
+      "gs-decoded",
+      "--exact-floats"
+     ],
+     "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4069",
+     "outputs": [
+      "gs-decoded"
+     ]
+    },
+    {
+     "executable": "python",
+     "args": [
+      "s2_probe.py"
+     ],
+     "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4069",
+     "outputs": []
+    },
+    {
+     "executable": "python",
+     "args": [
+      "s3_extract.py"
+     ],
+     "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4069",
+     "outputs": [
+      "leaves.json"
+     ]
+    },
+    {
+     "executable": "python",
+     "args": [
+      "s4_diff.py"
+     ],
+     "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4069",
+     "outputs": [
+      "diff-vs-L120.json"
+     ]
+    },
+    {
+     "executable": "python",
+     "args": [
+      "s5_reg.py"
+     ],
+     "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4069",
+     "outputs": []
+    },
+    {
+     "executable": "python",
+     "args": [
+      "s6_regcmp.py"
+     ],
+     "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4069",
+     "outputs": [
+      "registry-vs-own.json"
+     ]
+    },
+    {
+     "executable": "python",
+     "args": [
+      "s7_probe_hda.py"
+     ],
+     "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4069",
+     "outputs": []
+    },
+    {
+     "executable": "python",
+     "args": [
+      "s8_probe_list.py"
+     ],
+     "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4069",
+     "outputs": []
+    },
+    {
+     "executable": "python",
+     "args": [
+      "s9_posture.py"
+     ],
+     "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4069",
+     "outputs": [
+      "posture-decoded.json"
+     ]
+    },
+    {
+     "executable": "python",
+     "args": [
+      "s10_manifests.py"
+     ],
+     "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4069",
+     "outputs": [
+      "manifest-A-leaves.json",
+      "manifest-B-control.json",
+      "manifest-C-posture.json",
+      "manifest-D-registry.json"
+     ]
+    },
+    {
+     "executable": "python",
+     "args": [
+      "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+      "--manifest",
+      "manifest-A-leaves.json",
+      "--out",
+      "rawchecks-A-leaves.json"
+     ],
+     "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4069",
+     "outputs": [
+      "rawchecks-A-leaves.json"
+     ]
+    },
+    {
+     "executable": "python",
+     "args": [
+      "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+      "--manifest",
+      "manifest-B-control.json",
+      "--out",
+      "rawchecks-B-control.json"
+     ],
+     "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4069",
+     "outputs": [
+      "rawchecks-B-control.json"
+     ]
+    },
+    {
+     "executable": "python",
+     "args": [
+      "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+      "--manifest",
+      "manifest-C-posture.json",
+      "--out",
+      "rawchecks-C-posture.json"
+     ],
+     "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4069",
+     "outputs": [
+      "rawchecks-C-posture.json"
+     ]
+    },
+    {
+     "executable": "python",
+     "args": [
+      "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+      "--manifest",
+      "manifest-D-registry.json",
+      "--out",
+      "rawchecks-D-registry.json"
+     ],
+     "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4069",
+     "outputs": [
+      "rawchecks-D-registry.json"
+     ]
+    },
+    {
+     "executable": "python",
+     "args": [
+      "s11_site.py"
+     ],
+     "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4069",
+     "outputs": [
+      "site-compare.json"
+     ]
+    },
+    {
+     "executable": "python",
+     "args": [
+      "s12_build_values.py"
+     ],
+     "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4069",
+     "outputs": [
+      "values.json"
+     ]
+    },
+    {
+     "executable": "python",
+     "args": [
+      "s13_build_result.py"
+     ],
+     "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4069",
+     "outputs": [
+      "l4069-result.json"
+     ]
+    },
+    {
+     "executable": "python",
+     "args": [
+      "s14_receipt.py"
+     ],
+     "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4069",
+     "outputs": [
+      "draft-receipt.json"
+     ]
+    }
+   ],
+   "commandNote": "Commands were run as listed (the four manifest checks were run in a shell loop; run order s1..s13; s14_receipt.py only records them, it is not a replay). common.py is a copy of builds/2.1.1.0/reports/weapon-registry-recheck-2026-10-19/common.py (path constants unchanged); the EbxAt decoder comes from scripts/frosty-roster-values.py load_decoder. The summary.md writer s15_summary.py was run after s13."
+  }
+ ],
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-30",
+  "build": "2.1.1.0",
+  "leads": [
+   {
+    "id": "L4069",
+    "title": "Stance-change penalties and crouch/prone spread minima: posture proposal",
+    "status": "proposal",
+    "summary": "On 2.1.1.0 all 67 GS files hold the same 24 StanceChangePenalties leaves as L120 (no change on 63 weapons; MK24 joins the 7-degree outlier group, ELR-40, Z84M and RSPR the 6-degree/0.9 s group), and the HDA/ZDA posture rows still give M433 hip minima of 2.432/1.824/1.216 (100/75/50 percent) while static ADS minima do not vary with posture; a hip posture selector plus a stance-change line is proposed, to be validated by an in-game drop-prone glance.",
+    "reopenWhen": "a glance shows the hip crosshair ratios and the drop-prone transient (or their absence), settling whether to add a hip posture selector and a stance-change line and which composition reading holds.",
+    "statusNote": "Posture and stance-change proposal; glance validation pending"
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Hardware/Weapons/AssaultRifle/HK433/GS_HK433",
+    "format": "raw-ebx",
+    "sha256": "61b8c5791b177e0b2becff5cdb00c8c9a6649515ff41a6fc1572ff7efadb7dda",
+    "question": "Does the M433 Unzoomed Stand to Prone StanceChangePenalties leaf still read the L120 value, and what are its posture MinMaxDispersion rows?",
+    "result": "useful",
+    "conclusion": "Control passed: index 2 MinAngleOffset 6.0 at 3056 and Duration 0.9 at 3060; L120 offsets 3216/3220/4640 read 6.0/0.9/0.2. Hip MinMaxDispersion minima 2.432 (stand), 1.824 (crouch), 1.216 (prone), moving 3.04/2.432/1.824; Zoomed stationary 0.05 in all postures."
+   },
+   {
+    "path": "Common/Hardware/Common/Arrays/DispersionHip/HDA_Weapons",
+    "format": "raw-ebx",
+    "sha256": "b17420840ff04f49661bce2c6b88f8106a82e0d88cd57e0b803fdb21533c0012",
+    "question": "Do HDA rows H2-H5 for the M433, M39 EMR and DB-12 selected rows match the site table columns on 2.1.1.0?",
+    "result": "useful",
+    "conclusion": "Raw hash equals 1.4.3.5. Selected rows (M433 and DB-12 row 3 at 664, M39 EMR row 2 at 504) give H2-H5 of 1.824/2.432/1.216/1.824 and 2.514/3.352/1.676/2.514; all 18 site table rows equal the 18 HDA rows; ratios 0.75/0.5/0.8/0.6 over every row."
+   },
+   {
+    "path": "Common/Hardware/Common/Arrays/DispersionADS/ZDA_Moving_Weapons",
+    "format": "raw-ebx",
+    "sha256": "24f8a82f7deb2b642310f818170a670b71b2f0e56b4aaf46e9857bb8e67625c6",
+    "question": "Do the ZDA posture columns (Field_6c73f45b, Field_624b1a88, Field_97ff0ca4) differ by posture on 2.1.1.0?",
+    "result": "useful",
+    "conclusion": "Raw hash equals 1.4.3.5. Row 3 (selected by all three weapons) holds 0.32 in all three posture columns and 1.13 in Field_bd300f62; the three columns are equal in each of the 7 rows."
+   },
+   {
+    "path": "Common/Hardware/Weapons/Shotgun/DP12/GS_DP12",
+    "format": "raw-ebx",
+    "sha256": "4c01f33a17fc2b4e7fb31f0908887a5794a0d6a3d5888f7c0a7db42ea53fe5dd",
+    "question": "Do DB-12 GS-named hip minima match the HDA row its selector picks?",
+    "result": "useful",
+    "conclusion": "No: GS MinMaxDispersion Unzoomed stationary stand/crouch/prone read 0.784/0.588/0.392 while the selected HDA row (selector 3) holds 2.432/1.824/1.216; the same GS value was present on 1.4.3.5. Which the game uses is unresolved."
+   },
+   {
+    "path": "Common/Hardware/Weapons/AssaultRifle/MRGGA/GS_MRGGA",
+    "format": "raw-ebx",
+    "sha256": "560d99099ba1cc363d5d049d616cc6318d7c5a69f509e6dd7883c52b5bdad0da",
+    "question": "What StanceChangePenalties values does the Season 5 MK24 hold?",
+    "result": "useful",
+    "conclusion": "Profile C: Unzoomed Stand to Prone 7.0 deg / 0.9 s, Crouch to Prone 7.0 / 0.6, Prone to Stand 3.0 / 0.8, Stand/Crouch 0.2 deg / 0.3 s; the registry has two identical rows per leaf and both equal the own value."
+   },
+   {
+    "path": "Common/GameSetup/Tweakables/GameRemixer/GRX_Weapons",
+    "format": "raw-ebx",
+    "sha256": "4557498d8196e539c11c401299c2f5f9e23f706dc29791e283389c0105f2397c",
+    "question": "Which GS owners have registry-named StanceChangePenalties rows and do they agree with the own leaves at the L124 index rule?",
+    "result": "useful",
+    "conclusion": "360 rows on 14 site owners equal the own value at index 10 x from + to (+100 zoomed); GS_HK433 and 52 other site owners have no such row."
+   }
+  ],
+  "site": [
+   {
+    "pointer": "data/weapons.json:/[id=m433]/spread/hipStand",
+    "value": "[2.432, 7]",
+    "relation": "context"
+   },
+   {
+    "pointer": "data/balance_tables.json:/HIP_SPREAD_TABLE/3/Field_b3ab862b",
+    "value": "1.824",
+    "relation": "context"
+   },
+   {
+    "pointer": "data/balance_tables.json:/HIP_SPREAD_TABLE/3/Field_553bcee0",
+    "value": "1.216",
+    "relation": "context"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=m433]/stanceChange",
+    "relation": "proposed"
+   }
+  ],
+  "binding": "research"
+ },
+ "run": {
+  "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps",
+  "leadFolder": "L4069"
+ }
+}

@@ -1,0 +1,223 @@
+{
+ "lead": "L4052",
+ "status": "finding",
+ "build": {
+  "current": "2.1.1.0 (Head 5382784, descriptors c477622c1074a9a4ea612cf9c60e26f666129721c733174192c121c808873ff6; new side read from builds/2.1.1.0/reports/client-new-check-2026-10-15/collection/raw, the 15 October hotfix capture, which changed no weapon file)",
+  "compared": "1.4.3.5 (Head 4909002, descriptors 4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1; old side builds/1.4.3.5/reports/client-60769-check-2026-10-03/collection/raw)",
+  "note": "Research only: re-run on the open build of the 10 October registry checks (L4000, L4002, L4003, L4004) and the 30 September fire-mode extraction (L604). The old side was read from builds/1.4.3.5 raw only, never from its builds/1.4.3.5/reports/client-2110-check-2026-10-13 capture, which holds 2.1.1.0 bytes. Nothing in the recheck is an in-game reading."
+ },
+ "question": "Re-run L4004 on 2.1.1.0: did the bullet damage curves (health and armor) change in the own files or the registry defaults, and does the site's dmg list still equal the own health curve?",
+ "sourceFacts": {
+  "control": {
+   "description": "Control (note, Method step 2): restricted to the 63 site weapons' _WB and GS_ files and the site's bullet files, the registry-against-own pairing gives 2,771 / 11,500 / 567 values over 60 / 206 / 13 row names, exactly the 10 October counts (L4000), and the same paths.",
+   "passed": true
+  },
+  "method": "Step 4 of the note: curves.py then curve-compare.py read the own and registry-default damage curves of all 94 bullet files (88 on 1.4.3.5, curves-all.json of the 10 October run) and compare the site's dmg lists with the 2.1.1.0 own health curve.",
+  "healthCurves": "No change on the 69 bullet files that have both an own and a registry curve; registry equals own on all of them (3 files have an own curve and no registry curve, as before).",
+  "armorCurves": "13 bullet files changed, own and registry default together, equal on both builds. Points as range:damage. PD_.300BLK_Carbine 0:26.05 19:26.05 31:26.05 31:20.67 46:20.67 46:17.13 85:17.13 85:14.62 -> 0:20.67 19:20.67 31:20.67 46:20.67 46:17.13 85:17.13 85:14.62; PD_762x39mm 0:27.48 31:27.48 31:21.56 46:21.56 46:20.67 85:20.67 85:17.13 -> 0:20.67 46:20.67 85:20.67 85:17.13; PD_762x39mm_Carbine 0:26.05 31:26.05 31:20.67 46:20.67 46:17.13 85:17.13 85:14.62 -> 0:20.67 46:20.67 46:17.13 85:17.13 85:14.62; PD_762x51mmNATO_Semi, _Semi_Match, PD_762x54mmR_Semi, _Semi_Match 0:41.5 31:41.5 31:37.6 85:37.6 85:34.4 -> 0:27.5 85:27.5 (flat); PD_545x39mm and _MG 0:17.74 31:17.74 31:17.13 85:17.13 85:14.62 -> breakpoint 46 added (31:17.74 31:17.13 46:17.13 46:14.62 85:14.62 85:12.76); PD_556x45mmNATO and _MG 0:21.56 31:21.56 31:20.67 85:20.67 85:17.13 -> 31:21.56 31:20.67 46:20.67 46:17.13 85:17.13 85:14.62; PD_10x25mm_PDW 0:26.05 19:26.05 31:26.05 31:20.67 46:20.67 85:17.13 85:14.62 -> 0:26.05 9:26.05 9:20.67 19:20.67 19:17.13 31:17.13 31:14.62 46:14.62 85:14.62; PD_9x19mm_PDW 0:20.67 19:20.67 31:20.67 31:17.13 46:17.13 46:14.62 85:14.62 85:12.76 -> 0:20.67 9:20.67 9:17.13 19:17.13 19:14.62 31:14.62 31:12.76 46:12.76 85:12.76. Full point lists are in curve-diff.json; the 70 changed and 24 added points are the PD armor-curve class of L4051 (checklist U23).",
+  "siteDmgLists": "Site dmg lists against the own health curve: on the 63 existing weapons 59 equal, 3 equal with an added 0 m point (M250, M277, Mini Scout) and 1 differing (M45A1, the reviewed 54 to 75 m step), the same split as on 10 October with no own curve moved; the four new weapons' lists equal their curves. The site holds no armor curve (its dmg lists are the health curves).",
+  "rawChecks": [
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_762x51mmNATO_Semi.ebx",
+    "rawSha256": "10a09dddbd6a251b9101a8aade261c57f572626c71698f2e6a62be9821a4ac6e",
+    "offset": 1496,
+    "type": "f32",
+    "bytesHex": "00002642",
+    "value": 41.5
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_762x51mmNATO_Semi.ebx",
+    "rawSha256": "3e937d6eb79491b1c9d1735dd05e065940403ff0b4eb8afc7d1dc183545a68ee",
+    "offset": 1496,
+    "type": "f32",
+    "bytesHex": "0000dc41",
+    "value": 27.5
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-60769-check-2026-10-03\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_762x51mmNATO_Semi.ebx",
+    "rawSha256": "10a09dddbd6a251b9101a8aade261c57f572626c71698f2e6a62be9821a4ac6e",
+    "offset": 1528,
+    "type": "f32",
+    "bytesHex": "9a990942",
+    "value": 34.400001525878906
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_762x51mmNATO_Semi.ebx",
+    "rawSha256": "3e937d6eb79491b1c9d1735dd05e065940403ff0b4eb8afc7d1dc183545a68ee",
+    "offset": 1528,
+    "type": "f32",
+    "bytesHex": "0000dc41",
+    "value": 27.5
+   }
+  ],
+  "rawCheckLabels": [
+   "PD_762x51mmNATO_Semi armor curve (Field_7e05a1ae) value[1] first plateau, 1.4.3.5 own file",
+   "PD_762x51mmNATO_Semi armor curve (Field_7e05a1ae) value[1] first plateau, 2.1.1.0 own file",
+   "PD_762x51mmNATO_Semi armor curve (Field_7e05a1ae) value[9] last point, 1.4.3.5 own file",
+   "PD_762x51mmNATO_Semi armor curve (Field_7e05a1ae) value[9] last point, 2.1.1.0 own file"
+  ],
+  "rawCheckNote": "Raw checks below were re-read by this draft with scripts/frosty-raw-check.py --manifest (outputs rawchecks-<lead>.json in the L4063 run folder); each equals the read in the run's own raw-checks-*.json manifests (all 2,161 reads of the run match). Manifests cited: raw-check-manifest-registry-own.json (1,500 registry/own reads), -curves.json (259), -fire-modes.json (402). The two points pair the 1.4.3.5 and 2.1.1.0 own armor curve of PD_762x51mmNATO_Semi (curve object at 216, values from offset 1492, 4 bytes each; the 1.4.3.5 offsets are the run of 10 October's curves-all.json firstOffset, and the reads here return the stated values)."
+ },
+ "inference": [
+  "Health curves did not move; the armor curves of 13 bullet files changed and the registry default changed identically in each, so the own-versus-registry equality holds on both builds. The site's health-curve lists are unaffected."
+ ],
+ "unresolved": [
+  "The armor curve changes are listed, not analysed (open item 5 of the note, L4055; checklist U23 reads 'probably REDSEC armour plates'): what they mean in game is not established, and the site holds no armor curve.",
+  "3 bullet files have an own curve and no registry curve; BROD 3 firing data, PD_545x39mm_MG, PD_9x39mm_Match and PD_9x39mm_Semi still have no registry rows to pair with."
+ ],
+ "siteImpact": "None applied or proposed: the site's dmg lists are health curves and are unchanged (59 of 63 equal, 3 equal with an added 0 m point, M45A1 keeps its reviewed step).",
+ "evidence": {
+  "runFolder": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\weapon-registry-recheck-2026-10-19",
+  "note": {
+   "file": "BF6 Frosty Research/docs/working/WEAPON_REGISTRY_RECHECK_2026-10-19.md",
+   "sha256": "a8e8f28dc66b56c62864af1de89eecda5e4fe5984c1b3a391a18dca19a9869c7"
+  },
+  "queueRows": {
+   "file": "BF6 Frosty Research/docs/working/FROSTY_RESEARCH_QUEUE.md (rows L4051 to L4055, lines 118 to 122 at the time of drafting)",
+   "sha256": "84a59416ad0ffce79f0b131b091eb0a748871d1a08536b07aa28387e661b952e"
+  },
+  "files": [
+   {
+    "file": "curves.py",
+    "sha256": "ea659469e8a93421ac88adae7bb9502e151b0663028706252f3172bef9690959"
+   },
+   {
+    "file": "curves-new.json",
+    "sha256": "945def79955751fcd8af4df93e8468708726ab40e802fd8b83267c86a84e72ad"
+   },
+   {
+    "file": "curves-new.log",
+    "sha256": "e1820133cd08ebbd687586346b1f22b2fe668498883ecf0ef064bc8a0ce75714"
+   },
+   {
+    "file": "curve-compare.py",
+    "sha256": "b5a32f7d522fc67242a4c6dff34bc2bfa3e6be4f601080532b3452a45664bad6"
+   },
+   {
+    "file": "curve-diff.json",
+    "sha256": "d4178b976b747a481bdbc5ccda9d58292002be456ac4a46aea1967459e7fb65c"
+   },
+   {
+    "file": "raw-check-manifest-curves.json",
+    "sha256": "08ac9407f2d1d7afd745833f6200fed74d8f9f6eedb89dae432d3057c6f5678e"
+   },
+   {
+    "file": "raw-checks-curves.json",
+    "sha256": "aff062ad5d804ee09f7a7fccf5834723c205e6ac8ae549fdd656c534532e328a"
+   },
+   {
+    "file": "rawcheck-manifests.py",
+    "sha256": "1d98f24f3bef3c74390bf7a0a6d517a6f9f12fa5328f9e43b43454c8bd8e1ea2"
+   },
+   {
+    "file": "common.py",
+    "sha256": "982378dde2bc25c607d00ac2019cf90614087f79cb0da2810384eb5569b6bd67"
+   }
+  ],
+  "ownHelpers": {
+   "gather405x.py": "85ae802408be4e64af6be8e0d4f91df0cedbd48b06ab14ac9813c142303fb737",
+   "manifest-L4052.json": "23d91e0c0d556a841d602fabee2928c9b7f141db3ba72d5f5f585ecb4c1d6733",
+   "rawchecks-L4052.json": "3b10ca1cf1267f84a228618180459c0cccf61a2ed0c2f27d907bfd67577190f0",
+   "gather405x-labels.json": "2b829532d2de65dce8be03d03cd250dc6c8b0b85bdd7257e5caf36f7c9f96583"
+  },
+  "commands": "Run-folder commands as the note records them (working directory C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\weapon-registry-recheck-2026-10-19; scripts are copies of the 10 October ones with the build changed): python allrows.py ; python owncmp.py ; python recheck.py ; python own-summary.py ; python curves.py ; python curve-compare.py ; python site-compare.py ; python site-values.py ; python names.py ; python firemodes.py ; python firemodes2.py ; python mt3.py ; python guid-search.py ; python rawcheck-manifests.py (the last runs scripts/frosty-raw-check.py --manifest on three manifests). Quoted from the note, not rerun here; the output files are hashed. This draft's own re-read: python gather405x.py (cwd = the L4063 run folder; it builds manifest-<lead>.json and runs python \"C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py\" --manifest manifest-<lead>.json --out rawchecks-<lead>.json for each lead).",
+  "oldSideInput": {
+   "file": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-10-weapons-registry\\curves-all.json",
+   "sha256": "608a3f97640ac1b5770d43274e35dae83e8021cf7777b6952818acd32f9af00d"
+  }
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-19",
+  "build": "mixed",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L4052",
+    "title": "L4004 repeated on 2.1.1.0: health curves unchanged on all bullet files; 13 armor curves changed, own and registry together, equal; site dmg lists unchanged",
+    "status": "finding",
+    "summary": "Health curves are unchanged on the 69 bullet files with both an own and a registry curve and registry equals own; 13 bullet files' armor curves changed with the registry default identical to the own curve on both builds; the site dmg lists still equal the own health curve (59 of 63, 3 with an added 0 m point, M45A1 its reviewed step).",
+    "reopenWhen": "A consumer or in-game reading shows what the armor curve changes mean, or a later build changes a health curve or the registry-own equality."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Hardware/Weapons/_Bullets/PD_762x51mmNATO_Semi",
+    "format": "raw-ebx",
+    "sha256": "3e937d6eb79491b1c9d1735dd05e065940403ff0b4eb8afc7d1dc183545a68ee",
+    "question": "How did the own armor damage curve of this 7.62x51 bullet change on 2.1.1.0?",
+    "result": "useful",
+    "conclusion": "Own armor curve (Field_7e05a1ae) reads 27.5 at values[1] and values[9] at offsets 1496 and 1528 on 2.1.1.0 against 41.5 and 34.4 on 1.4.3.5 (flat 27.5 from 0 to 85 m)."
+   }
+  ],
+  "site": [
+   {
+    "pointer": "data/weapons.json:/[id=m45a1]/dmg",
+    "value": [
+     {
+      "r": 0,
+      "d": 33.4,
+      "source": "Frosty"
+     },
+     {
+      "r": 9,
+      "d": 33.4,
+      "source": "Frosty"
+     },
+     {
+      "r": 9,
+      "d": 25,
+      "source": "Frosty"
+     },
+     {
+      "r": 21,
+      "d": 25,
+      "source": "Frosty"
+     },
+     {
+      "r": 21,
+      "d": 20,
+      "source": "Frosty"
+     },
+     {
+      "r": 36,
+      "d": 20,
+      "source": "Frosty"
+     },
+     {
+      "r": 36,
+      "d": 16.7,
+      "source": "Frosty"
+     },
+     {
+      "r": 54,
+      "d": 16.7,
+      "source": "Frosty"
+     },
+     {
+      "r": 54,
+      "d": 14.3,
+      "source": "Frosty"
+     },
+     {
+      "r": 75,
+      "d": 14.3,
+      "source": "Frosty"
+     },
+     {
+      "r": 75,
+      "d": 12.5,
+      "source": "Frosty"
+     }
+    ],
+    "relation": "supports"
+   }
+  ]
+ },
+ "run": {
+  "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps",
+  "leadFolder": "L4063",
+  "note": "receipt drafted 30 Oct 2026 for an earlier measurement or recheck; the date is the evidence date"
+ }
+}

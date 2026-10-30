@@ -1,0 +1,47 @@
+{
+ "date": "2026-10-30",
+ "title": "L5 burst rate precision: proposal implemented, queue row removed",
+ "record": {
+  "v": 1,
+  "kind": "decision",
+  "date": "2026-10-30",
+  "build": "site-only",
+  "leads": [
+   {
+    "id": "L5",
+    "title": "Burst cadence",
+    "status": "site-fixed",
+    "statusNote": "Burst-rate precision proposal closed 30 Oct 2026: weapons.json already stores the exact source rates (site commit 88bc25d, 28 Sep, L107 full-precision pass); the operator agreed on 30 October.",
+    "summary": "Bursts per minute, rounds per burst and the fire-mode enum are sourced; the six burst weapons store no BPM. GRT-BC and SL9 bursts per minute were corrected on 28 September, and their within-burst rates are stored at source precision (GRT-BC burstRpm 830.769 and fireModes.burst.rpm 830.7689819335938; SL9 771.428 and 771.427978515625), so the 'burst rate precision' proposal is implemented and its queue row is removed.",
+    "reopenWhen": "A game update changes RateOfFireForBurst or BurstsPerMinute on a burst weapon, or an in-game recording shows a pause between bursts the stored values do not explain."
+   }
+  ],
+  "site": [
+   {
+    "pointer": "data/weapons.json:/[id=grtbc]/burstRpm",
+    "value": 830.769,
+    "relation": "supports"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=sl9]/burstRpm",
+    "value": 771.428,
+    "relation": "supports"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=grtbc]/fireModes/burst/rpm",
+    "value": 830.7689819335938,
+    "relation": "supports"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=sl9]/fireModes/burst/rpm",
+    "value": 771.427978515625,
+    "relation": "supports"
+   }
+  ],
+  "binding": "research",
+  "supersedes": [
+   "frosty-2026-09-28-burst-cadence.json"
+  ]
+ },
+ "note": "Status re-recorded on 30 Oct 2026 at the operator's instruction (item 8h of the review-gaps session). No new source evidence; the 28 Sep receipt holds the raw checks (MSBSGROTB_WB RateOfFireForBurst 830.7689819335938). The queue row 'Operator review: burst rate precision' is deleted and the awaiting-operator line no longer lists it. The L15 shootingDecScale row stays for the operator's choice."
+}

@@ -1,0 +1,495 @@
+{
+ "lead": "L4059",
+ "status": "finding",
+ "build": "2.1.1.0",
+ "question": "Re-derive the raw route list from the full 2.1.1.0 catalog by path shape and compare it with the current 31,984-route list; draft a Stage 1 hotfix check (registry diff, watched mutators, gameplay catalog diff) and test it on the 15/22 Oct hotfixes and the 2.1.1.0 update.",
+ "sourceFacts": {
+  "note": "Catalog and capture-status facts; no EBX value is claimed, so rawChecks is empty.",
+  "catalogs": [
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-2110-check-2026-10-13\\collection\\asset-catalog.json",
+    "sha256": "53e30af659ed241e6ebf0c707f7c467bb8d25ef3b2ad2cd4618fb041a838d039",
+    "role": "rebuilt-cache 2.1.1.0 catalog (Head 5382784, 502,324 assets); route shape source"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\asset-catalog.json",
+    "sha256": "12b465ee13d36e83b8b0dec67caa85627065c2abeeca248f9bf851610f4af56a",
+    "role": "loaded-cache 2.1.1.0 catalog (501,172 assets); compared only"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\raw-routes.txt",
+    "sha256": "ae06f48a6250b5447683d3f9dcb68490eae6f6e6fab37779014a362fac98317d",
+    "role": "current route list (31,984)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw-status.jsonl",
+    "sha256": "5d953bb3ba8afaad76b8a0496a9fd6f7d8fec9f466c9abf0216ab4b4041a210f",
+    "role": "capture status (31,432 success)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\expression-graph-sources-2026-10-10\\routes.txt",
+    "sha256": "5c5906bfad184cd95468a8873405e725d3830fc13ad5f85d315dfaa46aa512d8",
+    "role": "expression-graph source routes (319)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-13-update-2110-post\\changed-not-captured.txt",
+    "sha256": "c0c60a963c142e92f4afb06627030001c4d978dd7555575a02eb6227cd6037ad",
+    "role": "control: changed-not-captured (283)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\registry-diff-2026-10-14\\registry-diff.tsv",
+    "sha256": "e0c3402af51289056257075cf510d79b755f261b87ce9a48f78fe0ceb53281aa",
+    "role": "14 Oct registry diff; known answer for the update test"
+   }
+  ],
+  "routeList": {
+   "newList": 41196,
+   "added": 15339,
+   "dropped": 6127,
+   "droppedReasons": {
+    "not-in-catalog": 426,
+    "cosmetic:art-skins": 4441,
+    "cosmetic:u_mdv-skin": 79,
+    "cosmetic:textures-decals": 649,
+    "cosmetic:charms": 265,
+    "cosmetic:sound": 267
+   },
+   "currentRoutesKeptWithCatalogSpelling": 228
+  },
+  "groups": {
+   "affectors": {
+    "catalogAssets": 11,
+    "cosmeticExcluded": 0,
+    "newList": 11,
+    "currentlyListed": 5,
+    "newlyAdded": 6
+   },
+   "expression-graph-sources": {
+    "catalogAssets": 315,
+    "cosmeticExcluded": 0,
+    "newList": 315,
+    "currentlyListed": 315,
+    "newlyAdded": 0
+   },
+   "gadgets": {
+    "catalogAssets": 4582,
+    "cosmeticExcluded": 964,
+    "newList": 3618,
+    "currentlyListed": 1988,
+    "newlyAdded": 1630
+   },
+   "gameplay-other": {
+    "catalogAssets": 2043,
+    "cosmeticExcluded": 15,
+    "newList": 2028,
+    "currentlyListed": 1092,
+    "newlyAdded": 936
+   },
+   "hardware-other": {
+    "catalogAssets": 553,
+    "cosmeticExcluded": 0,
+    "newList": 553,
+    "currentlyListed": 287,
+    "newlyAdded": 266
+   },
+   "material-grid-curves": {
+    "catalogAssets": 15,
+    "cosmeticExcluded": 0,
+    "newList": 15,
+    "currentlyListed": 0,
+    "newlyAdded": 15
+   },
+   "material-grids": {
+    "catalogAssets": 36,
+    "cosmeticExcluded": 0,
+    "newList": 36,
+    "currentlyListed": 5,
+    "newlyAdded": 31
+   },
+   "retained-from-current": {
+    "catalogAssets": 2908,
+    "cosmeticExcluded": 0,
+    "newList": 2908,
+    "currentlyListed": 2908,
+    "newlyAdded": 0
+   },
+   "soldier": {
+    "catalogAssets": 287,
+    "cosmeticExcluded": 8,
+    "newList": 279,
+    "currentlyListed": 152,
+    "newlyAdded": 127
+   },
+   "tweakables-registries": {
+    "catalogAssets": 149,
+    "cosmeticExcluded": 0,
+    "newList": 149,
+    "currentlyListed": 122,
+    "newlyAdded": 27
+   },
+   "ui-metadata": {
+    "catalogAssets": 1438,
+    "cosmeticExcluded": 0,
+    "newList": 1438,
+    "currentlyListed": 1102,
+    "newlyAdded": 336
+   },
+   "vehicles": {
+    "catalogAssets": 7156,
+    "cosmeticExcluded": 2088,
+    "newList": 5068,
+    "currentlyListed": 2680,
+    "newlyAdded": 2388
+   },
+   "weapons": {
+    "catalogAssets": 54822,
+    "cosmeticExcluded": 30044,
+    "newList": 24778,
+    "currentlyListed": 15201,
+    "newlyAdded": 9577
+   }
+  },
+  "control": {
+   "inside": 283,
+   "total": 283,
+   "outside": [],
+   "successfulCurrentDropped": 5575,
+   "nonCosmeticExceptions": [],
+   "firstPassLiteralGroups": {
+    "inside": 146,
+    "outsideByPrefix": {
+     "Common/Gameplay/Camera": 6,
+     "Common/Gameplay/Config": 2,
+     "Common/Gameplay/DynamicWorld": 5,
+     "Common/Gameplay/Expressions": 4,
+     "Common/Gameplay/Features": 31,
+     "Common/Gameplay/InRoundProgression": 7,
+     "Common/Gameplay/Input": 17,
+     "Common/Gameplay/Ping": 3,
+     "Common/Gameplay/Player": 9,
+     "Common/Gameplay/Shared": 15,
+     "Common/Gameplay/Target": 2,
+     "Common/Gameplay/Vehicles": 17,
+     "Common/Hardware/Camera": 9,
+     "Common/Hardware/Common": 1,
+     "Common/Hardware/World": 9
+    },
+    "note": "Brief groups alone fail the control; the rule was widened to all of Common/Gameplay, Common/Hardware (except _CosmeticsLibrary, CineProps) and the current routes still in the catalog, then rerun."
+   }
+  },
+  "hotfixCheckTests": {
+   "hotfix-1013-to-1022": {
+    "exit": "exit code: 1; 41 s",
+    "output": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4059\\hotfix-check-output-hotfix-1013-to-1022.txt",
+    "outputSha256": "4d8bee6d5422fa694b136e7df078f2797619b3323634e76609428da7c86562d8",
+    "catalogGameplayDiff": {
+     "added": 243,
+     "changed": 1
+    },
+    "rawGameplayDiff": 1,
+    "registryRows": {},
+    "registryCoverageMissing": 3,
+    "changed": [
+     "244 gameplay catalog paths",
+     "1 gameplay raw files"
+    ],
+    "incomplete": [
+     "3 registries without raw bytes (capture them, or pass --old-extra/--new-extra)"
+    ]
+   },
+   "hotfix-1013-to-1022-rebuilt-catalog": {
+    "exit": "exit code: 1; 40 s",
+    "output": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4059\\hotfix-check-output-hotfix-1013-to-1022-rebuilt-catalog.txt",
+    "outputSha256": "fb8670b0e771334ea33abf2ca21e1b1b38f1da3b7eb3ec72fb575e1e6b26fefc",
+    "catalogGameplayDiff": {
+     "changed": 1
+    },
+    "rawGameplayDiff": 1,
+    "registryRows": {},
+    "registryCoverageMissing": 0,
+    "changed": [
+     "1 gameplay catalog paths",
+     "1 gameplay raw files"
+    ],
+    "incomplete": []
+   },
+   "hotfix-1015-to-1022": {
+    "exit": "exit code: 1; 44 s",
+    "output": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4059\\hotfix-check-output-hotfix-1015-to-1022.txt",
+    "outputSha256": "9dff17cb7bc7099355e72ee8ab3b2d11f95a6e462523838ae39f088c8b92dcc3",
+    "catalogGameplayDiff": {
+     "changed": 1
+    },
+    "rawGameplayDiff": 1,
+    "registryRows": {},
+    "registryCoverageMissing": 0,
+    "changed": [
+     "1 gameplay catalog paths",
+     "1 gameplay raw files"
+    ],
+    "incomplete": []
+   },
+   "update-1435-to-2110": {
+    "exit": "exit code: 1; 39 s",
+    "output": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4059\\hotfix-check-output-update-1435-to-2110.txt",
+    "outputSha256": "7188abb150d5cfdc960c0b3ed0c41d7e85e7bac44b9d21e3d63a9d946f7cb8ea",
+    "catalogGameplayDiff": {
+     "changed": 2557,
+     "added": 2203,
+     "removed": 55
+    },
+    "rawGameplayDiff": 2102,
+    "registryRows": {
+     "added": 4970,
+     "file added": 9,
+     "changed": 180,
+     "removed": 1492
+    },
+    "registryCoverageMissing": 4,
+    "changed": [
+     "4815 gameplay catalog paths",
+     "2102 gameplay raw files",
+     "6651 registry rows",
+     "6 watched mutator settings"
+    ],
+    "incomplete": [
+     "4 registries without raw bytes (capture them, or pass --old-extra/--new-extra)"
+    ]
+   }
+  },
+  "registryDiffIdentity": "hotfix-check-runs/update-1435-to-2110/registry-diff.tsv SHA-256 e0c3402af51289056257075cf510d79b755f261b87ce9a48f78fe0ceb53281aa equals builds/2.1.1.0/reports/registry-diff-2026-10-14/registry-diff.tsv",
+  "rawChecks": []
+ },
+ "inference": [
+  "A path-shape list over Common/Hardware, Common/Gameplay, Tweakables/registries, UI metadata, material grids and expression-graph sources, plus the current routes still in the catalog, covers every route the 2.1.1.0 update changed without capture.",
+  "Running the registry diff and the gameplay catalog diff at Stage 1 would have flagged the 2.1.1.0 XP caps and registry rows at the client check; on the two hotfixes it flags only one already-explained REDSEC graph."
+ ],
+ "unresolved": [
+  "18 registries are in the 2.1.1.0 catalog but in no capture (GRX_WeaponsTemp, ProgressionModeUITypeList, TweakableRefsData and 15 MUT_* mode/level files); needs capture. All 18 are in added-routes.txt. The hotfix check covers them only through unchanged catalog SHA-1.",
+  "Texture assets (T_* files, _Textures/Textures folders: 660 successfully captured current routes) are kept because the brief exclusion rule does not name them; counts.json gives the alternative list (33,986 routes) if the lead calls textures cosmetic.",
+  "Level materialgrid_win32 routes (36, final/material-grid-routes.txt) are in the list; they must be removed from any FrostyCmd routes file and read only with scripts/frosty-material-grid-inventory.py. Whether frosty-collect-raw raw capture of them is safe was not checked.",
+  "The list was not capture-tested (no FrostyCmd run by rule); 15,339 added routes have no raw yet."
+ ],
+ "siteImpact": "None. Research tooling and route coverage only; no site value changes.",
+ "evidence": {
+  "inputs": [
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\client-2110-check-2026-10-13\\collection\\asset-catalog.json",
+    "sha256": "53e30af659ed241e6ebf0c707f7c467bb8d25ef3b2ad2cd4618fb041a838d039",
+    "role": "rebuilt-cache 2.1.1.0 catalog (Head 5382784, 502,324 assets); route shape source"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\asset-catalog.json",
+    "sha256": "12b465ee13d36e83b8b0dec67caa85627065c2abeeca248f9bf851610f4af56a",
+    "role": "loaded-cache 2.1.1.0 catalog (501,172 assets); compared only"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\raw-routes.txt",
+    "sha256": "ae06f48a6250b5447683d3f9dcb68490eae6f6e6fab37779014a362fac98317d",
+    "role": "current route list (31,984)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw-status.jsonl",
+    "sha256": "5d953bb3ba8afaad76b8a0496a9fd6f7d8fec9f466c9abf0216ab4b4041a210f",
+    "role": "capture status (31,432 success)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\expression-graph-sources-2026-10-10\\routes.txt",
+    "sha256": "5c5906bfad184cd95468a8873405e725d3830fc13ad5f85d315dfaa46aa512d8",
+    "role": "expression-graph source routes (319)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-13-update-2110-post\\changed-not-captured.txt",
+    "sha256": "c0c60a963c142e92f4afb06627030001c4d978dd7555575a02eb6227cd6037ad",
+    "role": "control: changed-not-captured (283)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\registry-diff-2026-10-14\\registry-diff.tsv",
+    "sha256": "e0c3402af51289056257075cf510d79b755f261b87ce9a48f78fe0ceb53281aa",
+    "role": "14 Oct registry diff; known answer for the update test"
+   }
+  ],
+  "outputs": [
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4059\\new-route-list-2110.txt",
+    "sha256": "ffe1cce9f0cdd7c0a731026c5d69b487644dd7170fcc54264e33c74350719588"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4059\\added-routes.txt",
+    "sha256": "06496b0d752363e6f344f1bd28c2425e213c86457cbc8803eb190cf7a46180dc"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4059\\dropped-routes.txt",
+    "sha256": "50ffabde8277130b6a8f7b1a7995e2533817299c0ee3d7de8bfd7f06248d62cd"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4059\\counts.json",
+    "sha256": "adfdcc890aa2c91784550d24fa9860ad40d8792d59873b53144535109401791b"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4059\\frosty-hotfix-check.py",
+    "sha256": "225722e9b2e5a10725c03574e71102a9e8642ade2594545f6a5917d20ede43fa"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4059\\hotfix-check-proposal.md",
+    "sha256": "f7f17e8dc77ca47bd99b6581516fb7a5d9b7d295a08b4e7e323630322760fffe"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4059\\guide-text.md",
+    "sha256": "656a28622444f8993af76d142c1ac25e85ea1b0f4aa3a167b293aa4b5dc0f75c"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4059\\final/dropped-routes-reasons.tsv",
+    "sha256": "d043a1bd143eabf8e871dbef8ad904f49bf42832d22e371accc3c38e092ba7d8"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4059\\final/material-grid-routes.txt",
+    "sha256": "1494a9a62339f773577359283128bbb2f2d3905eb2ec13a178898048b2651db5"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4059\\final/derive-summary.json",
+    "sha256": "8de7fa0cd97977d1102d192853e095b097bc8f9a78dad47d69fc07cfd4cbdf98"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4059\\pass-literal/derive-summary.json",
+    "sha256": "946b256ca711545e75978dbf7e37801cd50adc0554a3126954e1d47f0a799c5a"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4059\\pass-widened-tex/derive-summary.json",
+    "sha256": "6202f43f465c1ad44260dfd415ef4ed47b9ab29b312bbd1488908dfcb9e0b651"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4059\\hotfix-check-runs/update-1435-to-2110/registry-diff.tsv",
+    "sha256": "e0c3402af51289056257075cf510d79b755f261b87ce9a48f78fe0ceb53281aa"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4059\\derive_routes.py",
+    "sha256": "ce262e996ec338d7acb14a87ae7c6d31c4eb551706fbbca90511f75e210a2b9b"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4059\\finalize_routes.py",
+    "sha256": "f20f6144e464ec8f647324d1d7c322f71a8884e5cdd2711e9d227c00f3cc4d15"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4059\\run_tests.py",
+    "sha256": "e886059b0a51177d97f7894849167b0dcf4bcc1e31b780ef59459d51cf92989d"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4059\\build_deliverables.py",
+    "sha256": "8497f73df03d3889a73c5d49d9e1c9cf086d20a39cfb81696a3ba2655466085c"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4059\\hotfix-check-output-hotfix-1013-to-1022.txt",
+    "sha256": "4d8bee6d5422fa694b136e7df078f2797619b3323634e76609428da7c86562d8"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4059\\hotfix-check-output-hotfix-1013-to-1022-rebuilt-catalog.txt",
+    "sha256": "fb8670b0e771334ea33abf2ca21e1b1b38f1da3b7eb3ec72fb575e1e6b26fefc"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4059\\hotfix-check-output-hotfix-1015-to-1022.txt",
+    "sha256": "9dff17cb7bc7099355e72ee8ab3b2d11f95a6e462523838ae39f088c8b92dcc3"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4059\\hotfix-check-output-update-1435-to-2110.txt",
+    "sha256": "7188abb150d5cfdc960c0b3ed0c41d7e85e7bac44b9d21e3d63a9d946f7cb8ea"
+   }
+  ],
+  "commands": [
+   {
+    "exe": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "argv": [
+     "derive_routes.py",
+     "literal",
+     "pass-literal"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4059"
+   },
+   {
+    "exe": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "argv": [
+     "derive_routes.py",
+     "widened",
+     "pass-widened-tex",
+     "--textures-cosmetic"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4059",
+    "note": "run before material-grid-curves and the expression-graph exemption were added; summary only kept"
+   },
+   {
+    "exe": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "argv": [
+     "derive_routes.py",
+     "widened",
+     "final"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4059"
+   },
+   {
+    "exe": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "argv": [
+     "finalize_routes.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4059"
+   },
+   {
+    "exe": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "argv": [
+     "run_tests.py",
+     "hotfix-1015-to-1022",
+     "hotfix-1013-to-1022",
+     "hotfix-1013-to-1022-rebuilt-catalog",
+     "update-1435-to-2110"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4059",
+    "note": "each output file records the exact frosty-hotfix-check.py argument vector and helper SHA-256s"
+   },
+   {
+    "exe": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "argv": [
+     "build_deliverables.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4059"
+   }
+  ],
+  "repoScriptsCalled": [
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-registry-diff.py",
+    "sha256": "188d5561ee5cf8c29a809a9fa8a4f30cff35ae9afd87396fc139fd1ba6a837b2"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-mutator-values.py",
+    "sha256": "b0971287a0ccbec5ae719a5bf3f8b6d291b9f5332dd7731472e3972652d1d40c"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-ebx-decode.py",
+    "sha256": "149d39cdc3aaef39d7166ad67a8e4651049c7e7bd11efeebdd41e1a9e00d3fc5"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-tree.py",
+    "sha256": "7f168927f001a480e3acc70ab7945d0046d35b50f3b11b806b671e71b761f698"
+   }
+  ],
+  "superseded": "superseded/ holds the first 15->22 Oct run made with --route-list (flagged face BindAssets and DataVersion through the list); not cited."
+ },
+ "record": {
+  "v": 1,
+  "kind": "audit",
+  "date": "2026-10-30",
+  "build": "2.1.1.0",
+  "leads": [
+   {
+    "id": "L4059",
+    "title": "Hotfix check beyond the route list; route list from the full catalog",
+    "status": "finding",
+    "summary": "A path-shape route list from the 2.1.1.0 rebuilt-cache catalog (41,196 routes, 15,339 added, 6,127 dropped as cosmetic or removed) holds all 283 changed-not-captured routes, and a draft frosty-hotfix-check.py reproduces the 2.1.1.0 registry diff byte for byte, flags the XP caps, and on the 15/22 Oct hotfixes flags only SimEx_BR_ApplyProgressionWeapon.",
+    "reopenWhen": "When the next guard failure is checked with frosty-hotfix-check.py, or when the 18 uncaptured registries are captured."
+   }
+  ],
+  "binding": "research"
+ },
+ "run": {
+  "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps",
+  "leadFolder": "L4059"
+ }
+}

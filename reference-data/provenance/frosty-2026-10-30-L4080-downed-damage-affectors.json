@@ -1,0 +1,564 @@
+{
+ "lead": "L4080",
+ "status": "finding",
+ "build": {
+  "current": "2.1.1.0",
+  "head": 5382784,
+  "descriptorSha256": "c477622c1074a9a4ea612cf9c60e26f666129721c733174192c121c808873ff6",
+  "note": "Saved captures only; no export or capture run."
+ },
+ "question": "Where is the downed-state damage reduction EA states (20% for primary weapons, 1.3.1.0 notes) stored, and what consumes it?",
+ "sourceFacts": {
+  "patchNote": {
+   "version": "1.3.1.0",
+   "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-1-0",
+   "quote": "Reduced damage taken from primary weapons while in the downed state by 20%",
+   "note": "Fetched from the EA page. patch-notes-inventory.json stores only per-update summaries and does not hold the line; the L4001 receipt already records it as \"20 percent (1.3.1.0)\". The 1.3.3.0 article has no downed-state damage line. The neighbouring lines in the same list are Battle Royale items; the section heading was not verified and EA does not say in that line whether it applies outside Battle Royale."
+  },
+  "control": "control passed (see result control.rawChecks)",
+  "bleedoutBody": {
+   "path": "C:/Users/royal/Documents/BF6 Datamining/builds/2.1.1.0/reports/expression-graph-bodies-b-2026-10-30/resources/daf111de1a57a087.res",
+   "sha256": "b6902a111587b3c8a23704cc9dc669552e116eaab9917290823412ffcae7220d"
+  },
+  "serialized": [
+   "SimEx_IsInMandown imports and applies four Mandown_DamageModifier effects (listing offsets 144c, 3a7c, 3ad0, 5040).",
+   "Affector_Mandown_DamageModifier stores (0.0, explosive true, bullet true) and (2.0, true, true); _CrawlingManDown stores (0.05, true, true) and (0.45, false, true).",
+   "The two apply effects are unchanged in value from 1.4.3.5.",
+   "GRX_Glacier_Soldier has no downed damage row; ResilientDownedDurationMultiplier 0.5, ThermalSignature_Mandown_Max 0.1, Swimming_DownStrenght 0.7 are the nearest.",
+   "SimEx_CeramicArmor and SimEx_SoftArmor sources hold the GUID of Affector_Mandown_DamageModifier_Remove."
+  ],
+  "rawChecks": [
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\expression-graph-bodies-b-2026-10-30\\resources\\daf111de1a57a087.res",
+    "rawSha256": "b6902a111587b3c8a23704cc9dc669552e116eaab9917290823412ffcae7220d",
+    "offset": 2152,
+    "type": "f32",
+    "bytesHex": "0000b4c2",
+    "value": -90.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\expression-graph-bodies-b-2026-10-30\\resources\\daf111de1a57a087.res",
+    "rawSha256": "b6902a111587b3c8a23704cc9dc669552e116eaab9917290823412ffcae7220d",
+    "offset": 2124,
+    "type": "f32",
+    "bytesHex": "00004843",
+    "value": 200.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\expression-graph-bodies-b-2026-10-30\\resources\\daf111de1a57a087.res",
+    "rawSha256": "b6902a111587b3c8a23704cc9dc669552e116eaab9917290823412ffcae7220d",
+    "offset": 2128,
+    "type": "f32",
+    "bytesHex": "5055d53f",
+    "value": 1.666666030883789
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\expression-graph-bodies-b-2026-10-30\\resources\\daf111de1a57a087.res",
+    "rawSha256": "b6902a111587b3c8a23704cc9dc669552e116eaab9917290823412ffcae7220d",
+    "offset": 2132,
+    "type": "f32",
+    "bytesHex": "e3380e40",
+    "value": 2.222222089767456
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\expression-graph-bodies-b-2026-10-30\\resources\\daf111de1a57a087.res",
+    "rawSha256": "b6902a111587b3c8a23704cc9dc669552e116eaab9917290823412ffcae7220d",
+    "offset": 2136,
+    "type": "f32",
+    "bytesHex": "54555540",
+    "value": 3.3333330154418945
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\expression-graph-bodies-b-2026-10-30\\resources\\daf111de1a57a087.res",
+    "rawSha256": "b6902a111587b3c8a23704cc9dc669552e116eaab9917290823412ffcae7220d",
+    "offset": 2140,
+    "type": "f32",
+    "bytesHex": "e3388e3f",
+    "value": 1.111111044883728
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Gameplay\\InRoundProgression\\Flak\\Affector_Flak.ebx",
+    "rawSha256": "8e3356d3b38d149b9b20216bf668d99c6014ba20f98694cd9376e8f3888fa04a",
+    "offset": 216,
+    "type": "f32",
+    "bytesHex": "1f852b3f",
+    "value": 0.6700000166893005,
+    "label": "Flak mult"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Gameplay\\InRoundProgression\\Flak\\Affector_Flak.ebx",
+    "rawSha256": "8e3356d3b38d149b9b20216bf668d99c6014ba20f98694cd9376e8f3888fa04a",
+    "offset": 232,
+    "type": "u8",
+    "bytesHex": "01",
+    "value": 1,
+    "label": "Flak explosive flag"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Gameplay\\InRoundProgression\\Flak\\Affector_Flak.ebx",
+    "rawSha256": "8e3356d3b38d149b9b20216bf668d99c6014ba20f98694cd9376e8f3888fa04a",
+    "offset": 184,
+    "type": "u8",
+    "bytesHex": "00",
+    "value": 0,
+    "label": "Flak bullet flag"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Gadgets\\Misc\\EODBot\\Affector_EODBot_BulletResistance.ebx",
+    "rawSha256": "44f5f2aa5592394e55185ec3a5891300f9dc04b7a5df90011d2da1aa58014289",
+    "offset": 216,
+    "type": "f32",
+    "bytesHex": "6666263f",
+    "value": 0.6499999761581421,
+    "label": "EODBullet mult"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Gadgets\\Misc\\EODBot\\Affector_EODBot_BulletResistance.ebx",
+    "rawSha256": "44f5f2aa5592394e55185ec3a5891300f9dc04b7a5df90011d2da1aa58014289",
+    "offset": 232,
+    "type": "u8",
+    "bytesHex": "00",
+    "value": 0,
+    "label": "EODBullet explosive"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Gadgets\\Misc\\EODBot\\Affector_EODBot_BulletResistance.ebx",
+    "rawSha256": "44f5f2aa5592394e55185ec3a5891300f9dc04b7a5df90011d2da1aa58014289",
+    "offset": 184,
+    "type": "u8",
+    "bytesHex": "01",
+    "value": 1,
+    "label": "EODBullet bullet"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Gameplay\\Soldier\\DeathFlow\\Affectors\\Affector_Mandown_DamageModifier.ebx",
+    "rawSha256": "51bf0c779f192cae3ad280f02fdf7168156363d54bc6a897cab0539baac35ec2",
+    "offset": 216,
+    "type": "f32",
+    "bytesHex": "00000000",
+    "value": 0.0,
+    "label": "DM e0 mult"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Gameplay\\Soldier\\DeathFlow\\Affectors\\Affector_Mandown_DamageModifier.ebx",
+    "rawSha256": "51bf0c779f192cae3ad280f02fdf7168156363d54bc6a897cab0539baac35ec2",
+    "offset": 232,
+    "type": "u8",
+    "bytesHex": "01",
+    "value": 1,
+    "label": "DM e0 explosive"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Gameplay\\Soldier\\DeathFlow\\Affectors\\Affector_Mandown_DamageModifier.ebx",
+    "rawSha256": "51bf0c779f192cae3ad280f02fdf7168156363d54bc6a897cab0539baac35ec2",
+    "offset": 184,
+    "type": "u8",
+    "bytesHex": "01",
+    "value": 1,
+    "label": "DM e0 bullet"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Gameplay\\Soldier\\DeathFlow\\Affectors\\Affector_Mandown_DamageModifier.ebx",
+    "rawSha256": "51bf0c779f192cae3ad280f02fdf7168156363d54bc6a897cab0539baac35ec2",
+    "offset": 280,
+    "type": "f32",
+    "bytesHex": "00000040",
+    "value": 2.0,
+    "label": "DM e1 mult"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Gameplay\\Soldier\\DeathFlow\\Affectors\\Affector_Mandown_DamageModifier.ebx",
+    "rawSha256": "51bf0c779f192cae3ad280f02fdf7168156363d54bc6a897cab0539baac35ec2",
+    "offset": 296,
+    "type": "u8",
+    "bytesHex": "01",
+    "value": 1,
+    "label": "DM e1 explosive"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Gameplay\\Soldier\\DeathFlow\\Affectors\\Affector_Mandown_DamageModifier.ebx",
+    "rawSha256": "51bf0c779f192cae3ad280f02fdf7168156363d54bc6a897cab0539baac35ec2",
+    "offset": 248,
+    "type": "u8",
+    "bytesHex": "01",
+    "value": 1,
+    "label": "DM e1 bullet"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Gameplay\\Soldier\\DeathFlow\\Affectors\\Affector_Mandown_DamageModifier_CrawlingManDown.ebx",
+    "rawSha256": "befdafb0b4e277a635a65301ab94efd89e97163c7659bed97e69f58631a62c08",
+    "offset": 224,
+    "type": "f32",
+    "bytesHex": "cdcc4c3d",
+    "value": 0.05000000074505806,
+    "label": "CR e0 mult"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Gameplay\\Soldier\\DeathFlow\\Affectors\\Affector_Mandown_DamageModifier_CrawlingManDown.ebx",
+    "rawSha256": "befdafb0b4e277a635a65301ab94efd89e97163c7659bed97e69f58631a62c08",
+    "offset": 240,
+    "type": "u8",
+    "bytesHex": "01",
+    "value": 1,
+    "label": "CR e0 explosive"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Gameplay\\Soldier\\DeathFlow\\Affectors\\Affector_Mandown_DamageModifier_CrawlingManDown.ebx",
+    "rawSha256": "befdafb0b4e277a635a65301ab94efd89e97163c7659bed97e69f58631a62c08",
+    "offset": 192,
+    "type": "u8",
+    "bytesHex": "01",
+    "value": 1,
+    "label": "CR e0 bullet"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Gameplay\\Soldier\\DeathFlow\\Affectors\\Affector_Mandown_DamageModifier_CrawlingManDown.ebx",
+    "rawSha256": "befdafb0b4e277a635a65301ab94efd89e97163c7659bed97e69f58631a62c08",
+    "offset": 288,
+    "type": "f32",
+    "bytesHex": "6666e63e",
+    "value": 0.44999998807907104,
+    "label": "CR e1 mult"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Gameplay\\Soldier\\DeathFlow\\Affectors\\Affector_Mandown_DamageModifier_CrawlingManDown.ebx",
+    "rawSha256": "befdafb0b4e277a635a65301ab94efd89e97163c7659bed97e69f58631a62c08",
+    "offset": 304,
+    "type": "u8",
+    "bytesHex": "00",
+    "value": 0,
+    "label": "CR e1 explosive"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Gameplay\\Soldier\\DeathFlow\\Affectors\\Affector_Mandown_DamageModifier_CrawlingManDown.ebx",
+    "rawSha256": "befdafb0b4e277a635a65301ab94efd89e97163c7659bed97e69f58631a62c08",
+    "offset": 256,
+    "type": "u8",
+    "bytesHex": "01",
+    "value": 1,
+    "label": "CR e1 bullet"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\Gameplay\\Soldier\\GRX_Glacier_Soldier.ebx",
+    "rawSha256": "bf346beeb858dfdb9c1200f4fad8b093dc3b2a4cdddf3e78a66dac5a22b23279",
+    "offset": 2692,
+    "type": "f32",
+    "bytesHex": "0000003f",
+    "value": 0.5
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\Gameplay\\Soldier\\GRX_Glacier_Soldier.ebx",
+    "rawSha256": "bf346beeb858dfdb9c1200f4fad8b093dc3b2a4cdddf3e78a66dac5a22b23279",
+    "offset": 1636,
+    "type": "f32",
+    "bytesHex": "0000803f",
+    "value": 1.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\Gameplay\\Soldier\\GRX_Glacier_Soldier.ebx",
+    "rawSha256": "bf346beeb858dfdb9c1200f4fad8b093dc3b2a4cdddf3e78a66dac5a22b23279",
+    "offset": 6132,
+    "type": "f32",
+    "bytesHex": "cdcccc3d",
+    "value": 0.10000000149011612
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\Gameplay\\Soldier\\GRX_Glacier_Soldier.ebx",
+    "rawSha256": "bf346beeb858dfdb9c1200f4fad8b093dc3b2a4cdddf3e78a66dac5a22b23279",
+    "offset": 23180,
+    "type": "f32",
+    "bytesHex": "3333333f",
+    "value": 0.699999988079071
+   }
+  ]
+ },
+ "inference": [
+  "Class_7d3d8a5c is the damage-resistance effect class whose Field_658381bd L3315 named a damage-received multiplier by its registry-linked siblings; on that reading downed soldiers take 0.45 (bullets, crawling) or 0.05 (bullets and explosives) of normal damage, and an AI branch uses 2.0.",
+  "The 0/1 ApplyAffector argument probably picks the list entry (Flak: one entry, argument 0).",
+  "The Remove effects undo the modifiers by tag.",
+  "None of the stored values equals 0.8, so EA's 20% is not read directly from these numbers; a different layer, or a different state (man-down rather than crawling), may produce it."
+ ],
+ "unresolved": [
+  "Which entry (index 0 or 1) the ApplyAffector argument selects is inferred from Flak (one entry, argument 0); no multi-entry known-answer control exists.",
+  "Meaning of the second ApplyAffector arguments and of the SELECT condition (Granite_StimBeingFired or an unnamed function fac8a68e) is unread.",
+  "Whether HealthState / mandown type 0 (crawling) or 1 (man-down) triggers each call: the switch variable t32a4 is partly traced only.",
+  "Runtime composition with armor, flak and plates (CeramicArmor and SoftArmor graphs reference the _Remove affector): needs capture of bodies 51fb26880d967f69 and bf4b65b03a70d55d.",
+  "Native consumer of Class_7d3d8a5c multipliers not located; EA's 20% is not found in any stored value."
+ ],
+ "siteImpact": "None now. The site models no downed enemies. Conditional: if the crawling/man-down state is ever modelled, damage to a downed soldier would use these effects, but the 0.05 / 0.45 values do not reproduce EA's 20% line, so no number should be entered until the in-game test below is run.",
+ "evidence": {
+  "runRoot": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4080",
+  "paths": [
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/builds/2.1.1.0/reports/expression-graph-bodies-b-2026-10-30/resources/daf111de1a57a087.res",
+    "sha256": "b6902a111587b3c8a23704cc9dc669552e116eaab9917290823412ffcae7220d"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/listings-2110/common__gameplay__soldier__deathflow__mandown__simex_isinmandown.txt",
+    "sha256": "71a27e2d61674a8892a23b60b51d5dcbdbfa279f9943788e402e5d8d3b17bc62"
+   },
+   {
+    "path": "Common/Gameplay/Soldier/DeathFlow/Affectors/Affector_Mandown_DamageModifier",
+    "sha256": "51bf0c779f192cae3ad280f02fdf7168156363d54bc6a897cab0539baac35ec2"
+   },
+   {
+    "path": "Common/Gameplay/Soldier/DeathFlow/Affectors/Affector_Mandown_DamageModifier_CrawlingManDown",
+    "sha256": "befdafb0b4e277a635a65301ab94efd89e97163c7659bed97e69f58631a62c08"
+   },
+   {
+    "path": "Common/Gameplay/Soldier/DeathFlow/Affectors/Affector_Mandown_DamageModifier_CrawlingManDown_Remove",
+    "sha256": "ca671d6323b6fc54e2ab20c9338aac1003efc0544db78b50b48bd647ecf36a24"
+   },
+   {
+    "path": "Common/Gameplay/Soldier/DeathFlow/Affectors/Affector_Mandown_DamageModifier_Remove",
+    "sha256": "b84294d83a4131008b7e09a6523951667dcee6854eca2bb13b2c2764e0612066"
+   },
+   {
+    "path": "ctl-rawchecks.json",
+    "sha256": "dfd92e94dcf34c5415b5d2015e3685933b78105484202771cd9014acd6999b12"
+   },
+   {
+    "path": "aff-rawchecks.json",
+    "sha256": "ca972cabb2607e7608c88c09edc0343a23b0609d7992252df4f85856b82af7a8"
+   },
+   {
+    "path": "reg-rawchecks.json",
+    "sha256": "f44a2fab2d9f796a83d680591b90f4038bea97d600fcaf3a28d33c7ef5ec9f72"
+   },
+   {
+    "path": "affectors-decoded.json",
+    "sha256": "920b18a4fe6244cdf30818cdb4f3386b90243f5939c4864fa0b0351231000211"
+   },
+   {
+    "path": "old-decoded.json",
+    "sha256": "2de417cea61491e4edc549e86946b3e024944346656ca652b6a9198066cadcaf"
+   },
+   {
+    "path": "old-vs-new-sha.json",
+    "sha256": "4c5b5bf7629c2c768a6431d49d7223ca45255a37bd87e3680cfcad42d7a15541"
+   },
+   {
+    "path": "registry-hits.json",
+    "sha256": "28ce4f4ba7bd33512d916642c0bbbcd26da49914746e8071d46dabae728281bd"
+   },
+   {
+    "path": "guidscan-hits.json",
+    "sha256": "020fbb3a7e2679196b5b7b3ab9af94ebb74581122db863aaa9681a93b561fcb8"
+   }
+  ],
+  "helpers": {
+   "frosty-raw-check.py": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3",
+   "frosty-ebx-decode.py": "149d39cdc3aaef39d7166ad67a8e4651049c7e7bd11efeebdd41e1a9e00d3fc5",
+   "readers-2110/exgraph.py": "adcc64eac104b66f29acea67c1af5d08fdd6c6b93c0a55183b3143238d4bb0ca",
+   "readers-2110/exdis.py": "a020e06ff18945b7e08b27eb8dd06c674bb4078dffac22be32a4c3894fe50ece",
+   "readers-2110/exnames.py": "5e576037eac85c48b6c4178c2f50a5b7b44abb907e36e22ae9209589b96eccf0",
+   "census1.py": "cf81002f20aa3b698b10d90197a7ec316333c462c470b6f137500bacdb6b9ccd",
+   "census3.py": "f390821b5c5f0df99185fe96d824d9ef63502a179dfa03509d3d31ec73ca38ef",
+   "ctl.py": "69b7b8fe46cf84562ce0e8f7168340af5b42021fa78d9e43cd6a4d4cdb51b288",
+   "man2.py": "deded5f792304bf5f8f5b3fe3abff1ef734267e9684da037c2882fd18fdcadbf",
+   "oldcmp.py": "6e868854b7e24a85b292cc5ea3872ac84c227c7d3610e484723e0ea61ba848bd",
+   "guidscan.py": "0c647613e74ce2ceb9f84186ef30c7ee7679065dd70fc30a207a8b1d1220d774",
+   "build.py": "b722c071288e2734a7da5aff79f94291520bb4592afc33b520d47ad8a94452ba"
+  },
+  "commands": [
+   {
+    "label": "control raw checks (helper ctl.py writes ctl-manifest.json)",
+    "cwd": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4080",
+    "argv": [
+     "python",
+     "ctl.py"
+    ],
+    "note": "reconstructed; run once"
+   },
+   {
+    "label": "control raw checks",
+    "cwd": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4080",
+    "argv": [
+     "python",
+     "frosty-raw-check.py",
+     "--manifest",
+     "ctl-manifest.json",
+     "--out",
+     "ctl-rawchecks.json"
+    ]
+   },
+   {
+    "label": "registry census",
+    "cwd": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4080",
+    "argv": [
+     "python",
+     "census1.py"
+    ],
+    "note": "reads builds/2.1.1.0/reports/weapon-registry-recheck-2026-10-19/allrows.json; writes registry-hits.json"
+   },
+   {
+    "label": "registry raw checks",
+    "cwd": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4080",
+    "argv": [
+     "python",
+     "frosty-raw-check.py",
+     "--manifest",
+     "reg-manifest.json",
+     "--out",
+     "reg-rawchecks.json"
+    ]
+   },
+   {
+    "label": "decode affectors (2.1.1.0)",
+    "cwd": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4080",
+    "argv": [
+     "python",
+     "frosty-ebx-decode.py",
+     "--descriptors",
+     "C:/Users/royal/Documents/BF6 Datamining/builds/2.1.1.0/capture/toolchain/SharedTypeDescriptors.ebx",
+     "--ebx-list",
+     "ebxlist.txt",
+     "--out",
+     "affectors-decoded.json",
+     "--exact-floats"
+    ]
+   },
+   {
+    "label": "decode same-owner controls",
+    "cwd": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4080",
+    "argv": [
+     "python",
+     "frosty-ebx-decode.py",
+     "--descriptors",
+     "C:/Users/royal/Documents/BF6 Datamining/builds/2.1.1.0/capture/toolchain/SharedTypeDescriptors.ebx",
+     "--ebx-list",
+     "ebx-ctl.txt",
+     "--out",
+     "ctl-decoded.json",
+     "--exact-floats"
+    ]
+   },
+   {
+    "label": "affector raw checks",
+    "cwd": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4080",
+    "argv": [
+     "python",
+     "man2.py"
+    ],
+    "note": "writes aff-manifest.json"
+   },
+   {
+    "label": "affector raw checks",
+    "cwd": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4080",
+    "argv": [
+     "python",
+     "frosty-raw-check.py",
+     "--manifest",
+     "aff-manifest.json",
+     "--out",
+     "aff-rawchecks.json"
+    ]
+   },
+   {
+    "label": "GUID scan of 31,432 raw routes",
+    "cwd": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4080",
+    "argv": [
+     "python",
+     "guidscan.py"
+    ]
+   },
+   {
+    "label": "old-side comparison (1.4.3.5 descriptors, graph-imports-2026-10-10 raw)",
+    "cwd": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4080",
+    "argv": [
+     "python",
+     "frosty-ebx-decode.py",
+     "--descriptors",
+     "C:/Users/royal/Documents/BF6 Datamining/builds/1.4.3.5/capture/toolchain/SharedTypeDescriptors.ebx",
+     "--ebx-list",
+     "old-list.txt",
+     "--out",
+     "old-decoded.json",
+     "--exact-floats"
+    ],
+    "note": "the 1.4.3.5 descriptor path was inferred from the build layout, not separately listed"
+   },
+   {
+    "label": "sha comparison old/new",
+    "cwd": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4080",
+    "argv": [
+     "python",
+     "oldcmp.py"
+    ]
+   },
+   {
+    "label": "EA 1.3.1.0 page fetch (python urllib, pn.py; first revision fetched 1-3-3-0, 1-3-1-0, 1-3-2-0; the revision on disk adds a context print)",
+    "cwd": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4080",
+    "argv": [
+     "python",
+     "pn.py"
+    ],
+    "note": "reconstructed; pn.py was edited after the first run"
+   },
+   {
+    "label": "graph listings for CeramicArmor and SoftArmor",
+    "cwd": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4080",
+    "argv": [
+     "python",
+     "readers-2110/exgraph.py",
+     "<SimEx_CeramicArmor.ebx|SimEx_SoftArmor.ebx>",
+     "listings/simex_<name>.txt"
+    ],
+    "note": "produced 1-line files: body resources absent"
+   },
+   {
+    "label": "unavailable command history",
+    "cwd": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4080",
+    "argv": [],
+    "note": "ad hoc grep/sed reads of L4057/listings-2110 text files were not scripted; their results are the listing offsets quoted"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-30",
+  "build": "2.1.1.0",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L4080",
+    "title": "Downed-state damage reduction trace",
+    "status": "finding",
+    "summary": "EA's 20% downed-damage line (1.3.1.0) has no matching stored value: SimEx_IsInMandown applies Affector_Mandown_DamageModifier (entries 0.0 and 2.0) and the crawling variant (0.05 and 0.45), whose native consumer and entry selection remain unread.",
+    "reopenWhen": "Bodies of SimEx_CeramicArmor (51fb26880d967f69) and SimEx_SoftArmor (bf4b65b03a70d55d) are captured, or an in-game hit-number ratio on downed versus standing enemies is available."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Gameplay/Soldier/DeathFlow/Affectors/Affector_Mandown_DamageModifier",
+    "format": "raw-ebx",
+    "sha256": "51bf0c779f192cae3ad280f02fdf7168156363d54bc6a897cab0539baac35ec2",
+    "question": "What multipliers does the man-down damage modifier store?",
+    "result": "useful",
+    "conclusion": "Class_7d3d8a5c with two entries (0.0 and 2.0, both explosive and bullet flags true); entry selection and runtime use are unread."
+   },
+   {
+    "path": "Common/Gameplay/Soldier/DeathFlow/Affectors/Affector_Mandown_DamageModifier_CrawlingManDown",
+    "format": "raw-ebx",
+    "sha256": "befdafb0b4e277a635a65301ab94efd89e97163c7659bed97e69f58631a62c08",
+    "question": "What multipliers does the crawling man-down modifier store?",
+    "result": "useful",
+    "conclusion": "Two entries (0.05 explosive and bullet; 0.45 bullet only); same values as 1.4.3.5."
+   },
+   {
+    "path": "Common/Gameplay/Soldier/DeathFlow/ManDown/SimEx_IsInMandown",
+    "format": "raw-res",
+    "sha256": "b6902a111587b3c8a23704cc9dc669552e116eaab9917290823412ffcae7220d",
+    "question": "Does the L4023 bleed-out threshold and rate table re-read, and which damage effects does the graph apply?",
+    "result": "useful",
+    "conclusion": "Threshold -90 and rates 1.6667/2.2222/3.3333/1.1111 re-read in body daf111de1a57a087; four Mandown_DamageModifier effects are applied."
+   }
+  ],
+  "site": []
+ },
+ "run": {
+  "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps",
+  "leadFolder": "L4080"
+ }
+}

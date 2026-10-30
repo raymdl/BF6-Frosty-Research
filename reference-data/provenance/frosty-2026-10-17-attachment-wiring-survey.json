@@ -1,0 +1,66 @@
+{
+ "lead": "none",
+ "status": "finding",
+ "build": {
+  "current": "2.1.1.0 (raw capture builds/2.1.1.0/reports/client-new-check-2026-10-15/collection/raw, the 15 October hotfix capture; descriptors builds/2.1.1.0/capture/toolchain/SharedTypeDescriptors.ebx)",
+  "note": "Source survey read by script from saved raw EBX; no capture. The note cites no per-asset hashes; the asset hashes below were computed by this draft from the files in that raw root. Facts only, no balance interpretation."
+ },
+ "question": "For every weapon folder in the 2.1.1.0 raw capture, which effect assets does each attachment reach through its progression, the weapon's ability branches, WB modifier lists and GS bindings, and which attachments differ from the majority signature of the same attachment name on other weapons?",
+ "sourceFacts": {
+  "coverage": {
+   "rawRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw (capture client-new-check-2026-10-15, asset catalog from the same collection for import GUIDs)",
+   "weaponFoldersProcessed": 69,
+   "skipped": "Melee/CombatKnife, DinoMachete, EODArm, GekoKnife, IceClimbingAxe, Machete, SledgeHammer (wb 0, gs 0, att 0) and Shotgun/KSG (wb 0, gs 0, att 1)",
+   "attachmentFilesProcessed": 6059,
+   "ebxDecodedInTotal": 6950,
+   "decodeFailures": 0,
+   "unresolvedImportGuids": 0,
+   "attachmentsWithNoWeaponModifierEffects": "2,576 of 6,059 (mostly SCP/SCA optics, which only unlock visual ATT assets)",
+   "namesOfferedBy3PlusWeapons": 216
+  },
+  "signature": "Sorted set of (selector basename, effect asset basename, effect class, effect scalar operands) reached from the attachment's progression(s) through the weapon's ability branches, WB modifier lists and GS bindings. Normalisation: Attachment_<Name>_<SLOT>_<Att> to <SLOT>_<Att>; case, '_' and '-' folded so spelling variants merge.",
+  "uncapturedModifierAssets": "WB modifier assets in the game catalog but not in this raw capture (effects behind them cannot be read; selectors bound only by them are coverage gaps, not findings): _RightRail/Light/WPM_RGT_Flashlight02_W15 (62 weapon WBs), _Attachments/Offset/RedDot/WM_SCA_OffsetRedDot (60), _Attachments/Canted/RedDot/WPM_SCP_CantedRedDot (55), _Barrel/WPM_BRL_Extended_W15 (55), _Attachments/Canted/RedDot/WPM_SCP_CantedRedDot_LongEyeRelief (4), _Ammo/_Shotgun/Buckshot/WPM_AMO_Buckshot_W10 (4), _Magazine/ExtendedMagazine/WPM_MAG_200Ext1_556_W55 (2). Selectors left unbound for these gaps: U_WPM_BRL_Extended_W15 (40 weapons), RGT/LFT SF300, MAG Extended1 on MG4K and Minimi, AMO Buckshot on all four shotguns.",
+  "section3a": "Attachments whose progression has no ability branch at all (11): G3A4 (AK4D) BRL_LightBarrel; SCARL (SOR-556 Mk2) MZL_M4QDFlashHider; M2010ESR MZL_Muzzle; M60E6 (M/60) ERG_Improved_Mag_Catch; DP12 (DB-12) BTM_CMR201, BTM_HolosunRMLt, BTM_LMDPEIR1, BTM_Perst1, BTM_SFX300, BTM_SFX400, BTM_X5LG3.",
+  "section3b": "Selectors unlocked by the attachment but bound by no WB modifier and no GS binding on that weapon, not a capture gap (6): HK433 (M433) ERG_MatchTrigger -> U_WPM_ERG_MatchTrigger_W15; M27IAR (DRS-IAR) BTM_ZenitcoRK2 -> U_WPM_BTM_Vertical03_W20; RPK74M (RPK-74M) MAG_Compact1 -> U_WPM_MAG_030Cpt1_RPKM_W05 and MAG_Compact2 -> U_WPM_MAG_030Cpt2_RPKM_W10; RagingHunter (M44) ERG_MatchTrigger -> U_WPM_ERG_MatchTrigger_W15; PP19 (PP-19) MAG_Compact1 -> U_WPM_MAG_025Cpt1_UMP40_W05.",
+  "section3c": "Whole effect missing or extra against 10+ agreeing weapons (a table of the strongest outliers, for example SCP_Iron_Sights extra WM_PlaceHolder_IronSights classes on PP19, MAG_Regular extra WPM_MAG_Std classes on CDX40 (ELR-40), AMO_Frangible extra WME_Penetration on MG5 (M121 A2) and M45A1). Detection is on a coarse key (effect class + asset name with step suffix), so tier changes (P10 vs P20, recoil +2 vs +3) are not counted; known by-design per-weapon rules (recoil step magnitudes by class, bolt-action *_Bolt assets) are not listed as strong.",
+  "section3d": "Weaker substitutions (16 rows): bolt-action rifles use the *_Bolt recoil and bipod assets in place of the generic ones (for example BTM_AtlasV8 on M2010ESR and MRAD (PSR): GRM_BipodDeployed_Bolt_BTM instead of GRM_BipodDeployed_BTM; muzzles on MiniFix, L115A3, MRAD, M2010ESR: GRM_Recoil_MZL_Bolt / GRM_SmoothRecoilBolt), AMO_Subsonic variants on HK417A2 and P90 use WPM_AMO_Subsonic* in place of WME_MuzzleVelocity, RGT_ANPEQ16B on DP12 uses WPM_RGT_LightLaser.",
+  "section3e": "Four rows suppressed as coverage gaps: MAG_Extended1 on MG4K (M123K) and Minimi (L110) (extra GS:GID_ADSTime_MAG; missing WPM_MAG_#Ext#).",
+  "section2": "Per-attachment majority signature and differing weapons, sorted by the number of weapons sharing the name (for example SCP_Iron_Sights/SCP_IronSights: 68 weapons, majority 3, 66 distinct signatures). The full per-row list is in the sibling CSV attachment-wiring-survey-2026-10-17-outliers.csv (1,953 rows: name, weaponsWithName, majorityCount, weapon, label, attachmentFile, type, majority, weaponItem, detail).",
+  "scriptsAndTiming": "extract.py (adapted from stage9/B/derive.py graph(), all slots), compare.py, report.py, common2.py in a scratchpad folder; first (cold) run 37.8 s wall, warm rerun 5.2 s; decoder imported in-process from the site repo's scripts/frosty-ebx-decode.py."
+ },
+ "inference": [
+  "The note is facts only and draws no balance conclusion; it is the starting list that the site's attachment wiring check script (scripts/frosty-attachment-wiring-check.py, commit 5045409) and the later attachment bug entries triage."
+ ],
+ "unresolved": [
+  "Seven WB modifier assets are not in any 2.1.1.0 capture folder (listed above); selectors bound only by them cannot be read, including U_WPM_BRL_Extended_W15 on 40 weapons.",
+  "The coarse key does not count tier-level differences, so same-class operand differences are only in the CSV detail column.",
+  "A signature match shows serialized wiring, not that the effect is active at runtime."
+ ],
+ "siteImpact": "None applied directly. The survey fed attachment bug entries 25 and 26 (deployed-bipod and semi-auto spread bindings missing; commit ec30b0b) and the wiring check script and its triage (commit 5045409); no data value was changed from it.",
+ "evidence": {
+  "note": {
+   "file": "BF6 Weapon Analyzer/reference-data/provenance/attachment-wiring-survey-2026-10-17.md",
+   "sha256": "bb0f05f1472e888bc6032d87603e19efcb073ee9828576df7a4f9ab229dcccd5"
+  },
+  "outliersCsv": {
+   "file": "BF6 Weapon Analyzer/reference-data/provenance/attachment-wiring-survey-2026-10-17-outliers.csv",
+   "sha256": "5c1ceda262d9dbef83f5920f279427ecf4435eb070a5a093eb8ce7ad78eb48e9"
+  },
+  "commands": "From the note (verbatim, working directory a scratchpad folder 'C:/Users/royal/AppData/Local/Temp/claude/C--Users-royal-Documents-BF6-Datamining/d7ba6e97-39eb-4dc9-9d63-37248eaa6487/scratchpad/attachment-wiring-survey', not kept): python -I extract.py > extract-log.txt ; python -I compare.py > compare-log.txt ; python -I report.py. The helper scripts were not kept, so their revisions cannot be hashed.",
+  "siteCommits": {
+   "notes": "ec30b0b 2026-10-17 Bugs 25 and 26: deployed-bipod and semi-auto spread bindings missing (adds this note); the survey script and guide step arrived in 5045409 the same day"
+  }
+ },
+ "record": {
+  "v": 1,
+  "kind": "mapping",
+  "date": "2026-10-17",
+  "build": "2.1.1.0",
+  "binding": "research"
+ },
+ "run": {
+  "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps",
+  "leadFolder": "L4063",
+  "note": "receipt drafted 30 Oct 2026 for an earlier measurement or recheck; the date is the evidence date"
+ }
+}

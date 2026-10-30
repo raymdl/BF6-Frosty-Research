@@ -34,6 +34,7 @@ BUILDS = {  # build id -> Head and descriptor; the receipts' `build` shapes all 
     '1.4.3.0-hotfix': {'head': '4892087', 'descriptorSha256': DESC_HOTFIX, 'label': '1.4.3.1 hotfix (EA label)'},
     '1.4.3.5': {'head': '4909002', 'descriptorSha256': '4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1', 'label': '1.4.3.5 (operator label)'},
     '1.4.2.5': {'head': None, 'descriptorSha256': None, 'label': '1.4.2.5 research baseline'},
+    '2.1.1.0': {'head': '5382784', 'descriptorSha256': 'c477622c1074a9a4ea612cf9c60e26f666129721c733174192c121c808873ff6', 'label': '2.1.1.0 (Season 5; hotfix clients of 15 and 22 October share its layouts)'},
     'site-only': {'head': None, 'descriptorSha256': None, 'label': 'site data or captures; no game build evidence'},
     'mixed': {'head': None, 'descriptorSha256': None, 'label': 'several builds compared in one record'},
 }
@@ -567,7 +568,7 @@ def check_site_rows(ctx, name, sr):
     if gone: ctx.warn('stale-pointer', f'{name}: {gone} of {len(rows)} siteRows pointers no longer resolve (first: {first})')
     if moved: ctx.warn('value-changed', f'{name}: {moved} of {len(rows)} siteRows values differ from the current site')
 
-CAPTURE_BUILD_DIRS = {'1.4.3.0-release': '1.4.3.0', '1.4.3.0-hotfix': '1.4.3.0', '1.4.3.5': '1.4.3.5', '1.4.2.5': '1.4.2.5'}  # record build -> Datamining builds/ folder; 'mixed' and 'site-only' have no single capture
+CAPTURE_BUILD_DIRS = {'1.4.3.0-release': '1.4.3.0', '1.4.3.0-hotfix': '1.4.3.0', '1.4.3.5': '1.4.3.5', '1.4.2.5': '1.4.2.5', '2.1.1.0': '2.1.1.0'}  # record build -> Datamining builds/ folder; 'mixed' and 'site-only' have no single capture
 
 def external_checks(ctx, recs):
     if not ctx.dm.exists(): ctx.warn('external', f'{ctx.dm} not found; skipped'); return

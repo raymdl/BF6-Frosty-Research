@@ -1,0 +1,428 @@
+{
+ "lead": "L20",
+ "status": "finding",
+ "build": {
+  "current": "site-only (operator in-game recordings, client 2.1.1.0 hotfix of 22 October 2026)",
+  "note": "In-game measurement. Related lead L20 (shotgun pellet directions, exhausted from source) is not re-opened or re-statused here; the note supplies the controlled impact result the research repo's WEAPONS.md cites. No raw hashes are cited."
+ },
+ "question": "What do the pellets of one shotgun shell do on a flat wall at 20 m: how wide is the pattern per weapon and load, where does the shell land relative to the aim (ADS, hipfire, rapid strings), and is either draw random?",
+ "sourceFacts": {
+  "setup": "Operator recordings reference-data/Recordings/10222026/Shotguns/ (local only, not tracked in the note; the folder holds the clips on this machine). Firing Range, flat target wall 20 m from the firing position, 2560x1440, 103 deg horizontal field of view in hip view, Mini Flex 1.00x for every ADS set. Each set is one video at 120 fps plus two screenshots (_1 from the firing position in hip view after the shells, _2 a closer view used only to count pellets). The default #01 Buck (16 pellets) is the loadout bar's Buckshot; KS-18K and DB-12 sets were recorded as 00Buck and renamed 01Buck (their bars read Buckshot, 13 to 17 decals per shell); the M87A1 00Buck set is the newer 8-pellet #00 Buck.",
+  "method": [
+   "Screenshot _1 matches the video's final hip-view frame (mean absolute difference 12.8 of 255 against the M87A1 ADS #01 Buck video); pixels convert to degrees by deg = atan(px / F), F = 1280 / tan(51.5 deg) = 1017.4 px.",
+   "Decals: inside the dark wall panel (x 1065-1520, y 470-680) a pixel is a decal when more than 14 levels brighter than an 8 px Gaussian background; connected components of 1 to 120 px are blobs; blobs within 22 px form one shell's pattern; groups along the panel edge are dropped.",
+   "Per shell: centre = mean of blobs, maxR = largest blob distance from the centre, rms = root-mean-square distance. Blob counts are near, not equal to, the pellet count (split and merged decals).",
+   "Aim direction per shell: shot frames from the ammo counter crop; two 120x120 templates (panel top-left and top-right corners) matched two frames before the shot (search window +-300 px); when the corners disagree by more than 20 px the top-left match is used.",
+   "Rapid strings: each decal assigned to the nearest aim point within 2.2 times the weapon's dispersion angle; shells with aim points closer than about a degree exchange pellets and are flagged.",
+   "ADS reticle brackets 37.5 px apart (left 1260.7, right 1298.1, dot 1279.8), half-gap about 1.0 deg (the ADS view is about 1.06 times the hip magnification); hip reticle ring median radius 41.4 px = 2.33 deg."
+  ],
+  "adsSlowFire": {
+   "M87A1 (Frosty firing dispersion 1.0 deg)": {
+    "#01 Buck (16)": {
+     "shells": 7,
+     "maxR deg": [
+      1.01,
+      1.06,
+      1.1,
+      0.91,
+      0.85,
+      0.9,
+      1.0
+     ],
+     "rms deg": [
+      0.63,
+      0.62,
+      0.62,
+      0.61,
+      0.56,
+      0.6,
+      0.65
+     ],
+     "blobs": [
+      17,
+      16,
+      15,
+      14,
+      14,
+      14,
+      13
+     ]
+    },
+    "#00 Buck (8)": {
+     "shells": 7,
+     "maxR deg": [
+      0.88,
+      0.42,
+      0.87,
+      0.8,
+      0.63,
+      0.99,
+      1.01
+     ],
+     "rms deg": [
+      0.58,
+      0.31,
+      0.58,
+      0.44,
+      0.34,
+      0.65,
+      0.64
+     ],
+     "blobs": [
+      8,
+      7,
+      7,
+      7,
+      7,
+      6,
+      5
+     ]
+    },
+    "Flechette (16)": {
+     "shells": 7,
+     "maxR deg": [
+      1.05,
+      0.97,
+      0.89,
+      0.93,
+      0.98,
+      0.99,
+      1.03
+     ],
+     "rms deg": [
+      0.61,
+      0.55,
+      0.49,
+      0.64,
+      0.67,
+      0.62,
+      0.62
+     ],
+     "blobs": [
+      17,
+      17,
+      16,
+      16,
+      14,
+      14
+     ]
+    },
+    "Slugs (1)": "seven single impacts (decal 0.2 to 0.4 deg across)"
+   },
+   "KS-18K (0.8 deg), #01 Buck": {
+    "shells": 9,
+    "maxR deg": [
+     0.82,
+     0.78,
+     0.8,
+     0.94,
+     0.78,
+     0.81,
+     0.66,
+     0.95,
+     0.75
+    ],
+    "median maxR": 0.8
+   },
+   "DB-12 (1.2 deg), #01 Buck": {
+    "shells": 16,
+    "maxR deg": [
+     1.17,
+     1.18,
+     1.17,
+     1.08,
+     1.23,
+     1.13,
+     1.14,
+     1.01,
+     1.2,
+     1.05,
+     1.03,
+     1.29,
+     1.01,
+     1.2,
+     1.15,
+     1.16
+    ],
+    "median maxR": 1.17
+   },
+   "shapeNote": "The seven #01 Buck patterns differ in shape, so the pattern is random, not fixed. rms/maxR is about 0.61 measured against about 0.73 for 16 points uniform over a disc, which is what a uniform random radius with a random angle gives (centre-weighted density); merged decals near the centre bias this a little, so it is likely rather than proven."
+  },
+  "hipfireStandingSlowFireM87A1": {
+   "maxR deg": {
+    "#01 Buck": [
+     1.07,
+     1.02,
+     0.98,
+     0.98,
+     0.83,
+     0.82,
+     0.82
+    ],
+    "#00 Buck": [
+     0.9,
+     1.01,
+     1.05,
+     0.94,
+     1.06,
+     1.08,
+     1.11
+    ],
+    "Flechette": [
+     0.96,
+     0.99,
+     0.84,
+     0.86,
+     0.85,
+     1.02,
+     0.99
+    ]
+   },
+   "radialCentreOffsetDeg": {
+    "#01 Buck": [
+     0.76,
+     1.26,
+     0.19,
+     1.76,
+     0.12,
+     1.28,
+     0.38
+    ],
+    "#00 Buck": [
+     1.19,
+     0.8,
+     1.59,
+     0.29,
+     0.5,
+     1.14,
+     0.8
+    ],
+    "Flechette": [
+     2.07,
+     1.22,
+     1.55,
+     0.92,
+     1.33,
+     1.34,
+     1.56,
+     0.93
+    ],
+    "Slugs": [
+     1.17,
+     2.01,
+     1.07,
+     2.3
+    ]
+   },
+   "summary": "All 22 pellet shells and the four measured slugs landed within the 2.432 deg standing hip spread, and the hip reticle ring measures 2.33 deg. The mean radial offset of about 1.0 deg is low for a uniform disc of 2.43 deg (expected 1.6 deg) and fits a centre-weighted draw (expected 1.2 deg). The Flechette list has eight entries because one ammo-counter event was a false detection. Three bright slug impacts were not detected as blobs but sit 1 to 2 deg from their aim cross on the overlay."
+  },
+  "adsRapidStrings": {
+   "KS-18K": [
+    {
+     "string": 1,
+     "gapsMs": [
+      200,
+      200
+     ],
+     "maxR": [
+      0.79,
+      0.7,
+      "0.98*"
+     ],
+     "aimClimbDeg": [
+      -1.63,
+      -0.96
+     ]
+    },
+    {
+     "string": 2,
+     "gapsMs": [
+      200,
+      417
+     ],
+     "maxR": [
+      "1.00*",
+      0.81,
+      0.81
+     ],
+     "aimClimbDeg": [
+      -1.6,
+      -1.55
+     ]
+    }
+   ],
+   "DB-12": [
+    {
+     "string": 1,
+     "gapsMs": [
+      167,
+      633
+     ],
+     "maxR": [
+      1.12,
+      1.04,
+      "1.54*"
+     ],
+     "aimClimbDeg": [
+      -5.61,
+      3.09
+     ]
+    },
+    {
+     "string": 2,
+     "gapsMs": [
+      167,
+      633,
+      167
+     ],
+     "maxR": [
+      1.24,
+      1.06,
+      0.93,
+      "1.54*"
+     ],
+     "aimClimbDeg": [
+      -2.9,
+      -0.2,
+      -1.77
+     ]
+    },
+    {
+     "string": 3,
+     "gapsMs": [
+      167,
+      633,
+      167
+     ],
+     "maxR": [
+      1.21,
+      1.05,
+      1.21,
+      1.2
+     ],
+     "aimClimbDeg": [
+      -2.53,
+      0.23,
+      -2.64
+     ]
+    }
+   ],
+   "note": "* the shell's decal set includes a neighbour's pellets (19 to 30 blobs for a 16-pellet shell, aim points under about a degree apart). Clean shells stay at the slow-fire radius; the pattern centre follows the recoil-moved aim to within 0.6 deg."
+  },
+  "notMeasured": "The M1014 (stored 1.0 deg, same as the M87A1), hip-fire patterns on the other three shotguns, moving spread."
+ },
+ "inference": [
+  "Each shell's pellets scatter inside a cone whose radius is the weapon's blueprint firing-dispersion angle (shotgunDispersion in data/weapon_attributes.json: KS-18K 0.8, M87A1 1.0, DB-12 1.2 deg); #01 Buck, #00 Buck and Flechette share it.",
+  "The shell's own direction is the aim plus a draw inside the current spread cone (ADS 0.05 deg, hip standing 2.432 deg for the M87A1), the same cone the reticle draws; spread does not widen the pellet pattern.",
+  "Both draws look random with centre-weighted density (uniform radius, uniform angle), the sampler the site already uses for spread; rapid ADS strings do not widen the pattern, which matches the 0.001 deg ADS per-shot spread increase in the source."
+ ],
+ "unresolved": [
+  "Source has no stored pellet-direction distribution (L20); the random-sampler reading rests on the wall decals, with merged decals biasing rms/maxR a little.",
+  "M1014, hip patterns on KS-18K and DB-12, and moving spread were not measured.",
+  "Blob counts are not exact pellet counts."
+ ],
+ "siteImpact": "Site commit c55f37d (22 Oct 2026, which also adds the note): pellets scatter inside the dispersion cone, scored per pellet (sim/core.js samplePellets, sim/live-fire.js, sim/target.js; shotgunDispersion joined onto the weapon as pelletDispersion). The pointers below are the stored dispersion values the measurements support; the commit did not change them.",
+ "evidence": {
+  "note": {
+   "file": "BF6 Weapon Analyzer/reference-data/provenance/shotgun-pattern-measurement-2026-10-22.md",
+   "sha256": "0e867a18a772347a10e3d1c41499320bd4a9ab406f59296855221280995d6ff2"
+  },
+  "recordingFolder": "reference-data/Recordings/10222026/Shotguns/ (mp4 clips hashed below; the _1 and _2 screenshots sit beside them)",
+  "clips": [
+   {
+    "file": "DB12_ADS_01Buck.mp4",
+    "bytes": 50392266,
+    "sha256": "7059814a86e53d10e578643d5022732acde62f27c71219ea6085673955b29d4c"
+   },
+   {
+    "file": "DB12_ADS_01Buck_4RapidShots.mp4",
+    "bytes": 18085740,
+    "sha256": "4a3dfb7c03a1659370f97977c38ea9544c2cb6ca0e005b7d7928ece5bea79d3f"
+   },
+   {
+    "file": "KS-18K_ADS_01Buck.mp4",
+    "bytes": 31247584,
+    "sha256": "434eb4c05351c478f945ebb52b981f6f26d64fffd0214aa5b537aa46657d14a4"
+   },
+   {
+    "file": "KS-18K_ADS_01Buck_4RapidShots.mp4",
+    "bytes": 11760865,
+    "sha256": "957b02e59b7cc635d2d8db442e8287794dc0f2582ee4a883435ea7dcf4ebfdd2"
+   },
+   {
+    "file": "M87A1_ADS_00Buck.mp4",
+    "bytes": 24328136,
+    "sha256": "20ae1b00de893d374ce03b6b92c8af761c2da6813a0a43eef92595b03873c75d"
+   },
+   {
+    "file": "M87A1_ADS_01Buck.mp4",
+    "bytes": 24802707,
+    "sha256": "4044e642fe1d2337849fe6eeabcc174d3c608f24bf3b518ba084052f6fb886f2"
+   },
+   {
+    "file": "M87A1_ADS_Flechette.mp4",
+    "bytes": 23024238,
+    "sha256": "bfadf96cfad5e5ad7fde15cb61403d7dc3a194cb3e9800dfdf63bc6f07e0b772"
+   },
+   {
+    "file": "M87A1_ADS_Slugs.mp4",
+    "bytes": 18786672,
+    "sha256": "b587653284188af45a7f79c67e563cac55c57771e0b5ef0b1c71e5561b16d40d"
+   },
+   {
+    "file": "M87A1_Hipfire_00Buck.mp4",
+    "bytes": 25969392,
+    "sha256": "24d21ebe7e0e183ea87f00a59ea4a3e1bde1964910808f6de174fd47e88fac52"
+   },
+   {
+    "file": "M87A1_Hipfire_01Buck.mp4",
+    "bytes": 27157217,
+    "sha256": "a50163ae28a5f06f2662823c5a9785e3eda4d1594c2627da68b94b8210481039"
+   },
+   {
+    "file": "M87A1_Hipfire_Flechette.mp4",
+    "bytes": 23762617,
+    "sha256": "1f8d9167570bbfe62f5c5f45fc013c035a22f6dcf29840217635f21b9400c7bb"
+   },
+   {
+    "file": "M87A1_Hipfire_Slugs.mp4",
+    "bytes": 29135163,
+    "sha256": "57e4c08494d394a892d33c727dfbd611af10356537a851a8378db2e112802c9c"
+   }
+  ],
+  "scriptsNamed": "pattern2.py, hip.py, hip2.py, rapid3.py in a session scratchpad, not kept (the note says so), so the numbers cannot be recomputed from kept code.",
+  "siteCommits": {
+   "note and model": "c55f37d 2026-10-22 Shotgun pellet model: pellets scatter inside the dispersion cone and score per pellet"
+  },
+  "commands": "Command history unavailable: the scripts were not kept and the note records no command lines."
+ },
+ "record": {
+  "v": 1,
+  "kind": "capture",
+  "date": "2026-10-22",
+  "build": "site-only",
+  "binding": "research",
+  "site": [
+   {
+    "pointer": "data/weapon_attributes.json:/shotgunDispersion/ks18k",
+    "value": 0.8,
+    "relation": "supports"
+   },
+   {
+    "pointer": "data/weapon_attributes.json:/shotgunDispersion/m87a1",
+    "value": 1,
+    "relation": "supports"
+   },
+   {
+    "pointer": "data/weapon_attributes.json:/shotgunDispersion/db12",
+    "value": 1.2,
+    "relation": "supports"
+   }
+  ]
+ },
+ "run": {
+  "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps",
+  "leadFolder": "L4063",
+  "note": "receipt drafted 30 Oct 2026 for an earlier measurement or recheck; the date is the evidence date"
+ }
+}

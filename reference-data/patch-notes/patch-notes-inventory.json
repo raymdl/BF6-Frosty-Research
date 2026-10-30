@@ -991,16 +991,452 @@
       "releaseDate": "2026-09-30",
       "releaseDateNote": "Publication September 28 conflicts with tomorrow plus Wednesday September 30; explicit release date retained.",
       "mechanicsRead": true
-    }
-  ],
-  "upcoming": [
+    },
     {
-      "name": "Season 5 (Siege of Vegas)",
-      "announced": "2026-09-30",
-      "releaseDate": null,
-      "notes": "Full weapon-by-weapon breakdown promised in the Season 5 update notes."
+      "version": "2.1.1.0",
+      "articleDate": null,
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-2-1-1-0",
+      "season": "Season 5",
+      "localBuild": {
+        "datamining": "builds/2.1.1.0",
+        "state": "open",
+        "head": 5382784,
+        "clients": "2.1.1.0 Head 5382784 (13 Oct 2026, descriptors SHA-256 c477622c1074a9a4ea612cf9c60e26f666129721c733174192c121c808873ff6); hotfix clients of 15 and 22 Oct share the type layouts (builds/2.1.1.0/reports/client-new-check-2026-10-15 and -2026-10-22)"
+      },
+      "gadgetVehicleChanges": {
+        "summary": "Tank and IFV rear and top hit angles, passive regeneration, coaxial and RWS .50, helicopter rocket damage, Mobile AA ammunition and GDF-009, LTLM II, C4, SLM-93A, PTKM-1R and M15 mine adjusted (summary of the checklist rows A1-D6, not of the page).",
+        "itemsTouched": [
+          "MBT and IFV angle damage (rear 86-94 deg, top)",
+          "Vehicle passive regeneration (MBT, IFV)",
+          "Coaxial .50 and RWS .50",
+          "Heavy Rotary MG (GAU-19)",
+          "Hydra 70mm rockets and light rocket hits on helicopters",
+          "Scout rocket pod resupply",
+          "AAHV",
+          "AAGP",
+          "AAAP",
+          "GDF-009",
+          "LTLM II (PLD)",
+          "Demolition Charges (C4)",
+          "SLM-93A",
+          "PTKM-1R",
+          "M15 mine"
+        ]
+      },
+      "weaponAttachmentChanges": {
+        "summary": "SVDM recoil direction and decrease time exponent, M39 EMR exponent, gamepad recoil compensation, SG 553R Match Trigger, SU-230 LPVO camera recoil and string fixes (summary of the checklist rows E1-E6, not of the page).",
+        "itemsTouched": [
+          "SVDM",
+          "M39 EMR",
+          "gamepad recoil compensation",
+          "SG 553R Match Trigger",
+          "SU-230 LPVO",
+          "M433",
+          "GRT-BC",
+          "M123K",
+          "M250",
+          "M121A2",
+          "M417A2",
+          "VSSM 10 RND Mag description"
+        ]
+      },
+      "releaseDate": "2026-10-13",
+      "releaseDateNote": "From the checklist Identity table: download Tuesday 13 October 2026 08:00 UTC, Season 5 content 12:00 UTC. The EA article publication date is not in the checklist (articleDate null); re-read the page to fill it.",
+      "mechanicsRead": true,
+      "linesSource": "lines from the checklist (docs/updates/2.1.1.0-checklist.md, rows A1-E6, 43 rows), not the page; each item is the checklist's own wording of a patch-note line, and rows with source V or D (A3, A4, B6, B7) are not patch-note lines. The 47 unannounced rows U1-U47 are not patch-note lines and are excluded.",
+      "statusRule": "status is derived from the checklist Result column's leading phrase: mapped = confirmed or matched to a stored value; partial = a stored change was found but is a candidate, differs from the stated figure, or covers only part of the line; unmapped = not found, unchanged, or not settled. This is an inference from the checklist, not an inventory field of other entries.",
+      "lines": [
+        {
+          "id": "A1",
+          "section": "Vehicle armour and regeneration",
+          "item": "Tank rear hits within 86-94° deal 2.5x",
+          "source": "N, V",
+          "status": "mapped",
+          "resultLead": "Confirmed",
+          "checklistLine": 84
+        },
+        {
+          "id": "A2",
+          "section": "Vehicle armour and regeneration",
+          "item": "Turret and hull hits above 50° deal side-hit damage",
+          "source": "N, V",
+          "status": "partial",
+          "resultLead": "Confirmed for Top; the rest unchanged",
+          "checklistLine": 85
+        },
+        {
+          "id": "A3",
+          "section": "Vehicle armour and regeneration",
+          "item": "Which curves the IFVs link",
+          "source": "V",
+          "status": "unmapped",
+          "resultLead": "Unchanged, still not resolved",
+          "checklistLine": 86
+        },
+        {
+          "id": "A4",
+          "section": "Vehicle armour and regeneration",
+          "item": "ATP rear damage (not in the patch notes)",
+          "source": "V",
+          "status": "partial",
+          "resultLead": "Changed; value not read",
+          "checklistLine": 87
+        },
+        {
+          "id": "A5",
+          "section": "Vehicle armour and regeneration",
+          "item": "Firing MBT or IFV weapons resets the 12 s passive regeneration delay",
+          "source": "N, V",
+          "status": "mapped",
+          "resultLead": "Confirmed in the registry",
+          "checklistLine": 88
+        },
+        {
+          "id": "A6",
+          "section": "Vehicle armour and regeneration",
+          "item": "Regeneration critical to full: 8 s for MBT and IFV",
+          "source": "N",
+          "status": "mapped",
+          "resultLead": "Matches the calc, in the registry only",
+          "checklistLine": 89
+        },
+        {
+          "id": "B1",
+          "section": "Vehicle weapons",
+          "item": "Coax .50 and RWS .50 maximum dispersion",
+          "source": "N",
+          "status": "partial",
+          "resultLead": "Differs from EA",
+          "checklistLine": 101
+        },
+        {
+          "id": "B2",
+          "section": "Vehicle weapons",
+          "item": "RWS .50 rate of fire, drag, lifetime",
+          "source": "N",
+          "status": "partial",
+          "resultLead": "Rate confirmed in the registry; drag and lifetime differ from EA",
+          "checklistLine": 102
+        },
+        {
+          "id": "B3",
+          "section": "Vehicle weapons",
+          "item": "RWS .50 \"increased penetration damage\"",
+          "source": "N",
+          "status": "mapped",
+          "resultLead": "Changed in the registry",
+          "checklistLine": 103
+        },
+        {
+          "id": "B4",
+          "section": "Vehicle weapons",
+          "item": "Heavy Rotary MG through helicopter glass: 0.8x → 0.3x to soldiers",
+          "source": "N",
+          "status": "unmapped",
+          "resultLead": "Not found",
+          "checklistLine": 104
+        },
+        {
+          "id": "B5",
+          "section": "Vehicle weapons",
+          "item": "Light rocket hits against helicopters",
+          "source": "N",
+          "status": "unmapped",
+          "resultLead": "Not settled",
+          "checklistLine": 105
+        },
+        {
+          "id": "B6",
+          "section": "Vehicle weapons",
+          "item": "70mm FFAR splash damage down 30%",
+          "source": "D",
+          "status": "partial",
+          "resultLead": "Differs from the calc",
+          "checklistLine": 106
+        },
+        {
+          "id": "B7",
+          "section": "Vehicle weapons",
+          "item": "Scout rocket pod resupply",
+          "source": "D",
+          "status": "mapped",
+          "resultLead": "Confirmed",
+          "checklistLine": 107
+        },
+        {
+          "id": "C1",
+          "section": "Mobile Anti-Air and GDF-009",
+          "item": "All Mobile AA ammunition: projectile drag",
+          "source": "N",
+          "status": "mapped",
+          "resultLead": "Confirmed in the registry",
+          "checklistLine": 121
+        },
+        {
+          "id": "C2",
+          "section": "Mobile Anti-Air and GDF-009",
+          "item": "Mobile AA base turret rotation speed +50%",
+          "source": "N",
+          "status": "unmapped",
+          "resultLead": "Not found",
+          "checklistLine": 122
+        },
+        {
+          "id": "C3",
+          "section": "Mobile Anti-Air and GDF-009",
+          "item": "Mobile AA first-person zoom magnification",
+          "source": "N",
+          "status": "unmapped",
+          "resultLead": "Not found",
+          "checklistLine": 123
+        },
+        {
+          "id": "C4",
+          "section": "Mobile Anti-Air and GDF-009",
+          "item": "AAHV dispersion",
+          "source": "N",
+          "status": "mapped",
+          "resultLead": "Confirmed",
+          "checklistLine": 124
+        },
+        {
+          "id": "C5",
+          "section": "Mobile Anti-Air and GDF-009",
+          "item": "AAHV heat per shot",
+          "source": "N",
+          "status": "mapped",
+          "resultLead": "Confirmed in the registry",
+          "checklistLine": 125
+        },
+        {
+          "id": "C6",
+          "section": "Mobile Anti-Air and GDF-009",
+          "item": "AAHV heat recovery, overheat penalty",
+          "source": "N",
+          "status": "mapped",
+          "resultLead": "Confirmed",
+          "checklistLine": 126
+        },
+        {
+          "id": "C7",
+          "section": "Mobile Anti-Air and GDF-009",
+          "item": "AAHV velocity, lifetime",
+          "source": "N",
+          "status": "mapped",
+          "resultLead": "Confirmed in the registry",
+          "checklistLine": 127
+        },
+        {
+          "id": "C8",
+          "section": "Mobile Anti-Air and GDF-009",
+          "item": "AAHV convergence distance",
+          "source": "N",
+          "status": "unmapped",
+          "resultLead": "Not found",
+          "checklistLine": 128
+        },
+        {
+          "id": "C9",
+          "section": "Mobile Anti-Air and GDF-009",
+          "item": "AAGP no longer fires in bursts",
+          "source": "N",
+          "status": "mapped",
+          "resultLead": "Confirmed",
+          "checklistLine": 129
+        },
+        {
+          "id": "C10",
+          "section": "Mobile Anti-Air and GDF-009",
+          "item": "AAGP dispersion, velocity, lifetime",
+          "source": "N",
+          "status": "mapped",
+          "resultLead": "Confirmed",
+          "checklistLine": 130
+        },
+        {
+          "id": "C11",
+          "section": "Mobile Anti-Air and GDF-009",
+          "item": "AAGP convergence",
+          "source": "N",
+          "status": "unmapped",
+          "resultLead": "Not found",
+          "checklistLine": 131
+        },
+        {
+          "id": "C12",
+          "section": "Mobile Anti-Air and GDF-009",
+          "item": "AAAP dispersion, velocity, lifetime",
+          "source": "N",
+          "status": "mapped",
+          "resultLead": "Confirmed",
+          "checklistLine": 132
+        },
+        {
+          "id": "C13",
+          "section": "Mobile Anti-Air and GDF-009",
+          "item": "AAAP rate, magazine, reload",
+          "source": "N",
+          "status": "mapped",
+          "resultLead": "Confirmed",
+          "checklistLine": 133
+        },
+        {
+          "id": "C14",
+          "section": "Mobile Anti-Air and GDF-009",
+          "item": "AAAP convergence",
+          "source": "N",
+          "status": "unmapped",
+          "resultLead": "Not found",
+          "checklistLine": 134
+        },
+        {
+          "id": "C15",
+          "section": "Mobile Anti-Air and GDF-009",
+          "item": "GDF-009 dispersion",
+          "source": "N",
+          "status": "mapped",
+          "resultLead": "Confirmed",
+          "checklistLine": 135
+        },
+        {
+          "id": "C16",
+          "section": "Mobile Anti-Air and GDF-009",
+          "item": "GDF-009 heat per shot, recovery, penalty",
+          "source": "N",
+          "status": "mapped",
+          "resultLead": "Confirmed",
+          "checklistLine": 136
+        },
+        {
+          "id": "C17",
+          "section": "Mobile Anti-Air and GDF-009",
+          "item": "GDF-009 rate, lifetime",
+          "source": "N",
+          "status": "mapped",
+          "resultLead": "Confirmed in the registry",
+          "checklistLine": 137
+        },
+        {
+          "id": "C18",
+          "section": "Mobile Anti-Air and GDF-009",
+          "item": "Damage by target class, all four ammunition types",
+          "source": "N",
+          "status": "partial",
+          "resultLead": "Infantry line confirmed; other six classes not read",
+          "checklistLine": 138
+        },
+        {
+          "id": "D1",
+          "section": "Gadgets",
+          "item": "LTLM II designation duration",
+          "source": "N",
+          "status": "mapped",
+          "resultLead": "Confirmed",
+          "checklistLine": 159
+        },
+        {
+          "id": "D2",
+          "section": "Gadgets",
+          "item": "Demolition Charges \"now deal the intended blast damage\"",
+          "source": "N",
+          "status": "mapped",
+          "resultLead": "Changed, in the blast curve",
+          "checklistLine": 160
+        },
+        {
+          "id": "D3",
+          "section": "Gadgets",
+          "item": "SLM-93A cannot fire without aiming",
+          "source": "N",
+          "status": "partial",
+          "resultLead": "Candidate",
+          "checklistLine": 161
+        },
+        {
+          "id": "D4",
+          "section": "Gadgets",
+          "item": "PTKM-1R arms after the intended 3 s",
+          "source": "N",
+          "status": "unmapped",
+          "resultLead": "Unchanged",
+          "checklistLine": 162
+        },
+        {
+          "id": "D5",
+          "section": "Gadgets",
+          "item": "PTKM-1R ignores neutral vehicles; targets transports, with dispersion",
+          "source": "N",
+          "status": "partial",
+          "resultLead": "Changed, not readable as values",
+          "checklistLine": 163
+        },
+        {
+          "id": "D6",
+          "section": "Gadgets",
+          "item": "M15 mine triggers on transports only by wheel contact",
+          "source": "N",
+          "status": "partial",
+          "resultLead": "Candidate",
+          "checklistLine": 164
+        },
+        {
+          "id": "E1",
+          "section": "Weapons",
+          "item": "SVDM recoil direction",
+          "source": "N",
+          "status": "mapped",
+          "resultLead": "Confirmed",
+          "checklistLine": 170
+        },
+        {
+          "id": "E2",
+          "section": "Weapons",
+          "item": "SVDM and M39 EMR recoil decrease time exponent",
+          "source": "N",
+          "status": "partial",
+          "resultLead": "SVDM confirmed; M39 EMR differs",
+          "checklistLine": 171
+        },
+        {
+          "id": "E3",
+          "section": "Weapons",
+          "item": "Gamepad recoil compensation 11% → 5%",
+          "source": "N",
+          "status": "mapped",
+          "resultLead": "Changed",
+          "checklistLine": 172
+        },
+        {
+          "id": "E4",
+          "section": "Weapons",
+          "item": "SG 553R Match Trigger works in semi-automatic",
+          "source": "N",
+          "status": "unmapped",
+          "resultLead": "No Match Trigger change found in the SG 553R files",
+          "checklistLine": 173
+        },
+        {
+          "id": "E5",
+          "section": "Weapons",
+          "item": "SU-230 LPVO no longer reduces visual recoil on M433, GRT-BC, M123K, M250, M121A2, M417A2",
+          "source": "N",
+          "status": "unmapped",
+          "resultLead": "Unchanged",
+          "checklistLine": 174
+        },
+        {
+          "id": "E6",
+          "section": "Weapons",
+          "item": "Text only: VSSM \"10 RND Mag\" description, Patrol Boat 30mm Cannon description, IR Smoke Shell name, supply pouch description, Adjustable Magnification attachment text for 6.00x-10.00x optics, F-74A Seacat \"Sweep Stance\" HUD abbreviation, \"Infantry Sprint\" option text, \"ADS Dispersion Crosshair Opacity\" typo",
+          "source": "N",
+          "status": "partial",
+          "resultLead": "Partly found",
+          "checklistLine": 175
+        }
+      ]
     }
   ],
+  "upcoming": [],
   "articles": [
     {
       "date": "2025-04-18",

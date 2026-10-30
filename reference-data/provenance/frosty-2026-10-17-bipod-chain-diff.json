@@ -1,0 +1,119 @@
+{
+ "lead": "none",
+ "status": "finding",
+ "build": {
+  "current": "2.1.1.0 (raw capture builds/2.1.1.0/reports/client-new-check-2026-10-15/collection/raw, the 15 October hotfix capture; descriptors builds/2.1.1.0/capture/toolchain/SharedTypeDescriptors.ebx)",
+  "note": "Source survey read by script from saved raw EBX; no capture. The note cites no per-asset hashes; the asset hashes below were computed by this draft from the files in that raw root. Facts only, no balance interpretation."
+ },
+ "question": "Which structural differences in the serialized bipod chains (attachment, U_PRG, WB part lists, GS bindings) separate the Mk 24 (MRGGA) and EF88 from the VCR-2 (VHS2), M277 (XM7) and M121 A2 (MG5)?",
+ "sourceFacts": {
+  "headline": [
+   "Bipod selector a5578cf4-546c-44ef-9a79-b84021406c17 (the GUID of shared U_WPM_BTM_Bipod01_W10) is bound in every GS under GRM_BipodDeployed_BTM_P50 (list Field_2296f84f).",
+   "In VHS2, XM7 and MG5 GS the same selector is ALSO bound in two more lists: Field_b53510be -> HipDispersion/GDM_Array_HipDispersion_BTM_P20 (priority 10) and Field_ee32ca16 -> DispersionIncrease/GBM_Increase_ADS_{40|35|30}_BTM_Bipod (priority 10; VHS2 = 40, XM7 = 35, MG5 = 30).",
+   "In MRGGA and EF88 GS the selector appears only under GRM_BipodDeployed_BTM_P50 (priority 6 and 21); their Field_b53510be and Field_ee32ca16 lists contain no a5578cf4 entry.",
+   "GS-wide diff (all bindings): in VHS2+XM7+MG5 and in neither MRGGA nor EF88: GBM_NoIncrease_Semi_P00@ba7bb6a2 (priority 100), HipDispersion/GDM_Array_HipDispersion_BTM_P20@a5578cf4, Recoil/GRM_Recoil_BTM_P20@99615ebe. In MRGGA+EF88 and none of the three: Recoil/GRM_Recoil_BTM_P30@99615ebe. GBM_NoIncrease_ERG_P00@15cff9ff is in MRGGA, EF88, VHS2, XM7 (not MG5); GBM_NoIncrease_Semi_P00 is in VHS2, XM7, MG5 only.",
+   "The WB part WPM_BTM_Bipod01_W10 (effects WME_EnableMountUp, WME_BipodTag) is in all five part lists (idx 13/29/46/59/27); this does not discriminate.",
+   "Attachment_*Bipod* and U_PRG_*Bipod* files are structurally identical across MRGGA, VHS2, XM7, MG5 (only own GUIDs and hashes differ; U_PRG Field_32cf19f5 is true only for MG5). They import no WPM/U_ATT/WM/CMU. EF88 has no Attachment_*Bipod* or U_PRG_*Bipod* file in its folder and its Equipment_EF88 references no bipod U_PRG.",
+   "WPM_BipodActive (selector f6bad488): external in XM7 only (idx 111); MRGGA has an inline part (WB obj[38], list idx 118) with selector f6bad488 and the same four effect classes; VHS2, MG5 and EF88 have neither. Condition object Class_e30e403c with f6bad488 exists in MRGGA, EF88, VHS2, XM7, not MG5.",
+   "WB import-route differences between the groups are unrelated to bipod (for example RailCover W05 in MRGGA+EF88; Magnifier/Flashlight FX in the other three)."
+  ],
+  "scope": "Five weapons: MRGGA (Mk 24), EF88, VHS2 (VCR-2), XM7 (M277), MG5 (M121 A2); steps 1-2 import chains from the bipod attachment through two import levels, steps 3-4 parts, GUID-prefix scan and GS bindings. Decoding uses the site repo's frosty-ebx-decode.py Ebx class loaded in-process via stage9/B/common.py with SharedTypeDescriptors.ebx. Item keys use WM:/ for Common/Hardware/Weapons/_WeaponModifiers/."
+ },
+ "inference": [
+  "Serialized structure only: the Mk 24 and EF88 GS bind the bipod selector under the deployed-recoil modifier alone, while VCR-2, M277 and M121 A2 also bind the hip-dispersion and ADS-increase modifiers; the in-game spread indicator clips of the same day (separate receipt) show the matching difference for mounted against unmounted. The note itself states facts only."
+ ],
+ "unresolved": [
+  "Whether the absent Field_b53510be / Field_ee32ca16 entries mean the deployed spread benefit is not applied at runtime, or is supplied by another route, is not settled by the bindings alone (the in-game clips and the site bug 25 entry address it).",
+  "The raw root of this note is not named in it; the capture folder client-new-check-2026-10-15 is used for the asset hashes here, as in the sibling survey notes of the same day."
+ ],
+ "siteImpact": "Supports site attachment bug entry 25 (the mounted spread benefits are not applied on the Mk 24, EF88, Z84M and VSSM bipods; grip pods lack the ADS benefit), logged with entry 26 in commit ec30b0b. No data value changed from this note.",
+ "evidence": {
+  "note": {
+   "file": "BF6 Weapon Analyzer/reference-data/provenance/bipod-chain-diff-2026-10-17.md",
+   "sha256": "011902bd36b3a8bae1fb497518627bc6cfea546243fa2bb1384b0f1c9307da33"
+  },
+  "commands": "From the note (working directory a scratchpad folder 'bipod-diff', not kept): python -I \"<out>/bipod_diff.py\" (steps 1-2), python -I \"<out>/bipod_diff2.py\" (steps 3-4), python -I \"<out>/bipod_diff3.py\" (WB/Equipment import-route group diffs), python -I \"<out>/bipod_diff4.py\" (builds report.md). The scripts were not kept, so their revisions cannot be hashed.",
+  "siteCommits": {
+   "notes": "ec30b0b 2026-10-17 Bugs 25 and 26: deployed-bipod and semi-auto spread bindings missing (adds this note); the survey script and guide step arrived in 5045409 the same day"
+  }
+ },
+ "record": {
+  "v": 1,
+  "kind": "mapping",
+  "date": "2026-10-17",
+  "build": "2.1.1.0",
+  "binding": "research",
+  "assets": [
+   {
+    "path": "Common/Hardware/Weapons/AssaultRifle/MRGGA/GS_MRGGA",
+    "format": "raw-ebx",
+    "sha256": "560d99099ba1cc363d5d049d616cc6318d7c5a69f509e6dd7883c52b5bdad0da",
+    "question": "Where is bipod selector a5578cf4 bound in the Mk 24 firing data?",
+    "result": "useful",
+    "conclusion": "Bound only under GRM_BipodDeployed_BTM_P50 (priority 6); no entry in Field_b53510be or Field_ee32ca16 (per the note)."
+   },
+   {
+    "path": "Common/Hardware/Weapons/AssaultRifle/EF88/GS_EF88",
+    "format": "raw-ebx",
+    "sha256": "1d3727bde0189bf282b384d139236e06493e7822758b56075c44c62de462c39b",
+    "question": "Where is bipod selector a5578cf4 bound in the EF88 firing data?",
+    "result": "useful",
+    "conclusion": "Bound only under GRM_BipodDeployed_BTM_P50 (priority 21); no entry in Field_b53510be or Field_ee32ca16 (per the note)."
+   },
+   {
+    "path": "Common/Hardware/Weapons/AssaultRifle/VHS2/GS_VHS2",
+    "format": "raw-ebx",
+    "sha256": "f20d6ebbbafafac1816afef39667b142318e4e94f8926a98435ad6ded61deda4",
+    "question": "Where is bipod selector a5578cf4 bound in the VCR-2 firing data?",
+    "result": "useful",
+    "conclusion": "Also bound in Field_b53510be (HipDispersion BTM_P20) and Field_ee32ca16 (GBM_Increase_ADS_40_BTM_Bipod), both priority 10 (per the note)."
+   },
+   {
+    "path": "Common/Hardware/Weapons/Carbine/XM7/GS_XM7",
+    "format": "raw-ebx",
+    "sha256": "cc0180f44b7e421fffac4f9c984c1b012b50851d26c8be14649e4aec838adc5d",
+    "question": "Where is bipod selector a5578cf4 bound in the M277 firing data?",
+    "result": "useful",
+    "conclusion": "Also bound in Field_b53510be and Field_ee32ca16 (GBM_Increase_ADS_35_BTM_Bipod), priority 10 (per the note)."
+   },
+   {
+    "path": "Common/Hardware/Weapons/MG/MG5/GS_MG5",
+    "format": "raw-ebx",
+    "sha256": "8ea6e096969499e8c158b6845d0a301b4474501ece011454efa9988e8a159725",
+    "question": "Where is bipod selector a5578cf4 bound in the M121 A2 firing data?",
+    "result": "useful",
+    "conclusion": "Also bound in Field_b53510be and Field_ee32ca16 (GBM_Increase_ADS_30_BTM_Bipod), priority 10; no GBM_NoIncrease_ERG_P00 (per the note)."
+   }
+  ],
+  "site": [
+   {
+    "pointer": "data/attachments.json:/GAME_BUGS/[ref=25]",
+    "value": {
+     "ref": "25",
+     "slot": "grip",
+     "attachments": [
+      "bipod"
+     ],
+     "weapons": [
+      "mk24",
+      "ef88",
+      "z84m",
+      "vssm"
+     ],
+     "metrics": [
+      "Spread Inc/Shot",
+      "Hipfire Spread"
+     ],
+     "suspected": true,
+     "note": "The mounted spread benefits aren't applied; only the recoil reduction is."
+    },
+    "relation": "supports"
+   }
+  ]
+ },
+ "run": {
+  "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps",
+  "leadFolder": "L4063",
+  "note": "receipt drafted 30 Oct 2026 for an earlier measurement or recheck; the date is the evidence date"
+ }
+}

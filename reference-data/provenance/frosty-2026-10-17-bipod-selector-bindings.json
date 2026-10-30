@@ -1,0 +1,134 @@
+{
+ "lead": "none",
+ "status": "finding",
+ "build": {
+  "current": "2.1.1.0 (raw capture builds/2.1.1.0/reports/client-new-check-2026-10-15/collection/raw, the 15 October hotfix capture; descriptors builds/2.1.1.0/capture/toolchain/SharedTypeDescriptors.ebx)",
+  "note": "Source survey read by script from saved raw EBX; no capture. The note cites no per-asset hashes; the asset hashes below were computed by this draft from the files in that raw root. Facts only, no balance interpretation."
+ },
+ "question": "Across all 69 GS files, which weapons bind bipod selector a5578cf4 and under which modifier lists (none, GRM_BipodDeployed_BTM_P50 only, or the hip-dispersion / ADS-increase routes as well)?",
+ "sourceFacts": {
+  "selector": "a5578cf4-546c-44ef-9a79-b84021406c17 (U_WPM_BTM_Bipod01_W10). Walk: same binding-walk as bipod-diff/bipod_diff2.py (dict with Field_6d011165 + Field_2f0e5b83 $import; list field name and Field_3f680d24 priority); basenames resolved with common.imp(); sites from spread-binding-survey-2026-10-17.csv.",
+  "validation": "Against bipod-diff/gs_all_bindings.json, every binding (all selectors, all routes) of five weapons: MRGGA 131/131 identical, EF88 152/152, VHS2 154/154, XM7 152/152, MG5 151/151.",
+  "counts": {
+   "gsFiles": 69,
+   "weaponsWithAtLeastOneBindingUnderSelector": 58,
+   "totalBindings": 122,
+   "listA_none": 11,
+   "listB_GRM_BipodDeployed_BTM_P50_only": 18,
+   "listC_BTM_Bipod_or_HipDispersion_BTM_P20": 40,
+   "sum": "11 + 18 + 40 = 69 (the note prints A + B + C = 69)"
+  },
+  "listA_none": [
+   "MRGGS",
+   "P90 (USG-90)",
+   "PP19 (PP-19)",
+   "RSAR999 (RSPR)",
+   "FiveSeven (ES 5.7)",
+   "G22 (GGH-22)",
+   "M18 (P18)",
+   "M45A1",
+   "RagingHunter (M44)",
+   "Skorpion (vz. 61)",
+   "TRR8 (M357 Trait)"
+  ],
+  "listB_only_GRM_BipodDeployed_BTM_P50": [
+   "EF88",
+   "MRGGA (Mk 24)",
+   "BREN3 (BROD 3)",
+   "Devgru",
+   "VSSM",
+   "PKM (Z84M)",
+   "APC10 (SCW-10)",
+   "APDW (SL9)",
+   "MP5MLI (PW5A3)",
+   "MP7A2 (PW7A2)",
+   "MPX (SGX)",
+   "ScorpionEvo3 (CZ3A1)",
+   "UMP40 (UMG-40)",
+   "Vector (KV9)",
+   "185KSK (18.5KS-K)",
+   "590A1 (M87A1)",
+   "DP12 (DB-12)",
+   "M1014"
+  ],
+  "listC": "40 weapons bind GDM_Array_HipDispersion_BTM_P20 (Field_b53510be) and, on 24 of them (counted from the note's list C), a GBM_Increase_ADS_{30..50}_BTM_Bipod file (Field_ee32ca16); the bolt-actions (ELR-40, Interdictor, M2010 ESR, PSR, Mini Scout, SV-98) bind GRM_BipodDeployed_Bolt_BTM_P50 and the hip-dispersion route only (priority 1 to 12); the L115 binds GRM_BipodDeployed_BTM_P50 plus hip dispersion; the full per-weapon table (122 bindings with list field and priority) is in the note.",
+  "note": "MRGGS has no binding under a5578cf4 (listed in A). The note's list B contains Devgru, which has no site weapon."
+ },
+ "inference": [
+  "Facts only. Together with the bipod-chain-diff note: the weapons whose GS bind the selector under the deployed-recoil modifier alone (list B) are the ones the site repo's bug entry 25 lists for the missing mounted spread benefits (Mk 24, EF88, Z84M, VSSM; BROD 3 for the grip pods), plus shotguns and SMGs that do not offer a bipod."
+ ],
+ "unresolved": [
+  "The 18 list B weapons include several (SMGs, shotguns, Devgru) with no bipod choice on the site, so list B membership alone does not name a mismatch.",
+  "Runtime activation of any binding is not shown."
+ ],
+ "siteImpact": "Supports site attachment bug entry 25 (commit ec30b0b). No data value changed from this note.",
+ "evidence": {
+  "note": {
+   "file": "BF6 Weapon Analyzer/reference-data/provenance/bipod-selector-bindings-2026-10-17.md",
+   "sha256": "d64889dd09909c7a2deab48c604f79b9098eabf5ffe465e20fb5eda46b451abc"
+  },
+  "siteTable": {
+   "file": "BF6 Weapon Analyzer/reference-data/provenance/spread-binding-survey-2026-10-17.csv",
+   "sha256": "9f33ac876e3a429ef5b27acde75a184ce90b52f1771421b6a9996f468d5392ec"
+  },
+  "commands": "From the note: working directory C:/Users/royal/AppData/Local/Temp/claude/C--Users-royal-Documents-BF6-Datamining/d7ba6e97-39eb-4dc9-9d63-37248eaa6487/scratchpad/bipod-all ; python -I \"C:/Users/royal/AppData/Local/Temp/claude/C--Users-royal-Documents-BF6-Datamining/d7ba6e97-39eb-4dc9-9d63-37248eaa6487/scratchpad/bipod-all/walk_bipod_all.py\". Outputs table_and_lists.md, results.json, report.md in that scratchpad (not kept); walk_bipod_all.py was not kept, so its revision cannot be hashed.",
+  "siteCommits": {
+   "notes": "ec30b0b 2026-10-17 Bugs 25 and 26: deployed-bipod and semi-auto spread bindings missing (adds this note); the survey script and guide step arrived in 5045409 the same day"
+  }
+ },
+ "record": {
+  "v": 1,
+  "kind": "mapping",
+  "date": "2026-10-17",
+  "build": "2.1.1.0",
+  "binding": "research",
+  "assets": [
+   {
+    "path": "Common/Hardware/Weapons/AssaultRifle/MRGGA/GS_MRGGA",
+    "format": "raw-ebx",
+    "sha256": "560d99099ba1cc363d5d049d616cc6318d7c5a69f509e6dd7883c52b5bdad0da",
+    "question": "Is selector a5578cf4 bound under more than GRM_BipodDeployed_BTM_P50?",
+    "result": "useful",
+    "conclusion": "List B: one binding, GRM_BipodDeployed_BTM_P50 (Field_2296f84f, priority 6) (per the note)."
+   },
+   {
+    "path": "Common/Hardware/Weapons/AssaultRifle/VHS2/GS_VHS2",
+    "format": "raw-ebx",
+    "sha256": "f20d6ebbbafafac1816afef39667b142318e4e94f8926a98435ad6ded61deda4",
+    "question": "Which routes does selector a5578cf4 bind in the VCR-2 GS?",
+    "result": "useful",
+    "conclusion": "List C: GDM_Array_HipDispersion_BTM_P20 (Field_b53510be, p10), GBM_Increase_ADS_40_BTM_Bipod (Field_ee32ca16, p10), GRM_BipodDeployed_BTM_P50 (Field_2296f84f, p1) (per the note)."
+   }
+  ],
+  "site": [
+   {
+    "pointer": "data/attachments.json:/GAME_BUGS/[ref=25]",
+    "value": {
+     "ref": "25",
+     "slot": "grip",
+     "attachments": [
+      "bipod"
+     ],
+     "weapons": [
+      "mk24",
+      "ef88",
+      "z84m",
+      "vssm"
+     ],
+     "metrics": [
+      "Spread Inc/Shot",
+      "Hipfire Spread"
+     ],
+     "suspected": true,
+     "note": "The mounted spread benefits aren't applied; only the recoil reduction is."
+    },
+    "relation": "supports"
+   }
+  ]
+ },
+ "run": {
+  "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps",
+  "leadFolder": "L4063",
+  "note": "receipt drafted 30 Oct 2026 for an earlier measurement or recheck; the date is the evidence date"
+ }
+}

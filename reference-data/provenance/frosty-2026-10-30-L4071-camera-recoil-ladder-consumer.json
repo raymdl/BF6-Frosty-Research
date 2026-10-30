@@ -1,0 +1,1596 @@
+{
+ "lead": "L4071",
+ "status": "finding",
+ "build": "mixed",
+ "question": "How is the per-magnification GCR camera-recoil value consumed (traced through the six weapons of the 2.1.1.0 SU-230 fix), did the ladder change from 1.4.3.5 to 2.1.1.0, can a unit be established from source, and does a visual-recoil chip qualify as a proposal?",
+ "sourceFacts": [
+  {
+   "fact": "Control (1.4.3.5): 14-rung ladder strictly monotonic -0.5 (1.00x) .. 0.762266 (10.00x); all 128 enabled members on a rung; SU-230 state 2 = -0.5, state 1 = 0.505185.",
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\CameraRecoil\\GCR_01x00_P00.ebx",
+     "rawSha256": "f47299f2f359a3cb1a619e1042dae139ffe897a0a9c2d46a0086835dabc1ee90",
+     "offset": 296,
+     "type": "f32",
+     "bytesHex": "000000bf",
+     "value": -0.5
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\CameraRecoil\\GCR_01x25_P00.ebx",
+     "rawSha256": "6d6533ce3bce4e94f57bdf00c843ae0c8eabe5a1a1f74d25c66d963df623063f",
+     "offset": 296,
+     "type": "f32",
+     "bytesHex": "d27082be",
+     "value": -0.2547670006752014
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\CameraRecoil\\GCR_01x50_P00.ebx",
+     "rawSha256": "8c0a5914229894d1d56578d4ea720af4447aa4b0c72935d09cb85e2c1de27a64",
+     "offset": 296,
+     "type": "f32",
+     "bytesHex": "a8ffacbd",
+     "value": -0.08447200059890747
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\CameraRecoil\\GCR_01x75_P00.ebx",
+     "rawSha256": "cf2cc363185e0f9792b2d43777d219be60c6ab1e7162396c7e14a882f63d921a",
+     "offset": 296,
+     "type": "f32",
+     "bytesHex": "855c293d",
+     "value": 0.04134799912571907
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\CameraRecoil\\GCR_02x00_P00.ebx",
+     "rawSha256": "d2069d0852fde800e79d910164352c9016d50043e634cb53b0c0bfe7abdc80e0",
+     "offset": 296,
+     "type": "f32",
+     "bytesHex": "a7cc0d3e",
+     "value": 0.13847599923610687
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\CameraRecoil\\GCR_02x50_P00.ebx",
+     "rawSha256": "e963de58d2c6aa114ac636d0de28d79292cea523344f0489c7efcebad78235f9",
+     "offset": 296,
+     "type": "f32",
+     "bytesHex": "b0038f3e",
+     "value": 0.279325008392334
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\CameraRecoil\\GCR_03x00_P00.ebx",
+     "rawSha256": "a935f51ea8900ebd986aaf1af88bcc75fa4369b7266e8134a619ae1d514ee95e",
+     "offset": 296,
+     "type": "f32",
+     "bytesHex": "d717c13e",
+     "value": 0.3771350085735321
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\CameraRecoil\\GCR_03x50_P00.ebx",
+     "rawSha256": "97518975f8d2d6c97c2cab374688bb86318aafae2b09dc8aa2f351deac613f0e",
+     "offset": 296,
+     "type": "f32",
+     "bytesHex": "a017e63e",
+     "value": 0.4493989944458008
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\CameraRecoil\\GCR_04x00_P00.ebx",
+     "rawSha256": "29d13ef61ae8c7ccb51a117ae5adf24a34258c4877ef362e6c667fe9d56545da",
+     "offset": 296,
+     "type": "f32",
+     "bytesHex": "ce53013f",
+     "value": 0.5051850080490112
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\CameraRecoil\\GCR_04x50_P00.ebx",
+     "rawSha256": "b6670653c00e7d27e1866fb9904e678a7e8c828c4297e000387d6b5815b0ffd5",
+     "offset": 296,
+     "type": "f32",
+     "bytesHex": "d4b70c3f",
+     "value": 0.5496799945831299
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\CameraRecoil\\GCR_05x00_P00.ebx",
+     "rawSha256": "da1c543c75aa69ecef20025d53c7c9940bca66466cfd1a702ff6aa87339c8e42",
+     "offset": 296,
+     "type": "f32",
+     "bytesHex": "6809163f",
+     "value": 0.5860810279846191
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\CameraRecoil\\GCR_06x00_P00.ebx",
+     "rawSha256": "af5880cd5302ae8ad011f02bad00b18b528a02e0927fd33e5f18ed17ef235e76",
+     "offset": 296,
+     "type": "f32",
+     "bytesHex": "056b243f",
+     "value": 0.6422579884529114
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\CameraRecoil\\GCR_08x00_P00.ebx",
+     "rawSha256": "f70951cd7dbf947331d39de2efd7dfaabe171b9ede6a951a6319945abe904aaa",
+     "offset": 296,
+     "type": "f32",
+     "bytesHex": "de3e373f",
+     "value": 0.7158030271530151
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\CameraRecoil\\GCR_10x00_P00.ebx",
+     "rawSha256": "fc11a7c19ad3fe29059f91c410aaad3f92dce760e7370ac0a09a26404869c7e3",
+     "offset": 296,
+     "type": "f32",
+     "bytesHex": "dd23433f",
+     "value": 0.7622659802436829
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\CameraRecoil\\GCR_LPVO_4x00_1x00_P00.ebx",
+     "rawSha256": "6d9a01b228af0f0dcef31e79800cfcf0053d94bac07fb3a636925a861875d7f4",
+     "offset": 588,
+     "type": "i32",
+     "bytesHex": "02000000",
+     "value": 2
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\CameraRecoil\\GCR_LPVO_4x00_1x00_P00.ebx",
+     "rawSha256": "6d9a01b228af0f0dcef31e79800cfcf0053d94bac07fb3a636925a861875d7f4",
+     "offset": 296,
+     "type": "f32",
+     "bytesHex": "000000bf",
+     "value": -0.5
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\CameraRecoil\\GCR_LPVO_4x00_1x00_P00.ebx",
+     "rawSha256": "6d9a01b228af0f0dcef31e79800cfcf0053d94bac07fb3a636925a861875d7f4",
+     "offset": 304,
+     "type": "bool",
+     "bytesHex": "01",
+     "value": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\CameraRecoil\\GCR_LPVO_4x00_1x00_P00.ebx",
+     "rawSha256": "6d9a01b228af0f0dcef31e79800cfcf0053d94bac07fb3a636925a861875d7f4",
+     "offset": 196,
+     "type": "f32",
+     "bytesHex": "000000bf",
+     "value": -0.5
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\CameraRecoil\\GCR_LPVO_4x00_1x00_P00.ebx",
+     "rawSha256": "6d9a01b228af0f0dcef31e79800cfcf0053d94bac07fb3a636925a861875d7f4",
+     "offset": 204,
+     "type": "bool",
+     "bytesHex": "01",
+     "value": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\CameraRecoil\\GCR_LPVO_4x00_1x00_P00.ebx",
+     "rawSha256": "6d9a01b228af0f0dcef31e79800cfcf0053d94bac07fb3a636925a861875d7f4",
+     "offset": 1036,
+     "type": "i32",
+     "bytesHex": "01000000",
+     "value": 1
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\CameraRecoil\\GCR_LPVO_4x00_1x00_P00.ebx",
+     "rawSha256": "6d9a01b228af0f0dcef31e79800cfcf0053d94bac07fb3a636925a861875d7f4",
+     "offset": 744,
+     "type": "f32",
+     "bytesHex": "ce53013f",
+     "value": 0.5051850080490112
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\CameraRecoil\\GCR_LPVO_4x00_1x00_P00.ebx",
+     "rawSha256": "6d9a01b228af0f0dcef31e79800cfcf0053d94bac07fb3a636925a861875d7f4",
+     "offset": 752,
+     "type": "bool",
+     "bytesHex": "01",
+     "value": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\CameraRecoil\\GCR_LPVO_4x00_1x00_P00.ebx",
+     "rawSha256": "6d9a01b228af0f0dcef31e79800cfcf0053d94bac07fb3a636925a861875d7f4",
+     "offset": 644,
+     "type": "f32",
+     "bytesHex": "ce53013f",
+     "value": 0.5051850080490112
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\CameraRecoil\\GCR_LPVO_4x00_1x00_P00.ebx",
+     "rawSha256": "6d9a01b228af0f0dcef31e79800cfcf0053d94bac07fb3a636925a861875d7f4",
+     "offset": 652,
+     "type": "bool",
+     "bytesHex": "01",
+     "value": true
+    }
+   ]
+  },
+  {
+   "fact": "All 34 GCR_* files are byte-identical between 1.4.3.5 and 2.1.1.0 (raw SHA-256 per file in l4071-result.json rows); 320 typed reads on 2.1.1.0 match.",
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\CameraRecoil\\GCR_10x00_P00.ebx",
+     "rawSha256": "fc11a7c19ad3fe29059f91c410aaad3f92dce760e7370ac0a09a26404869c7e3",
+     "offset": 588,
+     "type": "i32",
+     "bytesHex": "01000000",
+     "value": 1
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\CameraRecoil\\GCR_10x00_P00.ebx",
+     "rawSha256": "fc11a7c19ad3fe29059f91c410aaad3f92dce760e7370ac0a09a26404869c7e3",
+     "offset": 296,
+     "type": "f32",
+     "bytesHex": "dd23433f",
+     "value": 0.7622659802436829
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\CameraRecoil\\GCR_10x00_P00.ebx",
+     "rawSha256": "fc11a7c19ad3fe29059f91c410aaad3f92dce760e7370ac0a09a26404869c7e3",
+     "offset": 304,
+     "type": "bool",
+     "bytesHex": "01",
+     "value": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\CameraRecoil\\GCR_10x00_P00.ebx",
+     "rawSha256": "fc11a7c19ad3fe29059f91c410aaad3f92dce760e7370ac0a09a26404869c7e3",
+     "offset": 196,
+     "type": "f32",
+     "bytesHex": "dd23433f",
+     "value": 0.7622659802436829
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\CameraRecoil\\GCR_10x00_P00.ebx",
+     "rawSha256": "fc11a7c19ad3fe29059f91c410aaad3f92dce760e7370ac0a09a26404869c7e3",
+     "offset": 204,
+     "type": "bool",
+     "bytesHex": "01",
+     "value": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\CameraRecoil\\GCR_10x00_P00.ebx",
+     "rawSha256": "fc11a7c19ad3fe29059f91c410aaad3f92dce760e7370ac0a09a26404869c7e3",
+     "offset": 296,
+     "type": "f32",
+     "bytesHex": "dd23433f",
+     "value": 0.7622659802436829
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\CameraRecoil\\GCR_01x00_P00.ebx",
+     "rawSha256": "f47299f2f359a3cb1a619e1042dae139ffe897a0a9c2d46a0086835dabc1ee90",
+     "offset": 588,
+     "type": "i32",
+     "bytesHex": "01000000",
+     "value": 1
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\CameraRecoil\\GCR_01x00_P00.ebx",
+     "rawSha256": "f47299f2f359a3cb1a619e1042dae139ffe897a0a9c2d46a0086835dabc1ee90",
+     "offset": 296,
+     "type": "f32",
+     "bytesHex": "000000bf",
+     "value": -0.5
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\CameraRecoil\\GCR_01x00_P00.ebx",
+     "rawSha256": "f47299f2f359a3cb1a619e1042dae139ffe897a0a9c2d46a0086835dabc1ee90",
+     "offset": 304,
+     "type": "bool",
+     "bytesHex": "01",
+     "value": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\CameraRecoil\\GCR_01x00_P00.ebx",
+     "rawSha256": "f47299f2f359a3cb1a619e1042dae139ffe897a0a9c2d46a0086835dabc1ee90",
+     "offset": 196,
+     "type": "f32",
+     "bytesHex": "000000bf",
+     "value": -0.5
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\CameraRecoil\\GCR_01x00_P00.ebx",
+     "rawSha256": "f47299f2f359a3cb1a619e1042dae139ffe897a0a9c2d46a0086835dabc1ee90",
+     "offset": 204,
+     "type": "bool",
+     "bytesHex": "01",
+     "value": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\CameraRecoil\\GCR_01x00_P00.ebx",
+     "rawSha256": "f47299f2f359a3cb1a619e1042dae139ffe897a0a9c2d46a0086835dabc1ee90",
+     "offset": 296,
+     "type": "f32",
+     "bytesHex": "000000bf",
+     "value": -0.5
+    }
+   ]
+  },
+  {
+   "fact": "GCR operand pattern: enable Field_bbffe8bc true + override Field_bbbfe9cc on Field_9532eb28 and Field_7f1bb9d4 only; multiply/add slots neutral; Field_36c2f877 never enabled.",
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\CameraRecoil\\GCR_LPVO_4x00_1x00_P00.ebx",
+     "rawSha256": "6d9a01b228af0f0dcef31e79800cfcf0053d94bac07fb3a636925a861875d7f4",
+     "offset": 588,
+     "type": "i32",
+     "bytesHex": "02000000",
+     "value": 2
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\CameraRecoil\\GCR_LPVO_4x00_1x00_P00.ebx",
+     "rawSha256": "6d9a01b228af0f0dcef31e79800cfcf0053d94bac07fb3a636925a861875d7f4",
+     "offset": 296,
+     "type": "f32",
+     "bytesHex": "000000bf",
+     "value": -0.5
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\CameraRecoil\\GCR_LPVO_4x00_1x00_P00.ebx",
+     "rawSha256": "6d9a01b228af0f0dcef31e79800cfcf0053d94bac07fb3a636925a861875d7f4",
+     "offset": 304,
+     "type": "bool",
+     "bytesHex": "01",
+     "value": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\CameraRecoil\\GCR_LPVO_4x00_1x00_P00.ebx",
+     "rawSha256": "6d9a01b228af0f0dcef31e79800cfcf0053d94bac07fb3a636925a861875d7f4",
+     "offset": 196,
+     "type": "f32",
+     "bytesHex": "000000bf",
+     "value": -0.5
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\CameraRecoil\\GCR_LPVO_4x00_1x00_P00.ebx",
+     "rawSha256": "6d9a01b228af0f0dcef31e79800cfcf0053d94bac07fb3a636925a861875d7f4",
+     "offset": 204,
+     "type": "bool",
+     "bytesHex": "01",
+     "value": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\CameraRecoil\\GCR_LPVO_4x00_1x00_P00.ebx",
+     "rawSha256": "6d9a01b228af0f0dcef31e79800cfcf0053d94bac07fb3a636925a861875d7f4",
+     "offset": 1036,
+     "type": "i32",
+     "bytesHex": "01000000",
+     "value": 1
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\CameraRecoil\\GCR_LPVO_4x00_1x00_P00.ebx",
+     "rawSha256": "6d9a01b228af0f0dcef31e79800cfcf0053d94bac07fb3a636925a861875d7f4",
+     "offset": 744,
+     "type": "f32",
+     "bytesHex": "ce53013f",
+     "value": 0.5051850080490112
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\CameraRecoil\\GCR_LPVO_4x00_1x00_P00.ebx",
+     "rawSha256": "6d9a01b228af0f0dcef31e79800cfcf0053d94bac07fb3a636925a861875d7f4",
+     "offset": 752,
+     "type": "bool",
+     "bytesHex": "01",
+     "value": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\CameraRecoil\\GCR_LPVO_4x00_1x00_P00.ebx",
+     "rawSha256": "6d9a01b228af0f0dcef31e79800cfcf0053d94bac07fb3a636925a861875d7f4",
+     "offset": 644,
+     "type": "f32",
+     "bytesHex": "ce53013f",
+     "value": 0.5051850080490112
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\CameraRecoil\\GCR_LPVO_4x00_1x00_P00.ebx",
+     "rawSha256": "6d9a01b228af0f0dcef31e79800cfcf0053d94bac07fb3a636925a861875d7f4",
+     "offset": 652,
+     "type": "bool",
+     "bytesHex": "01",
+     "value": true
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\CameraRecoil\\GCR_LPVO_4x00_1x00_P00.ebx",
+     "rawSha256": "6d9a01b228af0f0dcef31e79800cfcf0053d94bac07fb3a636925a861875d7f4",
+     "offset": 296,
+     "type": "f32",
+     "bytesHex": "000000bf",
+     "value": -0.5
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\CameraRecoil\\GCR_LPVO_4x00_1x00_P00.ebx",
+     "rawSha256": "6d9a01b228af0f0dcef31e79800cfcf0053d94bac07fb3a636925a861875d7f4",
+     "offset": 196,
+     "type": "f32",
+     "bytesHex": "000000bf",
+     "value": -0.5
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\CameraRecoil\\GCR_LPVO_4x00_1x00_P00.ebx",
+     "rawSha256": "6d9a01b228af0f0dcef31e79800cfcf0053d94bac07fb3a636925a861875d7f4",
+     "offset": 744,
+     "type": "f32",
+     "bytesHex": "ce53013f",
+     "value": 0.5051850080490112
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\CameraRecoil\\GCR_LPVO_4x00_1x00_P00.ebx",
+     "rawSha256": "6d9a01b228af0f0dcef31e79800cfcf0053d94bac07fb3a636925a861875d7f4",
+     "offset": 644,
+     "type": "f32",
+     "bytesHex": "ce53013f",
+     "value": 0.5051850080490112
+    }
+   ]
+  },
+  {
+   "fact": "Six weapons: GS Class_539cff9b Field_a2bef75b[35] binds selector f66c9ab7 (priority 37) to GCR_LPVO_4x00_1x00_P00 in both builds; GS own values CameraRecoilAmount -1.4, CameraRecoilWhenZoomedAmount -0.625, IdleCameraRecoilWhenZoomedAmount -0.625 in both builds.",
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+     "rawSha256": "66caca0e667d17fdf03f9fb4f620b9c5842aa1fd8de0221128ad4862895eed51",
+     "offset": 10536,
+     "type": "guid",
+     "bytesHex": "b79a6cf618bb2d4d81336d90b19f0e84",
+     "value": "f66c9ab7-bb18-4d2d-8133-6d90b19f0e84"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+     "rawSha256": "66caca0e667d17fdf03f9fb4f620b9c5842aa1fd8de0221128ad4862895eed51",
+     "offset": 10552,
+     "type": "i32",
+     "bytesHex": "25000000",
+     "value": 37
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+     "rawSha256": "66caca0e667d17fdf03f9fb4f620b9c5842aa1fd8de0221128ad4862895eed51",
+     "offset": 1968,
+     "type": "f32",
+     "bytesHex": "3333b3bf",
+     "value": -1.399999976158142
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+     "rawSha256": "66caca0e667d17fdf03f9fb4f620b9c5842aa1fd8de0221128ad4862895eed51",
+     "offset": 1972,
+     "type": "f32",
+     "bytesHex": "000020bf",
+     "value": -0.625
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+     "rawSha256": "66caca0e667d17fdf03f9fb4f620b9c5842aa1fd8de0221128ad4862895eed51",
+     "offset": 1976,
+     "type": "f32",
+     "bytesHex": "000020bf",
+     "value": -0.625
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+     "rawSha256": "61b8c5791b177e0b2becff5cdb00c8c9a6649515ff41a6fc1572ff7efadb7dda",
+     "offset": 10568,
+     "type": "guid",
+     "bytesHex": "b79a6cf618bb2d4d81336d90b19f0e84",
+     "value": "f66c9ab7-bb18-4d2d-8133-6d90b19f0e84"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+     "rawSha256": "61b8c5791b177e0b2becff5cdb00c8c9a6649515ff41a6fc1572ff7efadb7dda",
+     "offset": 10584,
+     "type": "i32",
+     "bytesHex": "25000000",
+     "value": 37
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+     "rawSha256": "61b8c5791b177e0b2becff5cdb00c8c9a6649515ff41a6fc1572ff7efadb7dda",
+     "offset": 1968,
+     "type": "f32",
+     "bytesHex": "3333b3bf",
+     "value": -1.399999976158142
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+     "rawSha256": "61b8c5791b177e0b2becff5cdb00c8c9a6649515ff41a6fc1572ff7efadb7dda",
+     "offset": 1972,
+     "type": "f32",
+     "bytesHex": "000020bf",
+     "value": -0.625
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+     "rawSha256": "61b8c5791b177e0b2becff5cdb00c8c9a6649515ff41a6fc1572ff7efadb7dda",
+     "offset": 1976,
+     "type": "f32",
+     "bytesHex": "000020bf",
+     "value": -0.625
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\MSBSGROTB\\GS_MSBSGROTB.ebx",
+     "rawSha256": "3eadad38fab81d424c584d537f234a97671eddfed2aec479ee38d183c3b11086",
+     "offset": 10504,
+     "type": "guid",
+     "bytesHex": "b79a6cf618bb2d4d81336d90b19f0e84",
+     "value": "f66c9ab7-bb18-4d2d-8133-6d90b19f0e84"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\MSBSGROTB\\GS_MSBSGROTB.ebx",
+     "rawSha256": "3eadad38fab81d424c584d537f234a97671eddfed2aec479ee38d183c3b11086",
+     "offset": 10520,
+     "type": "i32",
+     "bytesHex": "25000000",
+     "value": 37
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\MSBSGROTB\\GS_MSBSGROTB.ebx",
+     "rawSha256": "3eadad38fab81d424c584d537f234a97671eddfed2aec479ee38d183c3b11086",
+     "offset": 1840,
+     "type": "f32",
+     "bytesHex": "3333b3bf",
+     "value": -1.399999976158142
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\MSBSGROTB\\GS_MSBSGROTB.ebx",
+     "rawSha256": "3eadad38fab81d424c584d537f234a97671eddfed2aec479ee38d183c3b11086",
+     "offset": 1844,
+     "type": "f32",
+     "bytesHex": "000020bf",
+     "value": -0.625
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\MSBSGROTB\\GS_MSBSGROTB.ebx",
+     "rawSha256": "3eadad38fab81d424c584d537f234a97671eddfed2aec479ee38d183c3b11086",
+     "offset": 1848,
+     "type": "f32",
+     "bytesHex": "000020bf",
+     "value": -0.625
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\MSBSGROTB\\GS_MSBSGROTB.ebx",
+     "rawSha256": "3e2dd8e2b2a2d9cfce0bd83402941f3b724763f10b632af92bffda5b09cbf9fa",
+     "offset": 10536,
+     "type": "guid",
+     "bytesHex": "b79a6cf618bb2d4d81336d90b19f0e84",
+     "value": "f66c9ab7-bb18-4d2d-8133-6d90b19f0e84"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\MSBSGROTB\\GS_MSBSGROTB.ebx",
+     "rawSha256": "3e2dd8e2b2a2d9cfce0bd83402941f3b724763f10b632af92bffda5b09cbf9fa",
+     "offset": 10552,
+     "type": "i32",
+     "bytesHex": "25000000",
+     "value": 37
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\MSBSGROTB\\GS_MSBSGROTB.ebx",
+     "rawSha256": "3e2dd8e2b2a2d9cfce0bd83402941f3b724763f10b632af92bffda5b09cbf9fa",
+     "offset": 1840,
+     "type": "f32",
+     "bytesHex": "3333b3bf",
+     "value": -1.399999976158142
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\MSBSGROTB\\GS_MSBSGROTB.ebx",
+     "rawSha256": "3e2dd8e2b2a2d9cfce0bd83402941f3b724763f10b632af92bffda5b09cbf9fa",
+     "offset": 1844,
+     "type": "f32",
+     "bytesHex": "000020bf",
+     "value": -0.625
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\MSBSGROTB\\GS_MSBSGROTB.ebx",
+     "rawSha256": "3e2dd8e2b2a2d9cfce0bd83402941f3b724763f10b632af92bffda5b09cbf9fa",
+     "offset": 1848,
+     "type": "f32",
+     "bytesHex": "000020bf",
+     "value": -0.625
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\HK417A2\\GS_HK417A2.ebx",
+     "rawSha256": "948dde8f5b9a2c13bf0107c2c0e6c6225997ec726a4e41643c029c13cc13c5be",
+     "offset": 10600,
+     "type": "guid",
+     "bytesHex": "b79a6cf618bb2d4d81336d90b19f0e84",
+     "value": "f66c9ab7-bb18-4d2d-8133-6d90b19f0e84"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\HK417A2\\GS_HK417A2.ebx",
+     "rawSha256": "948dde8f5b9a2c13bf0107c2c0e6c6225997ec726a4e41643c029c13cc13c5be",
+     "offset": 10616,
+     "type": "i32",
+     "bytesHex": "25000000",
+     "value": 37
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\HK417A2\\GS_HK417A2.ebx",
+     "rawSha256": "948dde8f5b9a2c13bf0107c2c0e6c6225997ec726a4e41643c029c13cc13c5be",
+     "offset": 1840,
+     "type": "f32",
+     "bytesHex": "3333b3bf",
+     "value": -1.399999976158142
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\HK417A2\\GS_HK417A2.ebx",
+     "rawSha256": "948dde8f5b9a2c13bf0107c2c0e6c6225997ec726a4e41643c029c13cc13c5be",
+     "offset": 1844,
+     "type": "f32",
+     "bytesHex": "000020bf",
+     "value": -0.625
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\HK417A2\\GS_HK417A2.ebx",
+     "rawSha256": "948dde8f5b9a2c13bf0107c2c0e6c6225997ec726a4e41643c029c13cc13c5be",
+     "offset": 1848,
+     "type": "f32",
+     "bytesHex": "000020bf",
+     "value": -0.625
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\HK417A2\\GS_HK417A2.ebx",
+     "rawSha256": "6af2e286f46176e49baffb3b97c5c12a77806827f84ced1db58c71d69dc41779",
+     "offset": 10632,
+     "type": "guid",
+     "bytesHex": "b79a6cf618bb2d4d81336d90b19f0e84",
+     "value": "f66c9ab7-bb18-4d2d-8133-6d90b19f0e84"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\HK417A2\\GS_HK417A2.ebx",
+     "rawSha256": "6af2e286f46176e49baffb3b97c5c12a77806827f84ced1db58c71d69dc41779",
+     "offset": 10648,
+     "type": "i32",
+     "bytesHex": "25000000",
+     "value": 37
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\HK417A2\\GS_HK417A2.ebx",
+     "rawSha256": "6af2e286f46176e49baffb3b97c5c12a77806827f84ced1db58c71d69dc41779",
+     "offset": 1840,
+     "type": "f32",
+     "bytesHex": "3333b3bf",
+     "value": -1.399999976158142
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\HK417A2\\GS_HK417A2.ebx",
+     "rawSha256": "6af2e286f46176e49baffb3b97c5c12a77806827f84ced1db58c71d69dc41779",
+     "offset": 1844,
+     "type": "f32",
+     "bytesHex": "000020bf",
+     "value": -0.625
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\HK417A2\\GS_HK417A2.ebx",
+     "rawSha256": "6af2e286f46176e49baffb3b97c5c12a77806827f84ced1db58c71d69dc41779",
+     "offset": 1848,
+     "type": "f32",
+     "bytesHex": "000020bf",
+     "value": -0.625
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\MG5\\GS_MG5.ebx",
+     "rawSha256": "c0a3effd2779553401543149ad6f4fce6ece112784e3d3fe153e6e456518e001",
+     "offset": 10504,
+     "type": "guid",
+     "bytesHex": "b79a6cf618bb2d4d81336d90b19f0e84",
+     "value": "f66c9ab7-bb18-4d2d-8133-6d90b19f0e84"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\MG5\\GS_MG5.ebx",
+     "rawSha256": "c0a3effd2779553401543149ad6f4fce6ece112784e3d3fe153e6e456518e001",
+     "offset": 10520,
+     "type": "i32",
+     "bytesHex": "25000000",
+     "value": 37
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\MG5\\GS_MG5.ebx",
+     "rawSha256": "c0a3effd2779553401543149ad6f4fce6ece112784e3d3fe153e6e456518e001",
+     "offset": 1968,
+     "type": "f32",
+     "bytesHex": "3333b3bf",
+     "value": -1.399999976158142
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\MG5\\GS_MG5.ebx",
+     "rawSha256": "c0a3effd2779553401543149ad6f4fce6ece112784e3d3fe153e6e456518e001",
+     "offset": 1972,
+     "type": "f32",
+     "bytesHex": "000020bf",
+     "value": -0.625
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\MG5\\GS_MG5.ebx",
+     "rawSha256": "c0a3effd2779553401543149ad6f4fce6ece112784e3d3fe153e6e456518e001",
+     "offset": 1976,
+     "type": "f32",
+     "bytesHex": "000020bf",
+     "value": -0.625
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\MG5\\GS_MG5.ebx",
+     "rawSha256": "8ea6e096969499e8c158b6845d0a301b4474501ece011454efa9988e8a159725",
+     "offset": 10536,
+     "type": "guid",
+     "bytesHex": "b79a6cf618bb2d4d81336d90b19f0e84",
+     "value": "f66c9ab7-bb18-4d2d-8133-6d90b19f0e84"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\MG5\\GS_MG5.ebx",
+     "rawSha256": "8ea6e096969499e8c158b6845d0a301b4474501ece011454efa9988e8a159725",
+     "offset": 10552,
+     "type": "i32",
+     "bytesHex": "25000000",
+     "value": 37
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\MG5\\GS_MG5.ebx",
+     "rawSha256": "8ea6e096969499e8c158b6845d0a301b4474501ece011454efa9988e8a159725",
+     "offset": 1968,
+     "type": "f32",
+     "bytesHex": "3333b3bf",
+     "value": -1.399999976158142
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\MG5\\GS_MG5.ebx",
+     "rawSha256": "8ea6e096969499e8c158b6845d0a301b4474501ece011454efa9988e8a159725",
+     "offset": 1972,
+     "type": "f32",
+     "bytesHex": "000020bf",
+     "value": -0.625
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\MG5\\GS_MG5.ebx",
+     "rawSha256": "8ea6e096969499e8c158b6845d0a301b4474501ece011454efa9988e8a159725",
+     "offset": 1976,
+     "type": "f32",
+     "bytesHex": "000020bf",
+     "value": -0.625
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\MG4K\\GS_MG4K.ebx",
+     "rawSha256": "9d54a6d1f132a66ec0c922cbf7e32fdb2b55f7882fa512cac9f50f47bdc7620b",
+     "offset": 10536,
+     "type": "guid",
+     "bytesHex": "b79a6cf618bb2d4d81336d90b19f0e84",
+     "value": "f66c9ab7-bb18-4d2d-8133-6d90b19f0e84"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\MG4K\\GS_MG4K.ebx",
+     "rawSha256": "9d54a6d1f132a66ec0c922cbf7e32fdb2b55f7882fa512cac9f50f47bdc7620b",
+     "offset": 10552,
+     "type": "i32",
+     "bytesHex": "25000000",
+     "value": 37
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\MG4K\\GS_MG4K.ebx",
+     "rawSha256": "9d54a6d1f132a66ec0c922cbf7e32fdb2b55f7882fa512cac9f50f47bdc7620b",
+     "offset": 1840,
+     "type": "f32",
+     "bytesHex": "3333b3bf",
+     "value": -1.399999976158142
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\MG4K\\GS_MG4K.ebx",
+     "rawSha256": "9d54a6d1f132a66ec0c922cbf7e32fdb2b55f7882fa512cac9f50f47bdc7620b",
+     "offset": 1844,
+     "type": "f32",
+     "bytesHex": "000020bf",
+     "value": -0.625
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\MG4K\\GS_MG4K.ebx",
+     "rawSha256": "9d54a6d1f132a66ec0c922cbf7e32fdb2b55f7882fa512cac9f50f47bdc7620b",
+     "offset": 1848,
+     "type": "f32",
+     "bytesHex": "000020bf",
+     "value": -0.625
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\MG4K\\GS_MG4K.ebx",
+     "rawSha256": "fa02ec124c5cab90b59babe5a349d1e125ddcebbc0736c6e797ee7884471f473",
+     "offset": 10568,
+     "type": "guid",
+     "bytesHex": "b79a6cf618bb2d4d81336d90b19f0e84",
+     "value": "f66c9ab7-bb18-4d2d-8133-6d90b19f0e84"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\MG4K\\GS_MG4K.ebx",
+     "rawSha256": "fa02ec124c5cab90b59babe5a349d1e125ddcebbc0736c6e797ee7884471f473",
+     "offset": 10584,
+     "type": "i32",
+     "bytesHex": "25000000",
+     "value": 37
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\MG4K\\GS_MG4K.ebx",
+     "rawSha256": "fa02ec124c5cab90b59babe5a349d1e125ddcebbc0736c6e797ee7884471f473",
+     "offset": 1840,
+     "type": "f32",
+     "bytesHex": "3333b3bf",
+     "value": -1.399999976158142
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\MG4K\\GS_MG4K.ebx",
+     "rawSha256": "fa02ec124c5cab90b59babe5a349d1e125ddcebbc0736c6e797ee7884471f473",
+     "offset": 1844,
+     "type": "f32",
+     "bytesHex": "000020bf",
+     "value": -0.625
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\MG4K\\GS_MG4K.ebx",
+     "rawSha256": "fa02ec124c5cab90b59babe5a349d1e125ddcebbc0736c6e797ee7884471f473",
+     "offset": 1848,
+     "type": "f32",
+     "bytesHex": "000020bf",
+     "value": -0.625
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\M250\\GS_M250.ebx",
+     "rawSha256": "fadecc2e2b06cba35d1716409e168d6908e69c5aa6fde7e96e2f8b0f2b274f9e",
+     "offset": 10504,
+     "type": "guid",
+     "bytesHex": "b79a6cf618bb2d4d81336d90b19f0e84",
+     "value": "f66c9ab7-bb18-4d2d-8133-6d90b19f0e84"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\M250\\GS_M250.ebx",
+     "rawSha256": "fadecc2e2b06cba35d1716409e168d6908e69c5aa6fde7e96e2f8b0f2b274f9e",
+     "offset": 10520,
+     "type": "i32",
+     "bytesHex": "25000000",
+     "value": 37
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\M250\\GS_M250.ebx",
+     "rawSha256": "fadecc2e2b06cba35d1716409e168d6908e69c5aa6fde7e96e2f8b0f2b274f9e",
+     "offset": 1968,
+     "type": "f32",
+     "bytesHex": "3333b3bf",
+     "value": -1.399999976158142
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\M250\\GS_M250.ebx",
+     "rawSha256": "fadecc2e2b06cba35d1716409e168d6908e69c5aa6fde7e96e2f8b0f2b274f9e",
+     "offset": 1972,
+     "type": "f32",
+     "bytesHex": "000020bf",
+     "value": -0.625
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\M250\\GS_M250.ebx",
+     "rawSha256": "fadecc2e2b06cba35d1716409e168d6908e69c5aa6fde7e96e2f8b0f2b274f9e",
+     "offset": 1976,
+     "type": "f32",
+     "bytesHex": "000020bf",
+     "value": -0.625
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\M250\\GS_M250.ebx",
+     "rawSha256": "d2c17fb4ea2dd2a60b71af050ec820731b44394b5f4127d808d95d439b19d136",
+     "offset": 10536,
+     "type": "guid",
+     "bytesHex": "b79a6cf618bb2d4d81336d90b19f0e84",
+     "value": "f66c9ab7-bb18-4d2d-8133-6d90b19f0e84"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\M250\\GS_M250.ebx",
+     "rawSha256": "d2c17fb4ea2dd2a60b71af050ec820731b44394b5f4127d808d95d439b19d136",
+     "offset": 10552,
+     "type": "i32",
+     "bytesHex": "25000000",
+     "value": 37
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\M250\\GS_M250.ebx",
+     "rawSha256": "d2c17fb4ea2dd2a60b71af050ec820731b44394b5f4127d808d95d439b19d136",
+     "offset": 1968,
+     "type": "f32",
+     "bytesHex": "3333b3bf",
+     "value": -1.399999976158142
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\M250\\GS_M250.ebx",
+     "rawSha256": "d2c17fb4ea2dd2a60b71af050ec820731b44394b5f4127d808d95d439b19d136",
+     "offset": 1972,
+     "type": "f32",
+     "bytesHex": "000020bf",
+     "value": -0.625
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\M250\\GS_M250.ebx",
+     "rawSha256": "d2c17fb4ea2dd2a60b71af050ec820731b44394b5f4127d808d95d439b19d136",
+     "offset": 1976,
+     "type": "f32",
+     "bytesHex": "000020bf",
+     "value": -0.625
+    }
+   ]
+  },
+  {
+   "fact": "Registry GRX_Weapons rows GS_<w>.CameraRecoilWhenZoomedAmount / IdleCameraRecoilWhenZoomedAmount default -0.625 (min -10, max 10) and CameraRecoilAmount -1.4 for the six; paired to Class_539cff9b/Field_9532eb28, Field_7f1bb9d4, Field_36c2f877 by pair-status.json (19 Oct recheck).",
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "4557498d8196e539c11c401299c2f5f9e23f706dc29791e283389c0105f2397c",
+     "offset": 30452,
+     "type": "f32",
+     "bytesHex": "000020bf",
+     "value": -0.625
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "4557498d8196e539c11c401299c2f5f9e23f706dc29791e283389c0105f2397c",
+     "offset": 75868,
+     "type": "f32",
+     "bytesHex": "000020bf",
+     "value": -0.625
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "4557498d8196e539c11c401299c2f5f9e23f706dc29791e283389c0105f2397c",
+     "offset": 122756,
+     "type": "f32",
+     "bytesHex": "000020bf",
+     "value": -0.625
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "4557498d8196e539c11c401299c2f5f9e23f706dc29791e283389c0105f2397c",
+     "offset": 131324,
+     "type": "f32",
+     "bytesHex": "3333b3bf",
+     "value": -1.399999976158142
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "4557498d8196e539c11c401299c2f5f9e23f706dc29791e283389c0105f2397c",
+     "offset": 182364,
+     "type": "f32",
+     "bytesHex": "000020bf",
+     "value": -0.625
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "4557498d8196e539c11c401299c2f5f9e23f706dc29791e283389c0105f2397c",
+     "offset": 508588,
+     "type": "f32",
+     "bytesHex": "000020bf",
+     "value": -0.625
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "4557498d8196e539c11c401299c2f5f9e23f706dc29791e283389c0105f2397c",
+     "offset": 561508,
+     "type": "f32",
+     "bytesHex": "000020bf",
+     "value": -0.625
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "4557498d8196e539c11c401299c2f5f9e23f706dc29791e283389c0105f2397c",
+     "offset": 867932,
+     "type": "f32",
+     "bytesHex": "3333b3bf",
+     "value": -1.399999976158142
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "4557498d8196e539c11c401299c2f5f9e23f706dc29791e283389c0105f2397c",
+     "offset": 1336420,
+     "type": "f32",
+     "bytesHex": "000020bf",
+     "value": -0.625
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "4557498d8196e539c11c401299c2f5f9e23f706dc29791e283389c0105f2397c",
+     "offset": 1385100,
+     "type": "f32",
+     "bytesHex": "000020bf",
+     "value": -0.625
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "4557498d8196e539c11c401299c2f5f9e23f706dc29791e283389c0105f2397c",
+     "offset": 1388460,
+     "type": "f32",
+     "bytesHex": "3333b3bf",
+     "value": -1.399999976158142
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "4557498d8196e539c11c401299c2f5f9e23f706dc29791e283389c0105f2397c",
+     "offset": 1513548,
+     "type": "f32",
+     "bytesHex": "000020bf",
+     "value": -0.625
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "4557498d8196e539c11c401299c2f5f9e23f706dc29791e283389c0105f2397c",
+     "offset": 1709676,
+     "type": "f32",
+     "bytesHex": "3333b3bf",
+     "value": -1.399999976158142
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "4557498d8196e539c11c401299c2f5f9e23f706dc29791e283389c0105f2397c",
+     "offset": 1880636,
+     "type": "f32",
+     "bytesHex": "3333b3bf",
+     "value": -1.399999976158142
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "4557498d8196e539c11c401299c2f5f9e23f706dc29791e283389c0105f2397c",
+     "offset": 2102420,
+     "type": "f32",
+     "bytesHex": "000020bf",
+     "value": -0.625
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "4557498d8196e539c11c401299c2f5f9e23f706dc29791e283389c0105f2397c",
+     "offset": 2340068,
+     "type": "f32",
+     "bytesHex": "3333b3bf",
+     "value": -1.399999976158142
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "4557498d8196e539c11c401299c2f5f9e23f706dc29791e283389c0105f2397c",
+     "offset": 2668492,
+     "type": "f32",
+     "bytesHex": "000020bf",
+     "value": -0.625
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+     "rawSha256": "4557498d8196e539c11c401299c2f5f9e23f706dc29791e283389c0105f2397c",
+     "offset": 2952188,
+     "type": "f32",
+     "bytesHex": "000020bf",
+     "value": -0.625
+    }
+   ]
+  },
+  {
+   "fact": "WPM_SCP_ElcanDR Class_bfd4f199 objects 7 (Field_c4814c93 2) and 16 (Field_c4814c93 1): Field_149939ab and Field_e9129d03 1.0005 (1.4.3.5) -> 0.55 (2.1.1.0); Class_897c99a7 Field_819acc98 = [f66c9ab7]; imported by 56 weapon WBs in both builds.",
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Attachments\\MidZoom\\ElcanDR\\WPM_SCP_ElcanDR.ebx",
+     "rawSha256": "124ed886b33d9d8a5ec7ae3584640ed50a3ac396592230fe23811332a929e1fd",
+     "offset": 1888,
+     "type": "f32",
+     "bytesHex": "6210803f",
+     "value": 1.000499963760376
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Attachments\\MidZoom\\ElcanDR\\WPM_SCP_ElcanDR.ebx",
+     "rawSha256": "124ed886b33d9d8a5ec7ae3584640ed50a3ac396592230fe23811332a929e1fd",
+     "offset": 1892,
+     "type": "f32",
+     "bytesHex": "6210803f",
+     "value": 1.000499963760376
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Attachments\\MidZoom\\ElcanDR\\WPM_SCP_ElcanDR.ebx",
+     "rawSha256": "124ed886b33d9d8a5ec7ae3584640ed50a3ac396592230fe23811332a929e1fd",
+     "offset": 1504,
+     "type": "i32",
+     "bytesHex": "02000000",
+     "value": 2
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Attachments\\MidZoom\\ElcanDR\\WPM_SCP_ElcanDR.ebx",
+     "rawSha256": "124ed886b33d9d8a5ec7ae3584640ed50a3ac396592230fe23811332a929e1fd",
+     "offset": 1520,
+     "type": "f32",
+     "bytesHex": "cdcc8c3f",
+     "value": 1.100000023841858
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Attachments\\MidZoom\\ElcanDR\\WPM_SCP_ElcanDR.ebx",
+     "rawSha256": "124ed886b33d9d8a5ec7ae3584640ed50a3ac396592230fe23811332a929e1fd",
+     "offset": 3552,
+     "type": "f32",
+     "bytesHex": "6210803f",
+     "value": 1.000499963760376
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Attachments\\MidZoom\\ElcanDR\\WPM_SCP_ElcanDR.ebx",
+     "rawSha256": "124ed886b33d9d8a5ec7ae3584640ed50a3ac396592230fe23811332a929e1fd",
+     "offset": 3556,
+     "type": "f32",
+     "bytesHex": "6210803f",
+     "value": 1.000499963760376
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Attachments\\MidZoom\\ElcanDR\\WPM_SCP_ElcanDR.ebx",
+     "rawSha256": "124ed886b33d9d8a5ec7ae3584640ed50a3ac396592230fe23811332a929e1fd",
+     "offset": 3168,
+     "type": "i32",
+     "bytesHex": "01000000",
+     "value": 1
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Attachments\\MidZoom\\ElcanDR\\WPM_SCP_ElcanDR.ebx",
+     "rawSha256": "124ed886b33d9d8a5ec7ae3584640ed50a3ac396592230fe23811332a929e1fd",
+     "offset": 3184,
+     "type": "f32",
+     "bytesHex": "3333333f",
+     "value": 0.699999988079071
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Attachments\\MidZoom\\ElcanDR\\WPM_SCP_ElcanDR.ebx",
+     "rawSha256": "124ed886b33d9d8a5ec7ae3584640ed50a3ac396592230fe23811332a929e1fd",
+     "offset": 4180,
+     "type": "guid",
+     "bytesHex": "b79a6cf618bb2d4d81336d90b19f0e84",
+     "value": "f66c9ab7-bb18-4d2d-8133-6d90b19f0e84"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Attachments\\MidZoom\\ElcanDR\\WPM_SCP_ElcanDR.ebx",
+     "rawSha256": "e0443542dc7179c475a64a21bd2ffa9f416bc16184d91f49e8f7c8d0e54f53cb",
+     "offset": 1888,
+     "type": "f32",
+     "bytesHex": "cdcc0c3f",
+     "value": 0.550000011920929
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Attachments\\MidZoom\\ElcanDR\\WPM_SCP_ElcanDR.ebx",
+     "rawSha256": "e0443542dc7179c475a64a21bd2ffa9f416bc16184d91f49e8f7c8d0e54f53cb",
+     "offset": 1892,
+     "type": "f32",
+     "bytesHex": "cdcc0c3f",
+     "value": 0.550000011920929
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Attachments\\MidZoom\\ElcanDR\\WPM_SCP_ElcanDR.ebx",
+     "rawSha256": "e0443542dc7179c475a64a21bd2ffa9f416bc16184d91f49e8f7c8d0e54f53cb",
+     "offset": 1504,
+     "type": "i32",
+     "bytesHex": "02000000",
+     "value": 2
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Attachments\\MidZoom\\ElcanDR\\WPM_SCP_ElcanDR.ebx",
+     "rawSha256": "e0443542dc7179c475a64a21bd2ffa9f416bc16184d91f49e8f7c8d0e54f53cb",
+     "offset": 1520,
+     "type": "f32",
+     "bytesHex": "cdcc8c3f",
+     "value": 1.100000023841858
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Attachments\\MidZoom\\ElcanDR\\WPM_SCP_ElcanDR.ebx",
+     "rawSha256": "e0443542dc7179c475a64a21bd2ffa9f416bc16184d91f49e8f7c8d0e54f53cb",
+     "offset": 3552,
+     "type": "f32",
+     "bytesHex": "cdcc0c3f",
+     "value": 0.550000011920929
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Attachments\\MidZoom\\ElcanDR\\WPM_SCP_ElcanDR.ebx",
+     "rawSha256": "e0443542dc7179c475a64a21bd2ffa9f416bc16184d91f49e8f7c8d0e54f53cb",
+     "offset": 3556,
+     "type": "f32",
+     "bytesHex": "cdcc0c3f",
+     "value": 0.550000011920929
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Attachments\\MidZoom\\ElcanDR\\WPM_SCP_ElcanDR.ebx",
+     "rawSha256": "e0443542dc7179c475a64a21bd2ffa9f416bc16184d91f49e8f7c8d0e54f53cb",
+     "offset": 3168,
+     "type": "i32",
+     "bytesHex": "01000000",
+     "value": 1
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Attachments\\MidZoom\\ElcanDR\\WPM_SCP_ElcanDR.ebx",
+     "rawSha256": "e0443542dc7179c475a64a21bd2ffa9f416bc16184d91f49e8f7c8d0e54f53cb",
+     "offset": 3184,
+     "type": "f32",
+     "bytesHex": "3333333f",
+     "value": 0.699999988079071
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Attachments\\MidZoom\\ElcanDR\\WPM_SCP_ElcanDR.ebx",
+     "rawSha256": "e0443542dc7179c475a64a21bd2ffa9f416bc16184d91f49e8f7c8d0e54f53cb",
+     "offset": 4180,
+     "type": "guid",
+     "bytesHex": "b79a6cf618bb2d4d81336d90b19f0e84",
+     "value": "f66c9ab7-bb18-4d2d-8133-6d90b19f0e84"
+    }
+   ]
+  }
+ ],
+ "inference": [
+  "The GCR modifier replaces (overrides) the weapon zoomed camera-recoil own values while the optic is in a given zoom state; it does not multiply them. Field_1258dac5 is the zoom-state index (inferred from structure and values).",
+  "The 2.1.1.0 SU-230 fix is not in GCR values or bindings; the only SU-230-specific source change found is the shared-part pair Field_149939ab/Field_e9129d03, whose meaning is not established.",
+  "No unit follows from source: the target is a signed scalar with no named unit or consumer equation."
+ ],
+ "unresolved": [
+  "Unit and runtime equation of CameraRecoilWhenZoomedAmount / IdleCameraRecoilWhenZoomedAmount: the source gives a signed scalar (weapon own value -0.625, registry bounds -10..10) that the GCR modifier replaces (enable + override, neutral multiply/add). No consumer equation was found, so neither a unit nor a direction is established from source; \"higher = less shake\" rests only on the 1.4.3.0 operator report.",
+  "Field_1258dac5 is read as the optic zoom-state index (1, 2, ...; -1 in GCR_01x00_ALLADS_P00) from structure; which index is the in-game 1x or 4x state is inferred from the ladder values, not from a consumer.",
+  "Why EA names six weapons: the SU-230-specific 2.1.1.0 change (WPM_SCP_ElcanDR Field_149939ab / Field_e9129d03 1.0005 -> 0.55) is in a part imported by 56 weapon WBs; no six-weapon-specific difference was found in the traced GS/WB/Ability chain. The pair is unnamed; that it is what EA calls visual recoil is not established.",
+  "A \"ladder ratio\" prediction is not defined for signed overrides (-0.5 against 0.762266); the recording can test direction and order only."
+ ],
+ "siteImpact": "No site change. The site has no camera-recoil model and SIGHTS su_230_lpvo is noEffect:true; that stays correct for every modeled stat, because GCR_* bind only GS Class_539cff9b Field_9532eb28 / Field_7f1bb9d4 (CameraRecoilWhenZoomedAmount / IdleCameraRecoilWhenZoomedAmount), which the sim does not read. Conditional, only after the validation recording: if camera kick changes with the optic while bullet holes do not, a display-only optic-row chip could show the stored override as is (\"zoomed camera recoil -0.5 ... 0.762266\", unitless; weapon own value -0.625 on 61 weapons, -0.25 on es57/ggh22/m45a1/p18, +0.25 on m44/m357trait), never as a multiplier or percent. If no difference is seen, nothing changes. The 2.1.1.0 SU-230 fix changed no GCR value, so no site value changed with it.",
+ "evidence": {
+  "builds": {
+   "1.4.3.5": {
+    "raw": "C:/Users/royal/Documents/BF6 Datamining/builds/1.4.3.5/capture/collection/raw",
+    "descriptors": "builds/1.4.3.5/capture/toolchain/SharedTypeDescriptors.ebx"
+   },
+   "2.1.1.0": {
+    "raw": "C:/Users/royal/Documents/BF6 Datamining/builds/2.1.1.0/capture/collection/raw",
+    "season5Raw": "builds/2.1.1.0/reports/season5-uncaptured-2026-10-13/raw",
+    "descriptors": "builds/2.1.1.0/capture/toolchain/SharedTypeDescriptors.ebx (c477622c...6ff6)"
+   }
+  },
+  "helpers": {
+   "helpers/frosty-ebx-decode.py": "149d39cdc3aaef39d7166ad67a8e4651049c7e7bd11efeebdd41e1a9e00d3fc5",
+   "helpers/frosty-raw-check.py": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3",
+   "helpers/decode_offsets.py": "39c8f9b6a7a9b8d915cabb7ff7f701b0ccb50934017b5f666a710dc005c22967"
+  },
+  "helperNotes": "frosty-ebx-decode.py and frosty-raw-check.py are unmodified copies of the research repo scripts; decode_offsets.py wraps the copied decoder to record the absolute offset of every scalar.",
+  "commands": [
+   {
+    "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "argv": [
+     "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4071\\step1_decode.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4071",
+    "scriptSha256": "375ed1ff4aab6286311bfee70bc1b60df8a844ea00a547bc298214b29ab62802"
+   },
+   {
+    "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "argv": [
+     "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4071\\step1_table.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4071",
+    "scriptSha256": "94c09b1a37d7372f9eb537149eae34c0dd451f90cb9651697e19d5ca6074dc7b"
+   },
+   {
+    "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "argv": [
+     "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4071\\step2_control.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4071",
+    "scriptSha256": "f54226b066b9dbdcd2088c06f0d60d7e4b23d9a6ac4856dbdf9e73d22755b0d1"
+   },
+   {
+    "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "argv": [
+     "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4071\\step3_rawcheck_gcr.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4071",
+    "scriptSha256": "74a1780a201b8d4293c4c22692146afcdabce33a7a3acca11c3d15523368252e"
+   },
+   {
+    "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "argv": [
+     "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4071\\step4_six.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4071",
+    "scriptSha256": "b95d1790fa3a2b955324eccc70c71664226ef2e5ed028e3b318becdfe94f7fb7"
+   },
+   {
+    "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "argv": [
+     "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4071\\step5_decode_six.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4071",
+    "scriptSha256": "363f62ef98edee7d934ca0c8c1fa6a50614676094d4941bc6a6d04543ee18c5f"
+   },
+   {
+    "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "argv": [
+     "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4071\\step6_search.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4071",
+    "scriptSha256": "00c12423d4e40a804efc8e5ae9520b4d014ad4f1cd874107ba13105beef28f01"
+   },
+   {
+    "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "argv": [
+     "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4071\\step7_entry.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4071",
+    "scriptSha256": "7132f3cc6677efb4dc96c0d50b2468e9abe50db5d20601f6ccbfaa8f08ed4235"
+   },
+   {
+    "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "argv": [
+     "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4071\\step8_elcan.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4071",
+    "scriptSha256": "43d5d843339d61d0c49640c3513a069b04ad6808084c6b1bf82c65e206a50c4f"
+   },
+   {
+    "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "argv": [
+     "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4071\\step9_show.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4071",
+    "scriptSha256": "a02902708eea28fba82de3e56298c1964259083c535d7b668df3e8dc9a277c7f"
+   },
+   {
+    "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "argv": [
+     "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4071\\step10_obj.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4071",
+    "scriptSha256": "be7d2bf23c9a160fc3d49ece6bc37a81e0d59938847951cd7d53f57f93b0dea1"
+   },
+   {
+    "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "argv": [
+     "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4071\\step11_importers.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4071",
+    "scriptSha256": "7e7a60dd6b88781530053f74f47598510e3c99681bec739ce1713baa727113e8"
+   },
+   {
+    "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "argv": [
+     "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4071\\step12_diffsix.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4071",
+    "scriptSha256": "1020d03c787636defebdd950579f04ff92449708271221d3a7b90927f62b3e54"
+   },
+   {
+    "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "argv": [
+     "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4071\\step13_gsvals.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4071",
+    "scriptSha256": "993edc987fa38ef91a73a8b7dea78b1048acbeeb39dfae49bb2bfa4e418e0625"
+   },
+   {
+    "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "argv": [
+     "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4071\\step14_chain.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4071",
+    "scriptSha256": "b81945287e980ff8d195a403f88f57c3081efab7cb93656795f57151f62a82e0"
+   },
+   {
+    "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "argv": [
+     "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4071\\step15_all67.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4071",
+    "scriptSha256": "b0a1897e94ac5f0ec111da767e40666a63ef5c4df650023b49d64e20d09ee096"
+   },
+   {
+    "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "argv": [
+     "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4071\\step16_rawchecks.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4071",
+    "scriptSha256": "14b3cdb0956ebbee7921a25b8a36084f07961b639dc5568a55a4de5e82f332dd"
+   },
+   {
+    "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "argv": [
+     "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4071\\step17_allgcr_rc.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4071",
+    "scriptSha256": "2b40a725966eb3c32cffc17e6f6975cdb417400d34c1a318912a6471e3f04d74"
+   },
+   {
+    "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "argv": [
+     "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4071\\step18_write.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4071",
+    "scriptSha256": "4076b2970084d8a1777bb4e0a9008994d768a160e92c84292ee83d01f0f5839c"
+   },
+   {
+    "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "argv": [
+     "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4071\\step19_docs.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4071",
+    "scriptSha256": "7d456bdcf6fa49eef179e0698063ff8b1df184a1382d7fda506031cef26b6b02"
+   }
+  ],
+  "commandNotes": "Each step script was run as `python <script>` with cwd = the lead folder; scripts invoke helpers by subprocess with the argument vectors written in the scripts. Exploratory one-off python heredocs (prior-work search, patch-note lookup, crosswalk/site-data inspection) are not preserved verbatim.",
+  "inputs": {
+   "EA text": "reports/weapon-analyzer-research/2026-10-13-update-2110-post/stage8/fixes.tsv: \"SU-230 LPVO: No longer reduces visual recoil on M433, GRT-BC, M123K, M250, M121A2, M417A2\"; research repo docs/updates/2.1.1.0-checklist.md row E5",
+   "registry pairing": "builds/2.1.1.0/reports/weapon-registry-recheck-2026-10-19/pair-status.json and allrows.json",
+   "crosswalk": "2026-10-30-review-gaps/weapon-crosswalk.json"
+  },
+  "outputs": [
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4071/gcr-decoded-1.4.3.5.json",
+    "sha256": "1a5f4ccd3f410df7e47f1350ca4940fea6115d1a43e8e38c74709102e08db33b"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4071/gcr-decoded-2.1.1.0.json",
+    "sha256": "3416dab00d2c3a39852f272eefdca767fce5b7089eb910e16bf94ab54b76afdb"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4071/gcr-offsets-1.4.3.5.json",
+    "sha256": "36b671b256789984bdf34d840f394a65f6ffe43152818aadb9f48172d17faf1e"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4071/gcr-offsets-2.1.1.0.json",
+    "sha256": "4a11971d1351ad370d87dd3aaa1aca9c0a3645d5badb59cac4b9d6b1824ce6c8"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4071/gcr-table.json",
+    "sha256": "f04c65709042739fe5516fd6c7189df5fdcafd6180e679631dcd1090addd2c29"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4071/control-ladder.json",
+    "sha256": "b2b60e24369d9c7edc86836662fefe9ba850e5909db7165dfb6493c8abe9950f"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4071/six-weapons.json",
+    "sha256": "8563cfe7e57b4cda1c6cfc66f3e451076e7369a1515ba177b6a0cec8cebad391"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4071/six-offsets-1.4.3.5.json",
+    "sha256": "d2d49fed8f4605cfb65844fba7a7562f543c40e76c70d5c3d8cf2c4cf60d73c9"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4071/six-offsets-2.1.1.0.json",
+    "sha256": "f8eea9baab44bccdf643c775d0188e85294a478b939805f084fa5d4714cb4b0b"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4071/six-chains.json",
+    "sha256": "622a064f61e829975df7d3112465ef27e68fb04a37e554f29433f1f5717802a2"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4071/six-diff.json",
+    "sha256": "610d01378889d9249cc38bc23c6602fb8fd52c01c407e53461fee82db09f299c"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4071/elcan-offsets-1.4.3.5.json",
+    "sha256": "ecf179e1e0999cc4e26f9ce7be10d4f55155d4cbf7e8e2b873cb54d6f816298a"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4071/elcan-offsets-2.1.1.0.json",
+    "sha256": "734013967b67781a7e857b50d19ee48cde7ae47cab65d07faa2ead52aef51991"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4071/importers-elcan.json",
+    "sha256": "f70081ccd682bb5a3b6bc0cd720ca957e57791e405e1b77b784bec57b2d8b748"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4071/gs67-offsets-2.1.1.0.json",
+    "sha256": "2f2238c6751b5abdd826c122c1c98097e9892184b85fc8807ee5579622e4c46b"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4071/gs67-table.json",
+    "sha256": "7fbc513685263f664dc103538d7b2a1144d9a96b94be8d06d5aedfcf46cda89e"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4071/six-registry-rows.json",
+    "sha256": "a57bc6c8c62debf49ea91f689c2f6b97a872c96054a0ce8a281cb72b0b221d61"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4071/rawcheck-gcr-1.4.3.5.json",
+    "sha256": "264290f5852306f78dde939078b2ea7af3bccdfd54494429d2e0c8c41abc579e"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4071/rawcheck-gcr-2.1.1.0.json",
+    "sha256": "8f3eb6dcbe6efbfff6ad413e9bf9e65dcd322811752a88e3794c710bf25768dc"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4071/rawcheck-gcr-all-2.1.1.0.json",
+    "sha256": "a731f9dd13e004f45b799a59e02e7bf937dda5692c6e538da1c9b002a0220c86"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4071/rawcheck-gs67-2.1.1.0.json",
+    "sha256": "7d70fc72fc5ac5ea5280ec7da71d9460e1394402f86a078c65ec2777df7b8eb5"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4071/rawcheck-six-gs-1.4.3.5.json",
+    "sha256": "0841e7e599e6879152ea01863d7a1dfdeca95ec9a5846ca96826818cb12805e7"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4071/rawcheck-six-gs-2.1.1.0.json",
+    "sha256": "65bca4e82a7a61e5b174820f345fc83d9671dc83356289aa6ed7b4f83b901d2c"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4071/rawcheck-elcan-1.4.3.5.json",
+    "sha256": "22f3d5944854065fd4c20e51ec24f7c741a627c6ded0b4c77b1b846b82845e09"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4071/rawcheck-elcan-2.1.1.0.json",
+    "sha256": "4305f2babb329e4a9eca0a63cc3beb6dac102e5aabb525d9ae34976304f5dbc4"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4071/rawcheck-registry-six-2.1.1.0.json",
+    "sha256": "cae925aae9eeec484e6b0a350837dbe1050954ab1d27cc6bb01ad21ca5baf7b3"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4071/l4071-result.json",
+    "sha256": "de605b3e4c596b4493df7d3a83538610d9a28de95032ecef5211679a16b424e7"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4071/values.json",
+    "sha256": "b5b5e71b93c29ec8187d89a288f24ce82efd2ec10e5c3609cae54fbb850e2789"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4071/proposal.md",
+    "sha256": "5bae5f4eda2e05d995d167e89855dd8eb3207091b00858ce10dc6b3eaadafc61"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4071/summary.md",
+    "sha256": "801678ac59ce9cae6fc99ae1f17758e90a35f2389bc93648ae6f5c1e23009ef7"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-30",
+  "build": "mixed",
+  "leads": [
+   {
+    "id": "L4071",
+    "title": "Camera recoil ladder (GCR_*) consumption and the 2.1.1.0 SU-230 fix",
+    "status": "finding",
+    "summary": "The 34 GCR_* files (14-rung ladder) are byte-identical on 1.4.3.5 and 2.1.1.0 and override GS zoomed camera-recoil fields (own value -0.625) without a source unit; the six-weapon SU-230 binding is unchanged and the only SU-230 change is the unnamed WPM_SCP_ElcanDR pair Field_149939ab/Field_e9129d03 1.0005 -> 0.55.",
+    "reopenWhen": "A recording of one weapon with a 1.00x and a 10.00x optic (5-shot groups) shows camera kick differing while bullet holes match, or a consumer equation for CameraRecoilWhenZoomedAmount is found."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Hardware/Weapons/_WeaponModifiers/CameraRecoil/GCR_LPVO_4x00_1x00_P00",
+    "format": "raw-ebx",
+    "sha256": "6d9a01b228af0f0dcef31e79800cfcf0053d94bac07fb3a636925a861875d7f4",
+    "question": "Does the SU-230 camera-recoil modifier hold ladder values, and did it change in 2.1.1.0?",
+    "result": "useful",
+    "conclusion": "Enable + override on Field_9532eb28/Field_7f1bb9d4: zoom state 2 = -0.5 (1.00x rung), state 1 = 0.505185 (4.00x rung); byte-identical to 1.4.3.5."
+   },
+   {
+    "path": "Common/Hardware/Weapons/_WeaponModifiers/CameraRecoil/GCR_10x00_P00",
+    "format": "raw-ebx",
+    "sha256": "fc11a7c19ad3fe29059f91c410aaad3f92dce760e7370ac0a09a26404869c7e3",
+    "question": "Top rung of the GCR camera-recoil ladder on 2.1.1.0.",
+    "result": "useful",
+    "conclusion": "Override 0.762266 (10.00x) in both paired fields, enable true; byte-identical to 1.4.3.5."
+   },
+   {
+    "path": "Common/Hardware/Weapons/_WeaponModifiers/CameraRecoil/GCR_01x00_P00",
+    "format": "raw-ebx",
+    "sha256": "f47299f2f359a3cb1a619e1042dae139ffe897a0a9c2d46a0086835dabc1ee90",
+    "question": "Bottom rung of the GCR camera-recoil ladder on 2.1.1.0.",
+    "result": "useful",
+    "conclusion": "Override -0.5 (1.00x) in both paired fields, enable true; byte-identical to 1.4.3.5."
+   },
+   {
+    "path": "Common/Hardware/Weapons/_Attachments/MidZoom/ElcanDR/WPM_SCP_ElcanDR",
+    "format": "raw-ebx",
+    "sha256": "e0443542dc7179c475a64a21bd2ffa9f416bc16184d91f49e8f7c8d0e54f53cb",
+    "question": "Where is the SU-230 change of 2.1.1.0 in the traced chain?",
+    "result": "useful",
+    "conclusion": "Only SU-230-specific change: Class_bfd4f199 objects 7 and 16 (Field_c4814c93 2 and 1) unnamed pair Field_149939ab/Field_e9129d03 1.0005 -> 0.55; part imported by 56 weapon WBs; meaning unresolved."
+   },
+   {
+    "path": "Common/Hardware/Weapons/AssaultRifle/HK433/GS_HK433",
+    "format": "raw-ebx",
+    "sha256": "61b8c5791b177e0b2becff5cdb00c8c9a6649515ff41a6fc1572ff7efadb7dda",
+    "question": "How is the SU-230 GCR entry bound on this weapon, what does it target, and did the binding change in 2.1.1.0?",
+    "result": "useful",
+    "conclusion": "Field_a2bef75b entry 35: selector f66c9ab7, priority 37, GCR_LPVO_4x00_1x00_P00; own values -1.4/-0.625/-0.625; unchanged from 1.4.3.5. The other five named weapons (GRT-BC, M417 A2, M121 A2, M123K, M250) read the same; per-file hashes and checks are in the receipt body."
+   }
+  ],
+  "site": [
+   {
+    "pointer": "data/attachments.json:/SIGHTS/[id=su_230_lpvo]/noEffect",
+    "value": true,
+    "relation": "context"
+   }
+  ],
+  "binding": "research"
+ },
+ "run": {
+  "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps",
+  "leadFolder": "L4071"
+ }
+}

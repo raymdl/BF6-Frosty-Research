@@ -41,8 +41,13 @@ outcome. Otherwise record the limit as unresolved; do not add a capture.
 
 ## 1. Match Trigger in semi-auto and automatic modes (L17)
 
-**Why it matters.** Match Trigger can be selected on 24 weapons, and the site shows it
-with no effect. On all 24, source binds recoil tier +3 (M433 per-shot recoil
+**Status 30 October 2026 (L4073).** The site applies the block in semi-automatic fire since
+site commit `81371d5` (24 Oct); this capture now validates that choice. The final brief
+(M433, 200 ms pairs, semi then auto, AK4D control, predictions 4.97 against 1.92 cm at
+200 ms) is `BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4073/capture-brief.md`.
+
+**Why it matters.** Match Trigger can be selected on 24 weapons, and the site showed it
+with no effect until 24 October. On all 24, source binds recoil tier +3 (M433 per-shot recoil
 ×0.844, about 16% less), recovery ×1.728 (factor 72 → 124.4) and spread increase ×0
 ([L24](../../reference-data/provenance/frosty-2026-09-24-L24-match-trigger-family.json)).
 The effects sit behind the same fire-mode condition class as the burst modifiers

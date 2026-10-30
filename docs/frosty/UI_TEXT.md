@@ -15,6 +15,16 @@ Results:
 - [frosty-optic-render-fov-2026-09-16.json](../../reference-data/provenance/frosty-optic-render-fov-2026-09-16.json) `opticNames` (in-game names of 42 optics)
 - [weapon-descriptions-2026-09-13.json](../../reference-data/provenance/weapon-descriptions-2026-09-13.json)
 
+## 2.1.1.0 strings census (30 October 2026, L4060)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-30-L4060-strings-census-2110.json). All 1,363 added and changed rows of `strings-diff.tsv` were scanned: 254 carry a digit and 49 only a count word; only 138 of those ids have a raw consumer. By group: store and cosmetic 86, challenge 62, ranked and badge 45, other UI 33, mode and campaign 15, attachment names and labels 24, vehicle 12, weapon description 6, weapon name 5, optic text with no consumer 5, perk 2, attachment description 2, the rest single rows. 56 rows were traced to a stored value: 3 agree (Flak "33%" is 1 - 0.67 in `Affector_FlakJacket`; ELR-40 "150m-180m" is the Match curve peak; Z84M "100-round" is `PKM_WB` capacity 101 under the chambered-round convention), 2 disagree, 51 have no joined stored value (magnification, caliber and per-magazine capacity are not stored beside the text). The UI string-id field is `Field_3d34898a` (not `Field_8cf424e7`).
+
+- **Quick Plating** (`3EA804EE`, "33% faster" to "25% faster"): consumer `UIPlayerAbilityDescriptionMetadata` object 269 (`Ability_Pointman_Base`); the stored f32 1.5 and stat id 35 re-read in both `SimEx_Ability_Pointman_Base` and `SimEx_FasterArmorReplate` bodies; no 1.25, 0.75, 0.8 or 25 is stored beside them and neither asset imports an affector. Text or value live is not decidable from source; the test is plate time with and without the perk (0.667 of base supports 1.5, 0.8 supports the text).
+- **CDX40 Single Shot** (`61371A94`, "massive damage between 30m and 60m"): the site's API bullet `PD_.375EnABELR_API` peaks at 120 from 42 m to 68 m (0 m 90, 24 m 90, 42 m 120, 68 m 120, 80 m 100, 140 m 80); the join from the attachment description to that bullet is the site's inference. Candidate attachment-bug row; one damage-readout test at 30, 36, 64, 68 and 75 m decides it.
+- **Low-Zoom 2x and 3x** (`11714E75`, `11714E76` added): `AD_Shared_SCA_Variable2X`, `_3X` and `_4X` all still point at `1F8F11E3`, now "Low-Zoom 4x", and no raw file in the 13, 15 or 22 October captures holds the new 2x and 3x ids; identity conflict only (no stored magnification).
+- **M2010 ESR and SV-98 descriptions**: the UI records hold `2DB86D4C` and `E8EA1B59`, which are djb2 of `ID_WEAPON_M2010ESR_DESC` and `ID_WEAPON_SV98M_DESC` and exist in no string table on either build; the texts the site uses sit under `5E0EAEEC` and `97529B79` in both tables with no raw referrer. A missing-string fact, not a value conflict.
+- **E6 strings**: the VSSM 10 Rnd description pointer moved from `ABDC2EB4` to `67CFDCC6` (both ids exist in both tables, so the diff cannot show it); IR Smoke Shell is `6582557A` in the CB90 UI metadata, whose name pointer now goes to the added `31D09422`; "Infantry Sprint" (`DB089AC6`) is unchanged in both tables with no consumer in any captured tree.
+
 ## 1.4.3.5 text check (30 September 2026)
 
 The 109,195-row current English strings export is byte-identical to the recorded

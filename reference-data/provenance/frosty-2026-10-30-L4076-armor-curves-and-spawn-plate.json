@@ -1,0 +1,842 @@
+{
+ "lead": "L4076",
+ "status": "finding",
+ "build": "mixed (2.1.1.0 values; 1.4.3.5 old curves; 1.4.3.0 bytes only for the uncaptured Ability_ArmorGrant chain GUIDs and the release decoder-DB route)",
+ "question": "Can multiplayer soldiers carry an armor plate on 2.1.1.0 (ArmorGrantSpawnPlate, U28), what is the armor model, and what do the 13 changed armor curves (U23) do to BTK?",
+ "sourceFacts": {
+  "control": {
+   "description": "PD_762x39mm own armor curve (Field_7e05a1ae) in the 2.1.1.0 main raw tree at the raw-checks-curves.json offsets (1540, 1604) plus x values: 0:20.67 46:20.67 85:20.67 85:17.13",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_762x39mm.ebx",
+     "rawSha256": "9ab6533d3aa16be0f041186c8cbc960d5ca77bce9a85f04eff3d40a1e9e48414",
+     "offset": 1536,
+     "type": "f32",
+     "bytesHex": "00000000",
+     "value": 0.0
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_762x39mm.ebx",
+     "rawSha256": "9ab6533d3aa16be0f041186c8cbc960d5ca77bce9a85f04eff3d40a1e9e48414",
+     "offset": 1540,
+     "type": "f32",
+     "bytesHex": "295ca541",
+     "value": 20.670000076293945
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_762x39mm.ebx",
+     "rawSha256": "9ab6533d3aa16be0f041186c8cbc960d5ca77bce9a85f04eff3d40a1e9e48414",
+     "offset": 1576,
+     "type": "f32",
+     "bytesHex": "00003842",
+     "value": 46.0
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_762x39mm.ebx",
+     "rawSha256": "9ab6533d3aa16be0f041186c8cbc960d5ca77bce9a85f04eff3d40a1e9e48414",
+     "offset": 1580,
+     "type": "f32",
+     "bytesHex": "295ca541",
+     "value": 20.670000076293945
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_762x39mm.ebx",
+     "rawSha256": "9ab6533d3aa16be0f041186c8cbc960d5ca77bce9a85f04eff3d40a1e9e48414",
+     "offset": 1592,
+     "type": "f32",
+     "bytesHex": "0000aa42",
+     "value": 85.0
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_762x39mm.ebx",
+     "rawSha256": "9ab6533d3aa16be0f041186c8cbc960d5ca77bce9a85f04eff3d40a1e9e48414",
+     "offset": 1596,
+     "type": "f32",
+     "bytesHex": "295ca541",
+     "value": 20.670000076293945
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_762x39mm.ebx",
+     "rawSha256": "9ab6533d3aa16be0f041186c8cbc960d5ca77bce9a85f04eff3d40a1e9e48414",
+     "offset": 1600,
+     "type": "f32",
+     "bytesHex": "0000aa42",
+     "value": 85.0
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_762x39mm.ebx",
+     "rawSha256": "9ab6533d3aa16be0f041186c8cbc960d5ca77bce9a85f04eff3d40a1e9e48414",
+     "offset": 1604,
+     "type": "f32",
+     "bytesHex": "3d0a8941",
+     "value": 17.1299991607666
+    }
+   ]
+  },
+  "registryRow": "GRX_Glacier_Soldier object 42 Class_18d40008 GUID c3df8128-3e85-4641-88f5-a0578adf4cdd, name ArmorGrantSpawnPlate, Field_42c8b257 bool true at 4120.",
+  "consumer": "SimEx_Ability_ArmorGrant imports the row (raw GUID at 3098; GRX_Glacier_Soldier file GUID at 3082) and LootItemList Ammo_Armor (Game/GlacierGranite). Graph 3b2135ace1c9874f (L4057 listing): GetKillSwitch(ArmorGrantSpawnPlate) gates a loop that grants Ammo_Armor. The 1.4.3.5 body fecce6f255bf7cc9 had no such gate (IsFiring and deployable cover instead).",
+  "granter": "Release 1.4.3.0 decoder DB: Ability_ArmorGrant imported only by FieldUpgradePath_BR_Support_Fortifier; that route is absent from the 2.1.1.0 catalog. 2.1.1.0 byte search (21 roots, 103,867 files, materialgrid skipped): 0 files import the Ability_ArmorGrant, U_ or FL_ file GUIDs; known-answer control positive on the 1.4.3.0 Fortifier file.",
+  "killSwitch": "KST_GlacierMP Ability_ArmorGrant false (816); all 243 rows false.",
+  "spawnArmor": "MutatorDatabase_CH1 SpawnWithArmor default 0 (12900), Field_3ff76ddb 2 (12896); consumer ActSimEx_PlayerOwner_UpdateOnChange applies the soft (1) or ceramic (2) armor affector at spawn. Gauntlet_StartingArmorPlates 3.0 (9172).",
+  "materials": "Glacier_Soldier object 55 Field_6ce859af packed 579 (11592); Affector_CeramicArmorUpgrade 579 (180) -> 238 (176).",
+  "curves": "13 bullets, 104/104 raw checks (curve-rawchecks.json); 67 site weapons' armor curves 67/67 (values-rawchecks.json).",
+  "rawChecks": [
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_762x39mm.ebx",
+    "rawSha256": "9ab6533d3aa16be0f041186c8cbc960d5ca77bce9a85f04eff3d40a1e9e48414",
+    "offset": 1536,
+    "type": "f32",
+    "bytesHex": "00000000",
+    "value": 0.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_762x39mm.ebx",
+    "rawSha256": "9ab6533d3aa16be0f041186c8cbc960d5ca77bce9a85f04eff3d40a1e9e48414",
+    "offset": 1540,
+    "type": "f32",
+    "bytesHex": "295ca541",
+    "value": 20.670000076293945
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_762x39mm.ebx",
+    "rawSha256": "9ab6533d3aa16be0f041186c8cbc960d5ca77bce9a85f04eff3d40a1e9e48414",
+    "offset": 1576,
+    "type": "f32",
+    "bytesHex": "00003842",
+    "value": 46.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_762x39mm.ebx",
+    "rawSha256": "9ab6533d3aa16be0f041186c8cbc960d5ca77bce9a85f04eff3d40a1e9e48414",
+    "offset": 1580,
+    "type": "f32",
+    "bytesHex": "295ca541",
+    "value": 20.670000076293945
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_762x39mm.ebx",
+    "rawSha256": "9ab6533d3aa16be0f041186c8cbc960d5ca77bce9a85f04eff3d40a1e9e48414",
+    "offset": 1592,
+    "type": "f32",
+    "bytesHex": "0000aa42",
+    "value": 85.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_762x39mm.ebx",
+    "rawSha256": "9ab6533d3aa16be0f041186c8cbc960d5ca77bce9a85f04eff3d40a1e9e48414",
+    "offset": 1596,
+    "type": "f32",
+    "bytesHex": "295ca541",
+    "value": 20.670000076293945
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_762x39mm.ebx",
+    "rawSha256": "9ab6533d3aa16be0f041186c8cbc960d5ca77bce9a85f04eff3d40a1e9e48414",
+    "offset": 1600,
+    "type": "f32",
+    "bytesHex": "0000aa42",
+    "value": 85.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_762x39mm.ebx",
+    "rawSha256": "9ab6533d3aa16be0f041186c8cbc960d5ca77bce9a85f04eff3d40a1e9e48414",
+    "offset": 1604,
+    "type": "f32",
+    "bytesHex": "3d0a8941",
+    "value": 17.1299991607666
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Gameplay\\Soldier\\GRX_Glacier_Soldier.ebx",
+    "rawSha256": "bf346beeb858dfdb9c1200f4fad8b093dc3b2a4cdddf3e78a66dac5a22b23279",
+    "offset": 4040,
+    "type": "guid",
+    "bytesHex": "2881dfc3853e414688f5a0578adf4cdd",
+    "value": "c3df8128-3e85-4641-88f5-a0578adf4cdd",
+    "note": "ArmorGrantSpawnPlate row instance GUID (exported object 42 at 4056)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Gameplay\\Soldier\\GRX_Glacier_Soldier.ebx",
+    "rawSha256": "bf346beeb858dfdb9c1200f4fad8b093dc3b2a4cdddf3e78a66dac5a22b23279",
+    "offset": 4120,
+    "type": "bool",
+    "bytesHex": "01",
+    "value": true,
+    "note": "ArmorGrantSpawnPlate Field_42c8b257 value"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Gameplay\\InRoundProgression\\ArmorGrant\\SimEx_Ability_ArmorGrant.ebx",
+    "rawSha256": "ed2cac8664ea36402a3bc0d2cb79662e78e4d3804ca845c715e14e347846b24c",
+    "offset": 3082,
+    "type": "bytes:16",
+    "bytesHex": "6c7f54bc96e21842ba9ec585539862cb",
+    "value": "6c7f54bc96e21842ba9ec585539862cb",
+    "note": "import fileGuid raw = GRX_Glacier_Soldier"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Gameplay\\InRoundProgression\\ArmorGrant\\SimEx_Ability_ArmorGrant.ebx",
+    "rawSha256": "ed2cac8664ea36402a3bc0d2cb79662e78e4d3804ca845c715e14e347846b24c",
+    "offset": 3098,
+    "type": "bytes:16",
+    "bytesHex": "2881dfc3853e414688f5a0578adf4cdd",
+    "value": "2881dfc3853e414688f5a0578adf4cdd",
+    "note": "import instance GUID raw = ArmorGrantSpawnPlate row"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierMP\\GameSetup\\Killswitches\\KST_GlacierMP.ebx",
+    "rawSha256": "a08aafca2c123702e8e6de155bb9d27fec62fe7eea3d5652ebe6785c858e54cd",
+    "offset": 816,
+    "type": "bool",
+    "bytesHex": "00",
+    "value": false,
+    "note": "KST_GlacierMP Ability_ArmorGrant row value"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\GameSetup\\Tweakables\\Mutators\\MutatorDatabase_CH1.ebx",
+    "rawSha256": "3ea9f0cdbea4d91b9895a071b1ce40208d6be213f2aa3b4790fdd16c43533449",
+    "offset": 12900,
+    "type": "i32",
+    "bytesHex": "00000000",
+    "value": 0,
+    "note": "SpawnWithArmor Field_42c8b257 default"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\GameSetup\\Tweakables\\Mutators\\MutatorDatabase_CH1.ebx",
+    "rawSha256": "3ea9f0cdbea4d91b9895a071b1ce40208d6be213f2aa3b4790fdd16c43533449",
+    "offset": 12896,
+    "type": "i32",
+    "bytesHex": "02000000",
+    "value": 2,
+    "note": "SpawnWithArmor Field_3ff76ddb"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\GameSetup\\Tweakables\\Mutators\\MutatorDatabase_CH1.ebx",
+    "rawSha256": "3ea9f0cdbea4d91b9895a071b1ce40208d6be213f2aa3b4790fdd16c43533449",
+    "offset": 9172,
+    "type": "f32",
+    "bytesHex": "00004040",
+    "value": 3.0,
+    "note": "Gauntlet_StartingArmorPlates default"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Gameplay\\Soldier\\Glacier_Soldier.ebx",
+    "rawSha256": "fbe4c448d2b2005fe80ae6bce75e2174558062261ddce8cd66727a94c1bd0087",
+    "offset": 11592,
+    "type": "u32",
+    "bytesHex": "80003024",
+    "value": 607125632,
+    "note": "object 55 Field_6ce859af packed material 579"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_CeramicArmorUpgrade.ebx",
+    "rawSha256": "fe5d8d3021ad78a38b22ad479c37d5d5251d42fa01d93c7cd246bc50c15a5b58",
+    "offset": 180,
+    "type": "u32",
+    "bytesHex": "80003024",
+    "value": 607125632,
+    "note": "swap entry 0 Field_4a94515c = 579"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Gadgets\\Misc\\CeramicArmor\\Affector_CeramicArmorUpgrade.ebx",
+    "rawSha256": "fe5d8d3021ad78a38b22ad479c37d5d5251d42fa01d93c7cd246bc50c15a5b58",
+    "offset": 176,
+    "type": "u32",
+    "bytesHex": "8000e00e",
+    "value": 249561216,
+    "note": "swap entry 0 Field_465fa50b = 238"
+   }
+  ]
+ },
+ "inference": [
+  "Plates are REDSEC/Gauntlet (Granite) content: the granted item and the only known granter are Battle Royale assets, and the multiplayer spawn path applies armor only when SpawnWithArmor (default 0) or a per-player value is set.",
+  "ArmorGrantSpawnPlate switches on a spawn plate grant inside the ArmorGrant perk (a new gate on 2.1.1.0); by itself it gives multiplayer soldiers no armor.",
+  "579 and 238 are hit-material ids: 579 the armored chest (EA's against-armor multipliers), 238 its ceramic-upgrade replacement. They select grid multipliers, not the armor curve; the curve choice is native.",
+  "Against a plate the new curves cost up to one extra shot at capacity 40 and up to two at 80 (no spill); DMR shots rise from 4 to 5 at 0-30 m (capacity 40). Unplated BTK is unchanged (health curves did not move)."
+ ],
+ "unresolved": [
+  "Plate capacity: no stored armor amount for a plate was found in scope; BTK uses candidate capacities 40 and 80 (L3380 amount affectors, unconfirmed). The ArmorGrant graph constant -1.5 has no named role.",
+  "Who grants Ability_ArmorGrant on 2.1.1.0: Ability_ArmorGrant, U_Ability_ArmorGrant, FL_Ability_ArmorGrant and the FieldUpgradePath_BR_*_Y2 paths are not captured (needs capture).",
+  "Whether any multiplayer mode overrides SpawnWithArmor: no override was found by row GUID; overrides may be keyed otherwise or set server-side.",
+  "How the armor curve (Field_7e05a1ae) is chosen over the health curve, whether excess damage spills from plate to health, and how the 579/238 grid multipliers combine with the armor curve: native, unread.",
+  "Material 587 (armored head) packed value not found in the 2.1.1.0 Glacier_Soldier by the 1.4.3.5 bit pattern; not followed (chest only in scope).",
+  "Material grid values for 579/238 on 2.1.1.0 not re-read (materialgrid files are off limits here; the grids changed in 2.1.1.0, U39)."
+ ],
+ "siteImpact": "None for multiplayer on current evidence: plates are REDSEC/Gauntlet (Granite) content and the default multiplayer spawn-armor mutator is 0. Conditional: if a standard multiplayer mode shows an armor bar, a Target view 'plated chest' option would use the values.json armor curves (Field_7e05a1ae) with a stated capacity and spill rule; numbers in btk-table.md.",
+ "evidence": {
+  "outputs": [
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076\\l4076-result.json",
+    "sha256": "5e86a1bc04182d444a7c855f19235bd0985bc991e639ba20b1626be968fefc28"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076\\values.json",
+    "sha256": "b1072c640639b96f35453f367e54078da8677975b874d0583e5d3e9d7aea6bd3"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076\\btk.json",
+    "sha256": "802c8b17b0ba4bbfdae19e586098a7d35062872bbbb63712da5e1c275aa42024"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076\\btk-table.md",
+    "sha256": "170f4a6d5458f9f2dcebfecae747fa19a9ae603a06f3e29afe206dd4886ddc63"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076\\curves-13.json",
+    "sha256": "227dcb05217aa49250e84807eda4f8d62b433f566979784b0e1eedcfb30566e9"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076\\control-rawchecks.json",
+    "sha256": "760de007491a47b63299127c54dae13c90e7e8442309e69f031e2b21092b0e0b"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076\\p1-rawchecks.json",
+    "sha256": "4f077b5d0ccde4beb2d6e71898b9f973eba1f7da4cca5a9dd65035458bfc9bd2"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076\\curve-rawchecks.json",
+    "sha256": "45c05166bf91108cad70c2414e1b33eed57ffadac5ad071bb788887272aef054"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076\\values-rawchecks.json",
+    "sha256": "1b5692fc7320f47577094499686f1e8d8eda4b0b102bc6f0c9b3acc10e764124"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076\\ag-ids.json",
+    "sha256": "ce2adc168aefdeb8e80dbffffd41034d8ad9a486e30fc11e5f8010ef4783b674"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076\\ag-search.json",
+    "sha256": "8136ec3d2b7ddafbe64468f2c5a64b813fad7b7a0f165f24c3cc22e91bc42394"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076\\search-control.json",
+    "sha256": "73660f54bb5357452d0ca6566b604a4f6c60bfdb353b7f8d499657122f03c402"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076\\db-1430-importers.json",
+    "sha256": "b4515bc241ccb6d778a8ed59aa3cce6f5279052bf5a7e887064c51ca66bfbc53"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076\\kst-glaciermp.json",
+    "sha256": "e9e1316f32961d4f2f34c15d02b656de706ae94178c70b72b523f6757234bd20"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076\\mutator-armor-strings.json",
+    "sha256": "e75b859e53154e07f2c39d3eeffd2b2150b3844212cf1417d7c68b3d59afb9dd"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076\\mutator-guid-search.json",
+    "sha256": "c767c2e278cd64c48687c9a455b59a134225809fff339415af90b87c46a3dce0"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076\\l3380-carry.json",
+    "sha256": "d0ed8090326ba68b492575c1d48c17ee1b653c6caf776e4fe789de27c62fcc3f"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076\\grx-glacier-soldier-decoded.json",
+    "sha256": "bcc90905a044d49c0163eddca8d8d8f449374238eab00c1caf21e26ea53f753e"
+   }
+  ],
+  "helpers": [
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076\\ag_ids.py",
+    "sha256": "63b9f72a37af4903e937c5ea01c37dca54e1de2eaa6e487125af71b5d91160cf"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076\\ag_search.py",
+    "sha256": "4124b5af4bef28df77aca3a8dfd9144d331a0d8e243ebdd36903f7d58c34d3a5"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076\\btk.py",
+    "sha256": "9871abbda2388f497b381b612d186bfdca0a3833c27a09023f4163c0e2d59a64"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076\\build_values.py",
+    "sha256": "d1ef6a081d7960c726b05a6caf3fd0a28a0be7f525baa69b6040efe9efe5dc2a"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076\\ctx.py",
+    "sha256": "b4cdeda1ee20553ac2917b44aaccb049c5d035b2a1cdfdb6d1ccc2166def81f7"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076\\dbq.py",
+    "sha256": "4bb521cd6985975d14d7e0bbf17881805d5fc58fb98c35b6f45b060449a0dcfd"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076\\dbq2.py",
+    "sha256": "472561eebe8507c7f13b64a67ae4260a204f98db1df85ae7463a9370f8e3a6e5"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076\\dec2.py",
+    "sha256": "47e67632431aec74fcb593ea2a46786313447b7b75c339994ca3bcef90ff64d3"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076\\dec3.py",
+    "sha256": "39465401cb22bb0886bc8f0f51038eb2f21ddc6070265ab641c2777168557810"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076\\find_row.py",
+    "sha256": "231e0ec87e476868fb6ab2d0805d1014470024c6fba023fdcb97216a97b6ee43"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076\\guidsearch2.py",
+    "sha256": "dee32351b6105df9e06174db4b841766df63339c631eb08c3f7659d946ab477a"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076\\kst.py",
+    "sha256": "c7bebaaa271280a1d80edc7540d850812b8cd99b914ca81a2debbf6cda11c401"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076\\l3380_carry.py",
+    "sha256": "9403b522624bfd9e34e34da5285321db280aa54bd2a30932c532f83402d9aaae"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076\\make_md.py",
+    "sha256": "d793ce216bdf7f776ef4eb9f71ec1f30173bb6c3ec594100c369098efd1a9ba7"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076\\mk_control.py",
+    "sha256": "4136059406fd7f4f828a9adf6e7a5f1fed266e73278c788ac7cec53c494a6e74"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076\\mk_p1.py",
+    "sha256": "cacf044d82d5b589fedb5bc531d34ac57d874477021d0784b8847cad160e7e6d"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076\\mut.py",
+    "sha256": "dfe46cd986de5f99787e0ca61725ae7f6f2f7d163c907c489ee866740b7a5137"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076\\search_control.py",
+    "sha256": "a6e46d7b2b03da7ec34aa49b33541dd99365b0a51687b4c541f8efdaba8da889"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076\\show_ag.py",
+    "sha256": "37fde768c61e4095ec4c23e671870be2646cb3aa55092c8fdd289113e8160e50"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076\\values.py",
+    "sha256": "51fce9a45758268afac08a37db41d2af140d20e4d8f24c388f4e17173690899e"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076\\write_outputs.py",
+    "sha256": "ce830614bf2d7fc813b4458c77a5bcec83ea6f8d22f0a4bb55e9b844c01630fc"
+   }
+  ],
+  "commands": [
+   {
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076",
+    "argv": [
+     "python",
+     "mk_control.py"
+    ]
+   },
+   {
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076",
+    "argv": [
+     "python",
+     "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+     "--manifest",
+     "control-manifest.json",
+     "--out",
+     "control-rawchecks.json"
+    ]
+   },
+   {
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076",
+    "argv": [
+     "python",
+     "C:/Users/royal/Documents/BF6 Frosty Research/scripts/frosty-ebx-decode.py",
+     "--descriptors",
+     "C:/Users/royal/Documents/BF6 Datamining/builds/2.1.1.0/capture/toolchain/SharedTypeDescriptors.ebx",
+     "--ebx",
+     "C:/Users/royal/Documents/BF6 Datamining/builds/2.1.1.0/capture/collection/raw/Common/Gameplay/Soldier/GRX_Glacier_Soldier.ebx",
+     "--out",
+     "grx-glacier-soldier-decoded.json",
+     "--exact-floats"
+    ]
+   },
+   {
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076",
+    "argv": [
+     "python",
+     "find_row.py"
+    ]
+   },
+   {
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076",
+    "argv": [
+     "python",
+     "ag_ids.py"
+    ]
+   },
+   {
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076",
+    "argv": [
+     "python",
+     "ag_search.py"
+    ]
+   },
+   {
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076",
+    "argv": [
+     "python",
+     "search_control.py"
+    ]
+   },
+   {
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076",
+    "argv": [
+     "python",
+     "dbq2.py"
+    ]
+   },
+   {
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076",
+    "argv": [
+     "python",
+     "kst.py"
+    ]
+   },
+   {
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076",
+    "argv": [
+     "python",
+     "mut.py"
+    ]
+   },
+   {
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076",
+    "argv": [
+     "python",
+     "guidsearch2.py"
+    ]
+   },
+   {
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076",
+    "argv": [
+     "python",
+     "dec2.py",
+     "Common/GameSetup/GameConfigurations/CT_GLA_CH1_S2_SoldierUnlocks"
+    ]
+   },
+   {
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076",
+    "argv": [
+     "python",
+     "dec2.py",
+     "Game/GlacierMP/GameSetup/Killswitches/KST_GlacierMP",
+     "Ability_ArmorGrant",
+     "1500"
+    ]
+   },
+   {
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076",
+    "argv": [
+     "python",
+     "dec2.py",
+     "Common/GameSetup/Tweakables/Mutators/MutatorDatabase_CH1",
+     "Armor",
+     "1500"
+    ]
+   },
+   {
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076",
+    "argv": [
+     "python",
+     "dec2.py",
+     "Common/Hardware/Gadgets/Throwables/SupplyCrate/Affector_Ammunition_Armor_ArmorPlate_Single"
+    ]
+   },
+   {
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076",
+    "argv": [
+     "python",
+     "dec2.py",
+     "Common/Hardware/Gadgets/Throwables/SupplyCrate/Affector_Ammunition_ArmorPlates"
+    ]
+   },
+   {
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076",
+    "argv": [
+     "python",
+     "dec3.py",
+     "Common/Gameplay/Soldier/Glacier_Soldier",
+     "Field_6ce859af",
+     "1500"
+    ]
+   },
+   {
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076",
+    "argv": [
+     "python",
+     "dec3.py",
+     "Common/Hardware/Gadgets/Misc/CeramicArmor/Affector_CeramicArmorUpgrade",
+     "Class",
+     "2500"
+    ]
+   },
+   {
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076",
+    "argv": [
+     "python",
+     "dec3.py",
+     "Common/GameSetup/Tweakables/Mutators/MutatorDatabase_CH1",
+     "\"SpawnWithArmor\"",
+     "900"
+    ]
+   },
+   {
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076",
+    "argv": [
+     "python",
+     "l3380_carry.py"
+    ]
+   },
+   {
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076",
+    "argv": [
+     "python",
+     "mk_p1.py"
+    ]
+   },
+   {
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076",
+    "argv": [
+     "python",
+     "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+     "--manifest",
+     "p1-manifest.json",
+     "--out",
+     "p1-rawchecks.json"
+    ]
+   },
+   {
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076",
+    "argv": [
+     "python",
+     "build_values.py"
+    ]
+   },
+   {
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076",
+    "argv": [
+     "python",
+     "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+     "--manifest",
+     "curve-manifest.json",
+     "--out",
+     "curve-rawchecks.json"
+    ]
+   },
+   {
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076",
+    "argv": [
+     "python",
+     "btk.py"
+    ]
+   },
+   {
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076",
+    "argv": [
+     "python",
+     "values.py"
+    ]
+   },
+   {
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4076",
+    "argv": [
+     "python",
+     "write_outputs.py"
+    ]
+   }
+  ],
+  "commandNote": "All commands ran in this session from the cwd shown; dec2.py/dec3.py lines list the routes they were run for. write_outputs.py hashes itself as it was when run.",
+  "inputs": [
+   "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\weapon-registry-recheck-2026-10-19\\curve-diff.json",
+   "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\weapon-registry-recheck-2026-10-19\\allrows.json",
+   "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4057\\listings-2110",
+   "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\reports\\exhaustive-audit-2026-09-23\\coverage-decoder-v5.sqlite"
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-30",
+  "build": "mixed",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L4076",
+    "title": "Armor plates on 2.1.1.0: ArmorGrantSpawnPlate feeds a Battle Royale plate grant, multiplayer spawn armor defaults to none; BTK effect of the 13 changed armor curves",
+    "status": "finding",
+    "summary": "The new GRX_Glacier_Soldier row ArmorGrantSpawnPlate (true) is read only by SimEx_Ability_ArmorGrant, whose graph grants the Granite loot item Ammo_Armor; Ability_ArmorGrant was granted only by a Battle Royale field-upgrade path, no captured 2.1.1.0 multiplayer asset grants it, and the multiplayer spawn-armor mutator SpawnWithArmor defaults to 0, so plates are REDSEC/Gauntlet content; against a plate the 13 changed armor curves add up to two shots (candidate capacity 40/80, no spill) and unplated BTK is unchanged.",
+    "reopenWhen": "A multiplayer HUD armor bar in a standard mode, a capture of Ability_ArmorGrant and the FieldUpgradePath_BR_*_Y2 paths, or a mode override of SpawnWithArmor."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Gameplay/Soldier/GRX_Glacier_Soldier",
+    "format": "raw-ebx",
+    "sha256": "bf346beeb858dfdb9c1200f4fad8b093dc3b2a4cdddf3e78a66dac5a22b23279",
+    "question": "ArmorGrantSpawnPlate row: owner, stored value, GUID.",
+    "result": "useful",
+    "conclusion": "Object 42 (Class_18d40008, exported GUID c3df8128-3e85-4641-88f5-a0578adf4cdd) is the ArmorGrantSpawnPlate row, bool true at offset 4120."
+   },
+   {
+    "path": "Common/Gameplay/InRoundProgression/ArmorGrant/SimEx_Ability_ArmorGrant",
+    "format": "raw-ebx",
+    "sha256": "ed2cac8664ea36402a3bc0d2cb79662e78e4d3804ca845c715e14e347846b24c",
+    "question": "Which asset reads ArmorGrantSpawnPlate, and what does it grant?",
+    "result": "useful",
+    "conclusion": "Imports the row (instance GUID bytes at 3098) and the Granite LootItemList Ammo_Armor item; its graph grants that item only when the row is true. Only raw-tree consumer besides TweakablesConfig."
+   },
+   {
+    "path": "Game/GlacierMP/GameSetup/Killswitches/KST_GlacierMP",
+    "format": "raw-ebx",
+    "sha256": "a08aafca2c123702e8e6de155bb9d27fec62fe7eea3d5652ebe6785c858e54cd",
+    "question": "Does the multiplayer kill-switch table gate Ability_ArmorGrant by mode?",
+    "result": "inconclusive",
+    "conclusion": "Row Ability_ArmorGrant is false (offset 816), as are all 243 rows, multiplayer abilities included; no mode distinction."
+   },
+   {
+    "path": "Common/GameSetup/Tweakables/Mutators/MutatorDatabase_CH1",
+    "format": "raw-ebx",
+    "sha256": "3ea9f0cdbea4d91b9895a071b1ce40208d6be213f2aa3b4790fdd16c43533449",
+    "question": "Is there a multiplayer spawn-armor setting?",
+    "result": "useful",
+    "conclusion": "SpawnWithArmor i32 default 0 (offset 12900; Field_3ff76ddb 2), read by ActSimEx_PlayerOwner_UpdateOnChange (0 none, 1 soft, 2 ceramic armor affector). Gauntlet_StartingArmorPlates 3.0."
+   },
+   {
+    "path": "Common/Hardware/Gadgets/Misc/CeramicArmor/Affector_CeramicArmorUpgrade",
+    "format": "raw-ebx",
+    "sha256": "fe5d8d3021ad78a38b22ad479c37d5d5251d42fa01d93c7cd246bc50c15a5b58",
+    "question": "Is the 579 -> 238 chest material swap still stored on 2.1.1.0?",
+    "result": "useful",
+    "conclusion": "Entry 0 still pairs material 579 (offset 180) with 238 (offset 176); the file changed since 1.4.3.5."
+   },
+   {
+    "path": "Common/Gameplay/Soldier/Glacier_Soldier",
+    "format": "raw-ebx",
+    "sha256": "fbe4c448d2b2005fe80ae6bce75e2174558062261ddce8cd66727a94c1bd0087",
+    "question": "Does the soldier still name armored chest material 579 on 2.1.1.0?",
+    "result": "useful",
+    "conclusion": "Object 55 Field_6ce859af packs material 579 at offset 11592 (was 11604)."
+   },
+   {
+    "path": "Common/Hardware/Weapons/_Bullets/PD_762x39mm",
+    "format": "raw-ebx",
+    "sha256": "9ab6533d3aa16be0f041186c8cbc960d5ca77bce9a85f04eff3d40a1e9e48414",
+    "question": "Control: own armor curve Field_7e05a1ae on 2.1.1.0.",
+    "result": "useful",
+    "conclusion": "Points 0:20.67 46:20.67 85:20.67 85:17.13 at offsets 1536-1604, as the recheck table states."
+   }
+  ],
+  "site": [
+   {
+    "pointer": "data/weapons.json:/[id=sor300sc]/dmg",
+    "relation": "context"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=nvo228e]/dmg",
+    "relation": "context"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=sg553r]/dmg",
+    "relation": "context"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=m39emr]/dmg",
+    "relation": "context"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=svdm]/dmg",
+    "relation": "context"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=kord6p67]/dmg",
+    "relation": "context"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=rpk74m]/dmg",
+    "relation": "context"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=b36a4]/dmg",
+    "relation": "context"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=ef88]/dmg",
+    "relation": "context"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=l85a3]/dmg",
+    "relation": "context"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=m16a4]/dmg",
+    "relation": "context"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=m433]/dmg",
+    "relation": "context"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=sor556]/dmg",
+    "relation": "context"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=vcr2]/dmg",
+    "relation": "context"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=drsiar]/dmg",
+    "relation": "context"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=kts100]/dmg",
+    "relation": "context"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=l110]/dmg",
+    "relation": "context"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=m123k]/dmg",
+    "relation": "context"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=scw10]/dmg",
+    "relation": "context"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=cz3a1]/dmg",
+    "relation": "context"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=kv9]/dmg",
+    "relation": "context"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=pp19]/dmg",
+    "relation": "context"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=pw5a3]/dmg",
+    "relation": "context"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=sgx]/dmg",
+    "relation": "context"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=sl9]/dmg",
+    "relation": "context"
+   }
+  ]
+ },
+ "run": {
+  "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps",
+  "leadFolder": "L4076"
+ }
+}

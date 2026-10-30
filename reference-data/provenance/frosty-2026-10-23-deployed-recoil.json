@@ -1,0 +1,428 @@
+{
+ "lead": "L108",
+ "status": "finding",
+ "build": {
+  "current": "site-only (operator in-game recordings, client 2.1.1.0, 23 October 2026)",
+  "note": "In-game measurement tested against source predictions the note takes from the 2.1.1.0 raw capture (GRM_/GBM_ modifier files, see WEAPONS.md 'Mounted and deployed recoil' in the research repo); the note cites no raw hashes and this draft did not re-read the bytes. Lead L108 (MountedPlus and bipod recoil operands) already has a receipt; this draft carries no record.leads entry so it does not overwrite L108's current status."
+ },
+ "question": "Does the camera climb of an automatic weapon (M277) and a bolt-action (PSR) on the firing range fall by the factor the deployed-bipod and grip-pod recoil tiers predict (amountMult^tier sum), standing against mounted, with no grip, a Bipod, and the PTT, QD and Classic Grip Pods?",
+ "sourceFacts": {
+  "recordings": "reference-data/Recordings/10232026/M277 Bipod/<weapon>_<grip>_<state>.mp4 (10 clips) and PSR Bipod/ (8 clips), firing range, ADS, 2560x1440 at 120 fps. Standing = fired from the lane; Mounted = weapon rested on the range counter (mount prompt taken). Grips NoBipod, Bipod, PTT Grip Pod, QD Grip Pod, Classic Grip Pod; the sniper has no PTT.",
+  "method": "M277: scripts/recoil-recording-track.py (track, summary): template-matching of the yellow '10' and '15' range signs against a reference frame before the first shot; shots from the XOR of the thresholded magazine digits; muzzle flash from the centre-crop brightness jump; single-frame template slips over 40 px removed. PSR: scripts/recoil-recording-track-orb.py (muzzle-flash shot detection, 4 per clip matching the counter 11 to 07; ORB-feature RANSAC similarity fit of the whole scene, RMS at most 1.4 px) because the template tracker fails on the PSR clips (about 2 deg camera roll and a brief zoom-out per shot; the bolt animation crosses the ammo digits). Units are pixels of the 2560x1440 frame; the ADS camera scale is not calibrated, so only ratios between clips are used. dy > 0 = camera climb.",
+  "sourcePredictions": {
+   "assets": {
+    "Common/Hardware/Weapons/_WeaponModifiers/Bipod/GRM_BipodDeployed_BTM_P50": "amount exponent +10, variation exponent -4 (bipod on automatic weapons and DMRs)",
+    "Common/Hardware/Weapons/_WeaponModifiers/Grippod/GRM_GrippodDeployed_BTM_P30": "+8 / -4 (PTT, QD and Classic grip pods)",
+    "Common/Hardware/Weapons/_WeaponModifiers/Bipod/GRM_BipodDeployed_Bolt_BTM_P50": "+30 / -5 (bipod on bolt-actions; QD/Classic grip pods on PSR, M2010 ESR, SV-98, Mini Scout)"
+   },
+   "note": "The _P30 and _P50 files differ only in the two amount operands (Field_4692836a 0x08 against 0x0a); the Bolt file has 0x1e and variation 0xfffffffb. Recoil/GRM_MountedHorizontal and GRM_MountedVertical carry identity operands and zero tier deltas. Grip pods also bind Recoil/GRM_Recoil_BTM_P20 (+2 amount tiers) unconditionally. These are the note's statements of the serialized values; the deployed condition is Field_b574fa40 (BenefittingFromBipod header flag).",
+   "siteInputs": "M277 ADS amountMult 0.9433, dirVarMult 0.921523; PSR ADS amountMult 0.94, dirVarMult 0.920371.",
+   "predictedFactors": {
+    "M277 grip pod standing (+2)": 0.89,
+    "M277 deployed bipod or grip pod (+10)": 0.558,
+    "M277 deployed direction variation 0.921523^-4": 1.387,
+    "PSR deployed amount 0.94^30": 0.156,
+    "PSR deployed variation 0.920371^-5": 1.514
+   }
+  },
+  "m277": {
+   "clipTable": "first 20 shots of each 21-round magazine; columns shots, spikes removed, first kick, median kick shots 2+, mean kick 2+, climb before shot 5/10/15/20 (px)",
+   "rows": {
+    "Bipod_Mounted": [
+     20,
+     1,
+     7.1,
+     3.3,
+     3.7,
+     25.3,
+     41.5,
+     56.7,
+     67.3
+    ],
+    "Bipod_Standing": [
+     20,
+     12,
+     19.0,
+     7.5,
+     7.9,
+     56.2,
+     87.8,
+     102.4,
+     126.0
+    ],
+    "ClassicGripPod_Mounted": [
+     20,
+     0,
+     9.7,
+     4.3,
+     3.8,
+     29.1,
+     53.5,
+     61.2,
+     68.0
+    ],
+    "ClassicGripPod_Standing": [
+     20,
+     7,
+     17.8,
+     7.7,
+     7.8,
+     45.9,
+     74.4,
+     91.6,
+     97.2
+    ],
+    "NoBipod_Mounted": [
+     20,
+     7,
+     15.3,
+     5.2,
+     6.4,
+     55.4,
+     86.5,
+     101.3,
+     116.0
+    ],
+    "NoBipod_Standing": [
+     20,
+     2,
+     12.2,
+     7.0,
+     9.7,
+     53.5,
+     94.2,
+     103.8,
+     126.2
+    ],
+    "PTTGripPod_Mounted": [
+     20,
+     0,
+     5.5,
+     3.8,
+     3.9,
+     25.6,
+     46.7,
+     54.7,
+     61.0
+    ],
+    "PTTGripPod_Standing": [
+     20,
+     0,
+     9.3,
+     9.6,
+     9.7,
+     40.6,
+     80.5,
+     96.5,
+     106.0
+    ],
+    "QDGripPod_Mounted": [
+     20,
+     1,
+     9.0,
+     3.7,
+     3.6,
+     29.3,
+     47.5,
+     56.7,
+     65.9
+    ],
+    "QDGripPod_Standing": [
+     20,
+     0,
+     15.1,
+     8.2,
+     7.9,
+     43.3,
+     76.6,
+     88.7,
+     99.4
+    ]
+   },
+   "ratiosOfClimbBeforeShot20": {
+    "reference": "mean of the two no-grip standing clips, 126.1 (91.0 before shot 10)",
+    "Standing, no grip pod": {
+     "measured": "1.00 (1.00)",
+     "predicted": 1.0
+    },
+    "Standing, grip pods (PTT, QD, Classic)": {
+     "measured": "0.80 (0.85)",
+     "predicted": 0.89
+    },
+    "Mounted without bipod": {
+     "measured": "0.92 (0.95)",
+     "predicted": 1.0
+    },
+    "Deployed bipod": {
+     "measured": "0.53 (0.46)",
+     "predicted": 0.558
+    },
+    "Deployed grip pods (PTT, QD, Classic)": {
+     "measured": "0.52 (0.54)",
+     "predicted": 0.558
+    }
+   },
+   "medianKick": "Median per-shot kick (shots 2 to 20): no-grip standing 7.0 / 7.5; grip pods standing 9.6 / 8.2 / 7.7; mounted without bipod 5.2; deployed 3.3 / 3.8 / 3.7 / 4.3 (ratio about 0.5 against standing).",
+   "horizontal": "The wall texture repeats at about 90 px and the right-sign patch slips by that period during bursts, so per-shot dx jumps are not usable; no horizontal-variation ratio is reported for the M277."
+  },
+  "psr": {
+   "table": "four shots per clip; mean 15-frame peak kick (px), settled (px, mean dy over frames +30 to +40), peak ratio, settled ratio, predicted",
+   "rows": {
+    "NoBipod_Standing": [
+     41.3,
+     31.6,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "Bipod_Standing": [
+     41.2,
+     31.1,
+     0.996,
+     0.983,
+     1.0
+    ],
+    "QDGripPod_Standing": [
+     41.7,
+     32.0,
+     1.008,
+     1.012,
+     1.0
+    ],
+    "ClassicGripPod_Standing": [
+     44.4,
+     31.2,
+     1.073,
+     0.987,
+     1.0
+    ],
+    "NoBipod_Mounted": [
+     43.7,
+     34.1,
+     1.057,
+     1.078,
+     1.0
+    ],
+    "Bipod_Mounted": [
+     13.0,
+     5.1,
+     0.315,
+     0.162,
+     0.156
+    ],
+    "QDGripPod_Mounted": [
+     12.7,
+     5.2,
+     0.308,
+     0.166,
+     0.156
+    ],
+    "ClassicGripPod_Mounted": [
+     12.8,
+     5.1,
+     0.311,
+     0.16,
+     0.156
+    ]
+   },
+   "pooled": "Pooled deployed/standing: settled 0.163 (predicted 0.156); 15-frame peak 0.305. The post-shot oscillation shrinks much less than the net pitch when deployed.",
+   "horizontal": "Within-clip SD of the horizontal jump 3.50 px standing against 1.81 px deployed (ratio 0.52, n = 4 per clip, weak); settled-dx SD ratio 0.44. The predicted 1.51x increase in direction variation is not seen; deployed clips are at or below standing. Sniper grip pods carry no undeployed recoil tier."
+  },
+  "reliability": [
+   "Mounted and standing states were judged from the frame (camera height, counter in view) and the file names; the game shows no deployed indicator in these clips.",
+   "The player's mouse input is not separated from the camera track; the no-grip standing clips agree to 0.2 px at shot 20 (argues against compensation); the 116 px mounted-no-bipod climb is 8% below them with no other control.",
+   "Per-shot kick is noisy (+-3 px) because recovery between shots is included; the cumulative climb is the primary measure.",
+   "The camera recoil layer is not the bullet recoil (open item in the recoil handoff), so absolute degrees are not derived."
+  ]
+ },
+ "inference": [
+  "The deployed climb ratios (M277 0.53 bipod and 0.52 grip pods against 0.558 predicted; PSR 0.163 settled against 0.156) agree with the amountMult^tiers prediction for the deployed exponent tiers, which supports applying the deployed tiers (+10 automatic bipod, +8 grip pod plus the unconditional +2, +30 bolt-action) in the site's Mounted stance; the comparison is of the camera layer, not the bullet recoil (the interpretation lives in the research repo WEAPONS.md; the note itself is numbers only).",
+  "Standing with a grip pod measured 0.80 (0.85 before shot 10) against 0.890 predicted for +2 tiers, and mounted without a bipod 0.92 against 1.000: both are lower than predicted and are not explained by the note (single clip for mounted-no-bipod).",
+  "The predicted 1.39x (M277) and 1.51x (PSR) direction-variation increase when deployed was not seen on the PSR and was not measurable on the M277."
+ ],
+ "unresolved": [
+  "Horizontal (direction-variation) effect of the deployed state: not measured on the M277, weak on the PSR (n = 4 per clip) and opposite to the prediction.",
+  "Why grip pods standing (0.80) and mounted-without-bipod (0.92) are below the predicted 0.890 and 1.000.",
+  "Camera recoil layer against bullet recoil; the ADS camera scale is uncalibrated.",
+  "Deployed state is judged from the frame, with no in-game deployed indicator."
+ ],
+ "siteImpact": "Site commit 5f09118 (23 Oct 2026, 'Mounted stance: deployed bipod and grip pod recoil and spread') added the deployed recoilTierMod and hipSpreadTierMod per attachment (data/attachments.json, 56 per-weapon deployed blocks plus choice-level blocks) and the sim/applyAttachments.js Mounted-stance logic the same day as the note (note commit f10d4f3). The pointers below give the deployed recoil tiers (changed) and the ADS amountMult values the predictions use (supports). Bipod / grip pod spread values (adsSpreadK 0.333333, hipSpreadTierMod -2) in the same commit come from the source files, not from this measurement.",
+ "evidence": {
+  "notes": [
+   {
+    "file": "BF6 Weapon Analyzer/reference-data/provenance/deployed-recoil-measurement-2026-10-23.md",
+    "sha256": "06f4e0b68fa7e08b2b4472d3dfbb29d24dcc503652ba0bf238f3c5a39eacef2e"
+   },
+   {
+    "file": "BF6 Weapon Analyzer/reference-data/provenance/deployed-recoil-measurement-2026-10-23-psr.md",
+    "sha256": "61e3e6abb7759ceefa065e8c885d358dd0d05bab637faa94ba913df3bcbe7246"
+   }
+  ],
+  "recordingFolders": [
+   "reference-data/Recordings/10232026/M277 Bipod/",
+   "reference-data/Recordings/10232026/PSR Bipod/"
+  ],
+  "clips": {
+   "M277 Bipod": [
+    {
+     "file": "M277_Bipod_Mounted.mp4",
+     "bytes": 10096265,
+     "sha256": "33122dd4ccf87eca8262131f69b92d5d4d8ac6cecd08af1ad1771cde704b5a47"
+    },
+    {
+     "file": "M277_Bipod_Standing.mp4",
+     "bytes": 9016113,
+     "sha256": "8a4b60d5607f89012d585cfc5f4941d658b577d856386718864fcf382f85d6b5"
+    },
+    {
+     "file": "M277_ClassicGripPod_Mounted.mp4",
+     "bytes": 7645583,
+     "sha256": "53fe1b70858b7de9b9adc572499962e7824503d27153c5fb6abf8ce5335833bd"
+    },
+    {
+     "file": "M277_ClassicGripPod_Standing.mp4",
+     "bytes": 7873938,
+     "sha256": "359419086ae10339ee8aa33e0f50a883519b6c3d3b1476147547168b14ab2f68"
+    },
+    {
+     "file": "M277_NoBipod_Mounted.mp4",
+     "bytes": 10316112,
+     "sha256": "f1516004e45cb757ebd901397d91d5c9b414d7f05652cd46f2d98217607cd57b"
+    },
+    {
+     "file": "M277_NoBipod_Standing.mp4",
+     "bytes": 8143480,
+     "sha256": "f3275a4067d3c7af88f31d106a2b4c9c32bc8e912bc91ce6309964c33067a809"
+    },
+    {
+     "file": "M277_PTTGripPod_Mounted.mp4",
+     "bytes": 9473298,
+     "sha256": "78c3762ed00ee9bb32b4d1747b6bb1d6952e3870d695d39a0d510195c251a432"
+    },
+    {
+     "file": "M277_PTTGripPod_Standing.mp4",
+     "bytes": 11466788,
+     "sha256": "a36efd53b9207860f498542bbdde9606cf792e9bf7be73367966cd496f47fed4"
+    },
+    {
+     "file": "M277_QDGripPod_Mounted.mp4",
+     "bytes": 8225179,
+     "sha256": "80f36afeacbce58d34a434d95ee08f1410d2c9819fde1d3681647e78461dd694"
+    },
+    {
+     "file": "M277_QDGripPod_Standing.mp4",
+     "bytes": 9795846,
+     "sha256": "a9cc48e120c1e33e62254a43af6c24efa7d3c2f488e0152ea72d6e91c0597efa"
+    }
+   ],
+   "PSR Bipod": [
+    {
+     "file": "PSR_Bipod_Mounted.mp4",
+     "bytes": 10873085,
+     "sha256": "b378c182a17baaf94895a051ac7fcbbd90fa0b391345c15f0ae270bea5c9258f"
+    },
+    {
+     "file": "PSR_Bipod_Standing.mp4",
+     "bytes": 13529174,
+     "sha256": "d28ff8bde231472d0056353f50d6f8f18982e4ca5cf516428899edb596cbfeb9"
+    },
+    {
+     "file": "PSR_ClassicGripPod_Mounted.mp4",
+     "bytes": 12878067,
+     "sha256": "ea3dfe261bfc7b6a8bc541c698f5eb39074f5fd06e468c3d6133e11872ab2af6"
+    },
+    {
+     "file": "PSR_ClassicGripPod_Standing.mp4",
+     "bytes": 14326247,
+     "sha256": "6f717af9ee101d70b1fbc6b3ff296f5cbee355999dcd56382cb5de0a0bcefeb1"
+    },
+    {
+     "file": "PSR_NoBipod_Mounted.mp4",
+     "bytes": 11996098,
+     "sha256": "b9a781938d7c3a560615e35a274aecca60d946d1e633a8ce721b05c06400039f"
+    },
+    {
+     "file": "PSR_NoBipod_Standing.mp4",
+     "bytes": 13390570,
+     "sha256": "0a2a96d84c53b2dcaa397634244ceec2c71de279ee9d551f1669474427286ee6"
+    },
+    {
+     "file": "PSR_QDGripPod_Mounted.mp4",
+     "bytes": 10621333,
+     "sha256": "bdc63a8bcfcda73bab90ad30b7b251e7c92a5c9eb3f4080746d0fc2465d92181"
+    },
+    {
+     "file": "PSR_QDGripPod_Standing.mp4",
+     "bytes": 13857001,
+     "sha256": "02a09f2f9cf73e0a87842577e892af03639ab46a4f3f02c36d8d8f163be5b3f4"
+    }
+   ]
+  },
+  "clipHashNote": "The note lists SHA-256 prefixes (first 16 hex) for the ten M277 clips, for example Bipod_Mounted 33122dd4ccf87eca; the full hashes above were computed for this draft.",
+  "scripts": [
+   "BF6 Weapon Analyzer/scripts/recoil-recording-track.py",
+   "BF6 Weapon Analyzer/scripts/recoil-recording-track-orb.py"
+  ],
+  "researchNote": "BF6 Frosty Research/docs/frosty/WEAPONS.md, 'Mounted and deployed recoil' (commit 18482ee, 23 Oct 2026), which cites the M277 note as a receipt",
+  "siteCommits": {
+   "notes": "f10d4f3 2026-10-23 Research 23 Oct: deployed-state recoil measurement (M277, PSR) and ELR-40 CQB Suppressor source binding",
+   "model": "5f09118 2026-10-23 Mounted stance: deployed bipod and grip pod recoil and spread",
+   "related": "2a7f86c Bipod is no longer flagged no-effect; afe04b8 / af22830 attachment bug 25"
+  },
+  "commands": "The notes name the scripts and their subcommands ('track then summary' for the template tracker) but record no command lines or working directories; none are reconstructed. The per-frame raw output of the PSR tracker was kept in a session scratchpad only (not available)."
+ },
+ "record": {
+  "v": 1,
+  "kind": "capture",
+  "date": "2026-10-23",
+  "build": "site-only",
+  "binding": "research",
+  "site": [
+   {
+    "pointer": "data/attachments.json:/GRIPS/[id=bipod]/deployed/recoilTierMod",
+    "value": 10,
+    "relation": "changed"
+   },
+   {
+    "pointer": "data/attachments.json:/GRIPS/[id=classic_grip_pod]/deployed/recoilTierMod",
+    "value": 8,
+    "relation": "changed"
+   },
+   {
+    "pointer": "data/attachments.json:/GRIPS/[id=bipod_sr]/deployed/recoilTierMod",
+    "value": 30,
+    "relation": "changed"
+   },
+   {
+    "pointer": "data/attachments.json:/GRIPS/[id=classic_grip_pod_sr]/frostyModifiers/psr/deployed/recoilTierMod",
+    "value": 30,
+    "relation": "changed"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=m277]/recoil/ads/amountMult",
+    "value": 0.9433,
+    "relation": "supports"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=m277]/recoil/ads/dirVarMult",
+    "value": 0.921523,
+    "relation": "supports"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=psr]/recoil/ads/amountMult",
+    "value": 0.94,
+    "relation": "supports"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=psr]/recoil/ads/dirVarMult",
+    "value": 0.920371,
+    "relation": "supports"
+   }
+  ]
+ },
+ "run": {
+  "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps",
+  "leadFolder": "L4063",
+  "note": "receipt drafted 30 Oct 2026 for an earlier measurement or recheck; the date is the evidence date"
+ }
+}

@@ -2511,6 +2511,10 @@ Tests: gunner chaingun hits to destroy a hovering attack helicopter (88 or 200 p
 
 Test: one coax machine gun headshot on a full-health soldier at close range.
 
+## L4077 - Infantry bullets against vehicles, emplacements and deployables on 2.1.1.0 (30 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-30-L4077-small-arms-vs-vehicles-census.json). Census over the 94 `PD_*` bullet files (28 distinct projectile materials) against 29 vehicle, emplacement and deployable target materials in 5 level grids: 812 pairs, 23 distinct multipliers, 516 of 516 raw checks matched. All 95 cells shared with L3364 are unchanged and no bullet file changed material. Tanks and armour (119): 0 for every bullet. Jets 0.3 to 0.8, shotguns 0; helicopters hold two keyed values from 0.16 / 0.56 up to 0.6 / 1.0; the MQ-9 (233) reads 5 for every bullet except the minigun (0.7). Light vehicles and emplacements 0 to 1.5; deployables (cover, crates, beacons, mortar, MP-APS, mine bodies, C-4) 1 for almost every pair. Only Flechette (279 to 499), Slugs (279 to 286) and the ELR-40 API magazine (290 to 497) swap the projectile material; Tungsten has none. All grids agree except target 117 (MH-47 insertion). Control: `PD_556x45mmNATO_Carbine` (material 276, the M4A1's bullet) against Head 24 gives index 11 = 1.4 in all five grids, the site's M4A1 headshot. Open: when a vehicle's root material and its damage-zone part material differ (PTV 622 / 187, JLTV and Marauder 733 / 119, CB90 733 / 313, M2MG 116 / 0) which one a hit uses; what selects the helicopter key 0 or 2; no narrow source lead qualifies. Out of scope, for the vehicle queue: the three anti-air rounds now carry material 577 and the 14 L3322 anti-air cells read about half the old values.
+
 ## L3364 - Small-arms bullets against vehicles and the Improved Armor material (9 October 2026)
 
 [Receipt](../../reference-data/provenance/frosty-2026-10-09-L3364-small-arms-vs-vehicles.json). Dataset: `reference-data/frosty/small-arms-vs-vehicles.json`. Grid scalar (`Field_674633de`) per bullet material and vehicle target material; both level grids agree. Vehicle cells have no multiplier array.
@@ -2734,7 +2738,7 @@ Single-player modifiers (not for multiplayer pages):
 | `Affector_Vehicles_Rotor_MassMultiplier` | 0.85 | none | - |
 | `Affector_Vehicles_TailRotor_StabilizerMultiplier` | 0.5 | none | - |
 
-- Registry and file values are recorded separately. By L3356 and L3373 the registry is the likelier live value where they differ; that rule was shown for weapon rows only.
+- Registry and file values are recorded separately. By L3356 and L3373 the registry is the likelier live value where they differ; that rule was shown for weapon rows only. L4058 (30 October, 2.1.1.0): the 67 site weapons have 0 differing pairs over 15,879 rows, so no site number depends on the rule; none of the 631 attachment-effect files (`WME_`, `WPM_`, `GDM_`, `GID_`, `AAM_`, `GRM_`, `GBM_`) has a registry row; the 98 differing pairs are 36 infantry gadget or launcher rows and 62 vehicle bullet rows. The AAHV heat pair (file 0.125, registry 0.13) gives 8 shots to overheat under both values, so it cannot decide precedence; the proposed in-game check is the M136 AT aimed standing spread (file 0.0, registry 0.35 degrees; `GS_AT4` imports the row's group). The `M16A3_WB - InitialSpeed.z` 720 row has an owner label that is no asset and no importer, the `PB_C4` pattern. [Receipt](../../reference-data/provenance/frosty-2026-10-30-L4058-registry-precedence-census.json).
 - File-only values can be stale (L3343).
 
 36 raw-offset checks matched.

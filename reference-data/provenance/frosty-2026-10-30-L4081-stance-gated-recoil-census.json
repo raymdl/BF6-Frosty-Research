@@ -1,0 +1,773 @@
+{
+ "lead": "L4081",
+ "status": "exhausted",
+ "build": "2.1.1.0 (Head 5382784, descriptors c477622c1074a9a4ea612cf9c60e26f666129721c733174192c121c808873ff6)",
+ "question": "Does recoil have crouch or prone (stance) gating: a per-stance recoil branch in the GS Recoil structures of all 67 weapons, a WM_*/GRM_* in-round modifier bound to a crouch/prone condition, or a soldier-side crouch/prone recoil row?",
+ "sourceFacts": {
+  "control": "GRM_MountedPlusVertical and GRM_MountedPlusHorizontal each read RecoilAmountMultiplierExponent add +3 and RecoilDirectionVariationMultiplierExponent add -2 in both Zoomed and Unzoomed blocks; GRM_BipodDeployed_BTM_P50 reads +10 / -4, from 2.1.1.0 raw bytes. The L108 offsets re-read identically (offset 616 amount +3, 612 variation -2); the sha256 of GRM_MountedPlusVertical (c7ac6b92...) equals the L108 orchestrator re-read.",
+  "controlRawChecks": [
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Gameplay\\InRoundProgression\\MountedPlus\\GRM_MountedPlusHorizontal.ebx",
+    "rawSha256": "ad7ea96aa314422d71c21f14917c485387bfdb9df8a8ad4fcfc0c8a6f3217ddf",
+    "offset": 1140,
+    "type": "i32",
+    "bytesHex": "feffffff",
+    "value": -2
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Gameplay\\InRoundProgression\\MountedPlus\\GRM_MountedPlusHorizontal.ebx",
+    "rawSha256": "ad7ea96aa314422d71c21f14917c485387bfdb9df8a8ad4fcfc0c8a6f3217ddf",
+    "offset": 1144,
+    "type": "i32",
+    "bytesHex": "03000000",
+    "value": 3
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Gameplay\\InRoundProgression\\MountedPlus\\GRM_MountedPlusHorizontal.ebx",
+    "rawSha256": "ad7ea96aa314422d71c21f14917c485387bfdb9df8a8ad4fcfc0c8a6f3217ddf",
+    "offset": 612,
+    "type": "i32",
+    "bytesHex": "feffffff",
+    "value": -2
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Gameplay\\InRoundProgression\\MountedPlus\\GRM_MountedPlusHorizontal.ebx",
+    "rawSha256": "ad7ea96aa314422d71c21f14917c485387bfdb9df8a8ad4fcfc0c8a6f3217ddf",
+    "offset": 616,
+    "type": "i32",
+    "bytesHex": "03000000",
+    "value": 3
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Gameplay\\InRoundProgression\\MountedPlus\\GRM_MountedPlusVertical.ebx",
+    "rawSha256": "c7ac6b92a6705c6fcb41803677775a903c28731ada677f43445609572abefea2",
+    "offset": 1140,
+    "type": "i32",
+    "bytesHex": "feffffff",
+    "value": -2
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Gameplay\\InRoundProgression\\MountedPlus\\GRM_MountedPlusVertical.ebx",
+    "rawSha256": "c7ac6b92a6705c6fcb41803677775a903c28731ada677f43445609572abefea2",
+    "offset": 1144,
+    "type": "i32",
+    "bytesHex": "03000000",
+    "value": 3
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Gameplay\\InRoundProgression\\MountedPlus\\GRM_MountedPlusVertical.ebx",
+    "rawSha256": "c7ac6b92a6705c6fcb41803677775a903c28731ada677f43445609572abefea2",
+    "offset": 612,
+    "type": "i32",
+    "bytesHex": "feffffff",
+    "value": -2
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Gameplay\\InRoundProgression\\MountedPlus\\GRM_MountedPlusVertical.ebx",
+    "rawSha256": "c7ac6b92a6705c6fcb41803677775a903c28731ada677f43445609572abefea2",
+    "offset": 616,
+    "type": "i32",
+    "bytesHex": "03000000",
+    "value": 3
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\Bipod\\GRM_BipodDeployed_BTM_P50.ebx",
+    "rawSha256": "a3b86c301d13bd71d0b32c4b1e7553233229755a4e4417147eb01da92fb88a78",
+    "offset": 1140,
+    "type": "i32",
+    "bytesHex": "fcffffff",
+    "value": -4
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\Bipod\\GRM_BipodDeployed_BTM_P50.ebx",
+    "rawSha256": "a3b86c301d13bd71d0b32c4b1e7553233229755a4e4417147eb01da92fb88a78",
+    "offset": 1144,
+    "type": "i32",
+    "bytesHex": "0a000000",
+    "value": 10
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\Bipod\\GRM_BipodDeployed_BTM_P50.ebx",
+    "rawSha256": "a3b86c301d13bd71d0b32c4b1e7553233229755a4e4417147eb01da92fb88a78",
+    "offset": 612,
+    "type": "i32",
+    "bytesHex": "fcffffff",
+    "value": -4
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\Bipod\\GRM_BipodDeployed_BTM_P50.ebx",
+    "rawSha256": "a3b86c301d13bd71d0b32c4b1e7553233229755a4e4417147eb01da92fb88a78",
+    "offset": 616,
+    "type": "i32",
+    "bytesHex": "0a000000",
+    "value": 10
+   }
+  ],
+  "gsStructure": {
+   "registrySuffixList": "a1-gs-suffixes.json",
+   "distinctRecoilSuffixes": 64,
+   "allSuffixesBeginRecoilUnzoomedOrZoomed": true,
+   "suffixesNamingCrouchProneStancePosture": [],
+   "registryRowsPerSuffix": "91 (70 GRX_Weapons, 21 GRX_Gadgets_Glacier; GS_MRGGA twice; 90 owners; GS_BREN3 absent from the registry)",
+   "stanceColumnsExistOnlyUnder": "MinMaxDispersion (Standing/Crouching/Prone x Stationary/Moving, 28 suffixes) and StanceChangePenalties (24 suffixes)",
+   "rawStructureCheck": {
+    "weaponsExamined": 67,
+    "distinctRecoilStructureSignatures": 1,
+    "recoilChildren": [
+     "Field_6b84de87",
+     "Field_7b609515",
+     "Field_95066f0d"
+    ],
+    "stanceFieldsUnderRecoil": 0,
+    "note": "Recoil (Field_c5d1c8fe) holds Unzoomed Field_7b609515, Zoomed Field_6b84de87 and an import Field_95066f0d; the Prone/Crouching/Standing field hashes occur in all 67 GS only under MinMaxDispersion Field_3ed1c995 (6) and StanceChangePenalties Field_61fdaea7 (12). The 67 include GS_BREN3 (no registry rows) and the four Season 5 weapons."
+   }
+  },
+  "modifierCensus": "l4081-result.json rows (62 routes: raw sha256, header flags, non-neutral operands, condition guids, importers); census.md holds the table. Recoil exponent adds appear only in GRM_ roots; gates are mountedSide/mountedUp, bipodOrGrippod, fireModeGate.",
+  "operandRawChecks": "g1-rawchecks.json: 374 reads (header flags, int, operand values), manifest g1-manifest-cli.json; 12 control reads carry expect values, 0 mismatches.",
+  "headerFlags": {
+   "roots": 110,
+   "byClass": {
+    "Class_5e5631ff": 28,
+    "Class_bb838ff6": 29,
+    "Class_743a3ce0": 14,
+    "Class_bb7f4ea1": 5,
+    "Class_219954e8": 34
+   },
+   "trueByFlagAndClass": {
+    "Field_9ca063e9": {
+     "Class_5e5631ff": 2,
+     "Class_bb838ff6": 4
+    },
+    "Field_b0057325": {
+     "Class_bb838ff6": 1
+    },
+    "Field_897a3f2c": {
+     "Class_5e5631ff": 12
+    },
+    "Field_b574fa40": {
+     "Class_bb838ff6": 3,
+     "Class_5e5631ff": 5,
+     "Class_743a3ce0": 1
+    },
+    "Field_92cdfefc": {
+     "Class_743a3ce0": 4
+    },
+    "Field_93dd77b9": {
+     "Class_bb838ff6": 1
+    },
+    "Field_15cae63e": {}
+   },
+   "matchesL4038": true,
+   "note": "110 header roots in the 723 _WeaponModifiers files, identical to the L4038 tabulation; no flag is stance-named, Field_15cae63e is never true; one root has integer 2 (GRM_Recoil_Controller_03). Flag meanings are L4038 value-supported names, not engine-confirmed."
+  },
+  "conditionAssetSearch": {
+   "cmuFilesCatalogWide": [
+    "Common/Hardware/Weapons/_WeaponModifiers/Recoil/CMU_MountedVertical_Active",
+    "Common/Hardware/Weapons/_WeaponModifiers/Recoil/CMU_MountedHorizontal_Active",
+    "Common/Hardware/Weapons/_WeaponModifiers/_BottomRail/Bipod/CMU_BipodActive",
+    "Common/Hardware/Weapons/_WeaponModifiers/_Ergo/CMU_SemiAuto"
+   ],
+   "stanceNamedConditionAssets": 0,
+   "recoilFamilyNamesWithStanceWord": [],
+   "stanceNamedAbilityOutsideScope": [
+    "Common/Gameplay/InRoundProgression/StanceFlak/*"
+   ],
+   "wmConditionGuids": "27 distinct condition/selector guids on the 62 WM_ files. Two resolve to CMU_MountedHorizontal_Active and CMU_MountedVertical_Active, four to ability assets (U_Ability_MountedPlus, Killshot, EngineerBase, Grenadier_Base); the other 21 are single attachment or gadget selector guids not resolved in this scope.",
+   "selectorResolution": {
+    "selectorGuidsBoundToGRM_GBM_GDM": 172,
+    "resolvedToUAsset": 159,
+    "unresolved": 13,
+    "stanceNamedSelectorAssets": 0
+   }
+  },
+  "guidSearch": {
+   "Bipod/GRM_BipodDeployed_BTM_P50": {
+    "byteMatchTotal": 51,
+    "decodedImportTotal": 51,
+    "weaponsByteMatch": [
+     "ak205",
+     "ak4d",
+     "b36a4",
+     "brod3",
+     "cz3a1",
+     "db12",
+     "drsiar",
+     "ef88",
+     "grtbc",
+     "grtcps",
+     "kord6p67",
+     "ks18k",
+     "kts100",
+     "kv9",
+     "l110",
+     "l115",
+     "l85a3",
+     "lmr27",
+     "m1014",
+     "m121a2",
+     "m123k",
+     "m16a4",
+     "m240l",
+     "m250",
+     "m277",
+     "m39emr",
+     "m417a2",
+     "m433",
+     "m4a1",
+     "m60",
+     "m87a1",
+     "mk24",
+     "nvo228e",
+     "pw5a3",
+     "pw7a2",
+     "qbz192",
+     "rpk74m",
+     "rpkm",
+     "scw10",
+     "sg553r",
+     "sgx",
+     "sl9",
+     "sor300sc",
+     "sor556",
+     "svdm",
+     "svk86",
+     "tr7",
+     "umg40",
+     "vcr2",
+     "vssm",
+     "z84m"
+    ],
+    "nWeapons": 51,
+    "byFile": {
+     "GS": 51
+    }
+   },
+   "Bipod/GRM_BipodDeployed_Bolt_BTM_P50": {
+    "byteMatchTotal": 6,
+    "decodedImportTotal": 16,
+    "weaponsByteMatch": [
+     "elr40",
+     "interdictor",
+     "m2010esr",
+     "miniscout",
+     "psr",
+     "sv98"
+    ],
+    "nWeapons": 6,
+    "byFile": {
+     "GS": 6
+    }
+   },
+   "Grippod/GRM_GrippodDeployed_BTM_P30": {
+    "byteMatchTotal": 53,
+    "decodedImportTotal": 156,
+    "weaponsByteMatch": [
+     "ak205",
+     "ak4d",
+     "b36a4",
+     "brod3",
+     "cz3a1",
+     "db12",
+     "drsiar",
+     "ef88",
+     "elr40",
+     "grtbc",
+     "grtcps",
+     "interdictor",
+     "kord6p67",
+     "ks18k",
+     "kts100",
+     "kv9",
+     "l110",
+     "l115",
+     "l85a3",
+     "lmr27",
+     "m1014",
+     "m121a2",
+     "m123k",
+     "m16a4",
+     "m240l",
+     "m250",
+     "m277",
+     "m39emr",
+     "m417a2",
+     "m433",
+     "m4a1",
+     "m60",
+     "m87a1",
+     "mk24",
+     "nvo228e",
+     "pw5a3",
+     "pw7a2",
+     "qbz192",
+     "rpk74m",
+     "rpkm",
+     "scw10",
+     "sg553r",
+     "sgx",
+     "sl9",
+     "sor300sc",
+     "sor556",
+     "svdm",
+     "svk86",
+     "tr7",
+     "umg40",
+     "vcr2",
+     "vssm",
+     "z84m"
+    ],
+    "nWeapons": 53,
+    "byFile": {
+     "GS": 53
+    }
+   },
+   "_BottomRail/Bipod/CMU_BipodActive": {
+    "byteMatchTotal": 45,
+    "decodedImportTotal": 46,
+    "weaponsByteMatch": [
+     "ak205",
+     "ak4d",
+     "b36a4",
+     "brod3",
+     "drsiar",
+     "ef88",
+     "elr40",
+     "grtbc",
+     "grtcps",
+     "interdictor",
+     "kord6p67",
+     "kts100",
+     "l110",
+     "l115",
+     "l85a3",
+     "lmr27",
+     "m121a2",
+     "m123k",
+     "m16a4",
+     "m2010esr",
+     "m240l",
+     "m250",
+     "m277",
+     "m39emr",
+     "m417a2",
+     "m433",
+     "m4a1",
+     "m60",
+     "miniscout",
+     "mk24",
+     "nvo228e",
+     "psr",
+     "qbz192",
+     "rpk74m",
+     "rpkm",
+     "sg553r",
+     "sor300sc",
+     "sor556",
+     "sv98",
+     "svdm",
+     "svk86",
+     "tr7",
+     "vcr2",
+     "vssm",
+     "z84m"
+    ],
+    "nWeapons": 45,
+    "byFile": {
+     "WB": 45
+    }
+   },
+   "MountedPlus/GRM_MountedPlusVertical": {
+    "byteMatchTotal": 67,
+    "decodedImportTotal": 67,
+    "weaponsByteMatch": [
+     "ak205",
+     "ak4d",
+     "b36a4",
+     "brod3",
+     "cz3a1",
+     "db12",
+     "drsiar",
+     "ef88",
+     "elr40",
+     "es57",
+     "ggh22",
+     "grtbc",
+     "grtcps",
+     "interdictor",
+     "kord6p67",
+     "ks18k",
+     "kts100",
+     "kv9",
+     "l110",
+     "l115",
+     "l85a3",
+     "lmr27",
+     "m1014",
+     "m121a2",
+     "m123k",
+     "m16a4",
+     "m2010esr",
+     "m240l",
+     "m250",
+     "m277",
+     "m357trait",
+     "m39emr",
+     "m417a2",
+     "m433",
+     "m44",
+     "m45a1",
+     "m4a1",
+     "m60",
+     "m87a1",
+     "miniscout",
+     "mk24",
+     "nvo228e",
+     "p18",
+     "pp19",
+     "psr",
+     "pw5a3",
+     "pw7a2",
+     "qbz192",
+     "rpk74m",
+     "rpkm",
+     "rspr",
+     "scw10",
+     "sg553r",
+     "sgx",
+     "sl9",
+     "sor300sc",
+     "sor556",
+     "sv98",
+     "svdm",
+     "svk86",
+     "tr7",
+     "umg40",
+     "usg90",
+     "vcr2",
+     "vssm",
+     "vz61",
+     "z84m"
+    ],
+    "nWeapons": 67,
+    "byFile": {
+     "GS": 67
+    }
+   }
+  },
+  "soldier": {
+   "GRX_Glacier_Soldier_rows": 271,
+   "rowsNamingRecoil": 0,
+   "stanceNamedRows": 32,
+   "stanceRowsOfNote": [
+    [
+     "ThermalSignature_Crouched_Min",
+     0.25
+    ],
+    [
+     "ProneTargetTimeMultiplier",
+     4.0
+    ],
+    [
+     "CrouchTargetTimeMultiplier",
+     2.0
+    ],
+    [
+     "ThermalSignature_Prone_Min",
+     0.1
+    ],
+    [
+     "ThermalSignature_Standing_Min",
+     0.5
+    ],
+    [
+     "FailingStanceTime",
+     2.0
+    ]
+   ],
+   "note": "None of the 271 rows names recoil. Crouch/Prone rows are ThermalSignature_*, CrouchTargetTimeMultiplier, ProneTargetTimeMultiplier and FailingStanceTime."
+  }
+ },
+ "inference": "Inferred: the serialized recoil data has no stance dimension; recoil tiers are modified only by attachment/state GRM_ roots whose gates are mounted, bipod/grippod and fire mode. Header-flag names are L4038 value-supported, not engine-confirmed. A name or byte absence does not prove native code applies no stance recoil effect.",
+ "unresolved": [
+  "Runtime activation of every state condition (mounted, bipod) and the engine meaning of the header flags remain unproven; this search shows no stance gate in serialized data, not that no stance recoil effect exists in native code.",
+  "13 of 172 selector guids bound to GRM_/GBM_/GDM_ modifiers did not resolve to a U_/CMU_ asset in the raw tree (4 on the weapon-specific base Mounted selectors, 3 on GRM_Recoil_Controller_03, 1 each on MatchTrigger_ERG_P15, Recoil_BTM_P30 and SVCh_Marksman_SP); none is stance-named by any route seen.",
+  "WM_MountedPlus*/WM_Mounted* carry three unnamed camera/visual vector blocks (L108); not decoded here.",
+  "Compiled expression graphs (SimEx/DerEx recoil consumers) were not read: the 413 graph resources of the two 2.1.1.0 expression-graph-bodies runs name no recoil graph, so recoil consumer inputs cannot be enumerated from those listings."
+ ],
+ "siteImpact": "None. No stance-gated recoil modifier exists in the serialized GS/GRM/WM set, so there is no crouch or prone recoil operand to add to the site model; the Unzoomed/Zoomed recoil model with tier sums needs no stance column. Mounted and bipod recoil operands (MountedPlus +3/-2, BipodDeployed +10/-4, Bolt +30/-5, Grippod +8/-4) stay conditional and unmodeled as before. The firing-range validation (standing vs prone, 10 m, 5 shots) has no operand prediction to test; if run, the source-based prediction is no stance difference in the serialized recoil values, and a difference would point outside this data (native code or an uncaptured graph).",
+ "evidence": {
+  "paths": {
+   "resultJson": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4081\\l4081-result.json",
+   "census": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4081\\census.md",
+   "rawChecks": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4081\\g1-rawchecks.json"
+  },
+  "inputs": {
+   "allrows.json": {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\weapon-registry-recheck-2026-10-19\\allrows.json",
+    "sha256": "b75d975254b610eec1a070a4c04323951ac18073fa4d7784ab908dbc48dd17a8"
+   },
+   "asset-catalog.json": {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\asset-catalog.json",
+    "sha256": "12b465ee13d36e83b8b0dec67caa85627065c2abeeca248f9bf851610f4af56a"
+   },
+   "SharedTypeDescriptors.ebx": {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\toolchain\\SharedTypeDescriptors.ebx",
+    "sha256": "c477622c1074a9a4ea612cf9c60e26f666129721c733174192c121c808873ff6"
+   },
+   "weapon-crosswalk.json": {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\weapon-crosswalk.json",
+    "sha256": "19ad8a74188dcf48c146b6c359688ac97f8cf617b78251a39a0502080079f535"
+   }
+  },
+  "outputSha256": {
+   "a1-gs-suffixes.json": "23792720a3c6f56052efeee32bb4ff7c4d0be5fe87ca9cf36dc8c278f5708db4",
+   "a2-gs-recoil-structure.json": "3c51f0358a66ceaa4a6504031ead3ce9fc1da1057dc737ce07bc0b9277d27078",
+   "b1-census.json": "b6beb5733afee95eac8aa7433e7ce345d51cca4cce328dfec180ffe2a414c363",
+   "b0-files.json": "eb011cfe57ac935d479182708c40cb81d5c01b421d21fc5dec905f08de3461ad",
+   "c1-condition-catalog-search.json": "76e2fa7d9b5ba3dda63388f13346d5e6ff01992f2e11e78a28ccbb3b352414c5",
+   "c3-catalog-name-search.json": "7cd3359f457e5c86e9cfbd4c551fccfe1913c6ecbe6bac42c6e5174ec13c2f53",
+   "d1-imports.json": "81e35bde073ce1d33c552ff988d895db98c9ce4683d266e3cbf28b89f06c2c43",
+   "e1-fieldnames.json": "9c27e63470a24ee9bde8e40b23cdf47e894c12a6abde6c7ce1702e2443f5005e",
+   "f1-header-flags-all-weaponmodifiers.json": "6e15949d7b34dd764fe75fbe6edba6be2e498397266ea19a74d4b9dcd317e3bb",
+   "g1-manifest-full.json": "a55fe1d175dc538c12cd1fa463e9050baf1b7926e8363fae473d944d51f9b534",
+   "g1-manifest-cli.json": "f8c5a590c693d9fc091b30d46e199502e21697cf57773e635d7bdaa68d8f6b2c",
+   "g1-rawchecks.json": "b004b882b685defcf8708472ecbb2bda108b4abb5f4ec035cfee1781bb4b3e09",
+   "h1-guid-search.json": "fab84fc356ee9d50a34fa50aeb11c2ffe12dcb62a31f8f217e4d31c9000a7672",
+   "i1-selector-resolve.json": "b071d66e7dc4dd87ffc53355067ef9ac7788b53b03828ed3fb26045605571ba7",
+   "j1-table.json": "fbd131d6ebec7e21cd18e4fbed10c8ca21ce8eb6fe985b6042985a6e94c3672a",
+   "l4081-result.json": "f0f5bd7fddf1790d57ab1285832c00d3224d149baf4391ec448d4c2d5e52c90f",
+   "census.md": "6757180a3e0e6b80f48a98e709d799f71b30ef2db4ff67ec346afc47d91b8861",
+   "next-leads.md": "c8fb3f1e556f7f2721a47e423a0fff9cd34f5b2d1e2ad5682d917aa6f0728892",
+   "summary.md": "58ea316304336ed3809aa1759f363fb0c308d32d2eaf012a69c9b9fd8101a7ab"
+  },
+  "helperSha256": {
+   "a1.py": "6852a4e283ef50fc99cef0d8704469367f4f09402652a5dace5263b05a0c2c42",
+   "a2.py": "138a677269acb272e17fc3915fd4024dd7f13d4b4cb2ff4cb815efe5b7ce6f21",
+   "b0.py": "ddfe8808d06e67f0d857b517e1729273abddc663cc3156ddd0cb6d26bfab32b5",
+   "b1.py": "5796d425ddd3669d3f3cd66c7cf33610e37af92e8f180da0f72d313da04caac4",
+   "c1.py": "e70f4cfe9c47da63deac1297462f731f0c7378b27c46b48aedb647b6622342df",
+   "c2.py": "af5047a678d469e76055361164e0c10628313a6e0b3f9515b71d6ec0d44d945e",
+   "c3.py": "cbf82d77a406f92b05cbd6a22ca480fcf3e294e18238be1be91f315b140e42b4",
+   "common.py": "68a29c47877850a5871000902bc1723a9d600f3cbceed34712160d677c6158a7",
+   "d1.py": "c76834ae99ba39d26495fce20d0d22452a99fd8c45b2b9d4ffcaee998b128c3a",
+   "d2.py": "b9619b704466a707ad9bf51f24c485dd7fa337d76038fe6412dcc702632454be",
+   "e1.py": "5be50bd5652e1cab850fd7f61f1cf7955415a17598e33eddd22d2c2dc39ec2ab",
+   "e2.py": "a2f0de600a978bb0f95aa2859da848d6e6630f8cab9d7b7ff65a19feabe57aac",
+   "f1.py": "8d035115e01e541a059313884828ba467e5df19547614a4f38d1e94651ce9677",
+   "g1.py": "fdd9838ec580e337969abc125c550c97be1c3a9db4f11be39c8cbec5fd5c45e3",
+   "h1.py": "46c1d00eb3961b21492f1a3bfb7a9ee0af4985e59eebd4f4b2db3114ee5210cc",
+   "i1.py": "b362fa09c944adb8b88ca7a85b30b47f429925d94fcdc896d27a0478a3752493",
+   "j1.py": "6355b5db518ce721e8875bd8bc65353548ace583d0d5234efb3c7789a42c6394",
+   "k1.py": "aa6a4f2729f20439832b7c6571ea1513ba4a856b4b2fac46616097300e8675e5",
+   "k2.py": "88d9f823f69cebfa1d355f9f963b9d5fd51c41012f64db22aff3f8774c5b6949",
+   "t1.py": "6fbe8bd40c4854fb379941661b562cd402efe530601661e436b7432e3b80cb57",
+   "t2.py": "6d6f379fced812df742ed52a3c28244a61623daafd68293b90f41eba4ed1badf",
+   "t3.py": "e9567b2af36ec3333be6f8e28c729f2083e043f9d3fa544b059557f58ec75499",
+   "t4.py": "4bae13a4028fc01aac484fcb20630588c7f61c781d7f217c353b53d20618ea1c",
+   "t5.py": "e8da63aa9b1a998be2aca197839a091c65eeb4edc13694dec969492bf9222dc4"
+  },
+  "repoHelperSha256": {
+   "frosty-raw-check.py": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3",
+   "frosty-roster-values.py": "5fd227d0a4c073adde6b42aa35cbc288fded0463bea09279cac0b6c9be069dad",
+   "frosty-ebx-decode.py": "149d39cdc3aaef39d7166ad67a8e4651049c7e7bd11efeebdd41e1a9e00d3fc5",
+   "frosty-records.py": "5b843bb5459398e937c63b2052b75c80b3a06181546c486d1325efd65619a1c0"
+  },
+  "commands": [
+   {
+    "label": "reconstructed from the scripts run in this session; executed in this order, working directory = cwd",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4081",
+    "argv": [
+     "python",
+     "a1.py"
+    ],
+    "script": "a1.py"
+   },
+   {
+    "label": "reconstructed from the scripts run in this session; executed in this order, working directory = cwd",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4081",
+    "argv": [
+     "python",
+     "a2.py"
+    ],
+    "script": "a2.py"
+   },
+   {
+    "label": "reconstructed from the scripts run in this session; executed in this order, working directory = cwd",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4081",
+    "argv": [
+     "python",
+     "b0.py"
+    ],
+    "script": "b0.py"
+   },
+   {
+    "label": "reconstructed from the scripts run in this session; executed in this order, working directory = cwd",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4081",
+    "argv": [
+     "python",
+     "b1.py"
+    ],
+    "script": "b1.py"
+   },
+   {
+    "label": "reconstructed from the scripts run in this session; executed in this order, working directory = cwd",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4081",
+    "argv": [
+     "python",
+     "c1.py"
+    ],
+    "script": "c1.py"
+   },
+   {
+    "label": "reconstructed from the scripts run in this session; executed in this order, working directory = cwd",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4081",
+    "argv": [
+     "python",
+     "c3.py"
+    ],
+    "script": "c3.py"
+   },
+   {
+    "label": "reconstructed from the scripts run in this session; executed in this order, working directory = cwd",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4081",
+    "argv": [
+     "python",
+     "d1.py"
+    ],
+    "script": "d1.py"
+   },
+   {
+    "label": "reconstructed from the scripts run in this session; executed in this order, working directory = cwd",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4081",
+    "argv": [
+     "python",
+     "e1.py"
+    ],
+    "script": "e1.py"
+   },
+   {
+    "label": "reconstructed from the scripts run in this session; executed in this order, working directory = cwd",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4081",
+    "argv": [
+     "python",
+     "f1.py"
+    ],
+    "script": "f1.py"
+   },
+   {
+    "label": "reconstructed from the scripts run in this session; executed in this order, working directory = cwd",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4081",
+    "argv": [
+     "python",
+     "g1.py"
+    ],
+    "script": "g1.py"
+   },
+   {
+    "label": "reconstructed from the scripts run in this session; executed in this order, working directory = cwd",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4081",
+    "argv": [
+     "python",
+     "h1.py"
+    ],
+    "script": "h1.py"
+   },
+   {
+    "label": "reconstructed from the scripts run in this session; executed in this order, working directory = cwd",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4081",
+    "argv": [
+     "python",
+     "i1.py"
+    ],
+    "script": "i1.py"
+   },
+   {
+    "label": "reconstructed from the scripts run in this session; executed in this order, working directory = cwd",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4081",
+    "argv": [
+     "python",
+     "j1.py"
+    ],
+    "script": "j1.py"
+   },
+   {
+    "label": "reconstructed from the scripts run in this session; executed in this order, working directory = cwd",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4081",
+    "argv": [
+     "python",
+     "k1.py"
+    ],
+    "script": "k1.py"
+   },
+   {
+    "label": "reconstructed from the scripts run in this session; executed in this order, working directory = cwd",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4081",
+    "argv": [
+     "python",
+     "k2.py"
+    ],
+    "script": "k2.py"
+   },
+   {
+    "label": "raw check of the 374 operand and header reads (exact argument vector)",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Frosty Research",
+    "argv": [
+     "python",
+     "scripts/frosty-raw-check.py",
+     "--raw-root",
+     "C:/Users/royal/Documents/BF6 Datamining/builds/2.1.1.0/capture/collection/raw",
+     "--manifest",
+     "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4081\\g1-manifest-cli.json",
+     "--out",
+     "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4081\\g1-rawchecks.json"
+    ]
+   }
+  ],
+  "commandNote": "Commands are reconstructed from the saved scripts (no shell history preserved); each script was run once or more with python from the cwd, the last successful run produced the listed outputs. Output hashes are of the final files."
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-30",
+  "build": "2.1.1.0",
+  "leads": [
+   {
+    "id": "L4081",
+    "title": "Crouch and prone recoil modifiers: stance-gated recoil in recoil packages and WM_Mounted* neighbours",
+    "status": "exhausted",
+    "summary": "No stance-gated recoil exists in the 2.1.1.0 serialized data: GS Recoil rows are Unzoomed/Zoomed only on all 67 weapons, the 62 WM_/GRM_ routes are gated only by mounted, bipod/grippod and fire-mode conditions, and the four CMU_ conditions and GRX_Glacier_Soldier name no stance recoil.",
+    "reopenWhen": "A firing-range or capture result shows a stance-dependent recoil difference that serialized values do not explain, or a recoil consumer graph is decoded whose inputs include a stance variable.",
+    "searched": [
+     "GS_ registry Recoil.* suffixes (91 rows each, 90 owners) and the raw GS Recoil structure of all 67 weapons",
+     "all 62 WM_*/GRM_* raw routes on 2.1.1.0 (header flags, non-neutral operands, condition guids, importers) and the header flags of 110 modifier roots in 723 _WeaponModifiers files",
+     "asset catalog names (501,172 paths) for CMU_ and stance/crouch/prone/posture with recoil-family names; 172 GRM/GBM/GDM selector guids resolved against U_ assets",
+     "GRX_Glacier_Soldier 271 registry rows; two expression-graph resource listings (413 resources)",
+     "byte GUID search of five gated-state modifiers over the GS/WB/Ability files of 67 weapons"
+    ]
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Gameplay/InRoundProgression/MountedPlus/GRM_MountedPlusVertical",
+    "format": "raw-ebx",
+    "sha256": "c7ac6b92a6705c6fcb41803677775a903c28731ada677f43445609572abefea2",
+    "question": "Control: do the MountedPlus recoil exponent operands read +3 / -2 on 2.1.1.0?",
+    "result": "useful",
+    "conclusion": "Amount exponent add +3 (offsets 616 Zoomed, 1144 Unzoomed) and variation exponent add -2 (612, 1140); header flag Field_93dd77b9 (mounted up) true; no stance flag."
+   },
+   {
+    "path": "Common/Hardware/Weapons/_WeaponModifiers/Bipod/GRM_BipodDeployed_BTM_P50",
+    "format": "raw-ebx",
+    "sha256": "a3b86c301d13bd71d0b32c4b1e7553233229755a4e4417147eb01da92fb88a78",
+    "question": "Control: do the BipodDeployed operands read +10 / -4?",
+    "result": "useful",
+    "conclusion": "Amount +10 and variation -4 in both aim blocks; header Field_b574fa40 (bipod/grippod) true; no stance flag."
+   }
+  ],
+  "binding": "research"
+ },
+ "run": {
+  "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps",
+  "leadFolder": "L4081"
+ }
+}

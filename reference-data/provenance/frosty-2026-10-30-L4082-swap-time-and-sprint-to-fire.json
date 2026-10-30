@@ -1,0 +1,891 @@
+{
+ "lead": "L4082",
+ "status": "finding",
+ "build": {
+  "version": "2.1.1.0",
+  "head": 5382784,
+  "descriptorSha256": "c477622c1074a9a4ea612cf9c60e26f666129721c733174192c121c808873ff6"
+ },
+ "question": "Compose weapon-swap time from site draw and holster, and list the stored sprint-to-fire inputs, for 67 weapons on 2.1.1.0.",
+ "sourceFacts": {
+  "control": {
+   "description": "M4A1 site draw time reproduced from DRAW_TIME_TABLES and its 2.1.1.0 WB deploy index. data/weapons.json has no draw field; the site draw resolves from data/attachments.json:/WEAPON_MAG/m4a1 (deployBaseIndex 6, table primary) plus the default 30 Rnd magazine deployTimeTierShift -1 -> index 7 -> primary deploy 466.667 ms (UI 467). WB Field_2c3e0fbf.Field_2b6f2936 u32 = 6 equals the site base; DTA_Weapons row 7 Field_ada3e7d9 raw = 0.4666669964790344 s.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\M4A1\\M4A1_WB.ebx",
+     "rawSha256": "deeb876b845b66b7bca5f3350e9c399bbc02b83d05d19493a3e35b71c642bee9",
+     "offset": 5992,
+     "type": "u32",
+     "bytesHex": "06000000",
+     "value": 6
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\Deploy\\DTA_Weapons.ebx",
+     "rawSha256": "9971cf9640654c98b7b8d0a6247cbb8cafd9b84a96774d69f0b338f650e91c1c",
+     "offset": 192,
+     "type": "f32",
+     "bytesHex": "faeeee3e",
+     "value": 0.4666669964790344
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\Deploy\\DTA_Weapons.ebx",
+     "rawSha256": "9971cf9640654c98b7b8d0a6247cbb8cafd9b84a96774d69f0b338f650e91c1c",
+     "offset": 184,
+     "type": "f32",
+     "bytesHex": "9488083f",
+     "value": 0.5333340167999268
+    }
+   ],
+   "computation": {
+    "wbDeployIdx": 6,
+    "siteBaseIdx": 6,
+    "defaultMagShift": -1,
+    "effectiveIdx": 7,
+    "tableMs": 466.667,
+    "siteDisplayedMs": 466.667
+   }
+  },
+  "facts": [
+   "Each of the 67 WBs holds one u32 Field_5198399a.Field_2b6f2936 (sprint) and one u32 Field_2c3e0fbf.Field_2b6f2936 (deploy); no holster field exists in any WB.",
+   "DTA_Weapons (12 rows) and DTA_Sidearms (15 rows) hold per-row Field_ada3e7d9 (draw) and Field_6225d335 (holster) f32 seconds; the WB deploy index selects one row, so draw and holster share one index. All 54 values equal data/balance_tables.json DRAW_TIME_TABLES within 6e-5 ms (f32 rounding).",
+   "WB DTA import: 61 weapons import DTA_Weapons, 6 import DTA_Sidearms; equals the site table key for all 67 (VZ61 keeps primary).",
+   "WB sprint/deploy indices equal data/attachments.json WEAPON_MAG sprintRecoveryBaseIndex/deployBaseIndex for 67/67.",
+   "All 67 WBs import SSA_Weapons (not Launchers/Melee); SSA_Weapons imports SprintSettings_T00..T11 in order. SprintSettings Class_25b57f30 stores Field_0eb3af2f equal to Field_1392aeff (identical bytes in all 12; 400.001 down to 50.001 ms) and Field_a89f7448 = 0 in all 12; Field_1d49859f is null. These equal DRAW_TIME_TABLES.sprint.",
+   "WM_WeaponSwap stores Class_4aac041b Field_9540bd8e = +1 (i32 at offset 216)."
+  ],
+  "holsterRawChecks": [
+   {
+    "siteId": "m4a1",
+    "wbDeployIndex": 6,
+    "table": "primary",
+    "sourceHolsterMs": 200.001,
+    "rawChecks": [
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\M4A1\\M4A1_WB.ebx",
+      "rawSha256": "deeb876b845b66b7bca5f3350e9c399bbc02b83d05d19493a3e35b71c642bee9",
+      "offset": 5992,
+      "type": "u32",
+      "bytesHex": "06000000",
+      "value": 6
+     },
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\Deploy\\DTA_Weapons.ebx",
+      "rawSha256": "9971cf9640654c98b7b8d0a6247cbb8cafd9b84a96774d69f0b338f650e91c1c",
+      "offset": 184,
+      "type": "f32",
+      "bytesHex": "9488083f",
+      "value": 0.5333340167999268
+     },
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\Deploy\\DTA_Weapons.ebx",
+      "rawSha256": "9971cf9640654c98b7b8d0a6247cbb8cafd9b84a96774d69f0b338f650e91c1c",
+      "offset": 180,
+      "type": "f32",
+      "bytesHex": "10cd4c3e",
+      "value": 0.20000100135803223
+     }
+    ]
+   },
+   {
+    "siteId": "p18",
+    "wbDeployIndex": 11,
+    "table": "sidearm",
+    "sourceHolsterMs": 116.667,
+    "rawChecks": [
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Secondary\\M18\\M18_WB.ebx",
+      "rawSha256": "0f10f3ad5e3b0685607962c44e32d6e549ce9734e1e39ae9caf5a6b0080422de",
+      "offset": 4616,
+      "type": "u32",
+      "bytesHex": "0b000000",
+      "value": 11
+     },
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\Deploy\\DTA_Sidearms.ebx",
+      "rawSha256": "c55b9171ce536c84b3cdb885baf0ab79944256a9616d8311e68ffd9255d3385d",
+      "offset": 224,
+      "type": "f32",
+      "bytesHex": "9488883e",
+      "value": 0.2666670083999634
+     },
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\Deploy\\DTA_Sidearms.ebx",
+      "rawSha256": "c55b9171ce536c84b3cdb885baf0ab79944256a9616d8311e68ffd9255d3385d",
+      "offset": 220,
+      "type": "f32",
+      "bytesHex": "1cefee3d",
+      "value": 0.1166670024394989
+     }
+    ]
+   },
+   {
+    "siteId": "z84m",
+    "wbDeployIndex": 2,
+    "table": "primary",
+    "sourceHolsterMs": 333.334,
+    "rawChecks": [
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\MG\\PKM\\PKM_WB.ebx",
+      "rawSha256": "f1e6657c274daea16e289cf183402bae508049954e69f5edce609c8c5b56d851",
+      "offset": 5912,
+      "type": "u32",
+      "bytesHex": "02000000",
+      "value": 2
+     },
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\Deploy\\DTA_Weapons.ebx",
+      "rawSha256": "9971cf9640654c98b7b8d0a6247cbb8cafd9b84a96774d69f0b338f650e91c1c",
+      "offset": 152,
+      "type": "f32",
+      "bytesHex": "2200803f",
+      "value": 1.0000040531158447
+     },
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\Deploy\\DTA_Weapons.ebx",
+      "rawSha256": "9971cf9640654c98b7b8d0a6247cbb8cafd9b84a96774d69f0b338f650e91c1c",
+      "offset": 148,
+      "type": "f32",
+      "bytesHex": "c1aaaa3e",
+      "value": 0.3333339989185333
+     }
+    ]
+   }
+  ],
+  "weaponSwapRawCheck": {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Gameplay\\InRoundProgression\\WeaponSwap\\WM_WeaponSwap.ebx",
+   "rawSha256": "d5e27f4eb00d36359972d5a01b43ac2729f7f21734fb49bcbd6d64e1eaa87d05",
+   "offset": 216,
+   "type": "i32",
+   "bytesHex": "01000000",
+   "value": 1
+  },
+  "sprintSettingsRawChecks": [
+   {
+    "index": 0,
+    "rawChecks": [
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_SprintSettings\\SprintSettings_T00.ebx",
+      "rawSha256": "7053244c65a6898dddc03879fe1ff4397e0ff87546dddef249c92dcd05fc503c",
+      "offset": 140,
+      "type": "f32",
+      "bytesHex": "eecccc3e",
+      "value": 0.40000098943710327
+     },
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_SprintSettings\\SprintSettings_T00.ebx",
+      "rawSha256": "7053244c65a6898dddc03879fe1ff4397e0ff87546dddef249c92dcd05fc503c",
+      "offset": 144,
+      "type": "f32",
+      "bytesHex": "eecccc3e",
+      "value": 0.40000098943710327
+     },
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_SprintSettings\\SprintSettings_T00.ebx",
+      "rawSha256": "7053244c65a6898dddc03879fe1ff4397e0ff87546dddef249c92dcd05fc503c",
+      "offset": 136,
+      "type": "f32",
+      "bytesHex": "00000000",
+      "value": 0.0
+     }
+    ]
+   },
+   {
+    "index": 1,
+    "rawChecks": [
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_SprintSettings\\SprintSettings_T01.ebx",
+      "rawSha256": "5b44be989a3f098b8c10ac007c504d01763f0e830f6a0aca2dd16b5cb138f950",
+      "offset": 140,
+      "type": "f32",
+      "bytesHex": "5533b33e",
+      "value": 0.3500010073184967
+     },
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_SprintSettings\\SprintSettings_T01.ebx",
+      "rawSha256": "5b44be989a3f098b8c10ac007c504d01763f0e830f6a0aca2dd16b5cb138f950",
+      "offset": 144,
+      "type": "f32",
+      "bytesHex": "5533b33e",
+      "value": 0.3500010073184967
+     },
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_SprintSettings\\SprintSettings_T01.ebx",
+      "rawSha256": "5b44be989a3f098b8c10ac007c504d01763f0e830f6a0aca2dd16b5cb138f950",
+      "offset": 136,
+      "type": "f32",
+      "bytesHex": "00000000",
+      "value": 0.0
+     }
+    ]
+   },
+   {
+    "index": 2,
+    "rawChecks": [
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_SprintSettings\\SprintSettings_T02.ebx",
+      "rawSha256": "6b52c0a01a1c8ec64b7eb4afcf54dc4340c47819b612fb938dc649444fb250c8",
+      "offset": 140,
+      "type": "f32",
+      "bytesHex": "bb99993e",
+      "value": 0.30000099539756775
+     },
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_SprintSettings\\SprintSettings_T02.ebx",
+      "rawSha256": "6b52c0a01a1c8ec64b7eb4afcf54dc4340c47819b612fb938dc649444fb250c8",
+      "offset": 144,
+      "type": "f32",
+      "bytesHex": "bb99993e",
+      "value": 0.30000099539756775
+     },
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_SprintSettings\\SprintSettings_T02.ebx",
+      "rawSha256": "6b52c0a01a1c8ec64b7eb4afcf54dc4340c47819b612fb938dc649444fb250c8",
+      "offset": 136,
+      "type": "f32",
+      "bytesHex": "00000000",
+      "value": 0.0
+     }
+    ]
+   },
+   {
+    "index": 3,
+    "rawChecks": [
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_SprintSettings\\SprintSettings_T03.ebx",
+      "rawSha256": "e758b273c0a840f23aa1c13378e13a29dfe885e4e7f1381caaf659d84558d114",
+      "offset": 140,
+      "type": "f32",
+      "bytesHex": "9488883e",
+      "value": 0.2666670083999634
+     },
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_SprintSettings\\SprintSettings_T03.ebx",
+      "rawSha256": "e758b273c0a840f23aa1c13378e13a29dfe885e4e7f1381caaf659d84558d114",
+      "offset": 144,
+      "type": "f32",
+      "bytesHex": "9488883e",
+      "value": 0.2666670083999634
+     },
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_SprintSettings\\SprintSettings_T03.ebx",
+      "rawSha256": "e758b273c0a840f23aa1c13378e13a29dfe885e4e7f1381caaf659d84558d114",
+      "offset": 136,
+      "type": "f32",
+      "bytesHex": "00000000",
+      "value": 0.0
+     }
+    ]
+   },
+   {
+    "index": 4,
+    "rawChecks": [
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_SprintSettings\\SprintSettings_T04.ebx",
+      "rawSha256": "5f669482522007da12bc768f3bd1f300cd4be97d1539ad6edd8d3d347e077fa8",
+      "offset": 140,
+      "type": "f32",
+      "bytesHex": "1cef6e3e",
+      "value": 0.2333340048789978
+     },
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_SprintSettings\\SprintSettings_T04.ebx",
+      "rawSha256": "5f669482522007da12bc768f3bd1f300cd4be97d1539ad6edd8d3d347e077fa8",
+      "offset": 144,
+      "type": "f32",
+      "bytesHex": "1cef6e3e",
+      "value": 0.2333340048789978
+     },
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_SprintSettings\\SprintSettings_T04.ebx",
+      "rawSha256": "5f669482522007da12bc768f3bd1f300cd4be97d1539ad6edd8d3d347e077fa8",
+      "offset": 136,
+      "type": "f32",
+      "bytesHex": "00000000",
+      "value": 0.0
+     }
+    ]
+   },
+   {
+    "index": 5,
+    "rawChecks": [
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_SprintSettings\\SprintSettings_T05.ebx",
+      "rawSha256": "6c6580f043a0f27adfdf10877a5d7c18a50bea32126f196fead4baad168cb7f1",
+      "offset": 140,
+      "type": "f32",
+      "bytesHex": "10cd4c3e",
+      "value": 0.20000100135803223
+     },
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_SprintSettings\\SprintSettings_T05.ebx",
+      "rawSha256": "6c6580f043a0f27adfdf10877a5d7c18a50bea32126f196fead4baad168cb7f1",
+      "offset": 144,
+      "type": "f32",
+      "bytesHex": "10cd4c3e",
+      "value": 0.20000100135803223
+     },
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_SprintSettings\\SprintSettings_T05.ebx",
+      "rawSha256": "6c6580f043a0f27adfdf10877a5d7c18a50bea32126f196fead4baad168cb7f1",
+      "offset": 136,
+      "type": "f32",
+      "bytesHex": "00000000",
+      "value": 0.0
+     }
+    ]
+   },
+   {
+    "index": 6,
+    "rawChecks": [
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_SprintSettings\\SprintSettings_T06.ebx",
+      "rawSha256": "ae0d10420776ab5c932020a04c9cba10961b944a48a2412edd10fd16e5cba6a7",
+      "offset": 140,
+      "type": "f32",
+      "bytesHex": "c1aa2a3e",
+      "value": 0.16666699945926666
+     },
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_SprintSettings\\SprintSettings_T06.ebx",
+      "rawSha256": "ae0d10420776ab5c932020a04c9cba10961b944a48a2412edd10fd16e5cba6a7",
+      "offset": 144,
+      "type": "f32",
+      "bytesHex": "c1aa2a3e",
+      "value": 0.16666699945926666
+     },
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_SprintSettings\\SprintSettings_T06.ebx",
+      "rawSha256": "ae0d10420776ab5c932020a04c9cba10961b944a48a2412edd10fd16e5cba6a7",
+      "offset": 136,
+      "type": "f32",
+      "bytesHex": "00000000",
+      "value": 0.0
+     }
+    ]
+   },
+   {
+    "index": 7,
+    "rawChecks": [
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_SprintSettings\\SprintSettings_T07.ebx",
+      "rawSha256": "2a78256935caa046bb3f22ae6a737ae3104a01f575824180590eb8121fad3e24",
+      "offset": 140,
+      "type": "f32",
+      "bytesHex": "b588083e",
+      "value": 0.1333339959383011
+     },
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_SprintSettings\\SprintSettings_T07.ebx",
+      "rawSha256": "2a78256935caa046bb3f22ae6a737ae3104a01f575824180590eb8121fad3e24",
+      "offset": 144,
+      "type": "f32",
+      "bytesHex": "b588083e",
+      "value": 0.1333339959383011
+     },
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_SprintSettings\\SprintSettings_T07.ebx",
+      "rawSha256": "2a78256935caa046bb3f22ae6a737ae3104a01f575824180590eb8121fad3e24",
+      "offset": 136,
+      "type": "f32",
+      "bytesHex": "00000000",
+      "value": 0.0
+     }
+    ]
+   },
+   {
+    "index": 8,
+    "rawChecks": [
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_SprintSettings\\SprintSettings_T08.ebx",
+      "rawSha256": "06d3bc0c30c5b0795176bc0ebd141cff46f1e47688ed7a6f93f74c445f346e78",
+      "offset": 140,
+      "type": "f32",
+      "bytesHex": "53cdcc3d",
+      "value": 0.10000099986791611
+     },
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_SprintSettings\\SprintSettings_T08.ebx",
+      "rawSha256": "06d3bc0c30c5b0795176bc0ebd141cff46f1e47688ed7a6f93f74c445f346e78",
+      "offset": 144,
+      "type": "f32",
+      "bytesHex": "53cdcc3d",
+      "value": 0.10000099986791611
+     },
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_SprintSettings\\SprintSettings_T08.ebx",
+      "rawSha256": "06d3bc0c30c5b0795176bc0ebd141cff46f1e47688ed7a6f93f74c445f346e78",
+      "offset": 136,
+      "type": "f32",
+      "bytesHex": "00000000",
+      "value": 0.0
+     }
+    ]
+   },
+   {
+    "index": 9,
+    "rawChecks": [
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_SprintSettings\\SprintSettings_T09.ebx",
+      "rawSha256": "99428c0791f5e7877730e3f76ce016282b22668ee1648eca24185205a6c53d59",
+      "offset": 140,
+      "type": "f32",
+      "bytesHex": "b4aaaa3d",
+      "value": 0.08333340287208557
+     },
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_SprintSettings\\SprintSettings_T09.ebx",
+      "rawSha256": "99428c0791f5e7877730e3f76ce016282b22668ee1648eca24185205a6c53d59",
+      "offset": 144,
+      "type": "f32",
+      "bytesHex": "b4aaaa3d",
+      "value": 0.08333340287208557
+     },
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_SprintSettings\\SprintSettings_T09.ebx",
+      "rawSha256": "99428c0791f5e7877730e3f76ce016282b22668ee1648eca24185205a6c53d59",
+      "offset": 136,
+      "type": "f32",
+      "bytesHex": "00000000",
+      "value": 0.0
+     }
+    ]
+   },
+   {
+    "index": 10,
+    "rawChecks": [
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_SprintSettings\\SprintSettings_T10.ebx",
+      "rawSha256": "79a5c51f63e2376011360db573148a7b1e76e0c26d1a06fbda52a962e8c209a3",
+      "offset": 140,
+      "type": "f32",
+      "bytesHex": "b588883d",
+      "value": 0.06666699796915054
+     },
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_SprintSettings\\SprintSettings_T10.ebx",
+      "rawSha256": "79a5c51f63e2376011360db573148a7b1e76e0c26d1a06fbda52a962e8c209a3",
+      "offset": 144,
+      "type": "f32",
+      "bytesHex": "b588883d",
+      "value": 0.06666699796915054
+     },
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_SprintSettings\\SprintSettings_T10.ebx",
+      "rawSha256": "79a5c51f63e2376011360db573148a7b1e76e0c26d1a06fbda52a962e8c209a3",
+      "offset": 136,
+      "type": "f32",
+      "bytesHex": "00000000",
+      "value": 0.0
+     }
+    ]
+   },
+   {
+    "index": 11,
+    "rawChecks": [
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_SprintSettings\\SprintSettings_T11.ebx",
+      "rawSha256": "bca19481dfde95624535ddcc28cfe4e151ebcb6de93ffa97ff97b04bf744284c",
+      "offset": 140,
+      "type": "f32",
+      "bytesHex": "d9cd4c3d",
+      "value": 0.05000099912285805
+     },
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_SprintSettings\\SprintSettings_T11.ebx",
+      "rawSha256": "bca19481dfde95624535ddcc28cfe4e151ebcb6de93ffa97ff97b04bf744284c",
+      "offset": 144,
+      "type": "f32",
+      "bytesHex": "d9cd4c3d",
+      "value": 0.05000099912285805
+     },
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_SprintSettings\\SprintSettings_T11.ebx",
+      "rawSha256": "bca19481dfde95624535ddcc28cfe4e151ebcb6de93ffa97ff97b04bf744284c",
+      "offset": 136,
+      "type": "f32",
+      "bytesHex": "00000000",
+      "value": 0.0
+     }
+    ]
+   }
+  ],
+  "perWeaponRawChecks": "l4082-result.json rows[].rawChecks (67 weapons)",
+  "swapStats": {
+   "pairs": 4422,
+   "min": [
+    "p18",
+    "es57",
+    300.002
+   ],
+   "max": [
+    "l110",
+    "m60",
+    1166.6680000000001
+   ],
+   "drawRange": [
+    200.001,
+    866.667
+   ],
+   "holsterRange": [
+    83.334,
+    300.001
+   ],
+   "sameWeaponSwap_M4A1_to_M4A1": 633.334,
+   "drawChangedByWeaponSwap": 67,
+   "weaponsWithWbImport": 64,
+   "baseMatch": 67,
+   "byClass": {
+    "Assault Rifle": {
+     "n": 12,
+     "drawMs": [
+      533.334,
+      533.334
+     ],
+     "holsterMs": [
+      200.001,
+      200.001
+     ]
+    },
+    "Carbine": {
+     "n": 9,
+     "drawMs": [
+      466.667,
+      466.667
+     ],
+     "holsterMs": [
+      166.667,
+      166.667
+     ]
+    },
+    "SMG": {
+     "n": 11,
+     "drawMs": [
+      400.001,
+      400.001
+     ],
+     "holsterMs": [
+      133.334,
+      133.334
+     ]
+    },
+    "LMG": {
+     "n": 11,
+     "drawMs": [
+      633.334,
+      866.667
+     ],
+     "holsterMs": [
+      233.334,
+      300.001
+     ]
+    },
+    "DMR": {
+     "n": 6,
+     "drawMs": [
+      466.667,
+      733.334
+     ],
+     "holsterMs": [
+      166.667,
+      266.667
+     ]
+    },
+    "Sniper Rifle": {
+     "n": 7,
+     "drawMs": [
+      466.667,
+      633.334
+     ],
+     "holsterMs": [
+      166.667,
+      233.334
+     ]
+    },
+    "Shotgun": {
+     "n": 4,
+     "drawMs": [
+      466.667,
+      533.334
+     ],
+     "holsterMs": [
+      166.667,
+      200.001
+     ]
+    },
+    "Sidearm": {
+     "n": 7,
+     "drawMs": [
+      200.001,
+      350.001
+     ],
+     "holsterMs": [
+      83.334,
+      166.667
+     ]
+    }
+   },
+   "sprintFieldsEqual": true,
+   "sprintA89Zero": true
+  }
+ },
+ "inference": [
+  "Holster = DTA Field_6225d335 and draw = Field_ada3e7d9 follows the carried draw-time receipt (known timing correspondence); the names are hashes.",
+  "A +1 step from WM_WeaponSwap would move the shared index up one (faster) by the site convention; whether it also moves the holster column is not shown by the source (it is the draw/deploy step class; no undeploy-specific modifier class was seen)."
+ ],
+ "unresolved": [
+  "Native sequencing, overlap and weapon-ready state for swap; first-usable-shot timing after draw.",
+  "Which sprint field (Field_0eb3af2f or Field_1392aeff) a native consumer reads; both are equal. Whether any other event uses SprintSettings.",
+  "Whether WM_WeaponSwap applies to holster as well as draw, and its activation (no captured owner: L115).",
+  "Draw/holster column roles are by known timing correspondence, not proven by names.",
+  "Season 5 weapons have no XML export; indices were read raw only."
+ ],
+ "siteImpact": "No site mismatch: draw, holster and sprint recovery already display per weapon (ui/app.js DRAW/HOLSTER SPEED and Sprint Rec rows, Stats Draw/Holster/Sprint Recovery, TTK Recovery); data/weapons.json holds no draw field and all WEAPON_MAG indices match the WBs. No site number changes. A composed swap total is not a sourced value (sequencing/overlap unproven, L849/L1103) and the tooltips already say so. Conditional: if a recording confirms swap = holster(A)+draw(B) within a frame or two, a Mobility \"Swap A->B\" would be display-only arithmetic on existing numbers; do not add before that.",
+ "evidence": {
+  "files": [
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4082\\step1.py",
+    "sha256": "aaf7af00ccee4e79607ae3e043cb47e989c56b086d154bd538bc8ae5f2e6f6e2"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4082\\step2.py",
+    "sha256": "8d593ba52b35bba0ed46791115cf98348cebec49010d8f196d51ad0c0cabe7ec"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4082\\step3.py",
+    "sha256": "49d7b3e9d2b76927f23382405618724de4f2c8624e697442652fbc1c9b117733"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4082\\step4.py",
+    "sha256": "ec7083fbbad0c3f264130dcdee6a1199084945b2ecdd0004f0365699c7a4055f"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4082\\step5.py",
+    "sha256": "501906e0091c6849646d2e0290d64fa1c10fa1123d8addef765ee4af3fb9bfc1"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4082\\step6.py",
+    "sha256": "7ccc1418286238da1981213cf779305c590a6644b9d5f16369642b421380443d"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4082\\step7.py",
+    "sha256": "f8ad0c29d4d30487d667bd5567b5b80e496306d7919e8df223501f80c67170ae"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4082\\site-swap.mjs",
+    "sha256": "e010aa0b698e84e7ed85d802033156e81b97ac03ced5321b664a4fe5e5946dc7"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4082\\site-probe.mjs",
+    "sha256": "554a3fb6ef137e24f44bddb05524a1fa0d90ce7085e839a00669041cf5a031f1"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4082\\wb-offsets.json",
+    "sha256": "7f66628c1f4bad8270efd7230dac0b6d8d93e76563dd9de036a8018291dbacb4"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4082\\table-offsets.json",
+    "sha256": "b173dd65a55387412c6c83d9d158107f419bcc41b6f0a351955677bbf2f135b5"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4082\\manifest-all.json",
+    "sha256": "f515a6eccf53514f637283e8d9b66b2725212f55b1cebf8b11e8675da2502ab8"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4082\\rawchecks-all.json",
+    "sha256": "9cffd583a5a9e9a117e6c6bd32c2ea8eaeb8ef633c338e43db2e3be0924b5d6d"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4082\\table-and-swap-imports.json",
+    "sha256": "c25f022b28a13e289a8388aa3faaa246aec006895cde869ee37c1184df79d854"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4082\\site-model.json",
+    "sha256": "794567112cd37cfc5c9b12168bf88a94c604803051e17e24852033ffa8c99ed0"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4082\\site-swap.json",
+    "sha256": "0df9aacf547748be8d26e35b81252c1a12947a2343bf62dfe686a3e7275add4b"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4082\\assembled.json",
+    "sha256": "58bc3abf3c488208558699415cdd905151967aa8a55413021cde4fac7e6c7160"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4082\\swap-table-per-weapon.csv",
+    "sha256": "218bde9e002ab97440ac399633bd17792557e1ee233b2f304bc29e67df324f24"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4082\\swap-matrix-site-default.csv",
+    "sha256": "d3b74fda91aba88bcbbe75ff42816dc66c88a36c84c9c1d28640a010508e8bfc"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4082\\l4082-result.json",
+    "sha256": "3d254f83f709839d8ff7f79269f5a555e92bbb470e5a7c103e00373d9d3f10bf"
+   }
+  ],
+  "commands": [
+   {
+    "executable": "python",
+    "argv": [
+     "step1.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4082",
+    "output": "wb-offsets.json",
+    "label": "reconstructed from saved scripts; shell history not preserved"
+   },
+   {
+    "executable": "python",
+    "argv": [
+     "step2.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4082",
+    "output": "table-offsets.json"
+   },
+   {
+    "executable": "python",
+    "argv": [
+     "step3.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4082",
+    "output": "manifest-all.json"
+   },
+   {
+    "executable": "python",
+    "argv": [
+     "C:/Users/royal/Documents/BF6 Frosty Research/scripts/frosty-raw-check.py",
+     "--manifest",
+     "manifest-all.json",
+     "--out",
+     "rawchecks-all.json"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4082"
+   },
+   {
+    "executable": "python",
+    "argv": [
+     "step4.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4082"
+   },
+   {
+    "executable": "python",
+    "argv": [
+     "step5.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4082",
+    "output": "table-and-swap-imports.json"
+   },
+   {
+    "executable": "node",
+    "argv": [
+     "site-probe.mjs"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4082",
+    "output": "site-model.json"
+   },
+   {
+    "executable": "node",
+    "argv": [
+     "site-swap.mjs"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4082",
+    "output": "site-swap.json"
+   },
+   {
+    "executable": "python",
+    "argv": [
+     "step6.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4082",
+    "output": "assembled.json"
+   },
+   {
+    "executable": "python",
+    "argv": [
+     "step7.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4082"
+   }
+  ],
+  "note": "Commands reconstructed from the saved scripts; shell history not preserved. frosty-raw-check.py ran once with manifest-all.json."
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-30",
+  "build": "2.1.1.0",
+  "leads": [
+   {
+    "id": "L4082",
+    "title": "Weapon swap total and sprint-to-fire inputs",
+    "status": "finding",
+    "summary": "All 67 WB sprint/deploy indices and the DTA/SprintSettings tables on 2.1.1.0 equal the site; holster is the second column of the same DTA row (no holster field in the WB), sprint-to-fire has one stored input (recovery, two equal fields), and swap = holster(A)+draw(B) is arithmetic on site numbers with unproven sequencing.",
+    "reopenWhen": "A recording of one pair swapped five times (frames from key press to first possible shot) or a native swap/readiness consumer is found."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Hardware/Weapons/Carbine/M4A1/M4A1_WB",
+    "format": "raw-ebx",
+    "sha256": "deeb876b845b66b7bca5f3350e9c399bbc02b83d05d19493a3e35b71c642bee9",
+    "question": "Which sprint and deploy table indices does the M4A1 WB select?",
+    "result": "useful",
+    "conclusion": "u32 sprint 6 and deploy 6 at the raw-checked offsets; equal to the site WEAPON_MAG bases (control)."
+   },
+   {
+    "path": "Common/Hardware/Common/Arrays/Deploy/DTA_Weapons",
+    "format": "raw-ebx",
+    "sha256": "9971cf9640654c98b7b8d0a6247cbb8cafd9b84a96774d69f0b338f650e91c1c",
+    "question": "Do the stored draw/holster rows equal DRAW_TIME_TABLES.primary?",
+    "result": "useful",
+    "conclusion": "12 rows x 2 f32 values equal the site primary deploy/undeploy tables to f32 precision."
+   },
+   {
+    "path": "Common/Hardware/Common/Arrays/Deploy/DTA_Sidearms",
+    "format": "raw-ebx",
+    "sha256": "c55b9171ce536c84b3cdb885baf0ab79944256a9616d8311e68ffd9255d3385d",
+    "question": "Do the stored draw/holster rows equal DRAW_TIME_TABLES.sidearm?",
+    "result": "useful",
+    "conclusion": "15 rows x 2 f32 values equal the site sidearm tables; the WBs hold no separate holster field."
+   },
+   {
+    "path": "Common/Gameplay/InRoundProgression/WeaponSwap/WM_WeaponSwap",
+    "format": "raw-ebx",
+    "sha256": "d5e27f4eb00d36359972d5a01b43ac2729f7f21734fb49bcbd6d64e1eaa87d05",
+    "question": "What operand does WM_WeaponSwap hold on 2.1.1.0?",
+    "result": "useful",
+    "conclusion": "One Class_4aac041b step Field_9540bd8e = +1 (i32 at offset 216); 64 of 67 WB import tables reference the asset; activation unresolved."
+   },
+   {
+    "path": "Common/Hardware/Weapons/_SprintSettings/SprintSettings_T06",
+    "format": "raw-ebx",
+    "sha256": "ae0d10420776ab5c932020a04c9cba10961b944a48a2412edd10fd16e5cba6a7",
+    "question": "What sprint-recovery values do the SprintSettings assets store?",
+    "result": "useful",
+    "conclusion": "Two equal f32 (0.166667 s) plus a zero f32 at +136; all 12 assets equal DRAW_TIME_TABLES.sprint; no other sprint-to-fire field found."
+   }
+  ],
+  "site": [
+   {
+    "pointer": "data/attachments.json:/WEAPON_MAG/m4a1/deployBaseIndex",
+    "value": 6,
+    "relation": "supports"
+   },
+   {
+    "pointer": "data/balance_tables.json:/DRAW_TIME_TABLES/primary/deploy/7",
+    "value": 466.667,
+    "relation": "supports"
+   },
+   {
+    "pointer": "data/balance_tables.json:/DRAW_TIME_TABLES/sprint",
+    "relation": "supports"
+   }
+  ],
+  "binding": "research"
+ },
+ "run": {
+  "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps",
+  "leadFolder": "L4082"
+ }
+}

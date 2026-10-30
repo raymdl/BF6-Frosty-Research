@@ -634,7 +634,13 @@ Test: in a mode with armor plates, one rifle bullet to the chest of a plated and
 
 No saved file names any of them (47,686 files searched) and the bone collision file uses only 24, 115, 25 and 26. What they belong to is not readable from the capture. 89 raw-offset checks matched.
 
+## L4076 - Armor curves and the spawn plate on 2.1.1.0 (30 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-30-L4076-armor-curves-and-spawn-plate.json). `ArmorGrantSpawnPlate` is object 42 of `GRX_Glacier_Soldier` (GUID `c3df8128-3e85-4641-88f5-a0578adf4cdd`, true at offset 4120). Its only consumer beside the `TweakablesConfig` index is `SimEx_Ability_ArmorGrant`, whose graph grants the REDSEC (Granite) loot item `LootItemList:Ammo_Armor` when the row is true. On 1.4.3.0 the only granter was `FieldUpgradePath_BR_Support_Fortifier`, a Battle Royale path that is gone from the 2.1.1.0 catalog; on 2.1.1.0 none of 103,867 captured files imports `Ability_ArmorGrant` or its `U_` / `FL_` selectors (the eight multiplayer field-upgrade paths included; the search's known-answer check passed). All 243 `KST_GlacierMP` rows are false. The `SpawnWithArmor` mutator in `MutatorDatabase_CH1` defaults to 0 (the spawn graph applies soft armor at 1, ceramic at 2). So plates are REDSEC and Gauntlet content by every source route; a HUD glance in a standard multiplayer mode predicts no armor bar. 579 and 238 are hit-material ids, not curve selectors: 579 is the armored chest (EA's 0.84 / 0.91 / 0.67) and ceramic armor still maps it to 238. The 13 changed armor curves (`PD_762x39mm` control re-read 0:20.67 46:20.67 85:20.67 85:17.13) leave unplated BTK unchanged; against a plate with no spill they add up to 1 shot at capacity 40 and up to 2 at capacity 80 (22 of 52 bullet-range cells change at 80; the DMR and Semi bullets go from 4 to 5 shots at 0 to 30 m at 40), with 40 and 80 unconfirmed L3380 amounts. Unresolved: the plate capacity, how a hit selects the armor curve and the spill rule, who grants `Ability_ArmorGrant` on 2.1.1.0 (needs capture of `Ability_ArmorGrant`, `U_` / `FL_` and the `FieldUpgradePath_BR_*_Y2` paths), any mode override of `SpawnWithArmor`, and head material 587. This also answers the L3380 reopen of L4061: no armor target option is proposed for the site while plates stay outside standard multiplayer.
+
 ## L3380 - Armor is stored as material swaps (9 October 2026)
+
+**Re-screen, 30 October 2026 (L4061).** Of the 116 negative closures audited by L4009, 46 are of the form "stored, no consumer found, site left alone"; screened against the stat-screen audit, EA notes and later leads, 30 stand, 14 cannot be screened without a measurement, and this one is reopened: EA 1.3.3.0 states the chest-against-armor figures 0.84 / 0.91 / 0.67 that material 579 stores, and the site has no armor option. On 2.1.1.0 material 579 sits at offset 11592 of `Glacier_Soldier` (11604 before) and the head material word 587 is not found. [Receipt](../../reference-data/provenance/frosty-2026-10-30-L4061-negative-closure-rescreen.json); the full screening table is in it.
 
 [Receipt](../../reference-data/provenance/frosty-2026-10-09-L3380-armor-upgrade-material-swaps.json). Dataset: `reference-data/frosty/armor-material-swaps.json`. Replaces L3370 and withdraws L3374 above: their file search was incomplete (three raw roots, low bits required to equal 0x80). Armor affectors do name these materials.
 
@@ -825,6 +831,10 @@ Inputs of the movement-speed block:
 
 7 raw-offset checks matched.
 
+## L4075 - Movement speed in m/s on 2.1.1.0 (30 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-30-L4075-movement-speed-ms-proposal.json). Walk 3.5 (`Glacier_Soldier` +3224) and sprint 6.05 (+3216) re-read at the L4014 offsets; `Glacier_Soldier` and `GRX_Glacier_Soldier` changed bytes but all eight pose entries and every registry row are identical except the added `ArmorGrantSpawnPlate` (FastSprintTopSpeedMultiplier 2.05 at +17956, DefaultStandSprintTopSpeedMultiplier 1.857 at +23276). All 189 `RootLayerLogic` input imports are identical. The LMG x0.95 membership is exactly the 11 site LMGs (both tag imports in their Ability and Equipment files; the other 56 weapons have none). The raw ADS-move index equals the site `defAms` and `ADS_MOVE_TIERS` tier on all 67 weapons (M4A1 index 7, 0.67). Per weapon: walk 3.5 m/s, sprint 6.05, firing walk 2.8, LMG sprint 5.7475, ADS walk 3.5 x ratio (1.47 to 2.8875); the ADS-walk and firing-walk compositions are assumed. Proposal: a Mobility row (walk / ADS walk / sprint in m/s) beside Strafe Spd; validation is a timed 50 m sprint (8.26 s, 8.70 s with an LMG) and walk (14.29 s). The compiled movement resource was renumbered (`2bfca9f18b8f10e9` to `0550f387167b0bdd`) and is in no 2.1.1.0 capture, so the 0.95, 0.8, 1.1 and 1.1818 constants remain 1.4.3.5 readings; the gun input of about 0.931 is unread. Out of scope: the L849 ADS-move offsets are wrong on 2.1.1.0 for the M433, L110, SGX and M2010 ESR (corrected offsets in the run folder's `values.json`).
+
 ## L4016 - Movement-speed logic disassembled (10 October 2026)
 
 [Receipt](../../reference-data/provenance/frosty-2026-10-10-L4016-move-speed-modifiers-disassembled.json). Read from the compiled resource `2bfca9f18b8f10e9` (section `SimEx_MoveSpeedModifiers`); variable names come from the `SoldierMotionMachine` parameter lists.
@@ -903,6 +913,12 @@ a second test requires -1.41 < AimPitch < -0.649 (radians, looking down)        
 - `OptionSprintVaultOver`: vault-over is allowed when the option is off, or when sprinting.
 
 9 raw-offset checks matched.
+
+## L4080 - Downed-state damage affectors (30 October 2026)
+
+L4057 (same day) lists the 2.1.1.0 `SimEx_IsInMandown` body as changed in substance against 1.4.3.5: a PVE bleed-out branch (`CHIITest_ManDownBleedOutDamage`) was added and two native calls removed; the multiplayer threshold and rates below are unchanged.
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-30-L4080-downed-damage-affectors.json). EA's line "Reduced damage taken from primary weapons while in the downed state by 20%" is in the 1.3.1.0 notes (not 1.3.3.0; L4001 already said so). On 2.1.1.0 no stored value equals 0.8: no `GRX_*` row (34,340 searched) names a downed damage multiplier. The consumer found is the man-down graph `SimEx_IsInMandown` (2.1.1.0 body `daf111de1a57a087`, re-baked from `06544c9909b84c3d`; the L4023 bleed-out threshold -90 and the four rates re-read at bytes 2124 to 2152), which applies four `Class_7d3d8a5c` effects through `ApplyAffector`: `Affector_Mandown_DamageModifier` holds x0.0 and x2.0 entries (explosive and bullet) and `Affector_Mandown_DamageModifier_CrawlingManDown` x0.05 (explosive and bullet) and x0.45 (bullet only); the `_Remove` effects undo them by tag (inferred). Which entry each call picks is inferred by analogy with the Flak graph (argument 0 or 1), the branch conditions (man-down type, Granite stim) are not fully traced, and the `SimEx_CeramicArmor` and `SimEx_SoftArmor` bodies are not captured. Validation: the hit-indicator number on a downed against a standing enemy reads 0.8 of the standing value if EA's line is the whole story, or 0.45 (or 0.05) if the crawling effect applies to bullets. No site change.
 
 ## L4023 - Man-down bleed-out and revive graphs (10 October 2026)
 

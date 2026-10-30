@@ -1,0 +1,178 @@
+{
+ "lead": "none",
+ "status": "finding",
+ "build": {
+  "current": "site-only (site data built from the 2.1.1.0 Season 5 stage 9 worker C capture; operator panel check on client 2.1.1.0, 23 October 2026)",
+  "note": "Compares site tooltips with site-computed attachment effects; no raw bytes were read by the note."
+ },
+ "question": "For every selectable attachment on the four Season 5 weapons (Mk 24, ELR-40, Z84M, RSPR), does the in-game description match the attachment's own effect in the site data (the Stage 6 description-versus-effect comparison that the 2.1.1.0 checklist said was not run on them)?",
+ "sourceFacts": {
+  "method": "Per attachment: in-game description (data/attachment-tooltips.json, by weapon) against the effect taken as the difference between the bare weapon and the bare weapon with only that attachment (sim/applyAttachments.js, the Attachment Effects baseline; magazines keep their handling fields). Items grouped by slot, identical description text and the set of changed fields with direction, as the 14 September pass grouped them, then each group read for a claim the effects do not apply or an effect the text does not state. Rubric traps applied: a +1 tier is a benefit; an effect the site does not model (bipod deployment, match triggers, stance sway) is not a mismatch.",
+  "counts": {
+   "items": 344,
+   "withDescriptionText": 205,
+   "groups": 88,
+   "withoutText": 139,
+   "withoutTextBreakdown": "130 optics (the data carries no optic descriptions) and 9 optic accessories (Canted Iron Sights, Secondary Optic, Anti-Glare Coating)"
+  },
+  "result": "Every group matches its text or is already recorded in docs/ATTACHMENT_BUGS.md, except two candidates. Already recorded and seen again: entry 1 (ELR-40 Slim Angled, unstated moving-ADS penalty), entry 3 (RSPR Slim Angled, draw speed stated but not applied), entry 21 (Mk 24 and Z84M angled grips and QD Grip Pod stronger recoil steps), entry 24 (ELR-40 Single Shot sweet spot), entry 25 (deployed bipods), entry 27 (ELR-40 CQB Suppressor recoil package). Patterns accepted on 14 September, seen again: Hollow Point, Subsonic, Sub HP and Frangible reduce the collateral multiplier without saying so; the hip-fire taclight and Flashlight reduce hip bloom per shot as well as improving recovery; Linear Comp's 'more stable vertical recoil' is a vertical increase.",
+  "candidate1": "ELR-40 CQB Suppressor (entry 27): text promises spotting effects only, the record carries the bolt-action recoil package; recordings of 23 October in elr40-cqb-suppressor-recoil-2026-10-23.md.",
+  "candidate2": {
+   "title": "ELR-40 Single Shot magazine (WEAPON_MAG.elr40.mags[\"1_rnd\"]) carries unstated handling and hit-zone changes against the default 7 Rnd",
+   "text": "Blocked magwell for individually loading custom 9.52x70mm rounds, dealing massive damage between 30m and 60m but at the detriment of long-range ballistics (entry 24 covers the damage window).",
+   "table": {
+    "ADS time tier shift": {
+     "7 Rnd": 0,
+     "Single Shot": -1,
+     "sitePanel": "ADS time 433 ms to 367 ms"
+    },
+    "ADS move speed tier shift": {
+     "7 Rnd": 0,
+     "Single Shot": -1,
+     "sitePanel": "x0.47 to x0.54"
+    },
+    "Moving ADS spread tier": {
+     "7 Rnd": 0,
+     "Single Shot": 1,
+     "sitePanel": "0.32 deg to 0.22 deg (Mobility 34 to 44)"
+    },
+    "Weapon sway": {
+     "7 Rnd": 1,
+     "Single Shot": 0.667,
+     "sitePanel": "not on the panel"
+    },
+    "Reload": {
+     "7 Rnd": "2.400 s",
+     "Single Shot": "3.166 s (override)"
+    },
+    "Headshot multiplier (own bullet)": {
+     "7 Rnd": 1.75,
+     "Single Shot": 1.34
+    },
+    "Limb multiplier (own bullet)": {
+     "7 Rnd": 0.67,
+     "Single Shot": 0.84,
+     "sitePanel": "not on the panel"
+    },
+    "Collateral multiplier (own bullet)": {
+     "7 Rnd": 0.75,
+     "Single Shot": "1.00 (confirmed by firing, 23 October)"
+    }
+   },
+   "panelCheck": "Operator screenshots, 23 October 2026, Single Shot fitted: DMG 120, Mobility 44, reload 3.166 s, ADS time 367 ms, headshot x1.34, long-range damage 80, ADS move speed x0.54, sprint recovery 200 ms, Hipfire 34, Precision 100, Control 15: every site value in the table is confirmed. Two panel figures differ from the site by design: the magazine reads 0 where the site stores 1 (the panel shows stored capacity minus one for every ELR-40 magazine; the site keeps one round so the simulation fires once before reloading, stage 9 worker C judgement call 6) and the collateral multiplier reads x0.00, the panel's end-of-table display error (entry 20); the recorded two-target test of the same day shows full damage to the second target, so the site keeps x1.00.",
+   "operatorReading": "Operator reading of the text (23 October 2026): not an error; the Single Shot is a special-case magazine that changes the weapon's behaviour and its description is less descriptive rather than wrong. No bug entry; candidate closed."
+  },
+  "coverageGaps": [
+   "Optics carry no description text, so the LPVO and thermal ADS move-speed changes on the Mk 24 (x0.60 to x0.535) cannot be checked against text.",
+   "Optic accessories have no tooltips in the data for any weapon.",
+   "Worker C could not find descriptions for the ELR-40 muzzles and barrels in the stage 9 capture (REPORT.md line 158); the texts used come from the later 13 October descriptions file and match the in-game panel of 23 October for the muzzles."
+  ]
+ },
+ "inference": [
+  "On the 344 items compared, no unrecorded description-versus-effect mismatch was found on the four Season 5 weapons; the ELR-40 Single Shot magazine's unstated handling shifts were checked against the in-game panel and the site values are right, so only the description is terse, which the operator judged not an error."
+ ],
+ "unresolved": [
+  "Optics (130) and optic accessories (9) have no description text, so they were not compared.",
+  "The CQB Suppressor recoil package (entry 27) is consistent with, but not proven by, the 23 October recordings (see the separate ELR-40 CQB Suppressor receipt).",
+  "Magazine display: the panel shows capacity minus one for every ELR-40 magazine while the site keeps 1 for the Single Shot; the weapons.json mag of the ELR-40 is 8 (open item L4055 in the 19 October recheck)."
+ ],
+ "siteImpact": "Site commits the same day: cf7ed0e set the ELR-40 Single Shot collateral multiplier to 0 as the firing range panel shows, 28f975c put it back to x1.00 after the recorded two-target test, 490fcd4 logged bug 27, ba40034 and faf1e15 logged entry 20 (x0.00 panel error). The note's own commit is 589626d (updated in 28f975c, cf7ed0e and 490fcd4). Site values this note supports are the pointers below (collateral x1.00, reload override 3,166 ms, Single Shot magazine capacity 1).",
+ "evidence": {
+  "note": {
+   "file": "BF6 Weapon Analyzer/reference-data/provenance/season5-description-effect-scan-2026-10-23.md",
+   "sha256": "89a6d279fc91ebaa91e269de7e9b51e2420efa11c92848652ed7fa50156eb6d4"
+  },
+  "linkedNote": {
+   "file": "BF6 Weapon Analyzer/reference-data/provenance/elr40-cqb-suppressor-recoil-2026-10-23.md",
+   "sha256": "c49580fbfecf53a09bde7268a88694690f960ff3741f3c5be69f85c1b290c7e8"
+  },
+  "recordingFolder": "reference-data/Recordings/10232026/ELR Collateral/ (the recorded two-target test cited for the collateral multiplier)",
+  "collateralClips": [
+   {
+    "file": "ELR_7rnd.mp4",
+    "bytes": 34752841,
+    "sha256": "cfc0138e1bcdb6de74222ff3a1979db3b056fe174d5463f0fea3a84d591ae3c6"
+   },
+   {
+    "file": "ELR_7rnd_Stomach_Penetration.mp4",
+    "bytes": 17337054,
+    "sha256": "22f2ebd6e88db89028aa5fd4761cd9934b44f8e6f01ce6f8e222dc3f87267de3"
+   },
+   {
+    "file": "ELR_7rnd_Stomach_Standard.mp4",
+    "bytes": 21452578,
+    "sha256": "745e0daad8832686abac43828375a554b191560d0f1535bf4b0663bc61bcc64e"
+   },
+   {
+    "file": "ELR_SingleShot.mp4",
+    "bytes": 28453751,
+    "sha256": "87f2a06211a6b4f0f5f8097cc2030c1ae8f41ab737be0e8e63c39ca041bcd2a0"
+   },
+   {
+    "file": "ELR_SingleShot_Stomach_Penetration.mp4",
+    "bytes": 14168926,
+    "sha256": "537a94e78aeb336e09a052d87efa5371ad6ceb9c7e3fd782cc0da368b7dc995f"
+   },
+   {
+    "file": "ELR_SingleShot_Stomach_Standard.mp4",
+    "bytes": 12366561,
+    "sha256": "62a1a1aa05fba8288f5936e8da74322bf32b270f21909908650aa7d7837c7062"
+   }
+  ],
+  "operatorScreenshots": "Panel check screenshots of 23 October 2026 are cited by the note but are not named or stored under a path in the note; not hashed.",
+  "stage9Source": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-13-update-2110-post\\stage9\\C (cited by the note; not re-read for this draft)",
+  "siteCommits": {
+   "note": "589626d, 28f975c, cf7ed0e, 490fcd4 (all 2026-10-23, touching the note)",
+   "dataChanges": "28f975c ELR-40 Single Shot: collateral multiplier back to x1.00; 490fcd4 bug 27; ba40034 / faf1e15 bug 20"
+  },
+  "commands": "The note records no command lines (the scan was run from the site data with sim/applyAttachments.js); none are reconstructed here."
+ },
+ "record": {
+  "v": 1,
+  "kind": "audit",
+  "date": "2026-10-23",
+  "build": "site-only",
+  "binding": "research",
+  "site": [
+   {
+    "pointer": "data/attachments.json:/WEAPON_MAG/elr40/mags/1_rnd/projectileOverride/collateralMult/standard",
+    "value": 1.0,
+    "relation": "supports"
+   },
+   {
+    "pointer": "data/attachments.json:/WEAPON_MAG/elr40/mags/1_rnd/tacRldOverrideMs",
+    "value": 3166,
+    "relation": "supports"
+   },
+   {
+    "pointer": "data/attachments.json:/WEAPON_MAG/elr40/mags/1_rnd/mag",
+    "value": 1,
+    "relation": "context"
+   },
+   {
+    "pointer": "data/attachments.json:/GAME_BUGS/[ref=27]",
+    "value": {
+     "ref": "27",
+     "slot": "muzzle",
+     "attachments": [
+      "light_supp"
+     ],
+     "weapons": [
+      "elr40"
+     ],
+     "metrics": [
+      "Recoil Recovery",
+      "Recoil Duration"
+     ],
+     "note": "Also applies the sniper suppressors' recoil smoothing (a longer kick with faster recovery), which its text does not state."
+    },
+    "relation": "supports"
+   }
+  ]
+ },
+ "run": {
+  "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps",
+  "leadFolder": "L4063",
+  "note": "receipt drafted 30 Oct 2026 for an earlier measurement or recheck; the date is the evidence date"
+ }
+}

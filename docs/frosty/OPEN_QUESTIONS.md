@@ -30,6 +30,10 @@ From the [2.1.1.0 checklist](../updates/2.1.1.0-checklist.md#outcome) ("Still op
 | Transport helicopter hits-to-kill: the dataset says 7, EA's "from" says 11 (B5) | Re-read helicopter health, then an in-game test. |
 | RPG-7V2: registry Damage 125 gives the 250 base; the file's own wrapper names 135 | Carried into the update; not settled by it. |
 | AAHV heat per shot: file 0.042, registry 0.036 (C5) | Carried into the update; not settled by it. |
+| Armor plates in standard multiplayer (L3380, L4076): every source route says REDSEC and Gauntlet only | One HUD glance in a standard multiplayer mode: no armor bar confirms it; an armor bar reopens L3380 with `SpawnWithArmor` and the mode layers as the route. |
+| Quick Plating text 25% against the stored 1.5 (L4056, L4060): nothing else is stored beside the 1.5 and no affector is imported | Plate time with and without the perk: 0.667 of base supports the stored 1.5, 0.8 the text. Battle Royale path only. |
+| Low-Zoom 2x and 3x descriptors resolve to the "Low-Zoom 4x" string (L4060): no captured asset holds the added 2x and 3x ids | Read the attachment panel label for the 2x and 3x add-ons in game; if it says 4x, record an attachment-bug row; else find the asset that holds `11714E75` / `11714E76` (needs capture). |
+| CDX40 Single Shot text "30m to 60m" against the API curve peak 42 to 68 m (L4060); the bullet join is the site's inference | One damage-readout shot each at 30, 36, 64, 68 and 75 m with the single-round ELR-40; 120 at 30 to 36 m means the text, 120 only from 42 m means the curve. |
 | 283 changed gameplay assets captured after the update have no 1.4.3.5 capture | They cannot be diffed; do not substitute current bytes for old. |
 | Unnamed fields with a changed value | Candidates only, listed in `STAGE6-8-TRACE-RESULTS.md`. |
 | In-game tests listed by the checklist: A1 and A2 damage against the video, A3, A4, A6 regeneration timing, B5, D3, D4, D5, D6, E4, attachment bug 14, the SU-230 recoil fix, C-4 against a tank | Not yet in the [capture plan](../working/BF6_CAPTURE_PRIORITIES.md). |

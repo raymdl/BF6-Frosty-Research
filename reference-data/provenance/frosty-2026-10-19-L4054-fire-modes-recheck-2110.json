@@ -1,0 +1,261 @@
+{
+ "lead": "L4054",
+ "status": "finding",
+ "build": {
+  "current": "2.1.1.0 (Head 5382784, descriptors c477622c1074a9a4ea612cf9c60e26f666129721c733174192c121c808873ff6; new side read from builds/2.1.1.0/reports/client-new-check-2026-10-15/collection/raw, the 15 October hotfix capture, which changed no weapon file)",
+  "compared": "1.4.3.5 (Head 4909002, descriptors 4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1; old side builds/1.4.3.5/reports/client-60769-check-2026-10-03/collection/raw)",
+  "note": "Research only: re-run on the open build of the 10 October registry checks (L4000, L4002, L4003, L4004) and the 30 September fire-mode extraction (L604). The old side was read from builds/1.4.3.5 raw only, never from its builds/1.4.3.5/reports/client-2110-check-2026-10-13 capture, which holds 2.1.1.0 bytes. Nothing in the recheck is an in-game reading."
+ },
+ "question": "Re-run L604 on 2.1.1.0: did the fire-mode lists and rates of the 63 weapons or the 12 mode-changing modifier files change, and what happened to the CMU_SemiAuto and Match Trigger imports of the SGX, L110 and M433?",
+ "sourceFacts": {
+  "control": {
+   "description": "Control (note, Method step 2): restricted to the 63 site weapons' _WB and GS_ files and the site's bullet files, the registry-against-own pairing gives 2,771 / 11,500 / 567 values over 60 / 206 / 13 row names, exactly the 10 October counts (L4000), and the same paths. Fire-mode fields are the same field paths as join.py of the 30 September run (L600 to L604).",
+   "passed": true
+  },
+  "method": "Step 7 of the note: firemodes.py reads the six FireLogic fields (Field_f8822efa: primary mode Field_16e6fa59, RateOfFire, RateOfFireForBurst, RateOfFireForSingleFire, BurstsPerMinute; Field_58d70acb/Field_ca2ec42a rounds per burst; alternate list Field_9b956c3d) from the 63 weapons' _WB files and compares them with fire-modes.json (110 rows, 12 branches); firemodes2.py, mt3.py and guid-search.py cover the 12 mode-changing modifier files and the Match Trigger / CMU_SemiAuto imports.",
+  "modeListsAndRates": "0 changes on 63 of 63: primary mode, alternate list, the four rate fields and rounds per burst all equal (fire-modes-diff.json is empty). SGX: auto 830.769, single 449.999 (list auto + single). L110: auto 719.999 (list auto only; single-fire field 399.999 as before, unused).",
+  "branches": "The 12 mode-changing modifier files (WPM_ERG_BurstFireEnabled_W10, _BurstFireReplace_W10, _FullAutoReplace_W30, _FullAutoReplaceVSSM_W50) are byte-identical by SHA-256; the set of _Ergo/FireMode routes is the same 11 before and after, so the 10 site choices and the two source-only branches stand.",
+  "cmuSemiAutoImport": "EA's note removes the Match Trigger from the SGX and L110. In the source, MPX_WB (SGX) and Minimi_WB (L110) each lost one import, the condition asset _Ergo/CMU_SemiAuto (GUID 443b41bc-f4b5-45e9-8d7c-3e4208121496): the GUID bytes sit at offset 26724 in the 1.4.3.5 MPX_WB and offset 26916 in the 1.4.3.5 Minimi_WB (read below); a byte search finds none in either 2.1.1.0 file (guid-search.json). Of the 63 existing weapons these are the only two that lost it; 41 of the other 61 _WB files import it (43 of 63 did on 1.4.3.5). CMU_SemiAuto is a two-object condition asset (one field, value 1) and is not specific to the Match Trigger (it is imported by weapons that do not offer one), so the loss shows that the semi-auto conditional modifiers no longer apply on these two, not by itself that a Match Trigger attachment was removed. Neither weapon has a Match Trigger attachment record in the catalog on either build.",
+  "m433MatchTrigger": "HK433_WB (M433) is the one weapon that gained a Match Trigger import (_Ergo/MatchTrigger/WPM_ERG_MatchTrigger_W15, GUID 36d9d2e2-d5e9-4075-9e9d-9f4c9d148cad, one hit at offset 26360 in the 2.1.1.0 file, none before); it keeps its CMU_SemiAuto import. Its mode list is unchanged (auto + single; the site offers the Match Trigger on it).",
+  "newWeapons": "Read, not diffed: Mk 24 auto 635.294, single 359.999; RSPR auto 719.999, single 399.999; Z84M auto 719.999 only; ELR-40 bolt (mode 1) 299.999. All equal the site's fireModes (the ELR-40 rate is a placeholder in RateOfFire; see L4055).",
+  "rawChecks": [
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\Hardware\\Weapons\\SMG\\MPX\\MPX_WB.ebx",
+    "rawSha256": "6f06d1e495fc99eabbfba2c3fae06c7d94e2641b16f16d2bfe0a421a8d64fa28",
+    "offset": 832,
+    "type": "f32",
+    "bytesHex": "37b14f44",
+    "value": 830.7689819335938
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\Hardware\\Weapons\\SMG\\MPX\\MPX_WB.ebx",
+    "rawSha256": "6f06d1e495fc99eabbfba2c3fae06c7d94e2641b16f16d2bfe0a421a8d64fa28",
+    "offset": 840,
+    "type": "f32",
+    "bytesHex": "dfffe043",
+    "value": 449.9989929199219
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\Minimi\\Minimi_WB.ebx",
+    "rawSha256": "6519c820b5cc0e776d0b5cececb5f93695011a841dc65afd3e51f0be90027136",
+    "offset": 832,
+    "type": "f32",
+    "bytesHex": "f0ff3344",
+    "value": 719.9990234375
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\Minimi\\Minimi_WB.ebx",
+    "rawSha256": "6519c820b5cc0e776d0b5cececb5f93695011a841dc65afd3e51f0be90027136",
+    "offset": 840,
+    "type": "f32",
+    "bytesHex": "dfffc743",
+    "value": 399.9989929199219
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\pre-update-60769-2026-10-12\\collection\\raw\\Common\\Hardware\\Weapons\\SMG\\MPX\\MPX_WB.ebx",
+    "rawSha256": "a048d1233e9c3f2adaff1a7b32ef1772f8560684b2eb4faff8a2e06dd89262aa",
+    "offset": 26724,
+    "type": "guid",
+    "bytesHex": "bc413b44b5f4e9458d7c3e4208121496",
+    "value": "443b41bc-f4b5-45e9-8d7c-3e4208121496"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\pre-update-60769-2026-10-12\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\Minimi\\Minimi_WB.ebx",
+    "rawSha256": "b20bda11defe5ec5acfdef9287af049625c37b728c949ffdad005fddbf1f83be",
+    "offset": 26916,
+    "type": "guid",
+    "bytesHex": "bc413b44b5f4e9458d7c3e4208121496",
+    "value": "443b41bc-f4b5-45e9-8d7c-3e4208121496"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\HK433_WB.ebx",
+    "rawSha256": "3f33f2ca3613e4965490e2aa82f32453a94ee9ae41f8eec6e227ef87bf6bb73b",
+    "offset": 26360,
+    "type": "guid",
+    "bytesHex": "e2d2d936e9d575409e9d9f4c9d148cad",
+    "value": "36d9d2e2-d5e9-4075-9e9d-9f4c9d148cad"
+   }
+  ],
+  "rawCheckLabels": [
+   "SGX (MPX_WB) RateOfFire 2.1.1.0",
+   "SGX (MPX_WB) RateOfFireForSingleFire 2.1.1.0",
+   "L110 (Minimi_WB) RateOfFire 2.1.1.0",
+   "L110 (Minimi_WB) RateOfFireForSingleFire 2.1.1.0",
+   "MPX_WB (SGX) CMU_SemiAuto import GUID 443b41bc-f4b5-45e9-8d7c-3e4208121496, 1.4.3.5 file",
+   "Minimi_WB (L110) CMU_SemiAuto import GUID 443b41bc-f4b5-45e9-8d7c-3e4208121496, 1.4.3.5 file",
+   "HK433_WB (M433) WPM_ERG_MatchTrigger_W15 import GUID 36d9d2e2-d5e9-4075-9e9d-9f4c9d148cad, 2.1.1.0 file"
+  ],
+  "rawCheckNote": "Raw checks below were re-read by this draft with scripts/frosty-raw-check.py --manifest (outputs rawchecks-<lead>.json in the L4063 run folder); each equals the read in the run's own raw-checks-*.json manifests (all 2,161 reads of the run match). Manifests cited: raw-check-manifest-registry-own.json (1,500 registry/own reads), -curves.json (259), -fire-modes.json (402). The two guid reads at 26724 and 26916 are in the 1.4.3.5 pre-update raw files (builds/1.4.3.5/capture/pre-update-60769-2026-10-12/collection/raw); the 2.1.1.0 absence is a byte search (guid-search.json), not a raw read, and is not a proof of runtime behaviour."
+ },
+ "inference": [
+  "Fire-mode lists and rates are unchanged on every existing weapon and the mode-changing modifier files are byte-identical. The CMU_SemiAuto import removal on the SGX and L110 and the added Match Trigger import on the M433 are serialized changes to the weapon bodies; what they change at runtime is not traced here."
+ ],
+ "unresolved": [
+  "What HK433_WB's new direct import of WPM_ERG_MatchTrigger_W15 changes in the M433 (the M433 already offers the attachment) is not traced (open item 2 of the note, L4055).",
+  "Whether the lost CMU_SemiAuto import disables semi-auto conditional modifiers on the SGX and L110 at runtime is not established; no Match Trigger attachment record exists for either weapon.",
+  "The 2.1.1.0 absence of the CMU_SemiAuto GUID is a byte search over two files, recorded in guid-search.json."
+ ],
+ "siteImpact": "None applied or proposed: the site's fireModes rates equal the 2.1.1.0 source on every weapon with a row (the pointers below are the SGX and L110 rates); the site offers the Match Trigger on the M433 and none on the SGX and L110.",
+ "evidence": {
+  "runFolder": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\weapon-registry-recheck-2026-10-19",
+  "note": {
+   "file": "BF6 Frosty Research/docs/working/WEAPON_REGISTRY_RECHECK_2026-10-19.md",
+   "sha256": "a8e8f28dc66b56c62864af1de89eecda5e4fe5984c1b3a391a18dca19a9869c7"
+  },
+  "queueRows": {
+   "file": "BF6 Frosty Research/docs/working/FROSTY_RESEARCH_QUEUE.md (rows L4051 to L4055, lines 118 to 122 at the time of drafting)",
+   "sha256": "84a59416ad0ffce79f0b131b091eb0a748871d1a08536b07aa28387e661b952e"
+  },
+  "files": [
+   {
+    "file": "firemodes.py",
+    "sha256": "46ef5266ff6bc42a53f68bf72038096e869d3a8ee4b44b76f9f2c4186b1082a7"
+   },
+   {
+    "file": "firemodes2.py",
+    "sha256": "b7d45be1e952f88d34a4ffa636724f72dc3f8b7ac98175a99c82cd55bb323a0f"
+   },
+   {
+    "file": "fire-modes-2110.json",
+    "sha256": "8f384d4e5d42bdc9019188312298cf2ddb44c5183c65241477ea78b2cfc2bc8b"
+   },
+   {
+    "file": "fire-modes-diff.json",
+    "sha256": "02b3c62fba67c3c5bf50bd5dc81035f5c96e68fccfca71972065c245b95f3cac"
+   },
+   {
+    "file": "fire-modes-semi-branches.json",
+    "sha256": "6606bbc8eabc8099fce5faefa1c5de06496bce2650e29846b7f4148dbb50522d"
+   },
+   {
+    "file": "mt.py",
+    "sha256": "9e25628153c170781b06bf00b93a00b2b63b980667b3e83041d4816193df378e"
+   },
+   {
+    "file": "mt2.py",
+    "sha256": "e7c3680b99ac0fe97f590079ac17625300eeaf2e19fbc0c5b594686e57c48d89"
+   },
+   {
+    "file": "mt3.py",
+    "sha256": "a322d3463dec511053cb24dd6805aa6ae4516246d9969d9e6bcc8a73c0bf1b72"
+   },
+   {
+    "file": "cmu-imports.json",
+    "sha256": "e5acd02181716108d9edc2e9e0a1ae5f46057c69a0d7c323e21facef2d4a5f84"
+   },
+   {
+    "file": "match-trigger-entries.json",
+    "sha256": "b5fc668f98af2d43c357229cb95b4321092e16f4b99746cc40e3f48b0249e85d"
+   },
+   {
+    "file": "match-trigger-imports.json",
+    "sha256": "889e6dc4a82cb97ecee7a4a6b64f07099f6de47f05d770c4f106cd9311ed1c8d"
+   },
+   {
+    "file": "guid-search.py",
+    "sha256": "881bd0d03ac16a6773a7c9f6d2156e716c55e6c12f3218e6f3cf2f16eba0a65f"
+   },
+   {
+    "file": "guid-search.json",
+    "sha256": "6672743c1416f485a2b13e37a52d9404d0386c14bfaa89ed4404417712fe7949"
+   },
+   {
+    "file": "raw-check-manifest-fire-modes.json",
+    "sha256": "c4ad5efe894cc7e47168709575e3a25d086487e5edc11d7d1f464523c6a6d87d"
+   },
+   {
+    "file": "raw-checks-fire-modes.json",
+    "sha256": "bf0566be2a6ace7ad21eaabe56fccc00fbfe2612465d241e37d18a8c8186ec24"
+   },
+   {
+    "file": "rawcheck-manifests.py",
+    "sha256": "1d98f24f3bef3c74390bf7a0a6d517a6f9f12fa5328f9e43b43454c8bd8e1ea2"
+   },
+   {
+    "file": "common.py",
+    "sha256": "982378dde2bc25c607d00ac2019cf90614087f79cb0da2810384eb5569b6bd67"
+   }
+  ],
+  "ownHelpers": {
+   "gather405x.py": "85ae802408be4e64af6be8e0d4f91df0cedbd48b06ab14ac9813c142303fb737",
+   "manifest-L4054.json": "3530f4b1f7909ecbc4386514a040739f86da005c70ec4e63e7aed3fb683eb04b",
+   "rawchecks-L4054.json": "2cc85df15b36f92cb54a72dfaed3a000521aa69fae5b9662d4573899623a7f2b",
+   "gather405x-labels.json": "2b829532d2de65dce8be03d03cd250dc6c8b0b85bdd7257e5caf36f7c9f96583"
+  },
+  "commands": "Run-folder commands as the note records them (working directory C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\weapon-registry-recheck-2026-10-19; scripts are copies of the 10 October ones with the build changed): python allrows.py ; python owncmp.py ; python recheck.py ; python own-summary.py ; python curves.py ; python curve-compare.py ; python site-compare.py ; python site-values.py ; python names.py ; python firemodes.py ; python firemodes2.py ; python mt3.py ; python guid-search.py ; python rawcheck-manifests.py (the last runs scripts/frosty-raw-check.py --manifest on three manifests). Quoted from the note, not rerun here; the output files are hashed. This draft's own re-read: python gather405x.py (cwd = the L4063 run folder; it builds manifest-<lead>.json and runs python \"C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py\" --manifest manifest-<lead>.json --out rawchecks-<lead>.json for each lead)."
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-19",
+  "build": "mixed",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L4054",
+    "title": "L604 repeated on 2.1.1.0: mode lists and rates unchanged on 63 of 63, 12 branch files byte-identical; SGX and L110 lost the _Ergo/CMU_SemiAuto import; M433 gained a Match Trigger W15 import",
+    "status": "finding",
+    "summary": "Primary mode, alternate list, the four rate fields and rounds per burst are equal on all 63 weapons and the 12 mode-changing modifier files are byte-identical; MPX_WB (SGX) and Minimi_WB (L110) each lost the CMU_SemiAuto import (GUID at offsets 26724 and 26916 in the 1.4.3.5 files, no hit in 2.1.1.0) and HK433_WB (M433) gained a direct WPM_ERG_MatchTrigger_W15 import (offset 26360), whose effect is not traced.",
+    "reopenWhen": "A typed consumer or capture shows what the CMU_SemiAuto removal or the M433's Match Trigger W15 import changes at runtime, or a later build changes a mode list or rate."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Hardware/Weapons/SMG/MPX/MPX_WB",
+    "format": "raw-ebx",
+    "sha256": "6f06d1e495fc99eabbfba2c3fae06c7d94e2641b16f16d2bfe0a421a8d64fa28",
+    "question": "Mode list, rates and CMU_SemiAuto import of the SGX weapon body on 2.1.1.0",
+    "result": "useful",
+    "conclusion": "Auto 830.769 and single 449.999 unchanged; the CMU_SemiAuto import present at offset 26724 on 1.4.3.5 is absent on 2.1.1.0 (byte search)."
+   },
+   {
+    "path": "Common/Hardware/Weapons/MG/Minimi/Minimi_WB",
+    "format": "raw-ebx",
+    "sha256": "6519c820b5cc0e776d0b5cececb5f93695011a841dc65afd3e51f0be90027136",
+    "question": "Mode list, rates and CMU_SemiAuto import of the L110 weapon body on 2.1.1.0",
+    "result": "useful",
+    "conclusion": "Auto 719.999 unchanged; the CMU_SemiAuto import present at offset 26916 on 1.4.3.5 is absent on 2.1.1.0 (byte search)."
+   },
+   {
+    "path": "Common/Hardware/Weapons/AssaultRifle/HK433/HK433_WB",
+    "format": "raw-ebx",
+    "sha256": "3f33f2ca3613e4965490e2aa82f32453a94ee9ae41f8eec6e227ef87bf6bb73b",
+    "question": "Match Trigger import of the M433 weapon body on 2.1.1.0",
+    "result": "useful",
+    "conclusion": "WPM_ERG_MatchTrigger_W15 GUID found at offset 26360 (none on 1.4.3.5); the CMU_SemiAuto import is kept."
+   }
+  ],
+  "site": [
+   {
+    "pointer": "data/weapons.json:/[id=sgx]/fireModes/auto",
+    "value": {
+     "mechanism": "auto",
+     "rpm": 830.7689819335938
+    },
+    "relation": "supports"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=sgx]/fireModes/single",
+    "value": {
+     "mechanism": "semi",
+     "rpm": 449.9989929199219,
+     "hipNoBloomOnSwitch": true
+    },
+    "relation": "supports"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=l110]/fireModes/auto",
+    "value": {
+     "mechanism": "auto",
+     "rpm": 719.9990234375
+    },
+    "relation": "supports"
+   }
+  ]
+ },
+ "run": {
+  "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps",
+  "leadFolder": "L4063",
+  "note": "receipt drafted 30 Oct 2026 for an earlier measurement or recheck; the date is the evidence date"
+ }
+}

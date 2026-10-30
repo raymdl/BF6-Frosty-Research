@@ -1,0 +1,434 @@
+{
+ "lead": "L4062",
+ "status": "finding",
+ "build": "site-only",
+ "question": "Which weapon classes RECOIL_RECOVERY_SCALE = 0.8 is measured on, whether existing footage constrains the others, and if not, what the smallest capture is.",
+ "sourceFacts": {
+  "serialized": [
+   "sim/core.js line 392 exports RECOIL_RECOVERY_SCALE = 0.8; genRecoilPts (line 400) multiplies each weapon decFactor by it; sim/live-fire.js line 48 does the same. No per-class value.",
+   "Receipts L4040-L4049: fitted on AK-205 (Carbine), LMR27 (DMR), TR-7 and M433 (Assault Rifle) with bullet-hole pairs, 1x burst extents and camera tracks; per-weapon values in class-table.md.",
+   "data/weapons.json: every measured weapon has decExp 1; all seven bolt rifles plus M87A1 and DB-12 have decFactor 70, decExp 0.6, decTimeExp 4; bolt rates give cycles of 1.27 to 1.88 s.",
+   "Recordings: no clip of a pistol; no clip with a hole pair on a sniper, pump or semi shotgun; KS-18K and DB-12 rapid strings have per-shot aim tracks (shotgun-pattern-measurement-2026-10-22.md) only."
+  ],
+  "control": {
+   "description": "L4040 AK-205 receipt: ten measured observations (pairs at 133 and 167 ms and 5/10/15-round bursts, Standard and Lightened Suppressor). The receipt states fit chi2 580.1 at C=1 (stored factors) and 48.0 at C=0.8. Re-run with a copy of the receipt harness (control-ak205.mjs = the L4040 run folder fit-ak205.mjs with only the site-root path changed and the scan cut to C=1 and C=0.8) against the current site data and sim files and the receipt run folder analysis.json: chi2 580.1 and 48.0 (pairs 231.1 -> 35.8, bursts 349.0 -> 12.2). No refit. The harness integrates the law of sim/core.js genRecoilPts (variant-sim.mjs); the site core.js (RECOIL_RECOVERY_SCALE = 0.8, line 392) was also called directly in law.mjs and agrees with the harness to 1e-5 deg on AK-205, ELR-40, KS-18K and DB-12 pair residuals at 133, 200 and 300 ms (check recorded in progress.md).",
+   "passed": true,
+   "receiptStated": {
+    "chi2_C1": 580.1,
+    "chi2_C0.8": 48,
+    "chi2_dead33": 208,
+    "source": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-10-14-L4040-ak205-recoil-recovery-capture.json",
+    "sourceSha256": "820f8b768adea5149bc5ff953c8a35c5a771fac5d7dc52bd45f4e0f1052c659b"
+   },
+   "reproduced": {
+    "chi2_C1": 580.1,
+    "chi2_C0.8": 48,
+    "pairsC1": 231.1,
+    "pairsC08": 35.8,
+    "burstsC1": 349,
+    "burstsC08": 12.2
+   },
+   "observations": [
+    {
+     "observation": "33ms_Lightened_Suppressor",
+     "measuredDeg": 0.3023,
+     "seUsed": 0.0116,
+     "predictedStoredC1": 0.242,
+     "predictedApplied08": 0.282
+    },
+    {
+     "observation": "33ms_Standard_Suppressor",
+     "measuredDeg": 0.3308,
+     "seUsed": 0.0115,
+     "predictedStoredC1": 0.269,
+     "predictedApplied08": 0.306
+    },
+    {
+     "observation": "133ms_Lightened_Suppressor",
+     "measuredDeg": 0.225,
+     "seUsed": 0.008,
+     "predictedStoredC1": 0.153,
+     "predictedApplied08": 0.199
+    },
+    {
+     "observation": "133ms_Standard_Suppressor",
+     "measuredDeg": 0.2636,
+     "seUsed": 0.008,
+     "predictedStoredC1": 0.186,
+     "predictedApplied08": 0.23
+    },
+    {
+     "observation": "10 rnd Lightened",
+     "measuredDeg": 1.7633,
+     "seUsed": 0.0321,
+     "predictedStoredC1": 1.531,
+     "predictedApplied08": 1.829
+    },
+    {
+     "observation": "10 rnd Standard",
+     "measuredDeg": 2.1283,
+     "seUsed": 0.0492,
+     "predictedStoredC1": 1.736,
+     "predictedApplied08": 2.046
+    },
+    {
+     "observation": "15 rnd Lightened",
+     "measuredDeg": 2.1414,
+     "seUsed": 0.0452,
+     "predictedStoredC1": 1.703,
+     "predictedApplied08": 2.09
+    },
+    {
+     "observation": "15 rnd Standard",
+     "measuredDeg": 2.4059,
+     "seUsed": 0.0413,
+     "predictedStoredC1": 1.974,
+     "predictedApplied08": 2.398
+    },
+    {
+     "observation": "5 rnd Lightened",
+     "measuredDeg": 1.1781,
+     "seUsed": 0.0397,
+     "predictedStoredC1": 1.084,
+     "predictedApplied08": 1.219
+    },
+    {
+     "observation": "5 rnd Standard",
+     "measuredDeg": 1.3636,
+     "seUsed": 0.0396,
+     "predictedStoredC1": 1.169,
+     "predictedApplied08": 1.298
+    }
+   ],
+   "l4049Fallback": "Not needed. The L4047/L4049 applied score 359.2 (56 observations; per weapon AK-205 92.9, LMR27 56.9, TR-7 179.9, M433 29.5; stored law 1099.5) is quoted from the receipts, not re-run.",
+   "rawChecks": []
+  },
+  "rawChecks": [],
+  "rawChecksNote": "Site-only lead: no Frosty raw EBX was read, so there are no raw checks. Values quoted from receipts carry the receipt file hash in evidence."
+ },
+ "inference": [
+  "The scale transfers by profile equality, not observation, to 63 of 67 weapons. Measured profiles are all decExp 1; the 70/0.6/4 profile (9 weapons) differs in law form and is unmeasured.",
+  "The scale has no site effect on the seven bolt rifles (residual 0 at the bolt cycle under 0.8 and 1.0) but moves pump shotgun sustained fire by 22 to 66% at shot 3 to 11.",
+  "No existing clip constrains the scale off the four measured weapons; the DB-12 633 ms pump pauses lean toward 0.8 but are not usable as a constraint."
+ ],
+ "unresolved": [
+  "The 0.8 scale is not measured on any sniper, pump or semi shotgun, sidearm, SMG or LMG; transfer within identical profiles rests on equality of (factor, exponent, time exponent, offset), not on observation.",
+  "The 70/0.6/4 profile (decExp 0.6) is the one profile with a different law form; whether the scale transfers to it is open. It matters only for M87A1 and DB-12 sustained pump fire.",
+  "DB-12 633 ms pump-pause aim climbs (+0.20, -0.23 deg clean; -3.09 contaminated) lean toward x0.8 (+0.038) over x1.0 (-0.471) but carry no error estimate and include mouse input; no re-track was attempted (no new fits).",
+  "KS-18K 417 ms interval: measured climb 1.55 deg up against a predicted fall of 0.26 (x0.8) or 0.47 (x1.0); contradicts both and is unexplained. Not investigated.",
+  "The M87A1 pump capture is conditional: rule (2) requires asking the operator before any recording is requested.",
+  "The brief says no DMR was measured; data/weapons.json classes LMR27 as DMR. The class rows follow the data.",
+  "Raw EBX not read (site-only lead); no rawChecks apply."
+ ],
+ "siteImpact": "No site change from this lead. Conditional: if the operator accepts the M87A1 pump capture and the 633 ms pair separation lands near 1.21 deg (x1.0) rather than 1.57 deg (x0.8), the 70/0.6/4 profile (M87A1, DB-12) takes its own recovery scale, replacing the single constant with a per-profile table; M87A1 sustained-fire pre-shot aim at shot 11 would fall from 4.76 to 2.87 deg and DB-12 from 7.87 to 5.55 deg. Snipers are unchanged either way. Until then the global 0.8 stands: measured on Assault Rifle (TR-7, M433), Carbine (AK-205) and DMR (LMR27), transferred to the other 63 weapons.",
+ "evidence": {
+  "receiptsRead": [
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-10-14-L4040-ak205-recoil-recovery-capture.json",
+    "sha256": "820f8b768adea5149bc5ff953c8a35c5a771fac5d7dc52bd45f4e0f1052c659b"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-10-14-L4041-lmr27-pairs-second-profile.json",
+    "sha256": "c0a88dd83851415738fc657e612e7e6d9bbd31146051b24d9dada577bd2537b3"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-10-15-L4042-recovery-tail-template-fit.json",
+    "sha256": "ee3a74d15d12216ab1cab511492e8ed0eb1f6d38f851d574cb18040cb0d15457"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-10-15-L4043-tr7-lmr27-tail-capture.json",
+    "sha256": "ea732b3f040133dbf019232237341d32c63c8c60433de90b9906eba29d444fa1"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-10-16-L4044-recovery-law-shape.json",
+    "sha256": "8f2a996323a5068b457493d0833d8b9ce94c2e2cca046960b888e1d59917c85c"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-10-16-L4045-tr7-burst-camera-track.json",
+    "sha256": "1b7daca6acf2004b52d7346d4671875f0e14c99f70ac4c27b0983eeaffa679b9"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-10-16-L4046-tr7-burst-extents-1x.json",
+    "sha256": "8f1bf8befb123aa345ea98e7b37cb4dd3ab677b52baa3aead7e8a5437bb3d3ea"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-10-16-L4047-m433-profile-capture.json",
+    "sha256": "8e4be2b4a63600dcae0f2ef6cc8c5b911968ec32102027ceb6b26412887efb95"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-10-16-L4048-pair-camera-track.json",
+    "sha256": "66d3bb358a01039c6c061546df5ca28901b00b6b6515e9aa0d4e473644803800"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-10-17-L4049-stretched-time-fit.json",
+    "sha256": "7d5ba8a0f42b4d17f7aefb62398a777f03ac10738cc754ebf507c13c38a3d4b1"
+   }
+  ],
+  "siteAndRepoFiles": [
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer\\sim\\core.js",
+    "sha256": "f658136fce98bf15ab2653cda69706a33b4409608b9b4485b2e77a2a3091dcc2"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer\\sim\\live-fire.js",
+    "sha256": "0238e74f4dbff1f012ae31abb67b80329817bc44874c2586c105fd7458273dd9"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer\\data\\weapons.json",
+    "sha256": "5c1a461b5f5f7d0a1ef2607b998f8a16f1b43289ffc66704a5ab4c39e7a4cf53"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer\\data\\ammo.json",
+    "sha256": "1f9e1760009c93f4ebdaf2472a2e4d8f8177ff0774aac5e9847978b38a15b5cd"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\docs\\working\\BF6_CAPTURE_PRIORITIES.md",
+    "sha256": "5ff8ae5d3507b04d1b17ad63a4239ec1238a624bf5a65bb469fd817c5d2c7c23"
+   }
+  ],
+  "measurementNotes": [
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer\\reference-data\\provenance\\elr40-cqb-suppressor-recoil-2026-10-23.md",
+    "sha256": "c49580fbfecf53a09bde7268a88694690f960ff3741f3c5be69f85c1b290c7e8"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer\\reference-data\\provenance\\shotgun-pattern-measurement-2026-10-22.md",
+    "sha256": "0e867a18a772347a10e3d1c41499320bd4a9ab406f59296855221280995d6ff2"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer\\reference-data\\provenance\\deployed-recoil-measurement-2026-10-23-psr.md",
+    "sha256": "61e3e6abb7759ceefa065e8c885d358dd0d05bab637faa94ba913df3bcbe7246"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer\\reference-data\\provenance\\spread-indicator-measurement-2026-10-17-vssm.md",
+    "sha256": "072efd22514b067523aa48335e5d32391ab20ca9330babecc774e53c4f8ed9eb"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer\\docs\\archive\\VSSM_RECORDING_ANALYSIS_2026-09-11.md",
+    "sha256": "c31c86e99215e2bea4f0f8c948acedea00f3dc857e8251a89d9d7c14a2471827"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\provenance\\frosty-2026-09-25-L63-L17-semi-bloom-captures.json",
+    "sha256": "cc097511604ed438c8b1596dd813df3bfbaa9cdf1000ebd64fd409579610d1fb"
+   }
+  ],
+  "receiptRunFolderFilesUsedByControl": [
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-14-ak205-recovery-capture\\analysis.json",
+    "sha256": "28880a50489b3b976383b65b321be88bf18296860f2eb044861253bc019edae4"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-14-ak205-recovery-capture\\fit-ak205.mjs",
+    "sha256": "9568b52ebcb666b53fd47dedce63a416847ea3ca4cdf1ffd858e5470b95dbfb2"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-14-ak205-recovery-capture\\variant-sim.mjs",
+    "sha256": "78d1b442073453875a1e22edfb078d6377ed3a5095a3ede3949daafe8f41c38a"
+   }
+  ],
+  "helpers": [
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4062\\control-ak205.mjs",
+    "sha256": "ac6756b86500137fa4c37db17d91f7de355d85408425a0d249fb2396fc6271ec"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4062\\variant-sim.mjs",
+    "sha256": "78d1b442073453875a1e22edfb078d6377ed3a5095a3ede3949daafe8f41c38a"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4062\\law.mjs",
+    "sha256": "92165f1b58c356a13ff03f29c5ef90f5b33dbfc40a13ebbc76455d95da61c15d"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4062\\predict.mjs",
+    "sha256": "c09465f80586d6e7a6cee47396971df350e57145973e1d4ed4cf09ad4e82d3ae"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4062\\predict2.mjs",
+    "sha256": "6d90ca78d563874922a1471ad98271dafbc8a3fcc989147db441937bdfa29ad5"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4062\\predict3.mjs",
+    "sha256": "01291b4bd900b9465abcd25e2d3b824646122f64f79672462f7061104e4f6e0b"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4062\\predict4.mjs",
+    "sha256": "38d389db66d2e2417b3844c52d2bbcfae59cec921aeb76107df76db6ce0852a3"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4062\\profiles.py",
+    "sha256": "9448a2bc16c250ec4aa27b8a8217dff2541b9da8e3698c1b9ae6d239988acc81"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4062\\build_outputs.py",
+    "sha256": "8dd37461c349d772f304a354d8d069f471acc88e1ce0d48628dee01906f24268"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4062\\build_receipt.py",
+    "sha256": "b44005592526b5b1e144948bf2d327934c7d357a802ee66d1354dccd956556f6"
+   }
+  ],
+  "outputs": [
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4062\\l4062-result.json",
+    "sha256": "3a53a35791d056a44fd129a6cd203844eaf37728423babddff43d9d09b212e51"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4062\\capture-brief.md",
+    "sha256": "52d4bd98382459f131cdf858b56ba707bf93bddebee877592368d696f7b68063"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4062\\class-table.md",
+    "sha256": "f0465c32c8bae1a498713735eadf1ddcc06634062409739bd60fb6b03d66c630"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4062\\control-rerun.json",
+    "sha256": "d4e48c75cb38edacff004b19a00f87f16bf874029902e69411ad2fcc58c59931"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4062\\predict-result.json",
+    "sha256": "8604eeb36f1f2bd6ba616a1b341f4919952904147eeaefee2bdd3c09cbc17faa"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4062\\predict2-result.json",
+    "sha256": "b53e9b09ce775baddd52b7961ff436a75a938c301f382f61bdd9eaa034b723ae"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4062\\predict3-result.json",
+    "sha256": "65be4c8f1e84af215b232cc7bbd1a0b741fd8b274419b56313d3bd23fdd42654"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4062\\predict4-result.json",
+    "sha256": "e1e3fb539cbee275b964abdf118f4d7087c3df3390ad1b64250e8d65fbd84b34"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4062\\profiles-result.json",
+    "sha256": "025bf8892b6e6f4162ea83bb146976cdbe5133c0022059b7ebf030b15c450d2d"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4062\\receipts-digest.txt",
+    "sha256": "63418e078a16ae353c7fe2005b57516c28d10303a8eb552a90753f4e88109b3f"
+   }
+  ],
+  "recordingsInventory": "reference-data/Recordings listed by file name only (15 date folders, 300 files); no video opened",
+  "commands": [
+   {
+    "label": "reconstructed (run this session, order as listed; no shell history kept)",
+    "executable": "node",
+    "args": [
+     "control-ak205.mjs",
+     "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-14-ak205-recovery-capture\\analysis.json"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4062",
+    "output": "control-rerun.json (stdout: chi2 table)"
+   },
+   {
+    "executable": "node",
+    "args": [
+     "predict.mjs"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4062",
+    "output": "predict-result.json"
+   },
+   {
+    "executable": "node",
+    "args": [
+     "predict2.mjs"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4062",
+    "output": "predict2-result.json"
+   },
+   {
+    "executable": "node",
+    "args": [
+     "predict3.mjs"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4062",
+    "output": "predict3-result.json"
+   },
+   {
+    "executable": "node",
+    "args": [
+     "predict4.mjs"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4062",
+    "output": "predict4-result.json"
+   },
+   {
+    "executable": "python",
+    "args": [
+     "profiles.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4062",
+    "output": "profiles-result.json"
+   },
+   {
+    "executable": "python",
+    "args": [
+     "build_outputs.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4062",
+    "output": "l4062-result.json, capture-brief.md, class-table.md"
+   },
+   {
+    "executable": "python",
+    "args": [
+     "build_receipt.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4062",
+    "output": "draft-receipt.json"
+   },
+   {
+    "executable": "python",
+    "args": [
+     "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-records.py",
+     "check-receipt",
+     "draft-receipt.json"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4062",
+    "output": "stdout"
+   },
+   {
+    "note": "Not preserved: the receipts digest (receipts-digest.txt) was written by an inline python script printing sourceFacts.points, inference, siteImpact and record.leads of the nine L4041-L4049 receipts; and a one-off node check comparing law.mjs (site core.js) with variant-sim.mjs at gaps 133/200/300 ms (agreement 1e-5 deg), recorded in progress.md. Neither is a rerun."
+   }
+  ],
+  "node": "v24.22.1 (no helper sha for the node binary)"
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-30",
+  "build": "site-only",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L4062",
+    "title": "Recovery scale 0.8 by weapon class: measured on Carbine, Assault Rifle and one DMR; no sniper, pump, shotgun or sidearm clip constrains it",
+    "status": "finding",
+    "summary": "The 0.8 rests on AK-205, LMR27 (a DMR in the site data), TR-7 and M433 (bullet-hole pairs, 1x burst extents, camera tracks, all decExp-1 profiles); no existing clip constrains snipers, pumps, semi shotguns or pistols, bolt rifles are insensitive to the scale, and the smallest justified capture is M87A1 pump pairs at the 633 ms cycle (0.365 deg between 0.8 and 1.0), pending the operator.",
+    "reopenWhen": "The operator accepts the M87A1 pump-pair capture in capture-brief.md, or a pistol, DMR or shotgun clip with a hole pair 150 to 700 ms apart is recorded."
+   }
+  ],
+  "site": [
+   {
+    "pointer": "data/weapons.json:/[id=m87a1]/recoil/ads/decExp",
+    "value": 0.6,
+    "relation": "context"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=lmr27]/recoil/ads/decFactor",
+    "value": 13.7,
+    "relation": "supports"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=ak205]/recoil/ads/decFactor",
+    "value": 48,
+    "relation": "supports"
+   }
+  ]
+ },
+ "run": {
+  "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps",
+  "leadFolder": "L4062"
+ }
+}

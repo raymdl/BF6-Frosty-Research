@@ -1,0 +1,197 @@
+{
+ "lead": "L4053",
+ "status": "exhausted",
+ "build": {
+  "current": "2.1.1.0 (Head 5382784, descriptors c477622c1074a9a4ea612cf9c60e26f666129721c733174192c121c808873ff6; new side read from builds/2.1.1.0/reports/client-new-check-2026-10-15/collection/raw, the 15 October hotfix capture, which changed no weapon file)",
+  "compared": "1.4.3.5 (Head 4909002, descriptors 4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1; old side builds/1.4.3.5/reports/client-60769-check-2026-10-03/collection/raw)",
+  "note": "Research only: re-run on the open build of the 10 October registry checks (L4000, L4002, L4003, L4004) and the 30 September fire-mode extraction (L604). The old side was read from builds/1.4.3.5 raw only, never from its builds/1.4.3.5/reports/client-2110-check-2026-10-13 capture, which holds 2.1.1.0 bytes. Nothing in the recheck is an in-game reading."
+ },
+ "question": "Re-run L4002 on 2.1.1.0: which GRX registry value rows were added or removed, do the row suffixes on weapon, firing-data and bullet owners stay the same set, and does any added row name a field hash that FIELD_MAP.md, OPEN_QUESTIONS.md or the 116 earlier negative closures still lack?",
+ "sourceFacts": {
+  "control": {
+   "description": "Control (note, Method step 2): restricted to the 63 site weapons' _WB and GS_ files and the site's bullet files, the registry-against-own pairing gives 2,771 / 11,500 / 567 values over 60 / 206 / 13 row names, exactly the 10 October counts (L4000), and the same paths.",
+   "passed": true
+  },
+  "method": "Steps 1 and 6 of the note: allrows.py reads every named value row of every GRX_* registry on 2.1.1.0; registry-rows-added-removed.json is the diff against the 1.4.3.5 allrows.json; names.py repeats the L4002 value-match naming (leaf equals the row default on at least 90 percent of owners, at least two distinct defaults) against FIELD_MAP.md, OPEN_QUESTIONS.md and the 116 negative closures (negative-leads-116.json, the 10 October list).",
+  "addedRows": "registry-diff-2026-10-14/registry-diff.tsv lists 4,970 added rows over all registries, 2,150 of them in GRX_Weapons (1,669 with a default value) and 563 in the new KST_CH2_S1_Weapons. The earlier 1,846 figure was not reproduced: allrows.py finds 1,836 value rows added (1,672 in GRX_Weapons, 75 GRX_Gadgets_Glacier, 34 GRX_Persistence_Glacier, 24 GRX_Vehicles, 19 GRX_Vehicles_CH2, 7 GRX_Online, 3 GRX_UI, 1 GRX_Glacier_Soldier) and 8 removed; the tsv has 1,833 value-bearing added rows in the GRX_* files; 1,846 is neither.",
+  "onSiteWeaponOwners": "1,086 added rows: 840 GS_ rows (210 each for GS_MRGGA, GS_CDX40, GS_PKM, GS_RSAR999), 147 _WB rows for the four Season 5 weapons (CDX40_WB 57, MRGGA_WB 45, PKM_WB 45; RSAR999_WB has no registry row), 24 StanceChangePenalties rows on GS_M240L, and 75 rows on the five new bullet files (PD_.375EnABELR_API, PD_.375EnABELR_Match, PD_65x48mm, PD_762x39mm_PDW, PD_762x54mmR_MG; 15 each). Every one equals its own value; none is on an existing weapon's stat row.",
+  "rowNames": "The set of row suffixes on weapon, firing-data and bullet owners is the same 332 as on 1.4.3.5 (none new, none removed). Value-matching names 106 leaf hashes: the 102 of the 10 October run plus four (Field_db4fa3c2 AutoReplenishRounds, Field_4449ee55 CustomZeroing, Field_7ce404e6 MinAngleOffset, Field_ed10e827 Duration of the stance penalties) that gained their second distinct value or second owner set on the new weapons. All 106 are already in FIELD_MAP.md. None of the 24 hashes in OPEN_QUESTIONS.md is named. 29 of the 399 Field_ hashes cited by the 116 negative closures are named by a registry row, all already in the map; none gains a new name, so none of those closures is reopened. Field_440ed7fa still has no row. No row was added to FIELD_MAP.md.",
+  "oddNames": "46 rows named 'M16A3_WB - PrimaryFire...' (M16A4), 'M16A3_WB - InitialSpeed...' and the like (and 'PD_Railgun - TweakableArmorDamageCurve') are added; they use the standard field names with a different owner label and copy the M16A3_WB defaults except 'M16A3_WB - InitialSpeed.z' = 720 against the real row's 680 (own 680, site 680); see L4055.",
+  "otherRegistries": "KST_CH2_S1_Weapons (563 kill-switch rows) and the mutator rows name attachments and loot, not weapon field hashes.",
+  "rawChecks": [
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+    "rawSha256": "4557498d8196e539c11c401299c2f5f9e23f706dc29791e283389c0105f2397c",
+    "offset": 2277180,
+    "type": "f32",
+    "bytesHex": "0000fa44",
+    "value": 2000.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\Hardware\\Weapons\\BoltAction\\CDX40\\GS_CDX40.ebx",
+    "rawSha256": "7d348e20a1973c15c76ea11f77f263f5f411915179c69c266a4ad1e9f1500eb4",
+    "offset": 132,
+    "type": "f32",
+    "bytesHex": "0000fa44",
+    "value": 2000.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+    "rawSha256": "4557498d8196e539c11c401299c2f5f9e23f706dc29791e283389c0105f2397c",
+    "offset": 526164,
+    "type": "f32",
+    "bytesHex": "cdcc4c3e",
+    "value": 0.20000000298023224
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\Hardware\\Weapons\\BoltAction\\CDX40\\GS_CDX40.ebx",
+    "rawSha256": "7d348e20a1973c15c76ea11f77f263f5f411915179c69c266a4ad1e9f1500eb4",
+    "offset": 136,
+    "type": "f32",
+    "bytesHex": "cdcc4c3e",
+    "value": 0.20000000298023224
+   }
+  ],
+  "rawCheckLabels": [
+   "GS_CDX40 CameraRecoil.IdleSpringConstant added registry default",
+   "GS_CDX40 CameraRecoil.IdleSpringConstant own value",
+   "GS_CDX40 CameraRecoil.IdleSpringConstantSwitchTime added registry default",
+   "GS_CDX40 CameraRecoil.IdleSpringConstantSwitchTime own value"
+  ],
+  "rawCheckNote": "Raw checks below were re-read by this draft with scripts/frosty-raw-check.py --manifest (outputs rawchecks-<lead>.json in the L4063 run folder); each equals the read in the run's own raw-checks-*.json manifests (all 2,161 reads of the run match). Manifests cited: raw-check-manifest-registry-own.json (1,500 registry/own reads), -curves.json (259), -fire-modes.json (402). The reads are two added registry rows on the Season 5 firing data GS_CDX40 (CameraRecoil idle spring rows) with their own values: registry default and own value agree at the offsets read."
+ },
+ "inference": [
+  "Value-based naming over the new rows adds no field name: the row-suffix set is unchanged, all 106 value-matched hashes are already in FIELD_MAP.md, and no OPEN_QUESTIONS or negative-closure hash gains a name, so the lead is exhausted for this build."
+ ],
+ "unresolved": [
+  "Row names do not identify a runtime consumer; value-matching names a leaf, not what reads it.",
+  "The 46 odd-named rows (M16A3_WB - ...) are not used by the pairing; whether the game reads them is open (L4055).",
+  "The earlier 1,846 count is not reproduced (1,836 by allrows.py, 1,833 value-bearing in the tsv, 2,150 rows in GRX_Weapons by the tsv)."
+ ],
+ "siteImpact": "None: no FIELD_MAP.md row was added, no negative closure reopened, no site value affected (every added row on a site owner equals its own value).",
+ "evidence": {
+  "runFolder": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\weapon-registry-recheck-2026-10-19",
+  "note": {
+   "file": "BF6 Frosty Research/docs/working/WEAPON_REGISTRY_RECHECK_2026-10-19.md",
+   "sha256": "a8e8f28dc66b56c62864af1de89eecda5e4fe5984c1b3a391a18dca19a9869c7"
+  },
+  "queueRows": {
+   "file": "BF6 Frosty Research/docs/working/FROSTY_RESEARCH_QUEUE.md (rows L4051 to L4055, lines 118 to 122 at the time of drafting)",
+   "sha256": "84a59416ad0ffce79f0b131b091eb0a748871d1a08536b07aa28387e661b952e"
+  },
+  "files": [
+   {
+    "file": "allrows.py",
+    "sha256": "52f91f231c36700cda0b826692d8143eff61b837ed6e9a32d9b35181c1916467"
+   },
+   {
+    "file": "allrows.json",
+    "sha256": "b75d975254b610eec1a070a4c04323951ac18073fa4d7784ab908dbc48dd17a8"
+   },
+   {
+    "file": "registry-rows-added-removed.json",
+    "sha256": "42b9ec4d50dae17d7bf1d8ed6a042b6440911eb7047ac42ae42599d7dc616622"
+   },
+   {
+    "file": "names.py",
+    "sha256": "ec5ec5262a9d0d8b43266a861ccfbaa91e8b6f0db991d0fd9cd14aae306a64b6"
+   },
+   {
+    "file": "names-recheck.json",
+    "sha256": "18c8cf5b7ca7a06d1ce0607419c79ebfae90286cb2155c2032bc9d34fa1b5538"
+   },
+   {
+    "file": "negative-leads-116.json",
+    "sha256": "21c8428743704ead94406b189489e2cedd3c35194f97b746339fffa2b8c4f22d"
+   },
+   {
+    "file": "owncmp.py",
+    "sha256": "e38475261309a92fe7803f53bb7014545a30c2f42d34db444381c3e19f5266ef"
+   },
+   {
+    "file": "owncmp.json",
+    "sha256": "54c7a24869fcc55ae627ac69cb2fa8534ea1591d1ab5ce717a97fbbb3c408630"
+   },
+   {
+    "file": "pair-status.json",
+    "sha256": "88717ebd31bcf1ed98c6f6f42172add40851c254e704019e7d29091e2de1faca"
+   },
+   {
+    "file": "raw-check-manifest-registry-own.json",
+    "sha256": "2dce4739b3aca0c5cac803192c154f8af7976ed6fd30883c0331efb402dd25a0"
+   },
+   {
+    "file": "raw-checks-registry-own.json",
+    "sha256": "5e3d7fe050bc28ba47488248eeb7b0b858a4e45a5f83d2cc22b9f2d41a4731d8"
+   },
+   {
+    "file": "rawcheck-manifests.py",
+    "sha256": "1d98f24f3bef3c74390bf7a0a6d517a6f9f12fa5328f9e43b43454c8bd8e1ea2"
+   },
+   {
+    "file": "common.py",
+    "sha256": "982378dde2bc25c607d00ac2019cf90614087f79cb0da2810384eb5569b6bd67"
+   }
+  ],
+  "ownHelpers": {
+   "gather405x.py": "85ae802408be4e64af6be8e0d4f91df0cedbd48b06ab14ac9813c142303fb737",
+   "manifest-L4053.json": "6271329a081cc0b9357350fec17fc139721b730841abe5977b68471bd2ac9ab7",
+   "rawchecks-L4053.json": "4cd54fe0018e6320e974c78b9e87931cbcee642edfa645741509fe496d181a92",
+   "gather405x-labels.json": "2b829532d2de65dce8be03d03cd250dc6c8b0b85bdd7257e5caf36f7c9f96583"
+  },
+  "commands": "Run-folder commands as the note records them (working directory C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\weapon-registry-recheck-2026-10-19; scripts are copies of the 10 October ones with the build changed): python allrows.py ; python owncmp.py ; python recheck.py ; python own-summary.py ; python curves.py ; python curve-compare.py ; python site-compare.py ; python site-values.py ; python names.py ; python firemodes.py ; python firemodes2.py ; python mt3.py ; python guid-search.py ; python rawcheck-manifests.py (the last runs scripts/frosty-raw-check.py --manifest on three manifests). Quoted from the note, not rerun here; the output files are hashed. This draft's own re-read: python gather405x.py (cwd = the L4063 run folder; it builds manifest-<lead>.json and runs python \"C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py\" --manifest manifest-<lead>.json --out rawchecks-<lead>.json for each lead).",
+  "registryDiffTsv": {
+   "file": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\registry-diff-2026-10-14\\registry-diff.tsv",
+   "sha256": "e0c3402af51289056257075cf510d79b755f261b87ce9a48f78fe0ceb53281aa"
+  }
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-19",
+  "build": "mixed",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L4053",
+    "title": "L4002 repeated on 2.1.1.0: 1,836 value rows added (2,150 in GRX_Weapons by the tsv; the 1,846 figure does not reproduce), row suffixes unchanged (332), 106 value-matched names all in FIELD_MAP.md, none for the open-question or negative-closure hashes",
+    "status": "exhausted",
+    "summary": "allrows.py finds 1,836 value rows added and 8 removed over the GRX_* registries; the 1,086 rows on site-weapon owners (four Season 5 weapons, five new bullets, M240L stance rows) all equal their own values; the row-suffix set is the same 332, value-matching names 106 leaf hashes all already in FIELD_MAP.md, and no OPEN_QUESTIONS or negative-closure hash gains a name.",
+    "reopenWhen": "A later build adds a row suffix on a weapon, firing-data or bullet owner, or a typed consumer names one of the open-question or negative-closure hashes.",
+    "searched": [
+     "GRX_* value rows: 34,340 rows on 2.1.1.0 against 32,512 on 1.4.3.5 (allrows.py), 1,836 added and 8 removed",
+     "registry-diff-2026-10-14/registry-diff.tsv: 4,970 added rows over all registries (2,150 in GRX_Weapons, 563 in KST_CH2_S1_Weapons)",
+     "row suffixes on weapon, firing-data and bullet owners: 332 on both builds",
+     "value-matched names (leaf equals the row default on at least 90 percent of owners, at least two distinct defaults): 106 hashes against FIELD_MAP.md",
+     "the 24 hashes of OPEN_QUESTIONS.md",
+     "the 399 Field_ hashes cited by the 116 negative closures (29 named by a registry row, all already mapped)",
+     "Field_440ed7fa: still no registry row",
+     "46 odd-named 'M16A3_WB - ...' rows and the KST_CH2_S1_Weapons and mutator rows: no weapon field hash named"
+    ]
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/GameSetup/Tweakables/GameRemixer/GRX_Weapons",
+    "format": "raw-ebx",
+    "sha256": "4557498d8196e539c11c401299c2f5f9e23f706dc29791e283389c0105f2397c",
+    "question": "Which value rows did the 2.1.1.0 GRX_Weapons registry add on the Season 5 weapons, and does each equal its own value?",
+    "result": "useful",
+    "conclusion": "Added GS_CDX40 CameraRecoil rows (idle spring constant 2000, switch time 0.2) read equal to the own values at the offsets in rawChecks; the 1,086 rows on site owners all equal their own values (note)."
+   },
+   {
+    "path": "Common/Hardware/Weapons/BoltAction/CDX40/GS_CDX40",
+    "format": "raw-ebx",
+    "sha256": "7d348e20a1973c15c76ea11f77f263f5f411915179c69c266a4ad1e9f1500eb4",
+    "question": "Does the new ELR-40 firing data match its registry rows?",
+    "result": "useful",
+    "conclusion": "Own CameraRecoil idle spring rows equal the registry defaults at the offsets in rawChecks."
+   }
+  ]
+ },
+ "run": {
+  "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps",
+  "leadFolder": "L4063",
+  "note": "receipt drafted 30 Oct 2026 for an earlier measurement or recheck; the date is the evidence date"
+ }
+}

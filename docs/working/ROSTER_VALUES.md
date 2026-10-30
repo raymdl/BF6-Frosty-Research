@@ -1,6 +1,6 @@
 # Roster values: every vehicle, gadget and vehicle equipment stat entry (L3307)
 
-Build 1.4.3.5, game head 4909067. Research only: no site data, simulation or UI change is authorized by this page. The pass was re-run on 2.1.1.0 on 19 October: [roster refresh](roster-refresh-2-1-1-0-2026-10-19.md) lists the values that moved.
+Build 2.1.1.0, game head 5382784 (descriptors SHA-256 `c477622c1074a9a4ea612cf9c60e26f666129721c733174192c121c808873ff6`). Research only: no site data, simulation or UI change is authorized by this page. The pass first ran on 1.4.3.5 (head 4909067), was re-run on 2.1.1.0 on 19 October ([roster refresh](roster-refresh-2-1-1-0-2026-10-19.md) lists the values that moved) and again on 30 October with the Field Maintenance name joins corrected to the renamed `Passives_Vehicles_IFV_MaintenanceRegeneration` / `_MBT_MaintenanceRegeneration` owners (run folder `builds/2.1.1.0/reports/roster-refresh-2026-10-30`; `reference-data/frosty/roster-values.json` is that run's `roster-compact.json`). 25 registry owners new on 2.1.1.0 still have no name join (list in the 30 Oct run's `L4065B/roster-join-report.md`).
 
 The game keeps three stat rosters under `Persistence/StatCategories/StatCategorization`: 33 vehicles, 68 gadgets and 66 vehicle equipment items. This page records, for each of the 167 entries, what the saved game data stores about it. The full data is in `reference-data/frosty/roster-values.json` (one line per entry); the tables below are a reading aid generated from it.
 
@@ -16,7 +16,7 @@ The game keeps three stat rosters under `Persistence/StatCategories/StatCategori
 6. For a carrier file it also records every other plain number by field hash (`carrierUnnamed`); these have no known name.
 7. For a vehicle it lists the equipment its blueprint mounts and the entries reachable from each `VehicleCustomizationContext_*` file that imports the blueprint.
 
-Checks: 11,854 raw-offset checks over 470 files, all matched (`raw-checks.json` in the run folder). Three files failed to decode and are not used: two `SP_SwitchbladeDrone` damage affectors and `Affector_Damage_Exit_Crouched_IncendiaryGrenade`.
+Checks: 11,906 raw-offset checks over 469 files, all matched (`raw-checks.json` in the run folder `builds/2.1.1.0/reports/roster-refresh-2026-10-30`). No file failed to decode on 2.1.1.0 (the 1.4.3.5 pass lost two `SP_SwitchbladeDrone` damage affectors and `Affector_Damage_Exit_Crouched_IncendiaryGrenade`).
 
 ## What the evidence does and does not show
 

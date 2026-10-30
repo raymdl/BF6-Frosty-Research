@@ -1,0 +1,2076 @@
+{
+ "lead": "L4065A",
+ "status": "complete",
+ "build": "2.1.1.0",
+ "question": "(a) What do the ELR-40 magazine packages read, and does the site elr40 mag 8 follow the nominal + 1 convention of the other six bolt-actions? (b) What is the Mk 24 DamageProtectionMultiplierIndex and the head multiplier it selects? (g) Season 5 weapons: heat fields, class-trait membership and limb arrays.",
+ "sourceFacts": {
+  "serialized": [
+   "(a) ELR-40 Std package WPM_MAG_Std_CDX40_W05 (the 7 Rnd default, reached through Attachment_CDX40_MAG_Regular -> U_PRG_CDX40_MAG_Regular -> CDX40_Ability branch -> selector in the package Field_819acc98): MagazineCapacity Field_7f22bfb4 = 8, NumberOfMagazines Field_4614adfe = 7, InitialAmmo Field_80a58418 = -1.",
+   "(a) Other ELR-40 packages: Compact1 (Single Shot) 1 / 49; Compact2 (5 Rnd) 6 / 8; Fast (7 Fast) 8 / 7 (capacity / NumberOfMagazines). CDX40_WB Ammo struct: 1 / 50.",
+   "(a) Other six bolt-actions: the shared default and Fast packages Magazine/WPM_MAG_Std_W05 and FastMagazine/WPM_MAG_Fast_W10 hold no Ammo struct; the WB Ammo capacity equals site mag and nominal + 1 on all six (M2010 ESR 6, SV-98 11, PSR 11, Mini Scout 11, L115 6, Interdictor 6). Non-default packages with an Ammo struct are nominal + 1 on every one (8 -> 9, 7 -> 8, 15 -> 16, 20 -> 21, 3 -> 4). DB-12 WB capacity 16 (nominal 14 + 2).",
+   "(b) MRGGA_WB DamageProtectionMultiplierIndex (Class_35259f6b Field_58d70acb Struct Field_9ba8b76b) = 12; base projectile PD_65x48mm packed material 0x1f002680 (material 496); head array for material 496 against head material 24 has 1.57 at index 12 and 1.4 at index 11 on both mp_abbasid and mp_badlands grids. M4A1_WB index 11, PD_556x45mmNATO_Carbine material 276, head 1.4.",
+   "(g1) The four Season 5 WB files carry the same OverHeat block as M250 (Field_43a8d9ab: HeatPerBullet 0, HeatDropPerSecond 0.2, OverHeatDropDelay 0, OverHeatPenaltyTime 3, OverHeatThreshold 0.8); M27IAR_WB reproduces the L35 values 0.0025 / 0.2 / 0 / 0 / 1.",
+   "(g2) Class-trait byte markers: MRGGA_WB holds the WM_AssaultTrait file GUID; CDX40_WB holds WM_ReconTrait and WPM_SwayPenalty; PKM_WB holds WPM_SupportTrait and GS_PKM the GID_ADSTime_Trait_P10 key 8430ed47; GS_RSAR999 holds the GDM_Array_HipDispersion_TRAIT key d821968e. Class counts across the 67 site weapons: 12 AR, 7 sniper, 11 LMG, 11 SMG, each the full site class.",
+   "(g3) Limb array (grid projectile material against limb material 26, equal to the abdomen array): Mk 24 0.84 (material 496), ELR-40 0.67 (PD_.375EnABELR_Match, material 290), Z84M 0.84 (PD_762x54mmR_MG, material 496), RSPR 0.84 (PD_762x39mm_PDW, material 493); M4A1 control 0.84. All equal data/hit_zones.json."
+  ],
+  "control": "Control first. (a) M2010 ESR default package must read MagazineCapacity = site mag 6: the join site choice 5_rnd -> Attachment_M2010ESR_MAG_Regular -> U_PRG -> Ability branch -> selector -> WPM_MAG_Std_W05 resolves, but that shared default package holds NO Ammo struct (Class_e7d2410a absent), so the default capacity is the M2010ESR_WB Ammo struct: 6 = site mag 6 (nominal 5 + 1). The same weapon's 8 Rnd package (WPM_MAG_008Ext1_M2010ESR_W25) reads 9 = 8 + 1. DB-12 default (WB, shared Std package, no Ammo struct) reads 16 = nominal 14 + 2. (b) M4A1 control: index 11 -> head 1.4 = site hit_zones m4a1 headshot 1.4. (g) controls: M27IAR_WB heat block reproduces the L35 values; class-trait byte markers reproduce the L100-L104 launch memberships (11 AR, 10 LMG, 10 SMG, 6 sniper) plus one new weapon each; M4A1 limb 0.84 = site.",
+  "rawChecks": [
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\BoltAction\\M2010ESR\\M2010ESR_WB.ebx",
+    "rawSha256": "949163d462c1720063eff1e08f024d0991ebd1dc2cc098e40fc433e66e165dfa",
+    "offset": 960,
+    "type": "i32",
+    "bytesHex": "06000000",
+    "value": 6,
+    "field": "MagazineCapacity"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\BoltAction\\M2010ESR\\M2010ESR_WB.ebx",
+    "rawSha256": "949163d462c1720063eff1e08f024d0991ebd1dc2cc098e40fc433e66e165dfa",
+    "offset": 964,
+    "type": "i32",
+    "bytesHex": "07000000",
+    "value": 7,
+    "field": "NumberOfMagazines"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\BoltAction\\M2010ESR\\M2010ESR_WB.ebx",
+    "rawSha256": "949163d462c1720063eff1e08f024d0991ebd1dc2cc098e40fc433e66e165dfa",
+    "offset": 972,
+    "type": "i32",
+    "bytesHex": "ffffffff",
+    "value": -1,
+    "field": "InitialAmmo"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\ExtendedMagazine\\WPM_MAG_008Ext1_M2010ESR_W25.ebx",
+    "rawSha256": "935e0ca229d511cb73a02c7fe6263076b4ac38d669cf756641cf606d8f968c49",
+    "offset": 152,
+    "type": "i32",
+    "bytesHex": "09000000",
+    "value": 9,
+    "field": "MagazineCapacity"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\ExtendedMagazine\\WPM_MAG_008Ext1_M2010ESR_W25.ebx",
+    "rawSha256": "935e0ca229d511cb73a02c7fe6263076b4ac38d669cf756641cf606d8f968c49",
+    "offset": 156,
+    "type": "i32",
+    "bytesHex": "05000000",
+    "value": 5,
+    "field": "NumberOfMagazines"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\ExtendedMagazine\\WPM_MAG_008Ext1_M2010ESR_W25.ebx",
+    "rawSha256": "935e0ca229d511cb73a02c7fe6263076b4ac38d669cf756641cf606d8f968c49",
+    "offset": 160,
+    "type": "i32",
+    "bytesHex": "ffffffff",
+    "value": -1,
+    "field": "InitialAmmo"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\BoltAction\\SV98M\\SV98M_WB.ebx",
+    "rawSha256": "a2df1c1591526e5f44e026739045b11f53ba56e4b89e5b567b8193af138bc4fe",
+    "offset": 960,
+    "type": "i32",
+    "bytesHex": "0b000000",
+    "value": 11,
+    "field": "MagazineCapacity"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\BoltAction\\SV98M\\SV98M_WB.ebx",
+    "rawSha256": "a2df1c1591526e5f44e026739045b11f53ba56e4b89e5b567b8193af138bc4fe",
+    "offset": 964,
+    "type": "i32",
+    "bytesHex": "04000000",
+    "value": 4,
+    "field": "NumberOfMagazines"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\BoltAction\\SV98M\\SV98M_WB.ebx",
+    "rawSha256": "a2df1c1591526e5f44e026739045b11f53ba56e4b89e5b567b8193af138bc4fe",
+    "offset": 972,
+    "type": "i32",
+    "bytesHex": "ffffffff",
+    "value": -1,
+    "field": "InitialAmmo"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\BoltAction\\MRAD\\MRAD_WB.ebx",
+    "rawSha256": "b17afbe86870919de99cfb141bc277f74c686a48863edf7e5d8dbed20ef9ab73",
+    "offset": 960,
+    "type": "i32",
+    "bytesHex": "0b000000",
+    "value": 11,
+    "field": "MagazineCapacity"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\BoltAction\\MRAD\\MRAD_WB.ebx",
+    "rawSha256": "b17afbe86870919de99cfb141bc277f74c686a48863edf7e5d8dbed20ef9ab73",
+    "offset": 964,
+    "type": "i32",
+    "bytesHex": "04000000",
+    "value": 4,
+    "field": "NumberOfMagazines"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\BoltAction\\MRAD\\MRAD_WB.ebx",
+    "rawSha256": "b17afbe86870919de99cfb141bc277f74c686a48863edf7e5d8dbed20ef9ab73",
+    "offset": 972,
+    "type": "i32",
+    "bytesHex": "ffffffff",
+    "value": -1,
+    "field": "InitialAmmo"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\CompactMagazine\\WPM_MAG_007Cpt1_MRAD_W05.ebx",
+    "rawSha256": "0c4b7d07f3b7ac5effc1dbfe966ef72f855711bea94e3b6f10d2c8625e5be1ea",
+    "offset": 216,
+    "type": "i32",
+    "bytesHex": "08000000",
+    "value": 8,
+    "field": "MagazineCapacity"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\CompactMagazine\\WPM_MAG_007Cpt1_MRAD_W05.ebx",
+    "rawSha256": "0c4b7d07f3b7ac5effc1dbfe966ef72f855711bea94e3b6f10d2c8625e5be1ea",
+    "offset": 220,
+    "type": "i32",
+    "bytesHex": "05000000",
+    "value": 5,
+    "field": "NumberOfMagazines"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\CompactMagazine\\WPM_MAG_007Cpt1_MRAD_W05.ebx",
+    "rawSha256": "0c4b7d07f3b7ac5effc1dbfe966ef72f855711bea94e3b6f10d2c8625e5be1ea",
+    "offset": 224,
+    "type": "i32",
+    "bytesHex": "ffffffff",
+    "value": -1,
+    "field": "InitialAmmo"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\BoltAction\\MiniFix\\MiniFix_WB.ebx",
+    "rawSha256": "985477b47840364f6b332275678dac26da8aafdfd43db78cf8d9d7f33a5df54d",
+    "offset": 960,
+    "type": "i32",
+    "bytesHex": "0b000000",
+    "value": 11,
+    "field": "MagazineCapacity"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\BoltAction\\MiniFix\\MiniFix_WB.ebx",
+    "rawSha256": "985477b47840364f6b332275678dac26da8aafdfd43db78cf8d9d7f33a5df54d",
+    "offset": 964,
+    "type": "i32",
+    "bytesHex": "05000000",
+    "value": 5,
+    "field": "NumberOfMagazines"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\BoltAction\\MiniFix\\MiniFix_WB.ebx",
+    "rawSha256": "985477b47840364f6b332275678dac26da8aafdfd43db78cf8d9d7f33a5df54d",
+    "offset": 972,
+    "type": "i32",
+    "bytesHex": "ffffffff",
+    "value": -1,
+    "field": "InitialAmmo"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\ExtendedMagazine\\WPM_MAG_015Ext1_MiniFix_W30.ebx",
+    "rawSha256": "c2497f9fab10dc266353df2542a153d163b2bab7b80c6090a37e3a4c86dea579",
+    "offset": 216,
+    "type": "i32",
+    "bytesHex": "10000000",
+    "value": 16,
+    "field": "MagazineCapacity"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\ExtendedMagazine\\WPM_MAG_015Ext1_MiniFix_W30.ebx",
+    "rawSha256": "c2497f9fab10dc266353df2542a153d163b2bab7b80c6090a37e3a4c86dea579",
+    "offset": 220,
+    "type": "i32",
+    "bytesHex": "04000000",
+    "value": 4,
+    "field": "NumberOfMagazines"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\ExtendedMagazine\\WPM_MAG_015Ext1_MiniFix_W30.ebx",
+    "rawSha256": "c2497f9fab10dc266353df2542a153d163b2bab7b80c6090a37e3a4c86dea579",
+    "offset": 224,
+    "type": "i32",
+    "bytesHex": "ffffffff",
+    "value": -1,
+    "field": "InitialAmmo"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\ExtendedFastMagazine\\WPM_MAG_015Ext1Fast_MiniFix_W35.ebx",
+    "rawSha256": "db96cbc1109fdd4c82583d9f3b2833c08320db3b6b3aea0c51291f9cc38b4e09",
+    "offset": 216,
+    "type": "i32",
+    "bytesHex": "10000000",
+    "value": 16,
+    "field": "MagazineCapacity"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\ExtendedFastMagazine\\WPM_MAG_015Ext1Fast_MiniFix_W35.ebx",
+    "rawSha256": "db96cbc1109fdd4c82583d9f3b2833c08320db3b6b3aea0c51291f9cc38b4e09",
+    "offset": 220,
+    "type": "i32",
+    "bytesHex": "04000000",
+    "value": 4,
+    "field": "NumberOfMagazines"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\ExtendedFastMagazine\\WPM_MAG_015Ext1Fast_MiniFix_W35.ebx",
+    "rawSha256": "db96cbc1109fdd4c82583d9f3b2833c08320db3b6b3aea0c51291f9cc38b4e09",
+    "offset": 224,
+    "type": "i32",
+    "bytesHex": "ffffffff",
+    "value": -1,
+    "field": "InitialAmmo"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\ExtendedMagazine\\WPM_MAG_020Ext2_MiniFix_W55.ebx",
+    "rawSha256": "6b01cb14c1b201b0490797bc0739b91c976d44e948c824ae58d5632b9d42d273",
+    "offset": 216,
+    "type": "i32",
+    "bytesHex": "15000000",
+    "value": 21,
+    "field": "MagazineCapacity"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\ExtendedMagazine\\WPM_MAG_020Ext2_MiniFix_W55.ebx",
+    "rawSha256": "6b01cb14c1b201b0490797bc0739b91c976d44e948c824ae58d5632b9d42d273",
+    "offset": 220,
+    "type": "i32",
+    "bytesHex": "03000000",
+    "value": 3,
+    "field": "NumberOfMagazines"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\ExtendedMagazine\\WPM_MAG_020Ext2_MiniFix_W55.ebx",
+    "rawSha256": "6b01cb14c1b201b0490797bc0739b91c976d44e948c824ae58d5632b9d42d273",
+    "offset": 224,
+    "type": "i32",
+    "bytesHex": "ffffffff",
+    "value": -1,
+    "field": "InitialAmmo"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\ExtendedFastMagazine\\WPM_MAG_020Ext2Fast_MiniFix_W60.ebx",
+    "rawSha256": "730cc2776d750873913e61a5aad5e133178909b6119eb2c155379bf8faa1c747",
+    "offset": 152,
+    "type": "i32",
+    "bytesHex": "15000000",
+    "value": 21,
+    "field": "MagazineCapacity"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\ExtendedFastMagazine\\WPM_MAG_020Ext2Fast_MiniFix_W60.ebx",
+    "rawSha256": "730cc2776d750873913e61a5aad5e133178909b6119eb2c155379bf8faa1c747",
+    "offset": 156,
+    "type": "i32",
+    "bytesHex": "03000000",
+    "value": 3,
+    "field": "NumberOfMagazines"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\ExtendedFastMagazine\\WPM_MAG_020Ext2Fast_MiniFix_W60.ebx",
+    "rawSha256": "730cc2776d750873913e61a5aad5e133178909b6119eb2c155379bf8faa1c747",
+    "offset": 160,
+    "type": "i32",
+    "bytesHex": "ffffffff",
+    "value": -1,
+    "field": "InitialAmmo"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\BoltAction\\L115A3\\L115A3_WB.ebx",
+    "rawSha256": "81c45a3d10ce65453f0a1b7bb319d5ef3a83d3cc3de44a4627b1e34f2c053a80",
+    "offset": 960,
+    "type": "i32",
+    "bytesHex": "06000000",
+    "value": 6,
+    "field": "MagazineCapacity"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\BoltAction\\L115A3\\L115A3_WB.ebx",
+    "rawSha256": "81c45a3d10ce65453f0a1b7bb319d5ef3a83d3cc3de44a4627b1e34f2c053a80",
+    "offset": 964,
+    "type": "i32",
+    "bytesHex": "07000000",
+    "value": 7,
+    "field": "NumberOfMagazines"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\BoltAction\\L115A3\\L115A3_WB.ebx",
+    "rawSha256": "81c45a3d10ce65453f0a1b7bb319d5ef3a83d3cc3de44a4627b1e34f2c053a80",
+    "offset": 972,
+    "type": "i32",
+    "bytesHex": "ffffffff",
+    "value": -1,
+    "field": "InitialAmmo"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\ExtendedMagazine\\WPM_MAG_007Ext1_L115A3_W20.ebx",
+    "rawSha256": "7a56d1a815599dbcc8ba13b5693fee5cb8796b69c300d600a4b0a19f22f93eaa",
+    "offset": 152,
+    "type": "i32",
+    "bytesHex": "08000000",
+    "value": 8,
+    "field": "MagazineCapacity"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\ExtendedMagazine\\WPM_MAG_007Ext1_L115A3_W20.ebx",
+    "rawSha256": "7a56d1a815599dbcc8ba13b5693fee5cb8796b69c300d600a4b0a19f22f93eaa",
+    "offset": 156,
+    "type": "i32",
+    "bytesHex": "05000000",
+    "value": 5,
+    "field": "NumberOfMagazines"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\ExtendedMagazine\\WPM_MAG_007Ext1_L115A3_W20.ebx",
+    "rawSha256": "7a56d1a815599dbcc8ba13b5693fee5cb8796b69c300d600a4b0a19f22f93eaa",
+    "offset": 160,
+    "type": "i32",
+    "bytesHex": "ffffffff",
+    "value": -1,
+    "field": "InitialAmmo"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\ExtendedFastMagazine\\WPM_MAG_007Ext1Fast_L115A3_W30.ebx",
+    "rawSha256": "c1f22313c556539659c473ca01bfefd82d969bd2763f2631044a999b72d35e3f",
+    "offset": 216,
+    "type": "i32",
+    "bytesHex": "08000000",
+    "value": 8,
+    "field": "MagazineCapacity"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\ExtendedFastMagazine\\WPM_MAG_007Ext1Fast_L115A3_W30.ebx",
+    "rawSha256": "c1f22313c556539659c473ca01bfefd82d969bd2763f2631044a999b72d35e3f",
+    "offset": 220,
+    "type": "i32",
+    "bytesHex": "05000000",
+    "value": 5,
+    "field": "NumberOfMagazines"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\ExtendedFastMagazine\\WPM_MAG_007Ext1Fast_L115A3_W30.ebx",
+    "rawSha256": "c1f22313c556539659c473ca01bfefd82d969bd2763f2631044a999b72d35e3f",
+    "offset": 224,
+    "type": "i32",
+    "bytesHex": "ffffffff",
+    "value": -1,
+    "field": "InitialAmmo"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\BoltAction\\DesertTechHTI\\DesertTechHTI_WB.ebx",
+    "rawSha256": "3f213da760f93fbd6c51a805b42278e65d2e6d2e657b32d67ce61f34786925b8",
+    "offset": 960,
+    "type": "i32",
+    "bytesHex": "06000000",
+    "value": 6,
+    "field": "MagazineCapacity"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\BoltAction\\DesertTechHTI\\DesertTechHTI_WB.ebx",
+    "rawSha256": "3f213da760f93fbd6c51a805b42278e65d2e6d2e657b32d67ce61f34786925b8",
+    "offset": 964,
+    "type": "i32",
+    "bytesHex": "07000000",
+    "value": 7,
+    "field": "NumberOfMagazines"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\BoltAction\\DesertTechHTI\\DesertTechHTI_WB.ebx",
+    "rawSha256": "3f213da760f93fbd6c51a805b42278e65d2e6d2e657b32d67ce61f34786925b8",
+    "offset": 972,
+    "type": "i32",
+    "bytesHex": "ffffffff",
+    "value": -1,
+    "field": "InitialAmmo"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\CompactMagazine\\WPM_MAG_003Cpt1_DesertTechHTI_W05.ebx",
+    "rawSha256": "a1a2a0e82b2dcc089b292cfdfde3106bcac09f8602350bca84196a3b3eea877b",
+    "offset": 152,
+    "type": "i32",
+    "bytesHex": "04000000",
+    "value": 4,
+    "field": "MagazineCapacity"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\CompactMagazine\\WPM_MAG_003Cpt1_DesertTechHTI_W05.ebx",
+    "rawSha256": "a1a2a0e82b2dcc089b292cfdfde3106bcac09f8602350bca84196a3b3eea877b",
+    "offset": 156,
+    "type": "i32",
+    "bytesHex": "0b000000",
+    "value": 11,
+    "field": "NumberOfMagazines"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\CompactMagazine\\WPM_MAG_003Cpt1_DesertTechHTI_W05.ebx",
+    "rawSha256": "a1a2a0e82b2dcc089b292cfdfde3106bcac09f8602350bca84196a3b3eea877b",
+    "offset": 160,
+    "type": "i32",
+    "bytesHex": "ffffffff",
+    "value": -1,
+    "field": "InitialAmmo"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\ExtendedMagazine\\WPM_MAG_007Ext1_DesertTechHTI_W15.ebx",
+    "rawSha256": "e1a0ff5441464f220fe0600684454821bdef8caa527c315525573b3b5c78adf8",
+    "offset": 216,
+    "type": "i32",
+    "bytesHex": "08000000",
+    "value": 8,
+    "field": "MagazineCapacity"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\ExtendedMagazine\\WPM_MAG_007Ext1_DesertTechHTI_W15.ebx",
+    "rawSha256": "e1a0ff5441464f220fe0600684454821bdef8caa527c315525573b3b5c78adf8",
+    "offset": 220,
+    "type": "i32",
+    "bytesHex": "05000000",
+    "value": 5,
+    "field": "NumberOfMagazines"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\ExtendedMagazine\\WPM_MAG_007Ext1_DesertTechHTI_W15.ebx",
+    "rawSha256": "e1a0ff5441464f220fe0600684454821bdef8caa527c315525573b3b5c78adf8",
+    "offset": 224,
+    "type": "i32",
+    "bytesHex": "ffffffff",
+    "value": -1,
+    "field": "InitialAmmo"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\BoltAction\\CDX40\\CDX40_WB.ebx",
+    "rawSha256": "ec78973b271ca1a0c4ed201eb442e8f1717c01006bab04164b49238d44fa605b",
+    "offset": 960,
+    "type": "i32",
+    "bytesHex": "01000000",
+    "value": 1,
+    "field": "MagazineCapacity"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\BoltAction\\CDX40\\CDX40_WB.ebx",
+    "rawSha256": "ec78973b271ca1a0c4ed201eb442e8f1717c01006bab04164b49238d44fa605b",
+    "offset": 964,
+    "type": "i32",
+    "bytesHex": "32000000",
+    "value": 50,
+    "field": "NumberOfMagazines"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\BoltAction\\CDX40\\CDX40_WB.ebx",
+    "rawSha256": "ec78973b271ca1a0c4ed201eb442e8f1717c01006bab04164b49238d44fa605b",
+    "offset": 972,
+    "type": "i32",
+    "bytesHex": "ffffffff",
+    "value": -1,
+    "field": "InitialAmmo"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\CompactMagazine\\WPM_MAG_001Cpt1_CDX40_W05.ebx",
+    "rawSha256": "248f5d0cc18cc8aa1c661d7f743b4be01f8ceef53bc595dfd1677f6bdef8ec73",
+    "offset": 216,
+    "type": "i32",
+    "bytesHex": "01000000",
+    "value": 1,
+    "field": "MagazineCapacity"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\CompactMagazine\\WPM_MAG_001Cpt1_CDX40_W05.ebx",
+    "rawSha256": "248f5d0cc18cc8aa1c661d7f743b4be01f8ceef53bc595dfd1677f6bdef8ec73",
+    "offset": 220,
+    "type": "i32",
+    "bytesHex": "31000000",
+    "value": 49,
+    "field": "NumberOfMagazines"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\CompactMagazine\\WPM_MAG_001Cpt1_CDX40_W05.ebx",
+    "rawSha256": "248f5d0cc18cc8aa1c661d7f743b4be01f8ceef53bc595dfd1677f6bdef8ec73",
+    "offset": 224,
+    "type": "i32",
+    "bytesHex": "ffffffff",
+    "value": -1,
+    "field": "InitialAmmo"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\CompactMagazine\\WPM_MAG_005Cpt2_CDX40_W05.ebx",
+    "rawSha256": "339bf6fd57dec341d15ecce84344e2584981a65725981dea0184d81667fd894e",
+    "offset": 296,
+    "type": "i32",
+    "bytesHex": "06000000",
+    "value": 6,
+    "field": "MagazineCapacity"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\CompactMagazine\\WPM_MAG_005Cpt2_CDX40_W05.ebx",
+    "rawSha256": "339bf6fd57dec341d15ecce84344e2584981a65725981dea0184d81667fd894e",
+    "offset": 300,
+    "type": "i32",
+    "bytesHex": "08000000",
+    "value": 8,
+    "field": "NumberOfMagazines"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\CompactMagazine\\WPM_MAG_005Cpt2_CDX40_W05.ebx",
+    "rawSha256": "339bf6fd57dec341d15ecce84344e2584981a65725981dea0184d81667fd894e",
+    "offset": 304,
+    "type": "i32",
+    "bytesHex": "ffffffff",
+    "value": -1,
+    "field": "InitialAmmo"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\FastMagazine\\WPM_MAG_Fast_CDX40_W05.ebx",
+    "rawSha256": "7e845fb0ddd5f5c1f6fac3f6606c74493ef9f49eedd6bfc62d058b4ccfa100d3",
+    "offset": 296,
+    "type": "i32",
+    "bytesHex": "08000000",
+    "value": 8,
+    "field": "MagazineCapacity"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\FastMagazine\\WPM_MAG_Fast_CDX40_W05.ebx",
+    "rawSha256": "7e845fb0ddd5f5c1f6fac3f6606c74493ef9f49eedd6bfc62d058b4ccfa100d3",
+    "offset": 300,
+    "type": "i32",
+    "bytesHex": "07000000",
+    "value": 7,
+    "field": "NumberOfMagazines"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\FastMagazine\\WPM_MAG_Fast_CDX40_W05.ebx",
+    "rawSha256": "7e845fb0ddd5f5c1f6fac3f6606c74493ef9f49eedd6bfc62d058b4ccfa100d3",
+    "offset": 304,
+    "type": "i32",
+    "bytesHex": "ffffffff",
+    "value": -1,
+    "field": "InitialAmmo"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\Magazine\\WPM_MAG_Std_CDX40_W05.ebx",
+    "rawSha256": "9847e8f5a58988099f6f4a21d38f35c56369b41353e06cdd6df864ce6d4eb8d9",
+    "offset": 216,
+    "type": "i32",
+    "bytesHex": "08000000",
+    "value": 8,
+    "field": "MagazineCapacity"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\Magazine\\WPM_MAG_Std_CDX40_W05.ebx",
+    "rawSha256": "9847e8f5a58988099f6f4a21d38f35c56369b41353e06cdd6df864ce6d4eb8d9",
+    "offset": 220,
+    "type": "i32",
+    "bytesHex": "07000000",
+    "value": 7,
+    "field": "NumberOfMagazines"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\Magazine\\WPM_MAG_Std_CDX40_W05.ebx",
+    "rawSha256": "9847e8f5a58988099f6f4a21d38f35c56369b41353e06cdd6df864ce6d4eb8d9",
+    "offset": 224,
+    "type": "i32",
+    "bytesHex": "ffffffff",
+    "value": -1,
+    "field": "InitialAmmo"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Shotgun\\DP12\\DP12_WB.ebx",
+    "rawSha256": "c2e2dc3355828fdb41fb05f2098632a7f9e20330847d2ff186b6a0c9758dfe4d",
+    "offset": 960,
+    "type": "i32",
+    "bytesHex": "10000000",
+    "value": 16,
+    "field": "MagazineCapacity"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Shotgun\\DP12\\DP12_WB.ebx",
+    "rawSha256": "c2e2dc3355828fdb41fb05f2098632a7f9e20330847d2ff186b6a0c9758dfe4d",
+    "offset": 964,
+    "type": "i32",
+    "bytesHex": "06000000",
+    "value": 6,
+    "field": "NumberOfMagazines"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Shotgun\\DP12\\DP12_WB.ebx",
+    "rawSha256": "c2e2dc3355828fdb41fb05f2098632a7f9e20330847d2ff186b6a0c9758dfe4d",
+    "offset": 972,
+    "type": "i32",
+    "bytesHex": "ffffffff",
+    "value": -1,
+    "field": "InitialAmmo"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\MRGGA\\MRGGA_WB.ebx",
+    "rawSha256": "362be4ae90e4168e4f709a8ea9879f06af2052f3cc90cc4a21c53054dc576492",
+    "offset": 640,
+    "type": "i32",
+    "bytesHex": "0c000000",
+    "value": 12
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_65x48mm.ebx",
+    "rawSha256": "ef9bd44a87eca7cace13c2d0bc53fcb27825bf8a7d71bcd973228e3c9d98dc32",
+    "offset": 512,
+    "type": "u32",
+    "bytesHex": "8026001f",
+    "value": 520103552
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+    "rawSha256": "5b9eb74f22269095f57ef39a2da4fd991c8f4b975881eaac07a368c56286b06f",
+    "offset": 9609212,
+    "type": "f32",
+    "bytesHex": "c3f5c83f",
+    "value": 1.5700000524520874
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+    "rawSha256": "5b9eb74f22269095f57ef39a2da4fd991c8f4b975881eaac07a368c56286b06f",
+    "offset": 9609208,
+    "type": "f32",
+    "bytesHex": "3333b33f",
+    "value": 1.399999976158142
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_badlands\\mp_badlands\\materialgrid_win32.ebx",
+    "rawSha256": "341ee399c082ac67c8518827c02c629b60cda83e1b1a0e935054a9eb7a95b21f",
+    "offset": 9430932,
+    "type": "f32",
+    "bytesHex": "c3f5c83f",
+    "value": 1.5700000524520874
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_badlands\\mp_badlands\\materialgrid_win32.ebx",
+    "rawSha256": "341ee399c082ac67c8518827c02c629b60cda83e1b1a0e935054a9eb7a95b21f",
+    "offset": 9430928,
+    "type": "f32",
+    "bytesHex": "3333b33f",
+    "value": 1.399999976158142
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\M4A1\\M4A1_WB.ebx",
+    "rawSha256": "deeb876b845b66b7bca5f3350e9c399bbc02b83d05d19493a3e35b71c642bee9",
+    "offset": 1408,
+    "type": "i32",
+    "bytesHex": "0b000000",
+    "value": 11
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_556x45mmNATO_Carbine.ebx",
+    "rawSha256": "6f3d4ed4dfdd563f2dcac4aee4a4923836d11fd3178dcbdfa4ee662120e34f25",
+    "offset": 464,
+    "type": "u32",
+    "bytesHex": "80254011",
+    "value": 289416576
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+    "rawSha256": "5b9eb74f22269095f57ef39a2da4fd991c8f4b975881eaac07a368c56286b06f",
+    "offset": 9580928,
+    "type": "f32",
+    "bytesHex": "3333b33f",
+    "value": 1.399999976158142
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+    "rawSha256": "5b9eb74f22269095f57ef39a2da4fd991c8f4b975881eaac07a368c56286b06f",
+    "offset": 9580932,
+    "type": "f32",
+    "bytesHex": "c3f5c83f",
+    "value": 1.5700000524520874
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_badlands\\mp_badlands\\materialgrid_win32.ebx",
+    "rawSha256": "341ee399c082ac67c8518827c02c629b60cda83e1b1a0e935054a9eb7a95b21f",
+    "offset": 9403256,
+    "type": "f32",
+    "bytesHex": "3333b33f",
+    "value": 1.399999976158142
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_badlands\\mp_badlands\\materialgrid_win32.ebx",
+    "rawSha256": "341ee399c082ac67c8518827c02c629b60cda83e1b1a0e935054a9eb7a95b21f",
+    "offset": 9403260,
+    "type": "f32",
+    "bytesHex": "c3f5c83f",
+    "value": 1.5700000524520874
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\MRGGA\\MRGGA_WB.ebx",
+    "rawSha256": "362be4ae90e4168e4f709a8ea9879f06af2052f3cc90cc4a21c53054dc576492",
+    "offset": 1088,
+    "type": "f32",
+    "bytesHex": "00000000",
+    "value": 0.0,
+    "field": "HeatPerBullet"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\MRGGA\\MRGGA_WB.ebx",
+    "rawSha256": "362be4ae90e4168e4f709a8ea9879f06af2052f3cc90cc4a21c53054dc576492",
+    "offset": 1092,
+    "type": "f32",
+    "bytesHex": "cdcc4c3e",
+    "value": 0.20000000298023224,
+    "field": "HeatDropPerSecond"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\MRGGA\\MRGGA_WB.ebx",
+    "rawSha256": "362be4ae90e4168e4f709a8ea9879f06af2052f3cc90cc4a21c53054dc576492",
+    "offset": 1100,
+    "type": "f32",
+    "bytesHex": "00000000",
+    "value": 0.0,
+    "field": "OverHeatDropDelay"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\MRGGA\\MRGGA_WB.ebx",
+    "rawSha256": "362be4ae90e4168e4f709a8ea9879f06af2052f3cc90cc4a21c53054dc576492",
+    "offset": 1104,
+    "type": "f32",
+    "bytesHex": "00004040",
+    "value": 3.0,
+    "field": "OverHeatPenaltyTime"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\MRGGA\\MRGGA_WB.ebx",
+    "rawSha256": "362be4ae90e4168e4f709a8ea9879f06af2052f3cc90cc4a21c53054dc576492",
+    "offset": 1108,
+    "type": "f32",
+    "bytesHex": "cdcc4c3f",
+    "value": 0.800000011920929,
+    "field": "OverHeatThreshold"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\BoltAction\\CDX40\\CDX40_WB.ebx",
+    "rawSha256": "ec78973b271ca1a0c4ed201eb442e8f1717c01006bab04164b49238d44fa605b",
+    "offset": 1088,
+    "type": "f32",
+    "bytesHex": "00000000",
+    "value": 0.0,
+    "field": "HeatPerBullet"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\BoltAction\\CDX40\\CDX40_WB.ebx",
+    "rawSha256": "ec78973b271ca1a0c4ed201eb442e8f1717c01006bab04164b49238d44fa605b",
+    "offset": 1092,
+    "type": "f32",
+    "bytesHex": "cdcc4c3e",
+    "value": 0.20000000298023224,
+    "field": "HeatDropPerSecond"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\BoltAction\\CDX40\\CDX40_WB.ebx",
+    "rawSha256": "ec78973b271ca1a0c4ed201eb442e8f1717c01006bab04164b49238d44fa605b",
+    "offset": 1100,
+    "type": "f32",
+    "bytesHex": "00000000",
+    "value": 0.0,
+    "field": "OverHeatDropDelay"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\BoltAction\\CDX40\\CDX40_WB.ebx",
+    "rawSha256": "ec78973b271ca1a0c4ed201eb442e8f1717c01006bab04164b49238d44fa605b",
+    "offset": 1104,
+    "type": "f32",
+    "bytesHex": "00004040",
+    "value": 3.0,
+    "field": "OverHeatPenaltyTime"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\BoltAction\\CDX40\\CDX40_WB.ebx",
+    "rawSha256": "ec78973b271ca1a0c4ed201eb442e8f1717c01006bab04164b49238d44fa605b",
+    "offset": 1108,
+    "type": "f32",
+    "bytesHex": "cdcc4c3f",
+    "value": 0.800000011920929,
+    "field": "OverHeatThreshold"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\MG\\PKM\\PKM_WB.ebx",
+    "rawSha256": "f1e6657c274daea16e289cf183402bae508049954e69f5edce609c8c5b56d851",
+    "offset": 1856,
+    "type": "f32",
+    "bytesHex": "00000000",
+    "value": 0.0,
+    "field": "HeatPerBullet"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\MG\\PKM\\PKM_WB.ebx",
+    "rawSha256": "f1e6657c274daea16e289cf183402bae508049954e69f5edce609c8c5b56d851",
+    "offset": 1860,
+    "type": "f32",
+    "bytesHex": "cdcc4c3e",
+    "value": 0.20000000298023224,
+    "field": "HeatDropPerSecond"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\MG\\PKM\\PKM_WB.ebx",
+    "rawSha256": "f1e6657c274daea16e289cf183402bae508049954e69f5edce609c8c5b56d851",
+    "offset": 1868,
+    "type": "f32",
+    "bytesHex": "00000000",
+    "value": 0.0,
+    "field": "OverHeatDropDelay"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\MG\\PKM\\PKM_WB.ebx",
+    "rawSha256": "f1e6657c274daea16e289cf183402bae508049954e69f5edce609c8c5b56d851",
+    "offset": 1872,
+    "type": "f32",
+    "bytesHex": "00004040",
+    "value": 3.0,
+    "field": "OverHeatPenaltyTime"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\MG\\PKM\\PKM_WB.ebx",
+    "rawSha256": "f1e6657c274daea16e289cf183402bae508049954e69f5edce609c8c5b56d851",
+    "offset": 1876,
+    "type": "f32",
+    "bytesHex": "cdcc4c3f",
+    "value": 0.800000011920929,
+    "field": "OverHeatThreshold"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\SMG\\RSAR999\\RSAR999_WB.ebx",
+    "rawSha256": "4ddb8c581a7da362f01b40c4133687095a6f91d2027ecdded7eb05e2695c0f22",
+    "offset": 1088,
+    "type": "f32",
+    "bytesHex": "00000000",
+    "value": 0.0,
+    "field": "HeatPerBullet"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\SMG\\RSAR999\\RSAR999_WB.ebx",
+    "rawSha256": "4ddb8c581a7da362f01b40c4133687095a6f91d2027ecdded7eb05e2695c0f22",
+    "offset": 1092,
+    "type": "f32",
+    "bytesHex": "cdcc4c3e",
+    "value": 0.20000000298023224,
+    "field": "HeatDropPerSecond"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\SMG\\RSAR999\\RSAR999_WB.ebx",
+    "rawSha256": "4ddb8c581a7da362f01b40c4133687095a6f91d2027ecdded7eb05e2695c0f22",
+    "offset": 1100,
+    "type": "f32",
+    "bytesHex": "00000000",
+    "value": 0.0,
+    "field": "OverHeatDropDelay"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\SMG\\RSAR999\\RSAR999_WB.ebx",
+    "rawSha256": "4ddb8c581a7da362f01b40c4133687095a6f91d2027ecdded7eb05e2695c0f22",
+    "offset": 1104,
+    "type": "f32",
+    "bytesHex": "00004040",
+    "value": 3.0,
+    "field": "OverHeatPenaltyTime"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\SMG\\RSAR999\\RSAR999_WB.ebx",
+    "rawSha256": "4ddb8c581a7da362f01b40c4133687095a6f91d2027ecdded7eb05e2695c0f22",
+    "offset": 1108,
+    "type": "f32",
+    "bytesHex": "cdcc4c3f",
+    "value": 0.800000011920929,
+    "field": "OverHeatThreshold"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\M27IAR\\M27IAR_WB.ebx",
+    "rawSha256": "2cc8bd7609e80cd48c91449bef172d71bd315dfb6de6b7ab79943163bdd2a9e2",
+    "offset": 1088,
+    "type": "f32",
+    "bytesHex": "0ad7233b",
+    "value": 0.0024999999441206455,
+    "field": "HeatPerBullet"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\M27IAR\\M27IAR_WB.ebx",
+    "rawSha256": "2cc8bd7609e80cd48c91449bef172d71bd315dfb6de6b7ab79943163bdd2a9e2",
+    "offset": 1092,
+    "type": "f32",
+    "bytesHex": "cdcc4c3e",
+    "value": 0.20000000298023224,
+    "field": "HeatDropPerSecond"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\M27IAR\\M27IAR_WB.ebx",
+    "rawSha256": "2cc8bd7609e80cd48c91449bef172d71bd315dfb6de6b7ab79943163bdd2a9e2",
+    "offset": 1100,
+    "type": "f32",
+    "bytesHex": "00000000",
+    "value": 0.0,
+    "field": "OverHeatDropDelay"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\M27IAR\\M27IAR_WB.ebx",
+    "rawSha256": "2cc8bd7609e80cd48c91449bef172d71bd315dfb6de6b7ab79943163bdd2a9e2",
+    "offset": 1104,
+    "type": "f32",
+    "bytesHex": "00000000",
+    "value": 0.0,
+    "field": "OverHeatPenaltyTime"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\M27IAR\\M27IAR_WB.ebx",
+    "rawSha256": "2cc8bd7609e80cd48c91449bef172d71bd315dfb6de6b7ab79943163bdd2a9e2",
+    "offset": 1108,
+    "type": "f32",
+    "bytesHex": "0000803f",
+    "value": 1.0,
+    "field": "OverHeatThreshold"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\M250\\M250_WB.ebx",
+    "rawSha256": "1ca410a2a9d8638b2c5dd8d79aec66023adedddc2f25a2ed256edd30d6371ded",
+    "offset": 1856,
+    "type": "f32",
+    "bytesHex": "00000000",
+    "value": 0.0,
+    "field": "HeatPerBullet"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\M250\\M250_WB.ebx",
+    "rawSha256": "1ca410a2a9d8638b2c5dd8d79aec66023adedddc2f25a2ed256edd30d6371ded",
+    "offset": 1860,
+    "type": "f32",
+    "bytesHex": "cdcc4c3e",
+    "value": 0.20000000298023224,
+    "field": "HeatDropPerSecond"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\M250\\M250_WB.ebx",
+    "rawSha256": "1ca410a2a9d8638b2c5dd8d79aec66023adedddc2f25a2ed256edd30d6371ded",
+    "offset": 1868,
+    "type": "f32",
+    "bytesHex": "00000000",
+    "value": 0.0,
+    "field": "OverHeatDropDelay"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\M250\\M250_WB.ebx",
+    "rawSha256": "1ca410a2a9d8638b2c5dd8d79aec66023adedddc2f25a2ed256edd30d6371ded",
+    "offset": 1872,
+    "type": "f32",
+    "bytesHex": "00004040",
+    "value": 3.0,
+    "field": "OverHeatPenaltyTime"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\M250\\M250_WB.ebx",
+    "rawSha256": "1ca410a2a9d8638b2c5dd8d79aec66023adedddc2f25a2ed256edd30d6371ded",
+    "offset": 1876,
+    "type": "f32",
+    "bytesHex": "cdcc4c3f",
+    "value": 0.800000011920929,
+    "field": "OverHeatThreshold"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\MRGGA\\MRGGA_WB.ebx",
+    "rawSha256": "362be4ae90e4168e4f709a8ea9879f06af2052f3cc90cc4a21c53054dc576492",
+    "offset": 22032,
+    "type": "guid",
+    "bytesHex": "628871a60908484d8920c12170654bc6",
+    "value": "a6718862-0809-4d48-8920-c12170654bc6",
+    "marker": "WM_AssaultTrait"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\BoltAction\\CDX40\\CDX40_WB.ebx",
+    "rawSha256": "ec78973b271ca1a0c4ed201eb442e8f1717c01006bab04164b49238d44fa605b",
+    "offset": 18062,
+    "type": "guid",
+    "bytesHex": "53a70b6f40354844b76214a1730b8ccc",
+    "value": "6f0ba753-3540-4448-b762-14a1730b8ccc",
+    "marker": "WM_ReconTrait"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\BoltAction\\CDX40\\CDX40_WB.ebx",
+    "rawSha256": "ec78973b271ca1a0c4ed201eb442e8f1717c01006bab04164b49238d44fa605b",
+    "offset": 22702,
+    "type": "guid",
+    "bytesHex": "ff0f11fdec453b4c9f4b6642bec43805",
+    "value": "fd110fff-45ec-4c3b-9f4b-6642bec43805",
+    "marker": "WPM_SwayPenalty"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\MG\\PKM\\PKM_WB.ebx",
+    "rawSha256": "f1e6657c274daea16e289cf183402bae508049954e69f5edce609c8c5b56d851",
+    "offset": 24404,
+    "type": "guid",
+    "bytesHex": "d54f2aefb5e15342aa2862796a6daf92",
+    "value": "ef2a4fd5-e1b5-4253-aa28-62796a6daf92",
+    "marker": "WPM_SupportTrait"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\MG\\PKM\\GS_PKM.ebx",
+    "rawSha256": "e9fc89cb7734ec8a75a46af0180f13a582676fe9b1b35c3844caf52c97a51393",
+    "offset": 7800,
+    "type": "guid",
+    "bytesHex": "47ed308490bd7f4c9e3ab2ba4697cd9b",
+    "value": "8430ed47-bd90-4c7f-9e3a-b2ba4697cd9b",
+    "marker": "GID_ADSTime_Trait_P10 key (Support)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\SMG\\RSAR999\\GS_RSAR999.ebx",
+    "rawSha256": "940093c3ed4c660e93a100c98f05bd9738dea027764124a6d0bb5f841683b491",
+    "offset": 6560,
+    "type": "guid",
+    "bytesHex": "8e9621d84648f744abcc0e4183fe7a27",
+    "value": "d821968e-4846-44f7-abcc-0e4183fe7a27",
+    "marker": "GDM_Array_HipDispersion_TRAIT key (Engineer)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\G3A4\\G3A4_WB.ebx",
+    "rawSha256": "0cd268470321e088a1df9f286ff254e077af1a47550937e40e95f4a39a9601d9",
+    "offset": 24936,
+    "type": "guid",
+    "bytesHex": "628871a60908484d8920c12170654bc6",
+    "value": "a6718862-0809-4d48-8920-c12170654bc6",
+    "marker": "WM_AssaultTrait",
+    "siteId": "ak4d"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\BoltAction\\M2010ESR\\M2010ESR_WB.ebx",
+    "rawSha256": "949163d462c1720063eff1e08f024d0991ebd1dc2cc098e40fc433e66e165dfa",
+    "offset": 23840,
+    "type": "guid",
+    "bytesHex": "53a70b6f40354844b76214a1730b8ccc",
+    "value": "6f0ba753-3540-4448-b762-14a1730b8ccc",
+    "marker": "WM_ReconTrait",
+    "siteId": "m2010esr"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\BoltAction\\M2010ESR\\M2010ESR_WB.ebx",
+    "rawSha256": "949163d462c1720063eff1e08f024d0991ebd1dc2cc098e40fc433e66e165dfa",
+    "offset": 29504,
+    "type": "guid",
+    "bytesHex": "ff0f11fdec453b4c9f4b6642bec43805",
+    "value": "fd110fff-45ec-4c3b-9f4b-6642bec43805",
+    "marker": "WPM_SwayPenalty",
+    "siteId": "m2010esr"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\M250\\M250_WB.ebx",
+    "rawSha256": "1ca410a2a9d8638b2c5dd8d79aec66023adedddc2f25a2ed256edd30d6371ded",
+    "offset": 30762,
+    "type": "guid",
+    "bytesHex": "d54f2aefb5e15342aa2862796a6daf92",
+    "value": "ef2a4fd5-e1b5-4253-aa28-62796a6daf92",
+    "marker": "WPM_SupportTrait",
+    "siteId": "m250"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\M250\\GS_M250.ebx",
+    "rawSha256": "d2c17fb4ea2dd2a60b71af050ec820731b44394b5f4127d808d95d439b19d136",
+    "offset": 7992,
+    "type": "guid",
+    "bytesHex": "47ed308490bd7f4c9e3ab2ba4697cd9b",
+    "value": "8430ed47-bd90-4c7f-9e3a-b2ba4697cd9b",
+    "marker": "GID_ADSTime_Trait_P10 key (Support)",
+    "siteId": "m250"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\SMG\\ScorpionEvo3\\GS_ScorpionEvo3.ebx",
+    "rawSha256": "902c4b3d9d23dc7f011ab8ff0532674461c91a43d597b27fd74f4a284bb10617",
+    "offset": 6528,
+    "type": "guid",
+    "bytesHex": "8e9621d84648f744abcc0e4183fe7a27",
+    "value": "d821968e-4846-44f7-abcc-0e4183fe7a27",
+    "marker": "GDM_Array_HipDispersion_TRAIT key (Engineer)",
+    "siteId": "cz3a1"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\MRGGA\\MRGGA_WB.ebx",
+    "rawSha256": "362be4ae90e4168e4f709a8ea9879f06af2052f3cc90cc4a21c53054dc576492",
+    "offset": 640,
+    "type": "i32",
+    "bytesHex": "0c000000",
+    "value": 12,
+    "what": "protectionIndex"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_65x48mm.ebx",
+    "rawSha256": "ef9bd44a87eca7cace13c2d0bc53fcb27825bf8a7d71bcd973228e3c9d98dc32",
+    "offset": 512,
+    "type": "u32",
+    "bytesHex": "8026001f",
+    "value": 520103552,
+    "what": "projectilePackedMaterial"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+    "rawSha256": "5b9eb74f22269095f57ef39a2da4fd991c8f4b975881eaac07a368c56286b06f",
+    "offset": 9606500,
+    "type": "f32",
+    "bytesHex": "3d0a573f",
+    "value": 0.8399999737739563,
+    "what": "limb@mp_abbasid"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+    "rawSha256": "5b9eb74f22269095f57ef39a2da4fd991c8f4b975881eaac07a368c56286b06f",
+    "offset": 9634500,
+    "type": "f32",
+    "bytesHex": "3d0a573f",
+    "value": 0.8399999737739563,
+    "what": "abdomen@mp_abbasid"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+    "rawSha256": "5b9eb74f22269095f57ef39a2da4fd991c8f4b975881eaac07a368c56286b06f",
+    "offset": 9609212,
+    "type": "f32",
+    "bytesHex": "c3f5c83f",
+    "value": 1.5700000524520874,
+    "what": "head[12]@mp_abbasid"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_badlands\\mp_badlands\\materialgrid_win32.ebx",
+    "rawSha256": "341ee399c082ac67c8518827c02c629b60cda83e1b1a0e935054a9eb7a95b21f",
+    "offset": 9428316,
+    "type": "f32",
+    "bytesHex": "3d0a573f",
+    "value": 0.8399999737739563,
+    "what": "limb@mp_badlands"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_badlands\\mp_badlands\\materialgrid_win32.ebx",
+    "rawSha256": "341ee399c082ac67c8518827c02c629b60cda83e1b1a0e935054a9eb7a95b21f",
+    "offset": 9455204,
+    "type": "f32",
+    "bytesHex": "3d0a573f",
+    "value": 0.8399999737739563,
+    "what": "abdomen@mp_badlands"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_badlands\\mp_badlands\\materialgrid_win32.ebx",
+    "rawSha256": "341ee399c082ac67c8518827c02c629b60cda83e1b1a0e935054a9eb7a95b21f",
+    "offset": 9430932,
+    "type": "f32",
+    "bytesHex": "c3f5c83f",
+    "value": 1.5700000524520874,
+    "what": "head[12]@mp_badlands"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\BoltAction\\CDX40\\CDX40_WB.ebx",
+    "rawSha256": "ec78973b271ca1a0c4ed201eb442e8f1717c01006bab04164b49238d44fa605b",
+    "offset": 640,
+    "type": "i32",
+    "bytesHex": "03000000",
+    "value": 3,
+    "what": "protectionIndex"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_.375EnABELR_Match.ebx",
+    "rawSha256": "eeb72517724e100411907ae30ce231cf9ec3f47534f345903ecc3a4ebe2f3c08",
+    "offset": 448,
+    "type": "u32",
+    "bytesHex": "80512012",
+    "value": 304107904,
+    "what": "projectilePackedMaterial"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+    "rawSha256": "5b9eb74f22269095f57ef39a2da4fd991c8f4b975881eaac07a368c56286b06f",
+    "offset": 9630372,
+    "type": "f32",
+    "bytesHex": "1f852b3f",
+    "value": 0.6700000166893005,
+    "what": "limb@mp_abbasid"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+    "rawSha256": "5b9eb74f22269095f57ef39a2da4fd991c8f4b975881eaac07a368c56286b06f",
+    "offset": 9615228,
+    "type": "f32",
+    "bytesHex": "1f852b3f",
+    "value": 0.6700000166893005,
+    "what": "abdomen@mp_abbasid"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+    "rawSha256": "5b9eb74f22269095f57ef39a2da4fd991c8f4b975881eaac07a368c56286b06f",
+    "offset": 9570912,
+    "type": "f32",
+    "bytesHex": "0000e03f",
+    "value": 1.75,
+    "what": "head[3]@mp_abbasid"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_badlands\\mp_badlands\\materialgrid_win32.ebx",
+    "rawSha256": "341ee399c082ac67c8518827c02c629b60cda83e1b1a0e935054a9eb7a95b21f",
+    "offset": 9451252,
+    "type": "f32",
+    "bytesHex": "1f852b3f",
+    "value": 0.6700000166893005,
+    "what": "limb@mp_badlands"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_badlands\\mp_badlands\\materialgrid_win32.ebx",
+    "rawSha256": "341ee399c082ac67c8518827c02c629b60cda83e1b1a0e935054a9eb7a95b21f",
+    "offset": 9436596,
+    "type": "f32",
+    "bytesHex": "1f852b3f",
+    "value": 0.6700000166893005,
+    "what": "abdomen@mp_badlands"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_badlands\\mp_badlands\\materialgrid_win32.ebx",
+    "rawSha256": "341ee399c082ac67c8518827c02c629b60cda83e1b1a0e935054a9eb7a95b21f",
+    "offset": 9393496,
+    "type": "f32",
+    "bytesHex": "0000e03f",
+    "value": 1.75,
+    "what": "head[3]@mp_badlands"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\MG\\PKM\\PKM_WB.ebx",
+    "rawSha256": "f1e6657c274daea16e289cf183402bae508049954e69f5edce609c8c5b56d851",
+    "offset": 1408,
+    "type": "i32",
+    "bytesHex": "0b000000",
+    "value": 11,
+    "what": "protectionIndex"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_762x54mmR_MG.ebx",
+    "rawSha256": "b268ffff6a6cd5b8d1685e3e4105609423231828b4206e276f09d46e6089461b",
+    "offset": 400,
+    "type": "u32",
+    "bytesHex": "8026001f",
+    "value": 520103552,
+    "what": "projectilePackedMaterial"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+    "rawSha256": "5b9eb74f22269095f57ef39a2da4fd991c8f4b975881eaac07a368c56286b06f",
+    "offset": 9606500,
+    "type": "f32",
+    "bytesHex": "3d0a573f",
+    "value": 0.8399999737739563,
+    "what": "limb@mp_abbasid"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+    "rawSha256": "5b9eb74f22269095f57ef39a2da4fd991c8f4b975881eaac07a368c56286b06f",
+    "offset": 9634500,
+    "type": "f32",
+    "bytesHex": "3d0a573f",
+    "value": 0.8399999737739563,
+    "what": "abdomen@mp_abbasid"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+    "rawSha256": "5b9eb74f22269095f57ef39a2da4fd991c8f4b975881eaac07a368c56286b06f",
+    "offset": 9609208,
+    "type": "f32",
+    "bytesHex": "3333b33f",
+    "value": 1.399999976158142,
+    "what": "head[11]@mp_abbasid"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_badlands\\mp_badlands\\materialgrid_win32.ebx",
+    "rawSha256": "341ee399c082ac67c8518827c02c629b60cda83e1b1a0e935054a9eb7a95b21f",
+    "offset": 9428316,
+    "type": "f32",
+    "bytesHex": "3d0a573f",
+    "value": 0.8399999737739563,
+    "what": "limb@mp_badlands"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_badlands\\mp_badlands\\materialgrid_win32.ebx",
+    "rawSha256": "341ee399c082ac67c8518827c02c629b60cda83e1b1a0e935054a9eb7a95b21f",
+    "offset": 9455204,
+    "type": "f32",
+    "bytesHex": "3d0a573f",
+    "value": 0.8399999737739563,
+    "what": "abdomen@mp_badlands"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_badlands\\mp_badlands\\materialgrid_win32.ebx",
+    "rawSha256": "341ee399c082ac67c8518827c02c629b60cda83e1b1a0e935054a9eb7a95b21f",
+    "offset": 9430928,
+    "type": "f32",
+    "bytesHex": "3333b33f",
+    "value": 1.399999976158142,
+    "what": "head[11]@mp_badlands"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\SMG\\RSAR999\\RSAR999_WB.ebx",
+    "rawSha256": "4ddb8c581a7da362f01b40c4133687095a6f91d2027ecdded7eb05e2695c0f22",
+    "offset": 640,
+    "type": "i32",
+    "bytesHex": "0b000000",
+    "value": 11,
+    "what": "protectionIndex"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_762x39mm_PDW.ebx",
+    "rawSha256": "12f4dfd0d47601849567a7eade4f0af49e191eb77e77e88f9e973920fb006fe3",
+    "offset": 464,
+    "type": "u32",
+    "bytesHex": "8024d01e",
+    "value": 516957312,
+    "what": "projectilePackedMaterial"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+    "rawSha256": "5b9eb74f22269095f57ef39a2da4fd991c8f4b975881eaac07a368c56286b06f",
+    "offset": 9605348,
+    "type": "f32",
+    "bytesHex": "3d0a573f",
+    "value": 0.8399999737739563,
+    "what": "limb@mp_abbasid"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+    "rawSha256": "5b9eb74f22269095f57ef39a2da4fd991c8f4b975881eaac07a368c56286b06f",
+    "offset": 9591596,
+    "type": "f32",
+    "bytesHex": "3d0a573f",
+    "value": 0.8399999737739563,
+    "what": "abdomen@mp_abbasid"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+    "rawSha256": "5b9eb74f22269095f57ef39a2da4fd991c8f4b975881eaac07a368c56286b06f",
+    "offset": 9625440,
+    "type": "f32",
+    "bytesHex": "3333b33f",
+    "value": 1.399999976158142,
+    "what": "head[11]@mp_abbasid"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_badlands\\mp_badlands\\materialgrid_win32.ebx",
+    "rawSha256": "341ee399c082ac67c8518827c02c629b60cda83e1b1a0e935054a9eb7a95b21f",
+    "offset": 9427172,
+    "type": "f32",
+    "bytesHex": "3d0a573f",
+    "value": 0.8399999737739563,
+    "what": "limb@mp_badlands"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_badlands\\mp_badlands\\materialgrid_win32.ebx",
+    "rawSha256": "341ee399c082ac67c8518827c02c629b60cda83e1b1a0e935054a9eb7a95b21f",
+    "offset": 9413652,
+    "type": "f32",
+    "bytesHex": "3d0a573f",
+    "value": 0.8399999737739563,
+    "what": "abdomen@mp_badlands"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_badlands\\mp_badlands\\materialgrid_win32.ebx",
+    "rawSha256": "341ee399c082ac67c8518827c02c629b60cda83e1b1a0e935054a9eb7a95b21f",
+    "offset": 9446360,
+    "type": "f32",
+    "bytesHex": "3333b33f",
+    "value": 1.399999976158142,
+    "what": "head[11]@mp_badlands"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\M4A1\\M4A1_WB.ebx",
+    "rawSha256": "deeb876b845b66b7bca5f3350e9c399bbc02b83d05d19493a3e35b71c642bee9",
+    "offset": 1408,
+    "type": "i32",
+    "bytesHex": "0b000000",
+    "value": 11,
+    "what": "protectionIndex"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_556x45mmNATO_Carbine.ebx",
+    "rawSha256": "6f3d4ed4dfdd563f2dcac4aee4a4923836d11fd3178dcbdfa4ee662120e34f25",
+    "offset": 464,
+    "type": "u32",
+    "bytesHex": "80254011",
+    "value": 289416576,
+    "what": "projectilePackedMaterial"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+    "rawSha256": "5b9eb74f22269095f57ef39a2da4fd991c8f4b975881eaac07a368c56286b06f",
+    "offset": 9634996,
+    "type": "f32",
+    "bytesHex": "3d0a573f",
+    "value": 0.8399999737739563,
+    "what": "limb@mp_abbasid"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+    "rawSha256": "5b9eb74f22269095f57ef39a2da4fd991c8f4b975881eaac07a368c56286b06f",
+    "offset": 9607772,
+    "type": "f32",
+    "bytesHex": "3d0a573f",
+    "value": 0.8399999737739563,
+    "what": "abdomen@mp_abbasid"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+    "rawSha256": "5b9eb74f22269095f57ef39a2da4fd991c8f4b975881eaac07a368c56286b06f",
+    "offset": 9580928,
+    "type": "f32",
+    "bytesHex": "3333b33f",
+    "value": 1.399999976158142,
+    "what": "head[11]@mp_abbasid"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_badlands\\mp_badlands\\materialgrid_win32.ebx",
+    "rawSha256": "341ee399c082ac67c8518827c02c629b60cda83e1b1a0e935054a9eb7a95b21f",
+    "offset": 9455644,
+    "type": "f32",
+    "bytesHex": "3d0a573f",
+    "value": 0.8399999737739563,
+    "what": "limb@mp_badlands"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_badlands\\mp_badlands\\materialgrid_win32.ebx",
+    "rawSha256": "341ee399c082ac67c8518827c02c629b60cda83e1b1a0e935054a9eb7a95b21f",
+    "offset": 9429556,
+    "type": "f32",
+    "bytesHex": "3d0a573f",
+    "value": 0.8399999737739563,
+    "what": "abdomen@mp_badlands"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_badlands\\mp_badlands\\materialgrid_win32.ebx",
+    "rawSha256": "341ee399c082ac67c8518827c02c629b60cda83e1b1a0e935054a9eb7a95b21f",
+    "offset": 9403256,
+    "type": "f32",
+    "bytesHex": "3333b33f",
+    "value": 1.399999976158142,
+    "what": "head[11]@mp_badlands"
+   }
+  ]
+ },
+ "inference": [
+  "The ELR-40 WB Ammo block (capacity 1, 50 magazines) has the same capacity as the Single Shot package (1, 49 magazines) and is read as the bare receiver; the Std package then supplies the 7 Rnd magazine as nominal 7 + 1 chambered, the same relation as the other bolt-actions (inferred).",
+  "The default Std and Fast packages hold no Ammo struct on the six launch bolt-actions, so their effective capacity is read from the WB Ammo struct (inferred from the site convention; native composition not decoded).",
+  "Packages map to site choices by attachment name and nominal count.",
+  "Class-trait membership is inferred from raw GUID occurrences following the L100-L104 route; class traits remain unmodeled on the site.",
+  "Heat: HeatPerBullet 0 is read as no per-shot heat accumulation configured on the four weapons (stored value only)."
+ ],
+ "unresolved": [
+  "Native use of the default-package-without-Ammo-struct rule: the source shows the Std/Fast shared packages hold no Ammo struct; that the game then keeps the WB Ammo struct, and which Ammo struct a weapon uses once a package is applied, is not decoded (site convention treats the WB capacity as the default).",
+  "Meaning of NumberOfMagazines (50 on the CDX40 WB, 7 on the Std package) and InitialAmmo -1 remains unresolved (L110 convention).",
+  "Mapping of the four ELR-40 packages to site choices (7_rnd, 1_rnd, 5_rnd, 7_fast) is by attachment name and nominal count, not by a source label: Regular -> 7_rnd, Compact1 -> 1_rnd, Compact2 -> 5_rnd, Fast -> 7_fast.",
+  "Class-trait membership is a raw GUID byte occurrence (import table / GS binding key) plus the L100-L104 reading; native activation (class plus signature weapon) is not decoded. A byte match does not prove runtime use.",
+  "Heat: HeatPerBullet 0 is a stored value; whether any other source heats these weapons or what the OverHeat block does natively is unresolved (L35 limits).",
+  "Limb and head multipliers use the base projectile only; ammunition-attachment projectile swaps for the four weapons were not re-derived here (stage 9 B did).",
+  "Material grid reads use the repo bounded reader (frosty-hit-zones.py MaterialGrid) on two levels (mp_abbasid, mp_badlands); other levels were not read. Soldier bone materials (Head 24, Spine 25, limbs 26) are taken from the L99/hit-zone convention, not re-read."
+ ],
+ "siteImpact": "No site change. (a) data/weapons.json elr40 mag 8 equals the source Std 7 Rnd package capacity 8 (nominal 7 + 1 chambered); WEAPON_MAG.elr40 default 7_rnd and its nominal values 1, 5, 7, 7 are the menu nominals. The WB value 1 (NumberOfMagazines 50) is the same capacity as the Single Shot package (1 / 49), read as the bare receiver. (b) data/hit_zones.json mk24 protectionIndex 12 and headshot 1.57 equal the source. (g) heat, class-trait membership and limb values for the four Season 5 weapons match the site (no heat in the model; class traits remain unmodeled, as for the launch weapons).",
+ "evidence": {
+  "buildIdentity": {
+   "head": 5382784,
+   "descriptorsSha256": "c477622c1074a9a4ea612cf9c60e26f666129721c733174192c121c808873ff6",
+   "rawRoots": [
+    "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw",
+    "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw"
+   ],
+   "hotfixCheck": "All 155 cited raw files are byte-identical in client-new-check-2026-10-15 and -2026-10-22 (310 comparisons, 0 differences); see c3_hotfix_compare.json."
+  },
+  "commands": [
+   {
+    "label": "reconstructed (run from the lead folder; originally run through Bash)",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065A",
+    "executable": "python",
+    "argv": [
+     "a1_join.py"
+    ]
+   },
+   {
+    "label": "reconstructed",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065A",
+    "executable": "python",
+    "argv": [
+     "a2_extract.py"
+    ]
+   },
+   {
+    "label": "reconstructed; lib.rawchecks runs scripts/frosty-raw-check.py --manifest a3_rawchecks.manifest.json --out a3_rawchecks.json",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065A",
+    "executable": "python",
+    "argv": [
+     "a3_rawcheck.py"
+    ]
+   },
+   {
+    "label": "reconstructed",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065A",
+    "executable": "python",
+    "argv": [
+     "a4_table.py"
+    ]
+   },
+   {
+    "label": "reconstructed (also runs frosty-raw-check for b1_rawchecks.json and b2_rawchecks.json)",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065A",
+    "executable": "python",
+    "argv": [
+     "b1_protection.py"
+    ]
+   },
+   {
+    "label": "reconstructed",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065A",
+    "executable": "python",
+    "argv": [
+     "b2_grid.py"
+    ]
+   },
+   {
+    "label": "reconstructed",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065A",
+    "executable": "python",
+    "argv": [
+     "g1_heat.py"
+    ]
+   },
+   {
+    "label": "reconstructed",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065A",
+    "executable": "python",
+    "argv": [
+     "g1b_heat_raw.py"
+    ]
+   },
+   {
+    "label": "reconstructed",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065A",
+    "executable": "python",
+    "argv": [
+     "g2_traits.py"
+    ]
+   },
+   {
+    "label": "reconstructed",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065A",
+    "executable": "python",
+    "argv": [
+     "g2b_rawcheck.py"
+    ]
+   },
+   {
+    "label": "reconstructed",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065A",
+    "executable": "python",
+    "argv": [
+     "g3_limb.py"
+    ]
+   },
+   {
+    "label": "reconstructed",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065A",
+    "executable": "python",
+    "argv": [
+     "c1_result.py"
+    ]
+   },
+   {
+    "label": "reconstructed",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065A",
+    "executable": "python",
+    "argv": [
+     "c2_result.py"
+    ]
+   },
+   {
+    "label": "reconstructed",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065A",
+    "executable": "python",
+    "argv": [
+     "c3_hotfix.py"
+    ]
+   },
+   {
+    "label": "reconstructed",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065A",
+    "executable": "python",
+    "argv": [
+     "c4_final.py"
+    ]
+   },
+   {
+    "label": "actual exploratory command (output work/m2010_ability.json)",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065A",
+    "executable": "python",
+    "argv": [
+     "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-ebx-decode.py",
+     "--descriptors",
+     "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\toolchain\\SharedTypeDescriptors.ebx",
+     "--ebx",
+     "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\BoltAction\\M2010ESR\\M2010ESR_Ability.ebx",
+     "--root",
+     "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw",
+     "--out",
+     "work/m2010_ability.json"
+    ]
+   },
+   {
+    "label": "receipt check",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065A",
+    "executable": "python",
+    "argv": [
+     "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-records.py",
+     "check-receipt",
+     "draft-receipt.json"
+    ]
+   }
+  ],
+  "outputs": [
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065A\\a1_join.json",
+    "sha256": "666a5e4c4bf4aa995bd1e7d14be952be0374f57a3832af5676214b9ec47c6c3c"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065A\\a2_extract.json",
+    "sha256": "b3dce79958bbd231020e38967ca7b7c4dab2c673ae3a226735f90d5919ba8897"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065A\\a3_rawchecks.json",
+    "sha256": "fdd018eecf817313f38764ae2419bd4f970812d5bb7d133d6bca515918efb98f"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065A\\a4_table.json",
+    "sha256": "60d8760c8578849afb623d7bde0473313f7f741164cc775ae066e2a85f62dc83"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065A\\b1_info.json",
+    "sha256": "753aac95fb6ddc3eb9f2ea872aa89a52332dfc96d71f93eab00b8536f4f81f50"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065A\\b1_manifest_in.json",
+    "sha256": "6e929f98000bb7a1edc77693aa09b29e02ada08ba4a9edfd1a10364a035d86b4"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065A\\b1_rawchecks.json",
+    "sha256": "5a0a23646fba3ab206e0621fe53a51ab7019480d6fc3965a3084dbd7dcbfe7cf"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065A\\b2_cells.json",
+    "sha256": "d326512dfb3703191f5e3fb8823b84321ba3d57f0e4091911c0da9134ce067f4"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065A\\b2_grid.json",
+    "sha256": "eb7007e5ce8f411d0557d84eab82a8f542c5daefb7dc7d440f2b5d913cab3ed5"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065A\\b2_rawchecks.json",
+    "sha256": "77a37a20b6b876b2adbcfd6fc8c2b9529831b63dc643967a1b7bc8ef0fa0a1ba"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065A\\c1_a_rows.json",
+    "sha256": "888bb58971727a0c0e2a160015ed034a8ba4ca0a9a57c745c03c5a58ad37c088"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065A\\c2_rows.json",
+    "sha256": "33a80de2a229e84732fb0423a58471794867cf9db64c9b516e88d022ac1166a8"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065A\\c3_hotfix_compare.json",
+    "sha256": "868d5be08f7a61df09da9e1fbab48fe9ddcf54e1d78dca015f89c43e7a969556"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065A\\g1_heat.json",
+    "sha256": "5ba4f7506d29b7da51f288e95f4c6fd5b3cf495d259c6f2ecd11ad0d19042a77"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065A\\g1b_rawchecks.json",
+    "sha256": "e4dc4827bc556f3e6631392dc70c767f6bae5a4126113617fb400fe309dccb84"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065A\\g2_rawchecks.json",
+    "sha256": "ddbd592d218aee8f9e1626baf30bd121a0d853709563e162d548e16b8c2596e5"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065A\\g2_traits.json",
+    "sha256": "661c83b71cae30b13f8b676ec5a49fc79a4e583468cc8542af0a598afe11c779"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065A\\g3_limb.json",
+    "sha256": "5461c0e8465d6ae5e53ffdc439edf0ded73c869d55a8625b1c81b209ed3504c5"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065A\\g3_rawchecks.json",
+    "sha256": "eaedb90158bed83a61889d98e244189f839887f3027b1521616be1110030b110"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065A\\l4065a-result.json",
+    "sha256": "e885f020344658e0bd101a906701a30b4983089e26a1934fb81f9bf9f55ca87a"
+   }
+  ],
+  "helpers": [
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065A\\a1_join.py",
+    "sha256": "36468a768692093b25f9a629a6b78ef590b98a8900741b7ac28b6e17aa58c190"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065A\\a2_extract.py",
+    "sha256": "bdfc2c972cd17c0e38d6239832f3260ea1c98c40c7ac51b5dd811ddc36a4db9f"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065A\\a3_rawcheck.py",
+    "sha256": "6c0dbe21bcca7c7c4453a482c92e3e5f6f005f5682e0fd2ae0651ba8385c2431"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065A\\a4_table.py",
+    "sha256": "b92196a01746bff78559545a4c3bcea43c6df8e298795cfb859807c59b68fffc"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065A\\b1_protection.py",
+    "sha256": "1e79ccb9db47e91d135adf43d6ec8732584f22cd3363eba9d715806e52086ac0"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065A\\b2_grid.py",
+    "sha256": "e86cd19d0060f2a17022be8bbdfc85dbf1aa939bde093e38f58c40643040f1c5"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065A\\c1_result.py",
+    "sha256": "bf599225673a06685d8fe8536a972b00a606ea68ef987551d546326904c857df"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065A\\c2_result.py",
+    "sha256": "80d8182508d1aef23ba98b21fe1e6f7f68bf64ecacf6f5ff105dcb850662ba35"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065A\\c3_hotfix.py",
+    "sha256": "75428e284ce5d9da84391f0f3dc3b0e88c53b9f105da9ec0ab60a471d91ef5b4"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065A\\c4_final.py",
+    "sha256": "2d0d7c2d5f5319e315495a33dc85ac2115f2ab25245033b3545daa1bb5dc6969"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065A\\c5_receipt.py",
+    "sha256": "d6742d9574d4c793f632b8355ab345cc682591acd12e2836d83258d1b49e3dfe"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065A\\g1_heat.py",
+    "sha256": "c773507724ee33d9b9947f43ab799df1250c65e1d0067b7c30e209ab05fa068a"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065A\\g1b_heat_raw.py",
+    "sha256": "e6bd410635318c05ee501c87a7226fa7491a530422c93b53a4160479110e81e8"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065A\\g2_traits.py",
+    "sha256": "089a5e5bf590fd1be89c85b87a156fe598a3e2794034cd8549c5a9b0f88f0a47"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065A\\g2b_rawcheck.py",
+    "sha256": "886c44073e8f1c65b93f15016f0f689d5374a8f497686a81d7d3f4b8405eb631"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065A\\g3_limb.py",
+    "sha256": "77db559b35b454594d6e6ea9516ce7bf87c1358d5defabebe0dc85805565dfa9"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065A\\lib.py",
+    "sha256": "f7a8bcadd45082b27806a339531df1962a1c2a03cdfb127f5a1ed271a7a89e9f"
+   }
+  ],
+  "repoScripts": [
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+    "sha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-ebx-decode.py",
+    "sha256": "149d39cdc3aaef39d7166ad67a8e4651049c7e7bd11efeebdd41e1a9e00d3fc5"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-hit-zones.py",
+    "sha256": "8b23354f4c2ee60e46c304602dcee401190859945ca77defabdbd34018e5cc4e"
+   }
+  ],
+  "rawRoots": [
+   "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw",
+   "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw"
+  ],
+  "note": "The command history was reconstructed from the saved scripts; it is not a record of reruns."
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-30",
+  "build": "2.1.1.0",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L4055",
+    "title": "ELR-40 magazine: site mag 8 is the 7 Rnd package capacity (nominal 7 + 1)",
+    "status": "finding",
+    "summary": "ELR-40 magazine: the Std 7 Rnd package WPM_MAG_Std_CDX40_W05 reads MagazineCapacity 8 and NumberOfMagazines 7, so site mag 8 is nominal 7 + 1 as on the other six bolt-actions (WB capacity nominal + 1 on all six); the CDX40_WB value 1 (50 magazines) is the bare receiver, equal to the Single Shot package block (1 / 49, nominal + 0).",
+    "reopenWhen": "A package with a different capacity appears, the CDX40 packages change, or an in-game ELR-40 magazine count differs from 7 + 1."
+   },
+   {
+    "id": "L4065",
+    "title": "Season 5 loose ends: Mk 24 protection index 12, heat, class-trait membership and limb arrays",
+    "status": "finding",
+    "summary": "Mk 24 WB index 12 selects head 1.57 (index 11 gives 1.4 on the M4A1) and the site equals it; the four Season 5 WB files carry the default OverHeat block (HeatPerBullet 0), each holds its class-trait byte markers (Assault, Recon, Support, Engineer), and the base-projectile limb arrays (0.84, 0.67, 0.84, 0.84) equal the site.",
+    "reopenWhen": "A Season 5 weapon file or the material grids change, or an in-game headshot, heat or limb measurement disagrees with these stored values."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Hardware/Weapons/_WeaponModifiers/_Magazine/Magazine/WPM_MAG_Std_CDX40_W05",
+    "format": "raw-ebx",
+    "sha256": "9847e8f5a58988099f6f4a21d38f35c56369b41353e06cdd6df864ce6d4eb8d9",
+    "question": "MagazineCapacity and NumberOfMagazines of the ELR-40 default (7 Rnd) package",
+    "result": "useful",
+    "conclusion": "Class_e7d2410a: capacity 8, NumberOfMagazines 7, InitialAmmo -1: nominal 7 + 1."
+   },
+   {
+    "path": "Common/Hardware/Weapons/_WeaponModifiers/_Magazine/CompactMagazine/WPM_MAG_001Cpt1_CDX40_W05",
+    "format": "raw-ebx",
+    "sha256": "248f5d0cc18cc8aa1c661d7f743b4be01f8ceef53bc595dfd1677f6bdef8ec73",
+    "question": "Single Shot package capacity",
+    "result": "useful",
+    "conclusion": "capacity 1, NumberOfMagazines 49 (nominal + 0)."
+   },
+   {
+    "path": "Common/Hardware/Weapons/_WeaponModifiers/_Magazine/CompactMagazine/WPM_MAG_005Cpt2_CDX40_W05",
+    "format": "raw-ebx",
+    "sha256": "339bf6fd57dec341d15ecce84344e2584981a65725981dea0184d81667fd894e",
+    "question": "5 Rnd package capacity",
+    "result": "useful",
+    "conclusion": "capacity 6, NumberOfMagazines 8 (nominal + 1)."
+   },
+   {
+    "path": "Common/Hardware/Weapons/_WeaponModifiers/_Magazine/FastMagazine/WPM_MAG_Fast_CDX40_W05",
+    "format": "raw-ebx",
+    "sha256": "7e845fb0ddd5f5c1f6fac3f6606c74493ef9f49eedd6bfc62d058b4ccfa100d3",
+    "question": "7 Fast package capacity",
+    "result": "useful",
+    "conclusion": "capacity 8, NumberOfMagazines 7 (nominal + 1)."
+   },
+   {
+    "path": "Common/Hardware/Weapons/_WeaponModifiers/_Magazine/Magazine/WPM_MAG_Std_W05",
+    "format": "raw-ebx",
+    "sha256": "1bcb594dca0eeee1591046a5173a5445f234fb51e1afb459765632091a54464f",
+    "question": "Default magazine package of the six launch bolt-actions and DB-12",
+    "result": "useful",
+    "conclusion": "Holds no Ammo struct; the default capacity is the WB Ammo struct."
+   },
+   {
+    "path": "Common/Hardware/Weapons/_WeaponModifiers/_Magazine/ExtendedMagazine/WPM_MAG_008Ext1_M2010ESR_W25",
+    "format": "raw-ebx",
+    "sha256": "935e0ca229d511cb73a02c7fe6263076b4ac38d669cf756641cf606d8f968c49",
+    "question": "M2010 ESR 8 Rnd package capacity (control)",
+    "result": "useful",
+    "conclusion": "capacity 9 = 8 + 1."
+   },
+   {
+    "path": "Common/Hardware/Weapons/BoltAction/CDX40/CDX40_WB",
+    "format": "raw-ebx",
+    "sha256": "ec78973b271ca1a0c4ed201eb442e8f1717c01006bab04164b49238d44fa605b",
+    "question": "WB Ammo struct and OverHeat block of the ELR-40",
+    "result": "useful",
+    "conclusion": "Ammo 1 / 50; OverHeat default block; Recon trait GUIDs present."
+   },
+   {
+    "path": "Common/Hardware/Weapons/BoltAction/M2010ESR/M2010ESR_WB",
+    "format": "raw-ebx",
+    "sha256": "949163d462c1720063eff1e08f024d0991ebd1dc2cc098e40fc433e66e165dfa",
+    "question": "M2010 ESR WB Ammo capacity (control)",
+    "result": "useful",
+    "conclusion": "capacity 6 = site mag."
+   },
+   {
+    "path": "Common/Hardware/Weapons/Shotgun/DP12/DP12_WB",
+    "format": "raw-ebx",
+    "sha256": "c2e2dc3355828fdb41fb05f2098632a7f9e20330847d2ff186b6a0c9758dfe4d",
+    "question": "DB-12 WB Ammo capacity (control)",
+    "result": "useful",
+    "conclusion": "capacity 16 = nominal 14 + 2."
+   },
+   {
+    "path": "Common/Hardware/Weapons/AssaultRifle/MRGGA/MRGGA_WB",
+    "format": "raw-ebx",
+    "sha256": "362be4ae90e4168e4f709a8ea9879f06af2052f3cc90cc4a21c53054dc576492",
+    "question": "Mk 24 protection index, projectile, heat block and class-trait import",
+    "result": "useful",
+    "conclusion": "Index 12, PD_65x48mm, default heat block, WM_AssaultTrait import."
+   },
+   {
+    "path": "Common/Hardware/Weapons/Carbine/M4A1/M4A1_WB",
+    "format": "raw-ebx",
+    "sha256": "deeb876b845b66b7bca5f3350e9c399bbc02b83d05d19493a3e35b71c642bee9",
+    "question": "M4A1 protection index control",
+    "result": "useful",
+    "conclusion": "Index 11."
+   },
+   {
+    "path": "Common/Hardware/Weapons/_Bullets/PD_65x48mm",
+    "format": "raw-ebx",
+    "sha256": "ef9bd44a87eca7cace13c2d0bc53fcb27825bf8a7d71bcd973228e3c9d98dc32",
+    "question": "Mk 24 projectile material",
+    "result": "useful",
+    "conclusion": "Packed material 0x1f002680 (496)."
+   },
+   {
+    "path": "Common/Hardware/Weapons/_Bullets/PD_556x45mmNATO_Carbine",
+    "format": "raw-ebx",
+    "sha256": "6f3d4ed4dfdd563f2dcac4aee4a4923836d11fd3178dcbdfa4ee662120e34f25",
+    "question": "M4A1 projectile material",
+    "result": "useful",
+    "conclusion": "Packed material 0x11402580 (276)."
+   },
+   {
+    "path": "Common/Hardware/Weapons/MG/PKM/PKM_WB",
+    "format": "raw-ebx",
+    "sha256": "f1e6657c274daea16e289cf183402bae508049954e69f5edce609c8c5b56d851",
+    "question": "Z84M heat block, class trait, projectile",
+    "result": "useful",
+    "conclusion": "Default heat block; WPM_SupportTrait; PD_762x54mmR_MG."
+   },
+   {
+    "path": "Common/Hardware/Weapons/MG/PKM/GS_PKM",
+    "format": "raw-ebx",
+    "sha256": "e9fc89cb7734ec8a75a46af0180f13a582676fe9b1b35c3844caf52c97a51393",
+    "question": "Z84M Support trait binding key",
+    "result": "useful",
+    "conclusion": "GID_ADSTime_Trait_P10 key 8430ed47 present."
+   },
+   {
+    "path": "Common/Hardware/Weapons/SMG/RSAR999/RSAR999_WB",
+    "format": "raw-ebx",
+    "sha256": "4ddb8c581a7da362f01b40c4133687095a6f91d2027ecdded7eb05e2695c0f22",
+    "question": "RSPR heat block and projectile",
+    "result": "useful",
+    "conclusion": "Default heat block; PD_762x39mm_PDW."
+   },
+   {
+    "path": "Common/Hardware/Weapons/SMG/RSAR999/GS_RSAR999",
+    "format": "raw-ebx",
+    "sha256": "940093c3ed4c660e93a100c98f05bd9738dea027764124a6d0bb5f841683b491",
+    "question": "RSPR Engineer trait binding key",
+    "result": "useful",
+    "conclusion": "GDM_Array_HipDispersion_TRAIT key d821968e present."
+   },
+   {
+    "path": "Common/Hardware/Weapons/MG/M27IAR/M27IAR_WB",
+    "format": "raw-ebx",
+    "sha256": "2cc8bd7609e80cd48c91449bef172d71bd315dfb6de6b7ab79943163bdd2a9e2",
+    "question": "Heat naming control",
+    "result": "useful",
+    "conclusion": "Heat values reproduce L35."
+   },
+   {
+    "path": "Common/Hardware/Weapons/MG/M250/M250_WB",
+    "format": "raw-ebx",
+    "sha256": "1ca410a2a9d8638b2c5dd8d79aec66023adedddc2f25a2ed256edd30d6371ded",
+    "question": "Default heat block reference",
+    "result": "useful",
+    "conclusion": "Default heat block."
+   },
+   {
+    "path": "Common/Gameplay/InRoundProgression/WeaponTraits/Assault/WM_AssaultTrait",
+    "format": "raw-ebx",
+    "sha256": "43581673c4e6fd4c2d89788c09c55f92d9e5de41a4a6ec819b3a1cb68a6c04dc",
+    "question": "Class-trait asset whose file GUID is searched in WB files",
+    "result": "useful",
+    "conclusion": "File GUID identified; sha equals the 1.4.3.0 L100-L104 raw check where one exists."
+   },
+   {
+    "path": "Common/Gameplay/InRoundProgression/WeaponTraits/Recon/WM_ReconTrait",
+    "format": "raw-ebx",
+    "sha256": "17ef550ac8e6abebda0d9c366d91185dd870df915e9a8054006416f3240a95a7",
+    "question": "Class-trait asset whose file GUID is searched in WB files",
+    "result": "useful",
+    "conclusion": "File GUID identified; sha equals the 1.4.3.0 L100-L104 raw check where one exists."
+   },
+   {
+    "path": "Common/Gameplay/InRoundProgression/WeaponTraits/Recon/WPM_SwayPenalty",
+    "format": "raw-ebx",
+    "sha256": "c54cbd97dbda932c99801b27aa3a791355b0df18eddd776bd747a5719e4dce15",
+    "question": "Class-trait asset whose file GUID is searched in WB files",
+    "result": "useful",
+    "conclusion": "File GUID identified; sha equals the 1.4.3.0 L100-L104 raw check where one exists."
+   },
+   {
+    "path": "Common/Gameplay/InRoundProgression/WeaponTraits/Support/WPM_SupportTrait",
+    "format": "raw-ebx",
+    "sha256": "95d987268211b677244ff53accb6e2a958ad3fb6f65ab39dd7b406d8aa667308",
+    "question": "Class-trait asset whose file GUID is searched in WB files",
+    "result": "useful",
+    "conclusion": "File GUID identified; sha equals the 1.4.3.0 L100-L104 raw check where one exists."
+   },
+   {
+    "path": "Common/Hardware/Weapons/_Bullets/PD_.375EnABELR_Match",
+    "format": "raw-ebx",
+    "sha256": "eeb72517724e100411907ae30ce231cf9ec3f47534f345903ecc3a4ebe2f3c08",
+    "question": "Base projectile material of elr40",
+    "result": "useful",
+    "conclusion": "Material 290; limb [0.67]."
+   },
+   {
+    "path": "Common/Hardware/Weapons/_Bullets/PD_762x54mmR_MG",
+    "format": "raw-ebx",
+    "sha256": "b268ffff6a6cd5b8d1685e3e4105609423231828b4206e276f09d46e6089461b",
+    "question": "Base projectile material of z84m",
+    "result": "useful",
+    "conclusion": "Material 496; limb [0.84]."
+   },
+   {
+    "path": "Common/Hardware/Weapons/_Bullets/PD_762x39mm_PDW",
+    "format": "raw-ebx",
+    "sha256": "12f4dfd0d47601849567a7eade4f0af49e191eb77e77e88f9e973920fb006fe3",
+    "question": "Base projectile material of rspr",
+    "result": "useful",
+    "conclusion": "Material 493; limb [0.84]."
+   },
+   {
+    "path": "Game/GlacierMP/levels/mp_abbasid/mp_abbasid/materialgrid_win32",
+    "format": "raw-ebx",
+    "sha256": "5b9eb74f22269095f57ef39a2da4fd991c8f4b975881eaac07a368c56286b06f",
+    "question": "Head and limb protection arrays for materials 496, 276, 290, 493 against head 24 / abdomen 25 / limb 26",
+    "result": "useful",
+    "conclusion": "Read through the repo bounded MaterialGrid reader; head array [1,1.34,1.5,1.75,1.8,1,1,1,1,1,1,1.4,1.57,1.8,1.8] for the cells read; limb 0.84 / 0.67; both levels agree."
+   },
+   {
+    "path": "Game/GlacierMP/levels/mp_badlands/mp_badlands/materialgrid_win32",
+    "format": "raw-ebx",
+    "sha256": "341ee399c082ac67c8518827c02c629b60cda83e1b1a0e935054a9eb7a95b21f",
+    "question": "Head and limb protection arrays for materials 496, 276, 290, 493 against head 24 / abdomen 25 / limb 26",
+    "result": "useful",
+    "conclusion": "Read through the repo bounded MaterialGrid reader; head array [1,1.34,1.5,1.75,1.8,1,1,1,1,1,1,1.4,1.57,1.8,1.8] for the cells read; limb 0.84 / 0.67; both levels agree."
+   }
+  ],
+  "site": [
+   {
+    "pointer": "data/weapons.json:/[id=elr40]/mag",
+    "value": 8,
+    "relation": "supports"
+   },
+   {
+    "pointer": "data/hit_zones.json:/weapons/mk24/protectionIndex",
+    "value": 12,
+    "relation": "supports"
+   },
+   {
+    "pointer": "data/hit_zones.json:/weapons/mk24/headshot",
+    "value": 1.57,
+    "relation": "supports"
+   },
+   {
+    "pointer": "data/hit_zones.json:/weapons/elr40/limb",
+    "value": 0.67,
+    "relation": "supports"
+   }
+  ]
+ },
+ "run": {
+  "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps",
+  "leadFolder": "L4065A"
+ }
+}

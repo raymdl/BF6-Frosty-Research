@@ -1,0 +1,613 @@
+{
+ "lead": "L4070",
+ "status": "proposal",
+ "build": "2.1.1.0",
+ "question": "Per-weapon class-trait values (on-class and off-class) for all 67 site weapons from L100-L104 and L4056 on 2.1.1.0, what the site shows, and a validated proposal for a class-trait chip.",
+ "sourceFacts": {
+  "control": {
+   "description": "Recon sniper sway operands x2.25 (WME_WSway_M10) and x0.4444 (WME_WSway_P10) raw-check at the cited offsets (156, Field_90fd0310) on 2.1.1.0; all 11 operand reads also reproduced",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\Sway\\WME_WSway_P10.ebx",
+     "rawSha256": "bf1e0e851ce433ed864fbe0b415fde7965254a5f54b36d8c921c71c1c9d78acb",
+     "offset": 156,
+     "type": "f32",
+     "bytesHex": "378ee33e",
+     "value": 0.4444443881511688,
+     "label": "CONTROL P10 sway"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\Sway\\WME_WSway_M10.ebx",
+     "rawSha256": "57bd9eacc37badfe6b855c90527a46e3cafa6b7c8a570835e65d4b1cdec7e062",
+     "offset": 156,
+     "type": "f32",
+     "bytesHex": "00001040",
+     "value": 2.25,
+     "label": "CONTROL M10 sway"
+    }
+   ]
+  },
+  "traitOperandRawChecks": [
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\Sway\\WME_WSway_P10.ebx",
+    "rawSha256": "bf1e0e851ce433ed864fbe0b415fde7965254a5f54b36d8c921c71c1c9d78acb",
+    "offset": 156,
+    "type": "f32",
+    "bytesHex": "378ee33e",
+    "value": 0.4444443881511688,
+    "label": "CONTROL P10 sway"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\Sway\\WME_WSway_M10.ebx",
+    "rawSha256": "57bd9eacc37badfe6b855c90527a46e3cafa6b7c8a570835e65d4b1cdec7e062",
+    "offset": 156,
+    "type": "f32",
+    "bytesHex": "00001040",
+    "value": 2.25,
+    "label": "CONTROL M10 sway"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Gameplay\\InRoundProgression\\WeaponTraits\\Assault\\WM_AssaultTrait.ebx",
+    "rawSha256": "43581673c4e6fd4c2d89788c09c55f92d9e5de41a4a6ec819b3a1cb68a6c04dc",
+    "offset": 152,
+    "type": "i32",
+    "bytesHex": "01000000",
+    "value": 1,
+    "label": "assault sprint rec"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Gameplay\\InRoundProgression\\WeaponTraits\\Assault\\WM_AssaultTrait.ebx",
+    "rawSha256": "43581673c4e6fd4c2d89788c09c55f92d9e5de41a4a6ec819b3a1cb68a6c04dc",
+    "offset": 296,
+    "type": "i32",
+    "bytesHex": "01000000",
+    "value": 1,
+    "label": "assault deploy"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Gameplay\\InRoundProgression\\WeaponTraits\\Assault\\WM_AssaultTrait.ebx",
+    "rawSha256": "43581673c4e6fd4c2d89788c09c55f92d9e5de41a4a6ec819b3a1cb68a6c04dc",
+    "offset": 356,
+    "type": "guid",
+    "bytesHex": "ef98295240a90c489550b5712f737064",
+    "value": "522998ef-a940-480c-9550-b5712f737064",
+    "label": "assault selector guid"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\ADSTime\\GID_ADSTime_Trait_P10.ebx",
+    "rawSha256": "87822e24da33ac43d42d7146378f05d26efb1e6598810f27ede79fe28f0ecfb6",
+    "offset": 96,
+    "type": "i32",
+    "bytesHex": "01000000",
+    "value": 1,
+    "label": "support GID a"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\ADSTime\\GID_ADSTime_Trait_P10.ebx",
+    "rawSha256": "87822e24da33ac43d42d7146378f05d26efb1e6598810f27ede79fe28f0ecfb6",
+    "offset": 100,
+    "type": "i32",
+    "bytesHex": "01000000",
+    "value": 1,
+    "label": "support GID b"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\ADSTime\\WME_ADSTime_Anim_P10.ebx",
+    "rawSha256": "c574e062b8a698c4ac3057bdf99613922959d130c179d729598e565ab2adb8bd",
+    "offset": 152,
+    "type": "i32",
+    "bytesHex": "01000000",
+    "value": 1,
+    "label": "support anim"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\ADSTime\\WME_ADSTime_FOV_P10.ebx",
+    "rawSha256": "26a2bf0f43292ab2887513215b893cf4955b54c20f31a5daeb1cdec82f83fee0",
+    "offset": 152,
+    "type": "i32",
+    "bytesHex": "01000000",
+    "value": 1,
+    "label": "support fov"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\HipDispersion\\GDM_Array_HipDispersion_TRAIT.ebx",
+    "rawSha256": "e501b8aa5d3fb8be73b4ece6b5cf342aa728c3568f9465a7e75568353a0e78ad",
+    "offset": 96,
+    "type": "i32",
+    "bytesHex": "01000000",
+    "value": 1,
+    "label": "engineer hip"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\HipDispersion\\GDM_Array_HipDispersion_TRAIT.ebx",
+    "rawSha256": "e501b8aa5d3fb8be73b4ece6b5cf342aa728c3568f9465a7e75568353a0e78ad",
+    "offset": 87,
+    "type": "bool",
+    "bytesHex": "00",
+    "value": false,
+    "label": "engineer flag"
+   }
+  ],
+  "season5MembershipRawChecks": [
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\MRGGA\\MRGGA_WB.ebx",
+    "rawSha256": "362be4ae90e4168e4f709a8ea9879f06af2052f3cc90cc4a21c53054dc576492",
+    "offset": 22032,
+    "type": "guid",
+    "bytesHex": "628871a60908484d8920c12170654bc6",
+    "value": "a6718862-0809-4d48-8920-c12170654bc6",
+    "label": "Season 5 membership: mk24 imports assault_WM (GUID in import table)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\Hardware\\Weapons\\BoltAction\\CDX40\\CDX40_WB.ebx",
+    "rawSha256": "ec78973b271ca1a0c4ed201eb442e8f1717c01006bab04164b49238d44fa605b",
+    "offset": 18062,
+    "type": "guid",
+    "bytesHex": "53a70b6f40354844b76214a1730b8ccc",
+    "value": "6f0ba753-3540-4448-b762-14a1730b8ccc",
+    "label": "Season 5 membership: elr40 imports recon_WM (GUID in import table)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\Hardware\\Weapons\\BoltAction\\CDX40\\CDX40_WB.ebx",
+    "rawSha256": "ec78973b271ca1a0c4ed201eb442e8f1717c01006bab04164b49238d44fa605b",
+    "offset": 22702,
+    "type": "guid",
+    "bytesHex": "ff0f11fdec453b4c9f4b6642bec43805",
+    "value": "fd110fff-45ec-4c3b-9f4b-6642bec43805",
+    "label": "Season 5 membership: elr40 imports recon_WPMpenalty (GUID in import table)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\PKM\\GS_PKM.ebx",
+    "rawSha256": "e9fc89cb7734ec8a75a46af0180f13a582676fe9b1b35c3844caf52c97a51393",
+    "offset": 13194,
+    "type": "guid",
+    "bytesHex": "a18ef86ed0f2ef4daeba050256428ae2",
+    "value": "6ef88ea1-f2d0-4def-aeba-050256428ae2",
+    "label": "Season 5 membership: z84m imports support_GID (GUID in import table)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\Hardware\\Weapons\\MG\\PKM\\PKM_WB.ebx",
+    "rawSha256": "f1e6657c274daea16e289cf183402bae508049954e69f5edce609c8c5b56d851",
+    "offset": 24404,
+    "type": "guid",
+    "bytesHex": "d54f2aefb5e15342aa2862796a6daf92",
+    "value": "ef2a4fd5-e1b5-4253-aa28-62796a6daf92",
+    "label": "Season 5 membership: z84m imports support_WPM (GUID in import table)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\Hardware\\Weapons\\SMG\\RSAR999\\GS_RSAR999.ebx",
+    "rawSha256": "940093c3ed4c660e93a100c98f05bd9738dea027764124a6d0bb5f841683b491",
+    "offset": 13236,
+    "type": "guid",
+    "bytesHex": "d729ad2ac820034483112e8204a66e0f",
+    "value": "2aad29d7-20c8-4403-8311-2e8204a66e0f",
+    "label": "Season 5 membership: rspr imports engineer_GDM (GUID in import table)"
+   }
+  ],
+  "membership": "Raw import-table GUID scan of the 67 weapons' GS/WB roots (s1_membership.json): 12 AR with WM_AssaultTrait, 11 LMG with GID_ADSTime_Trait_P10 (GS) and WPM_SupportTrait (WB), 11 SMG with GDM_Array_HipDispersion_TRAIT (GS), 7 Sniper with WM_ReconTrait and WPM_SwayPenalty (WB); no other weapon. Trait file hashes equal the 28 Sep receipt.",
+  "valuesFile": "values.json (per-weapon table)",
+  "auditCheck": {
+   "note": "Modal audit stat-screen values (Jul/Aug 2026 captures, pre-2.1.1.0) equal the site off-class default-build value for all 19 AR/LMG weapons with a name match; none equals the on-class value. Soldier class during capture is unrecorded.",
+   "pairs": [
+    [
+     "m433",
+     {
+      "sprintRecoveryMs": [
+       167,
+       52
+      ]
+     }
+    ],
+    [
+     "b36a4",
+     {
+      "sprintRecoveryMs": [
+       167,
+       55
+      ]
+     }
+    ],
+    [
+     "sor556",
+     {
+      "sprintRecoveryMs": [
+       167,
+       56
+      ]
+     }
+    ],
+    [
+     "ak4d",
+     {
+      "sprintRecoveryMs": [
+       167,
+       52
+      ]
+     }
+    ],
+    [
+     "tr7",
+     {
+      "sprintRecoveryMs": null
+     }
+    ],
+    [
+     "kord6p67",
+     {
+      "sprintRecoveryMs": [
+       167,
+       50
+      ]
+     }
+    ],
+    [
+     "nvo228e",
+     {
+      "sprintRecoveryMs": [
+       167,
+       53
+      ]
+     }
+    ],
+    [
+     "l85a3",
+     {
+      "sprintRecoveryMs": [
+       167,
+       55
+      ]
+     }
+    ],
+    [
+     "vcr2",
+     {
+      "sprintRecoveryMs": [
+       167,
+       52
+      ]
+     }
+    ],
+    [
+     "m16a4",
+     {
+      "sprintRecoveryMs": [
+       167,
+       57
+      ]
+     }
+    ],
+    [
+     "l110",
+     {
+      "adsTimeMs": [
+       433,
+       39
+      ]
+     }
+    ],
+    [
+     "drsiar",
+     {
+      "adsTimeMs": [
+       300,
+       55
+      ]
+     }
+    ],
+    [
+     "m60",
+     {
+      "adsTimeMs": null
+     }
+    ],
+    [
+     "rpkm",
+     {
+      "adsTimeMs": [
+       300,
+       48
+      ]
+     }
+    ],
+    [
+     "m123k",
+     {
+      "adsTimeMs": [
+       433,
+       38
+      ]
+     }
+    ],
+    [
+     "m250",
+     {
+      "adsTimeMs": [
+       433,
+       40
+      ]
+     }
+    ],
+    [
+     "kts100",
+     {
+      "adsTimeMs": [
+       367,
+       48
+      ]
+     }
+    ],
+    [
+     "m240l",
+     {
+      "adsTimeMs": [
+       433,
+       40
+      ]
+     }
+    ],
+    [
+     "m121a2",
+     {
+      "adsTimeMs": [
+       433,
+       40
+      ]
+     }
+    ],
+    [
+     "rpk74m",
+     {
+      "adsTimeMs": [
+       300,
+       48
+      ]
+     }
+    ],
+    [
+     "ef88",
+     {
+      "sprintRecoveryMs": [
+       167,
+       59
+      ]
+     }
+    ],
+    [
+     "mk24",
+     {
+      "sprintRecoveryMs": null
+     }
+    ],
+    [
+     "z84m",
+     {
+      "adsTimeMs": null
+     }
+    ]
+   ]
+  }
+ },
+ "inference": [
+  "Each trait adds one ladder step (L62 sign conventions) or a sway factor; on-class values follow from that.",
+  "The site matches off-class for Assault/Support/Engineer (audit stat-screen values equal site off-class, 19 of 19) and on-class for Recon."
+ ],
+ "unresolved": [
+  "Native activation and composition: EA says bonuses apply with class plus signature weapon; the serialized assets carry no class gate we decoded (WPM_SwayPenalty has an empty selector array). Which class/weapon combination turns each trait on is runtime.",
+  "Whether the weapon-customization stat screen applies the traits (answered only by the glance in proposal.md). The audit capture records no soldier class.",
+  "GRX child/hash names of the two GID_ADSTime_Trait_P10 add fields were not established (L100 note, unchanged).",
+  "Camera sway (P10/M10 camera files) has no site field.",
+  "Season 5 WB/GS files were read from the 15 October hotfix client capture (builds/2.1.1.0/reports/client-new-check-2026-10-15), not the main 2.1.1.0 collection raw tree.",
+  "The EA class guide text was not re-read in this run; the wording is carried from the 28 September receipt (read 28 Sep 2026)."
+ ],
+ "siteImpact": "Conditional. The site already shows off-class values for Assault deploy/sprint, Support ADS and Engineer hip, and the on-class value (sway 1.0) for Recon. A per-weapon chip 'On-class: X / Off-class: Y' would disclose the other value; no number changes unless the validation glance shows the stat screen applies the trait (see proposal.md). Weapon table in values.json.",
+ "evidence": {
+  "paths": [
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4070\\m1_in.json",
+    "sha256": "b75e569740109d565074cc74596202a7f8411e564051acba9009081889f660ee"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4070\\m1_out.json",
+    "sha256": "d79ce0b5a74305c85b47cc16e31f10a122a46b5e866e89033ef9fb4d201a4edc"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4070\\m2_in.json",
+    "sha256": "3a7c85c3bcaa464e642fdc3ea702d132a496ade31721c22ba1037c66044d293a"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4070\\m2_out.json",
+    "sha256": "7aa8617c1ad4fe35df4a55b3e7aef5dbd2720de2d57d971d451bf79a43bd9ac1"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4070\\s1_membership.json",
+    "sha256": "1e99a2e5469812b17a59502cf1dd0f5407e0c4d4ba36eff9b7c14c9227cfa5e8"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4070\\n1_site_defaults.json",
+    "sha256": "3ce00e6a8d50bd63ee56a036f1d69bcc606316bd258121501c95d74cace01283"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4070\\values.json",
+    "sha256": "1bd811faf953f54c43876f4e699413753c084c5a0e9212b1b358abece0d6651a"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4070\\l4070-result.json",
+    "sha256": "d5d80b7269a037a425f0bbede998fe958a7a0d5f08f73e039fa18739411b05d3"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4070\\proposal.md",
+    "sha256": "db0aa8346f5ac34dea7d0c2f68fdd29897e66da77cbbb3f477e61906e94b1612"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4070\\summary.md",
+    "sha256": "c67fac9243ad474cb16a7afcd04a43386d7da99b5a622a9fd7ef5cd4f7ab7cde"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4070\\m1.json",
+    "sha256": "e6caf8e7c38d788f73aae689b7e6159bbb23da79038f25ae6a668600592f2848"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4070\\m2_meta.json",
+    "sha256": "18a0d01241801c3b6272c87fe912426c81ab491adda2c4c3c59c9e7ef626369d"
+   }
+  ],
+  "helpers": [
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4070\\m1.py",
+    "sha256": "4c69f0b89663b473051a7dadf94e88cca2630200686bf76b48bc5232a7818eef"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4070\\m2.py",
+    "sha256": "df043388a9b0f25645d9ea70367ff0c98e074a2215278ad6702b63a1d04c854b"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4070\\g.py",
+    "sha256": "b1f22aa09fc4cb3eac3bdb7278c982b4046f5d1ae83dd1ca4eb05a1121ed4f4d"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4070\\s1_membership.py",
+    "sha256": "f09c8a094424c4d7a595499acaa968090904d3839b315a4bf75073f471df2bb2"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4070\\n1_site_defaults.mjs",
+    "sha256": "f7bc627a1a25bef59e5c341510a74830312ff281cf66ce2df9356598f6be7d72"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4070\\b1_values.py",
+    "sha256": "a7479ff0fa7e86502c18fa5910d3d3718818fec078fc8de94d0036479e030325"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4070\\z_build.py",
+    "sha256": "6b371f7c3f076e2195cb2f82774ecba685b8b538140fba4d965c3d0f21d8c954"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4070\\z_prop.py",
+    "sha256": "d9c59332df5a6af607bee32c27994331406919e10b8734ba5724c8e1258364cc"
+   }
+  ],
+  "commands": [
+   "cwd C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4070: python \"C:/Users/royal/Documents/BF6 Frosty Research/scripts/frosty-raw-check.py\" --raw-root \"C:/Users/royal/Documents/BF6 Datamining/builds/2.1.1.0/capture/collection/raw\" --manifest m1_in.json --out m1_out.json (reconstructed from the executed call; manifest built by m1.py)",
+   "cwd C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4070: python \"C:/Users/royal/Documents/BF6 Frosty Research/scripts/frosty-raw-check.py\" --raw-root \"C:/Users/royal/Documents/BF6 Datamining/builds/2.1.1.0/reports/client-new-check-2026-10-15/collection/raw\" --manifest m2_in.json --out m2_out.json (manifest built by m2.py from s1_membership.json)",
+   "cwd C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4070: python s1_membership.py (reads trait files and 67 GS/WB roots, writes s1_membership.json)",
+   "cwd C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4070: node n1_site_defaults.mjs (imports site sim from the site repo read-only; writes n1_site_defaults.json)",
+   "cwd C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4070: python b1_values.py; python z_build.py; python z_prop.py; python z_receipt.py",
+   "Command history is reconstructed from the executed calls; no earlier shell history was preserved."
+  ],
+  "note": "z_receipt.py (this script) hash is not recorded because it writes this file."
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-30",
+  "build": "2.1.1.0",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L4070",
+    "title": "Class weapon traits as a per-weapon class-trait chip: on-class and off-class values for 41 of 67 weapons on 2.1.1.0",
+    "status": "proposal",
+    "summary": "All class-trait operands (Assault deploy/sprint +1, Support ADS +1, Engineer hip +1, Recon sway x0.4444 against x2.25) re-read unchanged on 2.1.1.0 and membership covers the four Season 5 weapons; the site shows off-class values for Assault, Support and Engineer and the on-class value for Recon, and a stat-screen glance (M433 Sprint Recovery 133 vs 167 ms Assault vs Support) decides whether a chip can state both.",
+    "reopenWhen": "The stat-screen glance result is recorded, a decoded class and signature-weapon activation condition exists, or a later update changes a trait operand."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Gameplay/InRoundProgression/WeaponTraits/Assault/WM_AssaultTrait",
+    "format": "raw-ebx",
+    "sha256": "43581673c4e6fd4c2d89788c09c55f92d9e5de41a4a6ec819b3a1cb68a6c04dc",
+    "question": "Do the Assault trait operands still read +1 on 2.1.1.0?",
+    "result": "useful",
+    "conclusion": "Deploy (offset 296) and sprint recovery (152) i32 = 1; hash equals the 28 Sep receipt."
+   },
+   {
+    "path": "Common/Hardware/Weapons/_WeaponModifiers/ADSTime/GID_ADSTime_Trait_P10",
+    "format": "raw-ebx",
+    "sha256": "87822e24da33ac43d42d7146378f05d26efb1e6598810f27ede79fe28f0ecfb6",
+    "question": "Support ADS trait operands on 2.1.1.0?",
+    "result": "useful",
+    "conclusion": "Both add fields i32 = 1 (offsets 96, 100); anim and FOV P10 steps (offset 152) also 1."
+   },
+   {
+    "path": "Common/Hardware/Weapons/_WeaponModifiers/HipDispersion/GDM_Array_HipDispersion_TRAIT",
+    "format": "raw-ebx",
+    "sha256": "e501b8aa5d3fb8be73b4ece6b5cf342aa728c3568f9465a7e75568353a0e78ad",
+    "question": "Engineer hip trait operand on 2.1.1.0?",
+    "result": "useful",
+    "conclusion": "Hip step i32 = 1 at offset 96."
+   },
+   {
+    "path": "Common/Hardware/Weapons/_WeaponModifiers/Sway/WME_WSway_P10",
+    "format": "raw-ebx",
+    "sha256": "bf1e0e851ce433ed864fbe0b415fde7965254a5f54b36d8c921c71c1c9d78acb",
+    "question": "Recon trait sway factor on 2.1.1.0 (control)?",
+    "result": "useful",
+    "conclusion": "f32 0.4444444 at offset 156."
+   },
+   {
+    "path": "Common/Hardware/Weapons/_WeaponModifiers/Sway/WME_WSway_M10",
+    "format": "raw-ebx",
+    "sha256": "57bd9eacc37badfe6b855c90527a46e3cafa6b7c8a570835e65d4b1cdec7e062",
+    "question": "Sniper sway penalty factor on 2.1.1.0 (control)?",
+    "result": "useful",
+    "conclusion": "f32 2.25 at offset 156; product with P10 = 0.9999999."
+   },
+   {
+    "path": "Common/Hardware/Weapons/AssaultRifle/MRGGA/MRGGA_WB",
+    "format": "raw-ebx",
+    "sha256": "362be4ae90e4168e4f709a8ea9879f06af2052f3cc90cc4a21c53054dc576492",
+    "question": "Does the Season 5 weapon mk24 reference its class trait file?",
+    "result": "useful",
+    "conclusion": "Trait file GUID present in the import table (raw-checked); name/identity match only, not runtime proof."
+   },
+   {
+    "path": "Common/Hardware/Weapons/BoltAction/CDX40/CDX40_WB",
+    "format": "raw-ebx",
+    "sha256": "ec78973b271ca1a0c4ed201eb442e8f1717c01006bab04164b49238d44fa605b",
+    "question": "Does the Season 5 weapon elr40 reference its class trait file?",
+    "result": "useful",
+    "conclusion": "Trait file GUID present in the import table (raw-checked); name/identity match only, not runtime proof."
+   },
+   {
+    "path": "Common/Hardware/Weapons/MG/PKM/GS_PKM",
+    "format": "raw-ebx",
+    "sha256": "e9fc89cb7734ec8a75a46af0180f13a582676fe9b1b35c3844caf52c97a51393",
+    "question": "Does the Season 5 weapon z84m reference its class trait file?",
+    "result": "useful",
+    "conclusion": "Trait file GUID present in the import table (raw-checked); name/identity match only, not runtime proof."
+   },
+   {
+    "path": "Common/Hardware/Weapons/SMG/RSAR999/GS_RSAR999",
+    "format": "raw-ebx",
+    "sha256": "940093c3ed4c660e93a100c98f05bd9738dea027764124a6d0bb5f841683b491",
+    "question": "Does the Season 5 weapon rspr reference its class trait file?",
+    "result": "useful",
+    "conclusion": "Trait file GUID present in the import table (raw-checked); name/identity match only, not runtime proof."
+   }
+  ],
+  "site": [
+   {
+    "pointer": "data/weapons.json:/[id=m433]/classTrait",
+    "relation": "proposed"
+   },
+   {
+    "pointer": "data/attachments.json:/WEAPON_MAG/m433/deployBaseIndex",
+    "value": "5",
+    "relation": "context"
+   },
+   {
+    "pointer": "data/balance_tables.json:/HIP_SPREAD_BASE_INDEX/sgx",
+    "value": "4",
+    "relation": "context"
+   },
+   {
+    "pointer": "data/attachments.json:/SIGHTS/[id=iron]/weaponSwayMultByWeapon/sv98",
+    "relation": "context"
+   }
+  ]
+ },
+ "run": {
+  "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps",
+  "leadFolder": "L4070"
+ }
+}

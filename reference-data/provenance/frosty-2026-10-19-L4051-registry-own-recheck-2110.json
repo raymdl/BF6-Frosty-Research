@@ -1,0 +1,352 @@
+{
+ "lead": "L4051",
+ "status": "finding",
+ "build": {
+  "current": "2.1.1.0 (Head 5382784, descriptors c477622c1074a9a4ea612cf9c60e26f666129721c733174192c121c808873ff6; new side read from builds/2.1.1.0/reports/client-new-check-2026-10-15/collection/raw, the 15 October hotfix capture, which changed no weapon file)",
+  "compared": "1.4.3.5 (Head 4909002, descriptors 4c28ad656c175d9a8540245a3e6b57284c2e54d76cbd41b4ab480be1024816a1; old side builds/1.4.3.5/reports/client-60769-check-2026-10-03/collection/raw)",
+  "note": "Research only: re-run on the open build of the 10 October registry checks (L4000, L4002, L4003, L4004) and the 30 September fire-mode extraction (L604). The old side was read from builds/1.4.3.5 raw only, never from its builds/1.4.3.5/reports/client-2110-check-2026-10-13 capture, which holds 2.1.1.0 bytes. Nothing in the recheck is an in-game reading."
+ },
+ "question": "Re-run L4000 and L4003 on 2.1.1.0: does the GRX_Weapons registry default still equal the own stored value on every compared row of the 63 site weapons' WB, GS and bullet files, which registry defaults and own values moved, and does the site still equal the source on every existing weapon?",
+ "sourceFacts": {
+  "control": {
+   "description": "Control (note, Method step 2): restricted to the 63 site weapons' _WB and GS_ files and the site's bullet files, the registry-against-own pairing gives 2,771 / 11,500 / 567 values over 60 / 206 / 13 row names, exactly the 10 October counts (L4000), and the same paths.",
+   "passed": true
+  },
+  "method": "Steps 1 to 3 and 5 of the note: allrows.py reads every named value row of every GRX_* registry (34,340 rows on 2.1.1.0; 32,512 on 1.4.3.5); owncmp.py pairs rows by owner and suffix with the decoded leaf path that equals the registry default on the most owners; recheck.py writes registry-diff-site.json, own-diff-site.json (every numeric leaf of 190 site owner files, 198,748 leaves compared) and pair-status.json; site-compare.py / site-values.py compare 441 records on the 63 weapons (velocity, rpm, mag, tacRld, emptyRld) and add fireModes rates, recoil direction and decrease-time exponent, drag and gravity for the 67 site weapons.",
+  "registryAgainstOwn": "14,838 values over 279 row names on the 63 weapons' _WB, GS_ and bullet files compared on both builds: 0 differing on 1.4.3.5, 0 differing now. The only 6 values on these rows whose registry default moved are the M39 EMR and SVDM recoil rows; the own value moved with them (rows equal). New rows reach 1,054 more equal pairs on the 4 Season 5 weapons and 89 on existing files. All-owner pass: 74 registry-against-own differences on 1.4.3.5, 98 now (25 new, 1 resolved, 7 moved on the registry side), all vehicle, gadget and launcher owners (PD_Vehicles_*, SupplyPouch_WB), none a site weapon.",
+  "movedDefaults": [
+   {
+    "owner": "GS_M39EMR",
+    "row": "Recoil.Unzoomed.RecoilDecreaseTimeExponent",
+    "old": 0.75,
+    "new": 1.0,
+    "ownValue": 1.0
+   },
+   {
+    "owner": "GS_M39EMR",
+    "row": "Recoil.Zoomed.RecoilDecreaseTimeExponent",
+    "old": 0.75,
+    "new": 1.0,
+    "ownValue": 1.0
+   },
+   {
+    "owner": "GS_SVDM",
+    "row": "Recoil.Unzoomed.RecoilDecreaseTimeExponent",
+    "old": 0.75,
+    "new": 1.1,
+    "ownValue": 1.1
+   },
+   {
+    "owner": "GS_SVDM",
+    "row": "Recoil.Zoomed.RecoilDecreaseTimeExponent",
+    "old": 0.75,
+    "new": 1.1,
+    "ownValue": 1.1
+   },
+   {
+    "owner": "GS_SVDM",
+    "row": "Recoil.Unzoomed.RecoilDirection",
+    "old": 4,
+    "new": 20,
+    "ownValue": 20
+   },
+   {
+    "owner": "GS_SVDM",
+    "row": "Recoil.Zoomed.RecoilDirection",
+    "old": 4,
+    "new": 20,
+    "ownValue": 20
+   }
+  ],
+  "rawChecks": [
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+    "rawSha256": "4557498d8196e539c11c401299c2f5f9e23f706dc29791e283389c0105f2397c",
+    "offset": 1273604,
+    "type": "f32",
+    "bytesHex": "0000803f",
+    "value": 1.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\M39EMR\\GS_M39EMR.ebx",
+    "rawSha256": "e2036593a9491eb7fb94e301472046e5dd76b3fabac6c525ad4dd3427613a4c3",
+    "offset": 1020,
+    "type": "f32",
+    "bytesHex": "0000803f",
+    "value": 1.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+    "rawSha256": "4557498d8196e539c11c401299c2f5f9e23f706dc29791e283389c0105f2397c",
+    "offset": 1186324,
+    "type": "f32",
+    "bytesHex": "0000803f",
+    "value": 1.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\M39EMR\\GS_M39EMR.ebx",
+    "rawSha256": "e2036593a9491eb7fb94e301472046e5dd76b3fabac6c525ad4dd3427613a4c3",
+    "offset": 1172,
+    "type": "f32",
+    "bytesHex": "0000803f",
+    "value": 1.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+    "rawSha256": "4557498d8196e539c11c401299c2f5f9e23f706dc29791e283389c0105f2397c",
+    "offset": 2528676,
+    "type": "f32",
+    "bytesHex": "cdcc8c3f",
+    "value": 1.100000023841858
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\SVDM\\GS_SVDM.ebx",
+    "rawSha256": "e0eabd50822f6c5b52d2675e41c1425c00c23919723df74e36d15cf31769d36d",
+    "offset": 1020,
+    "type": "f32",
+    "bytesHex": "cdcc8c3f",
+    "value": 1.100000023841858
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+    "rawSha256": "4557498d8196e539c11c401299c2f5f9e23f706dc29791e283389c0105f2397c",
+    "offset": 2093036,
+    "type": "f32",
+    "bytesHex": "0000a041",
+    "value": 20.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\SVDM\\GS_SVDM.ebx",
+    "rawSha256": "e0eabd50822f6c5b52d2675e41c1425c00c23919723df74e36d15cf31769d36d",
+    "offset": 916,
+    "type": "f32",
+    "bytesHex": "0000a041",
+    "value": 20.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+    "rawSha256": "4557498d8196e539c11c401299c2f5f9e23f706dc29791e283389c0105f2397c",
+    "offset": 2211908,
+    "type": "f32",
+    "bytesHex": "cdcc8c3f",
+    "value": 1.100000023841858
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\SVDM\\GS_SVDM.ebx",
+    "rawSha256": "e0eabd50822f6c5b52d2675e41c1425c00c23919723df74e36d15cf31769d36d",
+    "offset": 1172,
+    "type": "f32",
+    "bytesHex": "cdcc8c3f",
+    "value": 1.100000023841858
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+    "rawSha256": "4557498d8196e539c11c401299c2f5f9e23f706dc29791e283389c0105f2397c",
+    "offset": 1042372,
+    "type": "f32",
+    "bytesHex": "0000a041",
+    "value": 20.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\SVDM\\GS_SVDM.ebx",
+    "rawSha256": "e0eabd50822f6c5b52d2675e41c1425c00c23919723df74e36d15cf31769d36d",
+    "offset": 1068,
+    "type": "f32",
+    "bytesHex": "0000a041",
+    "value": 20.0
+   }
+  ],
+  "rawCheckLabels": [
+   "GS_M39EMR Recoil.Unzoomed.RecoilDecreaseTimeExponent registry default 2.1.1.0 (1.4.3.5: 0.75)",
+   "GS_M39EMR Recoil.Unzoomed.RecoilDecreaseTimeExponent own value 2.1.1.0",
+   "GS_M39EMR Recoil.Zoomed.RecoilDecreaseTimeExponent registry default 2.1.1.0 (1.4.3.5: 0.75)",
+   "GS_M39EMR Recoil.Zoomed.RecoilDecreaseTimeExponent own value 2.1.1.0",
+   "GS_SVDM Recoil.Unzoomed.RecoilDecreaseTimeExponent registry default 2.1.1.0 (1.4.3.5: 0.75)",
+   "GS_SVDM Recoil.Unzoomed.RecoilDecreaseTimeExponent own value 2.1.1.0",
+   "GS_SVDM Recoil.Unzoomed.RecoilDirection registry default 2.1.1.0 (1.4.3.5: 4.0)",
+   "GS_SVDM Recoil.Unzoomed.RecoilDirection own value 2.1.1.0",
+   "GS_SVDM Recoil.Zoomed.RecoilDecreaseTimeExponent registry default 2.1.1.0 (1.4.3.5: 0.75)",
+   "GS_SVDM Recoil.Zoomed.RecoilDecreaseTimeExponent own value 2.1.1.0",
+   "GS_SVDM Recoil.Zoomed.RecoilDirection registry default 2.1.1.0 (1.4.3.5: 4.0)",
+   "GS_SVDM Recoil.Zoomed.RecoilDirection own value 2.1.1.0"
+  ],
+  "rawCheckNote": "Raw checks below were re-read by this draft with scripts/frosty-raw-check.py --manifest (outputs rawchecks-<lead>.json in the L4063 run folder); each equals the read in the run's own raw-checks-*.json manifests (all 2,161 reads of the run match). Manifests cited: raw-check-manifest-registry-own.json (1,500 registry/own reads), -curves.json (259), -fire-modes.json (402). The 1.4.3.5 side values (0.75 and 4.0) are the run's registry-diff-site.json 'old' values, not re-read here.",
+  "ownLeafDifferences": "2,006 numeric leaf differences over 74 of the 190 site owner files, in six classes: GS modifier-list priority index (260 changed, 56 added, 56 GS_ files; two foregrip entries WPM_BTM_Actuated_W10 and WPM_BTM_VerticalGrip02_W30 inserted into the lists, checklist U44; not stat changes); GS recoil rows (6 changed, 2 owners; the table above); WB spot-on-fire base Field_5ebda408/Field_9918e670 (4 changed: 54 to 75 on HK433_WB (M433), MPX_WB (SGX), Minimi_WB (L110), M18_WB (P18); checklist U24, already in FIELD_MAP.md); WB class profile Field_f2d603de (7 changed on HK433_WB and M2010ESR_WB, already in STAGE6-8-TRACE-RESULTS.md as class-profile retargets); WB modifier-array structure (765 changed, 806 added, 8 removed over MPX_WB, Minimi_WB, HK433_WB, M2010ESR_WB, M18_WB; values shifted by index, not interpreted); PD armor damage curve points (70 changed, 24 added over 13 bullet files, see L4052).",
+  "siteAgainstSource": "Nothing on the 63 existing weapons moved: all 441 records of the L4003 comparison have the same registry value, site value and equality as on 10 October (velocity 63 of 63, magazine 63 of 63, rate of fire 55 of 63 with the same eight manually cycled or single-fire weapons; site-compare-1.4.3.5-vs-2.1.1.0.json movedOrChanged is empty). Fire-mode rates, recoil direction, decrease-time exponent, drag and gravity equal the 2.1.1.0 source on every weapon that has a row: 709 comparisons, 686 equal, 13 with no registry row to compare (RSPR _WB, BROD 3 GS_BREN3, the RPK-74M and VSSM bullet files), 10 unequal (nine rates, namely the VSSM single-fire rate, seven manually cycled weapons as on 10 October and the new bolt-action ELR-40, plus the ELR-40 magazine; see L4055). The 13 October site edits to the SVDM and M39 EMR match the moved rows."
+ },
+ "inference": [
+  "The registry-or-own question does not arise for weapons: the registry default equals the own value on every compared row on both builds. The six moved defaults are recoil rows of two weapons and their own values moved with them, and the site already holds the new values (13 October edit), so no site number is contradicted.",
+  "The 2,006 own-leaf differences are serialized differences by class; this receipt does not interpret the index shifts or array-entry changes."
+ ],
+ "unresolved": [
+  "Registry default equal to own value is a serialized comparison; whether the game reads the registry row or the own leaf at runtime is not settled by it.",
+  "The 1,579 array-entry leaf differences (MPX, Minimi, HK433, M2010 ESR, M18 _WB) are not mapped one to one (open item 4 of the note, carried by L4055).",
+  "Not examined (note): attachment package values (WPM_*, GRM_*, WME_*), rows under WeaponModifierDataAssets, limb multipliers and the bolt-action sweet-spot datasets of L4003 as stats (compared as raw leaves only), ammunition-type bullet files (L580 to L582), gadget, launcher and vehicle owners."
+ ],
+ "siteImpact": "None applied or proposed; the note authorises no site change. The site already holds the six moved values (13 October edit): SVDM recoil direction 20 and decrease-time exponent 1.1, M39 EMR decrease-time exponent 1.0. The pointers below are the site leaves that equal the 2.1.1.0 source values.",
+ "evidence": {
+  "runFolder": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\weapon-registry-recheck-2026-10-19",
+  "note": {
+   "file": "BF6 Frosty Research/docs/working/WEAPON_REGISTRY_RECHECK_2026-10-19.md",
+   "sha256": "a8e8f28dc66b56c62864af1de89eecda5e4fe5984c1b3a391a18dca19a9869c7"
+  },
+  "queueRows": {
+   "file": "BF6 Frosty Research/docs/working/FROSTY_RESEARCH_QUEUE.md (rows L4051 to L4055, lines 118 to 122 at the time of drafting)",
+   "sha256": "84a59416ad0ffce79f0b131b091eb0a748871d1a08536b07aa28387e661b952e"
+  },
+  "files": [
+   {
+    "file": "allrows.py",
+    "sha256": "52f91f231c36700cda0b826692d8143eff61b837ed6e9a32d9b35181c1916467"
+   },
+   {
+    "file": "allrows.json",
+    "sha256": "b75d975254b610eec1a070a4c04323951ac18073fa4d7784ab908dbc48dd17a8"
+   },
+   {
+    "file": "owncmp.py",
+    "sha256": "e38475261309a92fe7803f53bb7014545a30c2f42d34db444381c3e19f5266ef"
+   },
+   {
+    "file": "owncmp.json",
+    "sha256": "54c7a24869fcc55ae627ac69cb2fa8534ea1591d1ab5ce717a97fbbb3c408630"
+   },
+   {
+    "file": "recheck.py",
+    "sha256": "c902d7f3d7e9265b00715f365acd6e7037d797d4ca200c0d7a87d35ab9182902"
+   },
+   {
+    "file": "registry-diff-site.json",
+    "sha256": "685568075c407c546b40f22c1cc50325b0a109090f30d7d771f13644cc52ee1d"
+   },
+   {
+    "file": "own-diff-site.json",
+    "sha256": "41c68d58894252083c6d5fae5994a05454ee35a01fa41128f0bffb96414bfb19"
+   },
+   {
+    "file": "own-diff-summary.json",
+    "sha256": "ee522c223c70507b88e5741f9a3d1233ee247da6b20a456bd56f9242c975e4cb"
+   },
+   {
+    "file": "own-summary.py",
+    "sha256": "3d7b5eaaa58d026a5603c644e4fae541f8cd0252b4c1c595fe8085f02dee0de6"
+   },
+   {
+    "file": "pair-status.json",
+    "sha256": "88717ebd31bcf1ed98c6f6f42172add40851c254e704019e7d29091e2de1faca"
+   },
+   {
+    "file": "site-compare.py",
+    "sha256": "02ecde4e1f844bd019ae6c0cbe346ba15d917e3c696cf3d32c3916fbd6bd8307"
+   },
+   {
+    "file": "site-values.py",
+    "sha256": "73b7382feb2db9193a24022af143765e5f0b1eef899c067952e7060b23314e4f"
+   },
+   {
+    "file": "site-values.json",
+    "sha256": "48df76d104ff8e5e3b7820fdff4c57bde775bb1c0778379f5e92ff9cace98e02"
+   },
+   {
+    "file": "site-compare-1.4.3.5-vs-2.1.1.0.json",
+    "sha256": "a1a6e8b679409b7c694cdcf0ae0384107cafb02d327517ecc2da62dda3e5dddb"
+   },
+   {
+    "file": "crosswalk-1.4.3.0.json",
+    "sha256": "19ad8a74188dcf48c146b6c359688ac97f8cf617b78251a39a0502080079f535"
+   },
+   {
+    "file": "common.py",
+    "sha256": "982378dde2bc25c607d00ac2019cf90614087f79cb0da2810384eb5569b6bd67"
+   },
+   {
+    "file": "raw-check-manifest-registry-own.json",
+    "sha256": "2dce4739b3aca0c5cac803192c154f8af7976ed6fd30883c0331efb402dd25a0"
+   },
+   {
+    "file": "raw-checks-registry-own.json",
+    "sha256": "5e3d7fe050bc28ba47488248eeb7b0b858a4e45a5f83d2cc22b9f2d41a4731d8"
+   },
+   {
+    "file": "rawcheck-manifests.py",
+    "sha256": "1d98f24f3bef3c74390bf7a0a6d517a6f9f12fa5328f9e43b43454c8bd8e1ea2"
+   }
+  ],
+  "ownHelpers": {
+   "gather405x.py": "85ae802408be4e64af6be8e0d4f91df0cedbd48b06ab14ac9813c142303fb737",
+   "manifest-L4051.json": "395ca0caf6f362b42ad9a343e76f7ff79459c01c18a385f43970e4212b8b35df",
+   "rawchecks-L4051.json": "0290a432680032ad720e781b0e7675aa4cec59d2b6e659e675de600b70775fa8",
+   "gather405x-labels.json": "2b829532d2de65dce8be03d03cd250dc6c8b0b85bdd7257e5caf36f7c9f96583"
+  },
+  "commands": "Run-folder commands as the note records them (working directory C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\weapon-registry-recheck-2026-10-19; scripts are copies of the 10 October ones with the build changed): python allrows.py ; python owncmp.py ; python recheck.py ; python own-summary.py ; python curves.py ; python curve-compare.py ; python site-compare.py ; python site-values.py ; python names.py ; python firemodes.py ; python firemodes2.py ; python mt3.py ; python guid-search.py ; python rawcheck-manifests.py (the last runs scripts/frosty-raw-check.py --manifest on three manifests). Quoted from the note, not rerun here; the output files are hashed. This draft's own re-read: python gather405x.py (cwd = the L4063 run folder; it builds manifest-<lead>.json and runs python \"C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py\" --manifest manifest-<lead>.json --out rawchecks-<lead>.json for each lead)."
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-19",
+  "build": "mixed",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L4051",
+    "title": "L4000 and L4003 repeated on 2.1.1.0: registry default equals own value on 14,838 values (279 row names, 63 weapons) on both builds; six defaults moved (M39 EMR, SVDM recoil), own value with each; site equals the source on every existing weapon (441 records)",
+    "status": "finding",
+    "summary": "14,838 registry-against-own values (279 row names, 63 weapons) are equal on both builds; 6 defaults moved (M39 EMR and SVDM recoil rows) and the own value moved with each, the 13 October site edits match; all 441 site-against-source records are identical to 10 October; own leaves differ in 2,006 places over 74 files, all in six classes (priority index shifts, recoil rows, spot-on-fire 54 to 75, class profile, array entries, armor curves).",
+    "reopenWhen": "A later build moves a registry default or own value on a site weapon, or a consumer shows which of the registry row and the own leaf the game reads."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/GameSetup/Tweakables/GameRemixer/GRX_Weapons",
+    "format": "raw-ebx",
+    "sha256": "4557498d8196e539c11c401299c2f5f9e23f706dc29791e283389c0105f2397c",
+    "question": "Which GRX_Weapons recoil defaults moved between 1.4.3.5 and 2.1.1.0?",
+    "result": "useful",
+    "conclusion": "Six registry defaults on GS_M39EMR and GS_SVDM equal their own values at the raw offsets read (see rawChecks); old values from the run's registry-diff-site.json."
+   },
+   {
+    "path": "Common/Hardware/Weapons/DMR/M39EMR/GS_M39EMR",
+    "format": "raw-ebx",
+    "sha256": "e2036593a9491eb7fb94e301472046e5dd76b3fabac6c525ad4dd3427613a4c3",
+    "question": "Did the own recoil decrease-time exponent move with the registry default?",
+    "result": "useful",
+    "conclusion": "RecoilDecreaseTimeExponent unzoomed and zoomed read 1.0 at the offsets in rawChecks."
+   },
+   {
+    "path": "Common/Hardware/Weapons/DMR/SVDM/GS_SVDM",
+    "format": "raw-ebx",
+    "sha256": "e0eabd50822f6c5b52d2675e41c1425c00c23919723df74e36d15cf31769d36d",
+    "question": "Did the own recoil direction and decrease-time exponent move with the registry default?",
+    "result": "useful",
+    "conclusion": "RecoilDirection 20 and RecoilDecreaseTimeExponent 1.1, unzoomed and zoomed, at the offsets in rawChecks."
+   }
+  ],
+  "site": [
+   {
+    "pointer": "data/weapons.json:/[id=svdm]/recoil/ads/dir",
+    "value": 20,
+    "relation": "supports"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=svdm]/recoil/hip/dir",
+    "value": 20,
+    "relation": "supports"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=svdm]/recoil/ads/decTimeExp",
+    "value": 1.1,
+    "relation": "supports"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=m39emr]/recoil/ads/decTimeExp",
+    "value": 1,
+    "relation": "supports"
+   }
+  ]
+ },
+ "run": {
+  "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps",
+  "leadFolder": "L4063",
+  "note": "receipt drafted 30 Oct 2026 for an earlier measurement or recheck; the date is the evidence date"
+ }
+}

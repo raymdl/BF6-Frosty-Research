@@ -1,0 +1,70 @@
+{
+ "lead": "L4066",
+ "status": "finding",
+ "build": "site-only",
+ "question": "Draft a revised capture rule that keeps the four parts and adds one cheap glance class, and list each item blocked on the operator with its one-line test and the site change for each outcome.",
+ "sourceFacts": {
+  "note": "No raw source was read. Facts below are from site and research-repo text; rawChecks is empty by design.",
+  "rawChecks": [],
+  "facts": [
+   "Current rule: docs/working/BF6_CAPTURE_PRIORITIES.md, operator 28 September 2026, four parts quoted in capture-rule-review.md.",
+   "October site commits from git log --since=2026-10-14 -- data sim: 9b4abc3 recovery scale 0.8; 5f09118 deployed recoil; a05f670 stance-change sway chip; c55f37d pellet cone; ec30b0b spread bindings (bugs 25 and 26).",
+   "L110 receipt: M4A1 20 Rnd 21x10=210, 36 Rnd 37x6=222, 40 Rnd 41x6=246.",
+   "L114 receipt: General_10 ladder 400 / 333.334 / 266.667 / 233.334 / 200 / 166.667 / 133.334 / 100 ms; ADS-in minus ADS-out 100, 100, 100, 66.666, 50, 33.333, 33.333, 33.334 ms by index.",
+   "L120 receipt: prone transitions 6 degrees over 0.9 s on 54 weapons; crouch/stand leaves 0.2 to 1 degree over 0.3 s.",
+   "L22/L25 receipts: buckshot TimeToLive 0.5 s (cutoff about 151.6 m under the site flight model), slug 2.0 s (about 381 m), 32 subsonic selections at 275 to 300 m.",
+   "L69 receipt: M433 hip minima 2.432 standing, 1.824 crouch, 1.216 prone degrees."
+  ]
+ },
+ "inference": [
+  "All five consequential October changes came from recordings that the stat screen cannot show; the rule has no step between the stat screen and a recording.",
+  "Four of the eight blocked items could be settled by one glance; L114, L17, L19 and L105 need recordings or stay source-only."
+ ],
+ "unresolved": [
+  "Whether the HUD reserve count includes the loaded magazine (L110).",
+  "Whether the 28 September removal of L22/L25 or the queue row 'needs capture' stands (inconsistent wording).",
+  "The firing range target distances available for the L22/L25 shot were not checked.",
+  "The ADS-in value at index 4 (about 250 ms) is derived from the L114 receipt difference table, not read from the site ladder in this lead."
+ ],
+ "siteImpact": "None. All site changes are conditional on the operator's decision on the revised rule and on each in-game outcome in the rows; see siteIfConfirmed and siteIfRefuted per row.",
+ "evidence": {
+  "paths": [
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4066\\capture-rule-review.md",
+    "sha256": "cf034a3d6aeb2b2ec558820fac1212319bbd6ca5b8cdfb9674bb3f6e7a1e0bdd"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4066\\l4066-result.json",
+    "sha256": "5ea03e70c472573cf2e58a03aa69b9230ab89cdad7a273adf67bffb8e76dd015"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4066\\build.py",
+    "sha256": "26d2a1173badb60a7335ff9857535a1cccb46e57314a0bf8a52a4d3e03de9bb0"
+   }
+  ],
+  "commands": [
+   "Reconstructed: git -C \"C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer\" log --since=2026-10-14 --format=\"%h %ad %s\" --date=short -- data sim (run once read-only; command history otherwise unavailable)",
+   "python build.py (working directory: C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4066) writes capture-rule-review.md, l4066-result.json and this receipt"
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "decision",
+  "date": "2026-10-30",
+  "build": "site-only",
+  "leads": [
+   {
+    "id": "L4066",
+    "title": "Capture-rule review: add a one-minute glance class",
+    "status": "finding",
+    "summary": "A revised capture rule keeps the four-part recording rule and adds a glance test with a stated prediction, drafted with eight blocked items of which four are glance-eligible (L110, L120/L124, L22/L25, L69) and four need recordings (L114, L17, L19, L105).",
+    "reopenWhen": "the operator's decision on the revised rule"
+   }
+  ],
+  "binding": "research"
+ },
+ "run": {
+  "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps",
+  "leadFolder": "L4066"
+ }
+}

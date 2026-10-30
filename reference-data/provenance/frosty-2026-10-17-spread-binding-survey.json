@@ -1,0 +1,101 @@
+{
+ "lead": "none",
+ "status": "finding",
+ "build": {
+  "current": "2.1.1.0 (raw capture builds/2.1.1.0/reports/client-new-check-2026-10-15/collection/raw, the 15 October hotfix capture; descriptors builds/2.1.1.0/capture/toolchain/SharedTypeDescriptors.ebx)",
+  "note": "Source survey read by script from saved raw EBX; no capture. The note cites no per-asset hashes; the asset hashes below were computed by this draft from the files in that raw root. Facts only, no balance interpretation."
+ },
+ "question": "For each of the 69 weapon folders, which of the bipod and semi-auto spread keywords appear in the WB and GS files (WPM_BTM_Bipod01_W10, WPM_BipodActive, CMU_BipodActive, GBM_NoIncrease_ERG_P00, GRM_BipodDeployed_BTM_P50, HipDispersion_BTM_*, CMU_SemiAuto, GBM_NoIncrease_Semi_P00), and how does that compare with the site's bipod and fire-mode lists?",
+ "sourceFacts": {
+  "table": "69 rows (class, folder, WB, GS, site name, 8 keyword columns, site_bipod, site_fire_modes) in spread-binding-survey-2026-10-17.md and the sibling CSV; 138 files decoded, 0 decode failures, no folders skipped, 0 unresolved import refs. 'Site offers bipod' = the grip list in attachments.json WEAPON_ATTS contains bipod or bipod_sr (not *_grip_pod); the WB-to-site-id map uses weapons[id].wbXml in frosty-hit-zones-2026-09-15.json plus the four Season 5 mappings; unmatched: DEVGRU, MRGGS. Matching is substring on the resolved route; wb_other_bipod = bipod routes other than the three named (only 6P67 has one: Game/KingstonLegacy/Mica/.../OB_WEPATT_GRP__ARBipod_01/WM_Bipod).",
+  "columnCountsDerivedFromTheCsv": {
+   "wb_Bipod01_W10": {
+    "yes": 44,
+    "no": 25
+   },
+   "wb_WPM_BipodActive": {
+    "yes": 41,
+    "no": 28
+   },
+   "gs_GRM_BipodDeployed_BTM_P50": {
+    "yes": 52,
+    "no": 17
+   },
+   "gs_GBM_NoIncrease_Semi_P00": {
+    "yes": 42,
+    "no": 27
+   },
+   "gs_GBM_NoIncrease_ERG_P00": {
+    "yes": 28,
+    "no": 41
+   },
+   "gs_CMU_SemiAuto": {
+    "no": 69
+   },
+   "basis": "counted by this draft from the note's CSV (yes/no per column over 69 rows); the note prints no column totals"
+  },
+  "listA": "WB has WPM_BTM_Bipod01_W10 but not WPM_BipodActive (7): EF88, MRGGA (Mk 24), VHS2 (VCR-2), MSBSGROTCPS (GRT-CPS), MG5 (M121 A2), 590A1 (M87A1), DP12 (DB-12).",
+  "listB": "GS has CMU_SemiAuto but not GBM_NoIncrease_Semi_P00 (0): none. No GS file of the 69 carries the CMU_SemiAuto keyword (the CMU_SemiAuto import is in WB files; see the 19 October recheck, L4054).",
+  "listC": "GS has GBM_NoIncrease_Semi_P00 but not CMU_SemiAuto (42): 6P67, ACE32, G36, G3A4, HK433, L85A3, M16A3, SCARL, Tavor7, VHS2 (assault rifles); AK205, HK417A2, M4A1, MSBSGROTB, QBZ192, SCARSC, SIG553R, XM7 (carbines); VSSM; M240L, M250, M27IAR, M60E6, MG4K, MG5, Minimi, PKM, RPK74M, RPKM, Ultimax (MGs); APC10, APDW, MP5MLI, MP7A2, MPX, P90, PP19, RSAR999, ScorpionEvo3, UMP40, Vector (SMGs); Skorpion (secondary).",
+  "commands": "(1) find ... -iname \"*_WB.ebx\" / \"GS_*.ebx\" under raw/Common/Hardware/Weapons -> ebx-list.txt (69 WB + 69 GS), then prefixed with the absolute raw root -> ebx-list-abs.txt (the decoder rejects root-relative lines); (2) python -I \"C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer\\scripts\\frosty-ebx-decode.py\" --descriptors \"C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\toolchain\\SharedTypeDescriptors.ebx\" --ebx-list ebx-list-abs.txt --out decoded.json --root \"<raw root>\" (decoded 138, failed 0); (3) python -I survey.py <output folder> (walks $import refs, resolves with common.imp from stage9\\B, writes survey.csv, table.md, lists.md). Quoted from the note; the output folder and survey.py were not kept."
+ },
+ "inference": [
+  "Facts only. List A names the weapons whose WB carries the bipod part without WPM_BipodActive; list C that the semi-auto spread-increase removal GBM_NoIncrease_Semi_P00 is on 42 GS files and, in the survey's output, absent from the Mk 24, EF88 and BROD 3. The site repo's bug entries 25 and 26 (commit ec30b0b) are the triage of these tables."
+ ],
+ "unresolved": [
+  "Substring matching on resolved routes can over- or under-match; wb_other_bipod and the paths of the HipDispersion variants were shortened in the table (full paths in the note's survey.csv in the scratchpad, not kept).",
+  "Runtime activation of a keyword binding is not shown."
+ ],
+ "siteImpact": "Supports site attachment bug entries 25 and 26 (commit ec30b0b). No data value changed from this note.",
+ "evidence": {
+  "note": {
+   "file": "BF6 Weapon Analyzer/reference-data/provenance/spread-binding-survey-2026-10-17.md",
+   "sha256": "7b9731f70889cd1751095ff6eed12102573ebcb8140bd6b8457e87b6262bae30"
+  },
+  "csv": {
+   "file": "BF6 Weapon Analyzer/reference-data/provenance/spread-binding-survey-2026-10-17.csv",
+   "sha256": "9f33ac876e3a429ef5b27acde75a184ce90b52f1771421b6a9996f468d5392ec"
+  },
+  "commands": "See sourceFacts.commands (quoted from the note); helper survey.py not kept, so its revision cannot be hashed.",
+  "siteCommits": {
+   "notes": "ec30b0b 2026-10-17 Bugs 25 and 26: deployed-bipod and semi-auto spread bindings missing (adds this note); the survey script and guide step arrived in 5045409 the same day"
+  }
+ },
+ "record": {
+  "v": 1,
+  "kind": "mapping",
+  "date": "2026-10-17",
+  "build": "2.1.1.0",
+  "binding": "research",
+  "site": [
+   {
+    "pointer": "data/attachments.json:/GAME_BUGS/[ref=25]",
+    "value": {
+     "ref": "25",
+     "slot": "grip",
+     "attachments": [
+      "bipod"
+     ],
+     "weapons": [
+      "mk24",
+      "ef88",
+      "z84m",
+      "vssm"
+     ],
+     "metrics": [
+      "Spread Inc/Shot",
+      "Hipfire Spread"
+     ],
+     "suspected": true,
+     "note": "The mounted spread benefits aren't applied; only the recoil reduction is."
+    },
+    "relation": "supports"
+   }
+  ]
+ },
+ "run": {
+  "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps",
+  "leadFolder": "L4063",
+  "note": "receipt drafted 30 Oct 2026 for an earlier measurement or recheck; the date is the evidence date"
+ }
+}

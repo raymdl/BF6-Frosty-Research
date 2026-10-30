@@ -1,0 +1,820 @@
+{
+ "lead": "L4058",
+ "status": "finding",
+ "build": {
+  "current": "2.1.1.0",
+  "head": 5382784,
+  "descriptorSha256": "c477622c1074a9a4ea612cf9c60e26f666129721c733174192c121c808873ff6",
+  "capture": "builds\\2.1.1.0\\reports\\client-new-check-2026-10-22\\collection\\raw (newest copy per route; the checked files are byte-equal to the 15 Oct copies)",
+  "note": "Read from saved raw captures; no capture, no FrostyCmd, nothing written to either repo."
+ },
+ "question": "Registry precedence census on 2.1.1.0: (a) registry default vs own value on the 67 site weapons' _WB, GS_ and bullet files; (b) attachment-effect files (WME_, WPM_, GDM_, GID_, AAM_, GRM_, GBM_) with no registry row; (c) the 98 all-owner differences, infantry vs vehicle, AAHV shots to overheat and the 'M16A3_WB - InitialSpeed.z' 720 row; (d) which site generators read files rather than the registry; (e) a registry-vs-file assertion design for frosty-configuration.py.",
+ "control": {
+  "description": "(1) Pairing restricted to the 63 crosswalk weapons' _WB, GS_ and bullet files (rows present on both 1.4.3.5 and 2.1.1.0) must give 2,771 / 11,500 / 567 values over 60 / 206 / 13 row names. Reproduced by rerunning copies of allrows.py and owncmp.py (values identical to the 19 Oct run; reads now resolve to the 22 Oct hotfix capture) and control_pairing.py: WB 2771/60, GS 11500/206, PD 567/13, 0 differing. Rows present only on 2.1.1.0 add 24 GS_M240L StanceChangePenalties rows (GS 11,524). (2) pair-status.json holds GS_M39EMR Recoil.Unzoomed.RecoilDecreaseTimeExponent with regNew 1.0 and ownNew 1.0; raw-checked at the 15 Oct files it cites and at the 22 Oct files (same SHA-256).",
+  "passed": true,
+  "counts": {
+   "WB": {
+    "values": 2771,
+    "rowNames": 60,
+    "unequal": 0
+   },
+   "GS": {
+    "values": 11500,
+    "rowNames": 206,
+    "unequal": 0
+   },
+   "PD": {
+    "values": 567,
+    "rowNames": 13,
+    "unequal": 0
+   }
+  },
+  "rawChecks": [
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\M39EMR\\GS_M39EMR.ebx",
+    "rawSha256": "e2036593a9491eb7fb94e301472046e5dd76b3fabac6c525ad4dd3427613a4c3",
+    "offset": 1020,
+    "type": "f32",
+    "bytesHex": "0000803f",
+    "value": 1.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+    "rawSha256": "4557498d8196e539c11c401299c2f5f9e23f706dc29791e283389c0105f2397c",
+    "offset": 1273604,
+    "type": "f32",
+    "bytesHex": "0000803f",
+    "value": 1.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-22\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+    "rawSha256": "4557498d8196e539c11c401299c2f5f9e23f706dc29791e283389c0105f2397c",
+    "offset": 1273604,
+    "type": "f32",
+    "bytesHex": "0000803f",
+    "value": 1.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-22\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\M39EMR\\GS_M39EMR.ebx",
+    "rawSha256": "e2036593a9491eb7fb94e301472046e5dd76b3fabac6c525ad4dd3427613a4c3",
+    "offset": 1020,
+    "type": "f32",
+    "bytesHex": "0000803f",
+    "value": 1.0
+   }
+  ]
+ },
+ "sourceFacts": {
+  "a": "Rerun of allrows.py/owncmp.py (values identical to the 19 Oct run). 63 crosswalk weapons, rows on both builds: WB 2,771/60, GS 11,500/206, PD 567/13, 0 differing; on 2.1.1.0 alone GS 11,524 (24 added GS_M240L stance rows). Season 5: MRGGA_WB 43, CDX40_WB 55, PKM_WB 43, each GS_ 206, four bullets 13 each (141/824/52), 0 differing. No registry rows: GS_BREN3, RSAR999_WB, PD_545x39mm_MG, PD_9x39mm_Match, PD_9x39mm_Semi. 524 array-valued rows are not scalar-paired.",
+  "b": "Catalog + raw tree, case-insensitive: WME_ 79, WPM_ 397, GDM_ 21, GID_ 6, AAM_ 69, GRM_ 31, GBM_ 28 files (631; 20 catalog-only). 0 have a GRX_* row whose owner label is the file name, and no file basename occurs anywhere in the 44,080 GRX_* object labels.",
+  "c": "owncmp.json lists 98 differences on WB/GS/PD owners: 36 infantry (18 gadget WB rows on 10 gadgets, 17 zoomed MinAngle rows on GS_AT4, GS_MBTLAW, GS_RPG7v2, 1 PD_Railgun BlastDamage) and 62 PD_Vehicles_* rows; 73 were on the 10 Oct 1.4.3.5 list, 25 are new, 7 moved, 1 resolved. AAHV HeatPerBullet is a WF_ owner outside the 98: file 0.125 at offset 1328, GRX_Vehicles 0.13 at 260108; RateOfFire 720, HeatDropPerSecond 0.833333, OverHeatDropDelay 0, OverHeatThreshold 0, magazine 250, no stored capacity. Scout Heli minigun: file 0.006667, registry 0.008889, magazine 100 in both. M16A3: GRX_Weapons holds 62 objects labelled 'M16A3_WB - ...' (48 value rows, 14 group nodes); 'M16A3_WB - InitialSpeed.z' = 720 at offset 1171108 (instance GUID 6c21cd63-1e5e-4857-b269-230e2a30c68d); the real row = 680 at 2878532; M16A3_WB own 680 at 416. Byte search of 37,119 raw files: every M16A3 velocity value row is cited only by TweakablesConfig's import table; M16A3_WB imports 21 GRX_Weapons objects, all group nodes of the real tree; no raw file imports any of the 14 odd group nodes. GS_AT4, GS_MBTLAW, GS_RPG7v2, the AAHV and minigun WF files, SupplyPouch_WB and Gadget_ATMine_WB import their own registry group nodes.",
+  "d": "See generators-table.md: barrel ADS, sniper brakes, ballistics read files only; attachment handling reads modifier files plus 4 GRX_Weapons base-index rows (m60, pw7a2); collateral reads a retained trace; hit zones reads GRX_Weapons DamageProtectionMultiplierIndex with a WB fallback for RSPR.",
+  "rawChecks": [
+   {
+    "label": "control2 registry GS_M39EMR Recoil.Unzoomed.RecoilDecreaseTimeExponent",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-22\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+    "rawSha256": "4557498d8196e539c11c401299c2f5f9e23f706dc29791e283389c0105f2397c",
+    "offset": 1273604,
+    "type": "f32",
+    "bytesHex": "0000803f",
+    "value": 1.0
+   },
+   {
+    "label": "control2 own GS_M39EMR Recoil.Unzoomed.RecoilDecreaseTimeExponent",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-22\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\M39EMR\\GS_M39EMR.ebx",
+    "rawSha256": "e2036593a9491eb7fb94e301472046e5dd76b3fabac6c525ad4dd3427613a4c3",
+    "offset": 1020,
+    "type": "f32",
+    "bytesHex": "0000803f",
+    "value": 1.0
+   },
+   {
+    "label": "registry M16A3_WB real row InitialSpeed.z",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-22\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+    "rawSha256": "4557498d8196e539c11c401299c2f5f9e23f706dc29791e283389c0105f2397c",
+    "offset": 2878532,
+    "type": "f32",
+    "bytesHex": "00002a44",
+    "value": 680.0
+   },
+   {
+    "label": "own M16A3_WB InitialSpeed.z",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-22\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\M16A3\\M16A3_WB.ebx",
+    "rawSha256": "0bc997efac44f297d27a57201adaa9388dfbda51e7472ae8b0eb0790321eacd2",
+    "offset": 416,
+    "type": "f32",
+    "bytesHex": "00002a44",
+    "value": 680.0
+   },
+   {
+    "label": "registry odd-labelled row 'M16A3_WB - InitialSpeed.z'",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-22\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+    "rawSha256": "4557498d8196e539c11c401299c2f5f9e23f706dc29791e283389c0105f2397c",
+    "offset": 1171108,
+    "type": "f32",
+    "bytesHex": "00003444",
+    "value": 720.0
+   },
+   {
+    "label": "instance GUID of odd-labelled 720 row",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-22\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+    "rawSha256": "4557498d8196e539c11c401299c2f5f9e23f706dc29791e283389c0105f2397c",
+    "offset": 1171024,
+    "type": "bytes:16",
+    "bytesHex": "63cd216c5e1e5748b269230e2a30c68d",
+    "value": "63cd216c5e1e5748b269230e2a30c68d"
+   },
+   {
+    "label": "own WF_Vehicles_AA_PrimaryWeapon_AAHV RateOfFire",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-22\\collection\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\AA\\WF_Vehicles_AA_PrimaryWeapon_AAHV.ebx",
+    "rawSha256": "225a2c6dd063751fc64319f02417443d7e64f6de6a3dcfb5cda8c780e966fd94",
+    "offset": 1072,
+    "type": "f32",
+    "bytesHex": "00003444",
+    "value": 720.0
+   },
+   {
+    "label": "own WF_Vehicles_AA_PrimaryWeapon_AAHV HeatPerBullet",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-22\\collection\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\AA\\WF_Vehicles_AA_PrimaryWeapon_AAHV.ebx",
+    "rawSha256": "225a2c6dd063751fc64319f02417443d7e64f6de6a3dcfb5cda8c780e966fd94",
+    "offset": 1328,
+    "type": "f32",
+    "bytesHex": "0000003e",
+    "value": 0.125
+   },
+   {
+    "label": "own WF_Vehicles_AA_PrimaryWeapon_AAHV HeatDropPerSecond",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-22\\collection\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\AA\\WF_Vehicles_AA_PrimaryWeapon_AAHV.ebx",
+    "rawSha256": "225a2c6dd063751fc64319f02417443d7e64f6de6a3dcfb5cda8c780e966fd94",
+    "offset": 1332,
+    "type": "f32",
+    "bytesHex": "5555553f",
+    "value": 0.8333333134651184
+   },
+   {
+    "label": "own WF_Vehicles_AA_PrimaryWeapon_AAHV OverHeatDropDelay",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-22\\collection\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\AA\\WF_Vehicles_AA_PrimaryWeapon_AAHV.ebx",
+    "rawSha256": "225a2c6dd063751fc64319f02417443d7e64f6de6a3dcfb5cda8c780e966fd94",
+    "offset": 1340,
+    "type": "f32",
+    "bytesHex": "00000000",
+    "value": 0.0
+   },
+   {
+    "label": "own WF_Vehicles_AA_PrimaryWeapon_AAHV OverHeatThreshold",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-22\\collection\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\AA\\WF_Vehicles_AA_PrimaryWeapon_AAHV.ebx",
+    "rawSha256": "225a2c6dd063751fc64319f02417443d7e64f6de6a3dcfb5cda8c780e966fd94",
+    "offset": 1348,
+    "type": "f32",
+    "bytesHex": "00000000",
+    "value": 0.0
+   },
+   {
+    "label": "registry WF_Vehicles_AA_PrimaryWeapon_AAHV.PrimaryFire.OverHeat.HeatPerBullet",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-22\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+    "rawSha256": "7332241de54470a36d11508687d124ca7a2faf8a72895581d85b9ff75c70beb0",
+    "offset": 260108,
+    "type": "f32",
+    "bytesHex": "b81e053e",
+    "value": 0.12999999523162842
+   },
+   {
+    "label": "own WF_Vehicles_ScoutHeli_PrimaryWeapon_Minigun RateOfFire",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-22\\collection\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\ScoutHeli\\WF_Vehicles_ScoutHeli_PrimaryWeapon_Minigun.ebx",
+    "rawSha256": "f087b42d506c5d7774208528b48e5a9bc0ec12cd897a4558bc6bc7556a58b9f2",
+    "offset": 912,
+    "type": "f32",
+    "bytesHex": "0000e144",
+    "value": 1800.0
+   },
+   {
+    "label": "own WF_Vehicles_ScoutHeli_PrimaryWeapon_Minigun HeatPerBullet",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-22\\collection\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\ScoutHeli\\WF_Vehicles_ScoutHeli_PrimaryWeapon_Minigun.ebx",
+    "rawSha256": "f087b42d506c5d7774208528b48e5a9bc0ec12cd897a4558bc6bc7556a58b9f2",
+    "offset": 1168,
+    "type": "f32",
+    "bytesHex": "7e73da3b",
+    "value": 0.006666599772870541
+   },
+   {
+    "label": "own WF_Vehicles_ScoutHeli_PrimaryWeapon_Minigun HeatDropPerSecond",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-22\\collection\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\ScoutHeli\\WF_Vehicles_ScoutHeli_PrimaryWeapon_Minigun.ebx",
+    "rawSha256": "f087b42d506c5d7774208528b48e5a9bc0ec12cd897a4558bc6bc7556a58b9f2",
+    "offset": 1172,
+    "type": "f32",
+    "bytesHex": "9a99993e",
+    "value": 0.30000001192092896
+   },
+   {
+    "label": "own WF_Vehicles_ScoutHeli_PrimaryWeapon_Minigun OverHeatDropDelay",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-22\\collection\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\ScoutHeli\\WF_Vehicles_ScoutHeli_PrimaryWeapon_Minigun.ebx",
+    "rawSha256": "f087b42d506c5d7774208528b48e5a9bc0ec12cd897a4558bc6bc7556a58b9f2",
+    "offset": 1180,
+    "type": "f32",
+    "bytesHex": "cdcccc3d",
+    "value": 0.10000000149011612
+   },
+   {
+    "label": "own WF_Vehicles_ScoutHeli_PrimaryWeapon_Minigun OverHeatThreshold",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-22\\collection\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\WeaponData\\ScoutHeli\\WF_Vehicles_ScoutHeli_PrimaryWeapon_Minigun.ebx",
+    "rawSha256": "f087b42d506c5d7774208528b48e5a9bc0ec12cd897a4558bc6bc7556a58b9f2",
+    "offset": 1188,
+    "type": "f32",
+    "bytesHex": "cdcccc3d",
+    "value": 0.10000000149011612
+   },
+   {
+    "label": "registry WF_Vehicles_ScoutHeli_PrimaryWeapon_Minigun.PrimaryFire.OverHeat.HeatPerBullet",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-22\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+    "rawSha256": "7332241de54470a36d11508687d124ca7a2faf8a72895581d85b9ff75c70beb0",
+    "offset": 206436,
+    "type": "f32",
+    "bytesHex": "54a2113c",
+    "value": 0.00888879969716072
+   },
+   {
+    "label": "own GS_AT4 MinMaxDispersion.Zoomed.Standing.Stationary.MinAngle",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-22\\collection\\raw\\Common\\Hardware\\Gadgets\\Launchers\\MBTLAW\\GS_AT4.ebx",
+    "rawSha256": "02ed7e7f4ce84399c1d290f98ebac621449f06aed81146928f5ec6716af7f7dc",
+    "offset": 2200,
+    "type": "f32",
+    "bytesHex": "00000000",
+    "value": 0.0
+   },
+   {
+    "label": "registry GS_AT4.MinMaxDispersion.Zoomed.Standing.Stationary.MinAngle",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-22\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+    "rawSha256": "77e2cfb12d6567be91c4a78ca88110c83a0473fca9afbdbfac8c6190d4862b64",
+    "offset": 316148,
+    "type": "f32",
+    "bytesHex": "3333b33e",
+    "value": 0.3499999940395355
+   },
+   {
+    "label": "own GS_MBTLAW MinMaxDispersion.Zoomed.Standing.Stationary.MinAngle",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-22\\collection\\raw\\Common\\Hardware\\Gadgets\\Launchers\\MBTLAW\\GS_MBTLAW.ebx",
+    "rawSha256": "150122e5cc8c2bd900367c27c8048dea42f4b0310b5c1801b9cd2425494b26ff",
+    "offset": 2200,
+    "type": "f32",
+    "bytesHex": "00000000",
+    "value": 0.0
+   },
+   {
+    "label": "registry GS_MBTLAW.MinMaxDispersion.Zoomed.Standing.Stationary.MinAngle",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-22\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+    "rawSha256": "77e2cfb12d6567be91c4a78ca88110c83a0473fca9afbdbfac8c6190d4862b64",
+    "offset": 633804,
+    "type": "f32",
+    "bytesHex": "3333b33e",
+    "value": 0.3499999940395355
+   },
+   {
+    "label": "control2 at the 15 Oct file pair-status.json cites",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\M39EMR\\GS_M39EMR.ebx",
+    "rawSha256": "e2036593a9491eb7fb94e301472046e5dd76b3fabac6c525ad4dd3427613a4c3",
+    "offset": 1020,
+    "type": "f32",
+    "bytesHex": "0000803f",
+    "value": 1.0
+   },
+   {
+    "label": "control2 at the 15 Oct file pair-status.json cites",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\client-new-check-2026-10-15\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Weapons.ebx",
+    "rawSha256": "4557498d8196e539c11c401299c2f5f9e23f706dc29791e283389c0105f2397c",
+    "offset": 1273604,
+    "type": "f32",
+    "bytesHex": "0000803f",
+    "value": 1.0
+   }
+  ]
+ },
+ "inference": [
+  "For the site, precedence is moot on 2.1.1.0: every paired row on the 67 weapons is equal, and attachment-effect files have no registry row to compete with.",
+  "AAHV heat cannot discriminate the sources: 8 vs 8 shots at capacity 1.0 without cooling; the 1-shot differences need unproven boundary or cooling rules.",
+  "The 720 row appears unbound to M16A3_WB (its group node is imported by nothing), the PB_C4 pattern; this is an import-graph inference, not runtime proof.",
+  "The M136 AT zoomed standing-stationary MinAngle (file 0.0, registry 0.35, group imported by GS_AT4) is the cleanest controlled in-game discriminator found (operator-check.md)."
+ ],
+ "unresolved": [
+  "Runtime precedence itself: no source fact shows which value the game uses for a bound row; operator-check.md is the proposed test.",
+  "Whether the 720 'M16A3_WB - InitialSpeed.z' row is read at runtime: like every value row it is imported only by TweakablesConfig, and it hangs from a group node no raw file imports; runtime binding by label is not shown.",
+  "AAHV shots to overheat depend on unstored capacity (1.0 assumed), the >= vs > boundary and whether cooling runs between shots; 8 vs 8 in the plain model.",
+  "MinAngle units and that it is the first-shot aimed spread are inferred from the label, not proven.",
+  "524 array-valued rows on site owners (damage curves, ReloadTimerArray, recoil-by-order) are not scalar-paired here; curves were paired in the 19 Oct curves.py run.",
+  "20 catalog-only attachment-effect routes (16 WPM_, 4 GDM_) are not in the raw tree; their registry check is by name only (needs capture only if their contents matter)."
+ ],
+ "siteImpact": "None. On 2.1.1.0 the registry default equals the own value on every paired row of the 67 site weapons (15,879 values: 2,771/11,524/567 on the 63, 141/824/52 on the four Season 5 weapons), so site numbers are the same under a registry-first or file-first rule. The six generators emit no stat on an owner with a difference. The 98 differing pairs and the AAHV, minigun and M16 odd rows touch no site weapon. Conditional: if the operator check shows the file wins, only future vehicle/gadget pages and the registry-first choices in VEHICLES.md/GADGETS.md are affected.",
+ "outOfScopeNotes": [
+  "VEHICLES.md L3373 test 'count Scout Helicopter minigun shots to overheat (112 or 150)' cannot run as written: file and registry both store a 100-round magazine; 0.008889 also gives 113, not 112, at capacity 1.0.",
+  "The recheck doc says 46 odd-labelled M16A3 rows were added; GRX_Weapons now holds 48 value rows and 14 group nodes labelled 'M16A3_WB - ...'.",
+  "KST_* kill-switch registries were not searched for attachment file names in (b) (brief scope is GRX_*).",
+  "Registry rows can still reach attachment effects through weapon-owned labels such as 'M16A3_WB.WeaponModifierDataAssets[13] - ZL2 Canted Sway...' (WB-embedded modifiers), not through the WPM_/WME_ files."
+ ],
+ "evidence": {
+  "runFolder": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4058",
+  "inputs": {
+   "recheckRun": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\weapon-registry-recheck-2026-10-19 (pair-status.json, owncmp.json, allrows.py, owncmp.py, common.py copied, not edited)",
+   "pairStatusSha256": "88717ebd31bcf1ed98c6f6f42172add40851c254e704019e7d29091e2de1faca",
+   "oldRows": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-09-registry-rows\\allrows.json",
+   "oldRowsSha256": "9742f20579567e7f709494a05fa2e25f3e6977ddf3f8ccd3aa832d511cdab2c6",
+   "crosswalk": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\weapon-crosswalk.json",
+   "crosswalkSha256": "19ad8a74188dcf48c146b6c359688ac97f8cf617b78251a39a0502080079f535",
+   "catalog": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\asset-catalog.json",
+   "catalogSha256": "12b465ee13d36e83b8b0dec67caa85627065c2abeeca248f9bf851610f4af56a",
+   "comparison1435": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\frosty\\weapon-registry-own-comparison.json",
+   "comparison1435Sha256": "dbcbd9c4a3bb717f2252c7e3d1770e8bc7ecf346d47036bfa853b40b57ed3558",
+   "ballistics": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer\\data\\ballistics.json",
+   "ballisticsSha256": "f6eedb270bde4df7df0d28ff920409ce3d4afadc8db25a56481ce3eb6a7b683a",
+   "repoDecoder": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-ebx-decode.py (via frosty-roster-values.load_decoder)",
+   "repoDecoderSha256": "149d39cdc3aaef39d7166ad67a8e4651049c7e7bd11efeebdd41e1a9e00d3fc5",
+   "rawCheckScriptSha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3"
+  },
+  "commands": [
+   {
+    "argv": [
+     "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+     "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-worker.py",
+     "prior-work",
+     "--terms",
+     "registry",
+     "precedence",
+     "PB_C4",
+     "HeatPerBullet",
+     "InitialSpeed"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4058",
+    "output": "prior-work.txt (stdout redirected)"
+   },
+   {
+    "argv": [
+     "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+     "probe1.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4058",
+    "output": "stdout only (reads pair-status.json, owncmp.json of the 19 Oct run)"
+   },
+   {
+    "argv": [
+     "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+     "allrows.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4058",
+    "output": "allrows.json"
+   },
+   {
+    "argv": [
+     "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+     "owncmp.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4058",
+    "output": "owncmp.json, own-offsets.json"
+   },
+   {
+    "argv": [
+     "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+     "cmp_rerun.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4058",
+    "output": "stdout only (rerun vs 19 Oct: values equal, paths differ)"
+   },
+   {
+    "argv": [
+     "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+     "control_pairing.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4058",
+    "output": "site-owner-pairs.json"
+   },
+   {
+    "argv": [
+     "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+     "wf_heat.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4058",
+    "output": "wf-heat.json"
+   },
+   {
+    "argv": [
+     "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+     "m16_row.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4058",
+    "output": "m16-row.json"
+   },
+   {
+    "argv": [
+     "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+     "m16_imports.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4058",
+    "output": "m16-imports.json"
+   },
+   {
+    "argv": [
+     "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+     "m16_wb_imports.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4058",
+    "output": "m16-wb-imports.json"
+   },
+   {
+    "argv": [
+     "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+     "m16_odd_scan.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4058",
+    "output": "m16-odd-scan.json"
+   },
+   {
+    "argv": [
+     "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+     "build_manifest.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4058",
+    "output": "rawcheck-manifest.json"
+   },
+   {
+    "argv": [
+     "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+     "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+     "--manifest",
+     "rawcheck-manifest.json",
+     "--out",
+     "raw-checks.json"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4058",
+    "output": "raw-checks.json"
+   },
+   {
+    "argv": [
+     "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+     "prefix_census.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4058",
+    "output": "prefix-census.json (run twice; the first revision did not merge case-variant routes and its output was replaced by the second run; only the final helper revision is hashed)"
+   },
+   {
+    "argv": [
+     "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+     "divergent.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4058",
+    "output": "divergent-pairs.json"
+   },
+   {
+    "argv": [
+     "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+     "heat_calc.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4058",
+    "output": "heat-shots.json"
+   },
+   {
+    "argv": [
+     "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+     "wf_mag.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4058",
+    "output": "wf-mag.json"
+   },
+   {
+    "argv": [
+     "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+     "owner_imports.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4058",
+    "output": "owner-imports.json"
+   },
+   {
+    "argv": [
+     "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+     "write_generators_table.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4058",
+    "output": "generators-table.md"
+   },
+   {
+    "argv": [
+     "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+     "write_assertion.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4058",
+    "output": "assertion-proposal.md (run twice; one count corrected)"
+   },
+   {
+    "argv": [
+     "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+     "write_operator_check.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4058",
+    "output": "operator-check.md"
+   },
+   {
+    "argv": [
+     "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+     "build_manifest2.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4058",
+    "output": "rawcheck-manifest-control2.json"
+   },
+   {
+    "argv": [
+     "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+     "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+     "--manifest",
+     "rawcheck-manifest-control2.json",
+     "--out",
+     "raw-checks-control2.json"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4058",
+    "output": "raw-checks-control2.json"
+   },
+   {
+    "argv": [
+     "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+     "build_result.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4058",
+    "output": "l4058-result.json (run twice; one count corrected)"
+   },
+   {
+    "argv": [
+     "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+     "write_summary.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4058",
+    "output": "summary.md"
+   },
+   {
+    "argv": [
+     "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+     "build_receipt.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4058",
+    "output": "draft-receipt.json"
+   }
+  ],
+  "commandNote": "Commands were run from Git Bash as 'python <script>' (cwd above); argv shows the resolved interpreter. Output files are UTF-8 without BOM.",
+  "helpers": [
+   {
+    "file": "common.py",
+    "sha256": "982378dde2bc25c607d00ac2019cf90614087f79cb0da2810384eb5569b6bd67"
+   },
+   {
+    "file": "allrows.py",
+    "sha256": "52f91f231c36700cda0b826692d8143eff61b837ed6e9a32d9b35181c1916467"
+   },
+   {
+    "file": "owncmp.py",
+    "sha256": "e38475261309a92fe7803f53bb7014545a30c2f42d34db444381c3e19f5266ef"
+   },
+   {
+    "file": "probe1.py",
+    "sha256": "7e7a958dd4fb160f073e881b7c3045254bd2f82c9e22d2684d34a657c7259d19"
+   },
+   {
+    "file": "cmp_rerun.py",
+    "sha256": "70c9ec5ec5794b5a23a0ba4ca6b982034cff9060cbf6d7805d064d0d29af8292"
+   },
+   {
+    "file": "control_pairing.py",
+    "sha256": "5da924a10b3be96c1b9e090964dd37bb1b399711f1d9a730e2c46a187abfe973"
+   },
+   {
+    "file": "wf_heat.py",
+    "sha256": "19dd2e2369233da1eb6f6c65e5e48f32f72b83beb10eb70110828ef327c814a1"
+   },
+   {
+    "file": "m16_row.py",
+    "sha256": "6ca8f553c35d129d6bfa3983abb627f18ce7a0c19986fbeef822073e4e57ff2d"
+   },
+   {
+    "file": "m16_imports.py",
+    "sha256": "0edd24bad872b36da26a64bf482f1f4bc9654567c6bf3f9dfdabb68b98880b74"
+   },
+   {
+    "file": "m16_wb_imports.py",
+    "sha256": "955bed2921f6ea7d0ed6e17f066ba5ac677a5d969917bc44729d224647f84f0b"
+   },
+   {
+    "file": "m16_odd_scan.py",
+    "sha256": "0c522e131b83d2eca53d06873556de1dda3c00f8702e756c496802b3453ecb8d"
+   },
+   {
+    "file": "build_manifest.py",
+    "sha256": "3498025c49cd75f85f6b4443671ee898ab195ea53062151620686c136c2c002f"
+   },
+   {
+    "file": "build_manifest2.py",
+    "sha256": "63366401137254f02717c7e245a1b83aa8b3bf915edc82d302685039d297311c"
+   },
+   {
+    "file": "prefix_census.py",
+    "sha256": "d053717caed1f38ade435d7cd8f499e90f28d157ad857b2c52c0e55aeca8b227"
+   },
+   {
+    "file": "divergent.py",
+    "sha256": "1c0175a598bfc9bb354fc361f02f83552e8a2abbae7f8e0dace954d31e48f4a3"
+   },
+   {
+    "file": "heat_calc.py",
+    "sha256": "66bbb93cedbab62983c6515b5d4b1fbd69056d099f672cf1ee3113c06a57b9d7"
+   },
+   {
+    "file": "wf_mag.py",
+    "sha256": "1d8d4c860567a9b2afc89b971124ae1a0e9c299aadd519681f0a76168e73c6df"
+   },
+   {
+    "file": "owner_imports.py",
+    "sha256": "fb1027d66afab38bad1eb69f7ee51c598be4f14f1d90d99d4bbcc90518cc9d89"
+   },
+   {
+    "file": "write_generators_table.py",
+    "sha256": "1e1493d8c2d6abb13ab0d4a585618e62c440e646950010fdb6570f8a953855f7"
+   },
+   {
+    "file": "write_assertion.py",
+    "sha256": "dc64f6cf011c1e5541a01edf3431c3754df3e68b997b71b27e5f03d9d739ff86"
+   },
+   {
+    "file": "write_operator_check.py",
+    "sha256": "05578932e1d1cb83e24f7368b26a638a8d877f3cff9fc64ecdb2d7d980e9dd46"
+   },
+   {
+    "file": "build_result.py",
+    "sha256": "03d2a57a93a4eee67472c142de4e4724b497f8417c1971d78084b2e13f09bbbf"
+   },
+   {
+    "file": "write_progress.py",
+    "sha256": "7cd2d7cbedebb26052af4560fdfbd9cc54a3a8224b9a20763846282139421d58"
+   },
+   {
+    "file": "write_summary.py",
+    "sha256": "870a8b40e9ec1a9e1f52c33ee59e8c6b539e266edd5f6246c97524b1f9ec254e"
+   },
+   {
+    "file": "build_receipt.py",
+    "sha256": "5d0aa27867f08e98f3a8141b15d1dabe4ac56422927f12cd2b2daa570c8b88b2"
+   }
+  ],
+  "outputs": [
+   {
+    "file": "allrows.json",
+    "sha256": "0ee6881a073afed6974040f970f20000c0837ce70dd39c7e5d19554f97a02f3b"
+   },
+   {
+    "file": "owncmp.json",
+    "sha256": "8dd661f77198c5646a8a4bfc7310262efc8869d3b27f67b7f7a88f5c7e15b647"
+   },
+   {
+    "file": "own-offsets.json",
+    "sha256": "167c3f6e6087e42a37345859edc9dfe8d66da61bb09a486cd84941b05bd9e675"
+   },
+   {
+    "file": "site-owner-pairs.json",
+    "sha256": "e96ea4b429bf3eb3369dd90e6773cec1163016a0a6251fdd0eb14d5e71efdd90"
+   },
+   {
+    "file": "wf-heat.json",
+    "sha256": "b890aff8e1f1236fba6a7df0aba0bf8d0f0ff237786d7f926cd38e091ca140a1"
+   },
+   {
+    "file": "wf-mag.json",
+    "sha256": "c78a4dbf51b98cd67bd844be1409a71852b9e75cda24e5e65903f462aa58bb2e"
+   },
+   {
+    "file": "heat-shots.json",
+    "sha256": "0995b0859f607bace507130d508254883a9d8e633821c60f3911488b4da1f556"
+   },
+   {
+    "file": "m16-row.json",
+    "sha256": "b83214fd851f4f0c535f5f2b0b339f9dcfefaa32998571ac2bfb48cc095788aa"
+   },
+   {
+    "file": "m16-imports.json",
+    "sha256": "1e1590879baa2022c6947100badb6d41fca12a166eb814610ec747977b65f4c3"
+   },
+   {
+    "file": "m16-wb-imports.json",
+    "sha256": "5d40c0ebc508881995a0c141d6547dabdc660d712df34f45e1938be58a15fa72"
+   },
+   {
+    "file": "m16-odd-scan.json",
+    "sha256": "0243cf499047c909264215441aacf1a971b601e79c6d684d16fa811689eeb8a8"
+   },
+   {
+    "file": "owner-imports.json",
+    "sha256": "67dc616a79f5af7323c152f013bd560c2391e19ae74f8fd4e13cd3b0d418b5a4"
+   },
+   {
+    "file": "prefix-census.json",
+    "sha256": "4c838844207097562bcae34b64b68ecdd37d9b9b5f72bd9aadcceb3e73e426a3"
+   },
+   {
+    "file": "divergent-pairs.json",
+    "sha256": "79ce6ec90eada122a0c894b2df6c4a46b99e2fe51a43f3b83a3e3b8948f580ba"
+   },
+   {
+    "file": "rawcheck-manifest.json",
+    "sha256": "5095bd16cad7744fd4de2d338cda0a00f18d9fb2949545e3608b2fb9b9270283"
+   },
+   {
+    "file": "raw-checks.json",
+    "sha256": "8eaa72c80aecbe3314884a75c2d590cd1adf4f628c38e0cfe6450aa749e8ba9c"
+   },
+   {
+    "file": "rawcheck-manifest-control2.json",
+    "sha256": "bb906bca49072efc012c7b7247ff77776e13fdd64e5e855cafcba931ad884bf6"
+   },
+   {
+    "file": "raw-checks-control2.json",
+    "sha256": "b8fe1435f40bdb3aedfdd0104af0395b6ac4c5a2fbe5072e577cd75b19a8b3e3"
+   },
+   {
+    "file": "l4058-result.json",
+    "sha256": "5a547cd8a2e3afcd2a5e467e418adcf682b58e1e4f1d06355084cf4205d48c94"
+   },
+   {
+    "file": "generators-table.md",
+    "sha256": "923ff1cb351b216fe9f090836635a7ef5be9e3ae8eec5cca1278e0375127f15b"
+   },
+   {
+    "file": "assertion-proposal.md",
+    "sha256": "d222b378b4019bdcff0641546170802e0704fe3c0f464903ab8f91315c884052"
+   },
+   {
+    "file": "operator-check.md",
+    "sha256": "648fb782d03737220203852d1c94034d708f8b246b95bcf289a8301636e76d6e"
+   },
+   {
+    "file": "summary.md",
+    "sha256": "a30731070077e13aede8b297f77f4a88f6b6450e4e01f54b375f43812fac138d"
+   },
+   {
+    "file": "prior-work.txt",
+    "sha256": "07e45306319923ab114ffb6388b7bc95eb349e9b16ebef7e72240cc8cd637c54"
+   }
+  ],
+  "largeFiles": "own-offsets.json (about 52 MB) is the only file over 50 MB; it is the single version cited (control_pairing.py input)."
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-30",
+  "build": "2.1.1.0",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L4058",
+    "title": "Registry precedence census on 2.1.1.0: 0 registry/file differences on the 67 site weapons, no registry rows on 631 attachment-effect files, 98 gadget/launcher/vehicle pairs, M136 AT spread as the controlled check",
+    "status": "finding",
+    "summary": "On 2.1.1.0 the registry default equals the own value on all 15,879 paired rows of the 67 site weapons (control 2,771/11,500/567 reproduced), none of 631 WME_/WPM_/GDM_/GID_/AAM_/GRM_/GBM_ files has a GRX_* row, the 98 differing pairs are 36 infantry gadget/launcher rows and 62 vehicle bullet rows, AAHV heat gives 8 shots under both 0.125 and 0.13, and the 'M16A3_WB - InitialSpeed.z' 720 row hangs from a group node no file imports.",
+    "reopenWhen": "The operator runs the M136 AT standing-stationary aimed-spread check in operator-check.md, a later build adds a registry/file difference on a site-weapon owner, or a consumer of the odd 'M16A3_WB - ...' rows is found."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/GameSetup/Tweakables/GameRemixer/GRX_Weapons",
+    "format": "raw-ebx",
+    "sha256": "4557498d8196e539c11c401299c2f5f9e23f706dc29791e283389c0105f2397c",
+    "question": "Which value rows bind to site-weapon owners and do their defaults equal the owners' own values; what is the 'M16A3_WB - InitialSpeed.z' row?",
+    "result": "useful",
+    "conclusion": "All site-weapon rows equal their own values (0 of 15,879 differ); the 720 row is one of 62 objects labelled 'M16A3_WB - ...', and its group node is imported by no raw file."
+   },
+   {
+    "path": "Common/Hardware/Weapons/DMR/M39EMR/GS_M39EMR",
+    "format": "raw-ebx",
+    "sha256": "e2036593a9491eb7fb94e301472046e5dd76b3fabac6c525ad4dd3427613a4c3",
+    "question": "Control: own Recoil.Unzoomed.RecoilDecreaseTimeExponent at offset 1020.",
+    "result": "useful",
+    "conclusion": "1.0 (0000803f), equal to the GRX_Weapons default at 1273604."
+   },
+   {
+    "path": "Common/Hardware/Weapons/AssaultRifle/M16A3/M16A3_WB",
+    "format": "raw-ebx",
+    "sha256": "0bc997efac44f297d27a57201adaa9388dfbda51e7472ae8b0eb0790321eacd2",
+    "question": "Own InitialSpeed.z and which GRX_Weapons objects the file imports.",
+    "result": "useful",
+    "conclusion": "Own 680 at offset 416; imports 21 GRX_Weapons group nodes of the real 'M16A3_WB.' tree and none of the odd 'M16A3_WB - ...' nodes."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/_VehiclesCommon/WeaponData/AA/WF_Vehicles_AA_PrimaryWeapon_AAHV",
+    "format": "raw-ebx",
+    "sha256": "225a2c6dd063751fc64319f02417443d7e64f6de6a3dcfb5cda8c780e966fd94",
+    "question": "Own overheat block and rate of fire for the shots-to-overheat comparison.",
+    "result": "useful",
+    "conclusion": "HeatPerBullet 0.125, HeatDropPerSecond 0.833333, OverHeatDropDelay 0, OverHeatThreshold 0, RateOfFire 720; 8 shots at capacity 1.0 under 0.125 and under the registry 0.13."
+   }
+  ],
+  "site": [
+   {
+    "pointer": "data/weapons.json:/[id=m16a4]/bulletVel",
+    "value": 680,
+    "relation": "supports"
+   }
+  ]
+ },
+ "run": {
+  "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps",
+  "leadFolder": "L4058"
+ }
+}

@@ -1,0 +1,618 @@
+{
+ "lead": "L4079",
+ "status": "finding",
+ "build": "2.1.1.0",
+ "question": "Name the unnamed HDA/ZDA balance-table column (H1, Field_160ef028 and Field_bd300f62) from source, tabulate HDA/ZDA for 67 weapons, find the consumer, predict a validation glance.",
+ "sourceFacts": {
+  "statements": [
+   "Control passes: M433 GS Field_fe708077=3, Field_d94fe6ad=3; HDA list[3] hipStand 2.432 and hipMove 3.04, ZDA list[3] column 1 0.32 equal site spread.hipStand/hipMove/adsMove; 67 of 67 weapons equal (raw-checked, rawChecks in control and rows).",
+   "HDA_Weapons: 18 rows x 7 f32 columns; ZDA_Moving_Weapons: 7 rows x 4 f32 columns; both files are byte-identical (sha256) to 1.4.3.0 and 1.4.3.5. All 154 cells and 201 GS selector words were read with frosty-raw-check and match the decode.",
+   "All 67 weapons: HDA list row 1..5 (4:22, 3:18, 2:11, 1:10, 5:6), ZDA list row 3, Field_cee5ebfe 0. Every HDA row: H1 = 2.5 x hipStand, hipMove = 1.25 x hipStand. ZDA columns 1 to 3 equal in every row; column 4 ladder 1.67, 1.48, 1.3, 1.13, 0.97, 0.82, 0.68 (c4/c1 2.46 to 13.6).",
+   "Site data/balance_tables.json HIP_SPREAD_TABLE equals HDA 18 x 7; MOVING_ACC_TIERS equals ZDA column 1. Field_bd300f62 does not occur in site data or sim.",
+   "GS MinMaxDispersion Field_3ed1c995: array Field_a1ec29c4 of 18 slots (min Field_7baf4297, max Field_60e4e484); registry row names GS_*.MinMaxDispersion.<zoom>.<posture>.<Stationary|Moving|JumpingSprinting> map to slots by value across 80 owners. Standing.JumpingSprinting = slot 2 (unzoomed), slot 11 (zoomed). M433 raw-checked: slot 2 min 4.256 and max 12.0, slot 11 min 0.6 and max 12.0.",
+   "Table H1 differs from the GS own JumpingSprinting leaf in 67 of 67 weapons (GS leaf = 1.75 x GS standing; table 2.5 x); ZDA column 4 differs from the GS zoomed leaf in 67 of 67 (GS 1.714 x or 2.0 x moving; table 3.53 x for M433).",
+   "No registry row names HDA/ZDA fields (0 HDA/ZDA/DispersionHip/DispersionADS token rows in 34,340). No GS dispersion row has Jump, InAir, Slide or Airborne as a state; combined labels are JumpingSprinting and MovingJumpingSprinting.",
+   "Listings search (L4057 listings-2110 298 files, L4057 listings-1435 302, 2026-10-10 1.4.3.5 listings 680): no listing contains both a motion token (jump, in-air, slide, sprint, airborne) and a dispersion/spread token. The 1.4.3.5 hipfire attribute delegate graph reads MinAngleIndex with an 18-entry ladder and a StandDispersionMinAngle input only."
+  ],
+  "controlRawChecks": [
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+    "rawSha256": "61b8c5791b177e0b2becff5cdb00c8c9a6649515ff41a6fc1572ff7efadb7dda",
+    "offset": 1856,
+    "type": "u32",
+    "bytesHex": "03000000",
+    "value": 3,
+    "label": "M433 GS Field_fe708077 hip row selector"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+    "rawSha256": "61b8c5791b177e0b2becff5cdb00c8c9a6649515ff41a6fc1572ff7efadb7dda",
+    "offset": 1888,
+    "type": "u32",
+    "bytesHex": "03000000",
+    "value": 3,
+    "label": "M433 GS Field_d94fe6ad moving-ADS row selector"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\DispersionHip\\HDA_Weapons.ebx",
+    "rawSha256": "b17420840ff04f49661bce2c6b88f8106a82e0d88cd57e0b803fdb21533c0012",
+    "offset": 688,
+    "type": "f32",
+    "bytesHex": "e3a51b40",
+    "value": 2.431999921798706,
+    "label": "HDA list[3] Field_1867639b (hip standing min) = site m433 spread.hipStand[0]"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\DispersionHip\\HDA_Weapons.ebx",
+    "rawSha256": "b17420840ff04f49661bce2c6b88f8106a82e0d88cd57e0b803fdb21533c0012",
+    "offset": 692,
+    "type": "f32",
+    "bytesHex": "5c8f4240",
+    "value": 3.0399999618530273,
+    "label": "HDA list[3] Field_c5401fc2 (hip moving min) = site m433 spread.hipMove[0]"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\DispersionADS\\ZDA_Moving_Weapons.ebx",
+    "rawSha256": "24f8a82f7deb2b642310f818170a670b71b2f0e56b4aaf46e9857bb8e67625c6",
+    "offset": 264,
+    "type": "f32",
+    "bytesHex": "0ad7a33e",
+    "value": 0.3199999928474426,
+    "label": "ZDA list[3] Field_6c73f45b = site m433 spread.adsMove[0]"
+   }
+  ],
+  "m433GsLeafRawChecks": [
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+    "rawSha256": "61b8c5791b177e0b2becff5cdb00c8c9a6649515ff41a6fc1572ff7efadb7dda",
+    "offset": 2056,
+    "type": "f32",
+    "bytesHex": "e3a51b40",
+    "value": 2.431999921798706,
+    "label": "M433 GS Field_a1ec29c4[0].Field_7baf4297 (registry name MinMaxDispersion.Unzoomed.Standing.Stationary.MinAngle)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+    "rawSha256": "61b8c5791b177e0b2becff5cdb00c8c9a6649515ff41a6fc1572ff7efadb7dda",
+    "offset": 2072,
+    "type": "f32",
+    "bytesHex": "5c8f4240",
+    "value": 3.0399999618530273,
+    "label": "M433 GS Field_a1ec29c4[1].Field_7baf4297 (registry name MinMaxDispersion.Unzoomed.Standing.Moving.MinAngle)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+    "rawSha256": "61b8c5791b177e0b2becff5cdb00c8c9a6649515ff41a6fc1572ff7efadb7dda",
+    "offset": 2088,
+    "type": "f32",
+    "bytesHex": "27318840",
+    "value": 4.25600004196167,
+    "label": "M433 GS Field_a1ec29c4[2].Field_7baf4297 (registry name MinMaxDispersion.Unzoomed.Standing.JumpingSprinting.MinAngle)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+    "rawSha256": "61b8c5791b177e0b2becff5cdb00c8c9a6649515ff41a6fc1572ff7efadb7dda",
+    "offset": 2104,
+    "type": "f32",
+    "bytesHex": "d578e93f",
+    "value": 1.8240000009536743,
+    "label": "M433 GS Field_a1ec29c4[3].Field_7baf4297 (registry name MinMaxDispersion.Unzoomed.Crouching.Stationary.MinAngle)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+    "rawSha256": "61b8c5791b177e0b2becff5cdb00c8c9a6649515ff41a6fc1572ff7efadb7dda",
+    "offset": 2120,
+    "type": "f32",
+    "bytesHex": "e3a51b40",
+    "value": 2.431999921798706,
+    "label": "M433 GS Field_a1ec29c4[4].Field_7baf4297 (registry name MinMaxDispersion.Unzoomed.Crouching.Moving.MinAngle)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+    "rawSha256": "61b8c5791b177e0b2becff5cdb00c8c9a6649515ff41a6fc1572ff7efadb7dda",
+    "offset": 2152,
+    "type": "f32",
+    "bytesHex": "e3a59b3f",
+    "value": 1.215999960899353,
+    "label": "M433 GS Field_a1ec29c4[6].Field_7baf4297 (registry name MinMaxDispersion.Unzoomed.Prone.Stationary.MinAngle)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+    "rawSha256": "61b8c5791b177e0b2becff5cdb00c8c9a6649515ff41a6fc1572ff7efadb7dda",
+    "offset": 2168,
+    "type": "f32",
+    "bytesHex": "d578e93f",
+    "value": 1.8240000009536743,
+    "label": "M433 GS Field_a1ec29c4[7].Field_7baf4297 (registry name MinMaxDispersion.Unzoomed.Prone.Moving.MinAngle)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+    "rawSha256": "61b8c5791b177e0b2becff5cdb00c8c9a6649515ff41a6fc1572ff7efadb7dda",
+    "offset": 2200,
+    "type": "f32",
+    "bytesHex": "cdcc4c3d",
+    "value": 0.05000000074505806,
+    "label": "M433 GS Field_a1ec29c4[9].Field_7baf4297 (registry name MinMaxDispersion.Zoomed.Standing.Stationary.MinAngle)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+    "rawSha256": "61b8c5791b177e0b2becff5cdb00c8c9a6649515ff41a6fc1572ff7efadb7dda",
+    "offset": 2216,
+    "type": "f32",
+    "bytesHex": "3333b33e",
+    "value": 0.3499999940395355,
+    "label": "M433 GS Field_a1ec29c4[10].Field_7baf4297 (registry name MinMaxDispersion.Zoomed.Standing.Moving.MinAngle)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+    "rawSha256": "61b8c5791b177e0b2becff5cdb00c8c9a6649515ff41a6fc1572ff7efadb7dda",
+    "offset": 2232,
+    "type": "f32",
+    "bytesHex": "9a99193f",
+    "value": 0.6000000238418579,
+    "label": "M433 GS Field_a1ec29c4[11].Field_7baf4297 (registry name MinMaxDispersion.Zoomed.Standing.JumpingSprinting.MinAngle)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+    "rawSha256": "61b8c5791b177e0b2becff5cdb00c8c9a6649515ff41a6fc1572ff7efadb7dda",
+    "offset": 2248,
+    "type": "f32",
+    "bytesHex": "cdcc4c3d",
+    "value": 0.05000000074505806,
+    "label": "M433 GS Field_a1ec29c4[12].Field_7baf4297 (registry name MinMaxDispersion.Zoomed.Crouching.Stationary.MinAngle)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+    "rawSha256": "61b8c5791b177e0b2becff5cdb00c8c9a6649515ff41a6fc1572ff7efadb7dda",
+    "offset": 2264,
+    "type": "f32",
+    "bytesHex": "3333b33e",
+    "value": 0.3499999940395355,
+    "label": "M433 GS Field_a1ec29c4[13].Field_7baf4297 (registry name MinMaxDispersion.Zoomed.Crouching.Moving.MinAngle)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+    "rawSha256": "61b8c5791b177e0b2becff5cdb00c8c9a6649515ff41a6fc1572ff7efadb7dda",
+    "offset": 2296,
+    "type": "f32",
+    "bytesHex": "cdcc4c3d",
+    "value": 0.05000000074505806,
+    "label": "M433 GS Field_a1ec29c4[15].Field_7baf4297 (registry name MinMaxDispersion.Zoomed.Prone.Stationary.MinAngle)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+    "rawSha256": "61b8c5791b177e0b2becff5cdb00c8c9a6649515ff41a6fc1572ff7efadb7dda",
+    "offset": 2312,
+    "type": "f32",
+    "bytesHex": "3333b33e",
+    "value": 0.3499999940395355,
+    "label": "M433 GS Field_a1ec29c4[16].Field_7baf4297 (registry name MinMaxDispersion.Zoomed.Prone.Moving.MinAngle)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+    "rawSha256": "61b8c5791b177e0b2becff5cdb00c8c9a6649515ff41a6fc1572ff7efadb7dda",
+    "offset": 2092,
+    "type": "f32",
+    "bytesHex": "00004041",
+    "value": 12.0,
+    "label": "M433 GS Field_a1ec29c4[2].Field_60e4e484 (MaxAngle)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+    "rawSha256": "61b8c5791b177e0b2becff5cdb00c8c9a6649515ff41a6fc1572ff7efadb7dda",
+    "offset": 2236,
+    "type": "f32",
+    "bytesHex": "00004041",
+    "value": 12.0,
+    "label": "M433 GS Field_a1ec29c4[11].Field_60e4e484 (MaxAngle)"
+   }
+  ],
+  "allRawChecks": "rawchecks-tables.json (154 cells), rawchecks-selectors.json (201), rawchecks-gsjs.json (268), rawchecks-gsleaf.json (16), rawchecks-control.json (5); every row of l4079-result.json carries its own rawChecks",
+  "m433Prediction": {
+   "hipStandingDeg": 2.431999921798706,
+   "hipMovingDeg": 3.0399999618530273,
+   "hipJumpSprintH1Deg": 6.079999923706055,
+   "hipRatioJumpOverStanding_angle": 2.5000000490169794,
+   "hipRatioJumpOverStanding_tanHalfAngle": 2.501972936466039,
+   "hipRatioJumpOverMoving_angle": 2.0,
+   "hipRatioIfGsLeaf_angle": 1.7500000735254688,
+   "adsStandingDeg_site": 0.05,
+   "adsMovingDeg": 0.3199999928474426,
+   "adsJumpSprintC4Deg": 1.1299999952316284,
+   "adsRatioC4OverMoving": 3.5312500640284283,
+   "adsRatioC4OverStanding": 22.59999990463257,
+   "adsRatioIfGsLeaf": 1.7142858115994217
+  }
+ },
+ "inference": [
+  "The unnamed columns H1 (Field_160ef028) and ZDA column 4 (Field_bd300f62) are, by position, the Standing.JumpingSprinting entries of the hip (unzoomed) and ADS (zoomed) layouts. Evidence is column order parallel to GS slots plus equal values for the other six hip columns on M433 and hipStand on 49 of 67 weapons; no declared name.",
+  "Jump and sprint share one source label; slide is not separately labelled. FIELD_MAP \"Jumping/sprinting ADS minimum\" for Field_bd300f62 holds at Probable, with the correction that the site holds H1, not bd300f62."
+ ],
+ "unresolved": [
+  "Runtime consumer of HDA/ZDA rows is not exposed: no listing in the four searched folders contains both a jump/in-air/slide/sprint token and a dispersion/spread/min-angle token. Which soldier state selects the JumpingSprinting minimum, and whether slide uses it, is unresolved.",
+  "The column names are positional: H1 and ZDA column 4 sit where GS MinMaxDispersion has Standing.JumpingSprinting. No descriptor or registry row names the table fields themselves (registry search for HDA/ZDA/DispersionHip/DispersionADS tokens: 0 rows), and the GS own JumpingSprinting leaf differs from the table column in 67 of 67 weapons (GS leaf = 1.75 x standing; table H1 = 2.5 x), so equality of values cannot pin the pairing.",
+  "Which source wins at runtime for the JumpingSprinting minimum (GS own leaf 4.256 versus table H1 6.08 for M433) is not known; same open question for 0.6 versus 1.13 in ADS (and 0.35 versus 0.32 for ADS moving).",
+  "Jump versus slide versus sprint cannot be separated from source: the label is one combined state JumpingSprinting.",
+  "Composition with the max bound (GS JumpingSprinting max 12.0 for M433, raw-checked) and with per-shot bloom is not established.",
+  "The 2.1.1.0 listing set on disk (L4057 listings-2110, 298 files) was still being produced by another lead at the time of reading; a 2.1.1.0 listing of the 1.4.3.5 hipfire attribute delegate (graph 481d2d6bc969c2f5) is absent, so its 2.1.1.0 body was not read."
+ ],
+ "siteImpact": "No site number changes. Site data/balance_tables.json HIP_SPREAD_TABLE already holds H1 as Field_160ef028 (18 of 18 rows x 7 columns equal the 2.1.1.0 HDA bytes); MOVING_ACC_TIERS holds only ZDA column 1 (7 of 7 equal). Field_bd300f62 is NOT in the site table: the brief premise that the site holds it unnamed is wrong; only the H1 column is held unnamed. Conditional: if a later in-game check shows jump/slide hip spread behaves as H1 (2.5x standing, M433 6.08 degrees), the site already has the column; ADS in-air would need ZDA column 4 added as a new table (M433 row 3 = 1.13 degrees). The simulator exposes standing/moving only, so nothing is applied now.",
+ "evidence": {
+  "paths": [
+   {
+    "path": "l4079-result.json",
+    "sha256": "de4c77a8b4449e11ef491fd503d5adfa10935f0dabedbc0536ba640703d7bd94",
+    "bytes": 736180
+   },
+   {
+    "path": "census.md",
+    "sha256": "49484e7a4b803da363bc27f3a76f9bf8efb5a333105b475e3a2d69f6dca9e690",
+    "bytes": 13533
+   },
+   {
+    "path": "next-leads.md",
+    "sha256": "fec6a84239051728f54b45d121cf0839c9994c999e78fd01183bd1ff9a9e10f9",
+    "bytes": 1572
+   },
+   {
+    "path": "census-data.json",
+    "sha256": "fe4f54982a0ae75416abc06d0dc7f695ee6d6935249bad206cb68088754740e9",
+    "bytes": 211189
+   },
+   {
+    "path": "dec-all.json",
+    "sha256": "6175cc1e9965864d26990ca557fbedb897a18a31d21e9d359d84bd7cb245ce46",
+    "bytes": 8063506
+   },
+   {
+    "path": "rawchecks-control.json",
+    "sha256": "0e0a32f5b43bd09dff08d4d43f756ede141b9aef829f48dcc867cde49e852530",
+    "bytes": 1931
+   },
+   {
+    "path": "rawchecks-tables.json",
+    "sha256": "90f0621e5d862678e227a09b4637d4b57326af7c27991b1402a5903b39394b07",
+    "bytes": 62834
+   },
+   {
+    "path": "rawchecks-selectors.json",
+    "sha256": "d28c5361971f6d8fa451a35cb39ede84c20b4a4bb7f63ad4218155b25bb1761e",
+    "bytes": 73706
+   },
+   {
+    "path": "rawchecks-gsleaf.json",
+    "sha256": "509271ff5f9dbe0e02caf86cb4e7ea6ee8d187e74b230777add7e88f3b8218e2",
+    "bytes": 6409
+   },
+   {
+    "path": "rawchecks-gsjs.json",
+    "sha256": "dfdc55d67224805278c4bd19649c23748a0f9953691808df074efcb6c87f029c",
+    "bytes": 107227
+   },
+   {
+    "path": "manifest-control.json",
+    "sha256": "4ab11eea0759dae7ed4bc7fe50b92482dbba8b3a76bf3bab0238d787cbeb88a7",
+    "bytes": 1519
+   },
+   {
+    "path": "manifest-tables.json",
+    "sha256": "d7387a95600a304009183c2875403b6afae2c7017a1442efddfd3bfebebf3a7c",
+    "bytes": 44301
+   },
+   {
+    "path": "manifest-selectors.json",
+    "sha256": "f307e08fb07a1c0f9be3056bc4bd0033a8a656af7681a52e9f49c1969fec025c",
+    "bytes": 51591
+   },
+   {
+    "path": "manifest-gsleaf.json",
+    "sha256": "9880152f160578137ce5cd030902fbb7a9a5b0c67e5c26c080453ddfe712533a",
+    "bytes": 5714
+   },
+   {
+    "path": "manifest-gsjs.json",
+    "sha256": "8f038302d5169b3520de8396e3d6168b80e3b4cb8f3ce271a06a30aee7884b95",
+    "bytes": 94570
+   },
+   {
+    "path": "registry-name-search.json",
+    "sha256": "ed54af52e36cc88c16c4f1bfe051ad94777090f77e1b275d9bc5f255aed4098a",
+    "bytes": 6740
+   },
+   {
+    "path": "registry-hits.json",
+    "sha256": "36eaf06efe2e885697430f13919863913eb19402a38ba36a5798aee4294a2614",
+    "bytes": 4587361
+   },
+   {
+    "path": "owncmp-minmaxdisp.json",
+    "sha256": "5dd5bb4b25a760e8449f2e1a12b16b43ab7b36e9efd46ab08228d36991cfa858",
+    "bytes": 5542
+   },
+   {
+    "path": "listings-search.json",
+    "sha256": "ca13ead06e09e22dd5c9a9c98957fe350e5fe11f8e3f95f4c3fb3d007baff07a",
+    "bytes": 384
+   },
+   {
+    "path": "build-intermediate.json",
+    "sha256": "7125fcf85dfd6c2ca45092ccf80af7685f915db9fde883715004caaabc5ef8de",
+    "bytes": 606856
+   }
+  ],
+  "rawSources": [
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\DispersionHip\\HDA_Weapons.ebx",
+    "sha256": "b17420840ff04f49661bce2c6b88f8106a82e0d88cd57e0b803fdb21533c0012"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Common\\Arrays\\DispersionADS\\ZDA_Moving_Weapons.ebx",
+    "sha256": "24f8a82f7deb2b642310f818170a670b71b2f0e56b4aaf46e9857bb8e67625c6"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\HK433\\GS_HK433.ebx",
+    "sha256": "61b8c5791b177e0b2becff5cdb00c8c9a6649515ff41a6fc1572ff7efadb7dda"
+   }
+  ],
+  "helperSha256": {
+   "l4079_decode.py": "11785a6eaa45ab0ae132d33ee40949e60fb5ab6eabd849e5bca868aaf705f3d8",
+   "l4079_offsets.py": "1514586c70c248b263c5c94331f26e8906435ed5a5fc666c5c18d1f788891e68",
+   "l4079_census.py": "1803b1ab4f658d99c2118b967e4367b76975cfdab0e999dfd32ca75cc1b6c450",
+   "l4079_analyze.py": "2ef4d1fc386ee4c53dc0ead0daa87e7c9ce4891606a1532869bfa71fc4ce842d",
+   "l4079_manifests.py": "4b8d4b6ab479f7c6403e1926c8198a74b8dd0855327c52b165b73f036100487a",
+   "l4079_gsleaf.py": "c857aa4647b329c5139246db3f3912af6cadee789af32241b24c28bedac5a47a",
+   "l4079_gsjs.py": "51fb9cae77c9a997fd200710eff2c6b068e767a6833d9d54c1143d5201cde515",
+   "l4079_registry.py": "f92ed037e62b2b9a418515202365b946056659632b9b0553c795fe00f6c46e76",
+   "l4079_registry2.py": "c0ae55fc5798f04ac7399d160df9573a180c6700a471434706c183b565b054f4",
+   "l4079_owncmp.py": "f3813a0e541afbfe1b7cd7448e2948cd844f960d0bee76bc919cb6242955a379",
+   "l4079_listings.py": "c5739a38311daff0a8ecc980f60274c9293e9833904b42a57b4d3bd3ce87c4c8",
+   "l4079_build.py": "30e2fd4240ab65625cc3261b6859ca3c3ba51e453852a20a2547d47ecc347d19",
+   "l4079_final.py": "ce99d1e0c39a8feee2daf5105c4f323b306ead0f3bc8d386bb3799927d9c421a",
+   "l4079_receipt.py": "834dadea30129ac61f52f1dcc92654ba8fc6b67a4c0dc17a07fbfd525a847015"
+  },
+  "commands": [
+   {
+    "label": "reconstructed (command history not kept verbatim; scripts are the exact files hashed in helpers)",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4079"
+   },
+   {
+    "executable": "python",
+    "argv": [
+     "l4079_decode.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4079",
+    "reconstructed": true
+   },
+   {
+    "executable": "python",
+    "argv": [
+     "l4079_offsets.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4079",
+    "reconstructed": true
+   },
+   {
+    "executable": "python",
+    "argv": [
+     "l4079_census.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4079",
+    "reconstructed": true
+   },
+   {
+    "executable": "python",
+    "argv": [
+     "l4079_analyze.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4079",
+    "reconstructed": true
+   },
+   {
+    "executable": "python",
+    "argv": [
+     "l4079_manifests.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4079",
+    "reconstructed": true
+   },
+   {
+    "executable": "python",
+    "argv": [
+     "l4079_gsleaf.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4079",
+    "reconstructed": true
+   },
+   {
+    "executable": "python",
+    "argv": [
+     "l4079_gsjs.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4079",
+    "reconstructed": true
+   },
+   {
+    "executable": "python",
+    "argv": [
+     "l4079_registry.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4079",
+    "reconstructed": true
+   },
+   {
+    "executable": "python",
+    "argv": [
+     "l4079_registry2.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4079",
+    "reconstructed": true
+   },
+   {
+    "executable": "python",
+    "argv": [
+     "l4079_owncmp.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4079",
+    "reconstructed": true
+   },
+   {
+    "executable": "python",
+    "argv": [
+     "l4079_listings.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4079",
+    "reconstructed": true
+   },
+   {
+    "executable": "python",
+    "argv": [
+     "l4079_build.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4079",
+    "reconstructed": true
+   },
+   {
+    "executable": "python",
+    "argv": [
+     "l4079_final.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4079",
+    "reconstructed": true
+   },
+   {
+    "executable": "python",
+    "argv": [
+     "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-ebx-decode.py",
+     "--descriptors",
+     "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\toolchain\\SharedTypeDescriptors.ebx",
+     "--ebx-list",
+     "ebx-list.txt",
+     "--out",
+     "dec-all.json",
+     "--exact-floats"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4079",
+    "note": "run by l4079_decode.py via subprocess (69 assets: 2 tables + 67 GS)"
+   },
+   {
+    "executable": "python",
+    "argv": [
+     "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+     "--manifest",
+     "manifest-control.json",
+     "--out",
+     "rawchecks-control.json"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4079",
+    "reconstructed": true
+   },
+   {
+    "executable": "python",
+    "argv": [
+     "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+     "--manifest",
+     "manifest-tables.json",
+     "--out",
+     "rawchecks-tables.json"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4079",
+    "reconstructed": true
+   },
+   {
+    "executable": "python",
+    "argv": [
+     "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+     "--manifest",
+     "manifest-selectors.json",
+     "--out",
+     "rawchecks-selectors.json"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4079",
+    "reconstructed": true
+   },
+   {
+    "executable": "python",
+    "argv": [
+     "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+     "--manifest",
+     "manifest-gsleaf.json",
+     "--out",
+     "rawchecks-gsleaf.json"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4079",
+    "reconstructed": true
+   },
+   {
+    "executable": "python",
+    "argv": [
+     "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+     "--manifest",
+     "manifest-gsjs.json",
+     "--out",
+     "rawchecks-gsjs.json"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4079",
+    "reconstructed": true
+   }
+  ],
+  "priorEvidence": [
+   "reference-data/provenance/frosty-2026-09-26-L69-posture-spread.json",
+   "reference-data/provenance/frosty-array-review-2026-09-09.json",
+   "builds\\2.1.1.0\\reports\\weapon-registry-recheck-2026-10-19\\owncmp.json",
+   "reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4057\\listings-2110"
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-30",
+  "build": "2.1.1.0",
+  "leads": [
+   {
+    "id": "L4079",
+    "title": "Jump, in-air and slide dispersion columns (H1, Field_bd300f62)",
+    "status": "finding",
+    "summary": "HDA H1 (Field_160ef028) and ZDA column 4 (Field_bd300f62) sit at the GS Standing.JumpingSprinting slots (probable, positional), jump and sprint share one label, the site holds H1 but not bd300f62, and no consumer is exposed.",
+    "reopenWhen": "A decoded runtime consumer of the HDA/ZDA arrays or GS MinMaxDispersion appears, or an operator-approved M433 jump/slide recording is available."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Hardware/Common/Arrays/DispersionHip/HDA_Weapons",
+    "format": "raw-ebx",
+    "sha256": "b17420840ff04f49661bce2c6b88f8106a82e0d88cd57e0b803fdb21533c0012",
+    "question": "Columns and selected rows for 67 weapons",
+    "result": "useful",
+    "conclusion": "18 rows x 7 columns; H1 is 2.5 x hipStand in every row; bytes equal 1.4.3.0 and 1.4.3.5."
+   },
+   {
+    "path": "Common/Hardware/Common/Arrays/DispersionADS/ZDA_Moving_Weapons",
+    "format": "raw-ebx",
+    "sha256": "24f8a82f7deb2b642310f818170a670b71b2f0e56b4aaf46e9857bb8e67625c6",
+    "question": "Columns and selected rows for 67 weapons",
+    "result": "useful",
+    "conclusion": "7 rows x 4 columns; column 4 is an independent ladder 1.67 to 0.68; all 67 weapons select row 3."
+   }
+  ],
+  "site": [
+   {
+    "pointer": "data/balance_tables.json:/HIP_SPREAD_TABLE",
+    "relation": "supports"
+   },
+   {
+    "pointer": "data/balance_tables.json:/MOVING_ACC_TIERS",
+    "relation": "supports"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=m433]/spread/hipStand",
+    "value": "[2.432, 7]",
+    "relation": "supports"
+   }
+  ],
+  "binding": "research"
+ },
+ "run": {
+  "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps",
+  "leadFolder": "L4079"
+ }
+}

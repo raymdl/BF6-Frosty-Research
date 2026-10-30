@@ -315,6 +315,12 @@ The dated Sym disagreement count does not establish a build change by itself.
   torso and limb arrays. At the 1.4.3.0 run ([receipt](../../reference-data/provenance/frosty-hit-zones-2026-09-15.json)):
   63 weapons and 328 ammo choices; both maps (MP_Abbasid, MP_Badlands) agree. The site
   file now also lists the four Season 5 weapons.
+- 2.1.1.0 (L4065A, 30 October): the Mk 24's WB `DamageProtectionMultiplierIndex` is 12 (the
+  launch weapons' 11), which selects head 1.57 on both grids against 1.4 at index 11 (M4A1 control);
+  the site's `hit_zones.json` holds 12 and 1.57, and the operator confirms the higher multiplier
+  is intended. The four Season 5 WB files carry the default heat block (HeatPerBullet 0) and
+  base-projectile limb arrays of 0.84 / 0.67 (ELR-40) / 0.84 / 0.84, equal to the site.
+  [Receipt](../../reference-data/provenance/frosty-2026-10-30-L4065A-season5-loose-ends-elr40-mk24.json).
 - 1.4.3.0: the Interdictor projectile material moved 781 → 784 and its limb multiplier
   0.67 → 1.0; headshot stays 1.75.
 - Evidence: [frosty-hit-zones-2026-09-15.json](../../reference-data/provenance/frosty-hit-zones-2026-09-15.json)
@@ -381,6 +387,10 @@ No suppression or near-miss function is identified. The older SDK
 `WeaponSuppressionData` has four members; its names cannot be assigned by order
 to this five-float body. A comparison needs independent current field roles and
 the applicable selected-chain evidence. No new site value or capture is proposed.
+
+### Zeroing on 2.1.1.0: singletons and the ELR-40 CustomZeroing (L4072, 30 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-30-L4072-zeroing-singletons-2110-proposal.json). All 67 WB zeroing lists raw-checked (521 reads); the 63 launch lists equal 1.4.3.0. 54 weapons carry a single distance (21 x 100, 21 x 60, 9 x 75 on the launch weapons; Mk 24 100, Z84M 100, RSPR 60) and 13 carry the bracket 100 to 500 (12 launch plus the ELR-40). `CDX40_WB` `Field_4449ee55` CustomZeroing (boolean at +442) is true, the only one of 67; RangeFinder is false on all 67; the FN Elity package `WPM_RGT_RangeFinder_W10` sets both true (+344 / +345). Whether the ELR-40 zeroes without the sight is the operator's observation, not a source fact; no consumer is traced. Site today: a null zero is bore-relative (`sim/ballistics.js` line 94) and `ui/app.js` applies a zero only to DMRs and Sniper Rifles (13 weapons, default 100 m), so 54 weapons are bore-relative. M4A1 (590 m/s, site solver): bore-relative -3.97 / -18.05 / -46.45 cm at 50 / 100 / 150 m against +2.37 / -5.36 / -27.42 cm with its 75 m zero; PW5A3 (60 m) -17.30 against -37.74 cm at 100 m; the mean 100 m shift over the 54 singletons is +16.6 cm. Proposal: apply the singleton as the default zero in the Soldier Target view (bracket defaults stay 100); the units are an assumption (no in-game menu-label evidence is in the repo); validation is one firing-range M4A1 iron-sight shot at a 100 m plate centre (about 5 cm low under the 75 m zero, about 18 cm low bore-relative).
 
 ### Zeroing source configuration (1.4.3.0, 23 September 2026)
 
@@ -457,6 +467,10 @@ this does not establish native zeroing. [Receipt](../../reference-data/provenanc
 The [L40 prior-evidence review](../../reference-data/provenance/frosty-2026-09-24-L40-collateral-route-review.json)
 found no new link from the named index to native table selection. Keep the
 operator-confirmed clamp separate from that unresolved source route.
+
+### Ricochet and cover penetration census (L4078, 30 October 2026, 2.1.1.0)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-30-L4078-ricochet-penetration-census.json). "ricochet" has 0 hits in both string tables; "penetrat" has 18 (2.1.1.0) and 17 (1.4.3.5), all in ten `AD_Ammo_*` descriptors that describe damage to soldiers behind the target, which the site already models as collateral. The WB `DamagePenetrationMultiplierIndex` is 6 on 46 weapons, 4 on 14, 3 on 4 and 5 on 3 (all 67 raw-checked); the site collateral recomputes 327 of 327 values. Control: grid cell 276 to 25, `Class_6aa794ef.Field_c52d90b8` element 7 (M4A1 base 6 plus `WME_Penetration_P05` step 1) reads 0.750001 in both grids, the site's `COLLATERAL_MULT_OVERRIDE.m4a1.standard`. Grid populations: `Class_6aa794ef` 25 objects in 1,629 cells; `Class_7d765f18` 150 objects, Boolean true on 99; `Class_d4177d69` 1,655 / 1,621 objects with nine distinct `Field_4782a5a1` values. No registry row or descriptor names these fields and no expression-graph listing has a ricochet or penetration input. Exhausted: no narrow lead qualifies; reopen on an authoritative field name, a named target material or a traced consumer. Out of scope: `GRX_Characters` rows `DeflectedBullets` (true) and `DeflectedBulletsProjectileIndex` (3).
 
 ### Material-pair candidates (L128, 29 September 2026)
 
@@ -817,6 +831,8 @@ still require separate runtime evidence before use.
 
 ### Tables and indices
 
+**Jump and sprint columns (L4079, 30 October 2026, 2.1.1.0).** The site's `HIP_SPREAD_TABLE` holds HDA column H1 (`Field_160ef028`, 18 x 7 cells equal) and `MOVING_ACC_TIERS` holds ZDA column 1; `Field_bd300f62` (ZDA column 4) is not in site data. The M433 GS selectors (3, 3) resolve to HDA row 3 and ZDA row 3, whose hipStand 2.432, hipMove 3.04 and ADS-move 0.32 equal the site on 67 of 67 weapons (154 table cells, 201 selector words and 268 GS leaves raw-checked; HDA and ZDA bytes identical since 1.4.3.0). H1 and ZDA column 4 are, by position and by value match with GS `MinMaxDispersion` slots 2 and 11 (named by the registry on 80 owners), the hip and ADS Standing.JumpingSprinting minima: jump and sprint share one label and no dispersion state is Jump, InAir or Slide alone; no registry row names the table fields and no graph listing pairs a motion token with a dispersion token. The table H1 differs from the GS own leaf on all 67 weapons (M433 hip in-air 6.08 against standing 2.432, 2.5x, where the GS leaf would give 1.75x), so one spread-indicator glance while jumping can tell which source governs but cannot separate jump, slide and sprint. [Receipt](../../reference-data/provenance/frosty-2026-10-30-L4079-jump-dispersion-column.json).
+
 - `ZDA_Moving_Weapons` holds the moving ADS rows; GS `MovingZoomedMinAnglesArrayIndex`
   (`Field_d94fe6ad`) selects the row. Hip rows: `UnzoomedMinAnglesArrayIndex`
   (`Field_fe708077`). Column meanings are in the [field map](FIELD_MAP.md#weapon-stats-gs-and-wb)
@@ -854,6 +870,10 @@ standing values are wrong. The selected rows expose no posture-specific maxima,
 and no stationary ADS posture minima were established. DB-12 pellet-direction
 statistics remain unavailable. See
 the [L69 provenance](../../reference-data/provenance/frosty-2026-09-26-L69-posture-spread.json).
+
+### Stance change penalties and posture minima on 2.1.1.0 (L4069, 30 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-30-L4069-stance-penalty-posture-2110-proposal.json). All 67 GS files x 24 `StanceChangePenalties` leaves raw-checked (1,608 reads): none of the 1,512 values of the 63 launch weapons changed although 56 GS files have new bytes. `GRX_Weapons` carries the rows for 14 owners only (all 360 equal the own value at the L124 index rule); the other 53 use the rule. Profiles: A, 57 weapons, prone 6 degrees over 0.9 s (ELR-40, Z84M and RSPR included); B, five handguns, 3 degrees; C, SOR300SC, L110, DB-12 and Mk 24, 7 degrees; D, M357 Trait. No weapon has a zero prone leaf. HDA and ZDA are byte-identical to 1.4.3.5, the L69 selectors hold, all 18 site `HIP_SPREAD_TABLE` rows equal the HDA rows, and `sim/` and `ui/` never read the crouch and prone columns (`Field_b3ab862b`, `Field_1ef3a223`, `Field_553bcee0`, `Field_39b31415`). M433 hip minima standing / crouch / prone: 2.432 / 1.824 / 1.216 (100 / 75 / 50 percent) and moving 3.04 / 2.432 / 1.824; ADS static minima do not vary with posture (ZDA 0.32 in all three columns). Proposal: a hip posture selector from the existing columns plus a stance-change line (angle and duration), composition (floor added to or replacing the static minimum) stated as unresolved; validation is the drop-prone glance of L4066 (ADS, drop prone: a transient widening over about 0.9 s on a profile-A weapon). The DB-12's GS-named hip minimum (0.784) differs from its selected HDA row (2.432), as on 1.4.3.5.
 
 ### Stance change penalties (L120, 29 September 2026)
 
@@ -1010,7 +1030,7 @@ range signs, relative to the two no-grip standing clips (126 px, agreeing to 0.2
 
 The deployed tiers compose as the site's exponent ladder predicts, within the clip-to-clip
 spread of about 8%; the deployed bipod and the deployed grip pods are indistinguishable,
-as the +10 totals predict; mounting without a bipod gives no deployed reduction. The
+as the +10 totals predict; mounting without a bipod gives no deployed reduction. The standing grip-pod ratio (0.80 measured against 0.890 predicted from the +2 tiers) is the one row outside the clip spread and is now lead L4064 (30 October). The standing grip-pod ratio (0.80 measured against 0.890 predicted from the +2 tiers) is the one row outside the clip spread and is now lead L4064 (30 October). The
 per-shot kick halves deployed (median 3.3 to 4.3 px against 7.0 to 9.6 px). The horizontal
 track is not usable (the wall texture repeats at the template search scale), so the −4
 variation tier is unmeasured on the M277.
@@ -1086,6 +1106,12 @@ or exclude a contribution from AZTT; its two-frame relation remains a numeric ca
 ([receipt](../../reference-data/provenance/frosty-2026-09-29-L125-fzt-general01-ads-in.json)). The separate SSA sprint
 array directly reproduces all 12 sprint timings after seconds-to-milliseconds
 conversion, and its exact WB selectors agree for all 63 weapons.
+
+**ADS-out on 2.1.1.0 (L4067, 30 October).** The index re-reads on 67 of 67 weapon bodies (UINT32 at `/Field_db03e8a9/Field_2b6f2936`; the registry names it `WeaponZoomTransitionIndex.Index` on 66 owners, RSAR999 has no row) and equals the site's per-weapon ADS index on all 67; the General_01 and General_10 ladders (16 FZTT files) are byte-identical to 1.4.3.5. Season 5: Mk 24 index 3 (233.334 ms), ELR-40 and Z84M 1 (333.334), RSPR 5 (166.667). No registry row names an ADS-out field or the receiving field of the ADS-time attachment steps (`Field_9540bd8e`, `Field_4692836a` still unnamed), and the nine ADS-time GID/WME assets are unchanged, so attachments are not applied to ADS-out. Proposal: an "ADS Out" Mobility row, base only; validation is one recording (M4A1 index 4 predicted 200 ms against M240L index 1 predicted 333 ms, ADS-in 250 against 433 in the same clip as the control). [Receipt](../../reference-data/provenance/frosty-2026-10-30-L4067-ads-out-2110-proposal.json).
+
+**ADS-out on 2.1.1.0 (L4067, 30 October).** The index re-reads on 67 of 67 weapon bodies (UINT32 at `/Field_db03e8a9/Field_2b6f2936`; the registry names it `WeaponZoomTransitionIndex.Index` on 66 owners, RSAR999 has no row) and equals the site's per-weapon ADS index on all 67; the General_01 and General_10 ladders (16 FZTT files) are byte-identical to 1.4.3.5. Season 5: Mk 24 index 3 (233.334 ms), ELR-40 and Z84M 1 (333.334), RSPR 5 (166.667). No registry row names an ADS-out field or the receiving field of the ADS-time attachment steps (`Field_9540bd8e`, `Field_4692836a` still unnamed), and the nine ADS-time GID/WME assets are unchanged, so attachments are not applied to ADS-out. Proposal: an "ADS Out" Mobility row, base only; validation is one recording (M4A1 index 4 predicted 200 ms against M240L index 1 predicted 333 ms, ADS-in 250 against 433 in the same clip as the control). [Receipt](../../reference-data/provenance/frosty-2026-10-30-L4067-ads-out-2110-proposal.json).
+
+**ADS-out on 2.1.1.0 (L4067, 30 October).** The index re-reads on 67 of 67 weapon bodies (UINT32 at `/Field_db03e8a9/Field_2b6f2936`; the registry names it `WeaponZoomTransitionIndex.Index` on 66 owners, RSAR999 has no row) and equals the site's per-weapon ADS index on all 67; the General_01 and General_10 ladders (16 FZTT files) are byte-identical to 1.4.3.5. Season 5: Mk 24 index 3 (233.334 ms), ELR-40 and Z84M 1 (333.334), RSPR 5 (166.667). No registry row names an ADS-out field or the receiving field of the ADS-time attachment steps (`Field_9540bd8e`, `Field_4692836a` still unnamed), and the nine ADS-time GID/WME assets are unchanged, so attachments are not applied to ADS-out. Proposal: an "ADS Out" Mobility row, base only; validation is one recording (M4A1 index 4 predicted 200 ms against M240L index 1 predicted 333 ms, ADS-in 250 against 433 in the same clip as the control). [Receipt](../../reference-data/provenance/frosty-2026-10-30-L4067-ads-out-2110-proposal.json).
 
 **ADS-out (L114, 29 September).** Each weapon body's raw `WeaponZoomTransitionIndex`
 (GRX child `<Weapon>_WB.WeaponZoomTransitionIndex.Index`) equals the site's ADS-in index
@@ -1165,6 +1191,8 @@ spread before selecting a different model.
 - Sniper brakes: `GRM_Recoil_MZL_Bolt_P10` adds 6 amount tiers (ADS and hip);
   `scripts/frosty-sniper-brakes.py` generates 16 weapon/brake pairs.
 
+**No stance-gated recoil (L4081, 30 October 2026, 2.1.1.0).** All 64 GS `Recoil.*` registry suffixes (32 per aim state) are Unzoomed or Zoomed only, and all 67 GS files share one recoil structure with no stance field; stance columns exist only for spread. The 62 `WM_*` / `GRM_*` routes (31 GRM roots, 31 WM bundles) hold every recoil exponent add in the GRM roots, gated by mounted side or up, bipod or grip pod, and fire mode (six ERG and Match Trigger roots); the catalog has exactly four `CMU_*` condition assets (MountedVertical, MountedHorizontal, BipodActive, SemiAuto) and none is a stance. Importers by GUID: BipodDeployed 51, Grippod 53, bolt bipod 6, MountedPlus 67, `CMU_BipodActive` 45. `GRX_Glacier_Soldier` has no recoil row. Controls: `GRM_MountedPlus*` +3 / -2 and `GRM_BipodDeployed_BTM_P50` +10 / -4 re-read at the L108 offsets. Exhausted; reopen only on an in-game stance difference the serialized values do not explain. [Receipt](../../reference-data/provenance/frosty-2026-10-30-L4081-stance-gated-recoil-census.json).
+
 ### Recovery captures (14 to 17 October 2026, L4040 to L4049)
 
 Bullet-hole pairs and bursts under a 5x optic on the AK-205, LMR27, TR-7 and M433 (four of the
@@ -1187,6 +1215,20 @@ the AK-205 and TR-7, and the Lightened Suppressor's x1.2 recovery advantage abse
 [L4048](../../reference-data/provenance/frosty-2026-10-16-L4048-pair-camera-track.json),
 [L4049](../../reference-data/provenance/frosty-2026-10-17-L4049-stretched-time-fit.json).
 
+**Where the 0.8 is measured (L4062, 30 October 2026).** The scale rests on four weapons: AK-205
+(Carbine), TR-7 and M433 (Assault Rifle) and LMR27 (a DMR in the site data), all on recovery
+profiles with decay exponent 1. The other 63 weapons are transfer: 24 share a measured profile
+exactly, 39 do not (every LMG, SMG, sidearm, shotgun and sniper). No existing clip constrains the
+unmeasured classes: the KS-18K and DB-12 rapid strings are swamped by scatter and mouse input, the
+ELR-40 and PSR clips fire about 1.5 s apart, and no pistol clip exists. A bolt-action capture is not
+justified: the seven bolt rifles cannot fire twice within 1.27 to 1.88 s, the two scales differ by
+at most 0.011 degrees at 300 ms, and at the real bolt cycle the recoil residual is 0 under either,
+so no sniper number depends on the scale. The one unmeasured profile where the scale changes a
+site number is the pump shotguns (70 / 0.6 / 4: M87A1, DB-12): a 633 ms pump pair predicts 1.57
+degrees of separation at x0.8 against 1.21 at x1.0. The smallest capture is in the run folder's
+`L4062/capture-brief.md` and waits for the operator; until then the global 0.8 stands.
+[Receipt](../../reference-data/provenance/frosty-2026-10-30-L4062-recovery-scale-by-class.json).
+
 ### Anonymous WB recoil candidates
 
 The [WB pair review](../../reference-data/provenance/frosty-wb-recoil-pair-triage-2026-09-23.json)
@@ -1206,6 +1248,8 @@ anonymous field caused it without an independent control or consumer trace.
 magnification, strictly monotonic. Higher probably means less camera shake (operator
 report and ladder shape); the unit is not decoded. The site has no camera recoil model.
 
+**Consumption (L4071, 30 October 2026, 2.1.1.0).** The ladder has 14 magnification steps; the 34 `GCR_*` files carry them as 64 zoom-state elements (128 enabled values), each an enable + override that replaces only the GS `Class_539cff9b` fields `Field_9532eb28` (CameraRecoilWhenZoomedAmount) and `Field_7f1bb9d4` (IdleCameraRecoilWhenZoomedAmount); the multiply and add slots stay neutral and `Field_36c2f877` (CameraRecoilAmount, -1.4) is never enabled. The weapon value replaced is -0.625 on 61 of 67 weapons (registry bounds -10 to 10). All 34 files have the same raw SHA-256 on 1.4.3.5 and 2.1.1.0, and on the six weapons of EA's SU-230 fix neither the GCR file, the GS binding (`Field_a2bef75b[35]`, priority 37, selector `f66c9ab7`) nor the Ability action changed; the one SU-230-related change is the shared part `WPM_SCP_ElcanDR` (`Class_bfd4f199` objects 7 and 16), whose unnamed pair `Field_149939ab` / `Field_e9129d03` went from 1.0005 to 0.55, and 56 weapon WBs import that part. The target is a signed scalar with no named unit and no consumer equation, so no visual-recoil chip is proposed; a recording of one weapon with a 1.00x and a 10.00x optic can test direction and order only. [Receipt](../../reference-data/provenance/frosty-2026-10-30-L4071-camera-recoil-ladder-consumer.json).
+
 | Zoom | Value | Zoom | Value |
 |---|---|---|---|
 | 1.00x | -0.5 | 3.50x | 0.449399 |
@@ -1221,6 +1265,8 @@ assets were checked; the only defect was the SU-230 LPVO (`GCR_LPVO_4x00_1x00_P0
 whose 1× state held 10, fixed in 1.4.3.0.
 
 ## Timing fields
+
+**Weapon-swap total and sprint-to-fire (L4082, 30 October 2026, 2.1.1.0).** All 67 WB deploy indices equal the site's `WEAPON_MAG` sprint and deploy bases, and the WB `DTA` import matches the site's table key (61 primary, 6 sidearm). No WB has a holster field: holster is the `Field_6225d335` column of the same `DTA` row the deploy index selects, so draw and holster share one index, and all 54 table values equal `DRAW_TIME_TABLES` (holster raw-checked on the M4A1, P18 and Z84M). With site defaults, draw runs 200 to 866.667 ms and holster 83.334 to 300.001 ms, so swap(A to B) = holster(A) + draw(B) spans 300 ms (P18 to ES 57) to 1,167 ms (L110 to M60); sequencing and overlap are unproven. `WM_WeaponSwap` holds one +1 step, imported by 64 of 67 WBs (not CZ3A1, DB-12, vz. 61); whether it moves holster is unresolved. Sprint-to-fire has one stored input, `SprintSettings_T00` to `_T11` through `SSA_Weapons` (two identical fields, 400 down to 50 ms), which the site already shows as Sprint Recovery; no readiness or settle field exists. A swap trio on the Mobility card would be display-only arithmetic on existing numbers and stays conditional on one recording (one pair swapped five times, frames from key press to first shot, prediction holster(A) + draw(B)). [Receipt](../../reference-data/provenance/frosty-2026-10-30-L4082-swap-time-and-sprint-to-fire.json).
 
 - `Field_440ed7fa` (WB): 15 distinct values across 64 blueprints, all whole 1/60 s frames
   (4–24, and 0). It is **not** the rate of fire: `GRX_Weapons` names RateOfFire
@@ -1360,6 +1406,8 @@ establish ADS-out timing. The phase-overlap capture was [removed 28 September](.
 now part of the class-trait proposal.
 
 ### Reload values and empty-reload capture (23 September 2026)
+
+**ReloadSpeed divisor (L4065B, 30 October 2026, 2.1.1.0).** Tactical reload = (ReloadDelay `Field_c0c7c72f` + PostReloadDelay `Field_b480c17a` + ReloadTimeBulletsLeft `Field_fc66e75e`) / ReloadSpeed `Field_1c533b56` of `ReloadInfoArray[0]` equals the site `tacRld` on all 67 weapons (52 by the bare sum, 15 only after the division; M4A1 2.15 / 0.977272 = 2.2000017); empty reload by the same rule on entry [1] equals `emptyRld` on 62 (three shotguns have no site value, two revolvers no second entry). The 16 weapons L4007 listed as capture-based "frames over" are all the ReloadSpeed factor. The four Season 5 weapons match. That ReloadSpeed divides in play is inferred from the numeric match. 528 scalar reads raw-checked. [Receipt](../../reference-data/provenance/frosty-2026-10-30-L4065B-stage8-roster-patch-notes.json).
 
 The raw comparisons use 1.4.3.0 Head 4892017. The recorded client is labeled
 1.4.3.1, Head 4892087; the build folder and source paths are unchanged.
@@ -1576,7 +1624,7 @@ Each class has an `Ability_<Class>Trait` and a `U_Ability_<Class>Trait` selector
 shotguns and sidearms have no trait. Membership was checked against all 63 site
 roots: each trait reaches exactly the site weapons of its class, with no
 exceptions. The four Season 5 weapons (Mk 24, ELR-40, Z84M, RSPR) were not checked;
-with them the site has 12 assault rifles, 11 LMGs, 11 SMGs and 7 sniper rifles. The official class guide (EA Help, "How do classes work in
+with them the site has 12 assault rifles, 11 LMGs, 11 SMGs and 7 sniper rifles; L4070 (30 October, 2.1.1.0) confirms their membership by import-table GUID (Mk 24 `WM_AssaultTrait`, ELR-40 `WM_ReconTrait` and `WPM_SwayPenalty`, Z84M `WPM_SupportTrait`, RSPR the Engineer GS key) and re-reads all 11 trait operands unchanged (`WME_WSway_M10` 2.25, `WME_WSway_P10` 0.4444444). With the site's default loadout applied the Assault figures are deploy 533.3 off-class / 466.7 on-class ms and sprint recovery 166.7 / 133.3; Support one ADS step (L110 433 to 367 ms); Engineer hip 1.804 / 2.255 to 1.352 / 1.690 degrees; the site shows the off-class value for those three classes and the on-class value (sway 1.0) for Recon. The 19 audit-screen AR and LMG values equal the off-class numbers, and the audit does not record the soldier class, so the proposed chip's validation is one stat-screen glance (M433 Sprint Recovery on an Assault against a Support soldier: 133 against 167 ms if the screen applies the trait). [Receipt](../../reference-data/provenance/frosty-2026-10-30-L4070-class-trait-chip-proposal.json). The official class guide (EA Help, "How do classes work in
 Battlefield 6?") says the bonus applies when that class equips its signature
 weapon; most modes use open weapons. Native activation is not decoded, and the
 site does not model traits.
@@ -1727,6 +1775,14 @@ inputs. This source context does not extend L108's separate recoil projection
 into a new mounted comparison or proposal.
 
 ## Named GS/WB fields the site does not use
+
+### Reserve rounds and the chambered round (L110, L4068, 30 October 2026)
+
+On 2.1.1.0 every magazine package of the 67 site weapons was read through the Ability join (302 of 303 site magazine choices; the Z84M 100 Rnd package `WPM_MAG_100Cpt1_PKM_W05` is not in the raw tree). `MagazineCapacity` is the menu nominal +1 on 277 choices, +0 on 24 (the seven belt LMGs, the two revolvers, the ELR-40 Single Shot) and +2 on the DB-12 (14 to 16); 113 choices use the shared Std/Fast packages that carry no Ammo struct, so their values are the WB values. All values equal 1.4.3.0 on the 177 comparable packages. `NumberOfMagazines` is stored per package (M4A1 20 Rnd: 21 x 10). Proposal: a Magazine card line "20+1 / 189" (loaded plus chambered / reserve), decided by one spawn-HUD glance on the M4A1 20 Rnd: reading A, the count includes the loaded magazine (20+1 / 189, 210 total); reading B, it is reserve only (20+1 / 210); and the loaded count reads 21 after one tactical reload if the +1 is a chambered round. [Receipt](../../reference-data/provenance/frosty-2026-10-30-L4068-reserve-rounds-2110-proposal.json).
+
+### Reserve rounds and the chambered round (L110, L4068, 30 October 2026)
+
+On 2.1.1.0 every magazine package of the 67 site weapons was read through the Ability join (302 of 303 site magazine choices; the Z84M 100 Rnd package `WPM_MAG_100Cpt1_PKM_W05` is not in the raw tree). `MagazineCapacity` is the menu nominal +1 on 277 choices, +0 on 24 (the seven belt LMGs, the two revolvers, the ELR-40 Single Shot) and +2 on the DB-12 (14 to 16); 113 choices use the shared Std/Fast packages that carry no Ammo struct, so their values are the WB values. All values equal 1.4.3.0 on the 177 comparable packages. `NumberOfMagazines` is stored per package (M4A1 20 Rnd: 21 x 10). Proposal: a Magazine card line "20+1 / 189" (loaded plus chambered / reserve), decided by one spawn-HUD glance on the M4A1 20 Rnd: reading A, the count includes the loaded magazine (20+1 / 189, 210 total); reading B, it is reserve only (20+1 / 210); and the loaded count reads 21 after one tactical reload if the +1 is a chambered round. [Receipt](../../reference-data/provenance/frosty-2026-10-30-L4068-reserve-rounds-2110-proposal.json).
 
 109 of 170 GRX leaf names under GS/WB paths are not used by the site (13 September; a
 1.4.2.5 snapshot whose grouping is not reproducible). [L119](../../reference-data/provenance/frosty-2026-09-29-L119-gs-wb-field-triage.json)
@@ -1918,6 +1974,10 @@ reject pellet interpretation, or establish runtime activation or composition.
 Keep the current base 16 and Slug 1 site counts; L72 establishes no #00 Buck site
 count. Reopen only with an independent typed target/operator association or a
 native consumer trace.
+
+## Projectile lifetime against the damage curve on 2.1.1.0 (L4074, 30 October 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-10-30-L4074-projectile-lifetime-reach-2110.json). `TimeToLive` raw-checked on all 94 `PD_*` files (buckshot 0.5 s, slug 2.0 s as L22 read them); 69 projectile keys in `data/ballistics.json`, 68 referenced, `PD_.375EnABELR_API` unused; 25 PD files are not site projectiles. All 353 ammo selections of `data/ammo.json` were integrated with the site's own `sim/ballistics.js` functions for the stored lifetime (level reach; a gravity-vector reach agrees within 7 m): no selection reaches less than its damage curve's last range. The shortest reach is 151.6 m (buckshot and flechette, 0.5 s at 400 m/s) against curves ending at 22 to 34 m, and the smallest reach-to-curve ratio is 3.5 (subsonic 9x19 PDW, 262 m against 75 m). The site has no lifetime bound today (the vector solver stops at 30 s, the distance slider at 300 m), and none is needed: a Range card lifetime note would apply nowhere. Note on the brief's control: the PD `InitialSpeed` (350 on 57 files, 0 on 12) is not the muzzle velocity; the site's 590 m/s for the M4A1 is `M4A1_WB Shot.InitialSpeed.z` (offset 1184), so the worker used the site velocity throughout. Whether the lifetime is enforced at runtime is unread; the PD-to-site join was by file name on 2.1.1.0.
 
 ## Projectile lifetime and reachability (L22, 24 September 2026)
 

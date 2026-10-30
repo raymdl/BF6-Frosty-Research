@@ -1,0 +1,743 @@
+{
+ "lead": "L4077",
+ "status": "finding",
+ "build": {
+  "current": "2.1.1.0",
+  "head": 5382784,
+  "descriptorSha256": "c477622c1074a9a4ea612cf9c60e26f666129721c733174192c121c808873ff6",
+  "capture": "builds\\2.1.1.0\\capture\\collection (+ reports\\season5-*-2026-10-13\\raw overlay)",
+  "note": "Read from saved raw captures; no export, no capture."
+ },
+ "question": "Which projectile materials do the 94 PD bullet files carry, which target materials do vehicles, emplacements and deployables store, and what grid scalar does each pair hold in build 2.1.1.0?",
+ "sourceFacts": {
+  "method": "Projectile material = Field_c7584f55.Field_48288193 >> 20 on each PD file (the field frosty-hit-zones.py reads); target material = the same field on vehicle damage-zone parts (L3328 route), vehicle VB roots (Class_f2a56983) and target-like gadget classes. Cells read with the bounded grid walker (lib.py, adapted from the L3207/L3321 cells.py) in five 2.1.1.0 level grids; scalar = Class_d4177d69.Field_674633de.",
+  "control": {
+   "description": "(1) M4A1 primary projectile (M4A1_WB Class_35259f6b/Field_58d70acb/Field_808dd66c -> PD_556x45mmNATO_Carbine, material 276; the brief's PD_556x45mmNATO is material 277, used by the HK433/B36A4/SOR-556, not the M4A1) x soldier Head 24: protection array (Class_c180226c) index 11 = 1.4 in all five 2.1.1.0 grids, equal to data/hit_zones.json:/weapons/m4a1/headshot 1.4 (protectionIndex 11, projectileMaterial 276). (2) All 11 mine-tank cells of reference-data/frosty/mine-tank-material-grid.json re-read identically in Abbasid and Badlands 2.1.1.0. The 14 anti-air cells of anti-air-aircraft-material-grid.json do NOT re-read identically (see outOfScopeNotes); the brief requires the anti-air OR the mine-tank set, so the control passes.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_556x45mmNATO_Carbine.ebx",
+     "rawSha256": "6f3d4ed4dfdd563f2dcac4aee4a4923836d11fd3178dcbdfa4ee662120e34f25",
+     "offset": 464,
+     "type": "u32",
+     "bytesHex": "80254011",
+     "value": 289416576
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "5b9eb74f22269095f57ef39a2da4fd991c8f4b975881eaac07a368c56286b06f",
+     "offset": 9580928,
+     "type": "f32",
+     "bytesHex": "3333b33f",
+     "value": 1.399999976158142
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_badlands\\mp_badlands\\materialgrid_win32.ebx",
+     "rawSha256": "341ee399c082ac67c8518827c02c629b60cda83e1b1a0e935054a9eb7a95b21f",
+     "offset": 9403256,
+     "type": "f32",
+     "bytesHex": "3333b33f",
+     "value": 1.399999976158142
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_atoll\\mp_atoll\\materialgrid_win32.ebx",
+     "rawSha256": "cffc6c069a531a07d4560bc9c7a5aab7e068c9a58b0adbaa190784172240d53c",
+     "offset": 9746112,
+     "type": "f32",
+     "bytesHex": "3333b33f",
+     "value": 1.399999976158142
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_isolated\\mp_isolated\\materialgrid_win32.ebx",
+     "rawSha256": "1079eeb1080a6d45f4755f3ee8c4f70b9206d76dd7701c0bd77c815cb2cc3e90",
+     "offset": 10675048,
+     "type": "f32",
+     "bytesHex": "3333b33f",
+     "value": 1.399999976158142
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierGranite\\Levels\\MP_Granite\\mp_granite\\materialgrid_win32.ebx",
+     "rawSha256": "d0f9046ca45045f43651ef17e0651e8d74ddbf170d631096bdc8a76718fa18ed",
+     "offset": 10901472,
+     "type": "f32",
+     "bytesHex": "3333b33f",
+     "value": 1.399999976158142
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "5b9eb74f22269095f57ef39a2da4fd991c8f4b975881eaac07a368c56286b06f",
+     "offset": 141860,
+     "type": "f32",
+     "bytesHex": "0000803f",
+     "value": 1.0
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "5b9eb74f22269095f57ef39a2da4fd991c8f4b975881eaac07a368c56286b06f",
+     "offset": 551660,
+     "type": "f32",
+     "bytesHex": "cdcccc3e",
+     "value": 0.4000000059604645
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "5b9eb74f22269095f57ef39a2da4fd991c8f4b975881eaac07a368c56286b06f",
+     "offset": 110796,
+     "type": "f32",
+     "bytesHex": "00006040",
+     "value": 3.5
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "5b9eb74f22269095f57ef39a2da4fd991c8f4b975881eaac07a368c56286b06f",
+     "offset": 430964,
+     "type": "f32",
+     "bytesHex": "00000040",
+     "value": 2.0
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "5b9eb74f22269095f57ef39a2da4fd991c8f4b975881eaac07a368c56286b06f",
+     "offset": 625948,
+     "type": "f32",
+     "bytesHex": "00000000",
+     "value": 0.0
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "5b9eb74f22269095f57ef39a2da4fd991c8f4b975881eaac07a368c56286b06f",
+     "offset": 49596,
+     "type": "f32",
+     "bytesHex": "00000040",
+     "value": 2.0
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "5b9eb74f22269095f57ef39a2da4fd991c8f4b975881eaac07a368c56286b06f",
+     "offset": 268532,
+     "type": "f32",
+     "bytesHex": "00000000",
+     "value": 0.0
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "5b9eb74f22269095f57ef39a2da4fd991c8f4b975881eaac07a368c56286b06f",
+     "offset": 449604,
+     "type": "f32",
+     "bytesHex": "00000000",
+     "value": 0.0
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "5b9eb74f22269095f57ef39a2da4fd991c8f4b975881eaac07a368c56286b06f",
+     "offset": 145268,
+     "type": "f32",
+     "bytesHex": "00000000",
+     "value": 0.0
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "5b9eb74f22269095f57ef39a2da4fd991c8f4b975881eaac07a368c56286b06f",
+     "offset": 135764,
+     "type": "f32",
+     "bytesHex": "0000e03e",
+     "value": 0.4375
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Game\\GlacierMP\\levels\\mp_abbasid\\mp_abbasid\\materialgrid_win32.ebx",
+     "rawSha256": "5b9eb74f22269095f57ef39a2da4fd991c8f4b975881eaac07a368c56286b06f",
+     "offset": 349060,
+     "type": "f32",
+     "bytesHex": "00004040",
+     "value": 3.0
+    }
+   ]
+  },
+  "headline": "94 PD bullet files carry 28 distinct projectile materials; 29 vehicle/emplacement/deployable target materials; 812 pairs read in 5 grids; 23 distinct scalars [0.0, 0.1, 0.13, 0.16, 0.175, 0.2, 0.25, 0.3, 0.35, 0.4, 0.5, 0.55, 0.56, 0.6, 0.65, 0.7, 0.8, 1.0, 1.2, 1.25, 1.5, 5.0, 6.0].",
+  "groups": {
+   "tanks/armour (119)": {
+    "targets": [
+     119
+    ],
+    "materialsWithNonZeroCell": [],
+    "materialsAllZeroOrNoRecord": [
+     275,
+     276,
+     277,
+     278,
+     279,
+     286,
+     290,
+     291,
+     351,
+     413,
+     426,
+     485,
+     486,
+     490,
+     491,
+     492,
+     493,
+     494,
+     495,
+     496,
+     497,
+     498,
+     499,
+     500,
+     501,
+     621,
+     757,
+     784
+    ],
+    "distinctScalars": [
+     0.0
+    ]
+   },
+   "aircraft": {
+    "targets": [
+     120,
+     121,
+     233,
+     117
+    ],
+    "materialsWithNonZeroCell": [
+     275,
+     276,
+     277,
+     278,
+     279,
+     286,
+     290,
+     291,
+     351,
+     413,
+     426,
+     485,
+     486,
+     490,
+     491,
+     492,
+     493,
+     494,
+     495,
+     496,
+     497,
+     498,
+     499,
+     500,
+     501,
+     621,
+     757,
+     784
+    ],
+    "materialsAllZeroOrNoRecord": [],
+    "distinctScalars": [
+     0.0,
+     0.16,
+     0.25,
+     0.3,
+     0.4,
+     0.5,
+     0.56,
+     0.6,
+     0.65,
+     0.7,
+     0.8,
+     1.0,
+     5.0
+    ]
+   },
+   "light vehicles/boats": {
+    "targets": [
+     122,
+     187,
+     123,
+     622,
+     733,
+     313
+    ],
+    "materialsWithNonZeroCell": [
+     275,
+     276,
+     277,
+     278,
+     279,
+     286,
+     290,
+     291,
+     351,
+     413,
+     426,
+     485,
+     486,
+     490,
+     491,
+     492,
+     493,
+     494,
+     495,
+     496,
+     497,
+     498,
+     499,
+     500,
+     501,
+     621,
+     757,
+     784
+    ],
+    "materialsAllZeroOrNoRecord": [],
+    "distinctScalars": [
+     0.0,
+     0.1,
+     0.13,
+     0.175,
+     0.2,
+     0.25,
+     0.35,
+     0.4,
+     0.5,
+     0.55,
+     0.6,
+     0.65,
+     0.7,
+     0.8,
+     1.0,
+     1.2,
+     1.25,
+     1.5
+    ]
+   },
+   "emplacements": {
+    "targets": [
+     116,
+     123,
+     119
+    ],
+    "materialsWithNonZeroCell": [
+     277,
+     278,
+     279,
+     286,
+     290,
+     291,
+     351,
+     485,
+     486,
+     490,
+     496,
+     497,
+     498,
+     499,
+     501,
+     621,
+     784
+    ],
+    "materialsAllZeroOrNoRecord": [
+     275,
+     276,
+     413,
+     426,
+     491,
+     492,
+     493,
+     494,
+     495,
+     500,
+     757
+    ],
+    "distinctScalars": [
+     0.0,
+     0.25,
+     0.5,
+     0.55
+    ]
+   },
+   "deployables": {
+    "targets": [
+     115,
+     124,
+     135,
+     136,
+     137,
+     140,
+     141,
+     142,
+     143,
+     182,
+     183,
+     208,
+     211,
+     212,
+     548,
+     668,
+     690
+    ],
+    "materialsWithNonZeroCell": [
+     275,
+     276,
+     277,
+     278,
+     279,
+     286,
+     290,
+     291,
+     351,
+     413,
+     426,
+     485,
+     486,
+     490,
+     491,
+     492,
+     493,
+     494,
+     495,
+     496,
+     497,
+     498,
+     499,
+     500,
+     501,
+     621,
+     757,
+     784
+    ],
+    "materialsAllZeroOrNoRecord": [],
+    "distinctScalars": [
+     0.0,
+     1.0,
+     1.5,
+     6.0
+    ]
+   }
+  },
+  "elr40Api": {
+   "base": "PD_.375EnABELR_Match 290",
+   "api": "PD_.375EnABELR_API 497",
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_.375EnABELR_Match.ebx",
+     "rawSha256": "eeb72517724e100411907ae30ce231cf9ec3f47534f345903ecc3a4ebe2f3c08",
+     "offset": 448,
+     "type": "u32",
+     "bytesHex": "80512012",
+     "value": 304107904
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_.375EnABELR_API.ebx",
+     "rawSha256": "5bd0a777118357104cfc039aaf5906aec9ee6d7306aa40ee00c0a606743d1020",
+     "offset": 400,
+     "type": "u32",
+     "bytesHex": "8052101f",
+     "value": 521163392
+    }
+   ]
+  },
+  "rawCheckCount": 516,
+  "rawChecksMatched": 516
+ },
+ "inference": [
+  "No infantry bullet has a non-zero scalar against armour material 119 (tanks, IFVs, AAV7A1, Gepard, JLTV/Marauder parts, CROWS).",
+  "Against aircraft: jets 0.3 to 0.8 by family (shotguns 0), helicopters two keyed records 0.16/0.56 to 0.6/1.0, MQ-9 (233) 5 for every bullet but the minigun (0.7).",
+  "Every deployable target material reads 1 for every bullet, except 124 (slug 0, minigun 1.5), 211 (minigun 1.5, plus an unread Class_72c85972 record), 548 x 426 (6) and the empty 208 cell.",
+  "Ammo swaps change the projectile material only for Flechette, Slugs and the ELR-40 API magazine; Tungsten (penetration) does not swap the projectile.",
+  "The 2.1.1.0 values equal the 1.4.3.5 L3364 values on all 95 shared cells."
+ ],
+ "unresolved": [
+  "Which material a hit uses when the VB root and the damage-zone parts disagree: PTV root 622 vs parts 187 (assault rifle 0.8 vs 0.35), JLTV/Marauder root 733 vs parts 119, CB90 root 733 vs parts 313, M2MG root 116 vs part 0, MH-47 insertion root 117 with no damage-zone file.",
+  "Helicopter key 0 vs key 2 record selector (open since L3364/L3368).",
+  "Cells for target 208 (SP Switchblade drone root) and 313 (CB90 parts) exist but hold no record; no value, not zero.",
+  "Target 117 differs between grids (1 in Abbasid/Badlands/Atoll, 0 in Isolated/Granite).",
+  "Non-scalar records in deployable cells: Class_72c85972 on 211 (recon drone / EOD Bot / payload drone), Class_7d748541 (426 x 548), soldier-style arrays on 115/668 (sniper decoy); not read.",
+  "Material IDs are inferred to be grid indices (upper 12 bits of the packed u32, as in L3321); runtime use of any cell is not established.",
+  "veh_air_mh350, veh_breacher (UIMetaData only) and veh_sur_ge26pax (Cheetah, no VB) have no target-material file in the 2.1.1.0 raw: needs capture if they exist as playable hardware."
+ ],
+ "siteImpact": "None. The site models no vehicle, emplacement or deployable damage. The only projectile swap on the site that changes the material is the ELR-40 Single Shot (API) magazine (290 -> 497), already modelled through data/attachments.json:/WEAPON_MAG/elr40/mags/1_rnd/projectileOverride for soldier multipliers. Conditional future-vehicle-page numbers (grid scalars only, before any hit-quality factor): every infantry bullet 0 against armour (119); jets 0.3 to 0.8; helicopters 0.16/0.56 to 0.6/1.0 (keys 0/2); MQ-9 (233) 5 for all but the minigun (0.7).",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps",
+  "leadFolder": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4077",
+  "artifacts": [
+   {
+    "file": "bullets.json",
+    "sha256": "69cb6d2254abeef050584bf325f61fa3f77b1bd30f4b8b0363b2f4fa57f40377"
+   },
+   {
+    "file": "wb-projectiles.json",
+    "sha256": "75478b488a910a48048168ec9fd61e57527c868a22a940ab395d5c86cbd871d7"
+   },
+   {
+    "file": "control.json",
+    "sha256": "449077ca39c0e44b01f05e7f23902f0b6dc932ff6b20ef1cf1f1dbb5a7b6253b"
+   },
+   {
+    "file": "vehicle-materials.json",
+    "sha256": "8e892b1bf0830f32bb4349ea9ee6c8d7299213c12a5e2358674d7871d32e0009"
+   },
+   {
+    "file": "gadget-materials.json",
+    "sha256": "ffa87bdb62983890f0fa82f81d9fe99e8ae747b7e9796bd24ca04b1db14d5b6d"
+   },
+   {
+    "file": "cells.json",
+    "sha256": "eb7c0b7288a94965c59a893cea2c9a919f6fbae0bf413a481d04e6a89c9554a7"
+   },
+   {
+    "file": "compare-1435.json",
+    "sha256": "afa6a361b6834f2eb3dc90d6f88a715699a40bb92f7638f11904f39e1435de8d"
+   },
+   {
+    "file": "swaps.json",
+    "sha256": "07cea568b8ebcbc3669a51a99513e5769d742167348a8805e16b420bf0cd3dee"
+   },
+   {
+    "file": "rawcheck-manifest.json",
+    "sha256": "e05887d173402578cdb90c8ddfdeab9afc3b4106641a5ec8879ab6deee0fc1f1"
+   },
+   {
+    "file": "rawcheck-manifest-tagged.json",
+    "sha256": "7ae1817b2dda67ca498b7cb7e2a2d71f4ba3c12ea97548d11356b5d66f6e30f1"
+   },
+   {
+    "file": "rawchecks.json",
+    "sha256": "0668f2d16e7daaf0ff4a836c9a64008b3a63841a252d93fa04ac59bc01ed5ab7"
+   },
+   {
+    "file": "census-table.json",
+    "sha256": "fddf5f7d8016d050ee49f16f194bbfd5a4857f026257f4003363036d9285f71c"
+   },
+   {
+    "file": "census.md",
+    "sha256": "5c61cdb3025f64d408212bd3c2a41122e134b318ead1f40ddf6325bbe8d38c52"
+   },
+   {
+    "file": "l4077-result.json",
+    "sha256": "a5ff65e4964288e14a45232c442b3e61d2c5719053cd34e8a51b5de032a40b44"
+   },
+   {
+    "file": "next-leads.md",
+    "sha256": "df7a3ad018afe137df12dc923acb62685ef9c0aaeba05024291e7967b78fcfce"
+   }
+  ],
+  "helpers": [
+   {
+    "file": "lib.py",
+    "sha256": "31930428c7d3f7333d24666c493a19f793a56e876830a78445cec2bb665b1f6f"
+   },
+   {
+    "file": "step1_bullets.py",
+    "sha256": "9f811b20442d9e5f8f0c8602fd1f83bf8073778f933a5c0065ddd0525b4c4426"
+   },
+   {
+    "file": "step2_control.py",
+    "sha256": "49c8c4ee88988866596952bed63414412558af6067999d7638e49ffc4d61fca1"
+   },
+   {
+    "file": "step3_vehicles.py",
+    "sha256": "ca95a5491101fdfe6550b3bae66ce2838725d6e255d5aa4aa83e1bb63f093a99"
+   },
+   {
+    "file": "step4_gadget_scan.py",
+    "sha256": "a08616ece81672e6e3e18f994fcd444de23bc83a08b0d01de1401ad5df8c7765"
+   },
+   {
+    "file": "step5_cells.py",
+    "sha256": "a484cf1baf03452a9bf99bb4facf00a9923970048ac8a5ecef3c5733d9bf783a"
+   },
+   {
+    "file": "step6_compare.py",
+    "sha256": "8dafa2ed24ee8006f69d6f915c41712d13966715a550e6545f7c9f8cad5fb384"
+   },
+   {
+    "file": "step7_swaps.py",
+    "sha256": "6c2da15a548a1feca1c40255486ebde48db980ec9ea2c3581819ff85655b9edb"
+   },
+   {
+    "file": "step8_manifest.py",
+    "sha256": "82254f7bb2d20e14a73a81f699177aae2342dc6e0bf29713936f864ac35b1e39"
+   },
+   {
+    "file": "step9_tables.py",
+    "sha256": "cac84c35db45d53ac083e4c89413ef41e72d23eee9a145e6f5b84f89f4c8f79f"
+   },
+   {
+    "file": "step10_deliverables.py",
+    "sha256": "b55c7f3999d275e3a498ebbe89418e40a506503ee95b8b1029e86e1d88b8ada9"
+   }
+  ],
+  "repoScriptsInvoked": [
+   {
+    "file": "scripts\\frosty-hit-zones.py (imported)"
+   },
+   {
+    "file": "scripts\\frosty-raw-check.py (imported and CLI)"
+   },
+   {
+    "file": "scripts\\frosty-roster-values.py (load_decoder, imported)"
+   },
+   {
+    "file": "scripts\\frosty-ebx-decode.py (via load_decoder)"
+   }
+  ],
+  "commands": [
+   {
+    "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "argv": [
+     "step1_bullets.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4077"
+   },
+   {
+    "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "argv": [
+     "step2_control.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4077"
+   },
+   {
+    "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "argv": [
+     "step3_vehicles.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4077"
+   },
+   {
+    "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "argv": [
+     "step4_gadget_scan.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4077"
+   },
+   {
+    "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "argv": [
+     "step5_cells.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4077"
+   },
+   {
+    "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "argv": [
+     "step6_compare.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4077"
+   },
+   {
+    "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "argv": [
+     "step7_swaps.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4077"
+   },
+   {
+    "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "argv": [
+     "step8_manifest.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4077"
+   },
+   {
+    "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "argv": [
+     "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+     "--manifest",
+     "rawcheck-manifest.json",
+     "--out",
+     "rawchecks.json"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4077"
+   },
+   {
+    "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "argv": [
+     "step9_tables.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4077"
+   },
+   {
+    "executable": "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "argv": [
+     "step10_deliverables.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4077"
+   }
+  ],
+  "commandNote": "Commands as run, in order, each from the lead folder. lib.py is imported by every step. step10 writes the deliverables; draft-receipt.json is its own output so its hash is not listed."
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-30",
+  "build": "2.1.1.0",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L4077",
+    "title": "Census: infantry bullets against vehicles, emplacements and deployables (2.1.1.0)",
+    "status": "finding",
+    "summary": "94 PD bullet files carry 28 projectile materials; against 29 vehicle, emplacement and deployable target materials the 2.1.1.0 grids store 0 for every bullet against armour (119), 0.3 to 0.8 against jets, keyed 0.16/0.56 to 0.6/1.0 against helicopters, 5 against the MQ-9, and 1 against nearly every deployable; the 95 cells shared with L3364 are unchanged and only Flechette, Slugs and the ELR-40 API swap the projectile material.",
+    "reopenWhen": "An in-game reading that separates a vehicle's VB-root material from its damage-zone part material (e.g. rifle damage on a PTV), or a traced receiving operation for vehicle hit material.",
+    "statusNote": "Census only; no control-qualified narrow lead; runtime selection unread."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Game/GlacierMP/levels/mp_abbasid/mp_abbasid/materialgrid_win32",
+    "format": "raw-ebx",
+    "sha256": "5b9eb74f22269095f57ef39a2da4fd991c8f4b975881eaac07a368c56286b06f",
+    "question": "Which projectile materials do the 94 PD bullet files carry, which target materials do vehicles, emplacements and deployables store, and what grid scalar does each pair hold in build 2.1.1.0?",
+    "result": "useful",
+    "conclusion": "812 bullet-by-target cells read; 23 distinct Field_674633de scalars; 0 for all infantry bullet materials against 119."
+   },
+   {
+    "path": "Common/Hardware/Weapons/_Bullets/PD_.375EnABELR_API",
+    "format": "raw-ebx",
+    "sha256": "5bd0a777118357104cfc039aaf5906aec9ee6d7306aa40ee00c0a606743d1020",
+    "question": "Which projectile materials do the 94 PD bullet files carry, which target materials do vehicles, emplacements and deployables store, and what grid scalar does each pair hold in build 2.1.1.0?",
+    "result": "useful",
+    "conclusion": "Projectile material 497 (shared with PD_68x51mm_MG), not the base ELR-40 material 290."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/Car/ptv/VB_VEH_Car_PTV",
+    "format": "raw-ebx",
+    "sha256": "3e49923df3ea6273002d468cbbaef3ffd76fd8012e616a977bb8473c5bfb9bd9",
+    "question": "Which projectile materials do the 94 PD bullet files carry, which target materials do vehicles, emplacements and deployables store, and what grid scalar does each pair hold in build 2.1.1.0?",
+    "result": "useful",
+    "conclusion": "VB root material 622, while its damage-zone parts store 187; the grid values differ between the two."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/Airplane/MQ9/VB_VEH_Airplane_MQ9_DamageZones",
+    "format": "raw-ebx",
+    "sha256": "dac5d2a68d714e4ed80390b6364cf34eb99e17aad628d21779eaa3d29b9f5576",
+    "question": "Which projectile materials do the 94 PD bullet files carry, which target materials do vehicles, emplacements and deployables store, and what grid scalar does each pair hold in build 2.1.1.0?",
+    "result": "useful",
+    "conclusion": "Parts store material 233; every infantry bullet but the minigun reads 5 against 233."
+   },
+   {
+    "path": "Common/Hardware/Gadgets/Tools/DeployableCover/VEH_Gadget_DeployedCover_DamageZones",
+    "format": "raw-ebx",
+    "sha256": "02acbc9c4fc8b7b90a540c99f8d792256e641b2718f56f046075cc2d8d277e52",
+    "question": "Which projectile materials do the 94 PD bullet files carry, which target materials do vehicles, emplacements and deployables store, and what grid scalar does each pair hold in build 2.1.1.0?",
+    "result": "useful",
+    "conclusion": "Four parts store material 143; every bullet material reads 1 against 143."
+   }
+  ],
+  "site": [
+   {
+    "pointer": "data/hit_zones.json:/weapons/m4a1/headshot",
+    "value": 1.4,
+    "relation": "supports"
+   },
+   {
+    "pointer": "data/attachments.json:/WEAPON_MAG/elr40/mags/1_rnd/projectileOverride/route",
+    "value": "Common/Hardware/Weapons/_Bullets/PD_.375EnABELR_API",
+    "relation": "context"
+   }
+  ]
+ },
+ "run": {
+  "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps",
+  "leadFolder": "L4077"
+ }
+}

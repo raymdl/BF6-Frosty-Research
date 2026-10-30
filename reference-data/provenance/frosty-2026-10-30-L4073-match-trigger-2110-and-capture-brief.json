@@ -1,0 +1,393 @@
+{
+ "lead": "L4073",
+ "status": "finding",
+ "build": "2.1.1.0",
+ "question": "Re-read the Match Trigger semi-only effects on 2.1.1.0 (GRM_MatchTrigger_ERG_P15 operands, GBM_NoIncrease_ERG_P00, the L4038 gate flag, the WB/GS bindings on the Match Trigger weapons, the M433's new W15 import), state whether the site's semiAuto block equals the source, compute the M433 predictions, and write the capture brief.",
+ "sourceFacts": {
+  "control": {
+   "description": "GRM_MatchTrigger_ERG_P15 recoil exponent add operand raw-checks +3 and the recovery multiply operand 1.728 at the L17 receipt's offsets (1144, 924, 616, 396); the file's raw SHA-256 equals the 1.4.3.0 and 1.4.3.5 hash, so the offsets carry forward by raw hash.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\Recoil\\GRM_MatchTrigger_ERG_P15.ebx",
+     "rawSha256": "d7785a0b638a8d238c906d772481639137b244181f26dacb46f45c0461e32fa1",
+     "offset": 1144,
+     "type": "i32",
+     "bytesHex": "03000000",
+     "value": 3
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\Recoil\\GRM_MatchTrigger_ERG_P15.ebx",
+     "rawSha256": "d7785a0b638a8d238c906d772481639137b244181f26dacb46f45c0461e32fa1",
+     "offset": 924,
+     "type": "f32",
+     "bytesHex": "1b2fdd3f",
+     "value": 1.7280000448226929
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\Recoil\\GRM_MatchTrigger_ERG_P15.ebx",
+     "rawSha256": "d7785a0b638a8d238c906d772481639137b244181f26dacb46f45c0461e32fa1",
+     "offset": 616,
+     "type": "i32",
+     "bytesHex": "03000000",
+     "value": 3
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\Recoil\\GRM_MatchTrigger_ERG_P15.ebx",
+     "rawSha256": "d7785a0b638a8d238c906d772481639137b244181f26dacb46f45c0461e32fa1",
+     "offset": 396,
+     "type": "f32",
+     "bytesHex": "1b2fdd3f",
+     "value": 1.7280000448226929
+    }
+   ]
+  },
+  "operands": "GRM_MatchTrigger_ERG_P15 (sha256 d7785a0b638a8d238c906d772481639137b244181f26dacb46f45c0461e32fa1, identical to 1.4.3.0 and 1.4.3.5): add +3 on RecoilAmountMultiplierExponent in both branches (offsets 1144, 616), second multiply 1.7280000448 on RecoilDecreaseFactor in both branches (924, 396); header Field_9ca063e9 true (offset 84). GBM_NoIncrease_ERG_P00 (sha256 f72b06b468711162922b73a16fd824cc0954d9f6f494149f2f1a6072d5e2cdde): multiply 0 on IncreasePerShot in four branches (912, 644, 376, 108); header Field_9ca063e9 true (84).",
+  "bindings": "By GUID search of the 2.1.1.0 trees, plus typed decode: 28 Match Trigger attachment files; GS binds identifier 15cff9ff to the same GRM and GBM file GUIDs on all 28 GS files; 26 WB files keep the local selector -> effect -> target -> record chain (record mask Field_1c85cbb1 = 1, 26 of 26 raw-checked): 25 of the 26 site weapons (all but the M433) plus Devgru, which is not a site weapon. The M433 imports WPM_ERG_MatchTrigger_W15. M44 (RagingHunter) has no WB chain. The 24 weapons of L24 therefore stand as 23 local chains plus the M433 package route on 2.1.1.0; with Mk 24 and RSPR the site list is 26.",
+  "m433W15": {
+   "finding": "HK433_WB (2.1.1.0 main capture, sha256 3f33f2ca3613e4965490e2aa82f32453a94ee9ae41f8eec6e227ef87bf6bb73b) holds no local Class_897c99a7 selector object with GUID 3eaeac2e (U_WPM_ERG_MatchTrigger_W15), no local effect/target/record chain and no identifier 15cff9ff; byte counts of 3eaeac2e, 15cff9ff and the bipod/mounted sibling identifiers are 0 (the 1.4.3.5 file has 1 of each). Modifier array Field_0cd9f20f element 99 instead imports WPM_ERG_MatchTrigger_W15 (file GUID 36d9d2e2-d5e9-4075-9e9d-9f4c9d148cad, class GUID 699fad30-5e47-4c42-a333-3a4e1f8715ad). That package (482 bytes, sha256 8c6605fccec05b6f7351c1ba77bbc8171d2f00a9f5d42b7e174f00c064c8a61a) holds one Class_897c99a7 object: Field_819acc98 = [3eaeac2e-a854-4cd1-90db-216da7845135] (the selector GUID the 1.4.3.5 local object held), Field_9690d604 = [] (EMPTY effect list; the 1.4.3.5 local object listed one effect), Field_1c31def0 null.",
+   "addsOrReplaces": "Replaces: the selector object moved out of the WB into the package and the package's effect list is empty. It adds no operand: no GRM/GBM import, no number, no identifier.",
+   "gsUnchangedInKind": "GS_HK433 (sha256 61b8c5791b177e0b2becff5cdb00c8c9a6649515ff41a6fc1572ff7efadb7dda) still binds identifier 15cff9ff to GBM_NoIncrease_ERG_P00 (priority 3) and GRM_MatchTrigger_ERG_P15 (priority 29), as on 1.4.3.0.",
+   "identifierAsset": "15cff9ff-aab0-4230-9a53-5a2bb1606587 is the object GUID of U_WPM_ERG_MatchTriggerActive (sha256 5c82550512614328b56ee47f31c78dcf5986165d713cae31ca1290e219b23d4c), a condition asset present only in the 15 and 22 October hotfix client captures (absent from the 13 October main capture and from 1.4.3.5); only Devgru_Ability references it, not HK433_WB.",
+   "inference": "The M433's semi-gate record (mask 1) is no longer serialized in its WB; its remaining route to the two effects is the GS binding. Whether the effects now act in all modes, in none, or through a condition supplied elsewhere (for example the new U_WPM_ERG_MatchTriggerActive asset) is not established. This is why the M433 may differ from the other weapons.",
+   "otherChanges": "HK433_WB also gained six other imports and added or renamed classes; not traced (out of scope)."
+  },
+  "siteBlock": {
+   "pointer": "data/attachments.json:/ERGOS/[id=match_trigger]/semiAuto",
+   "value": {
+    "adsRecoilTierMod": 3,
+    "hipRecoilTierMod": 3,
+    "recoilDecreaseFactorMult": 1.728,
+    "spreadIncMult": 0
+   },
+   "code": "sim/applyAttachments.js lines 406-421 (semiActive = selected mode single and weapon mechanism semi; ergoSemi added to ADS and hip tier mods), 482-483 (spreadIncMult on ADS and hip spread increase), 632-636 (decFactor multiplied by recoilDecreaseFactorMult in every recoil state)",
+   "equalsSource": true,
+   "comparison": [
+    {
+     "site": "adsRecoilTierMod 3",
+     "source": "GRM_MatchTrigger_ERG_P15 add operand +3 on RecoilAmountMultiplierExponent, branch Field_7b609515 (offset 1144, i32 3)",
+     "equal": true
+    },
+    {
+     "site": "hipRecoilTierMod 3",
+     "source": "same operand, branch Field_6b84de87 (offset 616, i32 3)",
+     "equal": true,
+     "note": "Both branches carry +3, so the ADS/hip assignment does not change the value"
+    },
+    {
+     "site": "recoilDecreaseFactorMult 1.728",
+     "source": "RecoilDecreaseFactor second-multiply operand Field_98a799ba f32 1.7280000448 in both branches (offsets 924 and 396)",
+     "equal": true,
+     "note": "site stores decimal 1.728; source f32 1.7280000448; difference 4.5e-8"
+    },
+    {
+     "site": "spreadIncMult 0",
+     "source": "GBM_NoIncrease_ERG_P00 Field_5695ee1c multiply 0.0 on IncreasePerShot in four branches (offsets 912, 644, 376, 108)",
+     "equal": true
+    },
+    {
+     "site": "gate: selected fire mode single and mechanism semi",
+     "source": "header flag Field_9ca063e9 true on both modifiers (offset 84) and WB record mask Field_1c85cbb1 = 1 on all 26 local WB chains (26 of 26 raw-checked)",
+     "equal": "consistent (inference)",
+     "note": "mask 1 = semi and header flag = fire-mode gate are L31/L4038 inferences; activation is the open capture"
+    }
+   ],
+   "limits": [
+    "The site applies the block to every recoil state; the source gives two branches (zoomed, unzoomed) with the same values.",
+    "The site does not model the per-weapon GS priority values (GBM 1 to 9, GRM 6 to 36 across weapons); no stacking rule is established (L24).",
+    "On the M433 the 2.1.1.0 WB lost the local selector chain, so M433 activation is the least certain of the 26 (see m433W15)."
+   ]
+  },
+  "predictions": "M433 ADS, 10 m, site model: per-shot amount 0.79333 -> 0.6695 deg (ratio 0.843908625), factor 72 -> 124.416 (site scale 0.8: 57.6 -> 99.5328). Hole 2 above hole 1: 200 ms 4.97 cm bare vs 1.92 cm Match Trigger; 150 ms 7.54 vs 4.45; 300 ms 0.97 vs 0.00. 5th hole above 1st at 200 ms: 8.87 vs 2.61 cm. Auto: no difference. Auto held-fire ADS bloom 0.05 -> 0.64 deg bare vs 0.05 flat if the block acts in auto. See l4073-result.json predictions and arithmetic.json.",
+  "rawCheckFiles": [
+   "rawchecks-L4073.json (227)",
+   "rawchecks-L4073-mask.json (26)"
+  ]
+ },
+ "inference": [
+  "The site block equals the 2.1.1.0 operands; the semi gate (mask 1, header flag) remains an inference from L31 and L4038, and the capture is the activation test.",
+  "On the M433 the W15 package replaces the local selector object and carries an empty effect list, adding no operand; the M433's semi-gate record is no longer in its WB. Runtime consequence unknown; the M433 result may not transfer to the other weapons, so the brief adds a conditional AK4D control.",
+  "Cadence 300 ms is uninformative (0.97 vs 0.00 cm); the brief uses 200 ms."
+ ],
+ "unresolved": [
+  "Runtime activation, fire-mode gating and composition of the Match Trigger effects remain unproven; the semi reading (mask 1, header flag) is inference (L31, L4038). Needs the L4073 capture.",
+  "What the empty-effect-list W15 package means for the M433 at runtime is not established; the six other added HK433_WB import file GUIDs were not resolved to assets.",
+  "Whether the hotfix-only condition asset U_WPM_ERG_MatchTriggerActive is the intended Match Trigger gate, and whether it reaches the M433, is not traced.",
+  "M44 (RagingHunter): the attachment exists with GS bindings but no WB chain; not on the site list.",
+  "Per-weapon GS priority values and any stacking rule are unknown (L24)."
+ ],
+ "siteImpact": "None to apply now: the site's semiAuto block equals the 2.1.1.0 source operands (data/attachments.json ERGOS match_trigger semiAuto; sim/applyAttachments.js applies it in semi only). The capture validates it. Conditional: semi-only confirmed -> nothing; both modes -> drop the semi gate; neither -> remove the block and restore noEffect; M433-only null -> weaponOverrides.m433 removes the block (the M433 is the one weapon whose 2.1.1.0 WB lost the local selector chain).",
+ "evidence": [
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4073\\l4073-result.json",
+   "sha256": "a1ba7f8c67a1307fb64798c7af13a2bde9dbc79d8ca9e16728419673d1b9f59c"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4073\\capture-brief.md",
+   "sha256": "c097cd103387449ae758cc5f957da501d996e6a919c5ef78bab7c916138f1c6d"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4073\\summary.md",
+   "sha256": "2910309585f27ea35ba483ecea3a419e815e7db6113bd823bc3c4b0023685bfe"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4073\\rawchecks-L4073.json",
+   "sha256": "3f5b7bf4938682df72a73066eb7b54cae51b4a5e6b52de86b2c876bdafe6c618"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4073\\rawchecks-L4073-mask.json",
+   "sha256": "02d0659028f209f06bfe1e815951db73f9580049b503db43641f251da0a4e695"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4073\\manifest-L4073.json",
+   "sha256": "7b3302db9100adf56525a3724b2938976162cb022476f875e591225cf84adaef"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4073\\manifest-L4073-mask.json",
+   "sha256": "8d098b0187cd1ed58cb753158e48908f1ff738235d12098b32243c3f75a0ad6a"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4073\\guid-scan.json",
+   "sha256": "b3664a0ada911ea340c51b38364eb747a62e4d1bf4eb8a8234012aa9fe8b1c65"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4073\\chains-result.json",
+   "sha256": "5bac17045afc44b65b7f950c1d788bbefca465dfd74971c8b4ef10bbbec82536"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4073\\predictions.json",
+   "sha256": "fd5ba2001660a4b104257a8c7bd03e5b839b3a8e3e8d641b251d81c70044cbf3"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4073\\predictions-sweep.json",
+   "sha256": "252b83ca9a24d8b056c44ac8aa671f615517f4980ce2cf03774449529107f2bb"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4073\\predictions-auto-held.json",
+   "sha256": "57de5a0e53c3c67ce6d9e21cceffb0a9f56e4b3fd88c789a92191a4d1d53f283"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4073\\arithmetic.json",
+   "sha256": "c2d18e4312e15751ee3bb9f2a1bc110f329bcc1fd7b620e7a45141978357db31"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4073\\build-compare-wb-gs.json",
+   "sha256": "0eb57b3eb7754d70361d75c836e03ec29730e8c873621a62a2b5a2e978e54d8c"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4073\\hk433-import-diff.json",
+   "sha256": "fb8b9e4a3136dd0f003a2546047b494638638e77e889a112ed2a6bb567e302d9"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4073\\predict.mjs",
+   "sha256": "fceb2c41670be466746d89e8351a3d40f24617f8b384273b3292f34d4cfd53c4",
+   "note": "helper revision invoked"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4073\\predict2.mjs",
+   "sha256": "01fdd159c172a33963c2c3fda26f276d4bf6754bfc04d95c476e8dccd57922f8",
+   "note": "helper revision invoked"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4073\\predict3.mjs",
+   "sha256": "d7e1aed94448d61a49ae69f2a4f9615c3515ac7d063642aae4d07d5ad91ccccf",
+   "note": "helper revision invoked"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4073\\arithmetic.py",
+   "sha256": "7e9e06403cb5a5bd67eb5bdeb48d11a1412056eba927c5098f99b4fb771b47f4",
+   "note": "helper revision invoked"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4073\\scan_guids.py",
+   "sha256": "c48e5cbd8af05d07e2c1f70171bb3a8f818f3bddc5e49ba552db8889e677b4c5",
+   "note": "helper revision invoked"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4073\\chains.py",
+   "sha256": "fb23bc0ae960d49b4429c5d29112a24bf096fd0c998b28095acb8a2ad9c99c0a",
+   "note": "helper revision invoked"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4073\\chains2.py",
+   "sha256": "8ffd8a1a32da864714235790fb272eec3830e05e8e3a9bbe8ce533f1317ec338",
+   "note": "helper revision invoked"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4073\\manifest.py",
+   "sha256": "05636e896a8e9c506cff5a788ec47e0be00c98cca5788a7ea766027701059b72",
+   "note": "helper revision invoked"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4073\\manifest2.py",
+   "sha256": "fe86fb2e00178494c33f331c4e6fbc2bb870013eec6ebcab9dc4d1f76d192cc3",
+   "note": "helper revision invoked"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4073\\build_result.py",
+   "sha256": "89bec4d85e4903659d17cfdb72cac5d08e897a42d3bb21191eb104c17c1840ae",
+   "note": "helper revision invoked"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4073\\build_final.py",
+   "sha256": "eac275833556bbd1179df3e1d0f13405b809619e73e7c9ac0f5d1d36beb59984",
+   "note": "helper revision invoked"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4073\\wbdiff.py",
+   "sha256": "74082a7ee26550faa8b14a459c7363aa5d5626047691529d411f22edae381c06",
+   "note": "helper revision invoked"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4073\\wbdiff2.py",
+   "sha256": "55a220b21e4cd6f57023030e9dfc200383af0a34c2967d2ca31b09286344f6af",
+   "note": "helper revision invoked"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4073\\wbdiff3.py",
+   "sha256": "b519cc878a79909019accca188c201c0192e805a1500f53414a368c7f54fb78d",
+   "note": "helper revision invoked"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4073\\wbdiff4.py",
+   "sha256": "3e8c0c2108714d80085cb4a135b28cb5e5480db73a395da520da88ca9f352888",
+   "note": "helper revision invoked"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4073\\impdiff.py",
+   "sha256": "64775dd76d4bcbd5e0a1abc29841ee8f9d2bb3412ad51714a4b60c76de4b3063",
+   "note": "helper revision invoked"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4073\\cmp_builds.py",
+   "sha256": "4cb50f5681dadf763d7676f914455aea7b8d0d9ca2c2109f6db17eef78cfe131",
+   "note": "helper revision invoked"
+  },
+  {
+   "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4073\\attach_list.py",
+   "sha256": "87156371d2811c3f048613fdb1f0e54bbee93e133380e2919b0b2137c3c6824a",
+   "note": "helper revision invoked"
+  }
+ ],
+ "commands": [
+  "RECONSTRUCTED (command history not preserved verbatim; helpers are saved in the run folder): python scan_guids.py (walks the 2.1.1.0 main, 15 Oct, 22 Oct and Season 5 generator trees for the identifier, selector, W15, effect-file and condition GUIDs as little-endian byte strings; writes guid-scan.json)",
+  "RECONSTRUCTED: python manifest.py; python \"C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py\" --manifest manifest-L4073.json --out rawchecks-L4073.json (cwd = run folder; 227 reads, 227 match)",
+  "RECONSTRUCTED: python manifest2.py; python \"C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py\" --manifest manifest-L4073-mask.json --out rawchecks-L4073-mask.json (26 reads, 26 match)",
+  "RECONSTRUCTED: python \"C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-ebx-decode.py\" --descriptors \"C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\toolchain\\SharedTypeDescriptors.ebx\" --ebx-list chain-list.txt --out dec\\chains-decoded.json --exact-floats (55 WB/GS files; also single-file decodes of WPM_ERG_MatchTrigger_W15, U_WPM_ERG_MatchTrigger_W15, U_WPM_ERG_MatchTriggerActive and HK433_WB on both builds, 1.4.3.5 with its own descriptors); python chains.py; python chains2.py",
+  "RECONSTRUCTED: node predict.mjs; node predict2.mjs; node predict3.mjs; python arithmetic.py (site sim modules imported read-only; nothing written under the site repo)",
+  "Control (exact, run first): python \"C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py\" --raw-root \"C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\" --path Common/Hardware/Weapons/_WeaponModifiers/Recoil/GRM_MatchTrigger_ERG_P15 --offset 1144 --type i32 --expect 3 (cwd = run folder; exit 0, value 3)"
+ ],
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-30",
+  "build": "mixed",
+  "leads": [
+   {
+    "id": "L17",
+    "title": "Match Trigger indirect effects",
+    "status": "site-supported",
+    "statusNote": "site applies the semi-only block since commit 81371d5 (24 Oct); activation capture still open",
+    "summary": "On 2.1.1.0 GRM_MatchTrigger_ERG_P15 (+3 recoil exponent, x1.728 recovery) and GBM_NoIncrease_ERG_P00 (x0 spread increase) are byte-identical and the site's semiAuto block equals them.",
+    "reopenWhen": "The L4073 capture shows whether the effects act in semi only, in both modes or in neither."
+   },
+   {
+    "id": "L24",
+    "title": "Match Trigger family",
+    "status": "site-supported",
+    "statusNote": "site applies the semi-only block since commit 81371d5 (24 Oct); activation capture still open",
+    "summary": "On 2.1.1.0 every Match Trigger GS file binds the same two effects and 25 of the 26 site weapons keep the local WB selector chain; the M433 now imports an empty-effect W15 package.",
+    "reopenWhen": "The L4073 capture, and a typed consumer for the empty-effect W15 package and the hotfix-only U_WPM_ERG_MatchTriggerActive asset."
+   },
+   {
+    "id": "L4073",
+    "title": "Match Trigger semi-only effects: 2.1.1.0 re-read, M433 W15 package and final capture brief",
+    "status": "finding",
+    "summary": "Operands and 28 GS bindings re-read on 2.1.1.0 (control passed); the M433's WB lost its local selector chain to an empty-effect W15 package; the site block equals source; the capture brief uses 200 ms spacing because 300 ms predicts under 1 cm.",
+    "reopenWhen": "The operator records the capture, or a typed consumer shows what the W15 package or U_WPM_ERG_MatchTriggerActive does at runtime."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Hardware/Weapons/_WeaponModifiers/Recoil/GRM_MatchTrigger_ERG_P15",
+    "format": "raw-ebx",
+    "sha256": "d7785a0b638a8d238c906d772481639137b244181f26dacb46f45c0461e32fa1",
+    "question": "Are the L17 Match Trigger recoil exponent (+3) and recovery multiply (1.728) operands and the header gate flag unchanged on 2.1.1.0?",
+    "result": "useful",
+    "conclusion": "Byte-identical to 1.4.3.0/1.4.3.5; +3 at 1144 and 616, 1.728 at 924 and 396, header flag Field_9ca063e9 true at 84."
+   },
+   {
+    "path": "Common/Hardware/Weapons/_WeaponModifiers/DispersionIncrease/GBM_NoIncrease_ERG_P00",
+    "format": "raw-ebx",
+    "sha256": "f72b06b468711162922b73a16fd824cc0954d9f6f494149f2f1a6072d5e2cdde",
+    "question": "Is the Match Trigger bloom multiply 0 and its header gate flag unchanged on 2.1.1.0?",
+    "result": "useful",
+    "conclusion": "Byte-identical to earlier builds; multiply 0.0 at 912, 644, 376, 108; header flag true at 84."
+   },
+   {
+    "path": "Common/Hardware/Weapons/_WeaponModifiers/_Ergo/MatchTrigger/WPM_ERG_MatchTrigger_W15",
+    "format": "raw-ebx",
+    "sha256": "8c6605fccec05b6f7351c1ba77bbc8171d2f00a9f5d42b7e174f00c064c8a61a",
+    "question": "What does the package the M433 newly imports hold, and does it add or replace the P15 effects?",
+    "result": "useful",
+    "conclusion": "One selector object with GUID 3eaeac2e and an empty effect list; no operands. It replaces the local WB selector object; adds nothing."
+   },
+   {
+    "path": "Common/Hardware/Weapons/AssaultRifle/HK433/HK433_WB",
+    "format": "raw-ebx",
+    "sha256": "3f33f2ca3613e4965490e2aa82f32453a94ee9ae41f8eec6e227ef87bf6bb73b",
+    "question": "Which Match Trigger chain does the 2.1.1.0 M433 weapon body hold?",
+    "result": "useful",
+    "conclusion": "No local selector chain or identifier (all counted 0); imports the W15 package at modifier array element 99. The 1.4.3.5 body (sha256 c02751eac2b054343a2a115dff8f2000bc450548c96185445cd7c3b613030e0a) held the local chain."
+   },
+   {
+    "path": "Common/Hardware/Weapons/AssaultRifle/HK433/GS_HK433",
+    "format": "raw-ebx",
+    "sha256": "61b8c5791b177e0b2becff5cdb00c8c9a6649515ff41a6fc1572ff7efadb7dda",
+    "question": "Does the M433 gameplay setup still bind the Match Trigger effects?",
+    "result": "useful",
+    "conclusion": "Identifier 15cff9ff still binds GBM_NoIncrease (priority 3) and GRM_MatchTrigger (priority 29)."
+   },
+   {
+    "path": "Common/Hardware/Weapons/_WeaponModifiers/_Ergo/MatchTrigger/U_WPM_ERG_MatchTriggerActive",
+    "format": "raw-ebx",
+    "sha256": "5c82550512614328b56ee47f31c78dcf5986165d713cae31ca1290e219b23d4c",
+    "question": "What is the identifier 15cff9ff?",
+    "result": "useful",
+    "conclusion": "Its object GUID is 15cff9ff; the asset exists only in the 15 and 22 October hotfix captures and is referenced by Devgru_Ability only."
+   }
+  ],
+  "site": [
+   {
+    "pointer": "data/attachments.json:/ERGOS/[id=match_trigger]/semiAuto/adsRecoilTierMod",
+    "value": 3,
+    "relation": "supports"
+   },
+   {
+    "pointer": "data/attachments.json:/ERGOS/[id=match_trigger]/semiAuto/hipRecoilTierMod",
+    "value": 3,
+    "relation": "supports"
+   },
+   {
+    "pointer": "data/attachments.json:/ERGOS/[id=match_trigger]/semiAuto/recoilDecreaseFactorMult",
+    "value": 1.728,
+    "relation": "supports"
+   },
+   {
+    "pointer": "data/attachments.json:/ERGOS/[id=match_trigger]/semiAuto/spreadIncMult",
+    "value": 0,
+    "relation": "supports"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=m433]/recoil/ads/decFactor",
+    "value": 72,
+    "relation": "context"
+   }
+  ],
+  "binding": "research"
+ },
+ "run": {
+  "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps",
+  "leadFolder": "L4073"
+ }
+}

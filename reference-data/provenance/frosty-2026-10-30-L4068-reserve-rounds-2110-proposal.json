@@ -1,0 +1,336 @@
+{
+ "lead": "L4068",
+ "status": "proposal",
+ "build": "2.1.1.0",
+ "question": "Per magazine package of all 67 weapons, read MagazineCapacity and NumberOfMagazines on 2.1.1.0, compute carried totals under readings A and B, list the weapons where capacity is not nominal+1, and propose a Magazine card addition with a validation glance.",
+ "sourceFacts": {
+  "summary": [
+   "M4A1 20 Rnd package WPM_MAG_020Cpt2_556_W05 (control): capacity 21, NumberOfMagazines 10, InitialAmmo -1.",
+   "All 67 WB Ammo structs read; capacity equals data/weapons.json mag on 66 weapons; elr40 WB capacity is 1 (N 50), site mag 8.",
+   "303 site WEAPON_MAG choices: 302 read (189 from a package Ammo struct, 113 fall back to WB because the shared Std/Fast package has no Ammo struct), 1 unresolved (z84m 100_agil, package not captured).",
+   "Capacity minus site nominal: +1 on 277 choices, +0 on 24 (belt LMG magazines, revolvers m44/m357trait, ELR-40 Single Shot), +2 on 1 (DB-12).",
+   "All 177 packages and WB structs also present in the L110 1.4.3.0 inventory carry the same capacity, count and InitialAmmo values; 114 of 115 package files have equal raw SHA-256 (62 WB files changed hash, values equal).",
+   "Reading A (cap x N) and B (cap x (N+1)) totals per choice are in values.json."
+  ],
+  "control": {
+   "description": "M4A1 20 Rnd package (WPM_MAG_020Cpt2_556_W05, selector chain from site choice 20_rnd) reads MagazineCapacity 21 and NumberOfMagazines 10 (21 x 10 = 210, the L110 receipt values); data/weapons.json m4a1 mag (31) equals the M4A1_WB MagazineCapacity (31).",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\CompactMagazine\\WPM_MAG_020Cpt2_556_W05.ebx",
+     "rawSha256": "4c97c9f12a4adf1e7483b71fc1340f7bdcddd79f9bef3b3f1c36491113dec66b",
+     "offset": 152,
+     "type": "i32",
+     "bytesHex": "15000000",
+     "value": 21,
+     "field": "MagazineCapacity"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\CompactMagazine\\WPM_MAG_020Cpt2_556_W05.ebx",
+     "rawSha256": "4c97c9f12a4adf1e7483b71fc1340f7bdcddd79f9bef3b3f1c36491113dec66b",
+     "offset": 156,
+     "type": "i32",
+     "bytesHex": "0a000000",
+     "value": 10,
+     "field": "NumberOfMagazines"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_WeaponModifiers\\_Magazine\\CompactMagazine\\WPM_MAG_020Cpt2_556_W05.ebx",
+     "rawSha256": "4c97c9f12a4adf1e7483b71fc1340f7bdcddd79f9bef3b3f1c36491113dec66b",
+     "offset": 160,
+     "type": "i32",
+     "bytesHex": "ffffffff",
+     "value": -1,
+     "field": "InitialAmmo"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\M4A1\\M4A1_WB.ebx",
+     "rawSha256": "deeb876b845b66b7bca5f3350e9c399bbc02b83d05d19493a3e35b71c642bee9",
+     "offset": 1728,
+     "type": "i32",
+     "bytesHex": "1f000000",
+     "value": 31,
+     "field": "MagazineCapacity"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\M4A1\\M4A1_WB.ebx",
+     "rawSha256": "deeb876b845b66b7bca5f3350e9c399bbc02b83d05d19493a3e35b71c642bee9",
+     "offset": 1732,
+     "type": "i32",
+     "bytesHex": "07000000",
+     "value": 7,
+     "field": "NumberOfMagazines"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\M4A1\\M4A1_WB.ebx",
+     "rawSha256": "deeb876b845b66b7bca5f3350e9c399bbc02b83d05d19493a3e35b71c642bee9",
+     "offset": 1740,
+     "type": "i32",
+     "bytesHex": "ffffffff",
+     "value": -1,
+     "field": "InitialAmmo"
+    }
+   ]
+  },
+  "rawChecksFile": "a3_rawchecks.json (570 values; every value in values.json and l4068-result.json comes from it)",
+  "valuesFile": "values.json"
+ },
+ "inference": [
+  "Capacity nominal+1 on closed-bolt weapons is read as one chambered round (hypothesis); belt LMG and revolver packages are +0, the DB-12 +2.",
+  "Packages without an Ammo struct (Std_W05, Fast_W10, MG5_Fast_W10) leave the WB Ammo struct unchanged (inference).",
+  "Season 5 site choices are mapped to Attachment_*_MAG_* files by name and nominal count."
+ ],
+ "unresolved": [
+  "Site weapon z84m choice 100_agil: selector U_WPM_MAG_100Cpt1_PKM_W05 is captured (Compact1 branch 6919d57e-689a-43cd-bbc8-d88e5f744f59) but its package WPM_MAG_100Cpt1_PKM_W05 is not in the 2.1.1.0 raw tree: needs capture. Capacity and NumberOfMagazines for that choice are unread.",
+  "Season 5 site choices (mk24, elr40, z84m, rspr; 16) have no generated-branch row; the mapping from site choice to Attachment_*_MAG_* file is inferred by file name and nominal count (elr40 Compact1 = 1_rnd Single Shot, Compact2 = 5_rnd, Fast = 7_fast, Regular = 7_rnd; z84m Compact1 = 100_agil by exclusion).",
+  "Whether NumberOfMagazines includes the loaded magazine (reading A) or counts spare magazines only (reading B), and whether capacity nominal+1 is a chambered round in play, is not decided by the serialized data: needs the in-game glance in proposal.md.",
+  "InitialAmmo is -1 on every read package and WB; its meaning remains unresolved (L110 convention).",
+  "113 of the 302 resolved site choices use a shared package (WPM_MAG_Std_W05, WPM_MAG_Fast_W10, WPM_MAG_MG5_Fast_W10) that carries no Ammo struct; their capacity and magazine count are the WB values (inference that the package leaves the base ammo struct unchanged).",
+  "elr40 WB base MagazineCapacity is 1 with NumberOfMagazines 50 (the Single Shot package reads 1 and 49); site weapons.json elr40 mag is 8, which equals the default 7 Rnd package capacity, not the WB value (the other 66 weapons equal the WB value)."
+ ],
+ "siteImpact": "No site number changes now. Proposal: the Magazine card could show \"loaded+chambered / reserve\" per magazine choice. Outcome A (NumberOfMagazines includes the loaded magazine): M4A1 20 Rnd shows 20+1 / 189 (210 total). Outcome B (reserve only): 20+1 / 210 (231 total). If the chambered reading fails, the card shows capacity as one number with reserve per A or B. weapons.json mag stays at the source capacity.",
+ "evidence": {
+  "paths": [
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4068\\l4068-result.json",
+    "sha256": "4ae3999cd0deb0f283bd25d2405cf6bc33e2bc2f8b07516b66c0d249c5e6ce20"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4068\\values.json",
+    "sha256": "194f58ca4adbd64d1c266276b069b2ef3f7b3adb5b4ab349082ea037bc19af2b"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4068\\a1_join.json",
+    "sha256": "e245b725f75be8f74aa9196fcbe2a54cf8224a22a6a95ba869df3a820a65ffac"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4068\\a2_extract.json",
+    "sha256": "94072ce4453ca7df40773a68572a85564bcbc1942bee8defe4eb0f1c376c51e2"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4068\\a3_rawchecks.json",
+    "sha256": "7173c574412e6858cfd75c67cb69dd47ef139ccd0334cc11e804d3525ce62469"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4068\\a4_table.json",
+    "sha256": "30dc0ba039d268d449dda79ded395237c7ef2381c588aa34267712a1a871cfeb"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4068\\a5_carry.json",
+    "sha256": "779bafd030b687168b897b3c9fcf92bc7052b190aee3870630eb8151b476a262"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4068\\proposal.md",
+    "sha256": "8fdfb9cc4129ea0482172dd7b00eceb57b99ed65a43e030be802becb1ccde284"
+   }
+  ],
+  "helpers": [
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4068\\lib.py",
+    "sha256": "f7a8bcadd45082b27806a339531df1962a1c2a03cdfb127f5a1ed271a7a89e9f"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4068\\a1_join.py",
+    "sha256": "3dfdf29cad1b95af1740395dcd427f47640ad354115df945061fdd9f4ad1b83e"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4068\\a2_extract.py",
+    "sha256": "3a1a052a934213dfde1518f12564b7cac1e6fcb867d4e0624b210579d73e7481"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4068\\a3_rawcheck.py",
+    "sha256": "6c0dbe21bcca7c7c4453a482c92e3e5f6f005f5682e0fd2ae0651ba8385c2431"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4068\\a4_table.py",
+    "sha256": "5af4408b502c71139576e3507d53b3f68714c7c5be43eed7a5f460b23f9a2a08"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4068\\a5_carry.py",
+    "sha256": "43d7db82c0411a03fc73a299cf8e8bb819c2730a6c374a177db8bfd3cf76541c"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4068\\a6_build.py",
+    "sha256": "7bde2794b527ae644ed8311f7f0eebc0f2ca8318f3e7876181ef5d4495213db5"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4068\\a7_write.py",
+    "sha256": "07bcb8f8755b0ae011c28abda85c7f910f1546a4dd00f28ed328d92fab29c7da"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4068\\a8_receipt.py",
+    "sha256": "b318397c557ae109b37e7f4e0fea8164ccb985a683d719a02522d6304087d776"
+   }
+  ],
+  "commands": [
+   {
+    "label": "reconstructed; run in cwd",
+    "executable": "python",
+    "argv": [
+     "a1_join.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4068",
+    "output": "a1_join.json",
+    "note": "lib.py copied from ..\\L4065A (reader class, raw roots 2.1.1.0 collection + season5-uncaptured)"
+   },
+   {
+    "label": "reconstructed",
+    "executable": "python",
+    "argv": [
+     "a2_extract.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4068",
+    "output": "a2_extract.json, a1_join_final.json"
+   },
+   {
+    "label": "reconstructed",
+    "executable": "python",
+    "argv": [
+     "a3_rawcheck.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4068",
+    "output": "a3_rawchecks.json (570 values via scripts/frosty-raw-check.py --manifest a3_rawchecks.manifest.json)"
+   },
+   {
+    "label": "reconstructed",
+    "executable": "python",
+    "argv": [
+     "a4_table.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4068",
+    "output": "a4_table.json, a4_wb.json"
+   },
+   {
+    "label": "reconstructed",
+    "executable": "python",
+    "argv": [
+     "a5_carry.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4068",
+    "output": "a5_carry.json"
+   },
+   {
+    "label": "reconstructed",
+    "executable": "python",
+    "argv": [
+     "a6_build.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4068",
+    "output": "values.json, exceptions.json"
+   },
+   {
+    "label": "reconstructed",
+    "executable": "python",
+    "argv": [
+     "a7_write.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4068",
+    "output": "l4068-result.json, proposal.md"
+   }
+  ],
+  "commandHistoryNote": "Commands are reconstructed from the scripts run in this session; no shell history file was kept."
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-30",
+  "build": "2.1.1.0",
+  "leads": [
+   {
+    "id": "L4068",
+    "title": "Reserve rounds and chambered round (Magazine card)",
+    "status": "proposal",
+    "summary": "Per-choice MagazineCapacity and NumberOfMagazines are read on 2.1.1.0 for 302 of 303 site magazine choices (nominal +1 on 277, +0 on 24, +2 on the DB-12); a spawn-HUD glance on the M4A1 20 Rnd (A: 20+1 / 189, B: 20+1 / 210, loaded 21 after a tactical reload) decides the card text.",
+    "reopenWhen": "After the in-game glance reports the spawn HUD for the M4A1 20 Rnd and the loaded count after one tactical reload, or when WPM_MAG_100Cpt1_PKM_W05 is captured."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Hardware/Weapons/Carbine/M4A1/M4A1_WB",
+    "format": "raw-ebx",
+    "sha256": "deeb876b845b66b7bca5f3350e9c399bbc02b83d05d19493a3e35b71c642bee9",
+    "question": "Base Ammo struct (Field_7f22bfb4 / Field_4614adfe / Field_80a58418)",
+    "result": "useful",
+    "conclusion": "MagazineCapacity 31, NumberOfMagazines 7, InitialAmmo -1; equals data/weapons.json m4a1 mag 31."
+   },
+   {
+    "path": "Common/Hardware/Weapons/_WeaponModifiers/_Magazine/CompactMagazine/WPM_MAG_020Cpt2_556_W05",
+    "format": "raw-ebx",
+    "sha256": "4c97c9f12a4adf1e7483b71fc1340f7bdcddd79f9bef3b3f1c36491113dec66b",
+    "question": "M4A1 20 Rnd package (control)",
+    "result": "useful",
+    "conclusion": "MagazineCapacity 21, NumberOfMagazines 10, InitialAmmo -1; 21 x 10 = 210, same as the L110 receipt."
+   },
+   {
+    "path": "Common/Hardware/Weapons/BoltAction/CDX40/CDX40_WB",
+    "format": "raw-ebx",
+    "sha256": "ec78973b271ca1a0c4ed201eb442e8f1717c01006bab04164b49238d44fa605b",
+    "question": "ELR-40 base Ammo struct",
+    "result": "useful",
+    "conclusion": "MagazineCapacity 1, NumberOfMagazines 50; site weapons.json elr40 mag 8 equals the default package capacity instead."
+   },
+   {
+    "path": "Common/Hardware/Weapons/_WeaponModifiers/_Magazine/Magazine/WPM_MAG_Std_CDX40_W05",
+    "format": "raw-ebx",
+    "sha256": "9847e8f5a58988099f6f4a21d38f35c56369b41353e06cdd6df864ce6d4eb8d9",
+    "question": "ELR-40 7 Rnd package",
+    "result": "useful",
+    "conclusion": "MagazineCapacity 8, NumberOfMagazines 7 (nominal 7, +1)."
+   },
+   {
+    "path": "Common/Hardware/Weapons/_WeaponModifiers/_Magazine/CompactMagazine/WPM_MAG_001Cpt1_CDX40_W05",
+    "format": "raw-ebx",
+    "sha256": "248f5d0cc18cc8aa1c661d7f743b4be01f8ceef53bc595dfd1677f6bdef8ec73",
+    "question": "ELR-40 Single Shot package",
+    "result": "useful",
+    "conclusion": "MagazineCapacity 1, NumberOfMagazines 49 (nominal +0)."
+   },
+   {
+    "path": "Common/Hardware/Weapons/Shotgun/DP12/DP12_WB",
+    "format": "raw-ebx",
+    "sha256": "c2e2dc3355828fdb41fb05f2098632a7f9e20330847d2ff186b6a0c9758dfe4d",
+    "question": "DB-12 base Ammo struct",
+    "result": "useful",
+    "conclusion": "MagazineCapacity 16, NumberOfMagazines 6 (site nominal 14, +2)."
+   },
+   {
+    "path": "Common/Hardware/Weapons/_WeaponModifiers/_Magazine/ExtendedMagazine/WPM_MAG_200Ext1_556_W50",
+    "format": "raw-ebx",
+    "sha256": "1b4e64ed53a1eec848c07e596c5f4f17b718cbe4b619d471a790049f7e881fee",
+    "question": "L110 200 Rnd belt package",
+    "result": "useful",
+    "conclusion": "MagazineCapacity 200, NumberOfMagazines 2 (nominal +0)."
+   },
+   {
+    "path": "Common/Hardware/Weapons/_WeaponModifiers/_Magazine/Magazine/WPM_MAG_Std_W05",
+    "format": "raw-ebx",
+    "sha256": "1bcb594dca0eeee1591046a5173a5445f234fb51e1afb459765632091a54464f",
+    "question": "Shared default magazine package",
+    "result": "useful",
+    "conclusion": "Carries no Ammo struct; 66 site default/regular choices fall back to the WB values."
+   }
+  ],
+  "site": [
+   {
+    "pointer": "data/weapons.json:/[id=m4a1]/mag",
+    "value": 31,
+    "relation": "context"
+   },
+   {
+    "pointer": "data/attachments.json:/WEAPON_MAG/m4a1/mags/20_rnd/mag",
+    "value": 20,
+    "relation": "proposed"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=elr40]/mag",
+    "value": 8,
+    "relation": "context"
+   }
+  ],
+  "binding": "research"
+ },
+ "run": {
+  "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps",
+  "leadFolder": "L4068"
+ }
+}

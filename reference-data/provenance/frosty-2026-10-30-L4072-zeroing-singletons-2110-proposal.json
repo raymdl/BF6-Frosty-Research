@@ -1,0 +1,734 @@
+{
+ "lead": "L4072",
+ "status": "proposal",
+ "build": {
+  "current": "2.1.1.0",
+  "head": 5382784,
+  "descriptorSha256": "c477622c1074a9a4ea612cf9c60e26f666129721c733174192c121c808873ff6",
+  "note": "Read from saved raw captures; Season 5 WB files from builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw. No capture, no FrostyCmd, nothing written to either repo."
+ },
+ "question": "Zeroing singletons on 51 non-DMR weapons (54 of 67 with Season 5) and the ELR-40 CustomZeroing; default-zero proposal for the Soldier Target view.",
+ "control": {
+  "description": "L53 M39 EMR bracket re-read on 2.1.1.0: M39EMR_WB zeroing list [100,200,300,400,500] with min/max/delay and the three booleans re-located and raw-checked; bullet speed 760 and PD_762x51mmNATO_Semi gravity -9.81 and drag 0.0035 re-read; the 30 recorded M39 cases (120 offset points) of site-zeroing-check-v2.json recomputed with the current sim/ballistics.js reproduce with maximum absolute difference 0 m. Site zero assumption is stated from sim/ballistics.js:94 and ui/app.js:342-347.",
+  "passed": true,
+  "m39Old143List": [
+   100,
+   200,
+   300,
+   400,
+   500
+  ],
+  "m39New2110List": [
+   100,
+   200,
+   300,
+   400,
+   500
+  ],
+  "m39OwnerRawShaOld143": "872425191e616c7b2073a4563f0b5478b5bdcad1371dbe3f604b547920123d4e",
+  "m39OwnerRawSha2110": "366949478e292eebc5dc80aaf5e6c45645659c991f9e163cad965197fad3eff3",
+  "carryForward": "Not by raw hash: the M39EMR_WB and PD_762x51mmNATO_Semi files changed bytes on 2.1.1.0. Fields were re-located by decoding with the 2.1.1.0 descriptors; values are unchanged.",
+  "rawChecks": [
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\M39EMR\\M39EMR_WB.ebx",
+    "rawSha256": "366949478e292eebc5dc80aaf5e6c45645659c991f9e163cad965197fad3eff3",
+    "offset": 416,
+    "type": "f32",
+    "bytesHex": "00003e44",
+    "value": 760.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_762x51mmNATO_Semi.ebx",
+    "rawSha256": "3e937d6eb79491b1c9d1735dd05e065940403ff0b4eb8afc7d1dc183545a68ee",
+    "offset": 768,
+    "type": "f32",
+    "bytesHex": "c3f51cc1",
+    "value": -9.8100004196167
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_762x51mmNATO_Semi.ebx",
+    "rawSha256": "3e937d6eb79491b1c9d1735dd05e065940403ff0b4eb8afc7d1dc183545a68ee",
+    "offset": 776,
+    "type": "f32",
+    "bytesHex": "4260653b",
+    "value": 0.0035000001080334187
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\M39EMR\\M39EMR_WB.ebx",
+    "rawSha256": "366949478e292eebc5dc80aaf5e6c45645659c991f9e163cad965197fad3eff3",
+    "offset": 27356,
+    "type": "u32",
+    "bytesHex": "64000000",
+    "value": 100,
+    "field": "Field_410f6aa8[0]"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\M39EMR\\M39EMR_WB.ebx",
+    "rawSha256": "366949478e292eebc5dc80aaf5e6c45645659c991f9e163cad965197fad3eff3",
+    "offset": 27360,
+    "type": "u32",
+    "bytesHex": "c8000000",
+    "value": 200,
+    "field": "Field_410f6aa8[1]"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\M39EMR\\M39EMR_WB.ebx",
+    "rawSha256": "366949478e292eebc5dc80aaf5e6c45645659c991f9e163cad965197fad3eff3",
+    "offset": 27364,
+    "type": "u32",
+    "bytesHex": "2c010000",
+    "value": 300,
+    "field": "Field_410f6aa8[2]"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\M39EMR\\M39EMR_WB.ebx",
+    "rawSha256": "366949478e292eebc5dc80aaf5e6c45645659c991f9e163cad965197fad3eff3",
+    "offset": 27368,
+    "type": "u32",
+    "bytesHex": "90010000",
+    "value": 400,
+    "field": "Field_410f6aa8[3]"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\M39EMR\\M39EMR_WB.ebx",
+    "rawSha256": "366949478e292eebc5dc80aaf5e6c45645659c991f9e163cad965197fad3eff3",
+    "offset": 27372,
+    "type": "u32",
+    "bytesHex": "f4010000",
+    "value": 500,
+    "field": "Field_410f6aa8[4]"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\M39EMR\\M39EMR_WB.ebx",
+    "rawSha256": "366949478e292eebc5dc80aaf5e6c45645659c991f9e163cad965197fad3eff3",
+    "offset": 440,
+    "type": "bool",
+    "bytesHex": "00",
+    "value": false,
+    "field": "Field_4b636fc6 (RangeFinder)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\M39EMR\\M39EMR_WB.ebx",
+    "rawSha256": "366949478e292eebc5dc80aaf5e6c45645659c991f9e163cad965197fad3eff3",
+    "offset": 441,
+    "type": "bool",
+    "bytesHex": "01",
+    "value": true,
+    "field": "Field_4e34fabb (RangeFindingInAdsOnly)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\M39EMR\\M39EMR_WB.ebx",
+    "rawSha256": "366949478e292eebc5dc80aaf5e6c45645659c991f9e163cad965197fad3eff3",
+    "offset": 442,
+    "type": "bool",
+    "bytesHex": "00",
+    "value": false,
+    "field": "Field_4449ee55 (CustomZeroing)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\M39EMR\\M39EMR_WB.ebx",
+    "rawSha256": "366949478e292eebc5dc80aaf5e6c45645659c991f9e163cad965197fad3eff3",
+    "offset": 444,
+    "type": "i32",
+    "bytesHex": "64000000",
+    "value": 100,
+    "field": "Field_0910a3f6 (MinimumCustomZeroingDistance)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\M39EMR\\M39EMR_WB.ebx",
+    "rawSha256": "366949478e292eebc5dc80aaf5e6c45645659c991f9e163cad965197fad3eff3",
+    "offset": 448,
+    "type": "i32",
+    "bytesHex": "e8030000",
+    "value": 1000,
+    "field": "Field_7a592b4e (MaximumCustomZeroingDistance)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\M39EMR\\M39EMR_WB.ebx",
+    "rawSha256": "366949478e292eebc5dc80aaf5e6c45645659c991f9e163cad965197fad3eff3",
+    "offset": 472,
+    "type": "f32",
+    "bytesHex": "cdcccc3e",
+    "value": 0.4000000059604645,
+    "field": "Field_812f7451 (CustomZeroingDelay)"
+   }
+  ]
+ },
+ "sourceFacts": {
+  "zeroLists": "All 67 WB files carry one zeroing block (Class_35259f6b/Field_58d70acb/Field_7d5dc312). Lists: [60] on 22 (11 SMG, 7 sidearm, 4 shotgun, incl. RSPR), [75] on 9 carbines, [100] on 23 (12 assault rifles and 11 LMGs, incl. Mk 24 and Z84M), [100,200,300,400,500] on 13 (7 snipers incl. ELR-40, 6 DMRs). 51 launch singletons plus 3 Season 5 singletons = 54; 12 launch brackets plus ELR-40 = 13. Identical to the 1.4.3.0 lists on all 63 launch weapons.",
+  "blockFields": "Booleans at +440/+441/+442, i32 +444/+448, list pointer +456, f32 +472; the 54 singleton blocks have null registry anchors and store min/max/delay -1/-1/0.01; the 13 brackets import GRX Shot.Zeroing rows with 100/1000/0.4.",
+  "siteToday": {
+   "today": "sim/ballistics.js:93-94 zeroRelativeVerticalOffset(model, distance, zero=null): a null zero returns trajectoryAtDistance(model, distance) at launch angle 0 (bore-relative). ui/app.js:342-347 isZeroableWeapon is cls DMR or Sniper Rifle only; zeroDistanceFor returns state.recoil.zeroDistance (default 100, ui/app.js:189; cycle 100-500, ui/app.js:2626-2629) for those 13 weapons and null (bore-relative) for the other 54. No fixed non-null zero exists for non-DMR weapons. Sight height is omitted (sim/ballistics.js:91)."
+  },
+  "trajectories": "M4A1 (590 m/s, drag 0.0035, g -9.81 from data/weapons.json and data/ballistics.json) with the site solver: bore-relative -3.97/-18.05/-46.45 cm at 50/100/150 m; 75 m zero +2.37/-5.36/-27.42 cm. Arithmetic: flight time to 100 m = expm1(0.0035x100)/(0.0035x590) = 0.2029 s; half g t^2 = 0.2020 m; the RK4 vector solution with vertical drag gives 0.1805 m. 75 m zero launch angle 1.2689 mrad gives -0.0536 m at 100 m.",
+  "rawChecks": [
+   {
+    "field": "Field_410f6aa8[0]",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\M4A1\\M4A1_WB.ebx",
+    "rawSha256": "deeb876b845b66b7bca5f3350e9c399bbc02b83d05d19493a3e35b71c642bee9",
+    "offset": 16364,
+    "type": "u32",
+    "bytesHex": "4b000000",
+    "value": 75
+   },
+   {
+    "field": "Field_4b636fc6 (RangeFinder)",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\M4A1\\M4A1_WB.ebx",
+    "rawSha256": "deeb876b845b66b7bca5f3350e9c399bbc02b83d05d19493a3e35b71c642bee9",
+    "offset": 1208,
+    "type": "bool",
+    "bytesHex": "00",
+    "value": false
+   },
+   {
+    "field": "Field_4e34fabb (RangeFindingInAdsOnly)",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\M4A1\\M4A1_WB.ebx",
+    "rawSha256": "deeb876b845b66b7bca5f3350e9c399bbc02b83d05d19493a3e35b71c642bee9",
+    "offset": 1209,
+    "type": "bool",
+    "bytesHex": "00",
+    "value": false
+   },
+   {
+    "field": "Field_4449ee55 (CustomZeroing)",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\M4A1\\M4A1_WB.ebx",
+    "rawSha256": "deeb876b845b66b7bca5f3350e9c399bbc02b83d05d19493a3e35b71c642bee9",
+    "offset": 1210,
+    "type": "bool",
+    "bytesHex": "00",
+    "value": false
+   },
+   {
+    "field": "Field_0910a3f6 (MinimumCustomZeroingDistance)",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\M4A1\\M4A1_WB.ebx",
+    "rawSha256": "deeb876b845b66b7bca5f3350e9c399bbc02b83d05d19493a3e35b71c642bee9",
+    "offset": 1212,
+    "type": "i32",
+    "bytesHex": "ffffffff",
+    "value": -1
+   },
+   {
+    "field": "Field_7a592b4e (MaximumCustomZeroingDistance)",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\M4A1\\M4A1_WB.ebx",
+    "rawSha256": "deeb876b845b66b7bca5f3350e9c399bbc02b83d05d19493a3e35b71c642bee9",
+    "offset": 1216,
+    "type": "i32",
+    "bytesHex": "ffffffff",
+    "value": -1
+   },
+   {
+    "field": "Field_812f7451 (CustomZeroingDelay)",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\M4A1\\M4A1_WB.ebx",
+    "rawSha256": "deeb876b845b66b7bca5f3350e9c399bbc02b83d05d19493a3e35b71c642bee9",
+    "offset": 1240,
+    "type": "f32",
+    "bytesHex": "0ad7233c",
+    "value": 0.009999999776482582
+   },
+   {
+    "field": "Field_410f6aa8[0]",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\SMG\\MP5MLI\\MP5MLI_WB.ebx",
+    "rawSha256": "a4ebebc0987a403430672e93b79c449a85c3463898b25ca6099607fe34e39fbf",
+    "offset": 14732,
+    "type": "u32",
+    "bytesHex": "3c000000",
+    "value": 60
+   },
+   {
+    "field": "Field_4b636fc6 (RangeFinder)",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\SMG\\MP5MLI\\MP5MLI_WB.ebx",
+    "rawSha256": "a4ebebc0987a403430672e93b79c449a85c3463898b25ca6099607fe34e39fbf",
+    "offset": 440,
+    "type": "bool",
+    "bytesHex": "00",
+    "value": false
+   },
+   {
+    "field": "Field_4e34fabb (RangeFindingInAdsOnly)",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\SMG\\MP5MLI\\MP5MLI_WB.ebx",
+    "rawSha256": "a4ebebc0987a403430672e93b79c449a85c3463898b25ca6099607fe34e39fbf",
+    "offset": 441,
+    "type": "bool",
+    "bytesHex": "00",
+    "value": false
+   },
+   {
+    "field": "Field_4449ee55 (CustomZeroing)",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\SMG\\MP5MLI\\MP5MLI_WB.ebx",
+    "rawSha256": "a4ebebc0987a403430672e93b79c449a85c3463898b25ca6099607fe34e39fbf",
+    "offset": 442,
+    "type": "bool",
+    "bytesHex": "00",
+    "value": false
+   },
+   {
+    "field": "Field_0910a3f6 (MinimumCustomZeroingDistance)",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\SMG\\MP5MLI\\MP5MLI_WB.ebx",
+    "rawSha256": "a4ebebc0987a403430672e93b79c449a85c3463898b25ca6099607fe34e39fbf",
+    "offset": 444,
+    "type": "i32",
+    "bytesHex": "ffffffff",
+    "value": -1
+   },
+   {
+    "field": "Field_7a592b4e (MaximumCustomZeroingDistance)",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\SMG\\MP5MLI\\MP5MLI_WB.ebx",
+    "rawSha256": "a4ebebc0987a403430672e93b79c449a85c3463898b25ca6099607fe34e39fbf",
+    "offset": 448,
+    "type": "i32",
+    "bytesHex": "ffffffff",
+    "value": -1
+   },
+   {
+    "field": "Field_812f7451 (CustomZeroingDelay)",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\SMG\\MP5MLI\\MP5MLI_WB.ebx",
+    "rawSha256": "a4ebebc0987a403430672e93b79c449a85c3463898b25ca6099607fe34e39fbf",
+    "offset": 472,
+    "type": "f32",
+    "bytesHex": "0ad7233c",
+    "value": 0.009999999776482582
+   },
+   {
+    "field": "Field_410f6aa8[0]",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\BoltAction\\SV98M\\SV98M_WB.ebx",
+    "rawSha256": "a2df1c1591526e5f44e026739045b11f53ba56e4b89e5b567b8193af138bc4fe",
+    "offset": 27484,
+    "type": "u32",
+    "bytesHex": "64000000",
+    "value": 100
+   },
+   {
+    "field": "Field_410f6aa8[1]",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\BoltAction\\SV98M\\SV98M_WB.ebx",
+    "rawSha256": "a2df1c1591526e5f44e026739045b11f53ba56e4b89e5b567b8193af138bc4fe",
+    "offset": 27488,
+    "type": "u32",
+    "bytesHex": "c8000000",
+    "value": 200
+   },
+   {
+    "field": "Field_410f6aa8[2]",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\BoltAction\\SV98M\\SV98M_WB.ebx",
+    "rawSha256": "a2df1c1591526e5f44e026739045b11f53ba56e4b89e5b567b8193af138bc4fe",
+    "offset": 27492,
+    "type": "u32",
+    "bytesHex": "2c010000",
+    "value": 300
+   },
+   {
+    "field": "Field_410f6aa8[3]",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\BoltAction\\SV98M\\SV98M_WB.ebx",
+    "rawSha256": "a2df1c1591526e5f44e026739045b11f53ba56e4b89e5b567b8193af138bc4fe",
+    "offset": 27496,
+    "type": "u32",
+    "bytesHex": "90010000",
+    "value": 400
+   },
+   {
+    "field": "Field_410f6aa8[4]",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\BoltAction\\SV98M\\SV98M_WB.ebx",
+    "rawSha256": "a2df1c1591526e5f44e026739045b11f53ba56e4b89e5b567b8193af138bc4fe",
+    "offset": 27500,
+    "type": "u32",
+    "bytesHex": "f4010000",
+    "value": 500
+   },
+   {
+    "field": "Field_4b636fc6 (RangeFinder)",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\BoltAction\\SV98M\\SV98M_WB.ebx",
+    "rawSha256": "a2df1c1591526e5f44e026739045b11f53ba56e4b89e5b567b8193af138bc4fe",
+    "offset": 440,
+    "type": "bool",
+    "bytesHex": "00",
+    "value": false
+   },
+   {
+    "field": "Field_4e34fabb (RangeFindingInAdsOnly)",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\BoltAction\\SV98M\\SV98M_WB.ebx",
+    "rawSha256": "a2df1c1591526e5f44e026739045b11f53ba56e4b89e5b567b8193af138bc4fe",
+    "offset": 441,
+    "type": "bool",
+    "bytesHex": "01",
+    "value": true
+   },
+   {
+    "field": "Field_4449ee55 (CustomZeroing)",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\BoltAction\\SV98M\\SV98M_WB.ebx",
+    "rawSha256": "a2df1c1591526e5f44e026739045b11f53ba56e4b89e5b567b8193af138bc4fe",
+    "offset": 442,
+    "type": "bool",
+    "bytesHex": "00",
+    "value": false
+   },
+   {
+    "field": "Field_0910a3f6 (MinimumCustomZeroingDistance)",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\BoltAction\\SV98M\\SV98M_WB.ebx",
+    "rawSha256": "a2df1c1591526e5f44e026739045b11f53ba56e4b89e5b567b8193af138bc4fe",
+    "offset": 444,
+    "type": "i32",
+    "bytesHex": "64000000",
+    "value": 100
+   },
+   {
+    "field": "Field_7a592b4e (MaximumCustomZeroingDistance)",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\BoltAction\\SV98M\\SV98M_WB.ebx",
+    "rawSha256": "a2df1c1591526e5f44e026739045b11f53ba56e4b89e5b567b8193af138bc4fe",
+    "offset": 448,
+    "type": "i32",
+    "bytesHex": "e8030000",
+    "value": 1000
+   },
+   {
+    "field": "Field_812f7451 (CustomZeroingDelay)",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\BoltAction\\SV98M\\SV98M_WB.ebx",
+    "rawSha256": "a2df1c1591526e5f44e026739045b11f53ba56e4b89e5b567b8193af138bc4fe",
+    "offset": 472,
+    "type": "f32",
+    "bytesHex": "cdcccc3e",
+    "value": 0.4000000059604645
+   },
+   {
+    "field": "Field_410f6aa8[0]",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\BoltAction\\CDX40\\CDX40_WB.ebx",
+    "rawSha256": "ec78973b271ca1a0c4ed201eb442e8f1717c01006bab04164b49238d44fa605b",
+    "offset": 13196,
+    "type": "u32",
+    "bytesHex": "64000000",
+    "value": 100
+   },
+   {
+    "field": "Field_410f6aa8[1]",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\BoltAction\\CDX40\\CDX40_WB.ebx",
+    "rawSha256": "ec78973b271ca1a0c4ed201eb442e8f1717c01006bab04164b49238d44fa605b",
+    "offset": 13200,
+    "type": "u32",
+    "bytesHex": "c8000000",
+    "value": 200
+   },
+   {
+    "field": "Field_410f6aa8[2]",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\BoltAction\\CDX40\\CDX40_WB.ebx",
+    "rawSha256": "ec78973b271ca1a0c4ed201eb442e8f1717c01006bab04164b49238d44fa605b",
+    "offset": 13204,
+    "type": "u32",
+    "bytesHex": "2c010000",
+    "value": 300
+   },
+   {
+    "field": "Field_410f6aa8[3]",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\BoltAction\\CDX40\\CDX40_WB.ebx",
+    "rawSha256": "ec78973b271ca1a0c4ed201eb442e8f1717c01006bab04164b49238d44fa605b",
+    "offset": 13208,
+    "type": "u32",
+    "bytesHex": "90010000",
+    "value": 400
+   },
+   {
+    "field": "Field_410f6aa8[4]",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\BoltAction\\CDX40\\CDX40_WB.ebx",
+    "rawSha256": "ec78973b271ca1a0c4ed201eb442e8f1717c01006bab04164b49238d44fa605b",
+    "offset": 13212,
+    "type": "u32",
+    "bytesHex": "f4010000",
+    "value": 500
+   },
+   {
+    "field": "Field_4b636fc6 (RangeFinder)",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\BoltAction\\CDX40\\CDX40_WB.ebx",
+    "rawSha256": "ec78973b271ca1a0c4ed201eb442e8f1717c01006bab04164b49238d44fa605b",
+    "offset": 440,
+    "type": "bool",
+    "bytesHex": "00",
+    "value": false
+   },
+   {
+    "field": "Field_4e34fabb (RangeFindingInAdsOnly)",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\BoltAction\\CDX40\\CDX40_WB.ebx",
+    "rawSha256": "ec78973b271ca1a0c4ed201eb442e8f1717c01006bab04164b49238d44fa605b",
+    "offset": 441,
+    "type": "bool",
+    "bytesHex": "01",
+    "value": true
+   },
+   {
+    "field": "Field_4449ee55 (CustomZeroing)",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\BoltAction\\CDX40\\CDX40_WB.ebx",
+    "rawSha256": "ec78973b271ca1a0c4ed201eb442e8f1717c01006bab04164b49238d44fa605b",
+    "offset": 442,
+    "type": "bool",
+    "bytesHex": "01",
+    "value": true
+   },
+   {
+    "field": "Field_0910a3f6 (MinimumCustomZeroingDistance)",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\BoltAction\\CDX40\\CDX40_WB.ebx",
+    "rawSha256": "ec78973b271ca1a0c4ed201eb442e8f1717c01006bab04164b49238d44fa605b",
+    "offset": 444,
+    "type": "i32",
+    "bytesHex": "64000000",
+    "value": 100
+   },
+   {
+    "field": "Field_7a592b4e (MaximumCustomZeroingDistance)",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\BoltAction\\CDX40\\CDX40_WB.ebx",
+    "rawSha256": "ec78973b271ca1a0c4ed201eb442e8f1717c01006bab04164b49238d44fa605b",
+    "offset": 448,
+    "type": "i32",
+    "bytesHex": "e8030000",
+    "value": 1000
+   },
+   {
+    "field": "Field_812f7451 (CustomZeroingDelay)",
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\BoltAction\\CDX40\\CDX40_WB.ebx",
+    "rawSha256": "ec78973b271ca1a0c4ed201eb442e8f1717c01006bab04164b49238d44fa605b",
+    "offset": 472,
+    "type": "f32",
+    "bytesHex": "cdcccc3e",
+    "value": 0.4000000059604645
+   }
+  ],
+  "elr40": "CDX40_WB (Common/Hardware/Weapons/BoltAction/CDX40/CDX40_WB, sha256 ec78973b271ca1a0c4ed201eb442e8f1717c01006bab04164b49238d44fa605b): Field_4449ee55 (CustomZeroing) is a boolean true at +442; RangeFinder (Field_4b636fc6) false at +440; RangeFindingInAdsOnly true; list [100,200,300,400,500]; min 100, max 1000, delay 0.4. Registry GRX_Weapons row CDX40_WB...Shot.Zeroing.CustomZeroing is boolean true (offset 1281832); the same row is false on M39EMR_WB and L115A3_WB, and CustomZeroing is true on no other of the 67 blocks. Package WPM_RGT_RangeFinder_W10 Class_4e0a8f72 holds Field_4b636fc6 true at +344 and Field_4449ee55 true at +345."
+ },
+ "inference": [
+  "The singleton list is read as a per-weapon default zero distance in metres; this is an assumption (list role, units and default selection are not in the serialized data).",
+  "Under that reading the site's bore-relative trajectory for the 54 singleton weapons differs from a zeroed trajectory by +8.8 to +34.7 cm at 100 m.",
+  "CustomZeroing true with RangeFinder false on the ELR-40 block is consistent with the operator's report that zeroing works without the FN Elity; the consumer is unresolved."
+ ],
+ "unresolved": [
+  "Units of Field_410f6aa8 (metres assumed); no cited screenshot or text in the repo shows the in-game zeroing menu labels, so the assumption rests on the site's own 100-500 m options and the source 100/1000 min/max scale, not on a menu match.",
+  "Role of the list: which entry is the default selection, and whether a singleton is an aim-point zero at all, is not in the serialized data (FIELD_MAP: list role and active selection unresolved).",
+  "Names of the six block fields come from registry value matching and the 19 Oct hash pairing; the 54 unanchored blocks store min/max/delay -1/-1/0.01, not 100/1000/0.4 (raw checked).",
+  "Runtime consumer of CustomZeroing/RangeFinder; whether the ELR-40 zero works without the FN Elity sight is the operator's observation, not a source fact.",
+  "Sight height, game zero convention and the engine ballistic model are not source-established; the site model omits sight height.",
+  "Registry import presence: 13 of 67 WB blocks import a GRX Shot.Zeroing record (12 launch brackets plus CDX40); the 54 singleton blocks have null anchors."
+ ],
+ "siteImpact": "Conditional. If the firing-range glance (M4A1 iron sight, 100 m plate centre) reads near -5 cm: add a per-weapon source zero (data/weapons.json, new field zeroDistanceM = first list entry) and use it in ui/app.js zeroDistanceFor for all 67 weapons; the 54 singleton weapons move at 100 m by +8.8 to +34.7 cm (mean +16.6 cm; M4A1 -18.05 to -5.36 cm); the 13 DMR/sniper default stays 100 m (first entry equals the current default). If near -18 cm: no change, record that the singleton is not an aim zero. Any other reading: no change, zero model unresolved. No site number changes now.",
+ "outOfScopeNotes": [
+  "GRX_Weapons has a Railgun_WB.Shot.Zeroing row set (CustomZeroing false, Min/Max -1/-1, delay 0.01, RangeFinder false, RangeFindingInAdsOnly true); Railgun is not one of the 67 site weapons.",
+  "Attachment_CDX40_LFT_FNElity kill switch KST_CH2_S1_Weapons default false is from the 19 Oct working note and was not re-verified here.",
+  "frosty-site-zeroing-audit.py writes beside its input under builds\\1.4.3.0 and cannot be rerun to a new folder; frosty-zeroing-review.py is hardcoded to builds/1.4.3.0 and its XML overlay (no 2.1.1.0 XML exists), so neither was reusable as written; zero_scan.py here is an adapted copy."
+ ],
+ "evidence": {
+  "runFolder": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4072",
+  "files": {
+   "values.json": "f1cd765840cb906867f3b6a7c70fbb2a7cac3ba538b1dc3377871e1cf38ee133",
+   "l4072-result.json": "6336bce9b65540a37497825ad7a07cb35942769fabb7ca227b7356ad8d12e5ec",
+   "values-rows.json": "3af07b8a25f902e3893c50482407c40e960565ade219fdd3fff36f8e059cf90b",
+   "located.json": "76e9c40e47526b9d55de4d098a478dc78438c1d99dbbf0f09de194c6f64e9fb7",
+   "rawchecks-zero.json": "f9d1656c5afb0ead89b27f9df1ae6eff1f6c7adacd129c23f2b40ad7a17eca61",
+   "manifest-zero.json": "4d1a59c01f989422187cbe95fa2eb0dbcf60b05993c52ee24fe1f5def25e7808",
+   "elr-rawchecks.json": "de91f1e30c9244166b3186449e18ab8419b920cad12b98aaa4ead518614ccc82",
+   "ctl-rawchecks.json": "0d1be0d77bd8f0e030580fb6f3044bab74d073a99ef15f78c3ea8faf053884ce",
+   "traj-tables.json": "af1dd12a9b6f50deaffa4be748d00355c9a925d8768f3dd39887d5fcac73f85c",
+   "traj-all67.json": "5a5269cddedaf1cbd5ef5a6cb386fdb4ce17de1c11d6e895b18b6cc37eb1e00e",
+   "zero-scan.json": "8b7a5fb51c082574324c95c86565b70fa84b0895ff5449946d34cb8a32ab5a36"
+  },
+  "helperSha256": {
+   "zero_scan.py": "1a5cb60de733681a0da16bc114b58e547c78fa611c9a09c47eaead57ff4c66cc",
+   "build_manifest.py": "a7db9ab4b82d6cc8b6cde282ff4d3f81d69f74d7cf824f404e9cdc7ad7727fd5",
+   "make_values.py": "4f65792a6c0fda8af65385b331088d9b6048f2845f8130b188f9d738f401d5d8",
+   "ctl_inputs.py": "87e20e9a6e37823089f2194741b77747702433229de6fc65bc77e6734a94a3a5",
+   "ctl_site.mjs": "46538f1f5baf687570b060d543fa4a360d171347c9774d4d541e261872235314",
+   "traj.mjs": "544ce15908fd8b1b9e468a50cc28671386e73da59f61f3e48fdd10f0c60a0dcd",
+   "traj_all.mjs": "aebd52ea3516c22a817d073d9f21cc83bd39da95db8c7ca5d5cfbb9cd9934d52",
+   "pkg.py": "b3775f3016204eed4dd70432ff3616c2ce73d7c0614349efa924928009f9be1d",
+   "build_outputs.py": "6fac3420e79cc799e849335863ee24be4611f4e198db06affee361220e948fd5"
+  },
+  "commands": [
+   {
+    "label": "zero_scan",
+    "cmd": [
+     "python",
+     "zero_scan.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4072",
+    "out": "zero-scan.json"
+   },
+   {
+    "label": "build_manifest",
+    "cmd": [
+     "python",
+     "build_manifest.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4072",
+    "out": "manifest-zero.json, located.json"
+   },
+   {
+    "label": "raw-check zeroing blocks",
+    "cmd": [
+     "python",
+     "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+     "--manifest",
+     "manifest-zero.json",
+     "--out",
+     "rawchecks-zero.json"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4072",
+    "out": "rawchecks-zero.json (521 checks, all match)"
+   },
+   {
+    "label": "control inputs decode",
+    "cmd": [
+     "python",
+     "ctl_inputs.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4072",
+    "out": "ctl-inputs.json"
+   },
+   {
+    "label": "control raw-check",
+    "cmd": [
+     "python",
+     "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+     "--manifest",
+     "ctl-manifest.json",
+     "--out",
+     "ctl-rawchecks.json"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4072",
+    "out": "ctl-rawchecks.json"
+   },
+   {
+    "label": "control solver recompute (node)",
+    "cmd": [
+     "node",
+     "ctl_site.mjs",
+     "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-09-24T090117-0400\\L53-zeroing\\site-zeroing-check-v2.json"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4072",
+    "out": "stdout: 30 cases, 120 points, max abs diff 0"
+   },
+   {
+    "label": "ELR-40 / FN Elity package decode",
+    "cmd": [
+     "python",
+     "pkg.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4072",
+    "out": "stdout"
+   },
+   {
+    "label": "ELR-40 raw-check",
+    "cmd": [
+     "python",
+     "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+     "--manifest",
+     "elr-manifest.json",
+     "--out",
+     "elr-rawchecks.json"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4072",
+    "out": "elr-rawchecks.json"
+   },
+   {
+    "label": "trajectories 3 weapons",
+    "cmd": [
+     "node",
+     "traj.mjs"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4072",
+    "out": "traj-tables.json"
+   },
+   {
+    "label": "trajectories 67 weapons",
+    "cmd": [
+     "node",
+     "traj_all.mjs"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4072",
+    "out": "traj-all67.json"
+   },
+   {
+    "label": "values join",
+    "cmd": [
+     "python",
+     "make_values.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4072",
+    "out": "values-rows.json"
+   },
+   {
+    "label": "deliverables",
+    "cmd": [
+     "python",
+     "build_outputs.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4072",
+    "out": "values.json, l4072-result.json, draft-receipt.json"
+   }
+  ],
+  "commandNote": "Command history reconstructed from this session (each command ran once, in the order listed; scripts authored in this folder). One accidental run of the research repo frosty-site-zeroing-audit.py --help tried to write under the sealed 1.4.3.0 reports folder and was refused with PermissionError; it produced no output.",
+  "rawRootMain": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw"
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-30",
+  "build": "2.1.1.0",
+  "leads": [
+   {
+    "id": "L4072",
+    "title": "Zeroing singletons and ELR-40 CustomZeroing; default-zero proposal",
+    "status": "proposal",
+    "summary": "On 2.1.1.0 54 of 67 WB blocks hold a single zero-list entry (60/75/100; 51 launch weapons) and 13 hold 100-500 (12 launch plus ELR-40); CDX40_WB is the only block with CustomZeroing true; with a 75 m zero the site solver gives -5.36 cm at 100 m for the M4A1 against -18.05 cm bore-relative.",
+    "reopenWhen": "The firing-range reading of an M4A1 iron sight at a 100 m plate centre is recorded (about -5 cm supports a source-zero default; about -18 cm keeps bore-relative), or a consumer for Field_410f6aa8 is traced."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Hardware/Weapons/DMR/M39EMR/M39EMR_WB",
+    "format": "raw-ebx",
+    "sha256": "366949478e292eebc5dc80aaf5e6c45645659c991f9e163cad965197fad3eff3",
+    "question": "Control: do the M39 EMR zeroing block and bullet speed of the L53 50-case check re-read on 2.1.1.0?",
+    "result": "useful",
+    "conclusion": "List [100,200,300,400,500], min 100, max 1000, delay 0.4, RangeFinder false, CustomZeroing false, speed 760 at +416 re-read; unchanged from 1.4.3.0."
+   },
+   {
+    "path": "Common/Hardware/Weapons/BoltAction/CDX40/CDX40_WB",
+    "format": "raw-ebx",
+    "sha256": "ec78973b271ca1a0c4ed201eb442e8f1717c01006bab04164b49238d44fa605b",
+    "question": "What does the ELR-40 zeroing block hold?",
+    "result": "useful",
+    "conclusion": "CustomZeroing (Field_4449ee55) is a boolean true at +442; RangeFinder false; list [100..500]; min 100, max 1000, delay 0.4. Only block of 67 with CustomZeroing true."
+   },
+   {
+    "path": "Common/Hardware/Weapons/_WeaponModifiers/_RightRail/RangeFinder/WPM_RGT_RangeFinder_W10",
+    "format": "raw-ebx",
+    "sha256": "ed1655f0b8affb802dfbd2330aab3826a59ea98e3e9076560792dba251e1423f",
+    "question": "Does the FN Elity package set RangeFinder and CustomZeroing?",
+    "result": "useful",
+    "conclusion": "Class_4e0a8f72 Field_4b636fc6 true at +344 and Field_4449ee55 true at +345."
+   },
+   {
+    "path": "Common/GameSetup/Tweakables/GameRemixer/GRX_Weapons",
+    "format": "raw-ebx",
+    "sha256": "4557498d8196e539c11c401299c2f5f9e23f706dc29791e283389c0105f2397c",
+    "question": "Registry CustomZeroing row on CDX40_WB and other zeroing owners",
+    "result": "useful",
+    "conclusion": "CDX40_WB Shot.Zeroing.CustomZeroing is true (offset 1281832); M39EMR_WB and L115A3_WB rows are false; six CDX40 rows match the WB block."
+   }
+  ],
+  "site": [
+   {
+    "pointer": "sim/ballistics.js:/zeroRelativeVerticalOffset",
+    "value": "null zero is bore-relative (line 94)",
+    "relation": "context"
+   },
+   {
+    "pointer": "ui/app.js:/zeroDistanceFor",
+    "value": "DMR and Sniper Rifle only; default 100 m",
+    "relation": "context"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=m4a1]/zeroDistanceM",
+    "value": 75,
+    "relation": "proposed"
+   }
+  ],
+  "binding": "research"
+ },
+ "run": {
+  "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps",
+  "leadFolder": "L4072"
+ }
+}

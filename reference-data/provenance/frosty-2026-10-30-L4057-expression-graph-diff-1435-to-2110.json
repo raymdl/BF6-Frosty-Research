@@ -1,0 +1,1385 @@
+{
+ "lead": "L4057",
+ "status": "finding",
+ "build": "mixed",
+ "question": "Diff every compiled expression-graph body between 1.4.3.5 and 2.1.1.0 by its named listing and say which graphs changed in substance (the Stage 5 noise table calls the three re-bake fields non-gameplay).",
+ "sourceFacts": {
+  "control": {
+   "description": "A: three graphs whose source raw SHA-256 is equal on both builds and whose resource id did not change (SimEx_ForceWeaponChange_PLD; SimEx_ForceWeaponChange_m4a1; SimEx_GetProjectileOwnerPlayerInformation): listings identical apart from the header path (PASS). B: no graph has a byte-identical source and a changed id (0 of 115 re-baked; the resource id is stored in the source bytes, so a re-bake always changes the source). Surrogate: three re-baked graphs whose decoded sources differ only in the three re-bake fields (55 such; srcdiff.json): SetCaptureObjectivesTarget is identical apart from the id line; GetDamageContractValues and GetHeadshotContractValues each gain a 15th case in both game-mode SWITCHes (new value 14 maps to the default 0), raw-checked below. No byte-identical source gave a different listing, so the reader and pairing stand.",
+   "passed": true,
+   "routesA": [
+    "Animations/Glacier/Assets/1P/Gadgets/SOFLAM/SimEx_ForceWeaponChange_PLD",
+    "Animations/Glacier/Assets/Campaign/Cinematics/m01/cin_m01_1550_igc_10_wakeup/SimEx_ForceWeaponChange_m4a1",
+    "Common/Gameplay/Expressions/SimEx_GetProjectileOwnerPlayerInformation"
+   ],
+   "routesB": [
+    "Common/Gameplay/Features/CollectionEvents/Contracts/ObjectiveActivity/Capture/SimEx_SetCaptureObjectivesTarget",
+    "Common/Gameplay/Features/CollectionEvents/Contracts/SimEx_CollectionEvent_GetDamageContractValues",
+    "Common/Gameplay/Features/CollectionEvents/Contracts/SimEx_CollectionEvent_GetHeadshotContractValues"
+   ],
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\expression-graph-bodies-2026-10-10\\resources\\3ffe1475c5ca8175.res",
+     "rawSha256": "b19e45cf22f6147eb08bd3663886f1169fb9a030daa6b3f9730dcce779bd59e1",
+     "offset": 312,
+     "type": "u32",
+     "bytesHex": "0e000000",
+     "value": 14,
+     "label": "game-mode SWITCH case count (1.4.3.5)"
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\expression-graph-bodies-b-2026-10-30\\resources\\fb273332fde492c7.res",
+     "rawSha256": "039edaaa35083321e7d7fd64e7fd98d67defe3d79bc66bd2e9af6230d8f90a9f",
+     "offset": 312,
+     "type": "u32",
+     "bytesHex": "0f000000",
+     "value": 15,
+     "label": "game-mode SWITCH case count (2.1.1.0)"
+    }
+   ]
+  },
+  "pairing": {
+   "sourceRoutes": 319,
+   "graphsOnBothBuilds": 304,
+   "idEqual": 188,
+   "reBaked": 116,
+   "reBakedWithBody": 115,
+   "missingBody2110": 1,
+   "sourcesAbsent2110": 4,
+   "sourcesWithoutGraph": 11,
+   "distinctIds1435": 308,
+   "distinctIds2110": 304,
+   "departure": "The brief's 147 unchanged / 156 re-baked is the capture-batch split, not the id comparison: batch a (expression-graph-bodies-2026-10-30) holds 147 ids, all equal to 1.4.3.5 ids; batch b (-b-) holds 156 = 41 equal ids + 115 re-baked. Equal ids always have byte-equal bodies (188 of 188). 11 of the 319 routes are sources with no Class_25c12137 graph object on either build, so 304 graphs = 319 - 4 absent - 11 graphless."
+  },
+  "classCounts": {
+   "substantive": 17,
+   "rebake-enum-switch": 16,
+   "rebake-codegen": 65,
+   "body-identical-naming": 11,
+   "id-only": 17,
+   "identical": 171,
+   "no-listing (body bytes equal)": 6,
+   "missing-body": 1,
+   "absent-source": 4,
+   "no-graph": 11
+  },
+  "substantive": [
+   {
+    "graph": "Common/Gameplay/Features/CollectionEvents/Contracts/DiceEx_LocalPlayerIdToContractSquadCompare",
+    "id1435": "237de600d04062cf",
+    "id2110": "efeab82be70759f1",
+    "body1435Sha256": "b09086e49f4555d0ac7f129d4539a50dcf144f1fa395174960b4bd2d11e22c97",
+    "body2110Sha256": "e2546e82136463fd617d90e063a98c9441cc84cd42a8826ff20bc844d7d747b2",
+    "change": "Who sees contract loot: adds a Spooky Rush branch (import MUT_SpookyRush:SPKYRS_CollectionEvent_ShowContractOnlyForKiller, a kill-switch read and a game-mode enum check) to the squad comparison; imports 1 -> 2.",
+    "diffExcerpt": [
+     "- # inputs {8: 'LootUserDataPlayerId', 0: 'LocalPlayerId'} outputs {16: 'ShouldSeeContractLoot'} imports 1  base 200 D 176 fit 1.00",
+     "- a8  8ab5f502(IN:AbilityPassive_CollectionEvent_Contracted:Class_af900787[0], d10{0|0}, t18) -> t134",
+     "+ # inputs {8: 'LootUserDataPlayerId', 0: 'LocalPlayerId'} outputs {16: 'ShouldSeeContractLoot'} imports 2  base 216 D 176 fit 0.95",
+     "+ a8  8ab5f502(IN:AbilityPassive_CollectionEvent_Contracted:Class_af900787[1], d18{0|0}, t18) -> t142",
+     "+ 138  GetKillSwitch(IN:MUT_SpookyRush:SPKYRS_CollectionEvent_ShowContractOnlyForKiller[0]) -> t141",
+     "+ 154  6e45331b() -> t134",
+     "+ 36c  13e0c781(t12c) -> t138",
+     "+ 388  EnumEQ(ARG:LootUserDataPlayerId, t138) -> t145",
+     "+ 168  SWITCH t134 default 31c : 0->1f0, 1->204, 2->218, 3->22c, 4->240, 5->254, 6->268, 7->27c, 8->290, 9->2a4, 10->2b8, 11->2cc, 12->2e0, 13->2f4, 14->308"
+    ],
+    "diffFile": "diffs/common__gameplay__features__collectionevents__contracts__diceex_localplayeridtocontractsquadcompare.diff",
+    "rawChecks": []
+   },
+   {
+    "graph": "Common/Gameplay/Features/CollectionEvents/Contracts/InteractEnable_CollectionObject_Contract",
+    "id1435": "49adadf553ed0011",
+    "id2110": "37daafe487e8e621",
+    "body1435Sha256": "fa8c4586119ee0f922c7d509f2fcd4e3b7a496d8f7fa0f2f2ac37a0a71944019",
+    "body2110Sha256": "3a248b73fe62b46972e98a61f8a6ee650640f96a744f8d61c584976aff585c70",
+    "change": "Contract object interaction: a new flag test (native e0f51511 with packed constant 65537) selects a single d2d1053c check instead of the squad and team comparisons.",
+    "diffExcerpt": [
+     "+ e0  e0f51511(d18{9.18369e-41|65537}) -> t239",
+     "+ 184  d2d1053c(t0, t8, d8{0|0}) -> t23b (goto 28c)"
+    ],
+    "diffFile": "diffs/common__gameplay__features__collectionevents__contracts__interactenable_collectionobject_contract.diff",
+    "rawChecks": [
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\expression-graph-bodies-b-2026-10-30\\resources\\37daafe487e8e621.res",
+      "rawSha256": "3a248b73fe62b46972e98a61f8a6ee650640f96a744f8d61c584976aff585c70",
+      "offset": 152,
+      "type": "i32",
+      "bytesHex": "01000100",
+      "value": 65537,
+      "label": "new e0f51511 argument d18 (2.1.1.0)"
+     }
+    ]
+   },
+   {
+    "graph": "Common/Gameplay/Features/CollectionEvents/Contracts/SimEx_ContractManager",
+    "id1435": "fc033159789d51d5",
+    "id2110": "293942d50113c957",
+    "body1435Sha256": "25693ec14741a7f21830d8a9977c8f7069a446bb3ea26ad750207412bfef2cc6",
+    "body2110Sha256": "11a9b64e40ff543690345c1ee40dd742d8f1b0e2fb931cef66066e6a132dad05",
+    "change": "Contract eligibility: MakeTable size 17 -> 18; adds Spooky Rush imports SPKYRS_CollectionEvent_BaseDropRate, SPKYRS_CollectionEvent_MarkOnlyAIAsContractCarrier and kill switch KST_CH2_S01:KS_CollectionEvent_SpookyRush; the 17 game-mode switches gain a 15th case and an 18th switch is added; imports 41 -> 44.",
+    "diffExcerpt": [
+     "- # inputs {56: 'AreMissionsDisabled'} outputs {40: 'EligibleContractIDs'} imports 41  base 1168 D 320 fit 0.97",
+     "- 2af0  MakeTable(d1d0{0|0}, d268{2.38221e-44|17}, d25c{1.4013e-45|1}, t888) -> s20",
+     "- 2df8  09635061(ARG:frame28, d248{1.4013e-45|1}) -> t194",
+     "- 2ea4  3b9874f4(t10, d200{0|0}) -> ARG:frame28",
+     "- 3528  82cc1f7b(ARG:AreMissionsDisabled, d274{3.2146e-39|2294016}) -> t6a8",
+     "+ # inputs {80: 'AreMissionsDisabled'} outputs {64: 'EligibleContractIDs'} imports 44  base 1232 D 320 fit 0.96",
+     "+ b8  GetTweak(IN:MUT_SpookyRush:SPKYRS_CollectionEvent_BaseDropRate[43]) -> t7e8",
+     "+ 2b94  GetKillSwitch(IN:KST_CH2_S01:KS_CollectionEvent_SpookyRush[44]) -> t94c",
+     "+ 2bcc  6e45331b() -> t884",
+     "+ 2f10  MakeTable(d1f0{0|0}, d2a8{2.52234e-44|18}, d29c{1.4013e-45|1}, t8bc) -> s38",
+     "+ 3194  MakeTable(d218{0|0}, d2ac{0|0}, d2a0{0|0}, d1c8{0|0}) -> s10",
+     "+ 3260  0cb2f866(ARG:frame40) -> t952"
+    ],
+    "diffFile": "diffs/common__gameplay__features__collectionevents__contracts__simex_contractmanager.diff",
+    "rawChecks": [
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\expression-graph-bodies-2026-10-10\\resources\\fc033159789d51d5.res",
+      "rawSha256": "25693ec14741a7f21830d8a9977c8f7069a446bb3ea26ad750207412bfef2cc6",
+      "offset": 936,
+      "type": "i32",
+      "bytesHex": "11000000",
+      "value": 17,
+      "label": "MakeTable size d268 (1.4.3.5)"
+     },
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\expression-graph-bodies-b-2026-10-30\\resources\\293942d50113c957.res",
+      "rawSha256": "11a9b64e40ff543690345c1ee40dd742d8f1b0e2fb931cef66066e6a132dad05",
+      "offset": 1000,
+      "type": "i32",
+      "bytesHex": "12000000",
+      "value": 18,
+      "label": "MakeTable size d2a8 (2.1.1.0)"
+     }
+    ]
+   },
+   {
+    "graph": "Common/Gameplay/Features/CollectionEvents/Contracts/SimEx_Soldier_CollectionEvent_SpawnContractOnCarrier",
+    "id1435": "f38715e43325bbf9",
+    "id2110": "6214745acc6be8e3",
+    "body1435Sha256": "50faa4dbf7ff247f5ca16a5fd45411c64ae2532e5da683a4cb9337ad9718715d",
+    "body2110Sha256": "d4ae30625810f0fd531cfcbdf134e8c6b3656ff5802b08444f0b295f51edb3b3",
+    "change": "Contract spawn on carrier: new outputs KillerSquadId and KillerTeamId and a branch on kill switch KS_CollectionEvent_SpookyRush.",
+    "diffExcerpt": [
+     "- # inputs {0: 'LootData'} outputs {24: 'KillerId', 16: 'Contractid', 8: 'OwnerId', 32: 'Success'} imports 13  base 736 D 416 fit 0.97",
+     "- 474  fd1bd0fa(IN:DQD_PlayerContract:DQD_PlayerContract[8], t288) -> t50",
+     "- 498  8ab5f502(IN:AbilityPassive_CollectionEvent_ContractCarrier:Class_af900787[12], d108{0|0}, t288) -> t4b2",
+     "- 608  8ab5f502(IN:AbilityPassive_CollectionEvent_Contracted:Class_af900787[11], d108{0|0}, t38c) -> t4b8",
+     "- 688  eec0767b(IN:SoldierOnlyPublicChannels:ContractID[10], d10c{-399220|-926749070}, t288, d104{-1|-1082130432}) -> d114{0|0} (goto a18)",
+     "- 7ec  2c83ad69(IN:SoldierOnlyPublicChannels:ContractID[9], t50, d114{0|0}) -> t25c",
+     "+ # inputs {8: 'LootData'} outputs {40: 'KillerId', 32: 'Contractid', 24: 'OwnerId', 48: 'Success', 0: 'KillerSquadId', 16: 'KillerTeamId'} imports 14  base 752 D 416 fit 0.98",
+     "+ 274  GetKillSwitch(IN:KST_CH2_S01:KS_CollectionEvent_SpookyRush[8]) -> t4c9",
+     "+ 500  fd1bd0fa(IN:DQD_PlayerContract:DQD_PlayerContract[9], t298) -> t50",
+     "+ 524  8ab5f502(IN:AbilityPassive_CollectionEvent_ContractCarrier:Class_af900787[13], d118{0|0}, t298) -> t4cc",
+     "+ 694  8ab5f502(IN:AbilityPassive_CollectionEvent_Contracted:Class_af900787[12], d118{0|0}, t39c) -> t4d2",
+     "+ 714  eec0767b(IN:SoldierOnlyPublicChannels:ContractID[11], d11c{-399220|-926749070}, t298, d114{-1|-1082130432}) -> d124{0|0} (goto b44)"
+    ],
+    "diffFile": "diffs/common__gameplay__features__collectionevents__contracts__simex_soldier_collectionevent_spawncontractoncarrier.diff",
+    "rawChecks": []
+   },
+   {
+    "graph": "Common/Gameplay/InRoundProgression/ArmorGrant/SimEx_Ability_ArmorGrant",
+    "id1435": "fecce6f255bf7cc9",
+    "id2110": "3b2135ace1c9874f",
+    "body1435Sha256": "1fc04eb5306d1a2114a487e3905476b5601a2e7cb53f2cd2df63de3085733a5a",
+    "body2110Sha256": "ae1aea28ac6f4f4207f088b72c869ec47de0bf0a92a53dc4a5df1930f3dbb5c9",
+    "change": "Armor-plate grant: whole graph now gated by GetKillSwitch(GRX_Glacier_Soldier:ArmorGrantSpawnPlate); the SoldierOnlyPublicChannels:IsFiring condition is removed and replaced by native 258aa274 (argument 4) plus an EnumEQ test; the Ammo_Armor spawn call argument 1.5 -> -1.5 and its position input now passes through native 9988c791.",
+    "diffExcerpt": [
+     "- a4  GetChanBool(IN:SoldierOnlyPublicChannels:IsFiring[1], d44{-0.00673108|-1143173012}) -> t278",
+     "- 1dc  68b0f4b3(IN:LootItemList:Ammo_Armor[0], t40, t40, d0{1.5|1069547520}, d10{0|0}, d50{0|0}) -> d38{0|0}",
+     "+ 10  GetKillSwitch(IN:GRX_Glacier_Soldier:ArmorGrantSpawnPlate[1]) -> t284",
+     "+ 58  258aa274(t16c, d44{5.60519e-45|4}, t27c) -> t285",
+     "+ 84  EnumEQ(t27c, d4c{0|0}) -> t286",
+     "+ 234  9988c791(t40, t20) -> t50",
+     "+ 258  68b0f4b3(IN:LootItemList:Ammo_Armor[0], t50, d0{0|0}, d10{-1.5|-1077936128}, d0{0|0}, d50{0|0}) -> d38{0|0}"
+    ],
+    "diffFile": "diffs/common__gameplay__inroundprogression__armorgrant__simex_ability_armorgrant.diff",
+    "rawChecks": [
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\candidate-expression-resources-2026-09-23\\resources\\fecce6f255bf7cc9.res",
+      "rawSha256": "1fc04eb5306d1a2114a487e3905476b5601a2e7cb53f2cd2df63de3085733a5a",
+      "offset": 128,
+      "type": "f32",
+      "bytesHex": "0000c03f",
+      "value": 1.5,
+      "label": "Ammo_Armor spawn call argument d0 (1.4.3.5)"
+     },
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\expression-graph-bodies-b-2026-10-30\\resources\\3b2135ace1c9874f.res",
+      "rawSha256": "ae1aea28ac6f4f4207f088b72c869ec47de0bf0a92a53dc4a5df1930f3dbb5c9",
+      "offset": 144,
+      "type": "f32",
+      "bytesHex": "0000c0bf",
+      "value": -1.5,
+      "label": "Ammo_Armor spawn call argument d10 (2.1.1.0)"
+     },
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\expression-graph-bodies-b-2026-10-30\\resources\\3b2135ace1c9874f.res",
+      "rawSha256": "ae1aea28ac6f4f4207f088b72c869ec47de0bf0a92a53dc4a5df1930f3dbb5c9",
+      "offset": 196,
+      "type": "i32",
+      "bytesHex": "04000000",
+      "value": 4,
+      "label": "new 258aa274 argument d44 (2.1.1.0)"
+     }
+    ]
+   },
+   {
+    "graph": "Common/Gameplay/Interactions/EngineerGadgets_InteractEnableConditionGraph",
+    "id1435": "04f3e3946bca7c29",
+    "id2110": "fa54f5ee9c110933",
+    "body1435Sha256": "bff739fc42579d1842ba3c4ebb16335c8ea87fd980cd188c5a6260eff8412aac",
+    "body2110Sha256": "d08c0937419c0467509f9984ce34d848abd747d3f8123ef4edbf47c9237c249d",
+    "change": "Engineer-gadget interaction enable: an extra condition (native 85a781a7(0) -> bbd337f7) is ANDed into the result.",
+    "diffExcerpt": [
+     "+ 220  85a781a7(d14{0|0}) -> t524",
+     "+ 23c  bbd337f7(t524, t63e) -> t63f"
+    ],
+    "diffFile": "diffs/common__gameplay__interactions__engineergadgets_interactenableconditiongraph.diff",
+    "rawChecks": []
+   },
+   {
+    "graph": "Common/Gameplay/Interactions/ReconGadgets_InteractEnableConditionGraph",
+    "id1435": "966fdf7dfb1e37c9",
+    "id2110": "ba3e9166ec91b7db",
+    "body1435Sha256": "b28f02e581f01f7bdee827d4c905dfb75d35984425750e95f189e5d4a68fa397",
+    "body2110Sha256": "f9518d1fc561902217ea7b5fc599f4b3616fcce3d5d87e4a34b0accea360a05f",
+    "change": "Recon-gadget interaction enable: same extra ANDed condition as the engineer graph (85a781a7(0) -> bbd337f7).",
+    "diffExcerpt": [
+     "+ 220  85a781a7(d14{0|0}) -> t524",
+     "+ 23c  bbd337f7(t524, t63e) -> t63f"
+    ],
+    "diffFile": "diffs/common__gameplay__interactions__recongadgets_interactenableconditiongraph.diff",
+    "rawChecks": []
+   },
+   {
+    "graph": "Common/Gameplay/Player/Expressions/SimEx_PlayerOwner",
+    "id1435": "2f80ab4f383ded59",
+    "id2110": "502ee68b826d4a49",
+    "body1435Sha256": "2fc07756407acd1a35b33081bbd8c7c7788c1a1e0bdfc0e7713643a7b1c48c6f",
+    "body2110Sha256": "f74c80e8cbed12f7e6e9f393d43734d5d1014d3dd32fa97bc0baa134f5f152dc",
+    "change": "Player-owner graph: a lookup chain gains two a1d70f8e/42c97598 entries and a new constant 182 (MOV at 0x4480 and 0x4664); no constant removed, so the L4028 respawn clamp constants are present on both sides.",
+    "diffExcerpt": [
+     "+ 4e34  a1d70f8e(t890, d690{0|0}) -> t794c",
+     "+ 50fc  a1d70f8e(t890, d6a0{0|0}) -> t7a50",
+     "+ 7910  42c97598(ta1ec, tb2c3, tb2c4) -> tb150",
+     "+ 7e80  42c97598(ta5fc, tb2d5, tb2d6) -> tb164"
+    ],
+    "diffFile": "diffs/common__gameplay__player__expressions__simex_playerowner.diff",
+    "rawChecks": [
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\expression-graph-bodies-b-2026-10-30\\resources\\502ee68b826d4a49.res",
+      "rawSha256": "f74c80e8cbed12f7e6e9f393d43734d5d1014d3dd32fa97bc0baa134f5f152dc",
+      "offset": 4504,
+      "type": "i32",
+      "bytesHex": "b6000000",
+      "value": 182,
+      "label": "new MOV constant de78 (2.1.1.0)"
+     }
+    ]
+   },
+   {
+    "graph": "Common/Gameplay/Soldier/Animation/SimEx_MainExternalStateLogic",
+    "id1435": "ae6a6c11bd6f1dc9",
+    "id2110": "02adc310733bbc81",
+    "body1435Sha256": "a0400a133303d45bffb19493ed1ee7a1924b805d71ee81b45bb69c5fbfbf1324",
+    "body2110Sha256": "57f1c5c7b4a2a52c2b0d3825ca8be082800e60c6d8248583de727174fd478775",
+    "change": "Stance override: the StanceOverride channel test is now OR'ed with NOT GetBool[?1.65644] (a variable key outside the motion-machine table).",
+    "diffExcerpt": [
+     "+ 1b8  GetBool[?1.65644] -> t1b"
+    ],
+    "diffFile": "diffs/common__gameplay__soldier__animation__simex_mainexternalstatelogic.diff",
+    "rawChecks": []
+   },
+   {
+    "graph": "Common/Gameplay/Soldier/DeathFlow/ManDown/SimEx_IsInMandown",
+    "id1435": "06544c9909b84c3d",
+    "id2110": "daf111de1a57a087",
+    "body1435Sha256": "d345709ef167ffd9534a92c5af3db7366552dd287857866c252807bc31de3dd3",
+    "body2110Sha256": "b6902a111587b3c8a23704cc9dc669552e116eaab9917290823412ffcae7220d",
+    "change": "Bleed-out: new branch reads MUT_CHIITest:CHIITest_ManDownBleedOutDamage as the bleed-out rate when GetBool[PVE_IsPVE] is true; two unidentified native calls (1245ceba, 8b69382c) are removed from the SkipToDead branch; imports 53 -> 54. The L4023 threshold and rate constants are unchanged (L4080 re-read them).",
+    "diffExcerpt": [
+     "- # inputs {} outputs {} imports 53  base 4144 D 336 fit 0.84",
+     "- 474  CALLX(IN:Affector_CanRedeploy:Affector_CanRedeploy[43], t3e0) -> (tafc, t3250, t3354, t3280, t3284)",
+     "- 720  239dc415(d680{-4.51349e+30|-228335752}, d780{3.92364e-44|28}, d6dc{0|0}, d6e0{8|1090519040}, d818{1.2306e-38|8781825}) -> d6dc{0|0}",
+     "- fc8  CALLX(IN:Affector_Deathflow_SkipMandownAfterRevive:Affector_Deathflow_SkipMandownAfterRevive[41], tc00) -> (td04, t3254, t336d, t3290, t3294)",
+     "- 1220  CALLX(d350{0|0}, d680{-4.51349e+30|-228335752}, IN:d0a2de18-a7b2-4c3c-9e87-aff6ddc8a180:bb877fb6[40], t3298, d6a0{4.2039e-45|3}, t329c, d6a8{4.2039e-45|3}, d748{1.4013e-45|1}, d6b0{4.2039e-45|3}) -> (te08)",
+     "- 13ec  ApplyAffector(t3e0, t3e0, IN:Affector_Downed_MaterialSwap:Affector_Downed_MaterialSwap[51], d6dc{0|0}, d818{1.2306e-38|8781825}, d754{0|0}, d0{1|1065353216}, d4b0{0|0}) -> t337c (goto 5bc0)",
+     "- 1520  ApplyAffector(t3e0, t3e0, IN:Affector_Mandown_DamageModifier_CrawlingManDown:Class_7d3d8a5c[56], d6dc{0|0}, d818{1.2306e-38|8781825}, t32a8, d0{1|1065353216}, d4b8{0|0}) -> t3380",
+     "- 1c30  239dc415(d680{-4.51349e+30|-228335752}, d780{3.92364e-44|28}, d6dc{0|0}, d6e0{8|1090519040}, d818{1.2306e-38|8781825}) -> t316c",
+     "- 1d4c  GetBool[?1.131221] -> t3390",
+     "- 1db8  GetBool[?0.131216] -> t3392",
+     "- 1f70  GetBool[?0.131216] -> t339a",
+     "- 2414  1245ceba(t4e4, t33a4) -> t32b4"
+    ],
+    "diffFile": "diffs/common__gameplay__soldier__deathflow__mandown__simex_isinmandown.diff",
+    "rawChecks": []
+   },
+   {
+    "graph": "Persistence/Schematics2/Graphs/Simulation/SimEx_Persistence_ObjectiveDestroyed",
+    "id1435": "d54dfa19c02ddb7b",
+    "id2110": "4c59c1b87f1d1983",
+    "body1435Sha256": "035a4c6b6ee51cf2f545a06e51392eb296d7ac60bf97cdd406b42f9013f137a9",
+    "body2110Sha256": "3d8bec103bedaabecae3dc0d5e300b6a82f13da13a691263613b3a2506266384",
+    "change": "Objective-destroyed stat event: new graph input IsPartiallyDestroyed and one more stat-event CALLX.",
+    "diffExcerpt": [
+     "- # inputs {32: 'ArmingPlayer', 48: 'DidPlayerLeadInteract', 40: 'EODBotPlayerID'} outputs {24: 'ArmedPlayerContext'} imports 0  base 368 D 256 fit 0.67",
+     "- 164  CALLX(d8{0|0}, d40{0|0}, d18{0|0}, d68{1.3408e-38|9568255}, d6f{1.11602e-39|796416}) -> (t38)",
+     "- 244  CALLX(t20, d64{1.47857e-38|10551408}, d6c{3.67708e-40|262405}, d6c{3.67708e-40|262405}, t20, d6d{1.77657e-15|654312449}, d60{1.4013e-45|1}, d6d{1.77657e-15|654312449}, t30, d6e{1.28652e-31|203882500}, s38, d6c{3.6",
+     "- 2c4  CALLX(d10{0|0}, d40{0|0}, d20{0|0}, d6a{2.44286e-38|17105041}, d6f{1.11602e-39|796416}) -> (t3c)",
+     "+ # inputs {32: 'ArmingPlayer', 48: 'DidPlayerLeadInteract', 40: 'EODBotPlayerID', 56: 'IsPartiallyDestroyed'} outputs {24: 'ArmedPlayerContext'} imports 0  base 376 D 256 fit 0.62",
+     "+ 164  CALLX(d8{0|0}, d40{0|0}, d18{0|0}, d6a{1.3408e-38|9568255}, d71{0|0}) -> (t38)",
+     "+ 264  CALLX(t20, d64{1.0194e-38|7274689}, d6e{3.67708e-40|262405}, d6e{3.67708e-40|262405}, t20, d6f{1.43633e-42|1025}, d60{1.4013e-45|1}, d6f{1.43633e-42|1025}, t30, d70{5.60519e-45|4}, s40, d6e{3.67708e-40|262405}, t2",
+     "+ 2e4  CALLX(t20, d66{1.55204e-38|11075695}, d6e{3.67708e-40|262405}, d6e{3.67708e-40|262405}, t20, d6f{1.43633e-42|1025}, d60{1.4013e-45|1}, d6f{1.43633e-42|1025}, t30, d70{5.60519e-45|4}, s40, d6e{3.67708e-40|262405}, ",
+     "+ 364  CALLX(d10{0|0}, d40{0|0}, d20{0|0}, d6c{2.44286e-38|17105041}, d71{0|0}) -> (t3c)"
+    ],
+    "diffFile": "diffs/persistence__schematics2__graphs__simulation__simex_persistence_objectivedestroyed.diff",
+    "rawChecks": []
+   },
+   {
+    "graph": "Persistence/Schematics2/Graphs/Simulation/SimEx_Persistence_OnGraniteWin",
+    "id1435": "2fe75dadfe364741",
+    "id2110": "cfe612c477ea24fb",
+    "body1435Sha256": "71fcd6ef22eda0cb7bfc0b66ce5322ab45223113e42291b32c273e53db1cfb2f",
+    "body2110Sha256": "5766f4078a913ee9b438c76b26825bbbf7fc8eaa3c0c4d39cf92d53ecf56ab22",
+    "change": "Battle royale win event: adds a TableAt read (index 2) and natives f645eaec and 99cbb605.",
+    "diffExcerpt": [
+     "- 424  235929fc(ARG:frame38, dd8{nan|-1}) -> tb8",
+     "- 590  CALLX(tb8, ddc{1.06532e-38|7602348}, de6{2.36972e-38|16844036}, de7{1.17328e-10|788594949}, tb8, de8{4.31663e-39|3080449}, tdc, de8{4.31663e-39|3080449}, tec, de7{1.17328e-10|788594949}, tc0) -> ()",
+     "- 77c  8537e57c(ARG:frame48) -> td4",
+     "- 89c  3b9874f4(t10, db0{0|0}) -> ARG:frame48",
+     "+ 1bc  f645eaec() -> t70",
+     "+ 1d0  99cbb605(t70, d30{0|0}) -> t118",
+     "+ 328  TableAt(t30, d60{0|0}, de8{2.8026e-45|2}) -> td8 (goto 394)",
+     "+ 4e4  235929fc(ARG:frame40, dec{nan|-1}) -> tc8",
+     "+ 650  CALLX(tc8, df0{1.12042e-38|7995563}, dfe{2.36972e-38|16844036}, dff{1.17328e-10|788594949}, tc8, d100{4.31663e-39|3080449}, tec, d100{4.31663e-39|3080449}, tfc, dff{1.17328e-10|788594949}, td0) -> ()",
+     "+ 83c  8537e57c(ARG:frame50) -> te4",
+     "+ 95c  3b9874f4(t10, dc0{0|0}) -> ARG:frame50"
+    ],
+    "diffFile": "diffs/persistence__schematics2__graphs__simulation__simex_persistence_ongranitewin.diff",
+    "rawChecks": [
+     {
+      "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\expression-graph-bodies-b-2026-10-30\\resources\\cfe612c477ea24fb.res",
+      "rawSha256": "5766f4078a913ee9b438c76b26825bbbf7fc8eaa3c0c4d39cf92d53ecf56ab22",
+      "offset": 728,
+      "type": "i32",
+      "bytesHex": "02000000",
+      "value": 2,
+      "label": "new TableAt index de8 (2.1.1.0)"
+     }
+    ]
+   },
+   {
+    "graph": "Persistence/Schematics2/Graphs/Simulation/SimEx_Persistence_PlayerSurvivalBonus",
+    "id1435": "93d9b8bef44a5d11",
+    "id2110": "4f495c1bd4af7a99",
+    "body1435Sha256": "3e5ec395ab2659832969a6808310c07c1c8f37f871c220abd7c411debb43f234",
+    "body2110Sha256": "55bf22affac1b49a25c21cfe7a60c6b0022aa9678635b4bfc89effb00150ea8c",
+    "change": "Survival bonus: the placement-threshold and teams-eliminated logic is removed (imports PlayerSurvivalTop_PlacementThreshold and PlayerSurvivalBonus_TeamsEliminatedMod gone; imports 2 -> 0).",
+    "diffExcerpt": [
+     "- # inputs {24: 'TeamsAlive', 16: 'RemainingTeams'} outputs {} imports 2  base 232 D 128 fit 0.79",
+     "- 20  94a8b80b(IN:GRX_Persistence_Glacier:PlayerSurvivalBonus_TeamsEliminatedMod[0]) -> t88",
+     "- 3c  3c643507(ARG:TeamsAlive, t88) -> t8c",
+     "- 60  EnumEQ(t8c, d50{0|0}) -> t94",
+     "- 118  2c1ce06f(ARG:frame30) -> s0",
+     "- 218  CALLX(t50, d5c{7.5306e-39|5374016}, d60{9.36334e-41|66819}, d61{3.65739e-43|261}, t50, d61{3.65739e-43|261}, t58, d62{1.4013e-45|1}, t70) -> ()",
+     "- 308  94a8b80b(IN:GRX_Persistence_Glacier:PlayerSurvivalTop_PlacementThreshold[1]) -> t90",
+     "- 324  ILE?(ARG:TeamsAlive, t90) -> t97",
+     "- 358  a49641e0(s10, d30{0|0}, t40) -> t48",
+     "- 398  7e1f69aa(t40, t48) -> t98",
+     "- 3dc  2c1ce06f(ARG:frame40) -> s8",
+     "- 420  a49641e0(t8, d38{0|0}, t20) -> t28"
+    ],
+    "diffFile": "diffs/persistence__schematics2__graphs__simulation__simex_persistence_playersurvivalbonus.diff",
+    "rawChecks": []
+   },
+   {
+    "graph": "Persistence/Schematics2/Graphs/Simulation/SimEx_Persistence_PlayerSurvivalBonusXP",
+    "id1435": "fe9233abe0d729ed",
+    "id2110": "310994d0d7cee58b",
+    "body1435Sha256": "78e94ada1a57cfe50de37602220e8e10063268623de8dd1a3efafe3215203a79",
+    "body2110Sha256": "c69c891c59f8eb47ead79710831934b15b1fd9f8876f9880db99f4f9676c19d3",
+    "change": "Survival bonus experience: per-mode survival arrays for Rapid Royale (gm_rr_solo/duo/trio/squad) and granite modes added; BRSubGamemode input removed; imports 4 -> 16.",
+    "diffExcerpt": [
+     "- # inputs {32: 'TeamsAlive', 24: 'RemainingTeams', 16: 'BRSubGamemode'} outputs {} imports 4  base 296 D 192 fit 0.70",
+     "- 78  b19cedf0(ARG:BRSubGamemode) -> t58",
+     "- 284  2c1ce06f(ARG:TeamsAlive) -> s8",
+     "- 360  235929fc(ARG:BRSubGamemode, d54{nan|-1}) -> t30",
+     "- 398  CALLX(t30, d5c{6.20668e-36|84148325}, d5e{9.47886e-38|33621252}, d5f{1.84037e-40|131333}, t30, d5f{1.84037e-40|131333}, t38, d60{7.18866e-43|513}, t48, d61{2.8026e-45|2}, t44) -> ()",
+     "+ # inputs {24: 'TeamsAlive', 16: 'RemainingTeams'} outputs {} imports 16  base 504 D 288 fit 0.69",
+     "+ 34  f645eaec() -> t28",
+     "+ 48  CALLX(t28, db0{0|0}, d80{0|0}, dce{6.25363e-36|84213759}, dd5{4.44089e-16|637534208}) -> (t50)",
+     "+ e8  e7543659(t50, IN:Category_Gamemodes:gm_brsquad[13], dd5{4.44089e-16|637534208}) -> t72",
+     "+ 14c  e7543659(t50, IN:Category_Gamemodes:gm_graniteTrio[8], dd5{4.44089e-16|637534208}) -> t73",
+     "+ 1a4  e7543659(t50, IN:Category_Gamemodes:gm_graniteDuo[10], dd5{4.44089e-16|637534208}) -> t74",
+     "+ 1fc  e7543659(t50, IN:Category_Gamemodes:gm_graniteSolo[11], dd5{4.44089e-16|637534208}) -> t75"
+    ],
+    "diffFile": "diffs/persistence__schematics2__graphs__simulation__simex_persistence_playersurvivalbonusxp.diff",
+    "rawChecks": []
+   },
+   {
+    "graph": "Persistence/Schematics2/SimEx_Persistence_LosingSquads_OutcomeXPBonus_Granite",
+    "id1435": "ba4539677f818043",
+    "id2110": "d8fb36ffeb5f17ad",
+    "body1435Sha256": "c650a2bb5998e37c0538d9e3aef7536ad8b9bad9631840aab74f0274d1f35f85",
+    "body2110Sha256": "da25342ec7bda49670c9f535acc9b3a3b24cb34629bf46ca13d0d5f3229ad8dc",
+    "change": "Placement experience (losing squads): Rapid Royale mode branches added with MatchPlayed_XPpM_Royale{Solo,Duo,Trio,Squad} imports; imports 55 -> 63.",
+    "diffExcerpt": [
+     "- # inputs {72: 'SquadPlacement', 56: 'TeamIds'} outputs {} imports 55  base 1312 D 464 fit 0.68",
+     "- ac8  e7543659(tc0, IN:Category_Gamemodes:gm_bt[52], d2c2{1.79366e-42|1280}) -> t16a",
+     "- b20  e7543659(tc0, IN:Category_Gamemodes:gm_cq[46], d2c2{1.79366e-42|1280}) -> t16b",
+     "- b78  e7543659(tc0, IN:Category_Gamemodes:gm_rush[42], d2c2{1.79366e-42|1280}) -> t16c",
+     "- bd0  e7543659(tc0, IN:Category_Gamemodes:gm_dom[35], d2c2{1.79366e-42|1280}) -> t16d",
+     "- c28  e7543659(tc0, IN:Category_Gamemodes:gm_esc[51], d2c2{1.79366e-42|1280}) -> t16e",
+     "- c80  e7543659(tc0, IN:Category_Gamemodes:gm_gntgauntlet[50], d2c2{1.79366e-42|1280}) -> t16f",
+     "- cd8  e7543659(tc0, IN:Category_Gamemodes:gm_graniteDuo[37], d2c2{1.79366e-42|1280}) -> t170",
+     "- d30  e7543659(tc0, IN:Category_Gamemodes:gm_graniteSolo[43], d2c2{1.79366e-42|1280}) -> t171",
+     "- d88  e7543659(tc0, IN:Category_Gamemodes:gm_brsquad[44], d2c2{1.79366e-42|1280}) -> t172",
+     "- de0  e7543659(tc0, IN:Category_Gamemodes:gm_graniteTrio[45], d2c2{1.79366e-42|1280}) -> t173",
+     "- e38  e7543659(tc0, IN:Category_Gamemodes:gm_koth[53], d2c2{1.79366e-42|1280}) -> t174"
+    ],
+    "diffFile": "diffs/persistence__schematics2__simex_persistence_losingsquads_outcomexpbonus_granite.diff",
+    "rawChecks": []
+   },
+   {
+    "graph": "Persistence/Schematics2/SimEx_Persistence_OutcomeXPBonus_Gauntlet",
+    "id1435": "b3e1e1346b31b085",
+    "id2110": "07296ef1f627af3f",
+    "body1435Sha256": "5144fa796acec5bf9f31cfb484128a033260ce5258ccc977d3772a3cb17a0359",
+    "body2110Sha256": "2f2a1c8ab95a28645feefa831d32d28fa57e018723b884ae8a037cf2e9d1df67",
+    "change": "Gauntlet outcome experience: Rapid Royale mode branches added (two sets of MatchPlayed_XPpM_Royale* imports); imports 91 -> 107.",
+    "diffExcerpt": [
+     "- # inputs {128: 'EliminatedTeams', 136: 'ActiveTeams'} outputs {96: 'WinningTeam'} imports 91  base 1520 D 496 fit 0.68",
+     "- 59c  e7543659(t150, IN:Category_Gamemodes:gm_bt[42], d3fa{0|0}) -> t218",
+     "- 5f4  e7543659(t150, IN:Category_Gamemodes:gm_cq[36], d3fa{0|0}) -> t219",
+     "- 64c  e7543659(t150, IN:Category_Gamemodes:gm_rush[32], d3fa{0|0}) -> t21a",
+     "- 6a4  e7543659(t150, IN:Category_Gamemodes:gm_dom[25], d3fa{0|0}) -> t21b",
+     "- 6fc  e7543659(t150, IN:Category_Gamemodes:gm_esc[41], d3fa{0|0}) -> t21c",
+     "- 754  e7543659(t150, IN:Category_Gamemodes:gm_gntgauntlet[40], d3fa{0|0}) -> t21d",
+     "- 7ac  e7543659(t150, IN:Category_Gamemodes:gm_graniteDuo[27], d3fa{0|0}) -> t21e",
+     "- 804  e7543659(t150, IN:Category_Gamemodes:gm_graniteSolo[33], d3fa{0|0}) -> t21f",
+     "- 85c  e7543659(t150, IN:Category_Gamemodes:gm_brsquad[34], d3fa{0|0}) -> t220",
+     "- 8b4  e7543659(t150, IN:Category_Gamemodes:gm_graniteTrio[35], d3fa{0|0}) -> t221",
+     "- 90c  e7543659(t150, IN:Category_Gamemodes:gm_koth[43], d3fa{0|0}) -> t222"
+    ],
+    "diffFile": "diffs/persistence__schematics2__simex_persistence_outcomexpbonus_gauntlet.diff",
+    "rawChecks": []
+   },
+   {
+    "graph": "Persistence/Schematics2/SimEx_Persistence_OutcomeXPBonus_Granite",
+    "id1435": "a168d34f81426797",
+    "id2110": "882061cfffb158d3",
+    "body1435Sha256": "5c7a05edae02e79f0a9fc5091631d184ab6b214d495480178df7e88bf4316824",
+    "body2110Sha256": "4f503379286178f7f919079e969e17d39ee2b65056a6b2c4e29e4071f2e2c879",
+    "change": "Placement experience: Rapid Royale mode branches added with MatchPlayed_XPpM_Royale* imports; imports 55 -> 63.",
+    "diffExcerpt": [
+     "- # inputs {72: 'SquadPlacement', 48: 'TeamId'} outputs {} imports 55  base 1296 D 464 fit 0.67",
+     "- a64  e7543659(tb0, IN:Category_Gamemodes:gm_bt[52], d2b2{1.79366e-42|1280}) -> t151",
+     "- abc  e7543659(tb0, IN:Category_Gamemodes:gm_cq[46], d2b2{1.79366e-42|1280}) -> t152",
+     "- b14  e7543659(tb0, IN:Category_Gamemodes:gm_rush[42], d2b2{1.79366e-42|1280}) -> t153",
+     "- b6c  e7543659(tb0, IN:Category_Gamemodes:gm_dom[35], d2b2{1.79366e-42|1280}) -> t154",
+     "- bc4  e7543659(tb0, IN:Category_Gamemodes:gm_esc[51], d2b2{1.79366e-42|1280}) -> t155",
+     "- c1c  e7543659(tb0, IN:Category_Gamemodes:gm_gntgauntlet[50], d2b2{1.79366e-42|1280}) -> t156",
+     "- c74  e7543659(tb0, IN:Category_Gamemodes:gm_graniteDuo[37], d2b2{1.79366e-42|1280}) -> t157",
+     "- ccc  e7543659(tb0, IN:Category_Gamemodes:gm_graniteSolo[43], d2b2{1.79366e-42|1280}) -> t158",
+     "- d24  e7543659(tb0, IN:Category_Gamemodes:gm_brsquad[44], d2b2{1.79366e-42|1280}) -> t159",
+     "- d7c  e7543659(tb0, IN:Category_Gamemodes:gm_graniteTrio[45], d2b2{1.79366e-42|1280}) -> t15a",
+     "- dd4  e7543659(tb0, IN:Category_Gamemodes:gm_koth[53], d2b2{1.79366e-42|1280}) -> t15b"
+    ],
+    "diffFile": "diffs/persistence__schematics2__simex_persistence_outcomexpbonus_granite.diff",
+    "rawChecks": []
+   }
+  ],
+  "variableTable": {
+   "asset": "Common/Gameplay/Soldier/SoldierMotionMachine",
+   "raw": {
+    "1.4.3.5": {
+     "file": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Gameplay\\Soldier\\SoldierMotionMachine.ebx",
+     "rawSha256": "9fddd1f2fcb4aab91bff33d0c3d695219a898d0b29d1ac1e0c018924669b39cc"
+    },
+    "2.1.1.0": {
+     "file": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Gameplay\\Soldier\\SoldierMotionMachine.ebx",
+     "rawSha256": "597a064dbf80336a865d609abce9294755b656cbf8c358e649fe27dc39699f5d"
+    }
+   },
+   "fact": "Class_6b1a540c/77e7467b/a83e3e31/1614950b/6c4301da objects keyed by Field_dfd68748 (scope) and Field_91058a7f (index) name the reader's state variables; the 1.4.3.5 rebuild equals the copied mmp.json (985 keys); 2.1.1.0 has 1,009 keys and 743 moved names."
+  }
+ },
+ "inference": [
+  "Re-baked bodies are not noise: 17 of 115 re-baked graphs changed in substance and 16 gained a game-mode enum case; the source can stay equal apart from the three re-bake fields while the body changes.",
+  "65 re-baked graphs differ only by compiler lowering (AND/EQ with a true literal folded, OR lowered to short-circuit branches) and renumbered keys; this is a fingerprint match, not a line-by-line proof.",
+  "Contract graph changes belong to the new Spooky Rush mode; the ArmorGrant gate matches checklist U28; survival and outcome experience changes match the registry diff (Rapid Royale rows).",
+  "The enum-case additions map the new game-mode value 14 to each switch's default branch, so existing modes keep their values."
+ ],
+ "unresolved": [
+  "Body ead5aa90ea53b389 (2.1.1.0 SimEx_BR_ApplyProgressionWeapon, re-baked from 06866f32948c98f7) is not in the current catalog: needs capture (or the source is stale); not diffed.",
+  "Six graphs fail exdis 'layout not found' on both builds (SimEx_ContractObjective, Default_InteractDisable, SimEx_Vehicle_Stationary, SimEx_UpdateRoundScores, two ContextAwareTutorialManager graphs); all six keep their id and their body bytes are equal, so they are identical by bytes but unlisted.",
+  "Four byte-identical bodies (SimEx_Soldier_ThermalSignature, SimEx_SPAIDisplacementLogic, SimEx_SPAIPatrolDisplacementLogic, SimEx_ForceRevivePlayer) name different variables under the 2.1.1.0 motion-machine table (e.g. GetFloat Soldier.ReviveTime -> ArchetypeSpeedModifier). Either the (scope, index) naming convention does not hold for these keys or these graphs were not re-baked after the table was renumbered; runtime binding is not established.",
+  "The 'compiler lowering and renumbering only' class is a fingerprint match (same calls, imports, named variables, aligned constants and switch sizes once boolean AND/OR/EQ/NOT wiring is set aside); the boolean wiring itself was checked by eye only on StepSmoothing, KillCam, SoldierMaster and WeaponFireSpotting, not on all 65.",
+  "Packed constants (multi-field words >= 0x10000, e.g. 0x0504xxxx moving by -1) are read as renumbered ids by inference; only keys that resolve to the same motion-machine variable on both tables are confirmed renumbering.",
+  "Native function hashes added or removed in the substantive graphs (e.g. 9988c791, 258aa274, bbd337f7, 1245ceba, 8b69382c) are unidentified; their behaviour is not stated.",
+  "The EA 2.1.1.0 patch-notes text is not held locally; patch-note explanations were judged through the checklist rows, which carry the patch-note items."
+ ],
+ "siteImpact": "None for the site. No changed graph is a weapon attribute graph; ArmorGrant, IsInMandown, interaction and persistence rules are outside the site model. Research docs: SOLDIER.md L4023/L4028 rules for IsInMandown and SimEx_PlayerOwner keep their constants, but IsInMandown gained a PVE bleed-out branch; PROGRESSION.md L4027 rules for survival and outcome experience changed as the registry diff already noted.",
+ "evidence": {
+  "runRoot": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057",
+  "commands": [
+   {
+    "argv": [
+     "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+     "setup_readers.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4057",
+    "note": "copies exdis/exgraph/exnames/mmp.json into readers-1435 and readers-2110 and patches paths; originals untouched"
+   },
+   {
+    "argv": [
+     "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+     "decode1435.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4057",
+    "note": "runs C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-ebx-decode.py --descriptors C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\toolchain\\SharedTypeDescriptors.ebx --ebx-list sources-1435.txt --out sources-1435-decoded.json"
+   },
+   {
+    "argv": [
+     "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+     "pairing.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4057",
+    "out": "pairing.json"
+   },
+   {
+    "argv": [
+     "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+     "run_listings.py",
+     "1435",
+     "control-routes-a.txt"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4057"
+   },
+   {
+    "argv": [
+     "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+     "run_listings.py",
+     "2110",
+     "control-routes-a.txt"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4057",
+    "note": "first 2110 control run used the copied 1.4.3.5 mmp.json; superseded (listings-2110 deleted and regenerated)"
+   },
+   {
+    "argv": [
+     "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+     "srcdiff.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4057",
+    "out": "srcdiff.json"
+   },
+   {
+    "argv": [
+     "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+     "run_listings.py",
+     "1435",
+     "control-routes-b.txt"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4057"
+   },
+   {
+    "argv": [
+     "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+     "run_listings.py",
+     "1435"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4057",
+    "out": "listings-1435/"
+   },
+   {
+    "argv": [
+     "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+     "findmm.py",
+     "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds/1.4.3.5/capture/collection/raw/Common/Gameplay"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4057",
+    "note": "located SoldierMotionMachine.ebx as the variable-name source"
+   },
+   {
+    "argv": [
+     "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+     "decode_smm.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4057",
+    "note": "decodes SoldierMotionMachine.ebx on both builds to smm-<build>.json (deleted after use; smm-deleted-sha256.txt)"
+   },
+   {
+    "argv": [
+     "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+     "build_mmp.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4057",
+    "out": "mmp-1.4.3.5.json, mmp-2.1.1.0.json, mmp-diff.json; mmp-2.1.1.0.json copied to readers-2110/mmp.json"
+   },
+   {
+    "argv": [
+     "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+     "run_listings.py",
+     "2110"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4057",
+    "out": "listings-2110/ (regenerated after rm -rf listings-2110)"
+   },
+   {
+    "argv": [
+     "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+     "impcheck.py",
+     "<7 routes>"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4057",
+    "out": "impcheck.json"
+   },
+   {
+    "argv": [
+     "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+     "constmap.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4057",
+    "note": "exploratory: tests changed constants as renumbered variable keys"
+   },
+   {
+    "argv": [
+     "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+     "classify.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4057",
+    "out": "classes.json"
+   },
+   {
+    "argv": [
+     "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+     "rawchecks.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4057",
+    "note": "runs C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py --manifest rawchecks-manifest.json --out rawchecks.json"
+   },
+   {
+    "argv": [
+     "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+     "build_deliverables.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4057",
+    "out": "l4057-result.json, diff-table.md, diffs/, expression-graph-resource-ids-2110.txt, expression-graph-sources-routes.txt"
+   },
+   {
+    "argv": [
+     "C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+     "build_receipt.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4057",
+    "out": "draft-receipt.json, summary.md"
+   }
+  ],
+  "commandHistoryNote": "Commands are the argument vectors actually run in this session from the cwd shown (python = C:\\Users\\royal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe); exploratory one-off inspection snippets run inline are not listed. Bash rm was used to delete superseded listings-2110 and smm-*.json.",
+  "paths": [
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/l4057-result.json",
+    "sha256": "b39ef115fbff764eb70a6dfeca2cc8b67d4be97e76c3c8f48c800ff7b2f1e6b0"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/pairing.json",
+    "sha256": "4ce6f59c493377da465fcd138204c260024b8f84574d848ee5f9df884ecb5531"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/classes.json",
+    "sha256": "44dfe64aa7ed47e75835cd40ac8d37b474ddff9ae6c78897e0ed72fabef536c3"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/diff-table.md",
+    "sha256": "3ad7d2430c8f1484c74b8c251688b08e409fc9479baca35bafd9ddcd01fcc49e"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/stage5-rule.md",
+    "sha256": "3ae389eb4c8b1b5830104481a1401bf37d80f1db2335722b11d65b5cd6b7dedb"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/expression-graph-resource-ids-2110.txt",
+    "sha256": "049fa42de8306c8a1a1ea9519373bb81b48e112a9bdba63823596ce43ba81960"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/expression-graph-sources-routes.txt",
+    "sha256": "4a1ef8267a826ce94c41208eaf2d56874eb0c5a5a73522c38a32e605aae05930"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/rawchecks.json",
+    "sha256": "9e28437929a866210ebff6c75b948ab947bbbcc34de12f2127615222ec5058dd"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/rawchecks-manifest.json",
+    "sha256": "26fb52e372238bd5f6c33a06944ab9912ea4e7db0032166753aaceefa25e80fa"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/srcdiff.json",
+    "sha256": "275939e54af1226b7b566a3f359bec30d1b39970785354c648868f35f2f181a0"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/impcheck.json",
+    "sha256": "9faa63ca6104edd05abc9a89f156c15ef664e99ab7ce25ef907df3f0cc405fa0"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/mmp-1.4.3.5.json",
+    "sha256": "389ea77d34c55665f632ba1b041dd41350e5b55a70573df52efbc046ba3094e3"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/mmp-2.1.1.0.json",
+    "sha256": "a0c065ddf7aa414ffde4856f0bf3aa75e0f66937608b0f170048288363f6ba12"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/mmp-diff.json",
+    "sha256": "54d5e9a807c407eff084127b8b0ef5267fe5beeedb24d6be0fb7cdb1ebb3aedb"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/sources-1435-decoded.json",
+    "sha256": "66c00556c0c4fa1ec14f793ae90b18e20d335f258e49b4c8cd7e288ff4fe9e8b"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/listings-1435/_status.tsv",
+    "sha256": "5dbd10f0289978a6499139f7507a5c85aaec77671e5807494a702568db33970c"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/listings-2110/_status.tsv",
+    "sha256": "9ed63da85e7841cc92296c46768aabf0ec421b77c655a968a7ac6c9675ab7859"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/setup_readers.py",
+    "sha256": "1f3be3fed410af1cf6254ac6b86d49c1f150794ae4ba12112156319eaa0ca67e"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/decode1435.py",
+    "sha256": "fcfc5ae07148d9f7f17fe55a9a5224ef03a734261a02323dadb8df155ae125fd"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/pairing.py",
+    "sha256": "8f127d8f28d6d956df96a376b2ef5f6ece9fde2ab4224c9538881d41e31d8ed7"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/run_listings.py",
+    "sha256": "e1661d6653ba9b06e365b7b06afb8af08eebc7baf7a026d8326b59c55589a73b"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/srcdiff.py",
+    "sha256": "0f1ff422172537cace4e74484858a094583af81d749220088433f297fd737f45"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/findmm.py",
+    "sha256": "120ca9e4659607777858c79c22c5577bc222341476dfdd5b8caf2cb03128a136"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/decode_smm.py",
+    "sha256": "0100da0b8ab244ba1c343ed4f4f1bcccace64344863bc734ba1c361fb5a823bc"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/build_mmp.py",
+    "sha256": "0f156d8990bbd3d8d95bd3ef8ac329ea94453ad9ec3daf27cc268e57b74dc7e4"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/impcheck.py",
+    "sha256": "c7f63d7027d618d6d45627e169e5de5cdbdd296f39e1f9b64bbe0c2e173f0351"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/constmap.py",
+    "sha256": "0e8f926b6003804a3998a9839c20cf3b833a6f6d0d26bcfbb99433840c1309a1"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/diff1.py",
+    "sha256": "f82f805ac194d13604d64d902eba97b3d8fa643f59eaf81de854c55b9a2264af"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/fprint.py",
+    "sha256": "5cc9a8b7d23a4ec381806e7e41c96fd28c7bbed5413759d3240b66e8fe1414a3"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/showdiff.py",
+    "sha256": "03fe3ea9ba81fa8b22fdc603d75849bf862babbd76a08fbfeb378b313c0863d8"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/classify.py",
+    "sha256": "8d4a15867f58890c638611f408ded6cee208dafbcf7d78ad73774610f6ee1a99"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/rawchecks.py",
+    "sha256": "c1bff00e23e12967f7965045e931559e24a3eac3943b89bb5bd914833066555b"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/build_deliverables.py",
+    "sha256": "6274d2a2fd5bb204e013813640da57ab377c742e5b435d5f73b95f9aabcd7301"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/build_receipt.py",
+    "sha256": "bdb1e716501f752c2f82896434651586a53a89a88ad842fdb4b4715c0f678f80"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/notes.json",
+    "sha256": "4169a47854b806f6597063f0ee9cb5578ae1fa8c439d34754e17f120d2f22273"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/readers-1435/exdis.py",
+    "sha256": "a020e06ff18945b7e08b27eb8dd06c674bb4078dffac22be32a4c3894fe50ece"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/readers-1435/exgraph.py",
+    "sha256": "538443c2a35ddf3cdb43e59a6b2f48b945a8740025ea7dca6ef5d55bf62611a4"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/readers-1435/exnames.py",
+    "sha256": "b6081ea53626389cbed84a471c3dd3a31a64a73599e71855ffe996face8955fb"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/readers-1435/mmp.json",
+    "sha256": "67fac32ea8db5b0b13d8e838d74a337fa25b756008e1b874444d53113e1da034"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/readers-2110/exdis.py",
+    "sha256": "a020e06ff18945b7e08b27eb8dd06c674bb4078dffac22be32a4c3894fe50ece"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/readers-2110/exgraph.py",
+    "sha256": "adcc64eac104b66f29acea67c1af5d08fdd6c6b93c0a55183b3143238d4bb0ca"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/readers-2110/exnames.py",
+    "sha256": "5e576037eac85c48b6c4178c2f50a5b7b44abb907e36e22ae9209589b96eccf0"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/readers-2110/mmp.json",
+    "sha256": "a0c065ddf7aa414ffde4856f0bf3aa75e0f66937608b0f170048288363f6ba12"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/listings-1435/common__gameplay__features__collectionevents__contracts__diceex_localplayeridtocontractsquadcompare.txt",
+    "sha256": "034a722da4a9941b5daae800b7b1faff8bf2364e3eb111efae9eaab469dd3a80"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/listings-2110/common__gameplay__features__collectionevents__contracts__diceex_localplayeridtocontractsquadcompare.txt",
+    "sha256": "23ea5a545b431eb8e09e70617d5cd19a03f504c0b6debb52a4dad845c289a92b"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/listings-1435/common__gameplay__features__collectionevents__contracts__interactenable_collectionobject_contract.txt",
+    "sha256": "56d6a1dd1c238723322a32a1c64b91d2a71ffa88755e65ae008e69ffc8c84e8e"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/listings-2110/common__gameplay__features__collectionevents__contracts__interactenable_collectionobject_contract.txt",
+    "sha256": "42769ec6d5c0ddd93a6dd725f194df40facfd08fd0ad28381b2789832995c844"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/listings-1435/common__gameplay__features__collectionevents__contracts__simex_contractmanager.txt",
+    "sha256": "8651ca41b47ca4027424ff11285289e8c0cae2109c158ca605382c029acbf08a"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/listings-2110/common__gameplay__features__collectionevents__contracts__simex_contractmanager.txt",
+    "sha256": "68016bf13a6e093a2240334cd4ab3a2f546a0953534807a5188abf7b4ba3d93a"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/listings-1435/common__gameplay__features__collectionevents__contracts__simex_soldier_collectionevent_spawncontractoncarrier.txt",
+    "sha256": "dbf2ef5e003cceb7986702328af58b301bd0d78c71b313ed7d4fc94164cad89f"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/listings-2110/common__gameplay__features__collectionevents__contracts__simex_soldier_collectionevent_spawncontractoncarrier.txt",
+    "sha256": "98ce00c60b1ae46b3f80646d54a5c24083719c1aa8b6566670bdd326553fc776"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/listings-1435/common__gameplay__inroundprogression__armorgrant__simex_ability_armorgrant.txt",
+    "sha256": "9632a9711f0fd5dc7025e8b1183acb2b3ee069b5d79c50b5e9f595c4f88f1383"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/listings-2110/common__gameplay__inroundprogression__armorgrant__simex_ability_armorgrant.txt",
+    "sha256": "98a52294ffb87474e75624132900e06a27c254d70b02cb02a1ce805cef310563"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/listings-1435/common__gameplay__interactions__engineergadgets_interactenableconditiongraph.txt",
+    "sha256": "615fcbf63c9412b758116098f118a8156cbb4a1646f629b9df4ab139ff144767"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/listings-2110/common__gameplay__interactions__engineergadgets_interactenableconditiongraph.txt",
+    "sha256": "bdd07929620bdb086cb2d2e2ea7b8dd8fd11644688d1567f17a4e33e4956e8b4"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/listings-1435/common__gameplay__interactions__recongadgets_interactenableconditiongraph.txt",
+    "sha256": "32f15b6c29192b86335ffb74f5c233689ea29295f1487033d6d31419ac023478"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/listings-2110/common__gameplay__interactions__recongadgets_interactenableconditiongraph.txt",
+    "sha256": "b2509076a2c670234f8a97ee2a1e707b51f2d65ff298648450da5541e68bb6bb"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/listings-1435/common__gameplay__player__expressions__simex_playerowner.txt",
+    "sha256": "d833f3dc359e83b32da2ee1cd086a2f44c7fac0fb0536bb9200ce78a23a78a25"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/listings-2110/common__gameplay__player__expressions__simex_playerowner.txt",
+    "sha256": "5d6eb86940f024bf233fcf5b0e4099c2beff247da765df30b860db56714eac46"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/listings-1435/common__gameplay__soldier__animation__simex_mainexternalstatelogic.txt",
+    "sha256": "6cad315f8113647802c27a458283aa8833a619b143f84c0b976bb3360c882ff3"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/listings-2110/common__gameplay__soldier__animation__simex_mainexternalstatelogic.txt",
+    "sha256": "bcd3b3bdc00136bf9b81683b78e6269f210c16aa2dd2d1bd34544ef37e679b8a"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/listings-1435/common__gameplay__soldier__deathflow__mandown__simex_isinmandown.txt",
+    "sha256": "a6c5505f9e1ebf46fa0c7e9819c789e31f665ad0011c97f09ad4374f8d2af127"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/listings-2110/common__gameplay__soldier__deathflow__mandown__simex_isinmandown.txt",
+    "sha256": "71a27e2d61674a8892a23b60b51d5dcbdbfa279f9943788e402e5d8d3b17bc62"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/listings-1435/persistence__schematics2__graphs__simulation__simex_persistence_objectivedestroyed.txt",
+    "sha256": "b7ec1f1f9a83d07882a7a2543217272cd61691755382035922b23906b319964a"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/listings-2110/persistence__schematics2__graphs__simulation__simex_persistence_objectivedestroyed.txt",
+    "sha256": "78d23f1de2082ff068dc4916d7841747b6dc7b39f1ca243be6867fd7ae79cb03"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/listings-1435/persistence__schematics2__graphs__simulation__simex_persistence_ongranitewin.txt",
+    "sha256": "7ca0d47eb4b53c6db54dbc4d1def37d94f5197324099d55ee2a258fece59dda7"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/listings-2110/persistence__schematics2__graphs__simulation__simex_persistence_ongranitewin.txt",
+    "sha256": "c28e9fa315178f8299f1c2a013f40da2d286f1d43af5e00d99b1377d427e2ae8"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/listings-1435/persistence__schematics2__graphs__simulation__simex_persistence_playersurvivalbonus.txt",
+    "sha256": "3f3860aa178d376c4787882a33bad3b8afaeb0ef4b2f24c3d548d310eae4660e"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/listings-2110/persistence__schematics2__graphs__simulation__simex_persistence_playersurvivalbonus.txt",
+    "sha256": "974e5b128405f5070de8f3774b024d3680b2e8a72d675dac88f775998a6e023d"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/listings-1435/persistence__schematics2__graphs__simulation__simex_persistence_playersurvivalbonusxp.txt",
+    "sha256": "5924a6bb1628f8758236afd5becc0eb2fddbf45493faab1b63297a826e88ecdc"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/listings-2110/persistence__schematics2__graphs__simulation__simex_persistence_playersurvivalbonusxp.txt",
+    "sha256": "e0341049d730c99a00d7e1a0e2127d263873d2a59e772df2bb9926d8777e5623"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/listings-1435/persistence__schematics2__simex_persistence_losingsquads_outcomexpbonus_granite.txt",
+    "sha256": "14316f897ccbf4bf1214a8b2eb48e9b16d83d83d3567a0be4cd625fdf24be49b"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/listings-2110/persistence__schematics2__simex_persistence_losingsquads_outcomexpbonus_granite.txt",
+    "sha256": "cbf99461c2c8917eb0b2121e2456e5e586be1cd2692a165376dea5f8823dc876"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/listings-1435/persistence__schematics2__simex_persistence_outcomexpbonus_gauntlet.txt",
+    "sha256": "054f6045766a04a0570c7924aec334c28befe117364e8895464137c27024dbcc"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/listings-2110/persistence__schematics2__simex_persistence_outcomexpbonus_gauntlet.txt",
+    "sha256": "0c59b2e231bc5b73f06bf908834e68fc73489cb4b407daa450c26ed79fd5edc0"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/listings-1435/persistence__schematics2__simex_persistence_outcomexpbonus_granite.txt",
+    "sha256": "8bbba416f4ffb425c7d7e8488363ac1b63c9d3b1331a2e92e460002588d4d26e"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4057/listings-2110/persistence__schematics2__simex_persistence_outcomexpbonus_granite.txt",
+    "sha256": "d2ea07b8c751ebfd428e8f0d0ba4836bd6ad9927509932ee15187d9db9f7184d"
+   }
+  ],
+  "bodies": [
+   {
+    "path": null,
+    "id": "efeab82be70759f1",
+    "sha256": "e2546e82136463fd617d90e063a98c9441cc84cd42a8826ff20bc844d7d747b2"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\expression-graph-bodies-b-2026-10-30\\resources\\37daafe487e8e621.res",
+    "id": "37daafe487e8e621",
+    "sha256": "3a248b73fe62b46972e98a61f8a6ee650640f96a744f8d61c584976aff585c70"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\expression-graph-bodies-2026-10-10\\resources\\fc033159789d51d5.res",
+    "id": "293942d50113c957",
+    "sha256": "11a9b64e40ff543690345c1ee40dd742d8f1b0e2fb931cef66066e6a132dad05"
+   },
+   {
+    "path": null,
+    "id": "6214745acc6be8e3",
+    "sha256": "d4ae30625810f0fd531cfcbdf134e8c6b3656ff5802b08444f0b295f51edb3b3"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\capture\\candidate-expression-resources-2026-09-23\\resources\\fecce6f255bf7cc9.res",
+    "id": "3b2135ace1c9874f",
+    "sha256": "ae1aea28ac6f4f4207f088b72c869ec47de0bf0a92a53dc4a5df1930f3dbb5c9"
+   },
+   {
+    "path": null,
+    "id": "fa54f5ee9c110933",
+    "sha256": "d08c0937419c0467509f9984ce34d848abd747d3f8123ef4edbf47c9237c249d"
+   },
+   {
+    "path": null,
+    "id": "ba3e9166ec91b7db",
+    "sha256": "f9518d1fc561902217ea7b5fc599f4b3616fcce3d5d87e4a34b0accea360a05f"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\expression-graph-bodies-b-2026-10-30\\resources\\502ee68b826d4a49.res",
+    "id": "502ee68b826d4a49",
+    "sha256": "f74c80e8cbed12f7e6e9f393d43734d5d1014d3dd32fa97bc0baa134f5f152dc"
+   },
+   {
+    "path": null,
+    "id": "02adc310733bbc81",
+    "sha256": "57f1c5c7b4a2a52c2b0d3825ca8be082800e60c6d8248583de727174fd478775"
+   },
+   {
+    "path": null,
+    "id": "daf111de1a57a087",
+    "sha256": "b6902a111587b3c8a23704cc9dc669552e116eaab9917290823412ffcae7220d"
+   },
+   {
+    "path": null,
+    "id": "4c59c1b87f1d1983",
+    "sha256": "3d8bec103bedaabecae3dc0d5e300b6a82f13da13a691263613b3a2506266384"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\expression-graph-bodies-b-2026-10-30\\resources\\cfe612c477ea24fb.res",
+    "id": "cfe612c477ea24fb",
+    "sha256": "5766f4078a913ee9b438c76b26825bbbf7fc8eaa3c0c4d39cf92d53ecf56ab22"
+   },
+   {
+    "path": null,
+    "id": "4f495c1bd4af7a99",
+    "sha256": "55bf22affac1b49a25c21cfe7a60c6b0022aa9678635b4bfc89effb00150ea8c"
+   },
+   {
+    "path": null,
+    "id": "310994d0d7cee58b",
+    "sha256": "c69c891c59f8eb47ead79710831934b15b1fd9f8876f9880db99f4f9676c19d3"
+   },
+   {
+    "path": null,
+    "id": "d8fb36ffeb5f17ad",
+    "sha256": "da25342ec7bda49670c9f535acc9b3a3b24cb34629bf46ca13d0d5f3229ad8dc"
+   },
+   {
+    "path": null,
+    "id": "07296ef1f627af3f",
+    "sha256": "2f2a1c8ab95a28645feefa831d32d28fa57e018723b884ae8a037cf2e9d1df67"
+   },
+   {
+    "path": null,
+    "id": "882061cfffb158d3",
+    "sha256": "4f503379286178f7f919079e969e17d39ee2b65056a6b2c4e29e4071f2e2c879"
+   }
+  ],
+  "deletedLargeFiles": [
+   "5ebd3388d8a69ba8766ebf26c49faebbf18e26aee1d5a233d20530cf77f8300a *smm-1.4.3.5.json",
+   "6305659eb143ddf6d5701dedfa2bb0abe050829cd46711b35a863855d1082ef6 *smm-2.1.1.0.json"
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-30",
+  "build": "mixed",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L4057",
+    "title": "Expression-graph diff 1.4.3.5 against 2.1.1.0",
+    "status": "finding",
+    "summary": "Of 304 compiled graphs, 188 kept their id (byte-equal bodies) and 116 were re-baked; 17 re-baked bodies changed in substance (Spooky Rush contracts, ArmorGrant, gadget interaction conditions, PlayerOwner, stance override, IsInMandown PVE bleed-out branch, persistence XP), 16 gained a game-mode case, 65 differ only by compiler lowering and renumbering, so the re-bake fields are not noise.",
+    "reopenWhen": "Body ead5aa90ea53b389 (SimEx_BR_ApplyProgressionWeapon) is captured, the next build re-bakes graphs, or a native-function name table lets the unidentified added calls be named."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Gameplay/Features/CollectionEvents/Contracts/DiceEx_LocalPlayerIdToContractSquadCompare",
+    "format": "raw-ebx",
+    "sha256": "2677a8d9668bc8eec88a12e06affb52facd22122d2a2db7ded9b5791c9b9aa08",
+    "question": "Which graph resource and imports does DiceEx_LocalPlayerIdToContractSquadCompare reference on 2.1.1.0?",
+    "result": "useful",
+    "conclusion": "237de600d04062cf -> efeab82be70759f1; imports 1 -> 2; added imports: MUT_SpookyRush:SPKYRS_CollectionEvent_ShowContractOnlyForKiller."
+   },
+   {
+    "path": "Common/Gameplay/Features/CollectionEvents/Contracts/DiceEx_LocalPlayerIdToContractSquadCompare",
+    "format": "raw-res",
+    "sha256": "e2546e82136463fd617d90e063a98c9441cc84cd42a8826ff20bc844d7d747b2",
+    "question": "Does the 2.1.1.0 body of DiceEx_LocalPlayerIdToContractSquadCompare differ in substance from the 1.4.3.5 body?",
+    "result": "useful",
+    "conclusion": "Who sees contract loot: adds a Spooky Rush branch (import MUT_SpookyRush:SPKYRS_CollectionEvent_ShowContractOnlyForKiller, a kill-switch read and a game-mode enum check) to the squad comparison; imports 1 -> 2."
+   },
+   {
+    "path": "Common/Gameplay/Features/CollectionEvents/Contracts/InteractEnable_CollectionObject_Contract",
+    "format": "raw-ebx",
+    "sha256": "2825eca191bb04a579a26647d19015ac5e889e083b07c73607dce2e2bece73fe",
+    "question": "Which graph resource and imports does InteractEnable_CollectionObject_Contract reference on 2.1.1.0?",
+    "result": "useful",
+    "conclusion": "49adadf553ed0011 -> 37daafe487e8e621; import count unchanged; no import target added or removed."
+   },
+   {
+    "path": "Common/Gameplay/Features/CollectionEvents/Contracts/InteractEnable_CollectionObject_Contract",
+    "format": "raw-res",
+    "sha256": "3a248b73fe62b46972e98a61f8a6ee650640f96a744f8d61c584976aff585c70",
+    "question": "Does the 2.1.1.0 body of InteractEnable_CollectionObject_Contract differ in substance from the 1.4.3.5 body?",
+    "result": "useful",
+    "conclusion": "Contract object interaction: a new flag test (native e0f51511 with packed constant 65537) selects a single d2d1053c check instead of the squad and team comparisons."
+   },
+   {
+    "path": "Common/Gameplay/Features/CollectionEvents/Contracts/SimEx_ContractManager",
+    "format": "raw-ebx",
+    "sha256": "d88cc1bf8c5ff144bad01fbdf44b8d671220f6216d4a80eefae6eb9e8fa993c5",
+    "question": "Which graph resource and imports does SimEx_ContractManager reference on 2.1.1.0?",
+    "result": "useful",
+    "conclusion": "fc033159789d51d5 -> 293942d50113c957; imports 41 -> 44; added imports: KST_CH2_S01:KS_CollectionEvent_SpookyRush, MUT_SpookyRush:SPKYRS_CollectionEvent_BaseDropRate, MUT_SpookyRush:SPKYRS_CollectionEvent_MarkOnlyAIAsContractCarrier."
+   },
+   {
+    "path": "Common/Gameplay/Features/CollectionEvents/Contracts/SimEx_ContractManager",
+    "format": "raw-res",
+    "sha256": "11a9b64e40ff543690345c1ee40dd742d8f1b0e2fb931cef66066e6a132dad05",
+    "question": "Does the 2.1.1.0 body of SimEx_ContractManager differ in substance from the 1.4.3.5 body?",
+    "result": "useful",
+    "conclusion": "Contract eligibility: MakeTable size 17 -> 18; adds Spooky Rush imports SPKYRS_CollectionEvent_BaseDropRate, SPKYRS_CollectionEvent_MarkOnlyAIAsContractCarrier and kill switch KST_CH2_S01:KS_CollectionEvent_SpookyRush; the 17 game-mode switches gain a 15th case and an 18th switch is added; imports 41 -> 44."
+   },
+   {
+    "path": "Common/Gameplay/Features/CollectionEvents/Contracts/SimEx_Soldier_CollectionEvent_SpawnContractOnCarrier",
+    "format": "raw-ebx",
+    "sha256": "f86a339b015da5ece22ef198222511702b5d73f06b7a89a432ee478e9e9cc4ff",
+    "question": "Which graph resource and imports does SimEx_Soldier_CollectionEvent_SpawnContractOnCarrier reference on 2.1.1.0?",
+    "result": "useful",
+    "conclusion": "f38715e43325bbf9 -> 6214745acc6be8e3; imports 13 -> 14; added imports: KST_CH2_S01:KS_CollectionEvent_SpookyRush."
+   },
+   {
+    "path": "Common/Gameplay/Features/CollectionEvents/Contracts/SimEx_Soldier_CollectionEvent_SpawnContractOnCarrier",
+    "format": "raw-res",
+    "sha256": "d4ae30625810f0fd531cfcbdf134e8c6b3656ff5802b08444f0b295f51edb3b3",
+    "question": "Does the 2.1.1.0 body of SimEx_Soldier_CollectionEvent_SpawnContractOnCarrier differ in substance from the 1.4.3.5 body?",
+    "result": "useful",
+    "conclusion": "Contract spawn on carrier: new outputs KillerSquadId and KillerTeamId and a branch on kill switch KS_CollectionEvent_SpookyRush."
+   },
+   {
+    "path": "Common/Gameplay/InRoundProgression/ArmorGrant/SimEx_Ability_ArmorGrant",
+    "format": "raw-ebx",
+    "sha256": "ed2cac8664ea36402a3bc0d2cb79662e78e4d3804ca845c715e14e347846b24c",
+    "question": "Which graph resource and imports does SimEx_Ability_ArmorGrant reference on 2.1.1.0?",
+    "result": "useful",
+    "conclusion": "fecce6f255bf7cc9 -> 3b2135ace1c9874f; import count unchanged; added imports: GRX_Glacier_Soldier:ArmorGrantSpawnPlate; removed imports: SoldierOnlyPublicChannels:IsFiring."
+   },
+   {
+    "path": "Common/Gameplay/InRoundProgression/ArmorGrant/SimEx_Ability_ArmorGrant",
+    "format": "raw-res",
+    "sha256": "ae1aea28ac6f4f4207f088b72c869ec47de0bf0a92a53dc4a5df1930f3dbb5c9",
+    "question": "Does the 2.1.1.0 body of SimEx_Ability_ArmorGrant differ in substance from the 1.4.3.5 body?",
+    "result": "useful",
+    "conclusion": "Armor-plate grant: whole graph now gated by GetKillSwitch(GRX_Glacier_Soldier:ArmorGrantSpawnPlate); the SoldierOnlyPublicChannels:IsFiring condition is removed and replaced by native 258aa274 (argument 4) plus an EnumEQ test; the Ammo_Armor spawn call argument 1.5 -> -1.5 and its position input now passes through native 9988c791."
+   },
+   {
+    "path": "Common/Gameplay/Interactions/EngineerGadgets_InteractEnableConditionGraph",
+    "format": "raw-ebx",
+    "sha256": "f96a44e0ebb4a330205fa3ec86c32ba63fcbf7be74b6365c358ea8a355b06020",
+    "question": "Which graph resource and imports does EngineerGadgets_InteractEnableConditionGraph reference on 2.1.1.0?",
+    "result": "useful",
+    "conclusion": "04f3e3946bca7c29 -> fa54f5ee9c110933; import count unchanged; no import target added or removed."
+   },
+   {
+    "path": "Common/Gameplay/Interactions/EngineerGadgets_InteractEnableConditionGraph",
+    "format": "raw-res",
+    "sha256": "d08c0937419c0467509f9984ce34d848abd747d3f8123ef4edbf47c9237c249d",
+    "question": "Does the 2.1.1.0 body of EngineerGadgets_InteractEnableConditionGraph differ in substance from the 1.4.3.5 body?",
+    "result": "useful",
+    "conclusion": "Engineer-gadget interaction enable: an extra condition (native 85a781a7(0) -> bbd337f7) is ANDed into the result."
+   },
+   {
+    "path": "Common/Gameplay/Interactions/ReconGadgets_InteractEnableConditionGraph",
+    "format": "raw-ebx",
+    "sha256": "efbbc90827af68947cef13ce5ebbfa81bf9562163c09cf6ec6ae80cb44eecc58",
+    "question": "Which graph resource and imports does ReconGadgets_InteractEnableConditionGraph reference on 2.1.1.0?",
+    "result": "useful",
+    "conclusion": "966fdf7dfb1e37c9 -> ba3e9166ec91b7db; import count unchanged; no import target added or removed."
+   },
+   {
+    "path": "Common/Gameplay/Interactions/ReconGadgets_InteractEnableConditionGraph",
+    "format": "raw-res",
+    "sha256": "f9518d1fc561902217ea7b5fc599f4b3616fcce3d5d87e4a34b0accea360a05f",
+    "question": "Does the 2.1.1.0 body of ReconGadgets_InteractEnableConditionGraph differ in substance from the 1.4.3.5 body?",
+    "result": "useful",
+    "conclusion": "Recon-gadget interaction enable: same extra ANDed condition as the engineer graph (85a781a7(0) -> bbd337f7)."
+   },
+   {
+    "path": "Common/Gameplay/Player/Expressions/SimEx_PlayerOwner",
+    "format": "raw-ebx",
+    "sha256": "a33b29cf1a7110c7477eba1440f1fcee0597b389233a75caedcf78fd8bbd9cb2",
+    "question": "Which graph resource and imports does SimEx_PlayerOwner reference on 2.1.1.0?",
+    "result": "useful",
+    "conclusion": "2f80ab4f383ded59 -> 502ee68b826d4a49; import count unchanged; no import target added or removed."
+   },
+   {
+    "path": "Common/Gameplay/Player/Expressions/SimEx_PlayerOwner",
+    "format": "raw-res",
+    "sha256": "f74c80e8cbed12f7e6e9f393d43734d5d1014d3dd32fa97bc0baa134f5f152dc",
+    "question": "Does the 2.1.1.0 body of SimEx_PlayerOwner differ in substance from the 1.4.3.5 body?",
+    "result": "useful",
+    "conclusion": "Player-owner graph: a lookup chain gains two a1d70f8e/42c97598 entries and a new constant 182 (MOV at 0x4480 and 0x4664); no constant removed, so the L4028 respawn clamp constants are present on both sides."
+   },
+   {
+    "path": "Common/Gameplay/Soldier/Animation/SimEx_MainExternalStateLogic",
+    "format": "raw-ebx",
+    "sha256": "3a2be7c63f90407f2d99c0cd72240c2b308d6463c79515337f8bda9f689e8c1c",
+    "question": "Which graph resource and imports does SimEx_MainExternalStateLogic reference on 2.1.1.0?",
+    "result": "useful",
+    "conclusion": "ae6a6c11bd6f1dc9 -> 02adc310733bbc81; import count unchanged; no import target added or removed."
+   },
+   {
+    "path": "Common/Gameplay/Soldier/Animation/SimEx_MainExternalStateLogic",
+    "format": "raw-res",
+    "sha256": "57f1c5c7b4a2a52c2b0d3825ca8be082800e60c6d8248583de727174fd478775",
+    "question": "Does the 2.1.1.0 body of SimEx_MainExternalStateLogic differ in substance from the 1.4.3.5 body?",
+    "result": "useful",
+    "conclusion": "Stance override: the StanceOverride channel test is now OR'ed with NOT GetBool[?1.65644] (a variable key outside the motion-machine table)."
+   },
+   {
+    "path": "Common/Gameplay/Soldier/DeathFlow/ManDown/SimEx_IsInMandown",
+    "format": "raw-ebx",
+    "sha256": "9ba2b6f8c28a29499ffc9e3db9b2aadc5146ba04da8f42f5fae8968c8999387d",
+    "question": "Which graph resource and imports does SimEx_IsInMandown reference on 2.1.1.0?",
+    "result": "useful",
+    "conclusion": "06544c9909b84c3d -> daf111de1a57a087; imports 53 -> 54; added imports: MUT_CHIITest:CHIITest_ManDownBleedOutDamage."
+   },
+   {
+    "path": "Common/Gameplay/Soldier/DeathFlow/ManDown/SimEx_IsInMandown",
+    "format": "raw-res",
+    "sha256": "b6902a111587b3c8a23704cc9dc669552e116eaab9917290823412ffcae7220d",
+    "question": "Does the 2.1.1.0 body of SimEx_IsInMandown differ in substance from the 1.4.3.5 body?",
+    "result": "useful",
+    "conclusion": "Bleed-out: new branch reads MUT_CHIITest:CHIITest_ManDownBleedOutDamage as the bleed-out rate when GetBool[PVE_IsPVE] is true; two unidentified native calls (1245ceba, 8b69382c) are removed from the SkipToDead branch; imports 53 -> 54. The L4023 threshold and rate constants are unchanged (L4080 re-read them)."
+   },
+   {
+    "path": "Persistence/Schematics2/Graphs/Simulation/SimEx_Persistence_ObjectiveDestroyed",
+    "format": "raw-ebx",
+    "sha256": "759ecae4cf0c36d441d41c2455d5b696f48ed3eb498f8e365f7379adde73b55d",
+    "question": "Which graph resource and imports does SimEx_Persistence_ObjectiveDestroyed reference on 2.1.1.0?",
+    "result": "useful",
+    "conclusion": "d54dfa19c02ddb7b -> 4c59c1b87f1d1983; imports 0 -> 0; no import target added or removed."
+   },
+   {
+    "path": "Persistence/Schematics2/Graphs/Simulation/SimEx_Persistence_ObjectiveDestroyed",
+    "format": "raw-res",
+    "sha256": "3d8bec103bedaabecae3dc0d5e300b6a82f13da13a691263613b3a2506266384",
+    "question": "Does the 2.1.1.0 body of SimEx_Persistence_ObjectiveDestroyed differ in substance from the 1.4.3.5 body?",
+    "result": "useful",
+    "conclusion": "Objective-destroyed stat event: new graph input IsPartiallyDestroyed and one more stat-event CALLX."
+   },
+   {
+    "path": "Persistence/Schematics2/Graphs/Simulation/SimEx_Persistence_OnGraniteWin",
+    "format": "raw-ebx",
+    "sha256": "1d67471cca8dcd0ad48c03f4763cec7cd4dc36e3f86ec4c04bc83fcc5f025614",
+    "question": "Which graph resource and imports does SimEx_Persistence_OnGraniteWin reference on 2.1.1.0?",
+    "result": "useful",
+    "conclusion": "2fe75dadfe364741 -> cfe612c477ea24fb; import count unchanged; no import target added or removed."
+   },
+   {
+    "path": "Persistence/Schematics2/Graphs/Simulation/SimEx_Persistence_OnGraniteWin",
+    "format": "raw-res",
+    "sha256": "5766f4078a913ee9b438c76b26825bbbf7fc8eaa3c0c4d39cf92d53ecf56ab22",
+    "question": "Does the 2.1.1.0 body of SimEx_Persistence_OnGraniteWin differ in substance from the 1.4.3.5 body?",
+    "result": "useful",
+    "conclusion": "Battle royale win event: adds a TableAt read (index 2) and natives f645eaec and 99cbb605."
+   },
+   {
+    "path": "Persistence/Schematics2/Graphs/Simulation/SimEx_Persistence_PlayerSurvivalBonus",
+    "format": "raw-ebx",
+    "sha256": "891c39ee9158aae3791ef78d99ac1d8594bd8f07cf0d8b14f45f8cfcffb595a8",
+    "question": "Which graph resource and imports does SimEx_Persistence_PlayerSurvivalBonus reference on 2.1.1.0?",
+    "result": "useful",
+    "conclusion": "93d9b8bef44a5d11 -> 4f495c1bd4af7a99; imports 2 -> 0; removed imports: GRX_Persistence_Glacier:PlayerSurvivalBonus_TeamsEliminatedMod, GRX_Persistence_Glacier:PlayerSurvivalTop_PlacementThreshold."
+   },
+   {
+    "path": "Persistence/Schematics2/Graphs/Simulation/SimEx_Persistence_PlayerSurvivalBonus",
+    "format": "raw-res",
+    "sha256": "55bf22affac1b49a25c21cfe7a60c6b0022aa9678635b4bfc89effb00150ea8c",
+    "question": "Does the 2.1.1.0 body of SimEx_Persistence_PlayerSurvivalBonus differ in substance from the 1.4.3.5 body?",
+    "result": "useful",
+    "conclusion": "Survival bonus: the placement-threshold and teams-eliminated logic is removed (imports PlayerSurvivalTop_PlacementThreshold and PlayerSurvivalBonus_TeamsEliminatedMod gone; imports 2 -> 0)."
+   },
+   {
+    "path": "Persistence/Schematics2/Graphs/Simulation/SimEx_Persistence_PlayerSurvivalBonusXP",
+    "format": "raw-ebx",
+    "sha256": "ffee353128a11b4cb8c1ec6c1fae2208fa80c963c40999ca97cf8a53cc865446",
+    "question": "Which graph resource and imports does SimEx_Persistence_PlayerSurvivalBonusXP reference on 2.1.1.0?",
+    "result": "useful",
+    "conclusion": "fe9233abe0d729ed -> 310994d0d7cee58b; imports 4 -> 16; added imports: Category_Gamemodes:gm_brsquad, Category_Gamemodes:gm_graniteDuo, Category_Gamemodes:gm_graniteSolo, Category_Gamemodes:gm_graniteTrio."
+   },
+   {
+    "path": "Persistence/Schematics2/Graphs/Simulation/SimEx_Persistence_PlayerSurvivalBonusXP",
+    "format": "raw-res",
+    "sha256": "c69c891c59f8eb47ead79710831934b15b1fd9f8876f9880db99f4f9676c19d3",
+    "question": "Does the 2.1.1.0 body of SimEx_Persistence_PlayerSurvivalBonusXP differ in substance from the 1.4.3.5 body?",
+    "result": "useful",
+    "conclusion": "Survival bonus experience: per-mode survival arrays for Rapid Royale (gm_rr_solo/duo/trio/squad) and granite modes added; BRSubGamemode input removed; imports 4 -> 16."
+   },
+   {
+    "path": "Persistence/Schematics2/SimEx_Persistence_LosingSquads_OutcomeXPBonus_Granite",
+    "format": "raw-ebx",
+    "sha256": "2d37292e2377c8bc7fa20dbe071d75efacf9f05457c73996dbd8900f3b839343",
+    "question": "Which graph resource and imports does SimEx_Persistence_LosingSquads_OutcomeXPBonus_Granite reference on 2.1.1.0?",
+    "result": "useful",
+    "conclusion": "ba4539677f818043 -> d8fb36ffeb5f17ad; imports 55 -> 63; added imports: Category_Gamemodes:gm_rr_duo, Category_Gamemodes:gm_rr_solo, Category_Gamemodes:gm_rr_squad, Category_Gamemodes:gm_rr_trio."
+   },
+   {
+    "path": "Persistence/Schematics2/SimEx_Persistence_LosingSquads_OutcomeXPBonus_Granite",
+    "format": "raw-res",
+    "sha256": "da25342ec7bda49670c9f535acc9b3a3b24cb34629bf46ca13d0d5f3229ad8dc",
+    "question": "Does the 2.1.1.0 body of SimEx_Persistence_LosingSquads_OutcomeXPBonus_Granite differ in substance from the 1.4.3.5 body?",
+    "result": "useful",
+    "conclusion": "Placement experience (losing squads): Rapid Royale mode branches added with MatchPlayed_XPpM_Royale{Solo,Duo,Trio,Squad} imports; imports 55 -> 63."
+   },
+   {
+    "path": "Persistence/Schematics2/SimEx_Persistence_OutcomeXPBonus_Gauntlet",
+    "format": "raw-ebx",
+    "sha256": "8692fb6934708ee9da76bd0a2fb1107eec6fbb63fb9703b2b3ee1909de9d5438",
+    "question": "Which graph resource and imports does SimEx_Persistence_OutcomeXPBonus_Gauntlet reference on 2.1.1.0?",
+    "result": "useful",
+    "conclusion": "b3e1e1346b31b085 -> 07296ef1f627af3f; imports 91 -> 107; added imports: Category_Gamemodes:gm_rr_duo, Category_Gamemodes:gm_rr_solo, Category_Gamemodes:gm_rr_squad, Category_Gamemodes:gm_rr_trio."
+   },
+   {
+    "path": "Persistence/Schematics2/SimEx_Persistence_OutcomeXPBonus_Gauntlet",
+    "format": "raw-res",
+    "sha256": "2f2a1c8ab95a28645feefa831d32d28fa57e018723b884ae8a037cf2e9d1df67",
+    "question": "Does the 2.1.1.0 body of SimEx_Persistence_OutcomeXPBonus_Gauntlet differ in substance from the 1.4.3.5 body?",
+    "result": "useful",
+    "conclusion": "Gauntlet outcome experience: Rapid Royale mode branches added (two sets of MatchPlayed_XPpM_Royale* imports); imports 91 -> 107."
+   },
+   {
+    "path": "Persistence/Schematics2/SimEx_Persistence_OutcomeXPBonus_Granite",
+    "format": "raw-ebx",
+    "sha256": "a8ce78374f017e7122d375fec047f3741d50cc815e90fb2eb4e8345de3acbe1f",
+    "question": "Which graph resource and imports does SimEx_Persistence_OutcomeXPBonus_Granite reference on 2.1.1.0?",
+    "result": "useful",
+    "conclusion": "a168d34f81426797 -> 882061cfffb158d3; imports 55 -> 63; added imports: Category_Gamemodes:gm_rr_duo, Category_Gamemodes:gm_rr_solo, Category_Gamemodes:gm_rr_squad, Category_Gamemodes:gm_rr_trio."
+   },
+   {
+    "path": "Persistence/Schematics2/SimEx_Persistence_OutcomeXPBonus_Granite",
+    "format": "raw-res",
+    "sha256": "4f503379286178f7f919079e969e17d39ee2b65056a6b2c4e29e4071f2e2c879",
+    "question": "Does the 2.1.1.0 body of SimEx_Persistence_OutcomeXPBonus_Granite differ in substance from the 1.4.3.5 body?",
+    "result": "useful",
+    "conclusion": "Placement experience: Rapid Royale mode branches added with MatchPlayed_XPpM_Royale* imports; imports 55 -> 63."
+   },
+   {
+    "path": "Common/Gameplay/Soldier/SoldierMotionMachine",
+    "format": "raw-ebx",
+    "sha256": "597a064dbf80336a865d609abce9294755b656cbf8c358e649fe27dc39699f5d",
+    "question": "Which state-variable names does the 2.1.1.0 motion-machine table assign to the (scope, index) keys the graph reader uses?",
+    "result": "useful",
+    "conclusion": "Table rebuilt (1,009 keys); 743 names moved, 29 added, 5 removed against 1.4.3.5 (raw 9fddd1f2...); the rebuilt 1.4.3.5 table equals the reader's mmp.json."
+   }
+  ],
+  "site": []
+ },
+ "run": {
+  "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps",
+  "leadFolder": "L4057"
+ }
+}

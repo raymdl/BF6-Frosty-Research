@@ -1,0 +1,128 @@
+{
+ "lead": "none",
+ "status": "finding",
+ "build": {
+  "current": "site-only (operator in-game recordings, client 2.1.1.0, 26 October 2026)",
+  "note": "In-game measurement; no source bytes were read. Related leads, not re-opened by this receipt: L120 and L124 (StanceChangePenalties) and L108 (MountedPlus recoil)."
+ },
+ "question": "How much does the ADS red-dot sway of the M433 with the Mini Flex sight differ between standing, crouched, prone, crouch-mounted and prone-mounted, with and without a (undeployed) bipod, and does mounting remove the sway?",
+ "sourceFacts": {
+  "recordings": "Operator recordings reference-data/Recordings/10262026/Stance Sway/M433_MiniFlex_<grip>_<stance>.mp4: firing range, ADS, not firing, 2560x1440 at 60 fps, about 11 s each. M433 with the Mini Flex sight; grip None (no bottom-rail attachment) or Bipod. Stances Standing, Crouched, Prone, CrouchMounted (rested on the range counter) and ProneMounted (bipod only: the game offers no prone mount without one). The None and Bipod clips of each stance were taken from the same position. The videos are kept locally only; the evidence sheet is in the site repo.",
+  "method": "scripts/stance-sway-track.py (site repo). The first 2 s of each clip are skipped; about 9 s are measured. Units are pixels of the 2560x1440 frame; the ADS camera scale is not calibrated. Aim sway = the red dot's movement against the scene (dot screen position minus scene shift).",
+  "table": {
+   "unit": "total horizontal x vertical range in px (RMS radius about the clip mean)",
+   "Standing": {
+    "None": "7.7 x 11.3 (3.7)",
+    "Bipod": "7.9 x 11.6 (4.0)"
+   },
+   "Crouched": {
+    "None": "8.4 x 11.3 (3.8)",
+    "Bipod": "6.6 x 10.2 (3.6)"
+   },
+   "Prone": {
+    "None": "7.7 x 11.5 (4.2)",
+    "Bipod": "6.4 x 12.3 (3.8)"
+   },
+   "CrouchMounted": {
+    "None": "0 x 0 (0)",
+    "Bipod": "0 x 0 (0)"
+   },
+   "ProneMounted": {
+    "None": "not available",
+    "Bipod": "0 x 0 (0)"
+   }
+  },
+  "points": [
+   "Unmounted: the scene (camera) moves about 5 x 7 px, the red dot a further 2.5 to 3.5 x 4 to 5 px on screen, and the weapon model stays fixed on screen (under 0.2 px).",
+   "Vertical sway repeats about every 3 s (three cycles per clip), so the vertical range is complete; the horizontal drift is slower than the clip (one or two zero crossings), so the horizontal ranges are partial swings and only show the stances are similar.",
+   "Mounted, with or without the bipod: scene, weapon and dot do not move; phase-correlation peaks are 0.96 to 0.97 against 0.40 to 0.44 in the unmounted clips.",
+   "The red dot was found in 50 of 592 ProneMounted frames and 373 of 535 None_Crouched frames; the mounted result does not depend on it."
+  ],
+  "notCovered": "Other weapons and magnified optics (the type list has GunSwayStanceZoomModifierData), and the sway penalty for changing stance while aiming (GunSwayStanceChangePenalty)."
+ },
+ "inference": [
+  "Standing, crouched and prone sway the same on this weapon and sight (ranges within the noise of a 9 s window).",
+  "A fitted but undeployed bipod changes nothing.",
+  "Mounting removes all weapon and camera sway, with or without a bipod or grip pod; the bipod's only part is allowing a prone mount (the note's reading)."
+ ],
+ "unresolved": [
+  "Other weapons and magnified optics were not measured, and the stance-change sway penalty was not tested.",
+  "Horizontal ranges are partial swings (the drift is slower than the clip), so only the vertical range is complete.",
+  "The ADS camera scale is not calibrated, so the pixel ranges are not degrees; no source value was read, so no source operand is tied to this measurement."
+ ],
+ "siteImpact": "Site commit f08f7a4 (26 Oct 2026, ui/app.js renderAttachmentStats): the Weapon Sway chip in Attachment Effects shows -100% in the Mounted stance (a Mounted row x0 added after the attachment rows). The note itself is baf907d. No data/*.json value is pinned by it, so there are no site pointers.",
+ "evidence": {
+  "note": {
+   "file": "BF6 Weapon Analyzer/reference-data/provenance/stance-sway-measurement-2026-10-26.md",
+   "sha256": "1ff1918a09a03fb2640e909b12624cce1ac3c5829f2ade7b175070fc6f327abb"
+  },
+  "recordingFolder": "reference-data/Recordings/10262026/Stance Sway/ (M433_MiniFlex_<None|Bipod>_<Standing|Crouched|Prone|CrouchMounted|ProneMounted>.mp4; local only)",
+  "trackFiles": [
+   {
+    "file": "M433_MiniFlex_Bipod_CrouchMounted_track.csv",
+    "bytes": 19353,
+    "sha256": "1072f7d887e4ebf4db14eaec42a4e75e5ff29838265f4a126bcd429e0737cb9a"
+   },
+   {
+    "file": "M433_MiniFlex_Bipod_Crouched_track.csv",
+    "bytes": 21413,
+    "sha256": "607dbf6c1aedbd4f650b1a9e24815cb3e8d5cd60da1acae2c753e69a6f8ad5cb"
+   },
+   {
+    "file": "M433_MiniFlex_Bipod_ProneMounted_track.csv",
+    "bytes": 15387,
+    "sha256": "fb3e678b7184e11ca87a98f8ce4200d52487a5ade466b9978b5667084f814e0a"
+   },
+   {
+    "file": "M433_MiniFlex_Bipod_Prone_track.csv",
+    "bytes": 24034,
+    "sha256": "78277ee3d209b944f4ffa1dab38b5c30e671a88116bbd2aa2618a1307f65851c"
+   },
+   {
+    "file": "M433_MiniFlex_Bipod_Standing_track.csv",
+    "bytes": 20923,
+    "sha256": "324b6f561cf6b1dfce82a36e649f1c2b7acc9567b395d51541b34c34448d99b0"
+   },
+   {
+    "file": "M433_MiniFlex_None_CrouchMounted_track.csv",
+    "bytes": 20505,
+    "sha256": "0ed0f88ca4eb59a1b2f7152b2bffcf29c24f8c4f82b03d907b2bd4a8759a0e27"
+   },
+   {
+    "file": "M433_MiniFlex_None_Crouched_track.csv",
+    "bytes": 19581,
+    "sha256": "f18b19266ddafa4ee60c769a82dafa1881623b40811a5622b93bad368841763b"
+   },
+   {
+    "file": "M433_MiniFlex_None_Prone_track.csv",
+    "bytes": 20630,
+    "sha256": "c0d8b0ff104a2f788f5a70cef3c68ad89f908b3585eed974aeafada5db0a55c8"
+   },
+   {
+    "file": "M433_MiniFlex_None_Standing_track.csv",
+    "bytes": 20922,
+    "sha256": "17bb181fc83869b37faa1f943bd862dd312d302d6631d7aa5a6d1d042ccc1d6c"
+   }
+  ],
+  "recordingNote": "The mp4 clips are not in the site repo's Recordings folder on this machine (the note says they are kept locally only), so the per-frame track CSVs the note names are hashed instead.",
+  "evidenceSheet": "BF6 Weapon Analyzer/reference-data/provenance/stance-sway-measurement-2026-10-26.jpg",
+  "script": "BF6 Weapon Analyzer/scripts/stance-sway-track.py",
+  "siteCommits": {
+   "note": "baf907d 2026-10-26 Research: stance and mounted sway measured on the M433",
+   "uiChange": "f08f7a4 2026-10-26 Attachment Effects: Weapon Sway shows -100% in the Mounted stance"
+  },
+  "commands": "Command history is the note's own description (scripts/stance-sway-track.py over each clip); no command lines are recorded in the note, so none are reconstructed here. This draft was assembled by reading the note and hashing it."
+ },
+ "record": {
+  "v": 1,
+  "kind": "capture",
+  "date": "2026-10-26",
+  "build": "site-only",
+  "binding": "research"
+ },
+ "run": {
+  "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps",
+  "leadFolder": "L4063",
+  "note": "receipt drafted 30 Oct 2026 for an earlier measurement or recheck; the date is the evidence date"
+ }
+}

@@ -1,0 +1,270 @@
+{
+ "lead": "L4075",
+ "status": "proposal",
+ "build": "2.1.1.0",
+ "question": "Movement speed in m/s on 2.1.1.0: re-read the soldier operands of L4014 to L4016, the LMG x0.95 membership of all 67 weapons and the ADS-move index; compute walk, ADS walk, firing walk and sprint per weapon; propose a Mobility card row with a timing validation.",
+ "sourceFacts": {
+  "method": "Soldier assets re-read on 2.1.1.0 (main capture Head 5382784, descriptors c477622c); owner hashes differ from 1.4.3.5 so values were re-located by decode, not carried by hash; WB ADS-move index read through the 19 October pair-status owner offsets; LMG membership by tag-guid byte search in Ability/Equipment files of all 67 weapons with positive controls; compiled graph resource not captured.",
+  "control": {
+   "description": "Sprint 6.05 (Glacier_Soldier +3216) and walk 3.5 (+3224) read at the L4014 receipt offsets on 2.1.1.0 (main capture, Head 5382784, descriptors c477622c); the site M4A1 ADS-move value equals ADS_MOVE_TIERS at the raw index of M4A1_WB.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Gameplay\\Soldier\\Glacier_Soldier.ebx",
+     "rawSha256": "fbe4c448d2b2005fe80ae6bce75e2174558062261ddce8cd66727a94c1bd0087",
+     "offset": 3224,
+     "type": "f32",
+     "bytesHex": "00006040",
+     "value": 3.5
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Gameplay\\Soldier\\Glacier_Soldier.ebx",
+     "rawSha256": "fbe4c448d2b2005fe80ae6bce75e2174558062261ddce8cd66727a94c1bd0087",
+     "offset": 3216,
+     "type": "f32",
+     "bytesHex": "9a99c140",
+     "value": 6.050000190734863
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\M4A1\\M4A1_WB.ebx",
+     "rawSha256": "deeb876b845b66b7bca5f3350e9c399bbc02b83d05d19493a3e35b71c642bee9",
+     "offset": 5232,
+     "type": "u32",
+     "bytesHex": "07000000",
+     "value": 7
+    }
+   ],
+   "m4a1": {
+    "rawIndex": 7,
+    "tier": 0.67,
+    "siteValue": 0.67,
+    "sitePointers": [
+     "data/attachments.json:/WEAPON_MAG/m4a1/defAms (7)",
+     "data/balance_tables.json:/ADS_MOVE_TIERS/7 (0.67)",
+     "sim/applyAttachments.js: _adsMoveSpeedMult = ADS_MOVE_TIERS[defAms - magShift - gripShift - ammoShift - sightShift]",
+     "ui/app.js:1489 card Strafe Spd (group mobility); ui/app.js:3485 compare row ADS Move Speed"
+    ]
+   }
+  },
+  "facts": [
+   "Glacier_Soldier standing pose Class_7845fbab 475999738: Field_e4506828 (offset 3216) = 6.05, Field_1a2b6380 (3224) = 3.5; all eight pose entries identical to 1.4.3.5 and at the same offsets (hash fbe4c448 vs 22e0ccf0).",
+   "GRX_Glacier_Soldier: FastSprintTopSpeedMultiplier 2.05 at 17956, DefaultStandSprintTopSpeedMultiplier 1.857 at 23276 (min 1.0, max 3.0 in the same rows); 272 old rows vs 273 new, one added (ArmorGrantSpawnPlate), none changed.",
+   "SimEx_RootLayerLogic: all 189 input entries identical old vs new (inputs 75 LMG tag, 76 MachineGun tag, 79 FastSprintRequired, 80/81 the two multipliers); the compiled ResourceRef changed from 2bfca9f18b8f10e9 to 0550f387167b0bdd, which no 2.1.1.0 capture holds.",
+   "FastSprintRequired is referenced by 7 abilities on 2.1.1.0 at the L4014 offsets (Combat Knife, Geko Knife, Dino Machete, Ice Climbing Axe, EOD Arm, Defibrillator equipped, Repair Tool); the Dive Knife file is not in the main tree.",
+   "LMG and MachineGun tag imports are present in both the Ability and the Equipment file of exactly 11 weapons: l110 (Minimi), drsiar (M27IAR), m60 (M60E6), rpkm, m123k (MG4K), m250, kts100 (Ultimax), m240l, m121a2 (MG5), rpk74m and z84m (PKM, Season 5 raw). The other 56 files carry no tag (every file still imports the tag list: at least 15 entries).",
+   "WeaponZoomedMoveSpeedMultiplierIndex.Index (Class_542ac52c/Field_dcb8bf9e/Field_2b6f2936 in each WB) equals the site defAms for all 67 weapons and selects the ADS_MOVE_TIERS value the site shows (M4A1 index 7 = 0.67). 63 launch WB bytes equal across the main and the 15/22 October captures.",
+   "1.4.3.5 resource 2bfca9f18b8f10e9 (sha 82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef) holds 0.25, 0.8, 1.5, 1.1, 0.95, 1.1818, 1.75 at 4616..4648 (old build only)."
+  ],
+  "rawChecksFile": "rawchecks-all.json (161 reads; 161 matched; entries labelled in manifest-entries.json)",
+  "rawChecksControl": [
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Gameplay\\Soldier\\Glacier_Soldier.ebx",
+    "rawSha256": "fbe4c448d2b2005fe80ae6bce75e2174558062261ddce8cd66727a94c1bd0087",
+    "offset": 3224,
+    "type": "f32",
+    "bytesHex": "00006040",
+    "value": 3.5
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Gameplay\\Soldier\\Glacier_Soldier.ebx",
+    "rawSha256": "fbe4c448d2b2005fe80ae6bce75e2174558062261ddce8cd66727a94c1bd0087",
+    "offset": 3216,
+    "type": "f32",
+    "bytesHex": "9a99c140",
+    "value": 6.050000190734863
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\M4A1\\M4A1_WB.ebx",
+    "rawSha256": "deeb876b845b66b7bca5f3350e9c399bbc02b83d05d19493a3e35b71c642bee9",
+    "offset": 5232,
+    "type": "u32",
+    "bytesHex": "07000000",
+    "value": 7
+   }
+  ]
+ },
+ "inference": [
+  "Walk 3.5 and sprint 6.05 are the stored standing-pose speeds; knife-class fast sprint 3.5 x 2.05 = 7.175 stays an L4016 inference.",
+  "LMG sprint 6.05 x 0.95 = 5.7475 for tag members follows from the L4016 reading and the tag membership; the same tag membership as the site LMG class means the site can use its class flag.",
+  "ADS walk = 3.5 x the ADS ratio and firing walk = 3.5 x 0.8 are composition assumptions.",
+  "No stored value changed on 2.1.1.0 (L4056 recheck: soldier registry one row added, none changed; confirmed here for GS poses and GRX rows)."
+ ],
+ "unresolved": [
+  "needs capture: compiled resource 0550f387167b0bdd (2.1.1.0 SimEx_RootLayerLogic ResourceRef; old id 2bfca9f18b8f10e9). Without it the 0.95 LMG, 0.8 firing and 1.1/1.1818 constants and the FastSprintRequired logic are 1.4.3.5 readings only.",
+  "Gun walk/sprint: 6.05 equals the stored standing second speed; the L4016 graph would need a gun weapon input of about 0.931 that no file stores. Whether the graph or a native rule produces 6.05 is unread.",
+  "ADS-walk and firing-walk compositions (walk x ratio, walk x 0.8) are assumed, not read; whether 0.8 stacks with the ADS ratio is unknown.",
+  "LMG penalty: the flag that suppresses 0.95 (probably Support proficiency) and the stance compared are unnamed (L4016); which kits are exempt is unread. Tag membership is serialized; runtime use of the tag by the graph is inferred from the input names.",
+  "Other pose entries (3.0, 2.1, 0.9 and so on) have no confirmed pose-to-stance join; not proposed."
+ ],
+ "siteImpact": "Proposal only; no site change made. Proposed: Mobility-group row Move speed (m/s) beside Strafe Spd (ui/app.js:1489): walk 3.5 / ADS walk 3.5 x _adsMoveSpeedMult / sprint 6.05 (5.7475 for the 11 LMG-tag weapons). If the 50 m sprint reads 8.26 s (+-0.3 s): add walk and sprint (new constants in data/balance_tables.json plus one sim field); LMG sprint only if it reads 8.70 s; ADS walk only if a 20 m ADS strafe is within 5% of the prediction. Otherwise nothing is added. No existing stored value changes: ADS_MOVE_TIERS, defAms and the displayed ADS ratio match the source index for all 67 weapons.",
+ "evidence": {
+  "commands": [
+   "RECONSTRUCTED (session shell history not preserved as a log; commands re-listed from the run, not rerun). cwd for all: C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4075",
+   "python \"C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-ebx-decode.py\" --descriptors \"C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\toolchain\\SharedTypeDescriptors.ebx\" --ebx <raw .ebx> --out dec-new-<name>.json --root \"C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\\" --exact-floats  (Glacier_Soldier, GRX_Glacier_Soldier, SimEx_RootLayerLogic, Equipment_M240L, M240L_Ability, U_M240L)",
+   "python \"C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-ebx-decode.py\" --descriptors \"C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\toolchain\\SharedTypeDescriptors.ebx\" --ebx <old raw .ebx> --out dec-old-<name>.json --exact-floats  (Glacier_Soldier, GRX_Glacier_Soldier, pre-update SimEx_RootLayerLogic)",
+   "python scan1.py; python tagscan.py; python tagscan2.py; python tagctx.py; python insp.py; python insp2.py; python insp3.py; python grxoff.py; python grxdiff.py; python rspr.py; python fsscan.py; python l849.py; python wbads.py; python relocate.py; python sizes.py; python adsraw.py; python membership.py",
+   "node site-ads-move.mjs  (read-only import of C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer\\sim\\applyAttachments.js and sim\\loadout.js)",
+   "python build_manifest.py; python build_values.py; python build_docs.py; python build_final.py; python build_receipt.py",
+   "python \"C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py\" --manifest manifest.json --out rawchecks-all.json   (161 reads, 161 matched)",
+   "python \"C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-records.py\" check-receipt draft-receipt.json"
+  ],
+  "artifacts": [
+   {
+    "file": "rawchecks-all.json",
+    "sha256": "090e75b411d8f32b6040722d717b67c5bd536128ee80fba9ef36da30cefad05c"
+   },
+   {
+    "file": "manifest.json",
+    "sha256": "e14e7cbb99d789df3cb23fe4cd7fe01f108308dfcf312b345933f6d488f2dadb"
+   },
+   {
+    "file": "manifest-entries.json",
+    "sha256": "8cb4773050c173f32c403cc9baf0e6fe77cbbe6cac4d428b3210b81d1d366fc8"
+   },
+   {
+    "file": "values.json",
+    "sha256": "169d23cc2e2eb5394ffe13fb2d7efa9e280eaff217c757479b3844b9c794ef98"
+   },
+   {
+    "file": "l4075-result.json",
+    "sha256": "6b30006ad64555eadc0a36471aed94398f010f7fd709e3405015059f0541c77d"
+   },
+   {
+    "file": "membership.json",
+    "sha256": "1f681d14ff71598e651d43332331b2df1f42818ea3814deef541db823a9d9994"
+   },
+   {
+    "file": "adsraw.json",
+    "sha256": "24f3562e27a61f065aa959f528df553d4b79f910abd898bd10ad40383591d15e"
+   },
+   {
+    "file": "site-ads-move.json",
+    "sha256": "da986699934542391a9ea4ab9218b3a1d4eb704961ab538c00aa58dbe0e284e5"
+   },
+   {
+    "file": "grx-diff.json",
+    "sha256": "6de594fa7affdd9972a955d055c3fb322d2565572a0f434e1f463f4162880c0a"
+   },
+   {
+    "file": "fastsprint-scan.json",
+    "sha256": "43ab4aa35ce06f5346b901ff3687bcf3f8732b165c7f89e71c7a9159bd7663b6"
+   },
+   {
+    "file": "tagscan.json",
+    "sha256": "a255664b77685af0f37294b93a7cc935861c40b099b8e5fda8c60d151796d209"
+   },
+   {
+    "file": "proposal.md",
+    "sha256": "53c6ead321b5dc4b9f6db18ae830187f1da39b08454d6975a35b0ca440d180ca"
+   },
+   {
+    "file": "summary.md",
+    "sha256": "e79614f85725a9fb94f1b84ec1a4cf28dfadf9be4a9a648c08841700fec7e12c"
+   }
+  ],
+  "helperRevisionSha256": {
+   "adsraw.py": "2f31177e22d50fecbb0dc5d06e34fcb2365a7a28aeac30137f3f0725f1dc59cf",
+   "build_docs.py": "ce11702f6c5744d7891659cbd5e40524a74050efaa083bdf7656372772f9983d",
+   "build_final.py": "add9d9d9c54d884a1b6b2187f4749ac839c1107c433801486e1d8e8f885eaac1",
+   "build_manifest.py": "0022fbbbf38e259fe98aafa2803d11b77e710a7341ef1585ce251fdaae655e3d",
+   "build_values.py": "b92d2444a0d99fb141d129594797634cd96f955dbb291a83e13c7847a9d7b652",
+   "common_copy.py": "982378dde2bc25c607d00ac2019cf90614087f79cb0da2810384eb5569b6bd67",
+   "fsscan.py": "4a2dad0e4cc8b539c7ea2e76860445cb54051abc8d3924d309b356652cc22e3e",
+   "grxdiff.py": "b6d47f9e8cd03f2b20ec58bc836f8fe903398a074be36ad2946bf3c0f91ec01f",
+   "grxoff.py": "7085a28bee352ed0663cfd7229347a53a592bf8bb276fe40217dd8652045afa5",
+   "insp.py": "9258d3fd235a3e2b1bb882cd58944fb0bf8a6c4667bc0ae4b245ab5f951dc0e5",
+   "insp2.py": "b39be8bdc7534b606a7d5e9899fd4dbb0cdf54f5160ddcd9950a1177d4dc6bf9",
+   "insp3.py": "2fc11d005c9c87f44aa1c51348ebf8a4e55c87506865945123434c5d7240fa5e",
+   "l849.py": "2146e2d9143d1311a99926ed24aa9e2a3af89836bd74aafda99369d0319198d4",
+   "membership.py": "ef7ec54d109990dfaba6c6d36676f86e04364a93808ad4654e2a18a6ecf1685f",
+   "relocate.py": "f01c234abf7d3fb9a5f2a496a7232f77d48133db66628cbb30ae96f5629066fb",
+   "rspr.py": "a8c2af6727100f68bf006b1b6bd8a8fb9da2bf89d2f17665d48138095b670a69",
+   "scan1.py": "0fb411e61f0658d7f07411726c14f8135caecb01e012c7b8bfdb351604cf7bff",
+   "site-ads-move.mjs": "da2f4348312fec1732426cbb6816543ef1356e6ac6c417fe9632624197818c9b",
+   "sizes.py": "db5faa1c93361315031b2e1dc59f089d869d3b9011888fb38e86482097e98284",
+   "tagctx.py": "005c254ae509b87e350f6c68165b8e3c700a7d3ba40a280e8a501a139942cfad",
+   "tagscan.py": "e4dbc926ef0ae73c66ade417724de660cb19f2f7926880478e4ed6135c2acdb7",
+   "tagscan2.py": "5cf8445294e83c3e5e5523c3ca1000d5d934ed0dad210daaf5355c6337ba713f",
+   "wbads.py": "136375bc051ff53efd54b25755ccfbc67e1532cfe7ffa28559f8a17c8425ba01"
+  },
+  "note": "Helper SHA-256 values are those at the time build_receipt.py ran; later edits would change them. build_receipt.py itself is not listed (it writes this file)."
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-30",
+  "build": "2.1.1.0",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L4075",
+    "title": "Movement speed in m/s on 2.1.1.0: walk 3.5, sprint 6.05, LMG x0.95 on 11 tag-member weapons, firing x0.8; soldier values unchanged, compiled graph not captured; Mobility row proposal",
+    "status": "proposal",
+    "summary": "Walk 3.5 and sprint 6.05 re-read on 2.1.1.0 (pose entries and GRX multipliers unchanged), LMG tag membership is exactly the site's 11 LMG weapons, and the raw ADS-move index equals the site tier for all 67 weapons; a Mobility card row (walk / ADS walk / sprint in m/s) is proposed, validated by timing a 50 m sprint (8.26 s, LMG 8.70 s) and walk (14.29 s).",
+    "reopenWhen": "The compiled resource 0550f387167b0bdd is captured, or a timed run with a known distance disagrees with 6.05, 5.7475 or 3.5 m/s."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Gameplay/Soldier/Glacier_Soldier",
+    "format": "raw-ebx",
+    "sha256": "fbe4c448d2b2005fe80ae6bce75e2174558062261ddce8cd66727a94c1bd0087",
+    "question": "Do the soldier pose speeds 3.5 and 6.05 still read at the L4014 offsets on 2.1.1.0?",
+    "result": "useful",
+    "conclusion": "Standing pose second speed 6.05 at 3216 and first speed 3.5 at 3224; all eight pose entries equal 1.4.3.5."
+   },
+   {
+    "path": "Common/Gameplay/Soldier/GRX_Glacier_Soldier",
+    "format": "raw-ebx",
+    "sha256": "bf346beeb858dfdb9c1200f4fad8b093dc3b2a4cdddf3e78a66dac5a22b23279",
+    "question": "Do the sprint top-speed multipliers 2.05 and 1.857 still read on 2.1.1.0?",
+    "result": "useful",
+    "conclusion": "2.05 at 17956 and 1.857 at 23276; one row added to the registry, none changed."
+   },
+   {
+    "path": "Common/Gameplay/Soldier/Traversal/SimEx_RootLayerLogic",
+    "format": "raw-ebx",
+    "sha256": "1b80c0741d510a52cd9876cbfa03c27c8d4fd75f4be792e7ed2f453a9a27e62d",
+    "question": "Are the movement graph inputs (LMG tag, MachineGun tag, FastSprintRequired, the two multipliers) unchanged?",
+    "result": "useful",
+    "conclusion": "All 189 inputs identical to 1.4.3.5; the compiled resource id changed to 0550f387167b0bdd, not captured."
+   },
+   {
+    "path": "Common/Hardware/Weapons/MG/PKM/PKM_Ability",
+    "format": "raw-ebx",
+    "sha256": "f115dde7ef1da3fb4deccdc4098b2b8a24615aba67d489879b45754fab14e52f",
+    "question": "Does the Season 5 Z84M carry the LMG and MachineGun tags?",
+    "result": "useful",
+    "conclusion": "Both tag imports present, as on the ten launch MG weapons."
+   },
+   {
+    "path": "Common/Hardware/Weapons/Carbine/M4A1/M4A1_WB",
+    "format": "raw-ebx",
+    "sha256": "deeb876b845b66b7bca5f3350e9c399bbc02b83d05d19493a3e35b71c642bee9",
+    "question": "Does the raw ADS-move index of M4A1 select the tier the site shows?",
+    "result": "useful",
+    "conclusion": "Index 7 at 5232, ADS_MOVE_TIERS[7] = 0.67 = the site value."
+   }
+  ],
+  "site": [
+   {
+    "pointer": "data/attachments.json:/WEAPON_MAG/m4a1/defAms",
+    "value": "7",
+    "relation": "context"
+   },
+   {
+    "pointer": "data/balance_tables.json:/ADS_MOVE_TIERS",
+    "relation": "context"
+   },
+   {
+    "pointer": "data/balance_tables.json:/SOLDIER_MOVE",
+    "value": "walk 3.5, sprint 6.05, lmgSprintFactor 0.95, firingFactor 0.8",
+    "relation": "proposed"
+   }
+  ]
+ },
+ "run": {
+  "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps",
+  "leadFolder": "L4075"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "lead": "none",
+ "status": "finding",
+ "build": {
+  "current": "site-only (operator in-game recording, client 2.1.1.0, 17 October 2026)",
+  "note": "In-game measurement. Its source side is attachment audit entry (3c) in the site repo's docs/ATTACHMENT_BUGS.md (GS_MRGGA binds GID_ADSTime_MZL_M10 for the three Magnus suppressor packages); the note cites no raw hashes."
+ },
+ "question": "How long is the Mk 24's hip-to-ADS and ADS-to-hip transition at 120 fps with no muzzle and with each of the Hybrid Suppressor L, S and K (the Mini Flex 1x sight), i.e. does the ADS-time binding GS_MRGGA has for these suppressors show in the game?",
+ "sourceFacts": {
+  "recording": "MK24_Hybrid_Suppressor_ADS_Speed.mp4: 2560x1440 h264, 4,050 frames, r_frame_rate 120/1; frame timestamps jittery (median step 8.33 ms, 1st-99th percentile 7.28 to 9.31 ms) plus one 496 ms gap at the file start; extracted with -fps_mode passthrough so frame index = native frame; durations = frames / 120 * 1000 (PTS-based ms differ by under 2 ms). Optic is the Mini Flex 1x reflex (per the operator's correction), so the zoom change is small and the scene signal is dominated by the weapon model moving to or from the centre. The note's folder and scripts (mag.py, trans.py, summ.py, ex_*.png) sat in a session scratchpad (not kept in the repo).",
+  "method": "Signal (a), scene/weapon motion: mean absolute difference between consecutive 320x180 frames (dd[i] = frame i against i-1). Start = first frame i with dd[i] > 2.0 and dd[i+1] > 2.0. Strict end (primary) = first frame e with median(dd[e+1..e+6]) < 0.5 and max < 2.0; loose end uses median < 1.0; the p05-p95 variant is first/last frame at 5% / 95% of the way to the settled frame e+10. Signal (b), the magenta spread indicator in a 400x300 centre crop: absent in ADS; hip extent 117 px (None) or about 151 px (L/S/K); hip to ADS it vanishes in a single frame at full hip size 1 to 2 frames after scene start; ADS to hip it appears 3 to 5 frames after scene start at about 31 px and reaches full hip size 21 to 25 frames after scene start. Group boundaries from the muzzle-select menu screens: None frames 246-885, L 1265-1978, S 2342-3037, K 3336-4049.",
+  "hipToAdsPrimaryStrict": {
+   "None": {
+    "n": 2,
+    "median": "40.5 f = 337.5 ms",
+    "min": "40 f = 333.3",
+    "max": "41 f = 341.7",
+    "excluded": "the third (60 f, 500 ms) overlaps the post-menu exposure fade-in"
+   },
+   "L": {
+    "n": 3,
+    "median": "40 f = 333.3 ms",
+    "min": "40 f",
+    "max": "40 f"
+   },
+   "S": {
+    "n": 3,
+    "median": "40 f = 333.3 ms",
+    "min": "39 f = 325.0",
+    "max": "40 f = 333.3"
+   },
+   "K": {
+    "n": 3,
+    "median": "40 f = 333.3 ms",
+    "min": "40 f",
+    "max": "40 f",
+    "excluded": "the 4th transition is cut off by the video end"
+   }
+  },
+  "hipToAdsOtherEnds": {
+   "loose (median < 1.0)": {
+    "None": "35/34 f (median 34.5 = 287.5 ms)",
+    "L": "median 36 f = 300.0 (35-37)",
+    "S": "median 35 f = 291.7 (34-38)",
+    "K": "median 36 f = 300.0 (35-40)"
+   },
+   "p05-p95": {
+    "None": "42/40 f (median 41 = 341.7 ms)",
+    "L": "median 42 f = 350.0 (41-44)",
+    "S": "median 40 f = 333.3 (40-41)",
+    "K": "median 40 f = 333.3 (38-40)"
+   }
+  },
+  "adsToHipPrimaryStrict": {
+   "None": {
+    "n": 3,
+    "median": "38 f = 316.7 ms",
+    "range": "36 f = 300.0 to 40 f = 333.3"
+   },
+   "L": {
+    "n": 3,
+    "median": "35 f = 291.7 ms",
+    "range": "35 f to 36 f = 300.0"
+   },
+   "S": {
+    "n": 3,
+    "median": "35 f = 291.7 ms",
+    "range": "35 f to 36 f = 300.0"
+   },
+   "K": {
+    "n": 3,
+    "median": "36 f = 300.0 ms",
+    "range": "35 f = 291.7 to 37 f = 308.3"
+   }
+  },
+  "adsToHipOtherEnds": {
+   "loose": "None 31 (30-32), L 30 (29-31), S 30 (29-31), K 31 (29-31) frames",
+   "p05-p95": "None 38 (37-39), L 37 (36-38), S 38 (38-38), K 38 (37-38) frames"
+  },
+  "perTransitionStrict": "Columns start / end / frames / ms: None hip>ADS 297/357/60/500.0 (ambiguous, excluded), ADS>hip 383/423/40/333.3, hip>ADS 472/513/41/341.7, ADS>hip 563/601/38/316.7, hip>ADS 670/710/40/333.3, ADS>hip 757/793/36/300.0; L hip>ADS 1394/1434/40/333.3, ADS>hip 1478/1513/35/291.7, hip>ADS 1566/1606/40/333.3, ADS>hip 1658/1694/36/300.0, hip>ADS 1764/1804/40/333.3, ADS>hip 1860/1895/35/291.7; S hip>ADS 2488/2528/40/333.3, ADS>hip 2566/2602/36/300.0, hip>ADS 2658/2697/39/325.0, ADS>hip 2746/2781/35/291.7, hip>ADS 2834/2874/40/333.3, ADS>hip 2942/2977/35/291.7; K hip>ADS 3446/3486/40/333.3, ADS>hip 3527/3564/37/308.3, hip>ADS 3616/3656/40/333.3, ADS>hip 3710/3746/36/300.0, hip>ADS 3810/3850/40/333.3, ADS>hip 3902/3937/35/291.7, hip>ADS 4014 not settled (video ends 35 frames after start, excluded).",
+  "ambiguityAndDuplicates": "Ambiguous: the None group's first hip>ADS (fade-in overlap, 60 f) and first ADS>hip start (383, just after the fade-in). Strict against loose end differs by 4 to 9 frames; p05-p95 spans differ by up to 4 frames; frame-step quantisation is 8.33 ms; the start frame is exact to +-1 frame. Duplicated frames with dd < 0.005 in game segments: 11 of 2,764 (0.40%); dd < 0.02: 72 (2.6%, mostly static ADS holds); inside the 24 measured transitions no frame with dd < 0.3; packet count 4,050 = ffprobe count, no dropped or repeated timestamps beyond the 496 ms start gap.",
+  "panelContext": "From the site repo docs/ATTACHMENT_BUGS.md (3c): operator panels of 17 October show ADS time 250 ms with no muzzle and with each of the three suppressors; the offset from the panel's 250 ms to 333 ms is the settle criterion and is the same in all four muzzle states."
+ },
+ "inference": [
+  "Hip-to-ADS took 40 frames (333 ms by the strict criterion) for None, L, S and K alike (None 40 to 41, S 39 to 40), and ADS-to-hip 35 to 38 frames: no measurable muzzle effect on ADS time even though GS_MRGGA binds an ADS-time package for the three suppressors. This is the site audit's reading (docs/ATTACHMENT_BUGS.md 3c: 'Panel and recording show no effect; no change')."
+ ],
+ "unresolved": [
+  "Whether the GID_ADSTime_MZL_M10 binding is inactive, neutral or overridden at runtime is not settled by a measurement of the transition (the effect is absent in both the panel and the recording).",
+  "Numbers only: the strict, loose and p05-p95 criteria disagree by 4 to 9 frames, so absolute ADS time is a criterion choice; only the equality across muzzles is read from it.",
+  "n = 2 to 3 transitions per muzzle."
+ ],
+ "siteImpact": "None applied: the site applies no muzzle ADS-time step to the Hybrid Suppressors, and this recording supports leaving it so (attachment audit 3c, 'no change'). Note commit 5045409 (17 Oct 2026, with the wiring-check script and guide step). The pointer below is the Hybrid Suppressor L record, which has no ADS-time field.",
+ "evidence": {
+  "note": {
+   "file": "BF6 Weapon Analyzer/reference-data/provenance/mk24-hybrid-suppressor-ads-time-2026-10-17.md",
+   "sha256": "75d838c8b04a7e01d81cc12daee511f183770d912b5701f6b87cb3bd23e10680"
+  },
+  "recordingFolder": "reference-data/Recordings/10172026/ADS Speed/",
+  "clips": [
+   {
+    "file": "MK24_Hybrid_Suppressor_ADS_Speed.mp4",
+    "bytes": 41351521,
+    "sha256": "e0bcc3d502ef4d9655f5924aa35165a2405ea63b1520ba081a6108b0cb9e7cc9"
+   }
+  ],
+  "siteCommits": {
+   "note": "5045409 2026-10-17 Attachment wiring check script, guide step, and survey triage"
+  },
+  "commands": "Command history unavailable: the note lists its scripts (mag.py, trans.py, summ.py) but they were in a session scratchpad and no command lines are recorded."
+ },
+ "record": {
+  "v": 1,
+  "kind": "capture",
+  "date": "2026-10-17",
+  "build": "site-only",
+  "binding": "research",
+  "site": [
+   {
+    "pointer": "data/attachments.json:/MUZZLES/[id=hybrid_supp_l]",
+    "value": {
+     "id": "hybrid_supp_l",
+     "name": "Hybrid Suppressor L",
+     "suppressor": true,
+     "adsRecoilTierMod": 1,
+     "adsRecoilDecayMult": 1.2,
+     "hipRecoilDecayMult": 1.2,
+     "recoilDurationOverride": 0.05,
+     "hipSpreadTierMod": 1,
+     "pts": 30,
+     "sprintRecoveryTierShift": 1,
+     "hipRecoilTierMod": 1,
+     "deployTimeTierShift": 1,
+     "weaponSwayMult": 1.5,
+     "worldSpotMult": 0,
+     "minimapSpotMult": 0.14
+    },
+    "relation": "supports"
+   }
+  ]
+ },
+ "run": {
+  "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps",
+  "leadFolder": "L4063",
+  "note": "receipt drafted 30 Oct 2026 for an earlier measurement or recheck; the date is the evidence date"
+ }
+}

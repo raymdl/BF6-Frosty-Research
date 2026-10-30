@@ -1,0 +1,371 @@
+{
+ "lead": "L4061",
+ "status": "finding",
+ "build": {
+  "current": "2.1.1.0",
+  "note": "mixed: raw reads on 2.1.1.0, audit screenshots Jul to Sep 2026, EA 1.3.1.0 and 1.3.3.0 texts, closures recorded on 1.4.x builds",
+  "head": 5382784,
+  "descriptorSha256": "c477622c1074a9a4ea612cf9c60e26f666129721c733174192c121c808873ff6"
+ },
+ "question": "Do any of the 116 negative closures of the form 'stored value, no consumer found, site left alone' show the stored value acting in the stat screen, the screenshot audit or an EA note while the site does not model it?",
+ "sourceFacts": {
+  "method": "Each of the 116 closures was classified A to D from its lead-index summary and reopenWhen and its receipt's siteImpact and unresolved text. For each class A closure the stored value and the site stat it would change were named, then checked against (1) the audit's 3,133 stat panels with the correction ledgers overlaid, (2) the saved EA 1.3.1.0 and 1.3.3.0 texts plus the patch-notes inventory, (3) later leads in the lead index, the site bug list and the site docs. Raw files were read only for the control and for the one reopened lead.",
+  "control": {
+   "description": "L7 (spot-on-fire base, 'stored, no consumer found, site left alone') must be detected as acting by the method. Method: name the stored value and its stat-screen field, tally the audit's per-weapon values for that field over non-muzzle non-ammo panels, search the EA text. Result: the stat screen shows 27/64 on every M45A1 (15 of 15) and vz. 61 (18 of 18) panel against modal 54/150 on 59 other weapons, EA 1.3.3.0 line 128 states Subsonic by default, and the stored bases read 27 and 64.285713 at the L4008 offsets on 2.1.1.0. Verdict stands, fixed by L4008: detected.",
+   "passed": true,
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Secondary\\M45A1\\M45A1_WB.ebx",
+     "rawSha256": "8abd7cc29b21e1f9c7f7f40960392e98f19d067c4a63684db2a08dbc8d39c2e1",
+     "offset": 4424,
+     "type": "f32",
+     "bytesHex": "0000d841",
+     "value": 27.0
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Secondary\\M45A1\\M45A1_WB.ebx",
+     "rawSha256": "8abd7cc29b21e1f9c7f7f40960392e98f19d067c4a63684db2a08dbc8d39c2e1",
+     "offset": 4428,
+     "type": "f32",
+     "bytesHex": "49928042",
+     "value": 64.28571319580078
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Secondary\\Skorpion\\Skorpion_WB.ebx",
+     "rawSha256": "dfd789bce66f72a87b5006f1db5a579345c9f732002eb5ebfd338d8dff7b950f",
+     "offset": 5128,
+     "type": "f32",
+     "bytesHex": "0000d841",
+     "value": 27.0
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Secondary\\Skorpion\\Skorpion_WB.ebx",
+     "rawSha256": "dfd789bce66f72a87b5006f1db5a579345c9f732002eb5ebfd338d8dff7b950f",
+     "offset": 5132,
+     "type": "f32",
+     "bytesHex": "49928042",
+     "value": 64.28571319580078
+    }
+   ]
+  },
+  "classCounts": {
+   "A": 46,
+   "B": 12,
+   "C": 32,
+   "D": 26
+  },
+  "verdictCountsClassA": {
+   "stands": 30,
+   "stands, fixed by L4008": 1,
+   "unscreenable": 14,
+   "reopen": 1
+  },
+  "rawChecks": [
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Gameplay\\Soldier\\Glacier_Soldier.ebx",
+    "rawSha256": "fbe4c448d2b2005fe80ae6bce75e2174558062261ddce8cd66727a94c1bd0087",
+    "offset": 11592,
+    "type": "i32",
+    "bytesHex": "80003024",
+    "value": 607125632
+   }
+  ],
+  "auditFacts": [
+   "The audit stat panels give spot-on-fire per weapon: M45A1 27/64 on 15 of 15 and vz. 61 27/64 on 18 of 18 non-muzzle non-ammo panels.",
+   "24 of 24 Match Trigger panels equal their weapon's None panel on all 22 stat fields; 27 of 27 Aftermarket Buffer panels equal their None panel."
+  ],
+  "ledgersApplied": {
+   "screenshot-stat-corrections-2026-09-17.json:corrections": 375,
+   "precision-screenshot-corrections-2026-09-17.json:corrections": 23,
+   "precision-screenshot-corrections-2026-09-17.json:otherFieldCorrections": 7,
+   "composite-screenshot-corrections-2026-09-21.json:corrections": 351,
+   "hipfire-screenshot-corrections-2026-09-21.json:corrections": 12,
+   "frosty-audit-screenshot-corrections-2026-09-07.json:changes": 108
+  }
+ },
+ "inference": [
+  "The pattern 'stored, no consumer found, site left alone' produced one wrong consequence among the 116 closures (L7) and the method detects it; no other class A closure shows the stored value acting on a displayed stat or in an EA statement while the site omits it, except L3380.",
+  "L3380: EA states chest against armor 0.84x / 0.91x / 0.67x and the stored material 579 holds the same values, so the stored value is acting where armor exists; whether the standard multiplayer modes grant armor is not established, so this is a reopen for tracing and an operator decision, not a site change.",
+  "Most class A closures stand because the site already models the value later (Match Trigger semi block, console recoil factor) or because a later capture showed it not acting (L63)."
+ ],
+ "unresolved": [
+  "L3380: whether soft or ceramic armor exists in standard multiplayer modes, and the armor amount per plate (40/80/121/242 unexplained); needs the in-game armored-chest reading named in the L3380 receipt.",
+  "L3380 on 2.1.1.0: the head material 587 word is absent from the new Glacier_Soldier.ebx; the ceramic head 1.75 reading is not re-verified. Chest 579 is present at 11592.",
+  "The 7 Sep to 22 Sep audit screenshots predate 2.1.1.0; the ledgers were overlaid by recordIndex-free path matching (see applied counts), and 147 ledger rows had no matching current path (renamed or Old folder) so they were not applied.",
+  "EA coverage: only 1.3.1.0 and 1.3.3.0 are full texts; other updates are the inventory's summary and itemsTouched lines. A negative EA search is weaker for those.",
+  "Classes B, C and D rows were classified from the lead-index summary, reopenWhen and receipt siteImpact/unresolved text, not re-traced."
+ ],
+ "siteImpact": "None from this screening run: no Analyzer data, simulation or UI change. Conditional: L3380 is reopened as a candidate only. EA 1.3.3.0 states chest damage against armor of 0.84x (automatic), 0.91x (DMR) and 0.67x (bolt-action), the stored soldier material 579 holds the same values, and the site documents no armor model; an armor target option would need the mode applicability and plate amount first. Nothing else screened as acting and unmodelled.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4061",
+  "artifacts": [
+   {
+    "file": "l4061-result.json",
+    "sha256": "965188ff8e0a0c157e06704480361dd6a8437b2b7602553166c5f56dea03fd6a"
+   },
+   {
+    "file": "screening-table.md",
+    "sha256": "c8502778fee38fb07b9d4e09bd52968a54e12af3aa64b2a847a824535a35b42a"
+   },
+   {
+    "file": "reopened-queue-rows.md",
+    "sha256": "e675eec3ac79e156446040981ca5295b1277af9505a573102371c67065ced4c9"
+   },
+   {
+    "file": "summary.md",
+    "sha256": "35ce8f874d3dd013c02f7a1da1d26ed493b7799989940e46291a855171f4c0e4"
+   },
+   {
+    "file": "control-l7-detect.json",
+    "sha256": "b38b9ae8ed17fe5190d4c057e669cd7d3a6c8591f8d1e9221beef2a324219203"
+   },
+   {
+    "file": "rc_control_out.json",
+    "sha256": "9e3a4d1ceaa391b7123112970d427d533a6cb4fabf8a038efd2cea908fb52084"
+   },
+   {
+    "file": "rc_l3380_new.json",
+    "sha256": "a2d5db0b39c18e293f1d1fbac4b780cffd8adf16ec7ea6ffc6ef9c1bd39470ec"
+   },
+   {
+    "file": "rc_control.json",
+    "sha256": "01893b2ea8777321859bfc4c64f922854d496fdd2fbcc443c6a7bb08e35021ad"
+   },
+   {
+    "file": "rc_l3380.json",
+    "sha256": "0127f0b3d96220cfc4955672ae4efe836b1bf3fe777ec4788e8bc0e981a6c0b4"
+   },
+   {
+    "file": "verify-claims.json",
+    "sha256": "af6cbb44a5cf32a8d11800256fd4880211ad993e9428ff5f4f2621154c8f1205"
+   },
+   {
+    "file": "bytecheck-map.json",
+    "sha256": "851c097ffb556f308ab291161fc90a25638b5e00d72647dea01a408f415191cf"
+   },
+   {
+    "file": "dump116.txt",
+    "sha256": "d20933e38b10cf2141208039b8ba976c070cf17a3b7ac48c6f4f8d03292c67cf"
+   },
+   {
+    "file": "receipt-heads.txt",
+    "sha256": "d379fc27b8559bea79af26c260485407a42bd90d854d0269b8b84a78bd29e2eb"
+   }
+  ],
+  "helpers": [
+   {
+    "file": "auditlib.py",
+    "sha256": "a74afbbdea465b3d908c84dbc7f647d4c7cb4ed09e7f75301222f23b6a32be40"
+   },
+   {
+    "file": "control_l7.py",
+    "sha256": "b88ecc31d83e930f8f2d4b500e9ad401d40cccbf7e3da5feeaa864c8ece77de2"
+   },
+   {
+    "file": "probes1.py",
+    "sha256": "8d0ad583f6f1226f7db4e41010f294ab0fb6976bd299cadc26968a0b16c9ff39"
+   },
+   {
+    "file": "probes2.py",
+    "sha256": "ccd87a0b5be2b6c34afe0b91d145e80d7c44777a290648c663a0d228e75154d5"
+   },
+   {
+    "file": "verify_claims.py",
+    "sha256": "e98273d12941855a6f9ca11972b8bfc7d5fc8f69c673c0ebfa3dad5b2ba25bcb"
+   },
+   {
+    "file": "eacorpus.py",
+    "sha256": "cf557b0dfe02e65f6d989bf3624e6d233e18472cdf5641fae5b8f78a322cf9f4"
+   },
+   {
+    "file": "later.py",
+    "sha256": "7b0c24004a9df2ec3e189412258fdec4e092668c955da29d51e837a17ad148ee"
+   },
+   {
+    "file": "find_l3380.py",
+    "sha256": "9bf1e0392fd35f54dd193032acc129e9b17eebf63bae313af889f3963c60680b"
+   },
+   {
+    "file": "rows_data.py",
+    "sha256": "39a4ef9514f28207b6b9a333acd53d33fd286fb466288684dc209f35d4e7f2f1"
+   },
+   {
+    "file": "chk.py",
+    "sha256": "6ba4ed3e375d116f8043d3dbb6c180537372c0b158ca87372e3417486b221b61"
+   },
+   {
+    "file": "build_outputs.py",
+    "sha256": "a2f2911d2cb486ebf135c246f2f0fa3fe38e92cf3bf2a7defe5898d787c2801c"
+   }
+  ],
+  "commands": [
+   {
+    "label": "reconstructed; no command history kept",
+    "executable": "python",
+    "args": [
+     "control_l7.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4061",
+    "output": "control-l7-detect.json"
+   },
+   {
+    "label": "reconstructed",
+    "executable": "python",
+    "args": [
+     "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+     "--raw-root",
+     "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw",
+     "--manifest",
+     "rc_control.json",
+     "--out",
+     "rc_control_out.json"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4061"
+   },
+   {
+    "label": "reconstructed",
+    "executable": "python",
+    "args": [
+     "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+     "--raw-root",
+     "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw",
+     "--path",
+     "Common/Gameplay/Soldier/Glacier_Soldier",
+     "--offset",
+     "11592",
+     "--type",
+     "i32",
+     "--expect",
+     "607125632",
+     "--out",
+     "rc_l3380_new.json"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4061"
+   },
+   {
+    "label": "reconstructed (first read at the 1.4.3.5 offsets 11604 and 11584 failed because the file changed)",
+    "executable": "python",
+    "args": [
+     "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+     "--raw-root",
+     "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw",
+     "--manifest",
+     "rc_l3380.json",
+     "--out",
+     "rc_l3380_out.json"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4061"
+   },
+   {
+    "label": "reconstructed",
+    "executable": "python",
+    "args": [
+     "find_l3380.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4061"
+   },
+   {
+    "label": "reconstructed",
+    "executable": "python",
+    "args": [
+     "verify_claims.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4061"
+   },
+   {
+    "label": "reconstructed",
+    "executable": "python",
+    "args": [
+     "build_outputs.py"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4061"
+   },
+   {
+    "label": "reconstructed",
+    "executable": "python",
+    "args": [
+     "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-records.py",
+     "check-receipt",
+     "draft-receipt.json"
+    ],
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4061"
+   }
+  ],
+  "inputs": [
+   {
+    "file": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\weapon-registry-recheck-2026-10-19\\negative-leads-116.json",
+    "sha256": "21c8428743704ead94406b189489e2cedd3c35194f97b746339fffa2b8c4f22d"
+   },
+   {
+    "file": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer\\reference-data\\attachment-audit\\attachment-screenshot-review.json",
+    "sha256": "c5481249e16ae6e5f165cc540e863f75774f5f4bf7e294cc6c0cca7fbc47ab6a"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "audit",
+  "date": "2026-10-30",
+  "build": "mixed",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L4061",
+    "title": "Re-screen of the 'stored, no consumer found' negative closures",
+    "status": "finding",
+    "summary": "116 closures classified (A 46, B 12, C 32, D 26); the L7 control is detected; of 46 class A closures 30 stands, 14 unscreenable, 1 stands, fixed by L4008, 1 reopen; L3380 is reopened.",
+    "reopenWhen": "A new stat-screen set, EA note or in-game measurement covers one of the unscreenable class A rows (screening-table.md names the measurement for each)."
+   },
+   {
+    "id": "L3380",
+    "title": "Soldier armor as material swaps",
+    "status": "finding",
+    "statusNote": "reopened by L4061 screening",
+    "summary": "EA 1.3.3.0 states chest against armor 0.84x / 0.91x / 0.67x, the stored soldier material 579 holds the same values and the site documents no armor model.",
+    "reopenWhen": "Re-trace the head material and the 579 table on 2.1.1.0 (Glacier_Soldier changed), find whether soft or ceramic armor is granted in standard multiplayer modes, and decide with the operator whether an armor target option is wanted."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Hardware/Weapons/Secondary/M45A1/M45A1_WB",
+    "format": "raw-ebx",
+    "sha256": "8abd7cc29b21e1f9c7f7f40960392e98f19d067c4a63684db2a08dbc8d39c2e1",
+    "question": "Are the L7 spot-on-fire bases still 27 and 64.285713 on 2.1.1.0 at the L4008 offsets?",
+    "result": "useful",
+    "conclusion": "Offsets 4424 and 4428 read 27.0 and 64.28571319580078 although the file hash differs from 1.4.3.5."
+   },
+   {
+    "path": "Common/Hardware/Weapons/Secondary/Skorpion/Skorpion_WB",
+    "format": "raw-ebx",
+    "sha256": "dfd789bce66f72a87b5006f1db5a579345c9f732002eb5ebfd338d8dff7b950f",
+    "question": "Same control for the vz. 61 base.",
+    "result": "useful",
+    "conclusion": "Offsets 5128 and 5132 read 27.0 and 64.28571319580078."
+   },
+   {
+    "path": "Common/Gameplay/Soldier/Glacier_Soldier",
+    "format": "raw-ebx",
+    "sha256": "fbe4c448d2b2005fe80ae6bce75e2174558062261ddce8cd66727a94c1bd0087",
+    "question": "Is the L3380 chest material 579 still stored on 2.1.1.0?",
+    "result": "useful",
+    "conclusion": "Material 579 (80003024) reads at offset 11592 (was 11604); the head material 587 word is not present in the new file."
+   }
+  ],
+  "site": [
+   {
+    "pointer": "data/balance_tables.json:/CONSOLE_RECOIL_MULT",
+    "value": 0.95,
+    "relation": "supports"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=db12]/mag",
+    "value": 16,
+    "relation": "supports"
+   }
+  ]
+ },
+ "run": {
+  "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps",
+  "leadFolder": "L4061"
+ }
+}

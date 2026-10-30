@@ -1,0 +1,194 @@
+{
+ "lead": "none",
+ "status": "finding",
+ "build": {
+  "current": "site-only (operator in-game recordings, client 2.1.1.0, 23 October 2026)",
+  "note": "In-game measurement. The source binding it tests (ELR-40 CQB Suppressor binds the bolt-action recoil package) is attachment bug entry 27 in the site repo; the note does not cite raw hashes."
+ },
+ "question": "Does the ELR-40's CQB Suppressor (which binds the bolt-action recoil package: duration 0.066667 s instead of 0.025 s, recovery x1.728, recovery time exponent -0.5, none of it in its text) change the camera recoil trace against the Flash Hider (no recoil package)?",
+ "sourceFacts": {
+  "recordings": "ELR_CQBSuppressor.mp4 (1,860 frames at 116.3 fps) and ELR_FlashHider.mp4 (2,533 frames at 120.0 fps); firing range, ADS, five single shots each. The two clips were captured at different frame rates, so offsets are also given in ms.",
+  "method": "scripts/recoil-recording-track.py (track): camera displacement by template-matching the yellow range-sign templates (dy > 0 = camera climb, pixels of the 2560x1440 frame); per shot the trace is taken relative to the median of the three frames before the muzzle flash; template scores stayed at or above 0.65 (CQB) and 0.70 (Flash Hider). Trough = lowest point before the peak; peak = highest point within 30 frames; settled = mean over frames +30 to +40.",
+  "perShot": {
+   "columns": [
+    "trough px",
+    "peak px",
+    "peak at",
+    "settled px"
+   ],
+   "CQB Suppressor": {
+    "1": [
+     -31.1,
+     48.6,
+     "+18 f (155 ms)",
+     36.4
+    ],
+    "2": [
+     -30.5,
+     42.2,
+     "+20 f (172 ms)",
+     25.9
+    ],
+    "3": [
+     -39.4,
+     40.6,
+     "+20 f (172 ms)",
+     28.7
+    ],
+    "4": [
+     -29.3,
+     43.3,
+     "+20 f (172 ms)",
+     26.8
+    ],
+    "5": [
+     -32.6,
+     48.3,
+     "+18 f (155 ms)",
+     36.6
+    ]
+   },
+   "Flash Hider": {
+    "1": [
+     -28.5,
+     50.2,
+     "+9 f (75 ms)",
+     28.3
+    ],
+    "2": [
+     -29.6,
+     50.0,
+     "+9 f (75 ms)",
+     29.6
+    ],
+    "3": [
+     -38.7,
+     37.6,
+     "+9 f (75 ms)",
+     28.9
+    ],
+    "4": [
+     -39.7,
+     36.9,
+     "+20 f (167 ms)",
+     28.9
+    ],
+    "5": [
+     -44.7,
+     34.4,
+     "+21 f (175 ms)",
+     28.7
+    ]
+   }
+  },
+  "meanDyAgainstFramesAfterFlash": {
+   "frames": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    30,
+    40,
+    50,
+    60
+   ],
+   "CQB Suppressor": [
+    -17.0,
+    -11.6,
+    32.5,
+    18.6,
+    25.7,
+    43.4,
+    27.6,
+    32.6,
+    28.5,
+    22.3,
+    12.6
+   ],
+   "Flash Hider": [
+    -13.7,
+    -18.5,
+    38.3,
+    19.9,
+    15.8,
+    38.0,
+    24.5,
+    29.1,
+    27.5,
+    25.1,
+    20.2
+   ]
+  },
+  "summary": "Mean peak: CQB 43.4 px at +20 frames; Flash Hider 40.8 px at +9 frames. Mean settled level (+30 to +40): 30.9 against 28.9 px. Both clips show the bolt-action shape seen on the PSR (dip, first hump near +9 frames, second hump near +20, settle by +30). With the Flash Hider the first hump is the peak in shots 1 to 3 (50 px at 75 ms); with the CQB Suppressor the first hump is lower (28 to 39 px) and the second hump is the peak in every shot (41 to 49 px at 155 to 172 ms). Panel recoil is 1.7 deg for both."
+ },
+ "inference": [
+  "A kick delivered over 67 ms instead of 25 ms would build more slowly and peak later; the CQB Suppressor's kick reaches its peak about 90 ms later than the Flash Hider's with the early hump suppressed, and the net climb is about the same, as expected when the amount is unchanged. This is consistent with the recoil package being active on the CQB Suppressor; the note says it is not conclusive."
+ ],
+ "unresolved": [
+  "Five shots per clip, the camera animation's own oscillation, two capture frame rates, and the player's mouse not separated from the camera limit the reading.",
+  "The decisive comparison named by the note is the Long Suppressor (same package in the data): if its trace matches the CQB Suppressor's and both differ from the Flash Hider's the same way, the package is active. A Lightened Suppressor clip on the L115 or M2010 ESR, where the package is documented in the text, would give the reference shape. Neither was recorded."
+ ],
+ "siteImpact": "Supports site bug entry 27 (ELR-40 CQB Suppressor carries an unstated recoil package), logged by site commit 490fcd4 on 23 October 2026 with the bug label and recorded by the note's commit 589626d. The site pointer is the GAME_BUGS entry; no recoil number was changed by this note.",
+ "evidence": {
+  "note": {
+   "file": "BF6 Weapon Analyzer/reference-data/provenance/elr40-cqb-suppressor-recoil-2026-10-23.md",
+   "sha256": "c49580fbfecf53a09bde7268a88694690f960ff3741f3c5be69f85c1b290c7e8"
+  },
+  "recordingFolder": "reference-data/Recordings/10232026/ELR CQB Suppressor/",
+  "clips": [
+   {
+    "file": "ELR_CQBSuppressor.mp4",
+    "bytes": 19363264,
+    "sha256": "d1349aca2c7b4b1b94fdf11e936e35a485af40636e5f617c25a25e4b42b369ad"
+   },
+   {
+    "file": "ELR_FlashHider.mp4",
+    "bytes": 26314014,
+    "sha256": "2a92a86de2e6a5f92be5670fb3f85455a55d0c8686c54ac88700db6d57aa483b"
+   }
+  ],
+  "script": "BF6 Weapon Analyzer/scripts/recoil-recording-track.py (track)",
+  "siteCommits": {
+   "note": "589626d 2026-10-23 Research 23 Oct: Season 5 description-versus-effect scan and ELR-40 CQB Suppressor recordings",
+   "data": "490fcd4 2026-10-23 Attachment bug 27: ELR-40 CQB Suppressor logged as a game error with the bug label",
+   "wording": "aeebd30 2026-10-23 Update attachment game-error classifications and CQB suppressor wording"
+  },
+  "commands": "The note names the script and its track command but records no command line or working directory; none is reconstructed here."
+ },
+ "record": {
+  "v": 1,
+  "kind": "capture",
+  "date": "2026-10-23",
+  "build": "site-only",
+  "binding": "research",
+  "site": [
+   {
+    "pointer": "data/attachments.json:/GAME_BUGS/[ref=27]",
+    "value": {
+     "ref": "27",
+     "slot": "muzzle",
+     "attachments": [
+      "light_supp"
+     ],
+     "weapons": [
+      "elr40"
+     ],
+     "metrics": [
+      "Recoil Recovery",
+      "Recoil Duration"
+     ],
+     "note": "Also applies the sniper suppressors' recoil smoothing (a longer kick with faster recovery), which its text does not state."
+    },
+    "relation": "supports"
+   }
+  ]
+ },
+ "run": {
+  "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps",
+  "leadFolder": "L4063",
+  "note": "receipt drafted 30 Oct 2026 for an earlier measurement or recheck; the date is the evidence date"
+ }
+}

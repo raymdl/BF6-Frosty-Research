@@ -1,0 +1,253 @@
+{
+ "lead": "L4074",
+ "status": "finding",
+ "build": "2.1.1.0",
+ "question": "Read TimeToLive on all 94 PD files, map to the 68 site projectiles, integrate the site flight model for TimeToLive seconds and compare the reach with each damage curve last range; Range card note proposal.",
+ "sourceFacts": {
+  "ttlDistribution": {
+   "2.0": 39,
+   "6.0": 13,
+   "3.0": 19,
+   "0.5": 14,
+   "7.0": 2,
+   "1.5": 7
+  },
+  "pdInitialSpeedDistribution": {
+   "350.0": 80,
+   "0.0": 14
+  },
+  "controlRawChecks": [
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_12gaNo01Buck275_Semi.ebx",
+    "rawSha256": "1948da3cd67ef0742e25f20ef710e2b81b8fbc510954c75940c70fc19fa78595",
+    "offset": 436,
+    "type": "f32",
+    "bytesHex": "0000003f",
+    "value": 0.5,
+    "field": "Field_5ef7b9a1 TimeToLive",
+    "expect": 0.5
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_12gaSlug275_Semi.ebx",
+    "rawSha256": "b289e6135340ea5b915d2b750a94ba59c312997e8608d71b333acd7dded40c2c",
+    "offset": 564,
+    "type": "f32",
+    "bytesHex": "00000040",
+    "value": 2.0,
+    "field": "Field_5ef7b9a1 TimeToLive",
+    "expect": 2.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_556x45mmNATO_Carbine.ebx",
+    "rawSha256": "6f3d4ed4dfdd563f2dcac4aee4a4923836d11fd3178dcbdfa4ee662120e34f25",
+    "offset": 384,
+    "type": "f32",
+    "bytesHex": "0000af43",
+    "value": 350.0,
+    "field": "Field_0bf4f62b InitialSpeed (literal control clause; site m4a1 bulletVel is 590)",
+    "expect": 590.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\M4A1\\M4A1_WB.ebx",
+    "rawSha256": "deeb876b845b66b7bca5f3350e9c399bbc02b83d05d19493a3e35b71c642bee9",
+    "offset": 1184,
+    "type": "f32",
+    "bytesHex": "00801344",
+    "value": 590.0,
+    "expect": 590.0,
+    "field": "M4A1_WB Shot.InitialSpeed.z, path Field_58d70acb/Field_0bf4f62b/Field_32a99b9c (corrected control)"
+   }
+  ],
+  "allRawChecks": "rawcheck-all.json (188 reads with offsets, bytes, SHA-256)",
+  "shortestReachM": 151.608,
+  "selectionsShortOfCurve": 0
+ },
+ "inference": "The site model level-flight reach for TimeToLive seconds exceeds the last damage-curve range on all 353 selections; the RK4 vector reach differs by under 7 m.",
+ "unresolved": [
+  "Whether TimeToLive expires the projectile at runtime, and in seconds (source value only).",
+  "Reach uses bare-weapon velocity plus ammo treatments; velocity-raising barrels only lengthen reach, spread is not modelled.",
+  "PD file to site projectile mapping is by file name (site route key); the object GUID was not re-joined on 2.1.1.0.",
+  "The literal control clause (M4A1 velocity equals PD InitialSpeed) failed; the corrected WB control passed; operator to confirm.",
+  "Six Season 5 PD files were read from season5-uncaptured raw; the 15 and 22 Oct client captures were not compared."
+ ],
+ "siteImpact": "No selection is cut short: the shortest reach is 151.6 m (buckshot and flechette, TTL 0.5 s, site velocity 400 m/s) against curve last ranges of 22 to 34 m; the smallest reach-to-curve ratio is 3.5 (subsonic PDW 9x19, reach 262 m, curve 75 m). All 353 selections reach beyond their curve last range, so no Range card note is proposed (stays a finding). Beyond the curve end damage is the last plateau value, so lifetime would only matter for hits past the reach.",
+ "evidence": {
+  "files": {
+   "l4074-result.json": "fd0f4d5c4bd507376047abc52274b96da1b34f63d063bcf49309b6442de44991",
+   "values.json": "067731c353a5a5a8e50a7fec010dc3ae384dc9fdd4fd4c2873f797803b65206e",
+   "pd-read.json": "6776305159aeb008318c9c5a19d2b721fd912c0842cfb43b7b550cdb9f10c53c",
+   "rawcheck-all.json": "25b2f6e12415371488a5d3a4f202ce4ca6445edc52ce2153664168fd22a0225d",
+   "rawcheck-m4a1-wb.json": "a50ed80c44e140b84d2b741cf6231d4a1c0380b7540fc5ada4af7cfdf456820a",
+   "selections.json": "4ae242010da8bd206b8404a51f2c872cf1e23c8fa3be7477d67019aa5ca01155",
+   "projectile-rows.json": "2f104a9b78819cddf2c37c02490f523e4c7c4296fb0bd31c6aad884d5b5b1e6c"
+  },
+  "helpers": {
+   "read_pd.py": "375570bdf03ddfd3b7ea8e1738c49f9217d86cadb1aedac03d66e8452e01e480",
+   "mk_manifest.py": "8c3f3d89481442b1ebab8a7b55271221f247c97ca99e3f6f5d954407262b21f4",
+   "analyze2.py": "77f418e0186b4f82f539cf088ca0c437729be64e02cfc6109bb3f056469f4ba7",
+   "reach.mjs": "9c50018d0525dc5b742e267cc59b7ea07d9460f68aa3b1dc230a78c9eddb6e4d",
+   "ballistics.mjs": "1294dde059d4259694e1de74a93fbaac3cb2b97aea7314eaa828e34c5a71d1f3",
+   "wbvel.py": "7015ac740a749176ddfb3830dd67ac6f78864dee920c7186b5d7d69ed8df694c",
+   "build_out.py": "23e5049a48b7cc5d500c71b30444c099ef6d8bd592990650dfafc93af0aaa307"
+  },
+  "commands": [
+   {
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4074",
+    "argv": [
+     "python",
+     "read_pd.py"
+    ],
+    "note": "decodes 94 PD files with the 2.1.1.0 descriptors",
+    "output": "pd-read.json",
+    "sha256": "6776305159aeb008318c9c5a19d2b721fd912c0842cfb43b7b550cdb9f10c53c"
+   },
+   {
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4074",
+    "argv": [
+     "python",
+     "mk_manifest.py"
+    ],
+    "output": "manifest.json",
+    "sha256": "06c55e15de6b9e6f3ae3f6fe6b83e09c9100a3d051d747d3f4ffceb5cb1438eb"
+   },
+   {
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4074",
+    "argv": [
+     "python",
+     "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+     "--manifest",
+     "manifest.json",
+     "--out",
+     "rawcheck-all.json"
+    ],
+    "output": "rawcheck-all.json",
+    "sha256": "25b2f6e12415371488a5d3a4f202ce4ca6445edc52ce2153664168fd22a0225d"
+   },
+   {
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4074",
+    "argv": [
+     "python",
+     "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+     "--path",
+     "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\M4A1\\M4A1_WB.ebx",
+     "--offset",
+     "1184",
+     "--type",
+     "f32",
+     "--expect",
+     "590",
+     "--out",
+     "rawcheck-m4a1-wb.json"
+    ],
+    "output": "rawcheck-m4a1-wb.json",
+    "sha256": "a50ed80c44e140b84d2b741cf6231d4a1c0380b7540fc5ada4af7cfdf456820a"
+   },
+   {
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4074",
+    "argv": [
+     "python",
+     "analyze2.py"
+    ],
+    "note": "reconstructed final invocation; runs node reach.mjs reach-in.json reach-out.json; two earlier slow runs were aborted",
+    "outputs": {
+     "selections.json": "4ae242010da8bd206b8404a51f2c872cf1e23c8fa3be7477d67019aa5ca01155",
+     "projectile-rows.json": "2f104a9b78819cddf2c37c02490f523e4c7c4296fb0bd31c6aad884d5b5b1e6c",
+     "reach-out.json": "774f3517bbb49e10b785a2e87b6b3095eeba476ddcb946e8846a21d3c7d65163"
+    }
+   },
+   {
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4074",
+    "argv": [
+     "python",
+     "wbvel.py",
+     "Common/Hardware/Weapons/Carbine/M4A1/M4A1_WB"
+    ],
+    "note": "locates the WB velocity offset"
+   }
+  ],
+  "siteInputs": {
+   "data/ballistics.json": "f6eedb270bde4df7df0d28ff920409ce3d4afadc8db25a56481ce3eb6a7b683a",
+   "data/ammo.json": "1f9e1760009c93f4ebdaf2472a2e4d8f8177ff0774aac5e9847978b38a15b5cd",
+   "data/weapons.json": "5c1a461b5f5f7d0a1ef2607b998f8a16f1b43289ffc66704a5ab4c39e7a4cf53",
+   "sim/ballistics.js": "1294dde059d4259694e1de74a93fbaac3cb2b97aea7314eaa828e34c5a71d1f3"
+  }
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-30",
+  "build": "2.1.1.0",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L4074",
+    "title": "Projectile lifetime vs damage curve (L22/L25 on 2.1.1.0)",
+    "status": "finding",
+    "summary": "TimeToLive was read on all 94 PD files and no site ammo selection (353) has a flight reach shorter than its damage curve last range, so no Range card lifetime note is proposed.",
+    "reopenWhen": "A runtime recording shows hits vanishing inside the curve range, or a new projectile has TimeToLive times velocity below its curve last range."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Hardware/Weapons/_Bullets/PD_12gaNo01Buck275_Semi",
+    "format": "raw-ebx",
+    "sha256": "1948da3cd67ef0742e25f20ef710e2b81b8fbc510954c75940c70fc19fa78595",
+    "question": "Read TimeToLive on 2.1.1.0",
+    "result": "useful",
+    "conclusion": "TimeToLive 0.5 s"
+   },
+   {
+    "path": "Common/Hardware/Weapons/_Bullets/PD_12gaSlug275_Semi",
+    "format": "raw-ebx",
+    "sha256": "b289e6135340ea5b915d2b750a94ba59c312997e8608d71b333acd7dded40c2c",
+    "question": "Read TimeToLive on 2.1.1.0",
+    "result": "useful",
+    "conclusion": "TimeToLive 2.0 s"
+   },
+   {
+    "path": "Common/Hardware/Weapons/_Bullets/PD_556x45mmNATO_Carbine",
+    "format": "raw-ebx",
+    "sha256": "6f3d4ed4dfdd563f2dcac4aee4a4923836d11fd3178dcbdfa4ee662120e34f25",
+    "question": "Read InitialSpeed against site m4a1 bulletVel on 2.1.1.0",
+    "result": "useful",
+    "conclusion": "InitialSpeed 350, not the site 590 (literal control clause fails)"
+   },
+   {
+    "path": "Common/Hardware/Weapons/_Bullets/PD_.357Magnum",
+    "format": "raw-ebx",
+    "sha256": "c66d4043b3c88b8162a30a7e26b189ae8902b502ddb6b631c1a72473a8baafe7",
+    "question": "Read InitialSpeed on 2.1.1.0",
+    "result": "useful",
+    "conclusion": "InitialSpeed 0, as on 12 PD files; not a muzzle velocity"
+   },
+   {
+    "path": "Common/Hardware/Weapons/Carbine/M4A1/M4A1_WB",
+    "format": "raw-ebx",
+    "sha256": "deeb876b845b66b7bca5f3350e9c399bbc02b83d05d19493a3e35b71c642bee9",
+    "question": "Shot.InitialSpeed.z for the corrected control",
+    "result": "useful",
+    "conclusion": "590.0 at offset 1184, equals site m4a1 bulletVel"
+   }
+  ],
+  "site": [
+   {
+    "pointer": "data/ballistics.json:/projectiles",
+    "value": "69 keys, 68 used",
+    "relation": "context"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=m4a1]/bulletVel",
+    "value": 590,
+    "relation": "supports"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=db12]/dmg",
+    "relation": "context"
+   }
+  ]
+ },
+ "run": {
+  "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps",
+  "leadFolder": "L4074"
+ }
+}

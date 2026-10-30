@@ -1,0 +1,840 @@
+{
+ "lead": "L4060",
+ "status": "finding",
+ "build": "2.1.1.0",
+ "question": "Census of the 1,277 added and 86 changed 2.1.1.0 strings that carry a number, percentage or unit: group by consumer, trace gameplay-relevant ones to the UI metadata asset and the stored value, reproduce the Quick Plating control, resolve the M2010 ESR / SV-98 description ids and the three E6 strings.",
+ "sourceFacts": [
+  {
+   "fact": "Control reproduced: string 3EA804EE consumer and stored 1.5 / 35 read back at raw offsets; no 1.25, 0.75, 0.8, 4/3, 0.25 or 25 stored in the two graph bodies or the five ability ebx files.",
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\class-perk-graphs-2026-10-21\\resources\\03bf46cd9c5bc85d.res",
+     "rawSha256": "bc45b518d0dfcba4d246e37a01aeecf9429e5876bc832e47ac9399b5a8f47614",
+     "offset": 100,
+     "type": "f32",
+     "bytesHex": "0000c03f",
+     "value": 1.5
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\class-perk-graphs-2026-10-21\\resources\\03bf46cd9c5bc85d.res",
+     "rawSha256": "bc45b518d0dfcba4d246e37a01aeecf9429e5876bc832e47ac9399b5a8f47614",
+     "offset": 104,
+     "type": "i32",
+     "bytesHex": "23000000",
+     "value": 35
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\class-perk-graphs-2026-10-21\\resources\\f0dbf44d597de801.res",
+     "rawSha256": "bc45b518d0dfcba4d246e37a01aeecf9429e5876bc832e47ac9399b5a8f47614",
+     "offset": 100,
+     "type": "f32",
+     "bytesHex": "0000c03f",
+     "value": 1.5
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\class-perk-graphs-2026-10-21\\resources\\f0dbf44d597de801.res",
+     "rawSha256": "bc45b518d0dfcba4d246e37a01aeecf9429e5876bc832e47ac9399b5a8f47614",
+     "offset": 104,
+     "type": "i32",
+     "bytesHex": "23000000",
+     "value": 35
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\UI\\MetaData\\UIPlayerAbilityDescriptionMetadata.ebx",
+     "rawSha256": "393af3d78e2e52851ee23fad8b4be3c8eec1d9d01bfdde0472c715b4fd876ab4",
+     "offset": 4816,
+     "type": "u32",
+     "bytesHex": "ee04a83e",
+     "value": 1051198702
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\UI\\MetaData\\UIPlayerAbilityDescriptionMetadata.ebx",
+     "rawSha256": "393af3d78e2e52851ee23fad8b4be3c8eec1d9d01bfdde0472c715b4fd876ab4",
+     "offset": 35888,
+     "type": "u32",
+     "bytesHex": "ee04a83e",
+     "value": 1051198702
+    }
+   ]
+  },
+  {
+   "fact": "3EA804EE perk: Armor replating is 33% faster. -> Armor replating is 25% faster.; stored: f32 1.5 (+ i32 stat id 35) in the SimEx_Ability_Pointman_Base and SimEx_FasterArmorReplate graph bodies (identical 304-byte bodies, raw sha256 bc45b518...); 1/1.5 = 0.667 of base plate time = 33% faster, not 25%. No 1.25 / 0.75 / 25 stored beside it.; verdict disagree",
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\UI\\MetaData\\UIPlayerAbilityDescriptionMetadata.ebx",
+     "rawSha256": "393af3d78e2e52851ee23fad8b4be3c8eec1d9d01bfdde0472c715b4fd876ab4",
+     "offset": 4816,
+     "type": "u32",
+     "bytesHex": "ee04a83e",
+     "value": 1051198702
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\UI\\MetaData\\UIPlayerAbilityDescriptionMetadata.ebx",
+     "rawSha256": "393af3d78e2e52851ee23fad8b4be3c8eec1d9d01bfdde0472c715b4fd876ab4",
+     "offset": 35888,
+     "type": "u32",
+     "bytesHex": "ee04a83e",
+     "value": 1051198702
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\class-perk-graphs-2026-10-21\\resources\\03bf46cd9c5bc85d.res",
+     "rawSha256": "bc45b518d0dfcba4d246e37a01aeecf9429e5876bc832e47ac9399b5a8f47614",
+     "offset": 100,
+     "type": "f32",
+     "bytesHex": "0000c03f",
+     "value": 1.5
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\class-perk-graphs-2026-10-21\\resources\\03bf46cd9c5bc85d.res",
+     "rawSha256": "bc45b518d0dfcba4d246e37a01aeecf9429e5876bc832e47ac9399b5a8f47614",
+     "offset": 104,
+     "type": "i32",
+     "bytesHex": "23000000",
+     "value": 35
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\class-perk-graphs-2026-10-21\\resources\\f0dbf44d597de801.res",
+     "rawSha256": "bc45b518d0dfcba4d246e37a01aeecf9429e5876bc832e47ac9399b5a8f47614",
+     "offset": 100,
+     "type": "f32",
+     "bytesHex": "0000c03f",
+     "value": 1.5
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\class-perk-graphs-2026-10-21\\resources\\f0dbf44d597de801.res",
+     "rawSha256": "bc45b518d0dfcba4d246e37a01aeecf9429e5876bc832e47ac9399b5a8f47614",
+     "offset": 104,
+     "type": "i32",
+     "bytesHex": "23000000",
+     "value": 35
+    }
+   ]
+  },
+  {
+   "fact": "FF6C97C1 perk: Resistance to explosive damage. -> Resistance to explosive damage increased by 33%.; stored: f32 0.67 explosive multiplier (Field_658381bd) in Affector_FlakJacket offset 216; same 0.67 in Affector_Flak. 1 - 0.67 = 33%.; verdict agree",
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\UI\\MetaData\\UIPlayerAbilityDescriptionMetadata.ebx",
+     "rawSha256": "393af3d78e2e52851ee23fad8b4be3c8eec1d9d01bfdde0472c715b4fd876ab4",
+     "offset": 144,
+     "type": "u32",
+     "bytesHex": "c1976cff",
+     "value": 4285306817
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\UI\\MetaData\\UIPlayerAbilityDescriptionMetadata.ebx",
+     "rawSha256": "393af3d78e2e52851ee23fad8b4be3c8eec1d9d01bfdde0472c715b4fd876ab4",
+     "offset": 9440,
+     "type": "u32",
+     "bytesHex": "c1976cff",
+     "value": 4285306817
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Gameplay\\InRoundProgression\\Flak\\Affector_FlakJacket.ebx",
+     "rawSha256": "c7b2d474a87c29b1719b6ff8236744579e47773ef1c8d4958583774b9340facf",
+     "offset": 216,
+     "type": "f32",
+     "bytesHex": "1f852b3f",
+     "value": 0.6700000166893005
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Gameplay\\InRoundProgression\\Flak\\Affector_Flak.ebx",
+     "rawSha256": "8e3356d3b38d149b9b20216bf668d99c6014ba20f98694cd9376e8f3888fa04a",
+     "offset": 216,
+     "type": "f32",
+     "bytesHex": "1f852b3f",
+     "value": 0.6700000166893005
+    }
+   ]
+  },
+  {
+   "fact": "5F320CDA weapon description:  -> Classic GPMG modernized for the 21st century. A 100-round belt box feeds ammunition from the right.; stored: PKM_WB Ammo MagazineCapacity (Field_7f22bfb4) u32 101 at offset 1728; capacity includes the chambered round (FIELD_MAP), so a 100-round belt box = 101.; verdict agree",
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\MG\\PKM\\PKM_WB.ebx",
+     "rawSha256": "f1e6657c274daea16e289cf183402bae508049954e69f5edce609c8c5b56d851",
+     "offset": 1728,
+     "type": "u32",
+     "bytesHex": "65000000",
+     "value": 101
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-names-availability-2026-10-13\\raw\\Common\\UI\\Static\\Metadata\\S5\\UIWeaponAbilityMetaData_S5B1.ebx",
+     "rawSha256": "4e8b559b490a68633cd6b3ff7a04e42731eb8c902ce645627e591779336cc974",
+     "offset": 5680,
+     "type": "u32",
+     "bytesHex": "da0c325f",
+     "value": 1597115610
+    }
+   ]
+  },
+  {
+   "fact": "61371A94 attachment description (AD):  -> Blocked magwell for individually loading custom 9.52×70mm rounds, dealing massive damage between 30m and 60m but at the ; stored: PD_.375EnABELR_API curve (the bullet the site selects for Single Shot, stage9 singleshot work): 0 m 90, 24 m 90, 42 m 120, 68 m 120, 80 m 100, 140 m 80; peak 120 from 42 m to 68 m, not 30-60 m. The AD_CDX40_MAG_001Cpt1 to API bullet join is the site inference, not re-proved here.; verdict disagree",
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_.375EnABELR_API.ebx",
+     "rawSha256": "5bd0a777118357104cfc039aaf5906aec9ee6d7306aa40ee00c0a606743d1020",
+     "offset": 1204,
+     "type": "f32",
+     "bytesHex": "00000000",
+     "value": 0.0
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_.375EnABELR_API.ebx",
+     "rawSha256": "5bd0a777118357104cfc039aaf5906aec9ee6d7306aa40ee00c0a606743d1020",
+     "offset": 1208,
+     "type": "f32",
+     "bytesHex": "0000b442",
+     "value": 90.0
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_.375EnABELR_API.ebx",
+     "rawSha256": "5bd0a777118357104cfc039aaf5906aec9ee6d7306aa40ee00c0a606743d1020",
+     "offset": 1212,
+     "type": "f32",
+     "bytesHex": "0000c041",
+     "value": 24.0
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_.375EnABELR_API.ebx",
+     "rawSha256": "5bd0a777118357104cfc039aaf5906aec9ee6d7306aa40ee00c0a606743d1020",
+     "offset": 1216,
+     "type": "f32",
+     "bytesHex": "0000b442",
+     "value": 90.0
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_.375EnABELR_API.ebx",
+     "rawSha256": "5bd0a777118357104cfc039aaf5906aec9ee6d7306aa40ee00c0a606743d1020",
+     "offset": 1220,
+     "type": "f32",
+     "bytesHex": "00002842",
+     "value": 42.0
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_.375EnABELR_API.ebx",
+     "rawSha256": "5bd0a777118357104cfc039aaf5906aec9ee6d7306aa40ee00c0a606743d1020",
+     "offset": 1224,
+     "type": "f32",
+     "bytesHex": "0000f042",
+     "value": 120.0
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_.375EnABELR_API.ebx",
+     "rawSha256": "5bd0a777118357104cfc039aaf5906aec9ee6d7306aa40ee00c0a606743d1020",
+     "offset": 1228,
+     "type": "f32",
+     "bytesHex": "00008842",
+     "value": 68.0
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_.375EnABELR_API.ebx",
+     "rawSha256": "5bd0a777118357104cfc039aaf5906aec9ee6d7306aa40ee00c0a606743d1020",
+     "offset": 1232,
+     "type": "f32",
+     "bytesHex": "0000f042",
+     "value": 120.0
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-descriptors-2026-10-13\\raw\\Common\\UI\\Static\\Metadata\\Attachments\\CDX40\\AD_CDX40_MAG_001Cpt1.ebx",
+     "rawSha256": "290de2c46167575b0ba2ee15d07325d16860ca5ce8bd565a5cd66e25278acf8f",
+     "offset": 296,
+     "type": "u32",
+     "bytesHex": "941a3761",
+     "value": 1631001236
+    }
+   ]
+  },
+  {
+   "fact": "9BEB5135 weapon description:  -> Extreme Long Range rifle chambered in 9.52×70mm. Most effective between between 150m-180m. Can be loaded via magazine or; stored: PD_.375EnABELR_Match flat curve Field_5279388d [0,80, 120,80, 150,100, 180,100, 210,62]: peak damage 100 from 150 m to 180 m; the site elr40 curve is identical. The CDX40_WB to bullet join is the site convention, not re-proved here.; verdict agree",
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_.375EnABELR_Match.ebx",
+     "rawSha256": "eeb72517724e100411907ae30ce231cf9ec3f47534f345903ecc3a4ebe2f3c08",
+     "offset": 1220,
+     "type": "f32",
+     "bytesHex": "00001643",
+     "value": 150.0
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_.375EnABELR_Match.ebx",
+     "rawSha256": "eeb72517724e100411907ae30ce231cf9ec3f47534f345903ecc3a4ebe2f3c08",
+     "offset": 1224,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_.375EnABELR_Match.ebx",
+     "rawSha256": "eeb72517724e100411907ae30ce231cf9ec3f47534f345903ecc3a4ebe2f3c08",
+     "offset": 1228,
+     "type": "f32",
+     "bytesHex": "00003443",
+     "value": 180.0
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\_Bullets\\PD_.375EnABELR_Match.ebx",
+     "rawSha256": "eeb72517724e100411907ae30ce231cf9ec3f47534f345903ecc3a4ebe2f3c08",
+     "offset": 1232,
+     "type": "f32",
+     "bytesHex": "0000c842",
+     "value": 100.0
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-names-availability-2026-10-13\\raw\\Common\\UI\\Static\\Metadata\\S5\\UIWeaponAbilityMetaData_S5B1.ebx",
+     "rawSha256": "4e8b559b490a68633cd6b3ff7a04e42731eb8c902ce645627e591779336cc974",
+     "offset": 720,
+     "type": "u32",
+     "bytesHex": "3551eb9b",
+     "value": 2615890229
+    }
+   ]
+  },
+  {
+   "fact": "M2010 ESR and SV-98 description ids 2DB86D4C / E8EA1B59 held by records, absent from 2.1.1.0 and both 1.4.3.5 string tables.",
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\UI\\MetaData\\UIWeaponAbilityMetaData.ebx",
+     "rawSha256": "75111e9a804aebfc05cb19218d75340fac658fd94d9b3109e12af163b5d73e7b",
+     "offset": 55208,
+     "type": "u32",
+     "bytesHex": "4c6db82d",
+     "value": 767061324
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\UI\\MetaData\\UIWeaponAbilityMetaData.ebx",
+     "rawSha256": "75111e9a804aebfc05cb19218d75340fac658fd94d9b3109e12af163b5d73e7b",
+     "offset": 18432,
+     "type": "u32",
+     "bytesHex": "591beae8",
+     "value": 3907656537
+    }
+   ]
+  },
+  {
+   "fact": "E6 VSSM \"10 RND Mag\": Common/UI/Static/Metadata/Attachments/VSSM/AD_VSSM_MAG_010Cpt1: Field_33a358a7 -> ABDA7AAC, Field_490f0dd0 -> 67CFDCC6 (2.1.1.0 raw sha256 e48e5d6c...; 1.4.3.5 raw sha256 84826f84... held ABDC2EB4 at the same offset 240)",
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\UI\\Static\\Metadata\\Attachments\\VSSM\\AD_VSSM_MAG_010Cpt1.ebx",
+     "rawSha256": "e48e5d6c6a298bdb39344bf5680382158aaf00d2baf6abbe0ccfeb2b4853dfce",
+     "offset": 240,
+     "type": "u32",
+     "bytesHex": "c6dccf67",
+     "value": 1741675718
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\UI\\Static\\Metadata\\Attachments\\VSSM\\AD_VSSM_MAG_010Cpt1.ebx",
+     "rawSha256": "e48e5d6c6a298bdb39344bf5680382158aaf00d2baf6abbe0ccfeb2b4853dfce",
+     "offset": 296,
+     "type": "u32",
+     "bytesHex": "ac7adaab",
+     "value": 2883222188
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\UI\\Static\\Metadata\\Attachments\\VSSM\\AD_VSSM_MAG_010Cpt1.ebx",
+     "rawSha256": "84826f84c543c6d7772e9b02b549cb4e8aa9e4af84cf74a97b4faae47fe273e4",
+     "offset": 240,
+     "type": "u32",
+     "bytesHex": "b42edcab",
+     "value": 2883333812
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\UI\\Static\\Metadata\\Attachments\\VSSM\\AD_VSSM_MAG_010Cpt1.ebx",
+     "rawSha256": "84826f84c543c6d7772e9b02b549cb4e8aa9e4af84cf74a97b4faae47fe273e4",
+     "offset": 296,
+     "type": "u32",
+     "bytesHex": "ac7adaab",
+     "value": 2883222188
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\VSSM\\AAM_VSSM.ebx",
+     "rawSha256": "e5dc82c5bb8f6286c0ff62fa34368975dd54bf8abf4510edf4e3831756cbdae1",
+     "offset": 11296,
+     "type": "u32",
+     "bytesHex": "d6e68ee6",
+     "value": 3868124886
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\DMR\\VSSM\\AAM_VSSM.ebx",
+     "rawSha256": "e5dc82c5bb8f6286c0ff62fa34368975dd54bf8abf4510edf4e3831756cbdae1",
+     "offset": 5056,
+     "type": "u32",
+     "bytesHex": "8336ddab",
+     "value": 2883401347
+    }
+   ]
+  },
+  {
+   "fact": "E6 IR Smoke Shell: Common/Hardware/Vehicles/Boat/CB90/UIMetaData_Vehicle_Boat_CB90 object 18 (label \"PatrolBoat Ability : 120mm Mortar IR-SMK\"): Field_70b5525f -> 6582557A, Field_33a358a7 -> 65785778, Field_fd698f51 -> 31D09422. On 1.4.3.5 Field_fd698f51 pointed at 6582557A, so the name pointer moved to the added stri",
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Vehicles\\Boat\\CB90\\UIMetaData_Vehicle_Boat_CB90.ebx",
+     "rawSha256": "8559a6885e14ccb94106512c8853bbd116964c632bd6d6afb4c16410e8dfb087",
+     "offset": 11304,
+     "type": "u32",
+     "bytesHex": "7a558265",
+     "value": 1703040378
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Vehicles\\Boat\\CB90\\UIMetaData_Vehicle_Boat_CB90.ebx",
+     "rawSha256": "8559a6885e14ccb94106512c8853bbd116964c632bd6d6afb4c16410e8dfb087",
+     "offset": 8928,
+     "type": "u32",
+     "bytesHex": "78577865",
+     "value": 1702385528
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Vehicles\\Boat\\CB90\\UIMetaData_Vehicle_Boat_CB90.ebx",
+     "rawSha256": "8559a6885e14ccb94106512c8853bbd116964c632bd6d6afb4c16410e8dfb087",
+     "offset": 200,
+     "type": "u32",
+     "bytesHex": "2294d031",
+     "value": 835752994
+    },
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Vehicles\\Boat\\CB90\\UIMetaData_Vehicle_Boat_CB90.ebx",
+     "rawSha256": "8559a6885e14ccb94106512c8853bbd116964c632bd6d6afb4c16410e8dfb087",
+     "offset": 10088,
+     "type": "u32",
+     "bytesHex": "2294d031",
+     "value": 835752994
+    }
+   ]
+  },
+  {
+   "fact": "E6 30mm cannon description (Patrol Boat): UIMetaData_Vehicle_Boat_CB90 object 60 (M230LF Chain Gun): Field_490f0dd0 -> 07D3C3E3 (old pointer C16402D4). Closes the E6 note that the old string was not identified.",
+   "rawChecks": [
+    {
+     "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Vehicles\\Boat\\CB90\\UIMetaData_Vehicle_Boat_CB90.ebx",
+     "rawSha256": "8559a6885e14ccb94106512c8853bbd116964c632bd6d6afb4c16410e8dfb087",
+     "offset": 8704,
+     "type": "u32",
+     "bytesHex": "e3c3d307",
+     "value": 131318755
+    }
+   ]
+  },
+  {
+   "fact": "E6 \"Infantry Sprint\": Absent as a uint32 from every captured raw tree searched (all 4 byte alignments): 2.1.1.0 collection and Season 5 folders (13 Oct), 15 and 22 Oct hotfix captures, 1.4.3.5 pre-update capture (31,981 files) and the 1.4.3.5 capture root (23,554 files). Option assets exist in raw (for example Common/Gam",
+   "rawChecks": []
+  },
+  {
+   "fact": "138 of 1,363 added/changed ids have a uint32 consumer in any raw tree; 254 rows carry a digit and 49 a count word.",
+   "rawChecks": []
+  }
+ ],
+ "inference": [
+  "The Quick Plating text edit may be a correction of the description or the live value may be set elsewhere (stat id 35 or native code); source cannot decide.",
+  "Flak \"33%\" is consistent with the stored 0.67 multiplier; ELR-40 \"150m-180m\" is consistent with the stored peak-damage interval; Z84M 100 rounds is consistent with capacity 101 under the chambered-round convention.",
+  "The CDX40 Single Shot text range (30-60 m) differs from the API curve peak (42-68 m) if the AD to API join the site uses is right.",
+  "The 2X and 3X low-zoom descriptors resolve to 4x text in raw; the added 2x/3x strings are unreferenced in 2.1.1.0 captures.",
+  "ID_WEAPON_<name>_DESC is the text-key pattern for weapon description ids (PSR, Interdictor, M2010 ESR, SV-98); the two site texts under 5E0EAEEC and 97529B79 are not reached by any raw reference, so their weapon match remains by wording."
+ ],
+ "unresolved": [
+  "Quick Plating: which of text (25%) or stored value (1.5, 33%) is live is not decidable from source; role of i32 35 in call 239dc415 and any consumer of it are unknown; Ability_FasterArmorReplate, Feature_ and U_ are not in the 2.1.1.0 raw tree (needs capture only if the join is pursued).",
+  "Low-Zoom 2x/3x strings (11714E75, 11714E76) and their descriptions (11A9837D, 11A9837E) have no referring asset in any 2.1.1.0 capture; AD_Shared_SCA_Variable2X/3X still show Low-Zoom 4x / 4.00x. The consumer may live in an asset not captured or may be a later change.",
+  "\"Thermal 1.00x\" (225DD96B) has no raw consumer; FML 1.00x (1ABD5235) is the new thermal optic name on AAM_Skorpion but its magnification is not stored in the attachment files.",
+  "Adjustable Magnification 2x/3x/4x: the stored magnification is in the weapon zoom definitions (L133), not joined to these AAM names.",
+  "CDX40 Single Shot description range 30-60 m versus the API bullet peak 42-68 m: the AD_CDX40_MAG_001Cpt1 to PD_.375EnABELR_API join is the site inference (stage9 singleshot work), not an exported edge.",
+  "Magazine capacity and barrel length names of the Season 5 weapons: only the default capacity is a plain WB scalar; per-magazine capacities are carried by modifier packages not joined here (group stop).",
+  "M2010 ESR and SV-98: the text for ids 5E0EAEEC and 97529B79 has no referring asset; its key is unknown.",
+  "\"Infantry Sprint\" consumer not found in any captured tree.",
+  "Strings in the number-bearing census with no consumer (about 150 rows) are skipped groups (store, challenge, ranked, campaign); a consumer search in uncaptured assets was not done."
+ ],
+ "siteImpact": "None required. Site description text for M2010 ESR and SV-98 is unchanged and remains matched by caliber/range, not by id. The ELR-40 \"150m-180m\" text agrees with the site curve (peak 100 at 150-180 m). Conditional: if the CDX40 Single Shot join is right, the AD text range 30-60 m differs from the site API curve peak 42-68 m; the site follows the stored curve and should keep doing so. No Quick Plating value is modeled on the site.",
+ "evidence": {
+  "runFolder": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4060",
+  "files": [
+   {
+    "file": "l4060-result.json",
+    "sha256": "ebc1ee99350559d7b83a0a2160607f3cfbb332f050ab8c6779f154bf5383c9c8",
+    "content": "string-to-asset table, control, E6 and M2010/SV-98 answers"
+   },
+   {
+    "file": "strings-census.tsv",
+    "sha256": "cdbd31dab39e63c084729ffb42ff3227ce35e81f36222e6624f5124984f45ee4",
+    "content": "303 number-bearing rows with group and disposition"
+   },
+   {
+    "file": "conflicts.md",
+    "sha256": "0025cb92882a5993f90a006d9c15b2b44b164fb5fb09796991b50ae7273dd922",
+    "content": "three conflict rows with in-game tests"
+   },
+   {
+    "file": "summary.md",
+    "sha256": "8c11c5297c28c195903aeb7b53b00c5d55e1ebda0a5487949727201e01ab485d",
+    "content": "short summary"
+   },
+   {
+    "file": "id-hits.json",
+    "sha256": "0e4c2dcf3eb0b29781adcb7a5b87578b81740ae41f1526ed589abd8b8f98c8a6",
+    "content": "uint32 consumer scan (main and Season 5 trees)"
+   },
+   {
+    "file": "id-hits-hotfix.json",
+    "sha256": "f33760c4748a41317f18b28226bfd23e11a32e6e75822ee3547a5ed3f43bed74",
+    "content": "same scan on 15 and 22 Oct hotfix captures"
+   },
+   {
+    "file": "trace-consumers.json",
+    "sha256": "e5f001ce6868b38027cb13a799b1a22f46d18f9f249e326638362588a6ac0a37",
+    "content": "consumer records and fields"
+   },
+   {
+    "file": "rc-by-key.json",
+    "sha256": "9572c2b14aff80f8682fdcd2b23cbcd09df23cec47a11d7dd6892d2ed6cc6c39",
+    "content": "raw-check results"
+   },
+   {
+    "file": "e6-by-key.json",
+    "sha256": "382fa20e422a570a37e349730383a8931b9b6820830de342649177237ba1a486",
+    "content": "E6 raw checks"
+   },
+   {
+    "file": "ctl-valuesearch.json",
+    "sha256": "1e1cf72b4644fcedf7ccd590e0b0568e7cd39ab877cab947d53656b81960cfb2",
+    "content": "control value search"
+   },
+   {
+    "file": "m2010_sv98_fields.json",
+    "sha256": "491dc68a30340440c4975d2ddd4dbbdde88565b1cb5621b8bce85c6a2a8f7125",
+    "content": "M2010/SV-98 record fields"
+   }
+  ],
+  "helpers": [
+   {
+    "file": "build_final.py",
+    "sha256": "ba4e16937e196b7a3db49bceb037f44bb5ed4e8fc2e005384bdde62a22a0744e"
+   },
+   {
+    "file": "build_rc.py",
+    "sha256": "7c28cb205f3f7081e9691502d3cc823ca1b2273824e0630c2c5ee1966efea071"
+   },
+   {
+    "file": "build_receipt.py",
+    "sha256": "599469cf0132a3acec32fdfa796b433119d47cdcfb3f821c413172942df49f58"
+   },
+   {
+    "file": "ctl_imports.py",
+    "sha256": "cfe93122581f5e339517d6b15defb4e4804cfd3f89a397ace2dea6ea48ccbc53"
+   },
+   {
+    "file": "ctl_valuesearch.py",
+    "sha256": "8cff7d2be83e383fda1550341b9dd3b25bdd373821730b519a79f225593edd20"
+   },
+   {
+    "file": "e6_build.py",
+    "sha256": "57062adbc3038fd675b82407daa3f294bc267a686388a210d42c3480e32b08b8"
+   },
+   {
+    "file": "e6_scan.py",
+    "sha256": "bf0ef7ef170be1b7685ed9b8cc2dd94fc171bffc711c1e64681457a139f80400"
+   },
+   {
+    "file": "finalize.py",
+    "sha256": "d64e57ea1bf5b76f6573c617de6974345723555fa56a043fc979568362d1e924"
+   },
+   {
+    "file": "guidmap.py",
+    "sha256": "bed7e6cbdc74dc586f99b6fd624bf72c7c04d4992ba543cb3defb3f48a5a4645"
+   },
+   {
+    "file": "keyguess.py",
+    "sha256": "30aa12df4a163325f7b91c0fa79d1f8e606ab58d77d54b03161f1f21e22d2d6b"
+   },
+   {
+    "file": "keyguess2.py",
+    "sha256": "69199b90f3ad1141cb2b6af924b57f26484847a19085ad35481a139dd4bdbfe5"
+   },
+   {
+    "file": "m2010_final.py",
+    "sha256": "9b38188848e6ca13c6a1d9622b043f891c0d9f574755028ed258370abd14c1eb"
+   },
+   {
+    "file": "m2010_resolve.py",
+    "sha256": "3b58e4e699b608542eacd3394729494849313b7ce67f4013351743d6a3b32352"
+   },
+   {
+    "file": "s1_scan.py",
+    "sha256": "f8cb4d9858adaa226e7d576e0bfa2cc419931ba42207c3cae5531974c3435804"
+   },
+   {
+    "file": "s1b_scan_hotfix.py",
+    "sha256": "8c8cd7e8a7de279c695021bb5a46c648bd09a050c6be4f34bca7c695fde143ea"
+   },
+   {
+    "file": "s2_numbers.py",
+    "sha256": "92f55dd83d55d61127460b72b8a576b845e3895ad80d9c853c8de23eb6f92557"
+   },
+   {
+    "file": "s3_find.py",
+    "sha256": "7f272ac653584c23b223c919e770e1f4d356c31a4255383e959733a13ff97e4a"
+   },
+   {
+    "file": "scanids.py",
+    "sha256": "b2053d724e1eea000987c580a0d13a583b9da102944fc19e439d46739cc3a055"
+   },
+   {
+    "file": "trace.py",
+    "sha256": "a498483c9ee8c8a997ca2691cd61dd129ae54a0ae9bc5236a9f129ae194c53bb"
+   },
+   {
+    "file": "trace2.py",
+    "sha256": "90fd47b8a9fbf37c24f3ee6aeaea82586cff4dc1fa021812a6d03f4947304d39"
+   },
+   {
+    "file": "write_summary.py",
+    "sha256": "65bc1061db9fd27c3f27df20dbb339d4942b44f2d0792145d382020ae5e5e6a8"
+   }
+  ],
+  "commands": [
+   {
+    "label": "diff scan and number detection (reconstructed)",
+    "executable": "python",
+    "argv": [
+     "s1_scan.py"
+    ],
+    "cwd": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4060",
+    "note": "Reconstructed from helper files; command history not preserved. s2_numbers.py then rows.json."
+   },
+   {
+    "label": "hotfix scan",
+    "executable": "python",
+    "argv": [
+     "s1b_scan_hotfix.py"
+    ],
+    "cwd": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4060"
+   },
+   {
+    "label": "decode consumers",
+    "executable": "python",
+    "argv": [
+     "C:/Users/royal/Documents/BF6 Frosty Research/scripts/frosty-ebx-decode.py",
+     "--descriptors",
+     "C:/Users/royal/Documents/BF6 Datamining/builds/2.1.1.0/capture/toolchain/SharedTypeDescriptors.ebx",
+     "--ebx-list",
+     "trace-files.txt",
+     "--out",
+     "dec/trace-all.json",
+     "--exact-floats"
+    ],
+    "cwd": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4060"
+   },
+   {
+    "label": "raw checks",
+    "executable": "python",
+    "argv": [
+     "C:/Users/royal/Documents/BF6 Frosty Research/scripts/frosty-raw-check.py",
+     "--manifest",
+     "rc-manifest.json",
+     "--out",
+     "rc-results.json"
+    ],
+    "cwd": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4060"
+   },
+   {
+    "label": "E6 raw checks",
+    "executable": "python",
+    "argv": [
+     "C:/Users/royal/Documents/BF6 Frosty Research/scripts/frosty-raw-check.py",
+     "--manifest",
+     "e6-manifest.json",
+     "--out",
+     "e6-results.json"
+    ],
+    "cwd": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4060"
+   },
+   {
+    "label": "control value search",
+    "executable": "python",
+    "argv": [
+     "ctl_valuesearch.py"
+    ],
+    "cwd": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4060"
+   },
+   {
+    "label": "M2010/SV-98 resolve and key guess",
+    "executable": "python",
+    "argv": [
+     "m2010_resolve.py",
+     "m2010_final.py",
+     "keyguess.py",
+     "keyguess2.py"
+    ],
+    "cwd": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4060",
+    "note": "run in sequence"
+   },
+   {
+    "label": "build table and receipt",
+    "executable": "python",
+    "argv": [
+     "build_rc.py",
+     "build_final.py",
+     "e6_build.py",
+     "finalize.py",
+     "write_summary.py",
+     "build_receipt.py"
+    ],
+    "cwd": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-30-review-gaps/L4060",
+    "note": "run in sequence; reconstructed"
+   }
+  ],
+  "notes": "Commands are reconstructed from the helper files saved in the run folder; exact shell history is unavailable and no rerun is implied. Output paths are listed in files with SHA-256."
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-10-30",
+  "build": "2.1.1.0",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L4060",
+    "title": "Census of number-bearing strings added or changed on 2.1.1.0: 1,363 scanned, 56 gameplay rows traced; Quick Plating text/value disagreement stands, CDX40 Single Shot range differs, M2010 ESR and SV-98 description ids absent from every table",
+    "status": "finding",
+    "summary": "Of 1,363 added or changed strings 303 carry a number or count word and only 138 ids have any raw consumer; of 56 traced rows 3 agree with stored values (Flak 0.67, ELR-40 150-180 m, PKM capacity 101), 2 disagree (Quick Plating 25% vs stored 1.5, which is not decidable from source, and CDX40 Single Shot 30-60 m vs API peak 42-68 m), M2010 ESR and SV-98 records hold description ids 2DB86D4C and E8EA1B59 that no table contains, and the three E6 strings exist unchanged in both tables with moved or absent consumers.",
+    "reopenWhen": "A capture of the uncaptured string consumers (Low-Zoom 2x/3x, Thermal 1.00x, option assets), a consumer for stat id 35 or the Quick Plating speed, or an in-game plate-time or Single Shot damage test."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/UI/MetaData/UIPlayerAbilityDescriptionMetadata",
+    "format": "raw-ebx",
+    "sha256": "393af3d78e2e52851ee23fad8b4be3c8eec1d9d01bfdde0472c715b4fd876ab4",
+    "question": "Which record holds the Quick Plating and Flak strings, and in which fields?",
+    "result": "useful",
+    "conclusion": "3EA804EE sits in object 269 Ability_Pointman_Base via Field_490f0dd0 (text object 301) and Field_f8c63ce7 (37); FF6C97C1 in object 322 Ability_Flak. The id field is Class_fbe1d3bc.Field_3d34898a."
+   },
+   {
+    "path": "Common/Gameplay/InRoundProgression/_BaseTraits/Pointman_Base/SimEx_Ability_Pointman_Base",
+    "format": "raw-res",
+    "sha256": "bc45b518d0dfcba4d246e37a01aeecf9429e5876bc832e47ac9399b5a8f47614",
+    "question": "Is anything besides 1.5 stored for the plate speed?",
+    "result": "useful",
+    "conclusion": "Resource 03bf46cd9c5bc85d stores f32 1.5 at offset 100 and i32 35 at 104; value search for 1.25, 0.75, 0.8, 4/3, 0.25, 25 finds nothing."
+   },
+   {
+    "path": "Common/Gameplay/InRoundProgression/FasterArmorReplate/SimEx_FasterArmorReplate",
+    "format": "raw-res",
+    "sha256": "bc45b518d0dfcba4d246e37a01aeecf9429e5876bc832e47ac9399b5a8f47614",
+    "question": "Does the FasterArmorReplate body differ from Pointman_Base?",
+    "result": "useful",
+    "conclusion": "Resource f0dbf44d597de801 is byte-identical (1.5 at 100, 35 at 104)."
+   },
+   {
+    "path": "Common/Gameplay/InRoundProgression/FasterArmorReplate/SimEx_FasterArmorReplate",
+    "format": "raw-ebx",
+    "sha256": "e098de88928c929bd31f4bc5119b8953095fc186bf5a2ad69bfeb1dd2b0ea869",
+    "question": "Does the SimEx ebx import an affector or hold 1.25/0.75/25?",
+    "result": "inconclusive",
+    "conclusion": "No imports and no matching value; only a section-table word 75 at offset 1280."
+   },
+   {
+    "path": "Common/Gameplay/InRoundProgression/_BaseTraits/Pointman_Base/Ability_Pointman_Base",
+    "format": "raw-ebx",
+    "sha256": "f20ec1808f8ca26f7a80d044f2b4808cd7953558c3ac01430646b019beac5b73",
+    "question": "What does the Pointman ability import?",
+    "result": "useful",
+    "conclusion": "U_, PlayerAbilityCategoriesAsset, KST_GLA_S1, FL_ and CT_GLA_CH1_S1_SoldierUnlocks only; no affector and no scalar equal to 1.25/0.75/25."
+   },
+   {
+    "path": "Common/Gameplay/InRoundProgression/Flak/Affector_FlakJacket",
+    "format": "raw-ebx",
+    "sha256": "c7b2d474a87c29b1719b6ff8236744579e47773ef1c8d4958583774b9340facf",
+    "question": "Does the stored Flak value match the \"increased by 33%\" text?",
+    "result": "useful",
+    "conclusion": "f32 0.67 at offset 216; 1 - 0.67 = 33%; same 0.67 in Affector_Flak."
+   },
+   {
+    "path": "Common/UI/MetaData/UIWeaponAbilityMetaData",
+    "format": "raw-ebx",
+    "sha256": "75111e9a804aebfc05cb19218d75340fac658fd94d9b3109e12af163b5d73e7b",
+    "question": "Which description ids do the M2010 ESR and SV-98 records hold?",
+    "result": "useful",
+    "conclusion": "Object 268 M2010ESR and object 8 SV98M hold 2DB86D4C and E8EA1B59 in Field_490f0dd0; neither is in any string table; both equal djb2 of ID_WEAPON_<name>_DESC."
+   },
+   {
+    "path": "Common/UI/Static/Metadata/S5/UIWeaponAbilityMetaData_S5B1",
+    "format": "raw-ebx",
+    "sha256": "4e8b559b490a68633cd6b3ff7a04e42731eb8c902ce645627e591779336cc974",
+    "question": "Which records hold the added Season 5 weapon description strings?",
+    "result": "useful",
+    "conclusion": "ELR-40 (CDX-40) description 9BEB5135 at offset 720 and PKM 5F320CDA at 5680 via Field_490f0dd0; other S5 description ids resolve the same way."
+   },
+   {
+    "path": "Common/Hardware/Weapons/_Bullets/PD_.375EnABELR_Match",
+    "format": "raw-ebx",
+    "sha256": "eeb72517724e100411907ae30ce231cf9ec3f47534f345903ecc3a4ebe2f3c08",
+    "question": "Does the ELR-40 150m-180m text match the stored curve?",
+    "result": "useful",
+    "conclusion": "Flat curve Field_5279388d 150 m 100 and 180 m 100 at offsets 1220-1232: peak interval equals the text."
+   },
+   {
+    "path": "Common/Hardware/Weapons/_Bullets/PD_.375EnABELR_API",
+    "format": "raw-ebx",
+    "sha256": "5bd0a777118357104cfc039aaf5906aec9ee6d7306aa40ee00c0a606743d1020",
+    "question": "Does the CDX40 Single Shot 30m-60m text match the API bullet curve?",
+    "result": "useful",
+    "conclusion": "Peak 120 spans 42 m to 68 m (offsets 1204-1232); text range differs; the AD to API join is the site inference."
+   },
+   {
+    "path": "Common/Hardware/Weapons/MG/PKM/PKM_WB",
+    "format": "raw-ebx",
+    "sha256": "f1e6657c274daea16e289cf183402bae508049954e69f5edce609c8c5b56d851",
+    "question": "Does the Z84M 100-round text match the stored capacity?",
+    "result": "useful",
+    "conclusion": "MagazineCapacity u32 101 at offset 1728 (includes the chambered round)."
+   },
+   {
+    "path": "Common/UI/Static/Metadata/Attachments/Shared/AD_Shared_SCA_Variable2X",
+    "format": "raw-ebx",
+    "sha256": "90078c975bf76013977abf065f364b692948c307619411c91228356f9f28276a",
+    "question": "Which text do the low-zoom descriptors reference?",
+    "result": "useful",
+    "conclusion": "Label 1F8F11E3 \"Low-Zoom 4x\" at offset 304; the 3X and 4X files reference the same ids; the new 2x/3x ids have no referrer."
+   },
+   {
+    "path": "Common/UI/Static/Metadata/Attachments/VSSM/AD_VSSM_MAG_010Cpt1",
+    "format": "raw-ebx",
+    "sha256": "e48e5d6c6a298bdb39344bf5680382158aaf00d2baf6abbe0ccfeb2b4853dfce",
+    "question": "What is the VSSM 10 RND Mag text change in E6?",
+    "result": "useful",
+    "conclusion": "Description pointer moved from ABDC2EB4 to 67CFDCC6 at offset 240; label ABDA7AAC unchanged; the 1.4.3.5 file (sha256 84826f84...) differs."
+   },
+   {
+    "path": "Common/Hardware/Vehicles/Boat/CB90/UIMetaData_Vehicle_Boat_CB90",
+    "format": "raw-ebx",
+    "sha256": "8559a6885e14ccb94106512c8853bbd116964c632bd6d6afb4c16410e8dfb087",
+    "question": "Where are IR Smoke Shell and the 30mm cannon description consumed?",
+    "result": "useful",
+    "conclusion": "Object 18 holds 6582557A (Field_70b5525f), 65785778 and the added 31D09422 (Field_fd698f51, was 6582557A); object 60 description 07D3C3E3 replaced C16402D4."
+   }
+  ],
+  "site": [
+   {
+    "pointer": "data/weapons.json:/[id=elr40]/description",
+    "value": "Extreme Long Range rifle chambered in 9.52x70mm. Most effective between between 150m-180m. Can be loaded via magazine or individual rounds.",
+    "relation": "supports"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=m2010esr]/description",
+    "value": "This precision rifle is effective at extended ranges but has a relatively low base magazine capacity. Best used between 75m-100m.",
+    "relation": "context"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=sv98]/description",
+    "value": "Firing the legacy 7.62x54mmR, this balanced bolt-action rifle is most effective between 54m-75m.",
+    "relation": "context"
+   },
+   {
+    "pointer": "data/attachments.json:/WEAPON_MAG/elr40/mags/1_rnd/projectileOverride/dmg",
+    "value": "peak 120 from 42 m to 68 m",
+    "relation": "context"
+   }
+  ]
+ },
+ "run": {
+  "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps",
+  "leadFolder": "L4060"
+ }
+}

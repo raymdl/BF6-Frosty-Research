@@ -114,7 +114,7 @@ not known.
 | `Field_1867639b` / `Field_c5401fc2` | ZDA hip rows | `hipStand` / `hipMove` minima | Value |
 | `Field_160ef028`, `Field_b3ab862b`, `Field_1ef3a223`, `Field_553bcee0`, `Field_39b31415` | ZDA hip rows | H1–H5: jumping/sprinting, crouch stationary, crouch moving, prone stationary, prone moving | Probable |
 | `Field_6c73f45b`, `Field_624b1a88` | `ZDA_Moving_Weapons` | Moving ADS minimum (standing or crouching) | Probable |
-| `Field_bd300f62` | `ZDA_Moving_Weapons` | Jumping/sprinting ADS minimum | Probable |
+| `Field_bd300f62` | `ZDA_Moving_Weapons` | Jumping/sprinting ADS minimum (ZDA column 4; L4079: matches GS `MinMaxDispersion` Zoomed Standing.JumpingSprinting slot 11 by position, jump and sprint share the label) | Probable |
 | `Field_440ed7fa` | WB | Frame-quantized duration (whole 1/60 s). Tracks cadence but is clamped; **not** the rate of fire | Value |
 | `Field_52a8ad43` | WB | Constant 0.067 (four frames) on every weapon | Value |
 | `Field_5b6caeda/Struct_038e6367` | GS | Idle-duration block: `Field_6138f58f` = `StationaryIndex`, `Field_54a69c98` = `MovingIndex`; pointers `Field_fdc3ebd3` and `Field_d9d776d4` target `IDA_Weapons` | Names resolved by current raw GRX child/hash arrays in 62 anchors; native indexing and runtime use unresolved ([review](../../reference-data/provenance/frosty-audit-registry-bindings-2026-09-23.json)) |
@@ -218,7 +218,7 @@ These fields change between builds for reasons other than stats. Ignore them in 
 | Cause | Fields |
 |---|---|
 | String-id renumbering | `Field_8cf424e7`, `Field_fefe9de1` |
-| Compiled-expression re-bake | `Field_0c18a620`, `Field_aa4fa860`, `Field_c7ffe639` |
+| Compiled-expression re-bake (NOT noise since L4057, 30 Oct 2026: the body was rebuilt; list and diff it, see [Tools](TOOLS.md#l4057---expression-graph-diff-per-build-30-october-2026)) | `Field_0c18a620`, `Field_aa4fa860`, `Field_c7ffe639` |
 | FX reference swap | `Field_0679f638` |
 
 ## Still unnamed

@@ -1,0 +1,1261 @@
+{
+ "lead": "L4065",
+ "status": "finding",
+ "build": "2.1.1.0",
+ "question": "Close the 2.1.1.0 loose ends: (c) the three Stage 8 items skipped on 13 October (optic render FOV, reload timing, selector graph still built from the 1.4.3.0 export); (d) whether reference-data/frosty/roster-values.json equals the 19 October roster refresh and which name joins broke; (f) the 2.1.1.0 patch-notes inventory entry.",
+ "sourceFacts": {
+  "serialized": [
+   "Optic render FOV: 157 raw files under Common/Hardware/Weapons hold a render FOV (Field_7768ebf2) or Class_86ce0d70 zoom definition in both 1.4.3.5 and 2.1.1.0; 0 values changed. 8 files are new in 2.1.1.0 (Mk 24, ELR-40, DEVGRU, MRGGS, Z84M, RSPR and Machete WBs, and WPM_SCP_FML19 at 55). WPM_SCP_ElcanDR Class_bfd4f199 Field_149939ab and Field_e9129d03 went 1.0005 to 0.55 with its FOV unchanged at 38. OptionFieldOfViewScaleADS is byte-identical.",
+   "Reload: for all 67 site weapons with a ReloadInfoArray[0], site tacRld equals (ReloadDelay + PostReloadDelay + ReloadTimeBulletsLeft) / ReloadSpeed of that entry in 2.1.1.0 raw; 62 emptyRld equal ReloadTimeBulletsLeft / ReloadSpeed of entry [1]. M4A1: (0 + 0 + 2.15) / 0.977272 = 2.2000017 in float32, equal to the site value. Mk 24 2.534 / 2.95, ELR-40 2.4 / 4.083, Z84M 7.6 / 9.334 and RSPR 2.334 / 3.1 equal the stored values, ReloadSpeed 1.0.",
+   "Selector graph: builds/2.1.1.0/xml is an empty directory. scripts/frosty-configuration.py runs in raw mode on 2.1.1.0 (69 weapons, 3,656 attachment records, 18 issues). For the 63 launch weapons 2.1.1.0 raw gives 3,399 records against 3,308 on 1.4.3.5 raw: 9 changed (branches), 91 added, 0 removed; against the 1.4.3.0 XML build 11 changed, 91 added, 1 removed. 1.4.3.5 raw equals the 1.4.3.0 XML graph on 3,306 of 3,308 common records.",
+   "Roster: reference-data/frosty/roster-values.json (sha256 e5912a62...3030) is the 1.4.3.5 pass; roster-compact.json of the 19 Oct run (sha256 16255bd1...bf19) is the 2.1.1.0 pass. Both hold 167 items with the same ids. The run's raw-checks.json has 11,902 checks, 11,902 matched, 0 mismatches; 300 re-read here, 0 mismatches. Registry owners 722 to 745; two name joins (veheq_upg_fieldmain to Passives_Vehicles_IFV_Regeneration and _MBT_Regeneration) point at owners that no longer exist; 25 new owners are unjoined.",
+   "Patch-notes inventory: updates[] entries carry version, articleDate, url, season, localBuild, two change groups, releaseDate and mechanicsRead; no per-line status exists. add-frosty-pending.mjs is not in the research repo (an unrelated file of that name is in the Analyzer repo)."
+  ],
+  "rawChecks": [
+   {
+    "path": "",
+    "rawSha256": "362be4ae90e4168e4f709a8ea9879f06af2052f3cc90cc4a21c53054dc576492",
+    "offset": 1880,
+    "type": "f32",
+    "bytesHex": "00006c42",
+    "value": 59.0
+   },
+   {
+    "path": "",
+    "rawSha256": "362be4ae90e4168e4f709a8ea9879f06af2052f3cc90cc4a21c53054dc576492",
+    "offset": 2376,
+    "type": "f32",
+    "bytesHex": "00006c42",
+    "value": 59.0
+   },
+   {
+    "path": "",
+    "rawSha256": "362be4ae90e4168e4f709a8ea9879f06af2052f3cc90cc4a21c53054dc576492",
+    "offset": 2872,
+    "type": "f32",
+    "bytesHex": "0000f041",
+    "value": 30.0
+   },
+   {
+    "path": "",
+    "rawSha256": "f1e6657c274daea16e289cf183402bae508049954e69f5edce609c8c5b56d851",
+    "offset": 2648,
+    "type": "f32",
+    "bytesHex": "00006c42",
+    "value": 59.0
+   },
+   {
+    "path": "",
+    "rawSha256": "f1e6657c274daea16e289cf183402bae508049954e69f5edce609c8c5b56d851",
+    "offset": 3144,
+    "type": "f32",
+    "bytesHex": "0000e841",
+    "value": 29.0
+   },
+   {
+    "path": "",
+    "rawSha256": "f1e6657c274daea16e289cf183402bae508049954e69f5edce609c8c5b56d851",
+    "offset": 3640,
+    "type": "f32",
+    "bytesHex": "00005c42",
+    "value": 55.0
+   },
+   {
+    "path": "",
+    "rawSha256": "4416a0ef9a39e96d87e029f5a6e28358521ba37255430e1c5d213dbe1c153ae6",
+    "offset": 632,
+    "type": "f32",
+    "bytesHex": "00006c42",
+    "value": 59.0
+   },
+   {
+    "path": "",
+    "rawSha256": "52d0d38c4035a63add4c0e0cce19bdee7a17dfe6042ffe5926f034d5b75c3d0d",
+    "offset": 2832,
+    "type": "f32",
+    "bytesHex": "00005c42",
+    "value": 55.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Attachments\\MidZoom\\ElcanDR\\WPM_SCP_ElcanDR.ebx",
+    "rawSha256": "124ed886b33d9d8a5ec7ae3584640ed50a3ac396592230fe23811332a929e1fd",
+    "offset": 1888,
+    "type": "f32",
+    "bytesHex": "6210803f",
+    "value": 1.000499963760376
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Attachments\\MidZoom\\ElcanDR\\WPM_SCP_ElcanDR.ebx",
+    "rawSha256": "124ed886b33d9d8a5ec7ae3584640ed50a3ac396592230fe23811332a929e1fd",
+    "offset": 1892,
+    "type": "f32",
+    "bytesHex": "6210803f",
+    "value": 1.000499963760376
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Attachments\\MidZoom\\ElcanDR\\WPM_SCP_ElcanDR.ebx",
+    "rawSha256": "124ed886b33d9d8a5ec7ae3584640ed50a3ac396592230fe23811332a929e1fd",
+    "offset": 3552,
+    "type": "f32",
+    "bytesHex": "6210803f",
+    "value": 1.000499963760376
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Attachments\\MidZoom\\ElcanDR\\WPM_SCP_ElcanDR.ebx",
+    "rawSha256": "124ed886b33d9d8a5ec7ae3584640ed50a3ac396592230fe23811332a929e1fd",
+    "offset": 3556,
+    "type": "f32",
+    "bytesHex": "6210803f",
+    "value": 1.000499963760376
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Attachments\\MidZoom\\ElcanDR\\WPM_SCP_ElcanDR.ebx",
+    "rawSha256": "e0443542dc7179c475a64a21bd2ffa9f416bc16184d91f49e8f7c8d0e54f53cb",
+    "offset": 1888,
+    "type": "f32",
+    "bytesHex": "cdcc0c3f",
+    "value": 0.550000011920929
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Attachments\\MidZoom\\ElcanDR\\WPM_SCP_ElcanDR.ebx",
+    "rawSha256": "e0443542dc7179c475a64a21bd2ffa9f416bc16184d91f49e8f7c8d0e54f53cb",
+    "offset": 1892,
+    "type": "f32",
+    "bytesHex": "cdcc0c3f",
+    "value": 0.550000011920929
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Attachments\\MidZoom\\ElcanDR\\WPM_SCP_ElcanDR.ebx",
+    "rawSha256": "e0443542dc7179c475a64a21bd2ffa9f416bc16184d91f49e8f7c8d0e54f53cb",
+    "offset": 3552,
+    "type": "f32",
+    "bytesHex": "cdcc0c3f",
+    "value": 0.550000011920929
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\_Attachments\\MidZoom\\ElcanDR\\WPM_SCP_ElcanDR.ebx",
+    "rawSha256": "e0443542dc7179c475a64a21bd2ffa9f416bc16184d91f49e8f7c8d0e54f53cb",
+    "offset": 3556,
+    "type": "f32",
+    "bytesHex": "cdcc0c3f",
+    "value": 0.550000011920929
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\M4A1\\M4A1_WB.ebx",
+    "rawSha256": "deeb876b845b66b7bca5f3350e9c399bbc02b83d05d19493a3e35b71c642bee9",
+    "offset": 16428,
+    "type": "f32",
+    "bytesHex": "00000000",
+    "value": 0.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\M4A1\\M4A1_WB.ebx",
+    "rawSha256": "deeb876b845b66b7bca5f3350e9c399bbc02b83d05d19493a3e35b71c642bee9",
+    "offset": 16444,
+    "type": "f32",
+    "bytesHex": "00000000",
+    "value": 0.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\M4A1\\M4A1_WB.ebx",
+    "rawSha256": "deeb876b845b66b7bca5f3350e9c399bbc02b83d05d19493a3e35b71c642bee9",
+    "offset": 16440,
+    "type": "f32",
+    "bytesHex": "9a990940",
+    "value": 2.1500000953674316
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\M4A1\\M4A1_WB.ebx",
+    "rawSha256": "deeb876b845b66b7bca5f3350e9c399bbc02b83d05d19493a3e35b71c642bee9",
+    "offset": 16424,
+    "type": "f32",
+    "bytesHex": "7f2e7a3f",
+    "value": 0.9772719740867615
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\M4A1\\M4A1_WB.ebx",
+    "rawSha256": "deeb876b845b66b7bca5f3350e9c399bbc02b83d05d19493a3e35b71c642bee9",
+    "offset": 16484,
+    "type": "f32",
+    "bytesHex": "00000000",
+    "value": 0.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\M4A1\\M4A1_WB.ebx",
+    "rawSha256": "deeb876b845b66b7bca5f3350e9c399bbc02b83d05d19493a3e35b71c642bee9",
+    "offset": 16500,
+    "type": "f32",
+    "bytesHex": "00000000",
+    "value": 0.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\M4A1\\M4A1_WB.ebx",
+    "rawSha256": "deeb876b845b66b7bca5f3350e9c399bbc02b83d05d19493a3e35b71c642bee9",
+    "offset": 16496,
+    "type": "f32",
+    "bytesHex": "75932840",
+    "value": 2.634000062942505
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Weapons\\Carbine\\M4A1\\M4A1_WB.ebx",
+    "rawSha256": "deeb876b845b66b7bca5f3350e9c399bbc02b83d05d19493a3e35b71c642bee9",
+    "offset": 16480,
+    "type": "f32",
+    "bytesHex": "0000803f",
+    "value": 1.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\MRGGA\\MRGGA_WB.ebx",
+    "rawSha256": "362be4ae90e4168e4f709a8ea9879f06af2052f3cc90cc4a21c53054dc576492",
+    "offset": 16444,
+    "type": "f32",
+    "bytesHex": "00000000",
+    "value": 0.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\MRGGA\\MRGGA_WB.ebx",
+    "rawSha256": "362be4ae90e4168e4f709a8ea9879f06af2052f3cc90cc4a21c53054dc576492",
+    "offset": 16460,
+    "type": "f32",
+    "bytesHex": "00000000",
+    "value": 0.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\MRGGA\\MRGGA_WB.ebx",
+    "rawSha256": "362be4ae90e4168e4f709a8ea9879f06af2052f3cc90cc4a21c53054dc576492",
+    "offset": 16456,
+    "type": "f32",
+    "bytesHex": "0e2d2240",
+    "value": 2.5339999198913574
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\MRGGA\\MRGGA_WB.ebx",
+    "rawSha256": "362be4ae90e4168e4f709a8ea9879f06af2052f3cc90cc4a21c53054dc576492",
+    "offset": 16440,
+    "type": "f32",
+    "bytesHex": "0000803f",
+    "value": 1.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\MRGGA\\MRGGA_WB.ebx",
+    "rawSha256": "362be4ae90e4168e4f709a8ea9879f06af2052f3cc90cc4a21c53054dc576492",
+    "offset": 16500,
+    "type": "f32",
+    "bytesHex": "00000000",
+    "value": 0.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\MRGGA\\MRGGA_WB.ebx",
+    "rawSha256": "362be4ae90e4168e4f709a8ea9879f06af2052f3cc90cc4a21c53054dc576492",
+    "offset": 16516,
+    "type": "f32",
+    "bytesHex": "00000000",
+    "value": 0.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\MRGGA\\MRGGA_WB.ebx",
+    "rawSha256": "362be4ae90e4168e4f709a8ea9879f06af2052f3cc90cc4a21c53054dc576492",
+    "offset": 16512,
+    "type": "f32",
+    "bytesHex": "cdcc3c40",
+    "value": 2.950000047683716
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\AssaultRifle\\MRGGA\\MRGGA_WB.ebx",
+    "rawSha256": "362be4ae90e4168e4f709a8ea9879f06af2052f3cc90cc4a21c53054dc576492",
+    "offset": 16496,
+    "type": "f32",
+    "bytesHex": "0000803f",
+    "value": 1.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\BoltAction\\CDX40\\CDX40_WB.ebx",
+    "rawSha256": "ec78973b271ca1a0c4ed201eb442e8f1717c01006bab04164b49238d44fa605b",
+    "offset": 13276,
+    "type": "f32",
+    "bytesHex": "00000000",
+    "value": 0.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\BoltAction\\CDX40\\CDX40_WB.ebx",
+    "rawSha256": "ec78973b271ca1a0c4ed201eb442e8f1717c01006bab04164b49238d44fa605b",
+    "offset": 13292,
+    "type": "f32",
+    "bytesHex": "00000000",
+    "value": 0.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\BoltAction\\CDX40\\CDX40_WB.ebx",
+    "rawSha256": "ec78973b271ca1a0c4ed201eb442e8f1717c01006bab04164b49238d44fa605b",
+    "offset": 13288,
+    "type": "f32",
+    "bytesHex": "9a991940",
+    "value": 2.4000000953674316
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\BoltAction\\CDX40\\CDX40_WB.ebx",
+    "rawSha256": "ec78973b271ca1a0c4ed201eb442e8f1717c01006bab04164b49238d44fa605b",
+    "offset": 13272,
+    "type": "f32",
+    "bytesHex": "0000803f",
+    "value": 1.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\BoltAction\\CDX40\\CDX40_WB.ebx",
+    "rawSha256": "ec78973b271ca1a0c4ed201eb442e8f1717c01006bab04164b49238d44fa605b",
+    "offset": 13332,
+    "type": "f32",
+    "bytesHex": "00000000",
+    "value": 0.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\BoltAction\\CDX40\\CDX40_WB.ebx",
+    "rawSha256": "ec78973b271ca1a0c4ed201eb442e8f1717c01006bab04164b49238d44fa605b",
+    "offset": 13348,
+    "type": "f32",
+    "bytesHex": "00000000",
+    "value": 0.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\BoltAction\\CDX40\\CDX40_WB.ebx",
+    "rawSha256": "ec78973b271ca1a0c4ed201eb442e8f1717c01006bab04164b49238d44fa605b",
+    "offset": 13344,
+    "type": "f32",
+    "bytesHex": "f0a78240",
+    "value": 4.083000183105469
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\BoltAction\\CDX40\\CDX40_WB.ebx",
+    "rawSha256": "ec78973b271ca1a0c4ed201eb442e8f1717c01006bab04164b49238d44fa605b",
+    "offset": 13328,
+    "type": "f32",
+    "bytesHex": "0000803f",
+    "value": 1.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\MG\\PKM\\PKM_WB.ebx",
+    "rawSha256": "f1e6657c274daea16e289cf183402bae508049954e69f5edce609c8c5b56d851",
+    "offset": 15436,
+    "type": "f32",
+    "bytesHex": "00000000",
+    "value": 0.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\MG\\PKM\\PKM_WB.ebx",
+    "rawSha256": "f1e6657c274daea16e289cf183402bae508049954e69f5edce609c8c5b56d851",
+    "offset": 15452,
+    "type": "f32",
+    "bytesHex": "00000000",
+    "value": 0.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\MG\\PKM\\PKM_WB.ebx",
+    "rawSha256": "f1e6657c274daea16e289cf183402bae508049954e69f5edce609c8c5b56d851",
+    "offset": 15448,
+    "type": "f32",
+    "bytesHex": "3333f340",
+    "value": 7.599999904632568
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\MG\\PKM\\PKM_WB.ebx",
+    "rawSha256": "f1e6657c274daea16e289cf183402bae508049954e69f5edce609c8c5b56d851",
+    "offset": 15432,
+    "type": "f32",
+    "bytesHex": "0000803f",
+    "value": 1.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\MG\\PKM\\PKM_WB.ebx",
+    "rawSha256": "f1e6657c274daea16e289cf183402bae508049954e69f5edce609c8c5b56d851",
+    "offset": 15492,
+    "type": "f32",
+    "bytesHex": "00000000",
+    "value": 0.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\MG\\PKM\\PKM_WB.ebx",
+    "rawSha256": "f1e6657c274daea16e289cf183402bae508049954e69f5edce609c8c5b56d851",
+    "offset": 15508,
+    "type": "f32",
+    "bytesHex": "00000000",
+    "value": 0.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\MG\\PKM\\PKM_WB.ebx",
+    "rawSha256": "f1e6657c274daea16e289cf183402bae508049954e69f5edce609c8c5b56d851",
+    "offset": 15504,
+    "type": "f32",
+    "bytesHex": "10581541",
+    "value": 9.333999633789062
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\MG\\PKM\\PKM_WB.ebx",
+    "rawSha256": "f1e6657c274daea16e289cf183402bae508049954e69f5edce609c8c5b56d851",
+    "offset": 15488,
+    "type": "f32",
+    "bytesHex": "0000803f",
+    "value": 1.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\SMG\\RSAR999\\RSAR999_WB.ebx",
+    "rawSha256": "4ddb8c581a7da362f01b40c4133687095a6f91d2027ecdded7eb05e2695c0f22",
+    "offset": 14236,
+    "type": "f32",
+    "bytesHex": "00000000",
+    "value": 0.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\SMG\\RSAR999\\RSAR999_WB.ebx",
+    "rawSha256": "4ddb8c581a7da362f01b40c4133687095a6f91d2027ecdded7eb05e2695c0f22",
+    "offset": 14252,
+    "type": "f32",
+    "bytesHex": "00000000",
+    "value": 0.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\SMG\\RSAR999\\RSAR999_WB.ebx",
+    "rawSha256": "4ddb8c581a7da362f01b40c4133687095a6f91d2027ecdded7eb05e2695c0f22",
+    "offset": 14248,
+    "type": "f32",
+    "bytesHex": "42601540",
+    "value": 2.3340001106262207
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\SMG\\RSAR999\\RSAR999_WB.ebx",
+    "rawSha256": "4ddb8c581a7da362f01b40c4133687095a6f91d2027ecdded7eb05e2695c0f22",
+    "offset": 14232,
+    "type": "f32",
+    "bytesHex": "0000803f",
+    "value": 1.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\SMG\\RSAR999\\RSAR999_WB.ebx",
+    "rawSha256": "4ddb8c581a7da362f01b40c4133687095a6f91d2027ecdded7eb05e2695c0f22",
+    "offset": 14292,
+    "type": "f32",
+    "bytesHex": "00000000",
+    "value": 0.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\SMG\\RSAR999\\RSAR999_WB.ebx",
+    "rawSha256": "4ddb8c581a7da362f01b40c4133687095a6f91d2027ecdded7eb05e2695c0f22",
+    "offset": 14308,
+    "type": "f32",
+    "bytesHex": "00000000",
+    "value": 0.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\SMG\\RSAR999\\RSAR999_WB.ebx",
+    "rawSha256": "4ddb8c581a7da362f01b40c4133687095a6f91d2027ecdded7eb05e2695c0f22",
+    "offset": 14304,
+    "type": "f32",
+    "bytesHex": "66664640",
+    "value": 3.0999999046325684
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw\\Common\\Hardware\\Weapons\\SMG\\RSAR999\\RSAR999_WB.ebx",
+    "rawSha256": "4ddb8c581a7da362f01b40c4133687095a6f91d2027ecdded7eb05e2695c0f22",
+    "offset": 14288,
+    "type": "f32",
+    "bytesHex": "0000803f",
+    "value": 1.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+    "rawSha256": "7332241de54470a36d11508687d124ca7a2faf8a72895581d85b9ff75c70beb0",
+    "offset": 230324,
+    "type": "f32",
+    "bytesHex": "00000000",
+    "value": 0.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Gadgets\\Throwables\\ThrowingKnife\\ThrowingKnife_WB.ebx",
+    "rawSha256": "2f4d2e7ae996028d3efcacfe20254f6cba3a019e0569741adece7bb67f89c98e",
+    "offset": 964,
+    "type": "i32",
+    "bytesHex": "05000000",
+    "value": 5
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Vehicles\\_VehiclesCommon\\Expressions\\PB_NS_SmokeDischarger.ebx",
+    "rawSha256": "2a9518044d00346eb619fca7069521eaba12608475fabe871697c1d705ebd33a",
+    "offset": 2168,
+    "type": "f32",
+    "bytesHex": "0000803f",
+    "value": 1.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Gadgets\\GRX_Gadgets_Glacier.ebx",
+    "rawSha256": "77e2cfb12d6567be91c4a78ca88110c83a0473fca9afbdbfac8c6190d4862b64",
+    "offset": 277188,
+    "type": "f32",
+    "bytesHex": "9a9999be",
+    "value": -0.30000001192092896
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\GameSetup\\Tweakables\\GameRemixer\\GRX_Vehicles.ebx",
+    "rawSha256": "7332241de54470a36d11508687d124ca7a2faf8a72895581d85b9ff75c70beb0",
+    "offset": 443412,
+    "type": "f32",
+    "bytesHex": "00800944",
+    "value": 550.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Gadgets\\Mines\\ATMine\\MD_ATMine.ebx",
+    "rawSha256": "7fee3e921b5f63971afcc89fe51a14ce59c26deeeb8e1cbdcc97b39d2d7ef014",
+    "offset": 1324,
+    "type": "f32",
+    "bytesHex": "0000803f",
+    "value": 1.0
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Gadgets\\Misc\\EODBot\\Repair\\SimEx_EoDBot_RepairTool.ebx",
+    "rawSha256": "58c8a0a998570b53a884a2c52d38c0840c11ecd4dea6366c636c2a9d2cd7e2e6",
+    "offset": 1944,
+    "type": "i32",
+    "bytesHex": "02000000",
+    "value": 2
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Hardware\\Gadgets\\Launchers\\RPG7\\Art\\MD_RPG7.ebx",
+    "rawSha256": "ffeb3bf7435f60f955902fdf2949452a061e9775688b3291a9d6fb19ee3d0969",
+    "offset": 9100,
+    "type": "f32",
+    "bytesHex": "0000803f",
+    "value": 1.0
+   }
+  ]
+ },
+ "inference": [
+  "The stored ReloadSpeed behaves as a divisor of the stored reload times: it turns the 16 'capture-based' frames-over values of L4007 into exact matches. This is a numeric match, not an observation of play.",
+  "Render FOV and zoom definition values are unchanged, so entry 11's source basis is unchanged; whether the Elcan DR multiplier pair 1.0005 to 0.55 has any visual effect is not inferred.",
+  "The graph differences are additive attachments (Actuated Module, DD Vertical, polymer links, one HTI bolt) and a few changed modifier lists; raw mode reproduces the XML graph where nothing changed, so the 2.1.1.0 raw graph can replace the 1.4.3.0 XML graph for non-optic attachments.",
+  "The patch-notes line status in the draft entry is derived from the checklist Result column; it is an inference from the checklist, not a field of the inventory."
+ ],
+ "unresolved": [
+  "needs capture: Common/Hardware/Weapons/_Attachments/Thermal/FML19/Art/U_WPM_SCP_FML19 (blocks --include-optics on 2.1.1.0)",
+  "needs capture: Common/Hardware/Weapons/_WeaponModifiers/_Ergo/MatchTrigger/WPM_ERG_MatchTrigger_W15 and its selector U_WPM_ERG_MatchTrigger_W15 (HK433 Match Trigger graph incomplete)",
+  "The 11 graph records changed against the 1.4.3.0 XML build were classified by field only (branches); their meaning was not read.",
+  "Roster name joins for the Field Maintenance upgrade (and Base_ and ResetHealthRegenOnFire owners) need a hand decision.",
+  "articleDate of the EA 2.1.1.0 article is not known from the checklist.",
+  "That the stored ReloadSpeed is the factor the game applies to the tactical reload is inferred from the numeric match, not observed in play."
+ ],
+ "siteImpact": "No site change. Conditional: none of the optic render FOV values, reload sums or selector graph changes moves a site number; site tacRld and emptyRld equal the stored values (with ReloadSpeed) on all 67 weapons that have an entry, so a future reload rule can use (delay + post delay + ReloadTimeBulletsLeft) / ReloadSpeed instead of capture offsets. WPM_SCP_FML19 (thermal, render FOV 55) and the HK433 Match Trigger W15 package are not fully in the raw tree.",
+ "evidence": {
+  "outputs": [
+   {
+    "path": "l4065b-result.json",
+    "sha256": "e8454f518b1df57323dd3b5a3883a5d92122993668563262bb7cf0127017a47f"
+   },
+   {
+    "path": "summary.md",
+    "sha256": "6d66c3822a9f1c21a2170df1c4f1fde56dc0dc3067a5f68e0fb06260c706c3e1"
+   },
+   {
+    "path": "stage8-items.md",
+    "sha256": "fc1a34aa4cae9d1585cd716a820f3f53c96c30179053a43d357ecd6ddab1f6e5"
+   },
+   {
+    "path": "roster-join-report.md",
+    "sha256": "8b0c38c2dce1453e2b51d802307c60b1ff8b3d37885e8e5655f9811cf735abc6"
+   },
+   {
+    "path": "drafts/roster-values.json",
+    "sha256": "16255bd1e7c4783bfb35f246ab902cde824c96b382a439adbb97c44e8f0bbf19"
+   },
+   {
+    "path": "drafts/ROSTER_VALUES-header.md",
+    "sha256": "3ef850152b3a74d2af8c03777f2776c9aa79defe0eea446f599a9acb8a4aec2b"
+   },
+   {
+    "path": "drafts/patch-notes-2110-entry.json",
+    "sha256": "916424d250071a0818c72f75433fc64525eccc2a2a7092f9e67d2b17042f0691"
+   },
+   {
+    "path": "graph-compare.json",
+    "sha256": "c914369c0106ce31d0e560c56c995ac306b27fc1635550f79bcdebe8e4c6283e"
+   },
+   {
+    "path": "reload-scan.json",
+    "sha256": "4c219027a93252b8156cd429fd6cbe9fd37197e3100e2db88db2bf5bf25ca3a0"
+   },
+   {
+    "path": "reload-compare.json",
+    "sha256": "82b96ac69287012bb8e9aed0a84a2139f1f11c9e80780069af8dbc1ae987d96a"
+   },
+   {
+    "path": "reload-variants.json",
+    "sha256": "435e2f709f8a8b5ef14b87ba36374e224e2500a870ddb97f56fb319c43f1bce8"
+   },
+   {
+    "path": "reload-rawchecks.json",
+    "sha256": "54ce76325894f32d35deb3591c65dabe257f26c70e646e9805c60eb68f3f001a"
+   },
+   {
+    "path": "optic-rawchecks.json",
+    "sha256": "a76a039fa8759f4cf2f7d45b328c5bc590c2f672f4bdd8592f509644e8784930"
+   },
+   {
+    "path": "optic-facts.json",
+    "sha256": "15787d33423fc7b867865299cf6855cb86db5995fcac2ac9839ab449c9e8a7a2"
+   },
+   {
+    "path": "optic-scan-old.json",
+    "sha256": "f15ca281a8773ac2caf0a6c9ede758ccbec50ccac12ec679ec264d6f768d018e"
+   },
+   {
+    "path": "optic-scan-new.json",
+    "sha256": "8cbd4dff2e1adbc8ae09e48dd5ab11da7691e25fdc6a81098229c3d7eefbadc4"
+   },
+   {
+    "path": "roster-compare.json",
+    "sha256": "0a750ed8b6f636c68202a91426f91573bdb9a2e2ae4b47e58ff11bee59721c67"
+   },
+   {
+    "path": "owners-compare.json",
+    "sha256": "31dddb83ba302e62a62a1ec9c689abf5142e5e7499d1512318a94dc925bb7879"
+   },
+   {
+    "path": "roster-rawchecks-summary.json",
+    "sha256": "0acd82e6e4691e955a0a46d1adc05f84bfe5bb3a4d359fd7696fb376dc1e0f02"
+   },
+   {
+    "path": "identities-63.json",
+    "sha256": "0ae35d66c482a08b07192de06e631837b6d49eb4ccb11500c21b9b09eade2a9e"
+   },
+   {
+    "path": "checklist-rows.json",
+    "sha256": "f1cb8574a6dfe8ff5b595c8b8ef993f5a9cb5817236ea9cab8e50bc8076470d7"
+   },
+   {
+    "path": "cfg-1430-xml/attachment-selection-graph.json",
+    "sha256": "35cd2158e86d066aab4f02c5469cee80ea53670a2316d4aaccba25083abca657"
+   },
+   {
+    "path": "cfg-1435-raw/attachment-selection-graph.json",
+    "sha256": "b531b8cf090d415ecb5cc5673f3120be5ade5202bf8dfc761d20ce4524e67f2b"
+   },
+   {
+    "path": "cfg-2110-raw/attachment-selection-graph.json",
+    "sha256": "c8b7d466e3684242cd8bff05e40696a4b8fd1213019bf40a0320e9a6a32a6248"
+   },
+   {
+    "path": "cfg-1435-raw-optics/attachment-selection-graph.json",
+    "sha256": "01a85215047a6d74937483ec165188df6b329466d8c19fc8077a61159d17a24f"
+   },
+   {
+    "path": "cfg-2110-raw/configuration-summary.json",
+    "sha256": "0fe12a4ba416e69d0cc62977cae5827ea2ade8b0314a1728720672e270d1f0c9"
+   }
+  ],
+  "helperRevisionsInvoked": [
+   {
+    "path": "h.py",
+    "sha256": "cd70791e1bf0cf98f5ff9ba2f534c99e1b4dc8b568892191184356d754f827ce"
+   },
+   {
+    "path": "reload.py",
+    "sha256": "4ce04b20ce70884e0d952afdd6fb78ddaf22d34eaf37e632ee9b3062e32ac5ce"
+   },
+   {
+    "path": "reload2.py",
+    "sha256": "36d85f314fc46217acd9e4be5f2d4ba324ac325cd97df8a53b11911b3324a272"
+   },
+   {
+    "path": "reload3.py",
+    "sha256": "13ad32b078a3c8a8bd9525e41714e67908cfb28edcf62ec36b1691c19148f7b2"
+   },
+   {
+    "path": "reload4.py",
+    "sha256": "8334711255c90be81abf4f8ad7009121c645ebed51310068c72020d310585d6a"
+   },
+   {
+    "path": "optic_scan.py",
+    "sha256": "a0b3fe8adeb547c0e38837aa140743dacada1d971de29564c7268b1ca85f6fb6"
+   },
+   {
+    "path": "optic_cmp.py",
+    "sha256": "0863760992be23ec9ea918f362149f6e0f6655538e404e5a3af3e92925b130a1"
+   },
+   {
+    "path": "optic_raw.py",
+    "sha256": "3997768f7d5075ed49caa79b82410d57cad00a8d0bfae9d9aa7408d7c3d69c47"
+   },
+   {
+    "path": "facts.py",
+    "sha256": "0d6fa4805071c75fd0539da738f716df644682292e42498c8ed954f5997387d0"
+   },
+   {
+    "path": "elcan.py",
+    "sha256": "d0543ec55cb87843d1bced036619243163231ff0a1eb463162ef8c0838cf4889"
+   },
+   {
+    "path": "roster1.py",
+    "sha256": "8c21abf2bbd1890ff092b845dc1a010c32a35670d2e87473ff94af94d689a288"
+   },
+   {
+    "path": "roster3.py",
+    "sha256": "1997ed855922dc0438aad34ff99c77f9516b6b877022b5d3f53e65fd98872439"
+   },
+   {
+    "path": "roster4.py",
+    "sha256": "e3cbbe4b2f62cf58bf447d756090e5048c3c86f7d0540b7e9477d3766d0f1f56"
+   },
+   {
+    "path": "roster5.py",
+    "sha256": "e50fc979491bcda5cab15ffd6e85f9265490971b89e3490f4621a365d4290130"
+   },
+   {
+    "path": "mkident.py",
+    "sha256": "7e8288ba4851fdbde93712cfea04d1de672c152fada6e25cec4516aab35011e8"
+   },
+   {
+    "path": "mkheader.py",
+    "sha256": "820614e8faf036e3d244b796483881d9fb29e05e6276f7fb2fb5f808565ea6fa"
+   },
+   {
+    "path": "cl.py",
+    "sha256": "80946f2c6aa1a5f0ac76d9cfb5217f1786476beedb4dce9de5a48e4c92d498d8"
+   },
+   {
+    "path": "pn.py",
+    "sha256": "29e5932c8ee41f318a15966b74feb74297700f02b5bcc5b8b218631bd5e34467"
+   },
+   {
+    "path": "gcmp.py",
+    "sha256": "3722b23980b4cf33976d270e8baa55459cdc2c5d0ba624cc80e673dc2a0c97f8"
+   },
+   {
+    "path": "gcmp2.py",
+    "sha256": "69a9214fba45852b3b4a0e5a85404c914f55ea32501dfa878d65f4642b94db49"
+   },
+   {
+    "path": "build_all.py",
+    "sha256": "c1a456a0c0d3e45c8a7ef92da4daa1a18afbb3b73f19f5d5600e033407f1552c"
+   }
+  ],
+  "repoScriptsInvoked": [
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-configuration.py",
+    "sha256": "5f3b3f798c4b2823e4b1a50741f571150660a7f722c3ed1ae98f05b7a7b9dd22"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-configuration.test.py",
+    "sha256": "6928fbcf299f58c4a8df351856ef3c5bae617b3729b2476e60c98981fede7ebb"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-check.py",
+    "sha256": "dcab4a1541ae8a49ddda19ea0cd7a3ad080eb28fd90894fabb7e8e25e35e0ba3"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-roster-values.py",
+    "sha256": "5fd227d0a4c073adde6b42aa35cbc288fded0463bea09279cac0b6c9be069dad"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-ebx-decode.py",
+    "sha256": "149d39cdc3aaef39d7166ad67a8e4651049c7e7bd11efeebdd41e1a9e00d3fc5"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-raw-tree.py",
+    "sha256": "7f168927f001a480e3acc70ab7945d0046d35b50f3b11b806b671e71b761f698"
+   }
+  ],
+  "inputs": [
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\roster-refresh-2026-10-19\\roster-compact.json",
+    "sha256": "16255bd1e7c4783bfb35f246ab902cde824c96b382a439adbb97c44e8f0bbf19"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\roster-refresh-2026-10-19\\raw-checks.json",
+    "sha256": "828c2631cf400289d0696018f52b8bfa0bcc2fa19dbc6863cc19330a7ac53214"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\frosty\\roster-values.json",
+    "sha256": "e5912a624dc6b830310b7d5a67a2495932f95f2ae6589d50dee07f7a07743030"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\docs\\updates\\2.1.1.0-checklist.md",
+    "sha256": "3068c35f6454bba2e7abde9e559419ee9a0f1566655f3160808b396128533eb8"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\reference-data\\patch-notes\\patch-notes-inventory.json",
+    "sha256": "e6f38bf3acd15179467140af2711fb7fa1ab76b6ae211bfc01f0aed6927eea4f"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer\\data\\weapons.json",
+    "sha256": "5c1a461b5f5f7d0a1ef2607b998f8a16f1b43289ffc66704a5ab4c39e7a4cf53"
+   }
+  ],
+  "commands": [
+   {
+    "label": "exact (bash tool)",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065B",
+    "argv": [
+     "python",
+     "optic_scan.py",
+     "old"
+    ],
+    "note": "PYTHONIOENCODING=utf-8; writes optic-scan-old.json"
+   },
+   {
+    "label": "exact (bash tool)",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065B",
+    "argv": [
+     "python",
+     "optic_scan.py",
+     "new"
+    ],
+    "note": "writes optic-scan-new.json"
+   },
+   {
+    "label": "exact",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065B",
+    "argv": [
+     "python",
+     "optic_cmp.py"
+    ],
+    "note": "stdout only"
+   },
+   {
+    "label": "exact",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065B",
+    "argv": [
+     "python",
+     "optic_raw.py"
+    ],
+    "note": "writes optic-rawchecks.json"
+   },
+   {
+    "label": "exact",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065B",
+    "argv": [
+     "python",
+     "elcan.py"
+    ],
+    "note": "stdout only"
+   },
+   {
+    "label": "exact",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065B",
+    "argv": [
+     "python",
+     "facts.py"
+    ],
+    "note": "writes optic-facts.json"
+   },
+   {
+    "label": "exact",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065B",
+    "argv": [
+     "python",
+     "reload.py"
+    ],
+    "note": "writes reload-scan.json"
+   },
+   {
+    "label": "exact",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065B",
+    "argv": [
+     "python",
+     "reload2.py"
+    ],
+    "note": "writes reload-compare.json"
+   },
+   {
+    "label": "exact",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065B",
+    "argv": [
+     "python",
+     "reload3.py"
+    ],
+    "note": "writes reload-rawchecks.json"
+   },
+   {
+    "label": "exact",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065B",
+    "argv": [
+     "python",
+     "reload4.py"
+    ],
+    "note": "writes reload-variants.json"
+   },
+   {
+    "label": "exact",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065B",
+    "argv": [
+     "python",
+     "mkident.py"
+    ],
+    "note": "writes identities-63.json"
+   },
+   {
+    "label": "exact",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts",
+    "argv": [
+     "python",
+     "frosty-configuration.test.py"
+    ],
+    "note": "4 tests OK; PYTHONDONTWRITEBYTECODE=1"
+   },
+   {
+    "label": "exact",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065B",
+    "argv": [
+     "python",
+     "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-configuration.py",
+     "--raw",
+     "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw",
+     "--raw",
+     "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-uncaptured-2026-10-13\\raw",
+     "--raw",
+     "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\season5-names-availability-2026-10-13\\raw",
+     "--descriptors",
+     "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\toolchain\\SharedTypeDescriptors.ebx",
+     "--catalog",
+     "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\asset-catalog.json",
+     "--build-label",
+     "2.1.1.0 raw (L4065B)",
+     "--site",
+     "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer",
+     "--out",
+     "cfg-2110-raw"
+    ],
+    "note": "bash tool, forward slashes; a first run with --include-optics failed at U_WPM_SCP_FML19 (cfg-2110.log)"
+   },
+   {
+    "label": "exact",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065B",
+    "argv": [
+     "python",
+     "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-configuration.py",
+     "--root",
+     "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.0\\xml\\xml-overlay",
+     "--build-label",
+     "1.4.3.0 xml-overlay (L4065B)",
+     "--site",
+     "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer",
+     "--identities",
+     "identities-63.json",
+     "--out",
+     "cfg-1430-xml"
+    ],
+    "note": "a first run without --identities failed: Stale weapon identity MRGGA"
+   },
+   {
+    "label": "exact",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065B",
+    "argv": [
+     "python",
+     "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-configuration.py",
+     "--raw",
+     "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw",
+     "--descriptors",
+     "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\toolchain\\SharedTypeDescriptors.ebx",
+     "--catalog",
+     "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\asset-catalog.json",
+     "--build-label",
+     "1.4.3.5 raw (L4065B)",
+     "--site",
+     "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer",
+     "--identities",
+     "identities-63.json",
+     "--out",
+     "cfg-1435-raw"
+    ],
+    "note": "a run with the pre-update fresh-cache catalog failed on a stale route name (PD_12ga00Buck275_Semi)"
+   },
+   {
+    "label": "exact",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065B",
+    "argv": [
+     "python",
+     "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-configuration.py",
+     "--raw",
+     "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\raw",
+     "--descriptors",
+     "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\toolchain\\SharedTypeDescriptors.ebx",
+     "--catalog",
+     "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\capture\\collection\\asset-catalog.json",
+     "--build-label",
+     "1.4.3.5 raw optics (L4065B)",
+     "--site",
+     "C:\\Users\\royal\\Documents\\BF6 Weapon Analyzer",
+     "--identities",
+     "identities-63.json",
+     "--include-optics",
+     "--out",
+     "cfg-1435-raw-optics"
+    ]
+   },
+   {
+    "label": "exact",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065B",
+    "argv": [
+     "python",
+     "gcmp.py"
+    ],
+    "note": "writes graph-compare.json"
+   },
+   {
+    "label": "exact",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065B",
+    "argv": [
+     "python",
+     "gcmp2.py"
+    ],
+    "note": "stdout only"
+   },
+   {
+    "label": "exact",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065B",
+    "argv": [
+     "python",
+     "roster3.py"
+    ],
+    "note": "writes owners-compare.json"
+   },
+   {
+    "label": "exact",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065B",
+    "argv": [
+     "python",
+     "roster4.py"
+    ],
+    "note": "writes roster-compare.json"
+   },
+   {
+    "label": "exact",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065B",
+    "argv": [
+     "python",
+     "roster5.py"
+    ],
+    "note": "writes roster-rawchecks-summary.json and drafts/roster-values.json (copy of roster-compact.json)"
+   },
+   {
+    "label": "exact",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065B",
+    "argv": [
+     "python",
+     "cl.py"
+    ],
+    "note": "writes checklist-rows.json"
+   },
+   {
+    "label": "exact",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065B",
+    "argv": [
+     "python",
+     "pn.py"
+    ],
+    "note": "writes drafts/patch-notes-2110-entry.json"
+   },
+   {
+    "label": "exact",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065B",
+    "argv": [
+     "python",
+     "mkheader.py"
+    ],
+    "note": "writes drafts/ROSTER_VALUES-header.md"
+   },
+   {
+    "label": "exact",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065B",
+    "argv": [
+     "python",
+     "build_all.py"
+    ],
+    "note": "writes l4065b-result.json"
+   },
+   {
+    "label": "exact",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065B",
+    "argv": [
+     "python",
+     "build_receipt.py"
+    ],
+    "note": "writes draft-receipt.json"
+   },
+   {
+    "label": "exact",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065B",
+    "argv": [
+     "python",
+     "C:\\Users\\royal\\Documents\\BF6 Frosty Research\\scripts\\frosty-records.py",
+     "check-receipt",
+     "draft-receipt.json"
+    ],
+    "note": "read-only"
+   },
+   {
+    "label": "unavailable",
+    "cwd": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps\\L4065B",
+    "argv": [],
+    "note": "roster1.py and roster2.py (exploration printers) and cnt.py ran earlier; their output is not kept. Several exploratory one-off reads of repo and run files were done with inline python and are not reproduced."
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "audit",
+  "date": "2026-10-30",
+  "build": "2.1.1.0",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L4065",
+    "title": "2.1.1.0 loose ends: Stage 8 optic FOV, reload timing and selector graph; roster refresh; patch-notes entry",
+    "status": "finding",
+    "summary": "Optic render FOV and zoom values are unchanged on 157 shared files (8 new files); site reload times equal the stored phase sum divided by ReloadSpeed on all 67 weapons including the four Season 5 weapons; the selector graph builds from 2.1.1.0 raw and differs from the 1.4.3.0 XML graph by 91 added and 11 changed records; the repo roster-values.json is still the 1.4.3.5 pass and two name joins are dead.",
+    "reopenWhen": "A new build changes an optic file, a reload entry or a weapon attachment record, FML19 or HK433 Match Trigger W15 is captured, or the operator accepts the roster join edits."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Hardware/Weapons/Carbine/M4A1/M4A1_WB",
+    "format": "raw-ebx",
+    "sha256": "deeb876b845b66b7bca5f3350e9c399bbc02b83d05d19493a3e35b71c642bee9",
+    "question": "Do the stored reload phases (delay, post delay, ReloadTimeBulletsLeft, ReloadSpeed) reproduce the site tacRld and emptyRld? Control asset.",
+    "result": "useful",
+    "conclusion": "Site tacRld 2.2000017 and emptyRld 2.634 equal (delay + post delay + ReloadTimeBulletsLeft) / ReloadSpeed of ReloadInfoArray[0] and ReloadTimeBulletsLeft / ReloadSpeed of [1]; limited to stored values, not native reload behavior."
+   },
+   {
+    "path": "Common/Hardware/Weapons/AssaultRifle/MRGGA/MRGGA_WB",
+    "format": "raw-ebx",
+    "sha256": "362be4ae90e4168e4f709a8ea9879f06af2052f3cc90cc4a21c53054dc576492",
+    "question": "Do the stored reload phases (delay, post delay, ReloadTimeBulletsLeft, ReloadSpeed) reproduce the site tacRld and emptyRld?",
+    "result": "useful",
+    "conclusion": "Site tacRld 2.534 and emptyRld 2.95 equal (delay + post delay + ReloadTimeBulletsLeft) / ReloadSpeed of ReloadInfoArray[0] and ReloadTimeBulletsLeft / ReloadSpeed of [1]; limited to stored values, not native reload behavior."
+   },
+   {
+    "path": "Common/Hardware/Weapons/BoltAction/CDX40/CDX40_WB",
+    "format": "raw-ebx",
+    "sha256": "ec78973b271ca1a0c4ed201eb442e8f1717c01006bab04164b49238d44fa605b",
+    "question": "Do the stored reload phases (delay, post delay, ReloadTimeBulletsLeft, ReloadSpeed) reproduce the site tacRld and emptyRld?",
+    "result": "useful",
+    "conclusion": "Site tacRld 2.4 and emptyRld 4.083 equal (delay + post delay + ReloadTimeBulletsLeft) / ReloadSpeed of ReloadInfoArray[0] and ReloadTimeBulletsLeft / ReloadSpeed of [1]; limited to stored values, not native reload behavior."
+   },
+   {
+    "path": "Common/Hardware/Weapons/MG/PKM/PKM_WB",
+    "format": "raw-ebx",
+    "sha256": "f1e6657c274daea16e289cf183402bae508049954e69f5edce609c8c5b56d851",
+    "question": "Do the stored reload phases (delay, post delay, ReloadTimeBulletsLeft, ReloadSpeed) reproduce the site tacRld and emptyRld?",
+    "result": "useful",
+    "conclusion": "Site tacRld 7.6 and emptyRld 9.334 equal (delay + post delay + ReloadTimeBulletsLeft) / ReloadSpeed of ReloadInfoArray[0] and ReloadTimeBulletsLeft / ReloadSpeed of [1]; limited to stored values, not native reload behavior."
+   },
+   {
+    "path": "Common/Hardware/Weapons/SMG/RSAR999/RSAR999_WB",
+    "format": "raw-ebx",
+    "sha256": "4ddb8c581a7da362f01b40c4133687095a6f91d2027ecdded7eb05e2695c0f22",
+    "question": "Do the stored reload phases (delay, post delay, ReloadTimeBulletsLeft, ReloadSpeed) reproduce the site tacRld and emptyRld?",
+    "result": "useful",
+    "conclusion": "Site tacRld 2.334 and emptyRld 3.1 equal (delay + post delay + ReloadTimeBulletsLeft) / ReloadSpeed of ReloadInfoArray[0] and ReloadTimeBulletsLeft / ReloadSpeed of [1]; limited to stored values, not native reload behavior."
+   },
+   {
+    "path": "Common/Hardware/Weapons/Melee/Machete/WB_Melee_Machete",
+    "format": "raw-ebx",
+    "sha256": "4416a0ef9a39e96d87e029f5a6e28358521ba37255430e1c5d213dbe1c153ae6",
+    "question": "What render FOV (Class_3a930efc or Class_76a3b0eb Field_7768ebf2) does this 2.1.1.0-only file store?",
+    "result": "useful",
+    "conclusion": "Stored render FOV values: 59.0. The file has no 1.4.3.5 counterpart."
+   },
+   {
+    "path": "Common/Hardware/Weapons/DMR/MRGGS/MRGGS_WB",
+    "format": "raw-ebx",
+    "sha256": "d0ef184cd702a8871f5d6e7926b3aa1c4127e96a5060b28a3679a5e33438bc74",
+    "question": "What render FOV (Class_3a930efc or Class_76a3b0eb Field_7768ebf2) does this 2.1.1.0-only file store?",
+    "result": "useful",
+    "conclusion": "Stored render FOV values: 35.0, 59.0, 35.0. The file has no 1.4.3.5 counterpart."
+   },
+   {
+    "path": "Common/Hardware/Weapons/_Attachments/Thermal/FML19/WPM_SCP_FML19",
+    "format": "raw-ebx",
+    "sha256": "52d0d38c4035a63add4c0e0cce19bdee7a17dfe6042ffe5926f034d5b75c3d0d",
+    "question": "What render FOV (Class_3a930efc or Class_76a3b0eb Field_7768ebf2) does this 2.1.1.0-only file store?",
+    "result": "useful",
+    "conclusion": "Stored render FOV values: 55.0. The file has no 1.4.3.5 counterpart."
+   },
+   {
+    "path": "Common/Hardware/Weapons/Carbine/DEVGRU/Devgru_WB",
+    "format": "raw-ebx",
+    "sha256": "41ae1d1f0bbacfb81c8598d5e2b2c04fbc0b692f5ddc6ce4bf6b6b2a617c396a",
+    "question": "What render FOV (Class_3a930efc or Class_76a3b0eb Field_7768ebf2) does this 2.1.1.0-only file store?",
+    "result": "useful",
+    "conclusion": "Stored render FOV values: 35.0, 55.0, 59.0. The file has no 1.4.3.5 counterpart."
+   },
+   {
+    "path": "Common/Hardware/Weapons/_Attachments/MidZoom/ElcanDR/WPM_SCP_ElcanDR",
+    "format": "raw-ebx",
+    "sha256": "e0443542dc7179c475a64a21bd2ffa9f416bc16184d91f49e8f7c8d0e54f53cb",
+    "question": "Did the render FOV or zoom definition of the Elcan DR optic change between 1.4.3.5 and 2.1.1.0?",
+    "result": "useful",
+    "conclusion": "Render FOV unchanged at 38; only the Class_bfd4f199 pair Field_149939ab/Field_e9129d03 moved 1.0005 to 0.55 (meaning unresolved)."
+   },
+   {
+    "path": "Common/GameSetup/Options/Render/OptionFieldOfViewScaleADS",
+    "format": "raw-ebx",
+    "sha256": "9ca11a64eb33f9a26d75d38e6be108bfe17ae1827571937f0c3eac23d46b4fb5",
+    "question": "Did the Render option FieldOfViewScaleADS change between 1.4.3.5 and 2.1.1.0?",
+    "result": "useful",
+    "conclusion": "Byte-identical in both builds; the option is separate from the per-optic render FOV field."
+   }
+  ],
+  "site": [
+   {
+    "pointer": "data/weapons.json:/[id=m4a1]/tacRld",
+    "value": 2.2000017,
+    "relation": "supports"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=m4a1]/emptyRld",
+    "value": 2.634,
+    "relation": "supports"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=mk24]/tacRld",
+    "value": 2.534,
+    "relation": "supports"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=mk24]/emptyRld",
+    "value": 2.95,
+    "relation": "supports"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=elr40]/tacRld",
+    "value": 2.4,
+    "relation": "supports"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=elr40]/emptyRld",
+    "value": 4.083,
+    "relation": "supports"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=z84m]/tacRld",
+    "value": 7.6,
+    "relation": "supports"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=z84m]/emptyRld",
+    "value": 9.334,
+    "relation": "supports"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=rspr]/tacRld",
+    "value": 2.334,
+    "relation": "supports"
+   },
+   {
+    "pointer": "data/weapons.json:/[id=rspr]/emptyRld",
+    "value": 3.1,
+    "relation": "supports"
+   }
+  ]
+ },
+ "run": {
+  "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps",
+  "leadFolder": "L4065B"
+ }
+}

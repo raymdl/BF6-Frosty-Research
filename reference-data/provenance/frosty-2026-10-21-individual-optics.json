@@ -1,0 +1,126 @@
+{
+ "lead": "none",
+ "status": "finding",
+ "build": {
+  "current": "mixed (site data of 2.1.1.0; the evidence files it was generated from are the 15 and 16 September 2026 research receipts on 1.4.2.5 / 1.4.3.0 sources)",
+  "note": "Site-generated evidence file, written by scripts/frosty-individual-optics.py from committed evidence; it has no record header of its own. The Season 5 weapons' iron sights were not checked."
+ },
+ "question": "Which individual optics (in-game name, category, label, magnification) does each of the 67 site weapons offer, and what magnification should the site use for fixed, variable, thermal-hybrid and iron sights?",
+ "sourceFacts": {
+  "file": "frosty-individual-optics-2026-10-21.json (schemaVersion 1): scope 'Individual optics offered on each site weapon, with in-game names and magnifications. The site catalog in data/attachments.json is generated from this evidence by scripts/frosty-individual-optics.py.'",
+  "counts": {
+   "optics": 40,
+   "weapons": 67,
+   "weaponOptics": 1996
+  },
+  "optics": "40 optic records; categories {\"var_high\": 6, \"std_optic\": 28, \"var_low\": 2, \"therm_hyb\": 1, \"thermal\": 3}",
+  "magnificationBasis": {
+   "fixed": "UI label magnification. The research render-FOV report finds every one of the 1,810 linked optic parts with its own aim zooms to the magnification in its UI label.",
+   "variable": "UI label range. magnification is the high end, an assumption: the starting level of a variable optic is not established in Frosty. The site zoom slider reaches the rest of the range.",
+   "thermalHybrid": "The label has no magnification; the in-game name TH-RDS 1.00x supplies it.",
+   "iron": "No iron-sight part overrides the aim; every checked weapon uses Aim_1x50 (1.50x). The report covers the 64 pre-2.1.1.0 blueprints; MK-24, ELR-40, Z-84M and RSPR were not checked and are assumed to match."
+  },
+  "ironSights": "ironSightsChecked lists 63 weapon blueprints (the 64 pre-2.1.1.0 blueprints; Mk 24, ELR-40, Z84M and RSPR not checked and assumed to match); every checked weapon uses Aim_1x50 (1.50x); no iron-sight part overrides the aim.",
+  "sources": {
+   "frosty-optic-category-mapping-2026-09-15.json": "47c342bca7fadc85f7e91d83acf766e1422f49e8e8aba51b52ebb21fc0deae5a",
+   "frosty-attachment-compatibility.json": "46c102d80598504eb12a465cb70603ad0641c0ac24e0fea7e957c1042884c558",
+   "BF6 Frosty Research/reference-data/provenance/frosty-optic-render-fov-2026-09-16.json": "f980222aca1bb9d3788efbadf1f35389bb3bc521842fb4dee5f1b4d46bf902a9"
+  },
+  "sourceHashCheck": "The three source hashes listed in the file were recomputed by this draft: frosty-optic-category-mapping-2026-09-15.json (research repo) 47c342bc..., frosty-optic-render-fov-2026-09-16.json (research repo) f980222a..., frosty-attachment-compatibility.json (site repo) 46c102d8...: all equal the file's recorded values.",
+  "example": [
+   {
+    "id": "dvo_lpvo",
+    "inGameName": "DVO LPVO",
+    "category": "var_high",
+    "label": "Variable 1-6x",
+    "magnification": 6.0,
+    "magnificationRange": [
+     1.0,
+     6.0
+    ]
+   },
+   {
+    "id": "mars_f_lpvo",
+    "inGameName": "Mars-F LPVO",
+    "category": "var_high",
+    "label": "Variable 1-5x",
+    "magnification": 5.0,
+    "magnificationRange": [
+     1.0,
+     5.0
+    ]
+   },
+   {
+    "id": "mc_co_lpvo",
+    "inGameName": "MC-CO LPVO",
+    "category": "var_high",
+    "label": "Variable 1-6x",
+    "magnification": 6.0,
+    "magnificationRange": [
+     1.0,
+     6.0
+    ]
+   },
+   {
+    "id": "mini_flex_1_00x",
+    "inGameName": "Mini Flex 1.00x",
+    "category": "std_optic",
+    "label": "Sight 1.00x",
+    "magnification": 1.0,
+    "magnificationRange": null
+   }
+  ]
+ },
+ "inference": [
+  "For a variable optic the magnification is the high end of the UI label range, which the file itself calls an assumption (the starting level is not established in Frosty); the site zoom slider reaches the rest of the range. Fixed optics use the UI label; the thermal hybrid takes 1.00x from its in-game name TH-RDS 1.00x."
+ ],
+ "unresolved": [
+  "Starting zoom level of a variable optic is not established in the source.",
+  "Iron-sight zoom for Mk 24, ELR-40, Z84M and RSPR is assumed, not checked.",
+  "The file cites the 16 September render-FOV report that found every one of the 1,810 linked optic parts with its own aim zooms to the magnification in its UI label; that result is not re-derived here."
+ ],
+ "siteImpact": "Site commit dad2bbd (22 Oct 2026, 'Sights: individual Frosty optics with magnification; target zoom follows the sight') generated data/attachments.json SIGHTS from this file (40 individual optics appended after the five legacy category entries; share-link indices stay stable) and changed the Firing Range target zoom to follow the sight. The pointers below are two generated entries.",
+ "evidence": {
+  "file": {
+   "file": "BF6 Weapon Analyzer/reference-data/provenance/frosty-individual-optics-2026-10-21.json",
+   "sha256": "c1a1d3fda06a93201fd042b24570daa56d12d3f084bcf9fe19c6fcb1ff0e6e5a"
+  },
+  "generator": {
+   "file": "BF6 Weapon Analyzer/scripts/frosty-individual-optics.py",
+   "sha256": "46fe737b11b74219d4f301973d0ae84f7fd953da31c962555302144b2aaeb5e6"
+  },
+  "sources": {
+   "frosty-optic-category-mapping-2026-09-15.json": "47c342bca7fadc85f7e91d83acf766e1422f49e8e8aba51b52ebb21fc0deae5a",
+   "frosty-optic-render-fov-2026-09-16.json": "f980222aca1bb9d3788efbadf1f35389bb3bc521842fb4dee5f1b4d46bf902a9",
+   "frosty-attachment-compatibility.json (site repo)": "46c102d80598504eb12a465cb70603ad0641c0ac24e0fea7e957c1042884c558"
+  },
+  "siteCommits": {
+   "generated file and data": "dad2bbd 2026-10-22 Sights: individual Frosty optics with magnification; target zoom follows the sight"
+  },
+  "commands": "The generator's check command is documented in the site repo's MAINTENANCE.md: python scripts/frosty-individual-optics.py --check (working directory the site repo). It was not run for this draft (read-only task); the generator revision hash is given above."
+ },
+ "record": {
+  "v": 1,
+  "kind": "mapping",
+  "date": "2026-10-21",
+  "build": "mixed",
+  "binding": "research",
+  "site": [
+   {
+    "pointer": "data/attachments.json:/SIGHTS/[id=dvo_lpvo]/magnification",
+    "value": 6.0,
+    "relation": "changed"
+   },
+   {
+    "pointer": "data/attachments.json:/SIGHTS/[id=mini_flex_1_00x]/magnification",
+    "value": 1.0,
+    "relation": "changed"
+   }
+  ]
+ },
+ "run": {
+  "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps",
+  "leadFolder": "L4063",
+  "note": "receipt drafted 30 Oct 2026 for an earlier measurement or recheck; the date is the evidence date"
+ }
+}

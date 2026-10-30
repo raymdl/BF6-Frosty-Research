@@ -1,0 +1,255 @@
+{
+ "lead": "none",
+ "status": "finding",
+ "build": {
+  "current": "site-only (operator in-game recordings, client 2.1.1.0, 17 October 2026)",
+  "note": "In-game measurement of the ADS spread indicator, numbers only. The related earlier receipt frosty-2026-10-15-L4050-m433-spread-indicator-law.json measured the M433 indicator law; this receipt is a separate set of clips (rapid single fire on five weapons and bipod mounted against unmounted on seven)."
+ },
+ "question": "How large is the ADS spread indicator (the two green ticks flanking the red dot, in pixels of the 2560x1440 frame) per shot in rapid single fire (BROD 3, EF88, M277, M433, Mk 24) and, for the Mk 24, M277, VSSM, M121 A2, EF88 and VCR-2, with the bipod deployed (mounted) against not deployed (unmounted)?",
+ "sourceFacts": {
+  "recordings": "Eleven clips in reference-data/Recordings/10172026/Spread Indicators/ (list and SHA-256 under evidence.clips): five *_Rapid_Single_Fire clips (BROD 3, EF88, M277, M433, Mk 24) and six *_Bipod_Mounted_vs_Unmounted clips (EF88, M121 A2, M277, Mk 24, VCR2, VSSM). 2560x1440, native 120 fps (ffmpeg -fps_mode passthrough, PNG frames; crop 400x300 at (1080,600) for the reticle, 300x120 at (2160,1230) for the ammo counter). VSSM clip: 1,162 frames, 120 tbr (average 114.19 fps), 10.18 s; its correction: the clip is full auto, not semi-auto.",
+  "indicator": "In ADS the red dot is flanked by two thin green vertical ticks '( . )'; size = horizontal distance between the left and right bar centres in px of the 2560x1440 frame. At rest about 10 to 14 px apart (faint); 40 to 50 px in the bipod videos. Measure resolution about +-1 px (tick width 1 to 3 px, video compression), so idle and single-fire differences of 2 to 4 px are at the noise level.",
+  "method": "Shots: ammo digits (bright-grey mask of the counter) XOR-diffed frame to frame; a change above 120 pixels = ammo event. Muzzle flash = largest brightness jump of the 80x80 centre crop in [ammo-6, ammo+1]. Indicator: green-excess mask (G - max(R,B) >= 9, G >= 55), 4-pixel vertical runs grouped into bars; a left/right pair accepted when both are within 5 px vertically, 6 to 90 px apart and their midpoint within 5 px (x) / 9 px (y) of a detected red dot; one-sided readings (only one bar next to the dot) = 2 x its distance from the dot, flagged. A reading must be supported by another within +-2 frames and 3 px. Per shot: 'just before' = median of valid frames in the 4 frames before the flash; peak = maximum paired reading in the 16 frames from the flash to the next flash. Idle = median over [first flash-45, first flash-3) and [last flash+50, last flash+100). Mounted or unmounted segments are identified by visual judgement (segment 1 before the reload: low camera, weapon resting on the ledge, bipod down = mounted; after the reload: camera higher, weapon free = unmounted), the same order for every clip; not a data field. Scripts shots2.py, final.py, report.py, run_new.py, run_vssm.py in a session scratchpad (spread-measure/); not kept.",
+  "reliability": {
+   "frameDuplicates": "The two Bipod clips (Mk 24, M277) contain many consecutive identical frames (76% (Mk 24) and 36% (M277) of a sample), so the true unique-frame rate is lower than 120 fps; the Rapid clips are about 1 to 2% duplicated.",
+   "validCoverage": "frames with a reading / total (paired): BROD 3 309/858 (103), EF88 rapid 373/872 (145), M277 rapid 216/672 (35), M433 rapid 173/775 (11), Mk 24 rapid 312/638 (96), M277 bipod 495/1105 (294), Mk 24 bipod 748/1289 (474); VSSM 726/1162 (427 paired); M121 A2 666/1126 (359), EF88 bipod 705/1374 (448), VCR2 666/1118 (318).",
+   "readability": "The Bipod clips are clearly measurable; the Rapid clips only roughly. M433 rapid is effectively not reliably measurable (11 paired frames; 21 of 31 shots without a peak, 8 more with only a one-sided estimate); M277 rapid is largely one-sided (11 of 21 shots without a peak); BROD 3 has no peak for 8 of 31 shots.",
+   "artefacts": "In the Rapid clips the flash and target outline often cover the right tick (one-sided estimates assume symmetry). Isolated outliers remain (M433 shot 31 peak 24.2, Mk 24 rapid shot 20 'before' 21.2, M277 rapid shot 6 'before' 28.2). The right bar can latch onto a green-tinged target edge (M277 unmounted frame 874), so a few unmounted peaks may be too high by a few px; unmounted M277 shots 16-17 peaks 40.9 / 36.0 after 47.6 may be detection artefacts. Hip and lowered-weapon frames are excluded because no dot is found."
+  },
+  "rapidSingleFireIdle": {
+   "Mk 24": {
+    "before first shot": 11.76,
+    "after last shot": 9.62
+   },
+   "BROD 3": {
+    "before": 9.78,
+    "after": 10.0
+   },
+   "EF88": {
+    "before": 13.11,
+    "after": 12.42
+   },
+   "M277": {
+    "before": 11.89,
+    "after": 9.67
+   },
+   "M433": {
+    "before": null,
+    "after": 9.55
+   },
+   "unit": "px; the rapid clips' peaks mostly read 9 to 16 px (Mk 24 peaks 10.7 to 15.9, BROD 3 8.2 to 12.5, EF88 7.5 to 12.6, M277 10.9 to 21.3, M433 9.1 to 14.0 apart from one 24.2)"
+  },
+  "bipodMountedVsUnmountedPeaks": {
+   "unit": "peak indicator size in px at shot 5 / 10 / 20 (the last shot) of the segment, as the notes print them; '-' = no valid reading",
+   "Mk 24 mounted (20 shots)": {
+    "shot 5": 34.0,
+    "shot 10": 40.2,
+    "shot 20": 43.1,
+    "idle before / after": "12.14 / 8.64"
+   },
+   "Mk 24 unmounted (20 shots)": {
+    "shot 5": 30.7,
+    "shot 10": 40.5,
+    "shot 20": 43.6,
+    "idle before / after": "14.65 / 10.18"
+   },
+   "M277 mounted (20 shots)": {
+    "shot 5": 11.6,
+    "shot 10": 16.0,
+    "shot 20": 16.3,
+    "idle before / after": "none / 12.88"
+   },
+   "M277 unmounted (20 shots)": {
+    "shot 5": 34.4,
+    "shot 10": 44.6,
+    "shot 20": 47.6,
+    "idle before / after": "13.19 / 13.11"
+   },
+   "VSSM mounted (21 shots, full auto about 810 RPM)": {
+    "shot 5": 38.0,
+    "shot 10": 52.1,
+    "shot 20": 52.4,
+    "last shot 21": 52.0,
+    "idle before / after": "14.4 / 12.4"
+   },
+   "VSSM unmounted (20 shots)": {
+    "shot 5": 37.4,
+    "shot 10": 46.9,
+    "shot 20": 53.5,
+    "idle before / after": "13.5 / 10.0"
+   },
+   "M121 A2 mounted (26 shots, 50-round magazine)": {
+    "shot 5": 12.0,
+    "shot 10": 14.0,
+    "shot 20": 14.3,
+    "last": 12.2,
+    "idle before / after": "50.3 (n 5) / 12.0"
+   },
+   "M121 A2 unmounted (24 shots)": {
+    "shot 5": 28.0,
+    "shot 10": 36.9,
+    "shot 20": 38.0,
+    "last": 34.4,
+    "idle before / after": "13.6 / 13.1"
+   },
+   "EF88 mounted (30 shots)": {
+    "shot 5": 26.4,
+    "shot 10": 32.9,
+    "shot 20": 42.0,
+    "last": 42.0,
+    "idle after": 11.7
+   },
+   "EF88 unmounted (30 shots)": {
+    "shot 5": "-",
+    "shot 10": 37.3,
+    "shot 20": 41.4,
+    "last": 41.7,
+    "idle before / after": "14.06 / 13.90"
+   },
+   "VCR-2 mounted (31 shots, counter 31 to 00)": {
+    "shot 5": 10.8,
+    "shot 10": 16.5,
+    "shot 20": "-",
+    "last": 18.0,
+    "idle before / after": "13.7 / 13.2"
+   },
+   "VCR-2 unmounted (30 shots)": {
+    "shot 5": 24.0,
+    "shot 10": "-",
+    "shot 20": "-",
+    "last": 51.2,
+    "idle before / after": "13.4 / 11.3"
+   }
+  },
+  "segmentNotes": "VSSM: ammo events 1-21 mounted (counter 21 to 00), 22-26 reload refill (ignored), 27-46 unmounted (counter 20 to 00); shot interval alternating 8/10 frames (mean 8.9 frames, about 810 RPM mounted; 8.5 unmounted). M121 A2: events 1-26 = shots 50 to 24 (mounted), events 27-30 spurious, events 31-54 = shots 23 to 0 (unmounted), no reload. EF88: events 1-30 mounted, 31-37 reload refill, 38-67 unmounted. VCR2: events 1-31 mounted, 33-38 reload refill, 39-68 unmounted. VSSM outliers: unmounted shot 14 pre4 41.6 (neighbours 51.5, 47.2); mounted shot 4 peak 24.0 at offset 0 (1 valid frame); several windows have only 1 to 3 valid frames."
+ },
+ "inference": [
+  "Numbers only; the notes draw no conclusions. Read together: with the bipod deployed the indicator on the M277, M121 A2 and VCR-2 stays at about 11 to 18 px through the magazine while the same weapons unmounted grow to 34 to 51 px; on the Mk 24, VSSM and EF88 the mounted indicator grows to about 40 to 52 px like the unmounted one. The site repo logged attachment bugs 25 and 26 (deployed-bipod and semi-auto spread bindings missing on some weapons) in the same commit (ec30b0b); the binding tables are in the separate spread-binding survey and bipod selector receipts."
+ ],
+ "unresolved": [
+  "M433 and M277 rapid single-fire peaks are mostly not measurable; the rapid clips give a rough 9 to 16 px range only.",
+  "Mounted or unmounted state is visual judgement; the game shows no deployed indicator in these clips.",
+  "Idle before the first shot is missing or one-sided on several clips (M433, M277 mounted, EF88 mounted) and the M121 A2 mounted 'idle before' (50.3, n 5) is an outlier.",
+  "The indicator is a UI drawing of the spread radius at the lens scale (L4050 on the M433), not a measurement of bullet spread; no site value was changed from these clips."
+ ],
+ "siteImpact": "None applied from the measurements themselves. The same commit ec30b0b (17 Oct 2026, 'Bugs 25 and 26: deployed-bipod and semi-auto spread bindings missing') added the notes and the site's attachment bug entries; the site entry for bug 25 is the supporting pointer below (the grip pod entry is the second ref 25 row).",
+ "evidence": {
+  "notes": [
+   {
+    "file": "BF6 Weapon Analyzer/reference-data/provenance/spread-indicator-measurement-2026-10-17.md",
+    "sha256": "fe47cb661d73b926db1809aee48b07389fbe40fb7a80df63da46ae36d60aedb2"
+   },
+   {
+    "file": "BF6 Weapon Analyzer/reference-data/provenance/spread-indicator-measurement-2026-10-17-vssm.md",
+    "sha256": "072efd22514b067523aa48335e5d32391ab20ca9330babecc774e53c4f8ed9eb"
+   },
+   {
+    "file": "BF6 Weapon Analyzer/reference-data/provenance/spread-indicator-measurement-2026-10-17-ef88-vcr2-m121a2.md",
+    "sha256": "9c3963619325b2618cb0d4d28a48785659d937ce2d8d7db84b22a99c95ee468d"
+   }
+  ],
+  "examplePng": {
+   "file": "BF6 Weapon Analyzer/reference-data/provenance/spread-indicator-measurement-2026-10-17-example.png",
+   "sha256": "a54c27e07a2034d44b962887a967842e778f945d6264a222cab76054347b854d"
+  },
+  "recordingFolder": "reference-data/Recordings/10172026/Spread Indicators/",
+  "clips": [
+   {
+    "file": "BROD3_Rapid_Single_Fire.mp4",
+    "bytes": 9075442,
+    "sha256": "ea6a587d6273944d3b626a9ce3abe4c9d751468309054c109bc8f07d80a1821d"
+   },
+   {
+    "file": "EF88_Bipod_Mounted_vs_Unmounted.mp4",
+    "bytes": 13990857,
+    "sha256": "01a66d1b5d26909e58c260f6341943d466fe5daeee38a038fcc2565a60f19c25"
+   },
+   {
+    "file": "EF88_Rapid_Single_Fire.mp4",
+    "bytes": 9102417,
+    "sha256": "960ff48b8a0b385540acbf6e16a5392e4d0e75119e1c2a3bc16125dae952e9a3"
+   },
+   {
+    "file": "M121A2_Bipod_Mounted_vs_Unmounted.mp4",
+    "bytes": 11694710,
+    "sha256": "d4737062938aa85105ef9934465ee6a103bd84fa383cd2e74579c079d733f9af"
+   },
+   {
+    "file": "M277_Bipod_Mounted_vs_Unmounted.mp4",
+    "bytes": 11525105,
+    "sha256": "e3a53d2b1b08416880dc60bc529b7c09607ce83e678ebba0aae538f280dfe5ee"
+   },
+   {
+    "file": "M277_Rapid_Single_Fire.mp4",
+    "bytes": 7162721,
+    "sha256": "edf91987ce120a5ccd28122c9a226ea1496e9e8106dae64e488bd2f5814b906b"
+   },
+   {
+    "file": "M433_Rapid_Single_Fire.mp4",
+    "bytes": 8152223,
+    "sha256": "1f6779a776016d436dcf04f39f582ca9f2a7678127f6f434b75a825c20667dc4"
+   },
+   {
+    "file": "MK24_Bipod_Mounted_vs_Unmounted.mp4",
+    "bytes": 13414887,
+    "sha256": "84513b5a8d700540d8cfeaa13807f88071503f725c67833d907c9d2097a523fa"
+   },
+   {
+    "file": "MK24_Rapid_Single_Fire.mp4",
+    "bytes": 6814305,
+    "sha256": "2351cdc8339c0fee71c50c33c48d7a02fca8dd4c191262db8552e6d517556ec2"
+   },
+   {
+    "file": "VCR2_Bipod_Mounted_vs_Unmounted.mp4",
+    "bytes": 11451690,
+    "sha256": "2fc32523921bcc620ed633850b03a37b42d7c6022fb7ddb0db9fd42f82fccb76"
+   },
+   {
+    "file": "VSSM_Bipod_Mounted_vs_Unmounted.mp4",
+    "bytes": 12074443,
+    "sha256": "f5e10031431d341bc9b62899ab2842837212c40abfc1bc0033283527c4c07662"
+   }
+  ],
+  "siteCommits": {
+   "notes": "ec30b0b 2026-10-17 Bugs 25 and 26: deployed-bipod and semi-auto spread bindings missing"
+  },
+  "commands": "Command history unavailable: the notes name scripts in a session scratchpad (shots2.py, final.py, report.py, run_new.py, run_vssm.py) and one working directory pattern but no command lines."
+ },
+ "record": {
+  "v": 1,
+  "kind": "capture",
+  "date": "2026-10-17",
+  "build": "site-only",
+  "binding": "research",
+  "site": [
+   {
+    "pointer": "data/attachments.json:/GAME_BUGS/[ref=25]",
+    "value": {
+     "ref": "25",
+     "slot": "grip",
+     "attachments": [
+      "bipod"
+     ],
+     "weapons": [
+      "mk24",
+      "ef88",
+      "z84m",
+      "vssm"
+     ],
+     "metrics": [
+      "Spread Inc/Shot",
+      "Hipfire Spread"
+     ],
+     "suspected": true,
+     "note": "The mounted spread benefits aren't applied; only the recoil reduction is."
+    },
+    "relation": "supports"
+   }
+  ]
+ },
+ "run": {
+  "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-10-30-review-gaps",
+  "leadFolder": "L4063",
+  "note": "receipt drafted 30 Oct 2026 for an earlier measurement or recheck; the date is the evidence date"
+ }
+}
