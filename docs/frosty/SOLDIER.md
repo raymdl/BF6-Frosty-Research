@@ -868,6 +868,29 @@ WeaponMoveSpeedMultiplierOutput = m * f(firing ? 0.8 : 1, ...)      (dragging: D
 
 30 raw-offset checks matched.
 
+## L4083 - Agile Shooter: the Commando ability gates the firing movement penalty (9 November 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-11-09-L4083-agile-shooter-firing-move-gate.json). Read from the 1.4.3.5 movement resource `2bfca9f18b8f10e9` and the [L4016](#l4016---movement-speed-logic-disassembled-10-october-2026) listing; the ability files are byte-identical on 2.1.1.0.
+
+- **Stored:** right after its name, section `SimEx_MoveSpeedModifiers` holds four upgrade ids (offsets 6248, 6260, 6272, 6284): 2164090389, 3818758163, 2392087581, 4089494908. The second equals `Field_de6f63b3` of `Ability_Commando_Base` (Agile Shooter, Assault_2 slot 1) and the third that of `Ability_MedicalTriage` (Urgent Aid).
+- **Logic:** the section makes exactly four `HasUpgrade?` checks, in order. The first only gates the LMG x0.95 sprint penalty, the second only gates the firing multiplier, the third and fourth only feed the dragging branch.
+
+```
+firingPenalty = IsFiring AND NOT HasUpgrade(second id) AND NOT IsSPAI AND weapon type is one of six
+target        = firingPenalty ? 0.8 : 1
+```
+
+- **Reading:** with Agile Shooter the x0.8 firing multiplier is not applied at all: firing walk stays 3.5 m/s instead of 2.8 ([L4075](#l4075---movement-speed-in-ms-on-2110-30-october-2026) values). The game text says only "reduced".
+- **Limits (first reading, both since resolved below):** the id-to-check pairing was by order, and the function between the 0.8 and the output (`2ae5ca1e`) was undecoded.
+- **All four ids identified** ([follow-up receipt](../../reference-data/provenance/frosty-2026-11-09-L4083-move-speed-upgrade-ids-identified.json), 9 November pre-update baseline, Head 5383516): the first is `WeaponTraits/Support/Ability_SupportTrait` and the fourth `SwiftTriage/Ability_SwiftTriage`. Each ability's text matches the branch its check gates, which supports the by-order pairing four out of four.
+- **Support LMG sprint exemption:** the Support weapon trait skips the LMG x0.95 sprint penalty (5.7475 m/s off-class, 6.05 on Support). It is a yes/no check, not a stored multiplier, which is why the 4 October base-traits census found no sprint operand.
+- **2.1.1.0 confirmed** ([receipt](../../reference-data/provenance/frosty-2026-11-09-L4083-move-speed-logic-2110.json)): the movement resource `0550f387167b0bdd` was captured on 9 November (`movement-graph-body-2026-11-09`, Head 5383516). It holds the same four ids in the same order, the same constants at the same offsets (0.25, 0.8, 1.5, 1.1, 0.95, 1.1818, 1.75) and the same branches, so the [L4016](#l4016---movement-speed-logic-disassembled-10-october-2026) pseudo-code is a current-build reading. New detail: the firing penalty applies to `CurrentSoldierWeaponType` 0 and 3 to 7 only, and its target passes through `2ae5ca1e` with a rate built from 60 and 0.1 (probably smoothing; undecoded). Its id is in `capture\expression-graph-resource-ids-extra-2026-11-09.txt`, to be captured alongside the 304-id list after an update.
+- **Pairing is stored** ([receipt](../../reference-data/provenance/frosty-2026-11-09-L4083-upgrade-slot-binding-and-firing-smoothing.json)): directly after its code the resource has a 73-entry table of (slot, source record) pairs. Entries 3 to 6 bind slots `0x550`, `0x558`, `0x560`, `0x568` to the Support trait, Commando, Medical Triage and Swift Triage id records, on both builds. The by-order argument above is no longer needed.
+- **Firing multiplier is eased:** `prev = stored value; k = ffe1e419(60, frame time, 0.1); v = 2ae5ca1e(prev, firing ? 0.8 : 1, k); output = m * v; stored value = v`. Read as a linear blend with a frame-rate-normalised fraction, it moves 10% of the remaining gap per 1/60 s: half the change in about 0.11 s, 90% in about 0.36 s. The function meanings rest on their other uses (`2ae5ca1e` 12 times as end, end, variable; `ffe1e419` always with 60 first and the frame time second); the native bodies are unread, and whether `ffe1e419` is exponential or linear in frame time is open.
+- **Pairing is stored** ([receipt](../../reference-data/provenance/frosty-2026-11-09-L4083-upgrade-slot-binding-and-firing-smoothing.json)): directly after its code the resource has a 73-entry table of (slot, source record) pairs. Entries 3 to 6 bind slots `0x550`, `0x558`, `0x560`, `0x568` to the Support trait, Commando, Medical Triage and Swift Triage id records, on both builds. The by-order argument above is no longer needed.
+- **Firing multiplier is eased:** `prev = stored value; k = ffe1e419(60, frame time, 0.1); v = 2ae5ca1e(prev, firing ? 0.8 : 1, k); output = m * v; stored value = v`. Read as a linear blend with a frame-rate-normalised fraction, it moves 10% of the remaining gap per 1/60 s: half the change in about 0.11 s, 90% in about 0.36 s. The function meanings rest on their other uses (`2ae5ca1e` 12 times as end, end, variable; `ffe1e419` always with 60 first and the frame time second); the native bodies are unread, and whether `ffe1e419` is exponential or linear in frame time is open.
+- **Check without a recording:** walk and fire with and without the perk; the slowdown should be absent with it. Sprint with an LMG as Support and as another class; about 5% slower off-class.
+
 ## L4018 - Melee damage entry selection (10 October 2026)
 
 [Receipt](../../reference-data/provenance/frosty-2026-10-10-L4018-melee-graph-damage-entry.json). Read from the compiled `SimEx_Melee` resource `25ca266bea810e41` (1.4.3.0 capture). Entries of `Affector_Melee_Damage` are 35, 60, 1500, 70 (L4013).

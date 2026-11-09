@@ -1,0 +1,203 @@
+{
+ "lead": "L4083",
+ "status": "finding",
+ "build": {
+  "current": "2.1.1.0",
+  "head": 5383516,
+  "note": "Guarded capture movement-graph-body-2026-11-09 from the installed 2.1.1.0 client (hotfix 22 October, Head 5383516), the day before update 2.1.2.0."
+ },
+ "question": "Does the 2.1.1.0 movement resource hold the same upgrade checks and constants as the 1.4.3.5 reading (L4016, L4083)?",
+ "sourceFacts": {
+  "control": {
+   "description": "The resource id read from SimEx_RootLayerLogic (offset 3168) equals the captured body 0550f387167b0bdd; the reader's operand fit is 0.94 and the listing reproduces the L4016 structure line for line.",
+   "passed": true
+  },
+  "serialized": [
+   "Section SimEx_MoveSpeedModifiers (name at 6215) is followed by the same four upgrade ids in the same order: Ability_SupportTrait, Ability_Commando_Base, Ability_MedicalTriage, Ability_SwiftTriage.",
+   "The literals 0.25, 0.8, 1.5, 1.1, 0.95, 1.1818 and 1.75 sit at the same file offsets as on 1.4.3.5 (4616-4648).",
+   "Listing (rootlayerlogic-2110.listing.txt): HasUpgrade? on d550 at 18c0 -> td451, used only at 2250 NOT in the LMG 0.95 select (2304); on d558 at 1b4c -> td45b, used only at 1d9c NOT in the firing select (1f30, 0.8 or 1); on d560 and d568 at 1b78 and 1ba4 -> td45c, td45d, used only at 1ccc and 1d14 in the CurrentAction == 23 test that returns DraggingSpeedModifier.",
+   "The firing penalty needs IsFiring, NOT HasUpgrade(d558), NOT IsSPAI and CurrentSoldierWeaponType in {0, 3, 4, 5, 6, 7}; any other type takes no penalty (SWITCH at 1e64).",
+   "The firing target enters 2ae5ca1e(tbe54, target, ffe1e419(60, tbe64, 0.1)) before multiplying the output (1f88, 1fb4, 241c)."
+  ],
+  "rawChecks": [
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\movement-graph-body-2026-11-09\\raw\\Common\\Gameplay\\Soldier\\Traversal\\SimEx_RootLayerLogic.ebx",
+    "rawSha256": "1b80c0741d510a52cd9876cbfa03c27c8d4fd75f4be792e7ed2f453a9a27e62d",
+    "offset": 3168,
+    "type": "u64",
+    "bytesHex": "dd0b7b1687f35005",
+    "value": "0550f387167b0bdd",
+    "label": "SimEx_RootLayerLogic resource id"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\movement-graph-body-2026-11-09\\resources\\0550f387167b0bdd.res",
+    "rawSha256": "d35df3bcd696c8100a0fb1a6fdcdc3f7d091fe27cc3a435e3dabf7fd5d66b543",
+    "offset": 6252,
+    "type": "u32",
+    "bytesHex": "1566fd80",
+    "value": 2164090389,
+    "label": "upgrade id 1 = Ability_SupportTrait"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\movement-graph-body-2026-11-09\\resources\\0550f387167b0bdd.res",
+    "rawSha256": "d35df3bcd696c8100a0fb1a6fdcdc3f7d091fe27cc3a435e3dabf7fd5d66b543",
+    "offset": 6264,
+    "type": "u32",
+    "bytesHex": "13a09de3",
+    "value": 3818758163,
+    "label": "upgrade id 2 = Ability_Commando_Base"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\movement-graph-body-2026-11-09\\resources\\0550f387167b0bdd.res",
+    "rawSha256": "d35df3bcd696c8100a0fb1a6fdcdc3f7d091fe27cc3a435e3dabf7fd5d66b543",
+    "offset": 6276,
+    "type": "u32",
+    "bytesHex": "1d5c948e",
+    "value": 2392087581,
+    "label": "upgrade id 3 = Ability_MedicalTriage"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\movement-graph-body-2026-11-09\\resources\\0550f387167b0bdd.res",
+    "rawSha256": "d35df3bcd696c8100a0fb1a6fdcdc3f7d091fe27cc3a435e3dabf7fd5d66b543",
+    "offset": 6288,
+    "type": "u32",
+    "bytesHex": "7cbdc0f3",
+    "value": 4089494908,
+    "label": "upgrade id 4 = Ability_SwiftTriage"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\movement-graph-body-2026-11-09\\resources\\0550f387167b0bdd.res",
+    "rawSha256": "d35df3bcd696c8100a0fb1a6fdcdc3f7d091fe27cc3a435e3dabf7fd5d66b543",
+    "offset": 4616,
+    "type": "f32",
+    "bytesHex": "0000803e",
+    "value": 0.25,
+    "label": "barbed wire multiplier (de68)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\movement-graph-body-2026-11-09\\resources\\0550f387167b0bdd.res",
+    "rawSha256": "d35df3bcd696c8100a0fb1a6fdcdc3f7d091fe27cc3a435e3dabf7fd5d66b543",
+    "offset": 4620,
+    "type": "f32",
+    "bytesHex": "cdcc4c3f",
+    "value": 0.800000011920929,
+    "label": "firing multiplier (de6c)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\movement-graph-body-2026-11-09\\resources\\0550f387167b0bdd.res",
+    "rawSha256": "d35df3bcd696c8100a0fb1a6fdcdc3f7d091fe27cc3a435e3dabf7fd5d66b543",
+    "offset": 4624,
+    "type": "f32",
+    "bytesHex": "0000c03f",
+    "value": 1.5,
+    "label": "downed stim multiplier (de70)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\movement-graph-body-2026-11-09\\resources\\0550f387167b0bdd.res",
+    "rawSha256": "d35df3bcd696c8100a0fb1a6fdcdc3f7d091fe27cc3a435e3dabf7fd5d66b543",
+    "offset": 4628,
+    "type": "f32",
+    "bytesHex": "cdcc8c3f",
+    "value": 1.100000023841858,
+    "label": "sprint boost (de74)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\movement-graph-body-2026-11-09\\resources\\0550f387167b0bdd.res",
+    "rawSha256": "d35df3bcd696c8100a0fb1a6fdcdc3f7d091fe27cc3a435e3dabf7fd5d66b543",
+    "offset": 4632,
+    "type": "f32",
+    "bytesHex": "3333733f",
+    "value": 0.949999988079071,
+    "label": "LMG sprint penalty (de78)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\movement-graph-body-2026-11-09\\resources\\0550f387167b0bdd.res",
+    "rawSha256": "d35df3bcd696c8100a0fb1a6fdcdc3f7d091fe27cc3a435e3dabf7fd5d66b543",
+    "offset": 4636,
+    "type": "f32",
+    "bytesHex": "3945973f",
+    "value": 1.1818000078201294,
+    "label": "modifier cap without fast sprint (de7c)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\movement-graph-body-2026-11-09\\resources\\0550f387167b0bdd.res",
+    "rawSha256": "d35df3bcd696c8100a0fb1a6fdcdc3f7d091fe27cc3a435e3dabf7fd5d66b543",
+    "offset": 4648,
+    "type": "f32",
+    "bytesHex": "0000e03f",
+    "value": 1.75,
+    "label": "fast-sprint recover-time factor"
+   }
+  ]
+ },
+ "inference": [
+  "The movement-speed logic is unchanged from 1.4.3.5 to 2.1.1.0: the L4016 pseudo-code and the L4083 upgrade gates are current-build readings.",
+  "2ae5ca1e with a rate built from 60 and 0.1 is probably a smoothing step toward the firing target; not decoded."
+ ],
+ "unresolved": [
+  "No stored pointer from an id record to a check slot; the pairing rests on order and four semantic matches.",
+  "Names of the CurrentSoldierWeaponType values 0 and 3 to 7 (and of the exempt 1 and 2).",
+  "2ae5ca1e, ffe1e419 and 5db3c702 are undecoded."
+ ],
+ "siteImpact": "None now. Supports the L4075 movement-speed proposal on the current build: firing walk x0.8 (none with Agile Shooter), LMG sprint x0.95 (none with the Support weapon trait).",
+ "evidence": {
+  "runRoot": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-11-09-agile-shooter/L4083",
+  "paths": [
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/builds/2.1.1.0/reports/movement-graph-body-2026-11-09/resources/0550f387167b0bdd.res",
+    "sha256": "d35df3bcd696c8100a0fb1a6fdcdc3f7d091fe27cc3a435e3dabf7fd5d66b543"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/builds/2.1.1.0/reports/movement-graph-body-2026-11-09/raw/Common/Gameplay/Soldier/Traversal/SimEx_RootLayerLogic.ebx",
+    "sha256": "1b80c0741d510a52cd9876cbfa03c27c8d4fd75f4be792e7ed2f453a9a27e62d"
+   },
+   {
+    "path": "rootlayerlogic-2110.listing.txt",
+    "sha256": "b9d769ecff5bff957bfec6e9d4c08e5f5fdab057a3e3504fb784496706a4b322"
+   }
+  ],
+  "helpers": [
+   {
+    "path": "z_2110.py",
+    "sha256": "558a36b929115845c57455e8b428df1a35533785ed9db03e3cf34e97bff1f063"
+   },
+   {
+    "path": "readers-2110/exgraph.py",
+    "sha256": "6630913a39a1c9364a79c5e40a12d222632750ab253c0f69734f3b1d95f4e904"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-11-09",
+  "build": "2.1.1.0",
+  "binding": "research",
+  "supersedes": [
+   "frosty-2026-11-09-L4083-move-speed-upgrade-ids-identified.json"
+  ],
+  "leads": [
+   {
+    "id": "L4083",
+    "title": "Agile Shooter and LMG sprint exemption: upgrade checks in the movement-speed logic",
+    "status": "finding",
+    "summary": "On 2.1.1.0 (resource 0550f387167b0bdd, captured 9 November) SimEx_MoveSpeedModifiers checks four upgrades: Ability_SupportTrait skips the LMG x0.95 sprint penalty, Ability_Commando_Base (Agile Shooter) skips the x0.8 firing multiplier (walk 2.8 to 3.5 m/s), Ability_MedicalTriage and Ability_SwiftTriage select the dragging modifier. Logic and constants equal 1.4.3.5; id-to-check pairing is by order with four semantic matches.",
+    "reopenWhen": "A game update changes the movement resource, or an in-game firing-walk or LMG-sprint comparison disagrees."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Gameplay/Soldier/Traversal/SimEx_RootLayerLogic",
+    "format": "raw-ebx",
+    "sha256": "1b80c0741d510a52cd9876cbfa03c27c8d4fd75f4be792e7ed2f453a9a27e62d",
+    "question": "Is the movement-speed logic on 2.1.1.0 the same as the 1.4.3.5 reading?",
+    "result": "useful",
+    "conclusion": "Body 0550f387167b0bdd holds the same four upgrade ids, constants (0.8, 0.95, 1.1, 1.1818, 1.5, 0.25) and branch structure as 2bfca9f18b8f10e9."
+   }
+  ]
+ },
+ "run": {
+  "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-11-09-agile-shooter",
+  "leadFolder": "L4083"
+ }
+}

@@ -672,7 +672,7 @@ record GUID: `Ability_ActiveFlak` includes both RALLY SQUAD and HEAVY FLAK.
 |---|---|---|
 | Assault | Faster draw times and fire sooner when exiting a sprint with Assault Rifles. | Agrees with draw/sprint-recovery +1 steps. |
 | Engineer | Improved hip-fire control when using SMGs. | Agrees with hip minimum row +1. |
-| Support | Faster transition to aim down sights (ADS) and no sprint speed penalty when carrying LMGs. | ADS agrees; sprint exemption has no sourced operand in L100-L104. |
+| Support | Faster transition to aim down sights (ADS) and no sprint speed penalty when carrying LMGs. | ADS agrees; the sprint exemption is the Support weapon-trait check that skips the LMG x0.95 sprint penalty ([L4083](SOLDIER.md#l4083---agile-shooter-the-commando-ability-gates-the-firing-movement-penalty-9-november-2026)). |
 | Recon | Reduced weapon sway, faster rechambering, and improved breath control with Sniper Rifles. | Sway agrees; rechambering remains conditional and breath control lacks an operand. |
 
 The comparison uses L100-L104 and the existing timing receipt; it does not retrace

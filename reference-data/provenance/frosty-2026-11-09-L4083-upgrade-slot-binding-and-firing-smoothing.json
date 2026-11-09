@@ -1,0 +1,350 @@
+{
+ "lead": "L4083",
+ "status": "finding",
+ "build": {
+  "current": "2.1.1.0",
+  "head": 5383516,
+  "note": "Saved captures only. Both movement bodies (1.4.3.5 and 2.1.1.0) read."
+ },
+ "question": "Is the pairing of upgrade ids to HasUpgrade? slots stored, and what does the step between the 0.8 firing target and the output do?",
+ "sourceFacts": {
+  "control": {
+   "description": "The same reader fields that fix the code base and call table (header words 36, 44, 56, 60) locate the 73-entry table directly after the code; every one of its source offsets lands on the payload of a (length, length, payload) record in the data area, on both builds.",
+   "passed": true
+  },
+  "serialized": [
+   "Directly after the code, each resource has a table of 73 (slot data offset, source data offset) pairs (header word 56 is the count). Source offsets point at record payloads in the data area: 58 text records (tunable and section names), 11 empty records (lengths (1, 1), payload 0) and four records with lengths (1, 1) whose 4-byte payload is non-zero.",
+   "Entries 3 to 6 bind slots 0x550, 0x558, 0x560, 0x568 to those four records, whose payloads are the ids of Ability_SupportTrait, Ability_Commando_Base, Ability_MedicalTriage and Ability_SwiftTriage in that order. Same rows on 1.4.3.5 (source offsets 4 lower).",
+   "The four slots are zero in the file, have no entry in the source asset's import list (imports bind 1352 and 1392 on either side) and are named by no code operand other than the four HasUpgrade? calls.",
+   "Firing step (2.1.1.0 listing): 1d38 328a61dd(d280) -> prev; 1f30 target = firing ? 0.8 : 1; 1f54 5db3c702(...) -> x; 1f88 ffe1e419(60, x, 0.1) -> k; 1fb4 2ae5ca1e(prev, target, k) -> v; 241c output = m * v; 2464 47be3d90(d280) <- v.",
+   "Other uses in the 1.4.3.5 listings: 2ae5ca1e appears 12 times, always (end value, end value, variable), including (1, 2, t) and (2, 1, t) in the same Igla graph. ffe1e419 appears 6 times, always with 60 first; in SimEx_SoldierMaster (59cc) its second argument is the frame-time function c58d8ea6 (DT?) directly, and at RootLayerLogic 5210-523c its result is divided by the same second argument."
+  ],
+  "tables": {
+   "2.1.1.0": {
+    "tableFileOffset": 271524,
+    "entries": 73,
+    "dataDelta": 928,
+    "codeBase": 13976,
+    "payloadKinds": {
+     "id": 4,
+     "emptyText": 11,
+     "string": 58,
+     "other": 0
+    }
+   },
+   "1.4.3.5": {
+    "tableFileOffset": 271452,
+    "entries": 73,
+    "dataDelta": 928,
+    "codeBase": 13976,
+    "payloadKinds": {
+     "id": 4,
+     "emptyText": 11,
+     "string": 58,
+     "other": 0
+    }
+   }
+  },
+  "rawChecks": [
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\movement-graph-body-2026-11-09\\resources\\0550f387167b0bdd.res",
+    "rawSha256": "d35df3bcd696c8100a0fb1a6fdcdc3f7d091fe27cc3a435e3dabf7fd5d66b543",
+    "offset": 271548,
+    "type": "u32",
+    "bytesHex": "50050000",
+    "value": 1360,
+    "label": "2.1.1.0 table entry 3: slot data offset (0x550)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\movement-graph-body-2026-11-09\\resources\\0550f387167b0bdd.res",
+    "rawSha256": "d35df3bcd696c8100a0fb1a6fdcdc3f7d091fe27cc3a435e3dabf7fd5d66b543",
+    "offset": 271552,
+    "type": "u32",
+    "bytesHex": "cc140000",
+    "value": 5324,
+    "label": "2.1.1.0 table entry 3: source data offset"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\movement-graph-body-2026-11-09\\resources\\0550f387167b0bdd.res",
+    "rawSha256": "d35df3bcd696c8100a0fb1a6fdcdc3f7d091fe27cc3a435e3dabf7fd5d66b543",
+    "offset": 6252,
+    "type": "u32",
+    "bytesHex": "1566fd80",
+    "value": 2164090389,
+    "label": "2.1.1.0 payload at that source offset = Ability_SupportTrait id"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\movement-graph-body-2026-11-09\\resources\\0550f387167b0bdd.res",
+    "rawSha256": "d35df3bcd696c8100a0fb1a6fdcdc3f7d091fe27cc3a435e3dabf7fd5d66b543",
+    "offset": 271556,
+    "type": "u32",
+    "bytesHex": "58050000",
+    "value": 1368,
+    "label": "2.1.1.0 table entry 4: slot data offset (0x558)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\movement-graph-body-2026-11-09\\resources\\0550f387167b0bdd.res",
+    "rawSha256": "d35df3bcd696c8100a0fb1a6fdcdc3f7d091fe27cc3a435e3dabf7fd5d66b543",
+    "offset": 271560,
+    "type": "u32",
+    "bytesHex": "d8140000",
+    "value": 5336,
+    "label": "2.1.1.0 table entry 4: source data offset"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\movement-graph-body-2026-11-09\\resources\\0550f387167b0bdd.res",
+    "rawSha256": "d35df3bcd696c8100a0fb1a6fdcdc3f7d091fe27cc3a435e3dabf7fd5d66b543",
+    "offset": 6264,
+    "type": "u32",
+    "bytesHex": "13a09de3",
+    "value": 3818758163,
+    "label": "2.1.1.0 payload at that source offset = Ability_Commando_Base id"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\movement-graph-body-2026-11-09\\resources\\0550f387167b0bdd.res",
+    "rawSha256": "d35df3bcd696c8100a0fb1a6fdcdc3f7d091fe27cc3a435e3dabf7fd5d66b543",
+    "offset": 271564,
+    "type": "u32",
+    "bytesHex": "60050000",
+    "value": 1376,
+    "label": "2.1.1.0 table entry 5: slot data offset (0x560)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\movement-graph-body-2026-11-09\\resources\\0550f387167b0bdd.res",
+    "rawSha256": "d35df3bcd696c8100a0fb1a6fdcdc3f7d091fe27cc3a435e3dabf7fd5d66b543",
+    "offset": 271568,
+    "type": "u32",
+    "bytesHex": "e4140000",
+    "value": 5348,
+    "label": "2.1.1.0 table entry 5: source data offset"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\movement-graph-body-2026-11-09\\resources\\0550f387167b0bdd.res",
+    "rawSha256": "d35df3bcd696c8100a0fb1a6fdcdc3f7d091fe27cc3a435e3dabf7fd5d66b543",
+    "offset": 6276,
+    "type": "u32",
+    "bytesHex": "1d5c948e",
+    "value": 2392087581,
+    "label": "2.1.1.0 payload at that source offset = Ability_MedicalTriage id"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\movement-graph-body-2026-11-09\\resources\\0550f387167b0bdd.res",
+    "rawSha256": "d35df3bcd696c8100a0fb1a6fdcdc3f7d091fe27cc3a435e3dabf7fd5d66b543",
+    "offset": 271572,
+    "type": "u32",
+    "bytesHex": "68050000",
+    "value": 1384,
+    "label": "2.1.1.0 table entry 6: slot data offset (0x568)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\movement-graph-body-2026-11-09\\resources\\0550f387167b0bdd.res",
+    "rawSha256": "d35df3bcd696c8100a0fb1a6fdcdc3f7d091fe27cc3a435e3dabf7fd5d66b543",
+    "offset": 271576,
+    "type": "u32",
+    "bytesHex": "f0140000",
+    "value": 5360,
+    "label": "2.1.1.0 table entry 6: source data offset"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\reports\\movement-graph-body-2026-11-09\\resources\\0550f387167b0bdd.res",
+    "rawSha256": "d35df3bcd696c8100a0fb1a6fdcdc3f7d091fe27cc3a435e3dabf7fd5d66b543",
+    "offset": 6288,
+    "type": "u32",
+    "bytesHex": "7cbdc0f3",
+    "value": 4089494908,
+    "label": "2.1.1.0 payload at that source offset = Ability_SwiftTriage id"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+    "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+    "offset": 271476,
+    "type": "u32",
+    "bytesHex": "50050000",
+    "value": 1360,
+    "label": "1.4.3.5 table entry 3: slot data offset (0x550)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+    "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+    "offset": 271480,
+    "type": "u32",
+    "bytesHex": "c8140000",
+    "value": 5320,
+    "label": "1.4.3.5 table entry 3: source data offset"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+    "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+    "offset": 6248,
+    "type": "u32",
+    "bytesHex": "1566fd80",
+    "value": 2164090389,
+    "label": "1.4.3.5 payload at that source offset = Ability_SupportTrait id"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+    "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+    "offset": 271484,
+    "type": "u32",
+    "bytesHex": "58050000",
+    "value": 1368,
+    "label": "1.4.3.5 table entry 4: slot data offset (0x558)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+    "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+    "offset": 271488,
+    "type": "u32",
+    "bytesHex": "d4140000",
+    "value": 5332,
+    "label": "1.4.3.5 table entry 4: source data offset"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+    "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+    "offset": 6260,
+    "type": "u32",
+    "bytesHex": "13a09de3",
+    "value": 3818758163,
+    "label": "1.4.3.5 payload at that source offset = Ability_Commando_Base id"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+    "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+    "offset": 271492,
+    "type": "u32",
+    "bytesHex": "60050000",
+    "value": 1376,
+    "label": "1.4.3.5 table entry 5: slot data offset (0x560)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+    "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+    "offset": 271496,
+    "type": "u32",
+    "bytesHex": "e0140000",
+    "value": 5344,
+    "label": "1.4.3.5 table entry 5: source data offset"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+    "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+    "offset": 6272,
+    "type": "u32",
+    "bytesHex": "1d5c948e",
+    "value": 2392087581,
+    "label": "1.4.3.5 payload at that source offset = Ability_MedicalTriage id"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+    "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+    "offset": 271500,
+    "type": "u32",
+    "bytesHex": "68050000",
+    "value": 1384,
+    "label": "1.4.3.5 table entry 6: slot data offset (0x568)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+    "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+    "offset": 271504,
+    "type": "u32",
+    "bytesHex": "ec140000",
+    "value": 5356,
+    "label": "1.4.3.5 table entry 6: source data offset"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+    "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+    "offset": 6284,
+    "type": "u32",
+    "bytesHex": "7cbdc0f3",
+    "value": 4089494908,
+    "label": "1.4.3.5 payload at that source offset = Ability_SwiftTriage id"
+   }
+  ]
+ },
+ "inference": [
+  "The table is the loader's slot-binding list, so the id-to-check pairing is stored: the firing gate slot 0x558 is bound to the Ability_Commando_Base id, and the LMG sprint gate slot 0x550 to the Ability_SupportTrait id. This replaces the by-order argument.",
+  "2ae5ca1e(a, b, t) is a linear blend from a to b; 5db3c702 returns the frame time; ffe1e419(60, dt, k) turns a per-frame fraction k quoted at 60 frames per second into the fraction for this frame; the 328a61dd / 47be3d90 pair reads and writes the value kept from the previous frame.",
+  "On that reading the firing multiplier is eased: each 1/60 s it moves 10% of the remaining gap toward its target (0.8 when firing, 1 otherwise). Starting or stopping fire therefore takes about 0.11 s for half the change and about 0.36 s for 90% of it."
+ ],
+ "unresolved": [
+  "Whether ffe1e419 is exponential (1 - (1 - k)^(60 dt)) or linear (k * 60 * dt); both give k at 60 frames per second, so the timing above holds at 60 Hz and is approximate elsewhere.",
+  "The native bodies of 2ae5ca1e, ffe1e419, 5db3c702, 328a61dd and 47be3d90 are not read; their meanings rest on use in the listings.",
+  "Names of the CurrentSoldierWeaponType values 0 and 3 to 7."
+ ],
+ "siteImpact": "None now. For the L4075 movement-speed proposal: firing walk settles at x0.8 after about a third of a second, not instantly.",
+ "evidence": {
+  "runRoot": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-11-09-agile-shooter/L4083",
+  "paths": [
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/builds/2.1.1.0/reports/movement-graph-body-2026-11-09/resources/0550f387167b0bdd.res",
+    "sha256": "d35df3bcd696c8100a0fb1a6fdcdc3f7d091fe27cc3a435e3dabf7fd5d66b543"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/builds/1.4.3.5/reports/soldier-frontier-2026-10-01-b6/resources/2bfca9f18b8f10e9.res",
+    "sha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef"
+   },
+   {
+    "path": "rootlayerlogic-2110.listing.txt",
+    "sha256": "b9d769ecff5bff957bfec6e9d4c08e5f5fdab057a3e3504fb784496706a4b322"
+   },
+   {
+    "path": "rootlayer-src-2110.json",
+    "sha256": "19882c84fce75923f542f19ae24f8b6fd7840e9d93b4c1bf14a0cb9dbaa6a8ce"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-10-weapons-registry/expression-graphs/listings/common__gameplay__soldier__traversal__simex_rootlayerlogic.txt",
+    "sha256": "ef4eba1c3415f937b00f0455b27f7a951ec93f5d6974f4124e63d9390f4b588a"
+   },
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-10-10-weapons-registry/expression-graphs/listings/common__gameplay__soldier__fl_soldier__soldiermaster__simex_soldiermaster.txt",
+    "sha256": "43ca52f77716a3cc96e8a3fad5a799e205c37afca0e8c1f11de345579b465168"
+   }
+  ],
+  "helpers": [
+   {
+    "path": "z_binding.py",
+    "sha256": "8d8cb7c3b898897dc6c62fd7db4d738342a5955391d68993dfdbec96df4124a9"
+   },
+   {
+    "path": "readers-2110/exdis.py",
+    "sha256": "a020e06ff18945b7e08b27eb8dd06c674bb4078dffac22be32a4c3894fe50ece"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-11-09",
+  "build": "2.1.1.0",
+  "binding": "research",
+  "supersedes": [
+   "frosty-2026-11-09-L4083-move-speed-logic-2110.json"
+  ],
+  "leads": [
+   {
+    "id": "L4083",
+    "title": "Agile Shooter and LMG sprint exemption: upgrade checks in the movement-speed logic",
+    "status": "finding",
+    "summary": "Stored binding found: a 73-entry table after the code of the movement resource binds slot 0x558 (the only gate on the x0.8 firing multiplier) to the Ability_Commando_Base id and slot 0x550 (the only gate on the LMG x0.95 sprint penalty) to the Ability_SupportTrait id; 0x560 and 0x568 (dragging) to Medical Triage and Swift Triage. Same on 1.4.3.5 and 2.1.1.0. The firing multiplier is eased toward its target by 10% of the gap per 1/60 s (function meanings inferred from use).",
+    "reopenWhen": "A game update changes the movement resource, or an in-game firing-walk or LMG-sprint comparison disagrees."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Gameplay/Soldier/Traversal/SimEx_RootLayerLogic",
+    "format": "raw-res",
+    "sha256": "d35df3bcd696c8100a0fb1a6fdcdc3f7d091fe27cc3a435e3dabf7fd5d66b543",
+    "question": "Is the upgrade id to check-slot pairing stored in the compiled body?",
+    "result": "useful",
+    "conclusion": "Yes: entries 3 to 6 of the slot-binding table after the code pair slots 0x550-0x568 with the four upgrade id records."
+   }
+  ]
+ },
+ "run": {
+  "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-11-09-agile-shooter",
+  "leadFolder": "L4083"
+ }
+}

@@ -1,0 +1,175 @@
+{
+ "lead": "L4083",
+ "status": "finding",
+ "build": {
+  "current": "2.1.1.0",
+  "head": 5382784,
+  "note": "Saved captures only; no export or capture run. The compiled movement resource is the 1.4.3.5 capture (Head 4909002); it was renumbered on 2.1.1.0 (L4075) and is in no 2.1.1.0 capture. The two ability files are byte-identical on 1.4.3.5 and 2.1.1.0."
+ },
+ "question": "Does any stored value or logic implement Agile Shooter (Assault Breacher level 1, Ability_Commando_Base), whose text is \"Reduced movement speed penalty when firing while moving\"?",
+ "sourceFacts": {
+  "control": {
+   "description": "Firing multiplier literal 0.8 re-read at the L4016 offset 4620 of resource 2bfca9f18b8f10e9; Ability_MedicalTriage (Urgent Aid, \"Drag downed soldiers 20% faster\") id sits third in the same id list and the third HasUpgrade? check feeds the dragging branch.",
+   "passed": true
+  },
+  "serialized": [
+   "Resource 2bfca9f18b8f10e9 (RootLayerLogic, 1.4.3.5) names section SimEx_MoveSpeedModifiers at offset 6211; the string ends at 6239 and is followed by four records of (1, 1, u32 id) at 6240-6287, then the next string record (24, 24, \"SwimmingImproved.Enable\").",
+   "The four ids are 2164090389, 3818758163, 2392087581, 4089494908. 3818758163 equals Field_de6f63b3 of Ability_Commando_Base (offset 332); 2392087581 equals Field_de6f63b3 of Ability_MedicalTriage (offset 332). Each id occurs once in the resource.",
+   "The section's listing (L4016 speed-section.txt) has exactly four calls of b569d9f2 (\"HasUpgrade?\" in the later reader), in order, on data slots m550, m558, m560, m568 (8 bytes apart; zero in the file): 1878 -> td44f, 1b04 -> td459, 1b30 -> td45a, 1b5c -> td45b.",
+   "td459 is used once: 1d54 NOT(td459) -> td462; IFNOT td462 skips to 1ee8 with td461 FALSE. td461 TRUE needs IsFiring, NOT td459, NOT IsSPAI and one of six CurrentSoldierWeaponType cases; then SELECT td461 ? 0.8 : 1 -> tbe58.",
+   "tbe58 enters 2ae5ca1e(tbe54, tbe58, tbe68) -> tbe6c, and the output is WeaponMoveSpeedMultiplierOutput = tbe74 * tbe6c (23d4, 23f8).",
+   "td45a and td45b are used only at 1c84 and 1ccc, inside the CurrentAction enum test that selects DraggingSpeedModifier. td44f is used only at 2208 (NOT) in the LMG x0.95 sprint penalty.",
+   "Ability_Commando_Base and U_Ability_Commando_Base hold no scalar payload and import only the ability categories asset, the multiplayer kill-switch asset, the common configuration and each other (L401, re-read)."
+  ],
+  "rawChecks": [
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+    "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+    "offset": 6248,
+    "type": "u32",
+    "bytesHex": "1566fd80",
+    "value": 2164090389,
+    "label": "upgrade id 1 of 4 (unidentified; check m550, LMG sprint gate)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+    "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+    "offset": 6260,
+    "type": "u32",
+    "bytesHex": "13a09de3",
+    "value": 3818758163,
+    "label": "upgrade id 2 of 4 = Ability_Commando_Base (check m558, firing gate)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+    "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+    "offset": 6272,
+    "type": "u32",
+    "bytesHex": "1d5c948e",
+    "value": 2392087581,
+    "label": "upgrade id 3 of 4 = Ability_MedicalTriage (check m560, dragging)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+    "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+    "offset": 6284,
+    "type": "u32",
+    "bytesHex": "7cbdc0f3",
+    "value": 4089494908,
+    "label": "upgrade id 4 of 4 (unidentified; check m568, dragging)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+    "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+    "offset": 4620,
+    "type": "f32",
+    "bytesHex": "cdcc4c3f",
+    "value": 0.800000011920929,
+    "label": "firing multiplier literal 0.8 (L4016 offset)"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Gameplay\\InRoundProgression\\_BaseTraits\\Commando_Base\\Ability_Commando_Base.ebx",
+    "rawSha256": "0c85e1d2149f1e145191c25070f102027d97b5a9dcfb45f5d069ab389054417b",
+    "offset": 332,
+    "type": "u32",
+    "bytesHex": "13a09de3",
+    "value": 3818758163,
+    "label": "Ability_Commando_Base id, build 2.1.1.0"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\collection\\raw\\Common\\Gameplay\\InRoundProgression\\_BaseTraits\\MedicalTriage_Base\\Ability_MedicalTriage.ebx",
+    "rawSha256": "2551ad5921adf1c3d43f490d8f040ed071923dc414de165bc9ed6b41db4de6f1",
+    "offset": 332,
+    "type": "u32",
+    "bytesHex": "1d5c948e",
+    "value": 2392087581,
+    "label": "Ability_MedicalTriage id, build 2.1.1.0"
+   }
+  ],
+  "notFound": "Neither 2164090389 nor 4089494908 occurs as a u32 in any of the 31,425 .ebx files of the 2.1.1.0 main capture; neither equals a Field_de6f63b3 of the 105 class-perk run assets."
+ },
+ "inference": [
+  "The four (1, 1, id) records are the upgrade references that fill slots m550 to m568 at load, in order: four records, four checks, same sequence. No stored pointer from a record to a slot was found; the pairing is by order.",
+  "On that pairing the firing gate (m558) is Ability_Commando_Base: a soldier holding Agile Shooter keeps the firing multiplier at 1.0 instead of 0.8, so firing walk stays 3.5 m/s instead of 2.8 (L4075 values). The penalty is removed, not reduced.",
+  "The pairing is supported by the third id: Ability_MedicalTriage is Urgent Aid, whose text states faster dragging, and the third check feeds the dragging branch.",
+  "The first id (LMG sprint penalty gate) is probably the Support LMG proficiency and the fourth (dragging) another medic upgrade; neither is identified."
+ ],
+ "unresolved": [
+  "Record-to-slot binding is by order only.",
+  "2ae5ca1e between the 0.8 and the output is undecoded (probably a smoothing step toward the target value over time).",
+  "The 0.8 and this logic are 1.4.3.5 readings; the 2.1.1.0 resource 0550f387167b0bdd is uncaptured.",
+  "Which six CurrentSoldierWeaponType values take the firing penalty.",
+  "Identity of ids 2164090389 and 4089494908.",
+  "UI-to-gameplay join for AGILE SHOOTER remains by internal name (Ability_Commando_Base), as in L840/L4056."
+ ],
+ "siteImpact": "None now: the site shows no firing movement speed. Conditional on the L4075 movement-speed row: firing walk 2.8 m/s, or 3.5 m/s with Agile Shooter. Validation without a recording: walk and fire with and without the perk; the slowdown should be absent with it.",
+ "evidence": {
+  "runRoot": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-11-09-agile-shooter/L4083",
+  "paths": [
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/builds/1.4.3.5/reports/soldier-frontier-2026-10-01-b6/resources/2bfca9f18b8f10e9.res",
+    "sha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef"
+   },
+   {
+    "path": "Common/Gameplay/InRoundProgression/_BaseTraits/Commando_Base/Ability_Commando_Base",
+    "sha256": "0c85e1d2149f1e145191c25070f102027d97b5a9dcfb45f5d069ab389054417b"
+   },
+   {
+    "path": "Common/Gameplay/InRoundProgression/_BaseTraits/MedicalTriage_Base/Ability_MedicalTriage",
+    "sha256": "2551ad5921adf1c3d43f490d8f040ed071923dc414de165bc9ed6b41db4de6f1"
+   },
+   {
+    "path": "speed-section-L4016.txt",
+    "sha256": "1bbc57f1253ca66d473c55a729a774c8c24c52039d59efd75251f9ac9172a04a"
+   },
+   {
+    "path": "rawchecks.json",
+    "sha256": "9c8618506f0a0a70cd0605e504a3ffd3d5ed14b8a7e3fce0d1a6e131c8db6f55"
+   }
+  ],
+  "helpers": [
+   {
+    "path": "rawchecks.py",
+    "sha256": "ba36d0a7633048c83b3fa79687db501b234765c562193b3010792d6b98daae12"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-11-09",
+  "build": "2.1.1.0",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L4083",
+    "title": "Agile Shooter: Commando ability gates the firing movement penalty",
+    "status": "finding",
+    "summary": "The compiled movement-speed section lists four upgrade ids beside four HasUpgrade? checks; the second is Ability_Commando_Base and its check switches off the x0.8 firing multiplier (walk 2.8 to 3.5 m/s). Pairing is by order, supported by Ability_MedicalTriage on the dragging check; constants are 1.4.3.5 readings.",
+    "reopenWhen": "The 2.1.1.0 movement resource 0550f387167b0bdd is captured, a record-to-slot binding is decoded, or an in-game firing-walk comparison with and without Agile Shooter is available."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Gameplay/InRoundProgression/_BaseTraits/Commando_Base/Ability_Commando_Base",
+    "format": "raw-ebx",
+    "sha256": "0c85e1d2149f1e145191c25070f102027d97b5a9dcfb45f5d069ab389054417b",
+    "question": "Is the Agile Shooter ability referenced by the movement-speed logic?",
+    "result": "useful",
+    "conclusion": "Its id 3818758163 (Field_de6f63b3, offset 332) is the second of four upgrade ids in the SimEx_MoveSpeedModifiers section of resource 2bfca9f18b8f10e9; the file itself stores no scalar."
+   },
+   {
+    "path": "Common/Gameplay/InRoundProgression/_BaseTraits/MedicalTriage_Base/Ability_MedicalTriage",
+    "format": "raw-ebx",
+    "sha256": "2551ad5921adf1c3d43f490d8f040ed071923dc414de165bc9ed6b41db4de6f1",
+    "question": "Control: is Urgent Aid referenced by the dragging-speed logic?",
+    "result": "useful",
+    "conclusion": "Its id 2392087581 is the third of the four upgrade ids; the third check feeds the dragging branch."
+   }
+  ]
+ },
+ "run": {
+  "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-11-09-agile-shooter",
+  "leadFolder": "L4083"
+ }
+}

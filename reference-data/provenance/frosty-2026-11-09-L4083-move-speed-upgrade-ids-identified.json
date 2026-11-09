@@ -1,0 +1,133 @@
+{
+ "lead": "L4083",
+ "status": "finding",
+ "build": {
+  "current": "2.1.1.0",
+  "head": 5383516,
+  "note": "Saved captures only. The two ability files are from the 9 November pre-update baseline (Head 5383516); the movement resource is the 1.4.3.5 capture."
+ },
+ "question": "Which upgrades own the first and fourth ids in the SimEx_MoveSpeedModifiers list (L4083)?",
+ "sourceFacts": {
+  "control": {
+   "description": "Ids 2 and 3 equal Ability_Commando_Base and Ability_MedicalTriage at the same offset 332 (first L4083 receipt).",
+   "passed": true
+  },
+  "serialized": [
+   "Id 1 (2164090389) equals Field_de6f63b3 at offset 332 of Common/Gameplay/InRoundProgression/WeaponTraits/Support/Ability_SupportTrait.",
+   "Id 4 (4089494908) equals Field_de6f63b3 at offset 332 of Common/Gameplay/InRoundProgression/SwiftTriage/Ability_SwiftTriage (same bytes in the 1.4.3.0 dependency capture).",
+   "A scan of 408,198 .ebx/.res/.bin files under builds/ found id 1 only in the movement resource and Ability_SupportTrait, and id 4 only in Ability_SwiftTriage and three compiled resources (2bfca9f18b8f10e9, 5708f0f2548726b7, bc130666c8287597)."
+  ],
+  "rawChecks": [
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+    "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+    "offset": 6248,
+    "type": "u32",
+    "bytesHex": "1566fd80",
+    "value": 2164090389,
+    "label": "upgrade id 1 of 4 in SimEx_MoveSpeedModifiers"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\pre-update-5383516-2026-11-09\\collection\\raw\\Common\\Gameplay\\InRoundProgression\\WeaponTraits\\Support\\Ability_SupportTrait.ebx",
+    "rawSha256": "9fce9884650abd0f8877ecca239e2ab6cbac7cc91bfa4e7e11d6b1d6ccfeea80",
+    "offset": 332,
+    "type": "u32",
+    "bytesHex": "1566fd80",
+    "value": 2164090389,
+    "label": "Ability_SupportTrait Field_de6f63b3"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\1.4.3.5\\reports\\soldier-frontier-2026-10-01-b6\\resources\\2bfca9f18b8f10e9.res",
+    "rawSha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef",
+    "offset": 6284,
+    "type": "u32",
+    "bytesHex": "7cbdc0f3",
+    "value": 4089494908,
+    "label": "upgrade id 4 of 4 in SimEx_MoveSpeedModifiers"
+   },
+   {
+    "path": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.1.0\\capture\\pre-update-5383516-2026-11-09\\collection\\raw\\Common\\Gameplay\\InRoundProgression\\SwiftTriage\\Ability_SwiftTriage.ebx",
+    "rawSha256": "aa62b7d1cd9620521e86630f5b81d81e4fffe4ccd28e48057af352875ae5cf60",
+    "offset": 332,
+    "type": "u32",
+    "bytesHex": "7cbdc0f3",
+    "value": 4089494908,
+    "label": "Ability_SwiftTriage Field_de6f63b3"
+   }
+  ]
+ },
+ "inference": [
+  "All four ids now name an ability whose game text matches the branch its check gates: Support weapon trait on the LMG x0.95 sprint penalty (\"no sprint speed penalty when carrying LMGs\"), Commando on the x0.8 firing multiplier (Agile Shooter), Medical Triage and Swift Triage on dragging speed. This supports the by-order pairing of ids to checks four out of four.",
+  "The Support LMG sprint exemption is therefore a yes/no check in the movement logic, not a stored multiplier, which is why the 4 October base-traits census found no sprint operand."
+ ],
+ "unresolved": [
+  "No stored pointer from an id record to a check slot; the pairing rests on order and the four semantic matches.",
+  "Constants (0.8, 0.95) are 1.4.3.5 readings; the 2.1.1.0 movement resource 0550f387167b0bdd is uncaptured.",
+  "Whether Ability_SupportTrait is granted by class alone or by class plus an LMG in hand is runtime."
+ ],
+ "siteImpact": "None now. Conditional on the L4075 movement-speed row: LMG sprint 5.7475 m/s off-class and 6.05 m/s on Support; firing walk 2.8 m/s, or 3.5 m/s with Agile Shooter.",
+ "evidence": {
+  "runRoot": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-11-09-agile-shooter/L4083",
+  "paths": [
+   {
+    "path": "C:/Users/royal/Documents/BF6 Datamining/builds/1.4.3.5/reports/soldier-frontier-2026-10-01-b6/resources/2bfca9f18b8f10e9.res",
+    "sha256": "82041d2a132db186ecfdb93c292735ab01028e9a5b1399a502de4c4002c68bef"
+   },
+   {
+    "path": "Common/Gameplay/InRoundProgression/WeaponTraits/Support/Ability_SupportTrait",
+    "sha256": "9fce9884650abd0f8877ecca239e2ab6cbac7cc91bfa4e7e11d6b1d6ccfeea80"
+   },
+   {
+    "path": "Common/Gameplay/InRoundProgression/SwiftTriage/Ability_SwiftTriage",
+    "sha256": "aa62b7d1cd9620521e86630f5b81d81e4fffe4ccd28e48057af352875ae5cf60"
+   }
+  ],
+  "helpers": [
+   {
+    "path": "z_followup.py",
+    "sha256": "5120e20b3919b685f04b18923d767a624cefd8be86fdfb185c6dbe05f0b973a2"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-11-09",
+  "build": "2.1.1.0",
+  "binding": "research",
+  "supersedes": [
+   "frosty-2026-11-09-L4083-agile-shooter-firing-move-gate.json"
+  ],
+  "leads": [
+   {
+    "id": "L4083",
+    "title": "Agile Shooter and LMG sprint exemption: upgrade checks in the movement-speed logic",
+    "status": "finding",
+    "summary": "The four upgrade ids in SimEx_MoveSpeedModifiers are Ability_SupportTrait (skips the LMG x0.95 sprint penalty), Ability_Commando_Base (Agile Shooter: skips the x0.8 firing multiplier, walk 2.8 to 3.5 m/s), Ability_MedicalTriage and Ability_SwiftTriage (dragging). Pairing to checks is by order with four semantic matches; constants are 1.4.3.5 readings.",
+    "reopenWhen": "The 2.1.1.0 movement resource 0550f387167b0bdd is captured, or an in-game firing-walk or LMG-sprint comparison disagrees."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Gameplay/InRoundProgression/WeaponTraits/Support/Ability_SupportTrait",
+    "format": "raw-ebx",
+    "sha256": "9fce9884650abd0f8877ecca239e2ab6cbac7cc91bfa4e7e11d6b1d6ccfeea80",
+    "question": "Which upgrade gates the LMG sprint penalty?",
+    "result": "useful",
+    "conclusion": "Its id 2164090389 (offset 332) is the first upgrade id in SimEx_MoveSpeedModifiers; the first check gates the LMG x0.95 sprint penalty."
+   },
+   {
+    "path": "Common/Gameplay/InRoundProgression/SwiftTriage/Ability_SwiftTriage",
+    "format": "raw-ebx",
+    "sha256": "aa62b7d1cd9620521e86630f5b81d81e4fffe4ccd28e48057af352875ae5cf60",
+    "question": "Which upgrade is the second dragging check?",
+    "result": "useful",
+    "conclusion": "Its id 4089494908 (offset 332) is the fourth upgrade id in SimEx_MoveSpeedModifiers; the fourth check feeds the dragging branch."
+   }
+  ]
+ },
+ "run": {
+  "root": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-11-09-agile-shooter",
+  "leadFolder": "L4083"
+ }
+}

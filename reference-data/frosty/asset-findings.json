@@ -2088,6 +2088,22 @@
     "frosty-2026-10-30-L4082-swap-time-and-sprint-to-fire": {
       "path": "reference-data/provenance/frosty-2026-10-30-L4082-swap-time-and-sprint-to-fire.json",
       "reportSha256": "882841cfbeb36873a3e5899f1be2adf2e6c422cd098d29728434461ded1a2424"
+    },
+    "frosty-2026-11-09-L4083-agile-shooter-firing-move-gate": {
+      "path": "reference-data/provenance/frosty-2026-11-09-L4083-agile-shooter-firing-move-gate.json",
+      "reportSha256": "a771515e360f823913d4a7e74c0a774a018b81ae3174a24e8ec56a73be03953c"
+    },
+    "frosty-2026-11-09-L4083-move-speed-logic-2110": {
+      "path": "reference-data/provenance/frosty-2026-11-09-L4083-move-speed-logic-2110.json",
+      "reportSha256": "2bf0ae9ad68ad67232df5c417afeffc2e61ad4b358ae5dae486a1a773cc3765d"
+    },
+    "frosty-2026-11-09-L4083-move-speed-upgrade-ids-identified": {
+      "path": "reference-data/provenance/frosty-2026-11-09-L4083-move-speed-upgrade-ids-identified.json",
+      "reportSha256": "44d9e793a3d120e973bfd73c1923a694c13911705f823625e6dc3648e2f35269"
+    },
+    "frosty-2026-11-09-L4083-upgrade-slot-binding-and-firing-smoothing": {
+      "path": "reference-data/provenance/frosty-2026-11-09-L4083-upgrade-slot-binding-and-firing-smoothing.json",
+      "reportSha256": "dfafb1f500b9ac9249a0b3fff857a8745d7fad77e76bceb46c3c9173cd82494e"
     }
   },
   "assets": {
@@ -12062,6 +12078,67 @@
             "New evidence identifies a consumer or changes the interpretation.",
             "The research question requires fields or methods outside the inspected scope.",
             "The compiled resource 0550f387167b0bdd is captured, or a timed run with a known distance disagrees with 6.05, 5.7475 or 3.5 m/s."
+          ]
+        },
+        {
+          "question": "Is the movement-speed logic on 2.1.1.0 the same as the 1.4.3.5 reading?",
+          "result": "useful",
+          "conclusion": "Body 0550f387167b0bdd holds the same four upgrade ids, constants (0.8, 0.95, 1.1, 1.1818, 1.5, 0.25) and branch structure as 2bfca9f18b8f10e9.",
+          "buildInspected": {
+            "label": "2.1.1.0 (Season 5; hotfix clients of 15 and 22 October share its layouts)",
+            "exactBuildVerified": true,
+            "basis": "record.build 2.1.1.0; Head 5382784"
+          },
+          "evidence": [
+            {
+              "source": "frosty-2026-11-09-L4083-move-speed-logic-2110",
+              "pointer": "/record"
+            }
+          ],
+          "assetHashesAtInspection": [
+            {
+              "format": "raw-ebx",
+              "sha256": "1b80c0741d510a52cd9876cbfa03c27c8d4fd75f4be792e7ed2f453a9a27e62d"
+            }
+          ],
+          "inspectionDate": "2026-11-09",
+          "revisitWhen": [
+            "Asset content or relevant dependency changes.",
+            "New evidence identifies a consumer or changes the interpretation.",
+            "The research question requires fields or methods outside the inspected scope.",
+            "A game update changes the movement resource, or an in-game firing-walk or LMG-sprint comparison disagrees."
+          ],
+          "supersededBy": [
+            "frosty-2026-11-09-L4083-upgrade-slot-binding-and-firing-smoothing"
+          ]
+        },
+        {
+          "question": "Is the upgrade id to check-slot pairing stored in the compiled body?",
+          "result": "useful",
+          "conclusion": "Yes: entries 3 to 6 of the slot-binding table after the code pair slots 0x550-0x568 with the four upgrade id records.",
+          "buildInspected": {
+            "label": "2.1.1.0 (Season 5; hotfix clients of 15 and 22 October share its layouts)",
+            "exactBuildVerified": true,
+            "basis": "record.build 2.1.1.0; Head 5382784"
+          },
+          "evidence": [
+            {
+              "source": "frosty-2026-11-09-L4083-upgrade-slot-binding-and-firing-smoothing",
+              "pointer": "/record"
+            }
+          ],
+          "assetHashesAtInspection": [
+            {
+              "format": "raw-res",
+              "sha256": "d35df3bcd696c8100a0fb1a6fdcdc3f7d091fe27cc3a435e3dabf7fd5d66b543"
+            }
+          ],
+          "inspectionDate": "2026-11-09",
+          "revisitWhen": [
+            "Asset content or relevant dependency changes.",
+            "New evidence identifies a consumer or changes the interpretation.",
+            "The research question requires fields or methods outside the inspected scope.",
+            "A game update changes the movement resource, or an in-game firing-walk or LMG-sprint comparison disagrees."
           ]
         }
       ]
@@ -82533,6 +82610,38 @@
             "The research question requires fields or methods outside the inspected scope.",
             "Exact family controls and missing selector/receiver joins become available."
           ]
+        },
+        {
+          "question": "Is the Agile Shooter ability referenced by the movement-speed logic?",
+          "result": "useful",
+          "conclusion": "Its id 3818758163 (Field_de6f63b3, offset 332) is the second of four upgrade ids in the SimEx_MoveSpeedModifiers section of resource 2bfca9f18b8f10e9; the file itself stores no scalar.",
+          "buildInspected": {
+            "label": "2.1.1.0 (Season 5; hotfix clients of 15 and 22 October share its layouts)",
+            "exactBuildVerified": true,
+            "basis": "record.build 2.1.1.0; Head 5382784"
+          },
+          "evidence": [
+            {
+              "source": "frosty-2026-11-09-L4083-agile-shooter-firing-move-gate",
+              "pointer": "/record"
+            }
+          ],
+          "assetHashesAtInspection": [
+            {
+              "format": "raw-ebx",
+              "sha256": "0c85e1d2149f1e145191c25070f102027d97b5a9dcfb45f5d069ab389054417b"
+            }
+          ],
+          "inspectionDate": "2026-11-09",
+          "revisitWhen": [
+            "Asset content or relevant dependency changes.",
+            "New evidence identifies a consumer or changes the interpretation.",
+            "The research question requires fields or methods outside the inspected scope.",
+            "The 2.1.1.0 movement resource 0550f387167b0bdd is captured, a record-to-slot binding is decoded, or an in-game firing-walk comparison with and without Agile Shooter is available."
+          ],
+          "supersededBy": [
+            "frosty-2026-11-09-L4083-move-speed-upgrade-ids-identified"
+          ]
         }
       ]
     },
@@ -102248,6 +102357,117 @@
             "New evidence identifies a consumer or changes the interpretation.",
             "The research question requires fields or methods outside the inspected scope.",
             "A recording of one pair swapped five times (frames from key press to first possible shot) or a native swap/readiness consumer is found."
+          ]
+        }
+      ]
+    },
+    "Common/Gameplay/InRoundProgression/_BaseTraits/MedicalTriage_Base/Ability_MedicalTriage": {
+      "contents": "Traced by frosty-2026-11-09-L4083-agile-shooter-firing-move-gate.",
+      "findings": [
+        {
+          "question": "Control: is Urgent Aid referenced by the dragging-speed logic?",
+          "result": "useful",
+          "conclusion": "Its id 2392087581 is the third of the four upgrade ids; the third check feeds the dragging branch.",
+          "buildInspected": {
+            "label": "2.1.1.0 (Season 5; hotfix clients of 15 and 22 October share its layouts)",
+            "exactBuildVerified": true,
+            "basis": "record.build 2.1.1.0; Head 5382784"
+          },
+          "evidence": [
+            {
+              "source": "frosty-2026-11-09-L4083-agile-shooter-firing-move-gate",
+              "pointer": "/record"
+            }
+          ],
+          "assetHashesAtInspection": [
+            {
+              "format": "raw-ebx",
+              "sha256": "2551ad5921adf1c3d43f490d8f040ed071923dc414de165bc9ed6b41db4de6f1"
+            }
+          ],
+          "inspectionDate": "2026-11-09",
+          "revisitWhen": [
+            "Asset content or relevant dependency changes.",
+            "New evidence identifies a consumer or changes the interpretation.",
+            "The research question requires fields or methods outside the inspected scope.",
+            "The 2.1.1.0 movement resource 0550f387167b0bdd is captured, a record-to-slot binding is decoded, or an in-game firing-walk comparison with and without Agile Shooter is available."
+          ],
+          "supersededBy": [
+            "frosty-2026-11-09-L4083-move-speed-upgrade-ids-identified"
+          ]
+        }
+      ]
+    },
+    "Common/Gameplay/InRoundProgression/WeaponTraits/Support/Ability_SupportTrait": {
+      "contents": "Traced by frosty-2026-11-09-L4083-move-speed-upgrade-ids-identified.",
+      "findings": [
+        {
+          "question": "Which upgrade gates the LMG sprint penalty?",
+          "result": "useful",
+          "conclusion": "Its id 2164090389 (offset 332) is the first upgrade id in SimEx_MoveSpeedModifiers; the first check gates the LMG x0.95 sprint penalty.",
+          "buildInspected": {
+            "label": "2.1.1.0 (Season 5; hotfix clients of 15 and 22 October share its layouts)",
+            "exactBuildVerified": true,
+            "basis": "record.build 2.1.1.0; Head 5382784"
+          },
+          "evidence": [
+            {
+              "source": "frosty-2026-11-09-L4083-move-speed-upgrade-ids-identified",
+              "pointer": "/record"
+            }
+          ],
+          "assetHashesAtInspection": [
+            {
+              "format": "raw-ebx",
+              "sha256": "9fce9884650abd0f8877ecca239e2ab6cbac7cc91bfa4e7e11d6b1d6ccfeea80"
+            }
+          ],
+          "inspectionDate": "2026-11-09",
+          "revisitWhen": [
+            "Asset content or relevant dependency changes.",
+            "New evidence identifies a consumer or changes the interpretation.",
+            "The research question requires fields or methods outside the inspected scope.",
+            "The 2.1.1.0 movement resource 0550f387167b0bdd is captured, or an in-game firing-walk or LMG-sprint comparison disagrees."
+          ],
+          "supersededBy": [
+            "frosty-2026-11-09-L4083-move-speed-logic-2110"
+          ]
+        }
+      ]
+    },
+    "Common/Gameplay/InRoundProgression/SwiftTriage/Ability_SwiftTriage": {
+      "contents": "Traced by frosty-2026-11-09-L4083-move-speed-upgrade-ids-identified.",
+      "findings": [
+        {
+          "question": "Which upgrade is the second dragging check?",
+          "result": "useful",
+          "conclusion": "Its id 4089494908 (offset 332) is the fourth upgrade id in SimEx_MoveSpeedModifiers; the fourth check feeds the dragging branch.",
+          "buildInspected": {
+            "label": "2.1.1.0 (Season 5; hotfix clients of 15 and 22 October share its layouts)",
+            "exactBuildVerified": true,
+            "basis": "record.build 2.1.1.0; Head 5382784"
+          },
+          "evidence": [
+            {
+              "source": "frosty-2026-11-09-L4083-move-speed-upgrade-ids-identified",
+              "pointer": "/record"
+            }
+          ],
+          "assetHashesAtInspection": [
+            {
+              "format": "raw-ebx",
+              "sha256": "aa62b7d1cd9620521e86630f5b81d81e4fffe4ccd28e48057af352875ae5cf60"
+            }
+          ],
+          "inspectionDate": "2026-11-09",
+          "revisitWhen": [
+            "Asset content or relevant dependency changes.",
+            "New evidence identifies a consumer or changes the interpretation.",
+            "The research question requires fields or methods outside the inspected scope.",
+            "The 2.1.1.0 movement resource 0550f387167b0bdd is captured, or an in-game firing-walk or LMG-sprint comparison disagrees."
+          ],
+          "supersededBy": [
+            "frosty-2026-11-09-L4083-move-speed-logic-2110"
           ]
         }
       ]

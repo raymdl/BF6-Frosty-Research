@@ -12,6 +12,7 @@ work proceeds.
 
 | Update | Checklist | Result | Run folders |
 |---|---|---|---|
+| 2.1.2.0 (Casino Heist), 10 November 2026 | [2.1.2.0-checklist.md](2.1.2.0-checklist.md) | Pending: checklist written 9 November from the patch notes; Stage 0 baseline captured 9 November (41,145 gameplay-shape routes plus 303 graph bodies, with loaded- and rebuilt-cache catalogs) | `builds\2.1.1.0\capture\pre-update-5383516-2026-11-09\` |
 | Hotfix, 22 October 2026 (archive head 5383516) | None | Hotfix, same build: type layouts identical; 6 catalog record changes (four single-player face BindAssets, `SimEx_BR_ApplyProgressionWeapon`, DataVersion); raw 4 changed, no stored values | `builds\2.1.1.0\reports\client-new-check-2026-10-22\` |
 | Hotfix, 15 October 2026 (archive head 5383474) | None | Hotfix, same build: type layouts identical; 19 catalog record changes (13 non-English string tables, four single-player face BindAssets, sound MasterPatch, DataVersion); raw 3 changed | `builds\2.1.1.0\reports\client-new-check-2026-10-15\` |
 | 2.1.1.0 (Season 5), 13 October 2026 | [2.1.1.0-checklist.md](2.1.1.0-checklist.md) | New build | `2026-10-12-update-2110-pretrace`, `2026-10-13-update-2110-post` |
