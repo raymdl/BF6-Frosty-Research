@@ -13,8 +13,8 @@ D = settings.D
 BUILD = settings.BUILD
 spec = importlib.util.spec_from_file_location("dec", REPO / "scripts/frosty-ebx-decode.py")
 dec = importlib.util.module_from_spec(spec); spec.loader.exec_module(dec)
-types = dec.type_descriptors(BUILD / "capture/toolchain/SharedTypeDescriptors.ebx")
-_cat = json.load(open(BUILD / "capture/collection/asset-catalog.json", encoding="utf-8"))
+types = dec.type_descriptors(settings.DESCRIPTORS)
+_cat = json.load(open(settings.CATALOG, encoding="utf-8"))
 _rows = _cat if isinstance(_cat, list) else next(v for v in _cat.values() if isinstance(v, list))
 byguid = {str(r["guid"]).lower(): r["path"] for r in _rows}
 held = {}      # lower route -> file path

@@ -1,14 +1,22 @@
 # Game update: Haiku worker briefs
 
 Ready briefs for the worker plan in the
-[game update guide](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/GAME_UPDATE_GUIDE.md#haiku-workers).
+[game update guide](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/GAME_UPDATE_GUIDE.md#workers).
 First used on 12 October 2026 for the 2.1.1.0 patch-note pre-trace
 (`BF6 Datamining/reports/weapon-analyzer-research/2026-10-12-update-2110-pretrace/`).
 
 ## How to launch
 
-- Agent type `haiku-worker` (shell and scripts) or `haiku-reader` (reading and searching only),
-  `model: haiku`, `effort: medium`. Never an all-tools agent type.
+- Pick the model per task type (guide, "Workers"): Haiku 5.5 for a fixed script on fixed
+  inputs with a mechanical output; Sonnet 5.5 to decode and compare with a known method, and
+  for the availability census; Opus 5.5, or two independent Sonnet 5.5 workers compared, when
+  the worker designs its own method or its answer can be "nothing else changed". Each brief
+  heading names its model.
+- Haiku runs as `haiku-worker` (shell and scripts) or `haiku-reader` (reading and searching
+  only), `model: haiku`, `effort: medium`, never an all-tools agent type.
+- One deliverable per worker. Do not add a side task to a brief; give it its own worker.
+  Scripted steps stay scripts (`frosty-weapon-semdiff.py`, `frosty-equipment-list-diff.py`):
+  the main session runs them and a worker classifies or checks the rows.
 - One run folder per update under `BF6 Datamining/reports/weapon-analyzer-research/`, one
   subfolder per worker. Workers write nowhere else.
 - Save the common brief below as `brief-common.txt` in the run folder and start every task
@@ -23,6 +31,15 @@ First used on 12 October 2026 for the 2.1.1.0 patch-note pre-trace
 - Check every result against the files before recording it. In the 7 October tests about one
   run in four had a disclosed rule slip, and Medium effort never volunteered a control the brief
   did not ask for: name every required output.
+- Give every diff or availability worker an addition control and a removal control: a known
+  added item and a known removed item on a build pair, which its method must find. The
+  permanent removal control is the DRS-IAR Synthetic Tip (`M27IAR AMO_BallisticTip`), removed
+  from `Equipment_M27IAR` between 2.1.1.0 and 2.1.2.0. If a control fails, redo the step with a
+  corrected rule or a stronger model before ticking the stage; another worker's partial result
+  does not stand in for it.
+- Before any summary to the operator, list where worker reports disagree (counts, verdicts,
+  row sets) and resolve or flag each one. Mark each summary line as confirmed by two routes
+  or resting on one worker (guide, "Workers").
 - Workers do not edit either repo, `BUILD.json`, or anything under `builds\`. The hotfix or
   new-build decision, sealing, decoder changes and site changes stay in the main session.
 
@@ -93,15 +110,18 @@ Required outputs in your output folder:
   summary.txt  under 80 lines: a table of the targets, then the extension table the task asks
                for, then anything that contradicts the patch notes or the anchors.
   files.txt    every file you decoded (route and sha256 from the decoder output).
+  controls.txt only when the task names controls: each control, what it must find, what your
+               method found, and pass or fail.
 Final reply to the orchestrator: under 50 lines, the same tables in compact form, plus any rule
-you broke or shell call that was denied.
+you broke or shell call that was denied. If a control failed, say so in the first line and do
+not present the other results as checked.
 ```
 
 ## Task briefs
 
 Each is appended after the "First read ..." line. Fill the angle-bracket parts.
 
-### A. Patch-note checklist (while the Stage 1 capture runs; `haiku-reader`)
+### A. Patch-note checklist (while the Stage 1 capture runs; Haiku, `haiku-reader`)
 
 ```text
 TASK - patch-note checklist. Input: <RUN>/patch-notes.txt (the notes as plain text).
@@ -114,7 +134,7 @@ EA wording. Skip the sections the orchestrator lists here: <sections to skip>.
 Do not interpret or merge lines; one EA line can produce several rows.
 ```
 
-### B. Pre-update "from" trace (the day before; `haiku-worker`, one per patch-note section)
+### B. Pre-update "from" trace (the day before; Sonnet, one per patch-note section)
 
 ```text
 TASK - locate the pre-update values for <section>.
@@ -126,7 +146,7 @@ write extension.tsv with that field's value for every file. In summary.txt list 
 non-default values.
 ```
 
-### C. Signal cross-check (after Stage 3 has the three lists; `haiku-worker`)
+### C. Signal cross-check (after Stage 3 has the three lists; Haiku, `haiku-worker`)
 
 ```text
 TASK - cross-check the three change signals. Inputs: <patch summary file>, <comparison.json
@@ -136,7 +156,7 @@ removed, guid_same_path_changed. In summary.txt give the count for each combinat
 every route where the signals disagree. Do not judge which signal is right.
 ```
 
-### D. Diff triage (Stage 5; `haiku-worker`, split the changed list into batches of about 40 files)
+### D. Diff triage (Stage 5; Sonnet, split the changed list into batches of about 40 files)
 
 ```text
 TASK - diff triage for batch <n>. Inputs: <RUN>/batch-<n>.tsv with route, old raw path, new
@@ -160,9 +180,11 @@ In summary.txt: per file, the count per category, and the full list of "other" c
 files with fewer than 30 of them. List files where objects could not be matched, and every
 uncertain pair.
 Also list "control" files: in the batch but with zero changes.
+CONTROLS (required, in controls.txt): <a file in the batch with a known added object and one
+with a known removed object, which the orchestrator names>: both must appear in changes.tsv.
 ```
 
-### E. Consistency scan (Stage 6; `haiku-worker`, one scan per worker)
+### E. Consistency scan (Stage 6; Sonnet, one scan per worker)
 
 ```text
 TASK - consistency scan "<scan name>". Read the section "<scan heading>" of
@@ -173,7 +195,7 @@ Then compare with the previous build's result at <path>: list rows that are new 
 rows that no longer fail, and unchanged failures. Do not explain causes.
 ```
 
-### F. Known-issue list recheck (Stage 8; `haiku-worker`, one list per worker)
+### F. Known-issue list recheck (Stage 8; Haiku, `haiku-worker`, one list per worker; judging the asset-changed rows is a separate Sonnet worker)
 
 ```text
 TASK - recheck the list <list file>. Inputs: <RUN>/changed-routes.txt (raw routes whose
@@ -188,7 +210,7 @@ Do not mark anything resolved: that decision is made in the main session from th
 asset-changed and note-only rows.
 ```
 
-### G. Post-update "to" confirmation (after the new capture; `haiku-worker`)
+### G. Post-update "to" confirmation (after the new capture; Sonnet)
 
 ```text
 TASK - confirm the post-update values. Inputs: <previous run>/W*/result.json (located field
@@ -198,7 +220,7 @@ new value, EA from, EA to, and match (yes / no / field missing). In summary.txt 
 "no" and "field missing", and every checklist row that had no located field path.
 ```
 
-### H. Availability census (Stage 7, new content; `haiku-worker`)
+### H. Availability census (Stage 7, new content; Sonnet, not Haiku: it must notice when its own rule is wrong)
 
 ```text
 TASK - availability census. Input: <RUN>/new-assets.tsv (catalog-added routes) and the new
@@ -206,14 +228,21 @@ build's raw files. For every added Attachment_* record, ammunition record, weapo
 write census.tsv: item (file name), weapon, has_attachment_record, has_ability_branch
 (<weapon>_ability branch list Field_d7605aab binds it), in_modifier_list (<weapon>_WB
 Field_0cd9f20f holds its package), kill_switch_value (the stored value of its KST_* row, or
-"no row"), in_weapon_aam (the weapon's AAM_* map lists it), in_game_name (from the AAM record
-or name metadata, or "not found").
+"no row"), in_equipment_list (<RUN>/equipment-list-diff.tsv or the new Equipment_<weapon>
+file imports the record's file GUID), in_weapon_aam (the weapon's AAM_* map lists it),
+in_game_name (from the AAM record or name metadata, or "not found").
+Also copy every "removed" row of <RUN>/equipment-list-diff.tsv into summary.txt: those
+attachments are gone even if their record, branch and kill-switch row remain.
+CONTROLS (required, in controls.txt): removal - <RUN>/equipment-list-diff-2120-control.tsv
+(the same diff on the 2.1.1.0 to 2.1.2.0 pair) must list M27IAR AMO_BallisticTip as removed,
+and your census method applied to it must report in_equipment_list = no; addition - <a
+known added item the orchestrator names> must show every column present.
 Report the stored kill-switch value as it is: true or false. Do not translate it to
 "enabled" or "disabled", and do not classify items as live or not live; the main session
 does that. In summary.txt list every item that lacks one of the columns.
 ```
 
-### I. New-weapon part (Stage 9; one `haiku-worker` per part, or a larger model for part C)
+### I. New-weapon part (Stage 9; one Sonnet worker per part)
 
 ```text
 TASK - site data for the new weapons, part <A weapon records | B ammunition and ballistics |
@@ -230,3 +259,24 @@ Write "not found" for any value the files do not give; do not fill it from anoth
 In summary.txt: the validation table, every mismatch, every "not found", and values that
 look like game data errors. Do not write to the site repo.
 ```
+
+### J. Unannounced changes (Stage 7; Opus, or two independent Sonnet workers compared)
+
+The main session first runs `scripts/frosty-weapon-semdiff.py` (with `--controls 2.1.2.0` on
+the reference pair once per toolchain change) and the equipment-list diff. This worker only
+classifies; it does not diff and does not compare equipment lists.
+
+```text
+TASK - classify the per-weapon change list. Input: <RUN>/sem-changes.tsv (route, class, match,
+keypath, kind, old, new), <RUN>/checklist.tsv and fixes.tsv (task A), and the raw index for
+reading a field on other weapons. Group rows that are the same change on several files.
+Write classified.tsv: group, routes, rows, label, patch-note row (checklist id or blank),
+reason. Labels: announced (a checklist row explains it), unannounced (a value change no
+patch-note line explains), noise (offset, index shift, string-id re-pairing, re-bake), new
+content (objects added for an added item). For every unannounced group, read the same field on
+every other weapon and say how many carry the new value.
+In summary.txt: the row total read (it must equal the file's row count), the count per label,
+every unannounced group with its reach, and every row you could not label.
+CONTROLS (required, in controls.txt): the nine PD_*_Match drag rows (0.002 to 0.0025) must be
+one announced group; WPM_MAG_045Cpt1_Ultimax_W05's removed reload import must be labelled, not
+noise.

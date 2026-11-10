@@ -62,7 +62,7 @@ if __name__ == "__main__":
     site = json.load(open(lib.SITE / "data/weapons.json", encoding="utf-8"))
     attrs = json.load(open(lib.SITE / "data/weapon_attributes.json", encoding="utf-8"))
     new = []
-    NEW = (("mk24", "MRGGA"), ("elr40", "CDX40"), ("z84m", "PKM"), ("rspr", "RSAR999"))
+    NEW = [(w["siteId"], w["internal"]) for w in lib.settings.NEW_WEAPONS]
     for sid, internal in NEW:
         r = extract.raw(internal); rec = extract.record(r); rec["id"] = sid
         new.append(rec)

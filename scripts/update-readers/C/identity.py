@@ -1,5 +1,5 @@
-"""Build raw-attachment -> site-id identity maps from the reviewed mapping of the 63 existing weapons
-(research repo: frosty-site-attachment-mapping-2026-09-15.json, 3,361 choice rows with their raw sources).
+"""Build raw-attachment -> site-id identity maps from the reviewed mapping of the 67 weapons on the site in 2.1.1.0
+(research repo: frosty-site-attachment-mapping-2026-10-24.json, 3,624 choice rows with their raw sources).
 
 Keys tried, from most to least specific. A key is usable when it maps to exactly one site id on
 every existing weapon that has it.
@@ -11,7 +11,7 @@ Run directly to print the ambiguity report.
 import json, collections, re, pathlib
 REPO = pathlib.Path("C:/Users/royal/Documents/BF6 Frosty Research")
 SITE = pathlib.Path("C:/Users/royal/Documents/BF6 Weapon Analyzer")
-MAPPING = REPO / "reference-data/provenance/frosty-site-attachment-mapping-2026-09-15.json"
+MAPPING = REPO / "reference-data/provenance/frosty-site-attachment-mapping-2026-10-24.json"
 
 
 def stem_of(path, internal=None):

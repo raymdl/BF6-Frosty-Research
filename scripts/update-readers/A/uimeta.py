@@ -93,7 +93,7 @@ if __name__ == "__main__":
     for n in notes:
         print("  MISMATCH", json.dumps(n, ensure_ascii=False)[:700])
     new = {}
-    for s, internal in (("mk24", "MRGGA"), ("elr40", "CDX40"), ("z84m", "PKM"), ("rspr", "RSAR999")):
+    for s, internal in [(w["siteId"], w["internal"]) for w in lib.settings.NEW_WEAPONS]:
         rs = byint.get(norm(internal), [])
         new[s] = rs
         print("==", s, internal, len(rs))

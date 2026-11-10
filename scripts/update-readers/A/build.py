@@ -9,7 +9,7 @@ import json, hashlib, pathlib, collections, re
 import lib, extract, reloadscan
 from lib import f32
 F = lambda h: "Field_" + h
-NEW = (("mk24", "MRGGA"), ("elr40", "CDX40"), ("z84m", "PKM"), ("rspr", "RSAR999"))
+NEW = [(w["siteId"], w["internal"]) for w in settings.NEW_WEAPONS]
 sha = lambda p: hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest()
 ui = json.load(open(lib.HERE / "uimeta.json", encoding="utf-8"))["new"]
 prec = json.load(open(lib.HERE / "precision.json", encoding="utf-8"))
@@ -135,12 +135,10 @@ proposed["data/weapon_attributes.json"] = {"path": "$.tables (add keys)", "value
 proposed["data/weapon-role-tags.json"] = {"path": "$.weapons (add keys); $.source.metadata (append)", "value": {
     "weapons": roles,
     "source.metadata[+]": {"asset": "Common/UI/Static/Metadata/S5/UIWeaponAbilityMetaData_S5B1", "sha256": sha(lib.held["common/ui/static/metadata/s5/uiweaponabilitymetadata_s5b1"])}}}
-proposed["data/reload-exceptions.json"] = {"path": "$.animationOverrides (add key); $.counts", "value": {
-    "animationOverrides": {"elr40": {"<magazine id the attachments worker gives Attachment_CDX40_MAG_Compact1>": {
-        "tacRldOverrideMs": 3166, "displayName": "<in-game name of Attachment_CDX40_MAG_Compact1, not resolved here>", "recordKey": "elr40-single-round"}}},
-    "counts": {"animationOverrideRecords": 5, "animationOverrideEntries": 6, "screenshotExceptionEntries": 1, "composedLoadoutEvidenceEntries": 1}},
-    "sourceRows": reloadx}
-out = {"generated": "2026-10-13", "build": settings.BUILD_LABEL, "proposed": proposed, "evidence": evidence, "conventionChecks": checks}
+# Reload overrides are decided by hand from the scanned rows (2.1.1.0 added one for the ELR-40 single-round magazine).
+proposed["data/reload-exceptions.json"] = {"path": "$.animationOverrides (only where a row below differs from the base reload)",
+    "value": {}, "sourceRows": reloadx}
+out = {"generated": __import__("datetime").date.today().isoformat(),"build": settings.BUILD_LABEL, "proposed": proposed, "evidence": evidence, "conventionChecks": checks}
 json.dump(out, open(lib.HERE / "proposed.json", "w", encoding="utf-8"), indent=1, ensure_ascii=False)
 print(json.dumps(checks, ensure_ascii=True)[:3000])
 for w in weapons:

@@ -7,7 +7,7 @@ Reproduces, from raw EBX, what these site generators write from XML:
   frosty-assumption-review.py     recoil amount/variation steps
   frosty-attachment-compatibility.py   slots, dependencies, WEAPON_ACCESSORY
   frosty-attachment-tooltips.py   byWeapon description ids, optic categories
-Identity (raw record -> site id) comes from identity.py (reviewed mapping of the 63 existing weapons).
+Identity (raw record -> site id) comes from identity.py (reviewed mapping, frosty-site-attachment-mapping-2026-10-24.json).
 """
 import json, re, collections, pathlib
 from rawlib import *

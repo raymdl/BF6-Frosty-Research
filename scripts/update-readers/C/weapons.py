@@ -2,8 +2,7 @@
 import json
 from rawlib import *
 
-NEW = [("mk24", "Mk 24", "Assault Rifle", "MRGGA", "AssaultRifle/MRGGA"), ("elr40", "ELR-40", "Sniper Rifle", "CDX40", "BoltAction/CDX40"),
-       ("z84m", "Z84M", "LMG", "PKM", "MG/PKM"), ("rspr", "RSPR", "SMG", "RSAR999", "SMG/RSAR999")]
+NEW = [(w["siteId"], w["name"], w["class"], w["internal"], w["folder"]) for w in settings.NEW_WEAPONS]
 
 
 def roster():

@@ -22,8 +22,8 @@ import importlib.util, json, pathlib, struct, collections, re, sys
 import common as c
 
 HERE = settings.part("B")
-NEW = {"mk24": "MRGGA", "elr40": "CDX40", "z84m": "PKM", "rspr": "RSAR999"}
-NEW_CLS = {"mk24": "Assault Rifle", "elr40": "Sniper Rifle", "z84m": "LMG", "rspr": "SMG"}
+NEW = {w["siteId"]: w["internal"] for w in settings.NEW_WEAPONS}
+NEW_CLS = {w["siteId"]: w["class"] for w in settings.NEW_WEAPONS}
 SHOT = ".WeaponEntityData.WeaponFiring.PrimaryFire.Shot."
 BULLETS = "/_bullets/"
 
@@ -50,7 +50,7 @@ def signed(v):
 # ---------------------------------------------------------------- material grids (bounded reader only)
 class Grid:
     def __init__(self, level):
-        types_by_guid, _ = hz.type_descriptors(c.BUILD / "capture/toolchain/SharedTypeDescriptors.ebx")
+        types_by_guid, _ = hz.type_descriptors(settings.DESCRIPTORS)
         path = c.BUILD / ("capture/collection/raw/Game/GlacierMP/levels/%s/%s/materialgrid_win32.ebx" % (level, level))
         self.level = level
         self.g = hz.MaterialGrid(path, types_by_guid)
@@ -333,7 +333,8 @@ def main():
         for eq in w["equipment"]:
             eobjs, _ = c.load(eq)
             for p in eobjs[0].get("Field_6780584d") or []:
-                ids_ = [x.get("Field_c1ad37da") for x in p.get("Field_6bf3cb97") or []]
+                ids_ = [x.get("Field_c1ad37da") for x in p.get("Field_6bf3cb97") or []] or \
+                       [(x.get("Field_5bed6412") or {}).get("Field_c1ad37da") for x in p.get("Field_3538f6ad") or []]   # 2.1.2.0 moved the preset id list
                 all_eq_ids.update(ids_)
                 if p.get("Field_b656da95"):
                     default_ids.append(ids_)

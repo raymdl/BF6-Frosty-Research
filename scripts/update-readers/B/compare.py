@@ -31,8 +31,8 @@ SUFFIX = {"FMJ": "standard", "Tungsten": "penetration", "Frangible": "frangible"
           "SubsonicHollowPoint": "subsonic_hp", "SubsonicTungsten": "subsonic_pen",
           "Buckshot": "buckshot", "No00Buckshot": "buckshot_00", "Flechette": "flechette", "Slugs": "slugs"}
 NEW_SUFFIX = {"PolymerLinks": "lightweight"}   # judgement call, see REPORT.md
-NEW = ["mk24", "elr40", "z84m", "rspr"]
-NEW_CLS = {"mk24": "Assault Rifle", "elr40": "Sniper Rifle", "z84m": "LMG", "rspr": "SMG"}
+NEW = [w["siteId"] for w in settings.NEW_WEAPONS]
+NEW_CLS = {w["siteId"]: w["class"] for w in settings.NEW_WEAPONS}
 ORDER = [a["id"] for a in site_ammo["AMMO"]]
 
 
