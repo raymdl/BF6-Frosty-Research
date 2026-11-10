@@ -292,3 +292,39 @@ one change group carried by the Match Grade watchlist line (semantic-diff worker
 equipment-list worker must assign `M27IAR AMO_BallisticTip` (removed) to a change; the
 semantic-diff worker must assign WPM_MAG_045Cpt1_Ultimax_W05's removed reload import to a
 change, not noise.
+
+### K. Independent review (Stage 10; one fresh Opus worker, after Stage 9)
+
+The worker must not have seen the run's reasoning: give it files, not conclusions. The main
+session first copies the Analyzer `data/` folder and the three `assign-*.tsv` files into the
+worker's folder and plants two controls in the copies: one wrong site value on an applied
+row, and one real change row re-filed as noise. The worker reads the copies.
+
+```text
+TASK - review the finished <version> update. You have: <RES>/docs/updates/<version>-checklist.md,
+<version>-site-checks.json, the three change lists and <RUN>/K-review/assign-*.tsv, the site
+data copy <RUN>/K-review/site-data, the site diff <RUN>/K-review/site.diff (git diff from the
+commit before the update), and the raw indexes. Edit nothing outside <RUN>/K-review.
+1. Applied rows: for every checklist row marked applied, read the value from the new build's
+   raw file yourself and compare it with the site data copy. Do not take the Result column or
+   the site checks as the expected value.
+2. Rows not applied, held or not applicable: say whether the stated reason holds in the files.
+3. Assignments: for every noise category and every out-of-scope class, read at least 20 rows
+   (all rows when there are fewer) and report any that is a real stored change.
+4. Reach: for every shared package (WPM_*, WME_*, PD_*) that changed, count the weapons it
+   reaches from the Attachment_* records and the equipment lists, and compare with the
+   weapons changed in site.diff.
+5. Leftovers: for every site value changed in site.diff, search the whole site data copy and
+   the sim/ and ui/ code for another copy or override of the same fact.
+6. Contradictions: every row where the files and the notes disagree must record a second
+   method, and the site must follow the files.
+7. Tests and labels: compare the checklist's list of tests removed, updated or skipped with
+   the test files in site.diff; check the header date and the build labels.
+Write findings.tsv: check number, row or file, what you read, what the site or checklist
+says, severity (wrong on the site / wrong in the records / unverifiable). Write summary.txt
+with the count checked and the count found per check. "Nothing found" is valid only with the
+count checked beside it.
+```
+
+The main session then confirms both planted controls are in `findings.tsv` (a review that
+misses either is rerun), and fixes or answers each finding in the checklist.
