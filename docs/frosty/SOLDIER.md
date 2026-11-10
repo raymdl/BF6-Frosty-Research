@@ -634,6 +634,30 @@ Test: in a mode with armor plates, one rifle bullet to the chest of a plated and
 
 No saved file names any of them (47,686 files searched) and the bone collision file uses only 24, 115, 25 and 26. What they belong to is not readable from the capture. 89 raw-offset checks matched.
 
+## L4085 - REDSEC armor settings and plate models (9 November 2026)
+
+[Receipt](../../reference-data/provenance/frosty-2026-11-09-L4085-redsec-armor-settings.json). Prompted by [issue #69](https://github.com/raymdl/BF6-Weapon-Analyzer/issues/69) (REDSEC plate ballistics). Outward write-up with theories and in-game tests: [REDSEC_ARMOR_DATA.md](../redsec/REDSEC_ARMOR_DATA.md). REDSEC stays outside the site.
+
+Stored on 2.1.1.0 (14 raw checks):
+
+| Asset | Values |
+|---|---|
+| `Affector_Granite_StartingCeramicArmor` | three ceramic (kind 2) entries: 0, 80, 40 |
+| `Affector_Granite_Gauntlet_StartingArmor` | soft (kind 1) 40; kind -1 entry 242 (meaning unknown) |
+| `Affector_Granite_Gauntlet_StartingArmorPlates` | imports the known mutator row `Gauntlet_StartingArmorPlates` = 3 |
+| `DynamicGameSetting_SoldierInitialArmorVestTier` / `SoldierMaxArmorTier` | 1 / 1 |
+| `DynamicGameSetting_SoldierArmorVestTierSize` | 230 (unit unknown) |
+| `HUDArmorBarWidget` | one fill bar, no per-plate segments |
+| `WM_GraniteBR_IncreaseRepairToolDamage` | 1.55 (repair tool, not armor) |
+
+- **No REDSEC weapon override.** No Granite, BR or Gauntlet row in `GRX_Granite`, the mutator databases or the weapon registries changes weapon damage, curves, headshot multipliers, fire rate, magazine or velocity; no bullet or blueprint lives under `Game/GlacierGranite`, and BR loot weapons import standard attachments. The L4076 armor curves (`Field_7e05a1ae`) are the plate curves.
+- **EA's 2.1.1.0 list** of 23 weapons that "take one more bullet vs armor" matches the old-to-new armor curves within a metre for 18 weapons under all six models tried (carry-over none / 1:1 / scaled, with or without the material 579 chest multiplier), and for 21 if the 579 multiplier applies to plates. The M39 EMR and SVDM change at every range, not "past 21 m". The files also change the DRS-IAR and M16A4, which EA does not list.
+- EA's 80 HP as 2 plates of 40, and a start of 1 plate, fit the ceramic 0 / 80 / 40; no field names "per plate".
+
+Unresolved: plate HP per plate and the maximum plate count (`Affector_Granite_MaxArmorPlates` imports an unresolved row), which ceramic affector BR applies (579 to 238 or 579 kept, [L3380](#l3380---armor-is-stored-as-material-swaps-9-october-2026)), carry-over, curve choice, replate time, and the Gauntlet 40 against 3 plates.
+
+Test: the in-game tests in section 6 of the outward doc; test 2 (one chest hit's damage number) separates 579, 238 and no multiplier.
+
 ## L4076 - Armor curves and the spawn plate on 2.1.1.0 (30 October 2026)
 
 [Receipt](../../reference-data/provenance/frosty-2026-10-30-L4076-armor-curves-and-spawn-plate.json). `ArmorGrantSpawnPlate` is object 42 of `GRX_Glacier_Soldier` (GUID `c3df8128-3e85-4641-88f5-a0578adf4cdd`, true at offset 4120). Its only consumer beside the `TweakablesConfig` index is `SimEx_Ability_ArmorGrant`, whose graph grants the REDSEC (Granite) loot item `LootItemList:Ammo_Armor` when the row is true. On 1.4.3.0 the only granter was `FieldUpgradePath_BR_Support_Fortifier`, a Battle Royale path that is gone from the 2.1.1.0 catalog; on 2.1.1.0 none of 103,867 captured files imports `Ability_ArmorGrant` or its `U_` / `FL_` selectors (the eight multiplayer field-upgrade paths included; the search's known-answer check passed). All 243 `KST_GlacierMP` rows are false. The `SpawnWithArmor` mutator in `MutatorDatabase_CH1` defaults to 0 (the spawn graph applies soft armor at 1, ceramic at 2). So plates are REDSEC and Gauntlet content by every source route; a HUD glance in a standard multiplayer mode predicts no armor bar. 579 and 238 are hit-material ids, not curve selectors: 579 is the armored chest (EA's 0.84 / 0.91 / 0.67) and ceramic armor still maps it to 238. The 13 changed armor curves (`PD_762x39mm` control re-read 0:20.67 46:20.67 85:20.67 85:17.13) leave unplated BTK unchanged; against a plate with no spill they add up to 1 shot at capacity 40 and up to 2 at capacity 80 (22 of 52 bullet-range cells change at 80; the DMR and Semi bullets go from 4 to 5 shots at 0 to 30 m at 40), with 40 and 80 unconfirmed L3380 amounts. Unresolved: the plate capacity, how a hit selects the armor curve and the spill rule, who grants `Ability_ArmorGrant` on 2.1.1.0 (needs capture of `Ability_ArmorGrant`, `U_` / `FL_` and the `FieldUpgradePath_BR_*_Y2` paths), any mode override of `SpawnWithArmor`, and head material 587. This also answers the L3380 reopen of L4061: no armor target option is proposed for the site while plates stay outside standard multiplayer.

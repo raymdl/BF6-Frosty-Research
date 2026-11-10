@@ -1,0 +1,317 @@
+{
+  "lead": "L4085",
+  "status": "finding",
+  "build": {
+    "current": "2.1.1.0",
+    "head": 5383516,
+    "note": "REDSEC armor assets captured 9 November 2026 into reports/redsec-armor-2026-11-09 (33 routes) and redsec-armor-br-modifiers-2026-11-09 (5 routes); GRX_Granite and the mutator databases from the saved collection."
+  },
+  "question": "For issue #69 (REDSEC plate ballistics): what do the REDSEC armor settings store (plate amounts, vest tiers, starting armor), does REDSEC override weapon damage, and which plate models fit EA's 2.1.1.0 'one more bullet vs armor' list?",
+  "sourceFacts": {
+    "control": {
+      "description": "Every headline value re-read from raw bytes by write_receipt.py (14 checks); offsets agree with the capture run's rawchecks.txt.",
+      "passed": true
+    },
+    "rawChecks": [
+      {
+        "path": "C:/Users/royal/Documents/BF6 Datamining/builds/2.1.1.0/reports/redsec-armor-2026-11-09/raw/Game/GlacierGranite/Gameplay/Soldier/Armor/DynamicGameSetting_SoldierArmorVestTierSize.ebx",
+        "frostyPath": "Game/GlacierGranite/Gameplay/Soldier/Armor/DynamicGameSetting_SoldierArmorVestTierSize",
+        "rawSha256": "336a431105b16dad5d67922ad4dc5cc35966da6c45490dce693ea0a853b85356",
+        "offset": 88,
+        "type": "f32",
+        "bytesHex": "00006643",
+        "value": 230.0,
+        "label": "vest tier size (unit unknown)"
+      },
+      {
+        "path": "C:/Users/royal/Documents/BF6 Datamining/builds/2.1.1.0/reports/redsec-armor-2026-11-09/raw/Game/GlacierGranite/Gameplay/Soldier/Armor/DynamicGameSetting_SoldierInitialArmorVestTier.ebx",
+        "frostyPath": "Game/GlacierGranite/Gameplay/Soldier/Armor/DynamicGameSetting_SoldierInitialArmorVestTier",
+        "rawSha256": "317a7ef696a0417bd22f9586b01335b69ce1d5f4fabf0edc5f848c6398edc728",
+        "offset": 88,
+        "type": "i32",
+        "bytesHex": "01000000",
+        "value": 1,
+        "label": "initial vest tier"
+      },
+      {
+        "path": "C:/Users/royal/Documents/BF6 Datamining/builds/2.1.1.0/reports/redsec-armor-2026-11-09/raw/Game/GlacierGranite/Gameplay/Soldier/Armor/DynamicGameSetting_SoldierMaxArmorTier.ebx",
+        "frostyPath": "Game/GlacierGranite/Gameplay/Soldier/Armor/DynamicGameSetting_SoldierMaxArmorTier",
+        "rawSha256": "926e6424685c144de319f1164d82ce2c2f35e3c1738b49cd524693df67b381f7",
+        "offset": 88,
+        "type": "i32",
+        "bytesHex": "01000000",
+        "value": 1,
+        "label": "max armor tier"
+      },
+      {
+        "path": "C:/Users/royal/Documents/BF6 Datamining/builds/2.1.1.0/reports/redsec-armor-2026-11-09/raw/Game/GlacierGranite/Common/Gameplay/Classes/Affector_Granite_StartingCeramicArmor.ebx",
+        "frostyPath": "Game/GlacierGranite/Common/Gameplay/Classes/Affector_Granite_StartingCeramicArmor",
+        "rawSha256": "b355c4d108b6ccf639b649c3e1885e857750d376a2f11509da1373ad6e967669",
+        "offset": 188,
+        "type": "i32",
+        "bytesHex": "02000000",
+        "value": 2,
+        "label": "entry 0 kind (2 = ceramic)"
+      },
+      {
+        "path": "C:/Users/royal/Documents/BF6 Datamining/builds/2.1.1.0/reports/redsec-armor-2026-11-09/raw/Game/GlacierGranite/Common/Gameplay/Classes/Affector_Granite_StartingCeramicArmor.ebx",
+        "frostyPath": "Game/GlacierGranite/Common/Gameplay/Classes/Affector_Granite_StartingCeramicArmor",
+        "rawSha256": "b355c4d108b6ccf639b649c3e1885e857750d376a2f11509da1373ad6e967669",
+        "offset": 196,
+        "type": "f32",
+        "bytesHex": "00000000",
+        "value": 0.0,
+        "label": "entry 0 amount"
+      },
+      {
+        "path": "C:/Users/royal/Documents/BF6 Datamining/builds/2.1.1.0/reports/redsec-armor-2026-11-09/raw/Game/GlacierGranite/Common/Gameplay/Classes/Affector_Granite_StartingCeramicArmor.ebx",
+        "frostyPath": "Game/GlacierGranite/Common/Gameplay/Classes/Affector_Granite_StartingCeramicArmor",
+        "rawSha256": "b355c4d108b6ccf639b649c3e1885e857750d376a2f11509da1373ad6e967669",
+        "offset": 228,
+        "type": "i32",
+        "bytesHex": "02000000",
+        "value": 2,
+        "label": "entry 1 kind"
+      },
+      {
+        "path": "C:/Users/royal/Documents/BF6 Datamining/builds/2.1.1.0/reports/redsec-armor-2026-11-09/raw/Game/GlacierGranite/Common/Gameplay/Classes/Affector_Granite_StartingCeramicArmor.ebx",
+        "frostyPath": "Game/GlacierGranite/Common/Gameplay/Classes/Affector_Granite_StartingCeramicArmor",
+        "rawSha256": "b355c4d108b6ccf639b649c3e1885e857750d376a2f11509da1373ad6e967669",
+        "offset": 236,
+        "type": "f32",
+        "bytesHex": "0000a042",
+        "value": 80.0,
+        "label": "entry 1 amount"
+      },
+      {
+        "path": "C:/Users/royal/Documents/BF6 Datamining/builds/2.1.1.0/reports/redsec-armor-2026-11-09/raw/Game/GlacierGranite/Common/Gameplay/Classes/Affector_Granite_StartingCeramicArmor.ebx",
+        "frostyPath": "Game/GlacierGranite/Common/Gameplay/Classes/Affector_Granite_StartingCeramicArmor",
+        "rawSha256": "b355c4d108b6ccf639b649c3e1885e857750d376a2f11509da1373ad6e967669",
+        "offset": 268,
+        "type": "i32",
+        "bytesHex": "02000000",
+        "value": 2,
+        "label": "entry 2 kind"
+      },
+      {
+        "path": "C:/Users/royal/Documents/BF6 Datamining/builds/2.1.1.0/reports/redsec-armor-2026-11-09/raw/Game/GlacierGranite/Common/Gameplay/Classes/Affector_Granite_StartingCeramicArmor.ebx",
+        "frostyPath": "Game/GlacierGranite/Common/Gameplay/Classes/Affector_Granite_StartingCeramicArmor",
+        "rawSha256": "b355c4d108b6ccf639b649c3e1885e857750d376a2f11509da1373ad6e967669",
+        "offset": 276,
+        "type": "f32",
+        "bytesHex": "00002042",
+        "value": 40.0,
+        "label": "entry 2 amount"
+      },
+      {
+        "path": "C:/Users/royal/Documents/BF6 Datamining/builds/2.1.1.0/reports/redsec-armor-2026-11-09/raw/Game/GlacierGranite/Common/Gameplay/Classes/Affector_Granite_Gauntlet_StartingArmor.ebx",
+        "frostyPath": "Game/GlacierGranite/Common/Gameplay/Classes/Affector_Granite_Gauntlet_StartingArmor",
+        "rawSha256": "347b3a56f0340c626821e0c868e528fe96b04df7684093e806a2bb1f6c53344c",
+        "offset": 188,
+        "type": "i32",
+        "bytesHex": "01000000",
+        "value": 1,
+        "label": "entry 0 kind (1 = soft)"
+      },
+      {
+        "path": "C:/Users/royal/Documents/BF6 Datamining/builds/2.1.1.0/reports/redsec-armor-2026-11-09/raw/Game/GlacierGranite/Common/Gameplay/Classes/Affector_Granite_Gauntlet_StartingArmor.ebx",
+        "frostyPath": "Game/GlacierGranite/Common/Gameplay/Classes/Affector_Granite_Gauntlet_StartingArmor",
+        "rawSha256": "347b3a56f0340c626821e0c868e528fe96b04df7684093e806a2bb1f6c53344c",
+        "offset": 196,
+        "type": "f32",
+        "bytesHex": "00002042",
+        "value": 40.0,
+        "label": "entry 0 amount"
+      },
+      {
+        "path": "C:/Users/royal/Documents/BF6 Datamining/builds/2.1.1.0/reports/redsec-armor-2026-11-09/raw/Game/GlacierGranite/Common/Gameplay/Classes/Affector_Granite_Gauntlet_StartingArmor.ebx",
+        "frostyPath": "Game/GlacierGranite/Common/Gameplay/Classes/Affector_Granite_Gauntlet_StartingArmor",
+        "rawSha256": "347b3a56f0340c626821e0c868e528fe96b04df7684093e806a2bb1f6c53344c",
+        "offset": 228,
+        "type": "i32",
+        "bytesHex": "ffffffff",
+        "value": -1,
+        "label": "entry 1 kind (unknown)"
+      },
+      {
+        "path": "C:/Users/royal/Documents/BF6 Datamining/builds/2.1.1.0/reports/redsec-armor-2026-11-09/raw/Game/GlacierGranite/Common/Gameplay/Classes/Affector_Granite_Gauntlet_StartingArmor.ebx",
+        "frostyPath": "Game/GlacierGranite/Common/Gameplay/Classes/Affector_Granite_Gauntlet_StartingArmor",
+        "rawSha256": "347b3a56f0340c626821e0c868e528fe96b04df7684093e806a2bb1f6c53344c",
+        "offset": 236,
+        "type": "f32",
+        "bytesHex": "00007243",
+        "value": 242.0,
+        "label": "entry 1 amount (meaning unknown)"
+      },
+      {
+        "path": "C:/Users/royal/Documents/BF6 Datamining/builds/2.1.1.0/reports/redsec-armor-br-modifiers-2026-11-09/raw/Game/GlacierGranite/Common/Gameplay/Shared/GraniteBRModifiers/WM_GraniteBR_IncreaseRepairToolDamage.ebx",
+        "frostyPath": "Game/GlacierGranite/Common/Gameplay/Shared/GraniteBRModifiers/WM_GraniteBR_IncreaseRepairToolDamage",
+        "rawSha256": "b78292770a271899bff3c3d13d7ed4367d4ecaf3e831892791224dbced80f199",
+        "offset": 152,
+        "type": "f32",
+        "bytesHex": "6666c63f",
+        "value": 1.5499999523162842,
+        "label": "repair tool damage multiplier"
+      }
+    ],
+    "weaponOverrideSearch": "Read-only decode of GRX_Granite (288 rows), GRX_F2P, MutatorDatabase_CH1 and its S01-S04 variants, MutatorDatabase_Glacier, MutatorDatabase_Loot (2,431 rows, loot only), GRX_Glacier_CH1_S02/S03, GRX_Weapons and GRX_WeaponsAndGadgets: no Granite, BR or Gauntlet row overrides weapon damage, damage curves, headshot multipliers, fire rate, magazine or velocity. MutatorDatabase_CH1 per-team damage and headshot multipliers default to 1.0. No PD_, WB_ or WPM_ asset exists under Game/GlacierGranite; BR loot weapons (LootItemList, 112 Weapon_* items) import standard attachments only.",
+    "plateCurves": "Plate damage curves are the per-bullet TweakableArmorDamageCurve (Field_7e05a1ae) read in L4076 (values.json, 67 site weapons, 67/67 raw checks); this lead reuses them."
+  },
+  "inference": [
+    "BR armor is ceramic: 80 maximum, 40 per plate and a start of 40 (1 of 2) fit the stored 0 / 80 / 40 and EA's 4 Dec 2025 and 14 Apr 2026 articles; no field names 'per plate'.",
+    "REDSEC uses the multiplayer weapon data unchanged, so the site's bullets and their armor curves describe REDSEC weapons, subject to runtime mode multipliers the captured mode layers do not set.",
+    "EA's 2.1.1.0 list of 23 weapons and ranges that 'take one more bullet vs armor' matches the L4076 old-to-new armor curves within a metre for 18 weapons under all six models tried (carry-over none / 1:1 / scaled, with or without the material-579 chest multiplier), and for 21 once the 579 multiplier applies to plates. Without it, only scaled carry-over fits the SG 553R and SOR-300SC. The M39 EMR and SVDM ('past 21 m') change at every range under every model. The files also change the DRS-IAR and M16A4, which EA does not list."
+  ],
+  "unresolved": [
+    "Plate HP per plate, plates per vest tier and the maximum plate count are not stored under readable names (Affector_Granite_MaxArmorPlates imports an unresolved row).",
+    "Which ceramic affector BR applies: Affector_CeramicArmorUpgrade swaps chest 579 to 238 (3 / 3.8 / 4 / 2.51 / 1.475); Affector_CeramicArmorUpgrade_EffectiveHealth keeps 579 (0.84 / 0.91 / 0.67) and swaps head 587 to 586 (L3380).",
+    "Carry-over when a plate breaks, the choice between armor and health curve, and replate duration: native code or undecodable graph constants.",
+    "Gauntlet: 40 soft armor against Gauntlet_StartingArmorPlates = 3, and the kind -1 / 242 entry.",
+    "Imports in files 73093937, e7b55222 and 059422f0 are not resolved; the BR/Gauntlet mode rule assets are not in the catalog."
+  ],
+  "siteImpact": "None. REDSEC is outside the site's validated scope (operator, issue #69). The outward data doc docs/redsec/REDSEC_ARMOR_DATA.md gives the curves, the theories and in-game tests.",
+  "evidence": {
+    "runRoot": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-11-09-redsec-armor",
+    "paths": [
+      {
+        "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-11-09-redsec-armor/capture/rawchecks.txt"
+      },
+      {
+        "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-11-09-redsec-armor/capture/decoded-all.json"
+      },
+      {
+        "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-11-09-redsec-armor/weapons/GRX_Granite.rows.txt"
+      },
+      {
+        "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-11-09-redsec-armor/weapons/MutatorDatabase_CH1.rows.txt"
+      },
+      {
+        "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-11-09-redsec-armor/table/model_check.py"
+      },
+      {
+        "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-11-09-redsec-armor/table/btk_table.py"
+      },
+      {
+        "path": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-11-09-redsec-armor/table/redsec-armor-curves-2.1.1.0.csv"
+      }
+    ]
+  },
+  "record": {
+    "v": 1,
+    "kind": "lead",
+    "date": "2026-11-09",
+    "build": "2.1.1.0",
+    "binding": "research",
+    "leads": [
+      {
+        "id": "L4085",
+        "title": "REDSEC armor settings, no REDSEC weapon override, and plate models checked against EA's 2.1.1.0 list",
+        "status": "finding",
+        "summary": "Stored on 2.1.1.0: BR starting ceramic armor amounts 0 / 80 / 40, Gauntlet soft armor 40 (plus an unexplained kind -1 entry of 242), vest tier initial 1 and max 1, tier size 230 (unit unknown); the armor HUD is one bar. No REDSEC row or asset overrides weapon damage, so multiplayer bullets and their armor curves apply. EA's 23-weapon 2.1.1.0 'one more bullet vs armor' list matches the armor-curve changes for 18 weapons under every plate model and 21 if the 0.84 / 0.91 / 0.67 chest multiplier applies to plates; the two DMRs do not fit. Plate HP per plate, carry-over and replate time are not readable.",
+        "reopenWhen": "In-game tests from docs/redsec/REDSEC_ARMOR_DATA.md report results, the unresolved imports become decodable, or a game update changes the REDSEC armor assets."
+      }
+    ],
+    "assets": [
+      {
+        "path": "Game/GlacierGranite/Gameplay/Soldier/Armor/DynamicGameSetting_SoldierArmorVestTierSize",
+        "format": "raw-ebx",
+        "sha256": "336a431105b16dad5d67922ad4dc5cc35966da6c45490dce693ea0a853b85356",
+        "question": "What vest-tier size does REDSEC store?",
+        "result": "useful",
+        "conclusion": "Default 230.0 at offset 88; the unit is not named."
+      },
+      {
+        "path": "Game/GlacierGranite/Gameplay/Soldier/Armor/DynamicGameSetting_SoldierInitialArmorVestTier",
+        "format": "raw-ebx",
+        "sha256": "317a7ef696a0417bd22f9586b01335b69ce1d5f4fabf0edc5f848c6398edc728",
+        "question": "Which vest tier does a REDSEC soldier start on?",
+        "result": "useful",
+        "conclusion": "Default 1 at offset 88."
+      },
+      {
+        "path": "Game/GlacierGranite/Gameplay/Soldier/Armor/DynamicGameSetting_SoldierMaxArmorTier",
+        "format": "raw-ebx",
+        "sha256": "926e6424685c144de319f1164d82ce2c2f35e3c1738b49cd524693df67b381f7",
+        "question": "What is the maximum armor tier?",
+        "result": "useful",
+        "conclusion": "Default 1 at offset 88; how the Armor Upgrade loot raises it is not read."
+      },
+      {
+        "path": "Game/GlacierGranite/Common/Gameplay/Classes/Affector_Granite_StartingCeramicArmor",
+        "format": "raw-ebx",
+        "sha256": "b355c4d108b6ccf639b649c3e1885e857750d376a2f11509da1373ad6e967669",
+        "question": "How much ceramic armor does a BR soldier start with?",
+        "result": "useful",
+        "conclusion": "Three kind-2 (ceramic) entries with amounts 0, 80 and 40; which entry BR applies is not read. Fits EA's 2 x 40 plates and a start of 1 of 2."
+      },
+      {
+        "path": "Game/GlacierGranite/Common/Gameplay/Classes/Affector_Granite_Gauntlet_StartingArmor",
+        "format": "raw-ebx",
+        "sha256": "347b3a56f0340c626821e0c868e528fe96b04df7684093e806a2bb1f6c53344c",
+        "question": "How much armor does a Gauntlet soldier start with?",
+        "result": "useful",
+        "conclusion": "Kind 1 (soft) amount 40, plus a kind -1 entry with amount 242 whose meaning is unknown."
+      },
+      {
+        "path": "Game/GlacierGranite/Common/Gameplay/Classes/Affector_Granite_Gauntlet_StartingArmorPlates",
+        "format": "raw-ebx",
+        "sha256": "aacaab02a9ab08e684460615d94ed744efba87e38d0377009deae351180a950c",
+        "question": "Where does the Gauntlet plate count come from?",
+        "result": "useful",
+        "conclusion": "Imports mutator row 27f2e714-fc97-4dd8-80a7-4ec61606de83, the known Gauntlet_StartingArmorPlates = 3; not reconciled with the 40 soft armor."
+      },
+      {
+        "path": "Game/GlacierGranite/Gameplay/AI/Affector_Granite_MaxArmorPlates",
+        "format": "raw-ebx",
+        "sha256": "f5e6d68b8fe21272fca777ff43b3bcc1f1285983dd53c18e83d290561f5af621",
+        "question": "Is a maximum plate count stored?",
+        "result": "inconclusive",
+        "conclusion": "Imports an unresolved row in file e7b55222; its numeric fields [40, 31], 3 and 1.0 are unlabelled."
+      },
+      {
+        "path": "Game/GlacierGranite/Common/UI/HUD/Widgets/HUDArmorBarWidget",
+        "format": "raw-ebx",
+        "sha256": "ce7d50055cc04c0032ba0035be7c6e6c94ce8d7f977c78f4cd3f2dc866b186aa",
+        "question": "Does the HUD treat armor as separate plates?",
+        "result": "useful",
+        "conclusion": "One progress fill (Remaining, Depleated, TotalFlashWhenArmorZero); no per-plate segments."
+      },
+      {
+        "path": "Common/Gameplay/InRoundProgression/FasterArmorReplate/SimEx_FasterArmorReplate",
+        "format": "raw-ebx",
+        "sha256": "e098de88928c929bd31f4bc5119b8953095fc186bf5a2ad69bfeb1dd2b0ea869",
+        "question": "Is a replate duration stored?",
+        "result": "blocked-by-decoding",
+        "conclusion": "No readable duration; the value is likely an expression-graph constant the current tools cannot decode."
+      },
+      {
+        "path": "Game/GlacierGranite/Common/Gameplay/Loot/LootAmmo_Armor",
+        "format": "raw-ebx",
+        "sha256": "a220abdfb2a1b49aa7cb75d54637bf974a70e820b7e6163d2d5b6a4584471244",
+        "question": "Is plate HP or stack size stored on the loot item?",
+        "result": "blocked-by-decoding",
+        "conclusion": "References and graph structure only; no readable plate HP or stack size."
+      },
+      {
+        "path": "Game/GlacierGranite/GameSetup/Tweakables/GRX_Granite",
+        "format": "raw-ebx",
+        "sha256": "07d326e695b50f0478e755bdfa99c4def381945167b63efc70ac21e33294012f",
+        "question": "Does REDSEC override weapon damage or ballistics?",
+        "result": "useful",
+        "conclusion": "288 rows; the only weapon-data rows are WFD_CeramicArmor (a zero-damage projectile). No weapon damage, curve, headshot, fire-rate, magazine or velocity override."
+      },
+      {
+        "path": "Game/GlacierGranite/Common/Gameplay/Shared/GraniteBRModifiers/WM_GraniteBR_IncreaseRepairToolDamage",
+        "format": "raw-ebx",
+        "sha256": "b78292770a271899bff3c3d13d7ed4367d4ecaf3e831892791224dbced80f199",
+        "question": "Do the BR modifiers touch armor or weapon damage?",
+        "result": "useful",
+        "conclusion": "Repair-tool damage multiplier 1.55 at offset 152; not armor. The passive magazine-regen modifier is not armor either."
+      }
+    ]
+  },
+  "run": {
+    "root": "C:/Users/royal/Documents/BF6 Datamining/reports/weapon-analyzer-research/2026-11-09-redsec-armor",
+    "leadFolder": "L4085"
+  }
+}

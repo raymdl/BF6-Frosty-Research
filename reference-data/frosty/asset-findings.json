@@ -2104,6 +2104,10 @@
     "frosty-2026-11-09-L4083-upgrade-slot-binding-and-firing-smoothing": {
       "path": "reference-data/provenance/frosty-2026-11-09-L4083-upgrade-slot-binding-and-firing-smoothing.json",
       "reportSha256": "dfafb1f500b9ac9249a0b3fff857a8745d7fad77e76bceb46c3c9173cd82494e"
+    },
+    "frosty-2026-11-09-L4085-redsec-armor-settings": {
+      "path": "reference-data/provenance/frosty-2026-11-09-L4085-redsec-armor-settings.json",
+      "reportSha256": "dce02471dca3724f668bb9339d0ca110cc19761231b9e4c02ac0a1531e9c6db8"
     }
   },
   "assets": {
@@ -96330,6 +96334,35 @@
             "The research question requires fields or methods outside the inspected scope.",
             "A saved Battle Royale mode file with vehicle overrides."
           ]
+        },
+        {
+          "question": "Does REDSEC override weapon damage or ballistics?",
+          "result": "useful",
+          "conclusion": "288 rows; the only weapon-data rows are WFD_CeramicArmor (a zero-damage projectile). No weapon damage, curve, headshot, fire-rate, magazine or velocity override.",
+          "buildInspected": {
+            "label": "2.1.1.0 (Season 5; hotfix clients of 15 and 22 October share its layouts)",
+            "exactBuildVerified": true,
+            "basis": "record.build 2.1.1.0; Head 5382784"
+          },
+          "evidence": [
+            {
+              "source": "frosty-2026-11-09-L4085-redsec-armor-settings",
+              "pointer": "/record"
+            }
+          ],
+          "assetHashesAtInspection": [
+            {
+              "format": "raw-ebx",
+              "sha256": "07d326e695b50f0478e755bdfa99c4def381945167b63efc70ac21e33294012f"
+            }
+          ],
+          "inspectionDate": "2026-11-09",
+          "revisitWhen": [
+            "Asset content or relevant dependency changes.",
+            "New evidence identifies a consumer or changes the interpretation.",
+            "The research question requires fields or methods outside the inspected scope.",
+            "In-game tests from docs/redsec/REDSEC_ARMOR_DATA.md report results, the unresolved imports become decodable, or a game update changes the REDSEC armor assets."
+          ]
         }
       ]
     },
@@ -100418,6 +100451,35 @@
             "The research question requires fields or methods outside the inspected scope.",
             "A capture of the uncaptured string consumers (Low-Zoom 2x/3x, Thermal 1.00x, option assets), a consumer for stat id 35 or the Quick Plating speed, or an in-game plate-time or Single Shot damage test."
           ]
+        },
+        {
+          "question": "Is a replate duration stored?",
+          "result": "blocked-by-decoding",
+          "conclusion": "No readable duration; the value is likely an expression-graph constant the current tools cannot decode.",
+          "buildInspected": {
+            "label": "2.1.1.0 (Season 5; hotfix clients of 15 and 22 October share its layouts)",
+            "exactBuildVerified": true,
+            "basis": "record.build 2.1.1.0; Head 5382784"
+          },
+          "evidence": [
+            {
+              "source": "frosty-2026-11-09-L4085-redsec-armor-settings",
+              "pointer": "/record"
+            }
+          ],
+          "assetHashesAtInspection": [
+            {
+              "format": "raw-ebx",
+              "sha256": "e098de88928c929bd31f4bc5119b8953095fc186bf5a2ad69bfeb1dd2b0ea869"
+            }
+          ],
+          "inspectionDate": "2026-11-09",
+          "revisitWhen": [
+            "Asset content or relevant dependency changes.",
+            "New evidence identifies a consumer or changes the interpretation.",
+            "The research question requires fields or methods outside the inspected scope.",
+            "In-game tests from docs/redsec/REDSEC_ARMOR_DATA.md report results, the unresolved imports become decodable, or a game update changes the REDSEC armor assets."
+          ]
         }
       ]
     },
@@ -102468,6 +102530,346 @@
           ],
           "supersededBy": [
             "frosty-2026-11-09-L4083-move-speed-logic-2110"
+          ]
+        }
+      ]
+    },
+    "Game/GlacierGranite/Gameplay/Soldier/Armor/DynamicGameSetting_SoldierArmorVestTierSize": {
+      "contents": "Traced by frosty-2026-11-09-L4085-redsec-armor-settings.",
+      "findings": [
+        {
+          "question": "What vest-tier size does REDSEC store?",
+          "result": "useful",
+          "conclusion": "Default 230.0 at offset 88; the unit is not named.",
+          "buildInspected": {
+            "label": "2.1.1.0 (Season 5; hotfix clients of 15 and 22 October share its layouts)",
+            "exactBuildVerified": true,
+            "basis": "record.build 2.1.1.0; Head 5382784"
+          },
+          "evidence": [
+            {
+              "source": "frosty-2026-11-09-L4085-redsec-armor-settings",
+              "pointer": "/record"
+            }
+          ],
+          "assetHashesAtInspection": [
+            {
+              "format": "raw-ebx",
+              "sha256": "336a431105b16dad5d67922ad4dc5cc35966da6c45490dce693ea0a853b85356"
+            }
+          ],
+          "inspectionDate": "2026-11-09",
+          "revisitWhen": [
+            "Asset content or relevant dependency changes.",
+            "New evidence identifies a consumer or changes the interpretation.",
+            "The research question requires fields or methods outside the inspected scope.",
+            "In-game tests from docs/redsec/REDSEC_ARMOR_DATA.md report results, the unresolved imports become decodable, or a game update changes the REDSEC armor assets."
+          ]
+        }
+      ]
+    },
+    "Game/GlacierGranite/Gameplay/Soldier/Armor/DynamicGameSetting_SoldierInitialArmorVestTier": {
+      "contents": "Traced by frosty-2026-11-09-L4085-redsec-armor-settings.",
+      "findings": [
+        {
+          "question": "Which vest tier does a REDSEC soldier start on?",
+          "result": "useful",
+          "conclusion": "Default 1 at offset 88.",
+          "buildInspected": {
+            "label": "2.1.1.0 (Season 5; hotfix clients of 15 and 22 October share its layouts)",
+            "exactBuildVerified": true,
+            "basis": "record.build 2.1.1.0; Head 5382784"
+          },
+          "evidence": [
+            {
+              "source": "frosty-2026-11-09-L4085-redsec-armor-settings",
+              "pointer": "/record"
+            }
+          ],
+          "assetHashesAtInspection": [
+            {
+              "format": "raw-ebx",
+              "sha256": "317a7ef696a0417bd22f9586b01335b69ce1d5f4fabf0edc5f848c6398edc728"
+            }
+          ],
+          "inspectionDate": "2026-11-09",
+          "revisitWhen": [
+            "Asset content or relevant dependency changes.",
+            "New evidence identifies a consumer or changes the interpretation.",
+            "The research question requires fields or methods outside the inspected scope.",
+            "In-game tests from docs/redsec/REDSEC_ARMOR_DATA.md report results, the unresolved imports become decodable, or a game update changes the REDSEC armor assets."
+          ]
+        }
+      ]
+    },
+    "Game/GlacierGranite/Gameplay/Soldier/Armor/DynamicGameSetting_SoldierMaxArmorTier": {
+      "contents": "Traced by frosty-2026-11-09-L4085-redsec-armor-settings.",
+      "findings": [
+        {
+          "question": "What is the maximum armor tier?",
+          "result": "useful",
+          "conclusion": "Default 1 at offset 88; how the Armor Upgrade loot raises it is not read.",
+          "buildInspected": {
+            "label": "2.1.1.0 (Season 5; hotfix clients of 15 and 22 October share its layouts)",
+            "exactBuildVerified": true,
+            "basis": "record.build 2.1.1.0; Head 5382784"
+          },
+          "evidence": [
+            {
+              "source": "frosty-2026-11-09-L4085-redsec-armor-settings",
+              "pointer": "/record"
+            }
+          ],
+          "assetHashesAtInspection": [
+            {
+              "format": "raw-ebx",
+              "sha256": "926e6424685c144de319f1164d82ce2c2f35e3c1738b49cd524693df67b381f7"
+            }
+          ],
+          "inspectionDate": "2026-11-09",
+          "revisitWhen": [
+            "Asset content or relevant dependency changes.",
+            "New evidence identifies a consumer or changes the interpretation.",
+            "The research question requires fields or methods outside the inspected scope.",
+            "In-game tests from docs/redsec/REDSEC_ARMOR_DATA.md report results, the unresolved imports become decodable, or a game update changes the REDSEC armor assets."
+          ]
+        }
+      ]
+    },
+    "Game/GlacierGranite/Common/Gameplay/Classes/Affector_Granite_StartingCeramicArmor": {
+      "contents": "Traced by frosty-2026-11-09-L4085-redsec-armor-settings.",
+      "findings": [
+        {
+          "question": "How much ceramic armor does a BR soldier start with?",
+          "result": "useful",
+          "conclusion": "Three kind-2 (ceramic) entries with amounts 0, 80 and 40; which entry BR applies is not read. Fits EA's 2 x 40 plates and a start of 1 of 2.",
+          "buildInspected": {
+            "label": "2.1.1.0 (Season 5; hotfix clients of 15 and 22 October share its layouts)",
+            "exactBuildVerified": true,
+            "basis": "record.build 2.1.1.0; Head 5382784"
+          },
+          "evidence": [
+            {
+              "source": "frosty-2026-11-09-L4085-redsec-armor-settings",
+              "pointer": "/record"
+            }
+          ],
+          "assetHashesAtInspection": [
+            {
+              "format": "raw-ebx",
+              "sha256": "b355c4d108b6ccf639b649c3e1885e857750d376a2f11509da1373ad6e967669"
+            }
+          ],
+          "inspectionDate": "2026-11-09",
+          "revisitWhen": [
+            "Asset content or relevant dependency changes.",
+            "New evidence identifies a consumer or changes the interpretation.",
+            "The research question requires fields or methods outside the inspected scope.",
+            "In-game tests from docs/redsec/REDSEC_ARMOR_DATA.md report results, the unresolved imports become decodable, or a game update changes the REDSEC armor assets."
+          ]
+        }
+      ]
+    },
+    "Game/GlacierGranite/Common/Gameplay/Classes/Affector_Granite_Gauntlet_StartingArmor": {
+      "contents": "Traced by frosty-2026-11-09-L4085-redsec-armor-settings.",
+      "findings": [
+        {
+          "question": "How much armor does a Gauntlet soldier start with?",
+          "result": "useful",
+          "conclusion": "Kind 1 (soft) amount 40, plus a kind -1 entry with amount 242 whose meaning is unknown.",
+          "buildInspected": {
+            "label": "2.1.1.0 (Season 5; hotfix clients of 15 and 22 October share its layouts)",
+            "exactBuildVerified": true,
+            "basis": "record.build 2.1.1.0; Head 5382784"
+          },
+          "evidence": [
+            {
+              "source": "frosty-2026-11-09-L4085-redsec-armor-settings",
+              "pointer": "/record"
+            }
+          ],
+          "assetHashesAtInspection": [
+            {
+              "format": "raw-ebx",
+              "sha256": "347b3a56f0340c626821e0c868e528fe96b04df7684093e806a2bb1f6c53344c"
+            }
+          ],
+          "inspectionDate": "2026-11-09",
+          "revisitWhen": [
+            "Asset content or relevant dependency changes.",
+            "New evidence identifies a consumer or changes the interpretation.",
+            "The research question requires fields or methods outside the inspected scope.",
+            "In-game tests from docs/redsec/REDSEC_ARMOR_DATA.md report results, the unresolved imports become decodable, or a game update changes the REDSEC armor assets."
+          ]
+        }
+      ]
+    },
+    "Game/GlacierGranite/Common/Gameplay/Classes/Affector_Granite_Gauntlet_StartingArmorPlates": {
+      "contents": "Traced by frosty-2026-11-09-L4085-redsec-armor-settings.",
+      "findings": [
+        {
+          "question": "Where does the Gauntlet plate count come from?",
+          "result": "useful",
+          "conclusion": "Imports mutator row 27f2e714-fc97-4dd8-80a7-4ec61606de83, the known Gauntlet_StartingArmorPlates = 3; not reconciled with the 40 soft armor.",
+          "buildInspected": {
+            "label": "2.1.1.0 (Season 5; hotfix clients of 15 and 22 October share its layouts)",
+            "exactBuildVerified": true,
+            "basis": "record.build 2.1.1.0; Head 5382784"
+          },
+          "evidence": [
+            {
+              "source": "frosty-2026-11-09-L4085-redsec-armor-settings",
+              "pointer": "/record"
+            }
+          ],
+          "assetHashesAtInspection": [
+            {
+              "format": "raw-ebx",
+              "sha256": "aacaab02a9ab08e684460615d94ed744efba87e38d0377009deae351180a950c"
+            }
+          ],
+          "inspectionDate": "2026-11-09",
+          "revisitWhen": [
+            "Asset content or relevant dependency changes.",
+            "New evidence identifies a consumer or changes the interpretation.",
+            "The research question requires fields or methods outside the inspected scope.",
+            "In-game tests from docs/redsec/REDSEC_ARMOR_DATA.md report results, the unresolved imports become decodable, or a game update changes the REDSEC armor assets."
+          ]
+        }
+      ]
+    },
+    "Game/GlacierGranite/Gameplay/AI/Affector_Granite_MaxArmorPlates": {
+      "contents": "Traced by frosty-2026-11-09-L4085-redsec-armor-settings.",
+      "findings": [
+        {
+          "question": "Is a maximum plate count stored?",
+          "result": "inconclusive",
+          "conclusion": "Imports an unresolved row in file e7b55222; its numeric fields [40, 31], 3 and 1.0 are unlabelled.",
+          "buildInspected": {
+            "label": "2.1.1.0 (Season 5; hotfix clients of 15 and 22 October share its layouts)",
+            "exactBuildVerified": true,
+            "basis": "record.build 2.1.1.0; Head 5382784"
+          },
+          "evidence": [
+            {
+              "source": "frosty-2026-11-09-L4085-redsec-armor-settings",
+              "pointer": "/record"
+            }
+          ],
+          "assetHashesAtInspection": [
+            {
+              "format": "raw-ebx",
+              "sha256": "f5e6d68b8fe21272fca777ff43b3bcc1f1285983dd53c18e83d290561f5af621"
+            }
+          ],
+          "inspectionDate": "2026-11-09",
+          "revisitWhen": [
+            "Asset content or relevant dependency changes.",
+            "New evidence identifies a consumer or changes the interpretation.",
+            "The research question requires fields or methods outside the inspected scope.",
+            "In-game tests from docs/redsec/REDSEC_ARMOR_DATA.md report results, the unresolved imports become decodable, or a game update changes the REDSEC armor assets."
+          ]
+        }
+      ]
+    },
+    "Game/GlacierGranite/Common/UI/HUD/Widgets/HUDArmorBarWidget": {
+      "contents": "Traced by frosty-2026-11-09-L4085-redsec-armor-settings.",
+      "findings": [
+        {
+          "question": "Does the HUD treat armor as separate plates?",
+          "result": "useful",
+          "conclusion": "One progress fill (Remaining, Depleated, TotalFlashWhenArmorZero); no per-plate segments.",
+          "buildInspected": {
+            "label": "2.1.1.0 (Season 5; hotfix clients of 15 and 22 October share its layouts)",
+            "exactBuildVerified": true,
+            "basis": "record.build 2.1.1.0; Head 5382784"
+          },
+          "evidence": [
+            {
+              "source": "frosty-2026-11-09-L4085-redsec-armor-settings",
+              "pointer": "/record"
+            }
+          ],
+          "assetHashesAtInspection": [
+            {
+              "format": "raw-ebx",
+              "sha256": "ce7d50055cc04c0032ba0035be7c6e6c94ce8d7f977c78f4cd3f2dc866b186aa"
+            }
+          ],
+          "inspectionDate": "2026-11-09",
+          "revisitWhen": [
+            "Asset content or relevant dependency changes.",
+            "New evidence identifies a consumer or changes the interpretation.",
+            "The research question requires fields or methods outside the inspected scope.",
+            "In-game tests from docs/redsec/REDSEC_ARMOR_DATA.md report results, the unresolved imports become decodable, or a game update changes the REDSEC armor assets."
+          ]
+        }
+      ]
+    },
+    "Game/GlacierGranite/Common/Gameplay/Loot/LootAmmo_Armor": {
+      "contents": "Traced by frosty-2026-11-09-L4085-redsec-armor-settings.",
+      "findings": [
+        {
+          "question": "Is plate HP or stack size stored on the loot item?",
+          "result": "blocked-by-decoding",
+          "conclusion": "References and graph structure only; no readable plate HP or stack size.",
+          "buildInspected": {
+            "label": "2.1.1.0 (Season 5; hotfix clients of 15 and 22 October share its layouts)",
+            "exactBuildVerified": true,
+            "basis": "record.build 2.1.1.0; Head 5382784"
+          },
+          "evidence": [
+            {
+              "source": "frosty-2026-11-09-L4085-redsec-armor-settings",
+              "pointer": "/record"
+            }
+          ],
+          "assetHashesAtInspection": [
+            {
+              "format": "raw-ebx",
+              "sha256": "a220abdfb2a1b49aa7cb75d54637bf974a70e820b7e6163d2d5b6a4584471244"
+            }
+          ],
+          "inspectionDate": "2026-11-09",
+          "revisitWhen": [
+            "Asset content or relevant dependency changes.",
+            "New evidence identifies a consumer or changes the interpretation.",
+            "The research question requires fields or methods outside the inspected scope.",
+            "In-game tests from docs/redsec/REDSEC_ARMOR_DATA.md report results, the unresolved imports become decodable, or a game update changes the REDSEC armor assets."
+          ]
+        }
+      ]
+    },
+    "Game/GlacierGranite/Common/Gameplay/Shared/GraniteBRModifiers/WM_GraniteBR_IncreaseRepairToolDamage": {
+      "contents": "Traced by frosty-2026-11-09-L4085-redsec-armor-settings.",
+      "findings": [
+        {
+          "question": "Do the BR modifiers touch armor or weapon damage?",
+          "result": "useful",
+          "conclusion": "Repair-tool damage multiplier 1.55 at offset 152; not armor. The passive magazine-regen modifier is not armor either.",
+          "buildInspected": {
+            "label": "2.1.1.0 (Season 5; hotfix clients of 15 and 22 October share its layouts)",
+            "exactBuildVerified": true,
+            "basis": "record.build 2.1.1.0; Head 5382784"
+          },
+          "evidence": [
+            {
+              "source": "frosty-2026-11-09-L4085-redsec-armor-settings",
+              "pointer": "/record"
+            }
+          ],
+          "assetHashesAtInspection": [
+            {
+              "format": "raw-ebx",
+              "sha256": "b78292770a271899bff3c3d13d7ed4367d4ecaf3e831892791224dbced80f199"
+            }
+          ],
+          "inspectionDate": "2026-11-09",
+          "revisitWhen": [
+            "Asset content or relevant dependency changes.",
+            "New evidence identifies a consumer or changes the interpretation.",
+            "The research question requires fields or methods outside the inspected scope.",
+            "In-game tests from docs/redsec/REDSEC_ARMOR_DATA.md report results, the unresolved imports become decodable, or a game update changes the REDSEC armor assets."
           ]
         }
       ]
