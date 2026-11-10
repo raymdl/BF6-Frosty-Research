@@ -8,8 +8,9 @@ The index files are "route TAB path TAB sha256" per line, one per build, later c
 winning (the update run's raw-index-old.tsv and raw-index-new.tsv, written by make_inputs.py).
 
 Steps:
-1. Changed routes: in both indexes with different sha256, under Common/Hardware/Weapons/, not a
-   mesh, material grid or cosmetic (skins, charms, decals) route.
+1. Changed routes: in both indexes with different sha256, under Common/Hardware/Weapons/ or the
+   soldier-class weapon traits (Common/Gameplay/InRoundProgression/WeaponTraits/, which the
+   site's class row reads), not a mesh, material grid or cosmetic (skins, charms, decals) route.
 2. Decode both sides with each build's own descriptors (exact floats).
 3. Keep a route when a field-level diff has a row that is not noise. Noise is a string id,
    expression or effect reference field, or a field new or dropped in the layout at its default
@@ -26,7 +27,7 @@ most fields differ; old and new hold the row and field counts).
 
 The worker's job is to classify these rows, not to produce them.
 
-Reference result, 2.1.1.0 (client 5383516) to 2.1.2.0: 871 changed weapon routes, 447 kept,
+Reference result, 2.1.1.0 (client 5383516) to 2.1.2.0 (no trait route changed): 871 changed weapon routes, 447 kept,
 4,105 rows (scalar 1,631, obj-added 1,110, list-added 986, list-item-changed 295, list-removed 57,
 obj-removed 22, uncertain 4). --controls 2.1.2.0 checks the addition control (nine PD_*_Match
 drag values 0.002 -> 0.0025) and the removal control (WPM_MAG_045Cpt1_Ultimax_W05 drops its
@@ -44,6 +45,7 @@ STRING = {"Field_8cf424e7", "Field_fefe9de1"}
 EXPR = {"Field_0c18a620", "Field_aa4fa860", "Field_c7ffe639"}
 FX = {"Field_0679f638"}
 DEFAULTS = (None, 0, 0.0, False, "[]", "", ZERO)
+PREFIXES = ("common/hardware/weapons/", "common/gameplay/inroundprogression/weapontraits/")
 
 
 def cosmetic(route):
@@ -64,7 +66,7 @@ def changed_routes(old, new):
     out = []
     for r in sorted(old.keys() & new.keys()):
         l = r.lower()
-        if old[r][1] == new[r][1] or "common/hardware/weapons/" not in l:
+        if old[r][1] == new[r][1] or not any(p in l for p in PREFIXES):
             continue
         if "materialgrid" in l or l.endswith("_mesh") or cosmetic(r):
             continue

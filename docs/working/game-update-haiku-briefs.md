@@ -121,13 +121,16 @@ not present the other results as checked.
 
 Each is appended after the "First read ..." line. Fill the angle-bracket parts.
 
-### A. Patch-note checklist (while the Stage 1 capture runs; Haiku, `haiku-reader`)
+### A. Patch-note watchlist (while the Stage 1 capture runs; Haiku, `haiku-reader`)
+
+The watchlist locates fields; it does not define the checklist rows, which come from the
+three change lists in Stage 7.
 
 ```text
-TASK - patch-note checklist. Input: <RUN>/patch-notes.txt (the notes as plain text).
-Write checklist.tsv with one row per line of the notes that states or implies a stored value:
+TASK - patch-note watchlist. Input: <RUN>/patch-notes.txt (the notes as plain text).
+Write watchlist.tsv with one row per line of the notes that states or implies a stored value:
 section, item (weapon / vehicle / gadget name as EA writes it), stat, from value, to value,
-unit, and "asset home" taken from the table "Stage 7 - Map patch notes to assets" in
+unit, and "asset home" taken from the known-homes table in "Stage 7 - Account for every changed row" in
 C:/Users/royal/Documents/BF6 Weapon Analyzer/docs/GAME_UPDATE_GUIDE.md (leave blank if the
 table has no row for it). Put fixes with no number in a second file fixes.tsv: section, item,
 EA wording. Skip the sections the orchestrator lists here: <sections to skip>.
@@ -135,6 +138,9 @@ Do not interpret or merge lines; one EA line can produce several rows.
 ```
 
 ### B. Pre-update "from" trace (the day before; Sonnet, one per patch-note section)
+
+Locates the fields the notes point at, so the watchlist pass can read them after the update.
+It does not define the checklist rows.
 
 ```text
 TASK - locate the pre-update values for <section>.
@@ -199,7 +205,7 @@ rows that no longer fail, and unchanged failures. Do not explain causes.
 
 ```text
 TASK - recheck the list <list file>. Inputs: <RUN>/changed-routes.txt (raw routes whose
-SHA-256 changed), <RUN>/fixes.tsv and <RUN>/checklist.tsv (from task A).
+SHA-256 changed), <RUN>/fixes.tsv and <RUN>/watchlist.tsv (from task A).
 For each entry of the list write a row in recheck.tsv: entry id or heading, the asset routes
 the entry cites, which of them are in changed-routes.txt, and any patch-note line whose item
 name matches the entry (quote the line). Then the mechanical status only:
@@ -210,14 +216,16 @@ Do not mark anything resolved: that decision is made in the main session from th
 asset-changed and note-only rows.
 ```
 
-### G. Post-update "to" confirmation (after the new capture; Sonnet)
+### G. Watchlist pass (Stage 7, after brief J; Sonnet)
 
 ```text
-TASK - confirm the post-update values. Inputs: <previous run>/W*/result.json (located field
-paths for the "from" values) and <RUN>/checklist.tsv. For every located field path, decode the
-new raw file with the new descriptors and write confirm.tsv: item, field path, old value,
-new value, EA from, EA to, and match (yes / no / field missing). In summary.txt list every
-"no" and "field missing", and every checklist row that had no located field path.
+TASK - read the patch notes against the change rows. Inputs: <RUN>/watchlist.tsv (task A),
+<previous run>/W*/result.json (field paths located the day before), and the J assignment
+files (<RUN>/assign-*.tsv: list, row key, checklist row). For every watchlist line, find the
+checklist rows whose change-list rows sit at its field path or asset home, and write
+watchlist-result.tsv: watchlist line, checklist rows, field path, old value, new value, EA
+from, EA to, match (yes / no / nothing stored). In summary.txt list every "no" and every
+"nothing stored" line: those are "announced, nothing stored" and go to the second-method rule.
 ```
 
 ### H. Availability census (Stage 7, new content; Sonnet, not Haiku: it must notice when its own rule is wrong)
@@ -260,23 +268,27 @@ In summary.txt: the validation table, every mismatch, every "not found", and val
 look like game data errors. Do not write to the site repo.
 ```
 
-### J. Unannounced changes (Stage 7; Opus, or two independent Sonnet workers compared)
+### J. Assign the change rows (Stage 7; Opus, or two independent Sonnet workers compared; one worker per list)
 
-The main session first runs `scripts/frosty-weapon-semdiff.py` (with `--controls 2.1.2.0` on
-the reference pair once per toolchain change) and the equipment-list diff. This worker only
-classifies; it does not diff and does not compare equipment lists.
+The main session first runs the three scripts: `scripts/frosty-weapon-semdiff.py` (with
+`--controls 2.1.2.0` on the reference pair once per toolchain change), the equipment-list diff
+and the registry diff. Each worker takes one list and only assigns; it does not diff.
 
 ```text
-TASK - classify the per-weapon change list. Input: <RUN>/sem-changes.tsv (route, class, match,
-keypath, kind, old, new), <RUN>/checklist.tsv and fixes.tsv (task A), and the raw index for
-reading a field on other weapons. Group rows that are the same change on several files.
-Write classified.tsv: group, routes, rows, label, patch-note row (checklist id or blank),
-reason. Labels: announced (a checklist row explains it), unannounced (a value change no
-patch-note line explains), noise (offset, index shift, string-id re-pairing, re-bake), new
-content (objects added for an added item). For every unannounced group, read the same field on
-every other weapon and say how many carry the new value.
-In summary.txt: the row total read (it must equal the file's row count), the count per label,
-every unannounced group with its reach, and every row you could not label.
+TASK - assign every row of <list>. Input: <RUN>/<list file> (for the semantic diff: route,
+class, match, keypath, kind, old, new), <RUN>/watchlist.tsv (task A, for labels only), and the
+raw index for reading a field on other weapons. Group rows that are one change (the same field
+on several files, a package with its bindings). Write assign-<list>.tsv: row key, group,
+assignment, reason. Assignments: change (a proposed checklist row: the change in in-game
+names, file and field, from, to, and the watchlist line it carries or blank), noise with its
+category (offset, index shift, string-id re-pairing, graph re-bake, layout field at its
+default), or out of scope (REDSEC, vehicle, gadget, record only). For every change group no
+watchlist line carries, read the same field on every other weapon and say how many hold the
+new value.
+In summary.txt: the row total read (it must equal the file's row count), the count per
+assignment, the unassigned count (it must be 0), and every change group with its reach.
 CONTROLS (required, in controls.txt): the nine PD_*_Match drag rows (0.002 to 0.0025) must be
-one announced group; WPM_MAG_045Cpt1_Ultimax_W05's removed reload import must be labelled, not
-noise.
+one change group carried by the Match Grade watchlist line (semantic-diff worker); the
+equipment-list worker must assign `M27IAR AMO_BallisticTip` (removed) to a change; the
+semantic-diff worker must assign WPM_MAG_045Cpt1_Ultimax_W05's removed reload import to a
+change, not noise.
