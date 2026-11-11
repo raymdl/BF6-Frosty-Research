@@ -920,3 +920,27 @@ Tests: repair time of a damaged tank with one and with two repairers; health an 
 - Defibrillator charge against EA: stored full charge 1.0 s matches the 1.2.3.0 note; the stored minimum is 0.3 s where the note says 0.35 s (L232). The graph rule gives 1.0 - 0.7 = 0.3 s when the active-revive reduction applies.
 
 52 raw-offset checks matched.
+
+## Signal Jammer (ADS-17 6GHz), new in 2.1.2.0 (10 November 2026)
+
+First read of a gadget added in 2.1.2.0. No lead number and no receipt: one worker read the 2.1.2.0 raw capture with `frosty-ebx-decode.py --exact-floats`, and the radius, health, replenish and kill-switch rows were cross-checked against the update's registry diff. Nothing else here has been reviewed. Evidence files are in the update run folder (`reports\weapon-analyzer-research\2026-11-10-update-2120-post\ADS17-trace\`).
+
+Internal name `UAVJammer`. Files: `Common/Hardware/Gadgets/Misc/UAVJammer/` and `Common/Hardware/Gadgets/Tools/UAVJammer/`; none exist in 2.1.1.0. It is a placed object built as a small vehicle (`VEH_UAVJammer`), and its weapon file reuses the Spawn Beacon's deploy-time table.
+
+| Gadget | Class | Finding |
+|---|---|---|
+| Signal Jammer | Attributed UI statement | UI record `Common/UI/Static/MetaData/S5/UIGadgetAbilityMetaData_C2S1B2`. Model name `088FF15E` "ADS-17 6Ghz"; name `C7595836` "Signal Jammer"; description `088A875C` "Deployable information denial device. Enemies within its radius cannot spawn squadmates and suffer restricted intel, including distorted maps, spotting, killfeed, and objective status."; short description `B4B3A019` "Deployable information denial device." |
+| Signal Jammer | Attributed UI statement | Tutorial strings, not in a captured file: `7796FD80` "You are in the radius of a deployed Signal Jammer. Minimap and Spotting will be disrupted until you leave the radius or destroy the source gadget." and `D97F0E4F` "Deploying the Signal Jammer will disrupt the minimap and restrict spotting distance for enemies while the gadget is active." |
+| Signal Jammer | Stored source value | Availability: last of 11 in the four Recon gadget slot lists (`EquipmentSlot_Gadget1_Recon`, `_Gadget1_Recon_Loadout2`, `EquipmentSlot_Gadget2_Recon`, `_Gadget2_Recon_Loadout3`); no other class list references it. Kill switch `UAVJammer_Ability` false in `KST_CH2_S01_B2`. Stat id `gad_uavjammer`. The unlock requirement is not in the captured files. |
+| Signal Jammer | Stored source value | Radius: `MUT_CH2_S01` rows `UAVJammer_Radius_MP` 21.0 and `UAVJammer_Radius_Granite` 100.0 (battle royale, out of scope here). Both are read by `SimEx_UAVJammer` and `VEH_UAVJammer`. |
+| Signal Jammer | Stored source value | `GRX_Gadgets_Glacier`: `VEH_UAVJammer.MaxHealth` 25.0 (min 0.0, max 4095.0), `RegenerationDelay` 5.0, `RegenerationRate` 0.0. Ammo 1 / 1 / -1, `AutoReplenishDelay` 30.0, `AutoReplenishMagazine` true (a resource tuple, as for the Spawn Beacon). Destruction explosion damage 0.0. |
+| Signal Jammer | Stored source value | Effects named by `SimEx_UAVJammer`: `Affector_UAVJammer_Jammed` (no numbers) and `Affector_UAVJammer_SpotSharing` (one stored value, 10.0; unit and rule unknown). The soldier graph gains a state `IsUAVJammed`, set when a soldier holds at least one jammed marker. `Glacier_Soldier` reads a new switch `KS_UAVJammerBlocksSquadSpawn` (false). |
+| Signal Jammer | Stored source value | Links to other gadgets, checks only: `VEH_SpawnBeacon` reads the Signal Jammer's jammed marker (new in 2.1.2.0), and `VEH_UAVJammer` reads the Mobile Jammer's jammed marker. What either check does is not traced. The Mobile Jammer's UI name changed to "Gadget Jammer" in the same build. |
+
+Not established:
+
+- How the radius, the marker and the 10.0 are applied (who is affected, line of sight, tick rate). The compiled graph of `SimEx_UAVJammer` (resource `1155f12ce08ad45f`) is not captured.
+- The minimap, killfeed and objective-status disruption: no captured file reads `IsUAVJammed`. Uncaptured candidates are `Common/UI/HUD/WorldIcons/Widgets/Map_JammerRadius_Bigmap` and the two tutorial records `CAT_UAVJammerRadius` and `CAT_UAVJammerUse`.
+- The squad-spawn block: the switch and the marker check sit in the soldier file, but the wiring between them is not traced.
+- Any duration, lifetime or placed-count limit: none found. The 60.0 time to live on the spawner projectile is a Spawn Beacon template value and is not the jammer's lifetime.
+- Effects on drones, guided missiles or lock-on: none found. Its graph does not import the lock-jam or projectile-jam effects the Mobile Jammer's graph uses (L4026).

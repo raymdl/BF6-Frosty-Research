@@ -8,6 +8,16 @@ The gadget section records captured 1.4.3.1 text separately from site data.
 Snapshot: 1.4.2.5 export (13–14 September 2026), strings rechecked on 1.4.3.0. The
 [current site mapping](#current-site-mapping) and the Season 5 names were read on 2.1.1.0 (13 and 24 October).
 
+**Campaign copies (found 10 November 2026).** Every name-list (`AAM_*`), descriptor (`AD_*`) and UI metadata reading on this page made before that date came from the campaign copy of the file, which is what a Frosty capture holds; the multiplayer game reads another copy ([tools](TOOLS.md), `scripts/frosty-mp-copies.py`). In the 2.1.2.0 multiplayer copies (`builds\2.1.2.0\reports\mp-copies-2026-11-10`):
+
+- The M2010 ESR and SV-98 description pointers are `5E0EAEEC` and `97529B79`; `2DB86D4C` and `E8EA1B59` exist only in the campaign copy.
+- The "missing" ids `FC443C65`, `2897A9DF` and `A70D89F6` are not used: the lights point at `97C1E0D4` or `2642813E` (hip-fire) and `7944DEA3` or `BC1F219E` (aimed), the RPKM 30 Rnd Fast at `6D0AA2D3`.
+- `AD_Shared_SCA_Variable2X` and `_3X` use `11714E75` and `11714E76` ("Low-Zoom 2x", "Low-Zoom 3x").
+- All 70 weapon name lists carry the Steiner 5x as `1B975E23` ("ST Prisim 5.00x") and a PAC25 entry `149AA226` ("PA-SL 2.50x"); 51 of them had a differing campaign copy.
+- `UIWeaponAbilityMetaData` has 47 records, not 52: the season weapons are only in the `UIWeaponAbilityMetaData_S*` files.
+
+Sections below are not rewritten; where one conflicts with this list, this list holds. The site's descriptions were regenerated from the multiplayer copies on 10 November 2026 (103 lines changed).
+
 Results:
 
 - [frosty-weapon-display-names-2026-09-13.json](../../reference-data/provenance/frosty-weapon-display-names-2026-09-13.json)

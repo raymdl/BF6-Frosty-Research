@@ -10,9 +10,7 @@ B = settings.BUILD
 spec = importlib.util.spec_from_file_location("dec", REPO / "scripts/frosty-ebx-decode.py")
 dec = importlib.util.module_from_spec(spec); spec.loader.exec_module(dec)
 types = dec.type_descriptors(settings.DESCRIPTORS)
-_cat = json.load(open(settings.CATALOG, encoding="utf-8"))
-_rows = _cat if isinstance(_cat, list) else next(v for v in _cat.values() if isinstance(v, list))
-byguid = {str(r["guid"]).lower(): r["path"] for r in _rows}
+byguid = settings.byguid()
 held = {}
 for _k, (_p, _r) in settings.held_routes().items():
     held[_k] = _p
