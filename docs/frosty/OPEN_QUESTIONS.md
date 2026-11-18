@@ -59,6 +59,9 @@ pins the current evidence and the exact missing routes.
 | The `Field_`/`Class_` hash algorithm | None known; see the [field map](FIELD_MAP.md). Use exact registry child/hash associations where available, then other stated name evidence. |
 | `Field_0ef83ce9`, `Field_6eb133f8`, `Field_c39698a3` | Find a registry value or a consumer. |
 | `Field_149939ab` / `Field_e9129d03` (non-unit Riser samples include 1.2 and 1.3) | Compare an optic with and without the pair in game. |
+| Reticle size on screen for optics that are not red dots: no lens-block value gives it ([sight drawings](ATTACHMENTS.md#sight-drawings-2120-17-november-2026)) | Likely one of the run-time `SPC_Scope` shared parameters, set by code. Until found, one aimed screenshot per new optic. |
+| Size of the dark vignette inside magnified scopes (the opening rule runs about 8% large) | Not searched for in the files yet. |
+| TS-HD 6.00x and A-P2 1.75x: which mesh edge bounds the visible opening | TS-HD: the eyepiece ring gives −7% to −11%. A-P2: a base-mesh glass plane gives +2.1% against the lens mesh's −8.4%. |
 | `Field_440ed7fa` (frame-quantized WB duration) | Compare with fire-mode or animation timings. |
 | WB firing `Field_c5d1c8fe/{Field_91121984,Field_0d926433}` | [All 63 weapon comparisons](WEAPONS.md#anonymous-wb-recoil-candidates) reject a direct substitution for named GS recoil bounds. Need a consumer or independent activation control; ordinary gameplay motion cannot name the anonymous source field. |
 | Native ZDA/HDA state selection and H1 meaning | Ordered source rows and exact selectors reproduce all nine named Sym minima for 63/63 weapons ([receipt](../../reference-data/provenance/frosty-site-constants-2026-09-23.json)). This supports the ZDA stance columns and H2–H5 associations. H1 has no named Sym minimum. Use jump/sprint and stance captures or a native consumer to settle H1 and activation. |

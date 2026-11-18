@@ -799,6 +799,93 @@ sampled RMR base and MRO values are 1.0. The pair's physical meaning remains unk
   still be unset by mistake. Screenshots with very different values (SL9 55, KTS100 MK8
   18, PW7A2 50) show the same world zoom; only the weapon size differs.
 
+### Sight drawings (2.1.2.0, 17 November 2026)
+
+The Analyzer's Sight menu shows a drawing of each sight: the view from behind it, made
+from the game's 1P meshes and reticle textures. 41 optics have one drawing each and 72
+iron sights one per weapon. The full record, with per-optic tables and everything ruled
+out, is `builds\2.1.2.0\reports\preview-sourcing-status-2026-11-17.md` in the datamining
+folder; an independent centring check is `reports\reticle-centering-check-2026-11-17\results.md`.
+Field and command details are in the [field map](FIELD_MAP.md) (MD.Sight.Main, the ADS
+render record) and [tools](TOOLS.md#frostycmd) (`export-meshes`, `export-textures`,
+`export-res`, `list-bundles`).
+
+**What comes from the files, and how well it matches the game**
+
+| Part of the drawing | Source | Match |
+|---|---|---|
+| Housing and lens outline | The optic's 1P base and lens meshes, rear view | Shape checked by overlay on screenshots |
+| Reticle image and colour | The optic's `dpf_` lens block: texture `d7f54c3ed369d3bc`, colour `9f434c7fc8d3f804` | Checked by overlay. The per-weapon `md_` blocks are not the live copy |
+| Glass tint | Lens block `a14c1b18dd8641b8`; the rule's constants are chosen, not file values | No number |
+| Thermal palette | Part → `VE_*` → `T_FLIR_*` | GRIM, PAS-35 and TS-HD left clear, TH-RDS green: operator decisions |
+| Lens opening on screen | Lens width (mm) × 720 / tan(render FOV / 2) / (lens z − MD.Sight.Main z), px of a 2560×1440 screen | Median 4.5% on 37 optics. Magnified optics run about 8% large (a dark vignette inside the eyepiece): multiply by 0.919 when there is no screenshot |
+| Red-dot core size | 2.62 / tan(render FOV / 2) px | Median 6.5% on nine optics |
+| Reticle size, any other optic | **Not in the files.** Size model 7.03 × zoom^0.27 × size / tan(render FOV / 2), size = lens block `97fa34b5d22335f5` | About 12% typical; not valid for variable optics at their lowest zoom. One aimed screenshot gives the true size |
+| Iron-sight outlines | The iron attachment's meshes through the variant chain, every distinct section; the default barrel and `Weapon_Base` meshes for a missing front or rear | Outlines match 72 aimed screenshots |
+| Iron-sight size on screen | Eye at MD.Sight.Main z on the mesh sight line, at the ADS render FOV | Median 0.8%, worst 4.2% on 46 screenshots |
+
+**Limits**
+
+- The missing reticle-size factor is probably among the 11 run-time parameters of
+  `Common/Shaders/SharedParameters/Scope/SPC_Scope`, which code sets. Every other
+  lens-block value was tried and rejected (status report, O6).
+- The opening rule fails on three kinds of optic: the scope vignette above, the CQ RDS
+  (window wider than its glass mesh) and the TS-HD (the visible circle is the eyepiece
+  ring).
+- Iron sights whose rear the files hold out of its aiming pose cannot be placed from
+  the files. The Z84M and L110 rears were placed from their screenshots. A rear lying
+  more than 5 mm below the sight line is drawn as folded (front post only): the M121 A2.
+- Three iron sights are drawn from an ambiguous variant (M16A4, M16A4 Flip-Up Irons,
+  ES 5.7). The M45A1 notch is about 25% narrower in the mesh than in game and is drawn
+  as the mesh has it.
+
+**Drawing a new sight.** The scripts are run-folder scripts, not repository tools. They
+sit in `builds\2.1.2.0\reports\` (`iron-sights-all-2026-11-17`, `optic-icons-all-2026-11-17`,
+`optic-reticle-params-2026-11-17`, `reticle-textures-chunks-2026-11-17\scripts`) with the
+2.1.2.0 paths written into them, and have been run only on that build. On a later build,
+copy them and their kept inputs into dated folders under the open build's `reports\` and
+change the build paths first; a sealed build is never written to. Decode caches and the
+GUID index were removed by the run cleanup and are rebuilt on the first run. Every
+FrostyCmd step goes through `iron-sights-all-2026-11-17\run_frosty.py` (capture lock,
+`guard`, one process).
+
+*An iron sight for a new weapon* (the weapon must already be in the site data with its
+point-cost mapping row and identity row):
+
+1. `list-bundles` with `/art/ob_wep_` → `bundles-weapon-art.tsv`.
+2. `resolve_variants.py` → the sight meshes for the site default loadout
+   (`iron-variants.json`); `second_sights.py` for a second iron sight on the weapon.
+3. `export-meshes` for the new mesh list.
+4. `md_eye.py` (MD.Sight.Main) and `fov_wb.py` (ADS render FOV).
+5. `rollout_iron.py` with `AIM_Y=24` → `svg\<weapon id>.svg`, or
+   `<weapon id>__<sight id>.svg` for a second sight, and `iron-geometry.json`. The
+   existing weapons keep their scale through `FIX_SCALE=iron-geometry-v10.json`; a new
+   weapon has no row there and is scaled by the fit rule.
+6. Check the result against one aimed screenshot with `proj_all.py` when the operator
+   has one. A screenshot is required only when the rear does not land on the sight line
+   (step 5 of the rule in the status report, I1).
+
+*A new optic* (it must already be in the site's `SIGHTS`):
+
+1. Add its row to `optics_table.py` (mesh folder, base mesh, lens mesh), picked from the
+   catalog, and `export-meshes` those.
+2. `export-res` its `dpf_<part>` shader state and read the lens block (`sbd.py`,
+   `optic_table.py`) → reticle texture, size, colour, tint.
+3. `export-textures` the reticle texture and decode it (`decode_tex.py`).
+4. `part_fov.py` (render FOV) and `md_optics.py` (MD.Sight.Main) → the opening by the
+   rule above (`make_sheet.file_opening`).
+5. Reticle size: the red-dot rule for a `T_RET_RedDot` optic; otherwise fit the
+   operator's aimed screenshot (`fit_screenshots.py`), or use the size model and mark
+   the drawing "reticle estimated" (PA-SL 2.50x is the one such drawing).
+6. A thermal optic: `thermal_links.py` for its palette.
+7. Add it to a scale band in `rollout.py` (0.48 for 1.00x–2.00x, 0.30 for fixed
+   2.50x–5.00x, 0.268 for LPVOs, 0.155 for 6.00x and up), and to `build_all.EXTRA`
+   and `make_sheet.FILE_OP` when it has no screenshot. Run `rollout.py "<in-game name>"`
+   → `svg\<name, letters and digits only>.svg`.
+
+Then copy the drawings into the site (Analyzer `MAINTENANCE.md`, "Regenerate sight
+drawings").
+
 ### Zoom levels
 
 | Asset | Camera FOV (°) | Zoom | PiP factor |
