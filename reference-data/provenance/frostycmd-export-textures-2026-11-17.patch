@@ -1,0 +1,121 @@
+--- Program.cs.bak-texture-export-2026-11-17	2026-11-17 12:35:37.373926400 -0500
++++ Program.cs	2026-11-17 12:44:36.980101100 -0500
+@@ -173,11 +173,13 @@
+             bool exportStrings = args.Length == 5 && args[0].Equals("export-strings", StringComparison.OrdinalIgnoreCase);
+             bool exportList = args.Length == 5 && args[0].Equals("export-ebx-list", StringComparison.OrdinalIgnoreCase);
+             bool scanStrings = args.Length >= 5 && args[0].Equals("scan-string-usage", StringComparison.OrdinalIgnoreCase);
+-            if (!scanStrings && (args.Length != 5 || (!args[0].Equals("export-ebx", StringComparison.OrdinalIgnoreCase) && !exportStrings && !exportList)))
++            bool exportTextures = args.Length == 5 && args[0].Equals("export-textures", StringComparison.OrdinalIgnoreCase);
++            if (!scanStrings && (args.Length != 5 || (!args[0].Equals("export-ebx", StringComparison.OrdinalIgnoreCase) && !exportStrings && !exportList && !exportTextures)))
+             {
+                 Console.Error.WriteLine(
+                     "Usage: FrostyCmd export-ebx <profile> <game-path> <asset-name> <output-file>");
+                 Console.Error.WriteLine("       FrostyCmd export-ebx-list <profile> <game-path> <assets-file> <output-directory>");
++                Console.Error.WriteLine("       FrostyCmd export-textures <profile> <game-path> <assets-file> <output-directory>");
+                 Console.Error.WriteLine(
+                     "       FrostyCmd export-strings <profile> <game-path> <language-asset-name> <output-tsv>");
+                 Console.Error.WriteLine(
+@@ -260,6 +262,45 @@
+                     return 0;
+                 }
+ 
++                if (exportTextures)
++                {
++                    Directory.CreateDirectory(outputFile);
++                    string statusFile = Path.Combine(outputFile, "export-status.tsv");
++                    using (StreamWriter status = new StreamWriter(statusFile, false))
++                    {
++                        status.WriteLine("asset\tstatus\tdetail");
++                        foreach (string rawName in File.ReadAllLines(assetName))
++                        {
++                            string name = rawName.Trim().Replace('\\', '/').Trim('/');
++                            if (name.Length == 0) continue;
++                            try
++                            {
++                                EbxAssetEntry item = assetManager.GetEbxEntry(name);
++                                if (item == null) throw new FileNotFoundException("EBX asset was not found");
++                                EbxAsset ebx = assetManager.GetEbx(item);
++                                // BF6 field names are hashed: take the root object's single non-zero ResourceRef field.
++                                ulong[] resRids = ebx.RootObject.GetType().GetProperties()
++                                    .Where(p => p.PropertyType == typeof(ResourceRef))
++                                    .Select(p => (ulong)(ResourceRef)p.GetValue(ebx.RootObject))
++                                    .Where(v => v != 0).Distinct().ToArray();
++                                if (resRids.Length != 1) throw new InvalidDataException("Expected one ResourceRef field, found " + resRids.Length);
++                                ulong resRid = resRids[0];
++                                ResAssetEntry resEntry = assetManager.GetResEntry(resRid);
++                                if (resEntry == null) throw new FileNotFoundException("Texture resource was not found: " + resRid.ToString("x16"));
++                                string detail = ExportTextureChunk(assetManager, resEntry, Path.Combine(outputFile, name.Replace('/', Path.DirectorySeparatorChar)));
++                                status.WriteLine(name + "\tok\t" + detail);
++                            }
++                            catch (Exception itemError)
++                            {
++                                status.WriteLine(name + "\terror\t" + itemError.ToString().Replace('\t', ' ').Replace('\r', ' ').Replace('\n', ' '));
++                            }
++                            status.Flush();
++                        }
++                    }
++                    Console.WriteLine(statusFile);
++                    return 0;
++                }
++
+                 if (scanStrings)
+                 {
+                     string[] prefixes = args.Skip(5).Select(p => p.Replace('\\', '/').Trim('/')).ToArray();
+@@ -483,6 +524,57 @@
+         // Decodes a localized text asset the same way as FsLocalizationPlugin.AddResource.
+         // BF6 field names are hashed, so the two chunk GUIDs are found by type and the
+         // string chunk is identified by its 0x00039000 magic.
++        // BF6 texture resource (version 12). The SDK's Texture.Read misses a 4-byte field before the chunk id
++        // for this profile, so read the header here: type 0x08, format 0x0C (RenderFormat value; the enum is
++        // obfuscated), flags 0x14, width/height/depth/slices 0x16-0x1D, mips 0x1E, first mip 0x1F, chunk id 0x28,
++        // 15 mip sizes 0x38, chunk size 0x74. Writes <base>.bin (chunk data) and <base>.json (header fields).
++        private static string ExportTextureChunk(AssetManager assetManager, ResAssetEntry resEntry, string basePath)
++        {
++            uint version = resEntry.ResMeta != null && resEntry.ResMeta.Length >= 4 ? BitConverter.ToUInt32(resEntry.ResMeta, 0) : 0;
++            byte[] header;
++            using (Stream resStream = assetManager.GetRes(resEntry))
++            using (MemoryStream copy = new MemoryStream())
++            {
++                resStream.CopyTo(copy);
++                header = copy.ToArray();
++            }
++            if (version != 12 || header.Length < 0x78)
++                throw new InvalidDataException("Unexpected texture header: version " + version + ", " + header.Length + " bytes");
++
++            byte[] guidBytes = new byte[16];
++            Array.Copy(header, 0x28, guidBytes, 0, 16);
++            Guid chunkId = new Guid(guidBytes);
++            byte mips = header[0x1E];
++            uint[] mipSizes = Enumerable.Range(0, mips).Select(i => BitConverter.ToUInt32(header, 0x38 + i * 4)).ToArray();
++            uint chunkSize = BitConverter.ToUInt32(header, 0x74);
++            if (mips < 1 || mips > 15 || mipSizes.Aggregate(0L, (sum, size) => sum + size) != chunkSize)
++                throw new InvalidDataException("Mip sizes do not add up to chunk size " + chunkSize);
++
++            ChunkAssetEntry chunkEntry = assetManager.GetChunkEntry(chunkId);
++            if (chunkEntry == null)
++                throw new FileNotFoundException("Texture chunk was not found: " + chunkId);
++            byte[] data;
++            using (Stream chunk = assetManager.GetChunk(chunkEntry))
++            using (MemoryStream copy = new MemoryStream())
++            {
++                chunk.CopyTo(copy);
++                data = copy.ToArray();
++            }
++            if (data.Length < chunkSize)
++                throw new InvalidDataException("Chunk holds " + data.Length + " bytes, header says " + chunkSize);
++
++            Directory.CreateDirectory(Path.GetDirectoryName(basePath));
++            File.WriteAllBytes(basePath + ".bin", data);
++            string json = "{\"type\": " + BitConverter.ToUInt32(header, 0x08) + ", \"format\": " + BitConverter.ToInt32(header, 0x0C)
++                + ", \"flags\": " + BitConverter.ToUInt16(header, 0x14) + ", \"width\": " + BitConverter.ToUInt16(header, 0x16)
++                + ", \"height\": " + BitConverter.ToUInt16(header, 0x18) + ", \"depth\": " + BitConverter.ToUInt16(header, 0x1A)
++                + ", \"slices\": " + BitConverter.ToUInt16(header, 0x1C) + ", \"mips\": " + mips + ", \"firstMip\": " + header[0x1F]
++                + ", \"chunkId\": \"" + chunkId + "\", \"mipSizes\": [" + string.Join(", ", mipSizes) + "], \"chunkSize\": " + chunkSize
++                + ", \"dataBytes\": " + data.Length + "}";
++            File.WriteAllText(basePath + ".json", json + Environment.NewLine);
++            return json;
++        }
++
+         private static int ExportStrings(AssetManager assetManager, EbxAssetEntry entry, string outputFile)
+         {
+             object root = assetManager.GetEbx(entry).RootObject;

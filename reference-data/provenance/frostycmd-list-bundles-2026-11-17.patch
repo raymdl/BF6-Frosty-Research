@@ -1,0 +1,47 @@
+--- a/FrostyCmd/Program.cs
++++ b/FrostyCmd/Program.cs
+@@ -176,7 +176,8 @@
+             bool exportTextures = args.Length == 5 && args[0].Equals("export-textures", StringComparison.OrdinalIgnoreCase);
+             bool exportMeshes = args.Length == 5 && args[0].Equals("export-meshes", StringComparison.OrdinalIgnoreCase);
+             bool exportRes = args.Length == 5 && args[0].Equals("export-res", StringComparison.OrdinalIgnoreCase);
+-            if (!scanStrings && (args.Length != 5 || (!args[0].Equals("export-ebx", StringComparison.OrdinalIgnoreCase) && !exportStrings && !exportList && !exportTextures && !exportMeshes && !exportRes)))
++            bool listBundles = args.Length == 5 && args[0].Equals("list-bundles", StringComparison.OrdinalIgnoreCase);
++            if (!scanStrings && (args.Length != 5 || (!args[0].Equals("export-ebx", StringComparison.OrdinalIgnoreCase) && !exportStrings && !exportList && !exportTextures && !exportMeshes && !exportRes && !listBundles)))
+             {
+                 Console.Error.WriteLine(
+                     "Usage: FrostyCmd export-ebx <profile> <game-path> <asset-name> <output-file>");
+@@ -184,6 +185,7 @@
+                 Console.Error.WriteLine("       FrostyCmd export-textures <profile> <game-path> <assets-file> <output-directory>");
+                 Console.Error.WriteLine("       FrostyCmd export-meshes <profile> <game-path> <assets-file> <output-directory>");
+                 Console.Error.WriteLine("       FrostyCmd export-res <profile> <game-path> <name-substrings-file> <output-directory>");
++                Console.Error.WriteLine("       FrostyCmd list-bundles <profile> <game-path> <name-substrings-file> <output-tsv>");
+                 Console.Error.WriteLine(
+                     "       FrostyCmd export-strings <profile> <game-path> <language-asset-name> <output-tsv>");
+                 Console.Error.WriteLine(
+@@ -266,6 +268,26 @@
+                     return 0;
+                 }
+ 
++                if (listBundles)
++                {
++                    // Bundle membership of every EBX asset whose name contains one of the given substrings (case-insensitive).
++                    string[] needles = File.ReadAllLines(assetName).Select(l => l.Trim().Replace('\\', '/').ToLowerInvariant()).Where(l => l.Length > 0).ToArray();
++                    Directory.CreateDirectory(Path.GetDirectoryName(outputFile));
++                    using (StreamWriter status = new StreamWriter(outputFile, false))
++                    {
++                        status.WriteLine("ebx	guid	bundles");
++                        foreach (EbxAssetEntry e in assetManager.EnumerateEbx())
++                        {
++                            string lower = e.Name.ToLowerInvariant();
++                            if (!needles.Any(n => lower.Contains(n))) continue;
++                            string bundles = string.Join(";", e.EnumerateBundles().Select(b => assetManager.GetBundleEntry(b)?.Name ?? ("#" + b)));
++                            status.WriteLine(e.Name + "	" + e.Guid + "	" + bundles);
++                        }
++                    }
++                    Console.WriteLine(outputFile);
++                    return 0;
++                }
++
+                 if (exportRes)
+                 {
+                     // Raw dump of every resource whose name contains one of the given substrings (case-insensitive).

@@ -1,0 +1,65 @@
+--- a/FrostyCmd/Program.cs
++++ b/FrostyCmd/Program.cs
+@@ -175,13 +175,15 @@
+             bool scanStrings = args.Length >= 5 && args[0].Equals("scan-string-usage", StringComparison.OrdinalIgnoreCase);
+             bool exportTextures = args.Length == 5 && args[0].Equals("export-textures", StringComparison.OrdinalIgnoreCase);
+             bool exportMeshes = args.Length == 5 && args[0].Equals("export-meshes", StringComparison.OrdinalIgnoreCase);
+-            if (!scanStrings && (args.Length != 5 || (!args[0].Equals("export-ebx", StringComparison.OrdinalIgnoreCase) && !exportStrings && !exportList && !exportTextures && !exportMeshes)))
++            bool exportRes = args.Length == 5 && args[0].Equals("export-res", StringComparison.OrdinalIgnoreCase);
++            if (!scanStrings && (args.Length != 5 || (!args[0].Equals("export-ebx", StringComparison.OrdinalIgnoreCase) && !exportStrings && !exportList && !exportTextures && !exportMeshes && !exportRes)))
+             {
+                 Console.Error.WriteLine(
+                     "Usage: FrostyCmd export-ebx <profile> <game-path> <asset-name> <output-file>");
+                 Console.Error.WriteLine("       FrostyCmd export-ebx-list <profile> <game-path> <assets-file> <output-directory>");
+                 Console.Error.WriteLine("       FrostyCmd export-textures <profile> <game-path> <assets-file> <output-directory>");
+                 Console.Error.WriteLine("       FrostyCmd export-meshes <profile> <game-path> <assets-file> <output-directory>");
++                Console.Error.WriteLine("       FrostyCmd export-res <profile> <game-path> <name-substrings-file> <output-directory>");
+                 Console.Error.WriteLine(
+                     "       FrostyCmd export-strings <profile> <game-path> <language-asset-name> <output-tsv>");
+                 Console.Error.WriteLine(
+@@ -259,6 +261,45 @@
+                             }
+                             status.Flush();
+                         }
++                    }
++                    Console.WriteLine(statusFile);
++                    return 0;
++                }
++
++                if (exportRes)
++                {
++                    // Raw dump of every resource whose name contains one of the given substrings (case-insensitive).
++                    Directory.CreateDirectory(outputFile);
++                    string[] needles = File.ReadAllLines(assetName).Select(l => l.Trim().Replace('\\', '/').ToLowerInvariant()).Where(l => l.Length > 0).ToArray();
++                    // A needles file with the line "#list" writes the status rows only (no resource data).
++                    bool listOnly = needles.Contains("#list");
++                    needles = needles.Where(n => n != "#list").ToArray();
++                    string statusFile = Path.Combine(outputFile, "export-status.tsv");
++                    using (StreamWriter status = new StreamWriter(statusFile, false))
++                    {
++                        status.WriteLine("name\tresType\tresRid\tsize\tstatus");
++                        foreach (ResAssetEntry resEntry in assetManager.EnumerateRes())
++                        {
++                            string lower = resEntry.Name.ToLowerInvariant();
++                            if (!needles.Any(n => lower.Contains(n))) continue;
++                            string line = resEntry.Name + "\t" + resEntry.ResType.ToString("x8") + "\t" + resEntry.ResRid.ToString("x16") + "\t" + resEntry.OriginalSize;
++                            if (listOnly) { status.WriteLine(line + "	listed"); continue; }
++                            try
++                            {
++                                string target = Path.Combine(outputFile, resEntry.Name.Replace('/', Path.DirectorySeparatorChar) + "." + resEntry.ResType.ToString("x8"));
++                                Directory.CreateDirectory(Path.GetDirectoryName(target));
++                                using (Stream resStream = assetManager.GetRes(resEntry))
++                                using (FileStream resOut = new FileStream(target + ".res", FileMode.Create))
++                                    resStream.CopyTo(resOut);
++                                File.WriteAllBytes(target + ".resmeta", resEntry.ResMeta ?? Array.Empty<byte>());
++                                status.WriteLine(line + "\tok");
++                            }
++                            catch (Exception itemError)
++                            {
++                                status.WriteLine(line + "\terror " + itemError.Message.Replace('\t', ' ').Replace('\r', ' ').Replace('\n', ' '));
++                            }
++                            status.Flush();
++                        }
+                     }
+                     Console.WriteLine(statusFile);
+                     return 0;

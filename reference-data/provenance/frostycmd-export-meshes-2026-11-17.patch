@@ -1,0 +1,185 @@
+--- Program.cs.bak-mesh-export-2026-11-17	2026-11-17 13:26:04.208836700 -0500
++++ Program.cs	2026-11-17 13:27:40.004809800 -0500
+@@ -174,12 +174,14 @@
+             bool exportList = args.Length == 5 && args[0].Equals("export-ebx-list", StringComparison.OrdinalIgnoreCase);
+             bool scanStrings = args.Length >= 5 && args[0].Equals("scan-string-usage", StringComparison.OrdinalIgnoreCase);
+             bool exportTextures = args.Length == 5 && args[0].Equals("export-textures", StringComparison.OrdinalIgnoreCase);
+-            if (!scanStrings && (args.Length != 5 || (!args[0].Equals("export-ebx", StringComparison.OrdinalIgnoreCase) && !exportStrings && !exportList && !exportTextures)))
++            bool exportMeshes = args.Length == 5 && args[0].Equals("export-meshes", StringComparison.OrdinalIgnoreCase);
++            if (!scanStrings && (args.Length != 5 || (!args[0].Equals("export-ebx", StringComparison.OrdinalIgnoreCase) && !exportStrings && !exportList && !exportTextures && !exportMeshes)))
+             {
+                 Console.Error.WriteLine(
+                     "Usage: FrostyCmd export-ebx <profile> <game-path> <asset-name> <output-file>");
+                 Console.Error.WriteLine("       FrostyCmd export-ebx-list <profile> <game-path> <assets-file> <output-directory>");
+                 Console.Error.WriteLine("       FrostyCmd export-textures <profile> <game-path> <assets-file> <output-directory>");
++                Console.Error.WriteLine("       FrostyCmd export-meshes <profile> <game-path> <assets-file> <output-directory>");
+                 Console.Error.WriteLine(
+                     "       FrostyCmd export-strings <profile> <game-path> <language-asset-name> <output-tsv>");
+                 Console.Error.WriteLine(
+@@ -262,6 +264,63 @@
+                     return 0;
+                 }
+ 
++                if (exportMeshes)
++                {
++                    Directory.CreateDirectory(outputFile);
++                    string statusFile = Path.Combine(outputFile, "export-status.tsv");
++                    using (StreamWriter status = new StreamWriter(statusFile, false))
++                    {
++                        status.WriteLine("asset\tstatus\tdetail");
++                        foreach (string rawName in File.ReadAllLines(assetName))
++                        {
++                            string name = rawName.Trim().Replace('\\', '/').Trim('/');
++                            if (name.Length == 0) continue;
++                            try
++                            {
++                                EbxAssetEntry item = assetManager.GetEbxEntry(name);
++                                if (item == null) throw new FileNotFoundException("EBX asset was not found");
++                                EbxAsset ebx = assetManager.GetEbx(item);
++                                ulong[] resRids = ebx.RootObject.GetType().GetProperties()
++                                    .Where(p => p.PropertyType == typeof(ResourceRef))
++                                    .Select(p => (ulong)(ResourceRef)p.GetValue(ebx.RootObject))
++                                    .Where(v => v != 0).Distinct().ToArray();
++                                if (resRids.Length != 1) throw new InvalidDataException("Expected one ResourceRef field, found " + resRids.Length);
++                                ResAssetEntry resEntry = assetManager.GetResEntry(resRids[0]);
++                                if (resEntry == null) throw new FileNotFoundException("Mesh resource was not found: " + resRids[0].ToString("x16"));
++                                string target = Path.Combine(outputFile, name.Replace('/', Path.DirectorySeparatorChar) + ".obj");
++                                Directory.CreateDirectory(Path.GetDirectoryName(target));
++                                using (Stream resStream = assetManager.GetRes(resEntry))
++                                using (FileStream resOut = new FileStream(Path.ChangeExtension(target, ".res"), FileMode.Create))
++                                    resStream.CopyTo(resOut);
++                                File.WriteAllBytes(Path.ChangeExtension(target, ".resmeta"), resEntry.ResMeta ?? Array.Empty<byte>());
++                                // BF6 MeshSet layout is not confirmed: dump every chunk whose id appears in the resource header.
++                                byte[] resBytes = File.ReadAllBytes(Path.ChangeExtension(target, ".res"));
++                                for (int at = 0; at + 16 <= resBytes.Length; at += 4)
++                                {
++                                    byte[] idBytes = new byte[16];
++                                    Array.Copy(resBytes, at, idBytes, 0, 16);
++                                    Guid id = new Guid(idBytes);
++                                    ChunkAssetEntry chunkEntry = id == Guid.Empty ? null : assetManager.GetChunkEntry(id);
++                                    if (chunkEntry == null) continue;
++                                    using (Stream chunk = assetManager.GetChunk(chunkEntry))
++                                    using (FileStream chunkOut = new FileStream(Path.ChangeExtension(target, "") + "chunk@" + at.ToString("x") + ".bin", FileMode.Create))
++                                        chunk.CopyTo(chunkOut);
++                                }
++                                MeshSetPlugin.Resources.MeshSet meshSet = assetManager.GetResAs<MeshSetPlugin.Resources.MeshSet>(resEntry);
++                                if (meshSet.Lods.Count == 0) throw new InvalidDataException("MeshSet reader returned no LODs; raw resource written as .res");
++                                status.WriteLine(name + "\tok\t" + WriteObj(assetManager, meshSet, target));
++                            }
++                            catch (Exception itemError)
++                            {
++                                status.WriteLine(name + "\terror\t" + itemError.ToString().Replace('\t', ' ').Replace('\r', ' ').Replace('\n', ' '));
++                            }
++                            status.Flush();
++                        }
++                    }
++                    Console.WriteLine(statusFile);
++                    return 0;
++                }
++
+                 if (exportTextures)
+                 {
+                     Directory.CreateDirectory(outputFile);
+@@ -575,6 +634,90 @@
+             return json;
+         }
+ 
++        // Positions and triangles of the first LOD's renderable sections as OBJ (one object per section),
++        // following the editor's FBX exporter layout: streams follow each other from VertexOffset, indices
++        // start at VertexBufferSize. Returns a one-line summary.
++        private static string WriteObj(AssetManager assetManager, MeshSetPlugin.Resources.MeshSet meshSet, string target)
++        {
++            MeshSetPlugin.Resources.MeshSetLod lod = meshSet.Lods[0];
++            byte[] data;
++            using (Stream chunk = lod.ChunkId != Guid.Empty ? assetManager.GetChunk(assetManager.GetChunkEntry(lod.ChunkId)) : new MemoryStream(lod.InlineData))
++            using (MemoryStream copy = new MemoryStream())
++            {
++                chunk.CopyTo(copy);
++                data = copy.ToArray();
++            }
++            int indexSize = lod.IndexUnitSize / 8;
++            List<string> summary = new List<string>();
++            int baseIndex = 1;
++            using (StreamWriter obj = new StreamWriter(target, false))
++            {
++                obj.WriteLine("# " + meshSet.Name + " lod " + lod.Name + " lods=" + meshSet.Lods.Count + " chunkBytes=" + data.Length);
++                foreach (MeshSetPlugin.Resources.MeshSetSection section in lod.Sections)
++                {
++                    if (!lod.IsSectionRenderable(section) || section.PrimitiveCount == 0) continue;
++                    GeometryDeclarationDesc decl = section.GeometryDeclDesc[0];
++                    long streamBase = section.VertexOffset;
++                    long posStart = -1; int posStride = 0; VertexElementFormat posFormat = VertexElementFormat.None; int posOffset = 0;
++                    for (int j = 0; j < decl.Streams.Length; j++)
++                    {
++                        int stride = decl.Streams[j].VertexStride;
++                        if (stride == 0) continue;
++                        foreach (GeometryDeclarationDesc.Element elem in decl.Elements)
++                        {
++                            if (elem.StreamIndex == j && elem.Usage == VertexElementUsage.Pos && posStart < 0)
++                            {
++                                posStart = streamBase; posStride = stride; posFormat = elem.Format; posOffset = elem.Offset;
++                            }
++                        }
++                        streamBase += (long)stride * section.VertexCount;
++                    }
++                    if (posStart < 0) throw new InvalidDataException("Section " + section.Name + " has no position element");
++
++                    obj.WriteLine("o " + section.Name);
++                    for (int i = 0; i < section.VertexCount; i++)
++                    {
++                        long at = posStart + (long)i * posStride + posOffset;
++                        float x, y, z;
++                        if (posFormat == VertexElementFormat.Float3 || posFormat == VertexElementFormat.Float4)
++                        {
++                            x = BitConverter.ToSingle(data, (int)at); y = BitConverter.ToSingle(data, (int)at + 4); z = BitConverter.ToSingle(data, (int)at + 8);
++                        }
++                        else if (posFormat == VertexElementFormat.Half3 || posFormat == VertexElementFormat.Half4)
++                        {
++                            x = Half(data, at); y = Half(data, at + 2); z = Half(data, at + 4);
++                        }
++                        else throw new InvalidDataException("Unsupported position format " + posFormat);
++                        obj.WriteLine(string.Format(System.Globalization.CultureInfo.InvariantCulture, "v {0} {1} {2}", x, y, z));
++                    }
++                    long indexAt = lod.VertexBufferSize + (long)section.StartIndex * indexSize;
++                    for (int i = 0; i < section.PrimitiveCount; i++)
++                    {
++                        long[] tri = new long[3];
++                        for (int k = 0; k < 3; k++, indexAt += indexSize)
++                        {
++                            tri[k] = indexSize == 2 ? BitConverter.ToUInt16(data, (int)indexAt) : BitConverter.ToUInt32(data, (int)indexAt);
++                            if (tri[k] >= section.VertexCount) throw new InvalidDataException("Index " + tri[k] + " out of range in section " + section.Name);
++                        }
++                        obj.WriteLine("f " + (tri[0] + baseIndex) + " " + (tri[1] + baseIndex) + " " + (tri[2] + baseIndex));
++                    }
++                    baseIndex += (int)section.VertexCount;
++                    summary.Add(section.Name + ":" + section.VertexCount + "v/" + section.PrimitiveCount + "t/" + posFormat);
++                }
++            }
++            return string.Join(" ", summary);
++        }
++
++        private static float Half(byte[] data, long at)
++        {
++            int h = BitConverter.ToUInt16(data, (int)at);
++            int sign = (h >> 15) & 1, exp = (h >> 10) & 0x1f, mant = h & 0x3ff;
++            float value = exp == 0 ? mant / 1024f * (float)Math.Pow(2, -14)
++                : exp == 31 ? float.NaN
++                : (1 + mant / 1024f) * (float)Math.Pow(2, exp - 15);
++            return sign == 1 ? -value : value;
++        }
++
+         private static int ExportStrings(AssetManager assetManager, EbxAssetEntry entry, string outputFile)
+         {
+             object root = assetManager.GetEbx(entry).RootObject;
+--- FrostyCmd.csproj.bak-mesh-export-2026-11-17	2026-11-17 13:26:04.203023200 -0500
++++ FrostyCmd.csproj	2026-11-17 13:26:09.608944100 -0500
+@@ -82,6 +82,9 @@
+     <Reference Include="System.Xml" />
+   </ItemGroup>
+   <ItemGroup>
++    <Compile Include="..\Plugins\MeshSetPlugin\Resources\MeshSet.cs">
++      <Link>MeshSet.cs</Link>
++    </Compile>
+     <Compile Include="ProfileCreator.cs" />
+     <Compile Include="Program.cs" />
+     <Compile Include="Properties\AssemblyInfo.cs" />

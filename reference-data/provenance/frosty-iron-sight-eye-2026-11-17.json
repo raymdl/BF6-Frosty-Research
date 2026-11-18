@@ -1,0 +1,5195 @@
+{
+ "scope": "ADS eye point for iron sights and optics from game data: MD.Sight.Main on the attachment's MD part record. Checked against 72 aimed in-game iron-sight screenshots taken by the user (1365x768 scaled from 2560x1440, game FOV 103), two of the user's optic recordings and the landmine optic screenshot set.",
+ "recordedDate": "2026-11-17",
+ "build": {
+  "label": "2.1.2.0",
+  "source": "builds/2.1.2.0/capture/collection/raw, decoded by resolve_variants.py"
+ },
+ "chain": [
+  "MD_<W> Class_0653128c (MD part record; Field_5af77230 = 1P bundle name)",
+  "-> Field_eb9379b0[] -> Class_8f378838 transform records",
+  "-> the record whose Field_b7b33071 imports gamestate fileGuid 4c59b0bd-e1c1-ac8d-4c59-b0bde1c1ac8d (Animations/Glacier/Global/Gamestates/MD.Sight.Main.Vec3); Field_53b7932a -> MD.Sight.Main.QuatGS (identity rotation in every case seen)",
+  "-> Field_8cf424e7(.Field_bc4b07b4) translation {x Field_3901db14, y Field_42fc0f5e, z Field_32a99b9c}, metres; weapon space (+z muzzle, +y up) on iron-sight records, the optic's frame on optic records"
+ ],
+ "fieldMeanings": {
+  "Class_8f378838": "Gamestate-keyed transform record in MD files (gamestate import Field_b7b33071, rotation gamestate Field_53b7932a, 4x3 transform Field_8cf424e7)",
+  "Class_0653128c.Field_eb9379b0": "Array of Class_8f378838 refs on an MD part record",
+  "MD.Sight.Main": "ADS eye point. Iron sights: weapon space; z = eye position along the bore; y = eye height (equals the sight-line height on most long guns). Optics: the optic part's frame; one value per optic part on every weapon.",
+  "WB Class_76a3b0eb referenced by Class_8cdc5b63": "ADS (iron-sight) render record; its Field_7768ebf2 is the iron render FOV"
+ },
+ "evidenceLevel": "Value, Tested (screenshots and recordings). The gamestate name comes from its import path.",
+ "rule": "Eye z = MD.Sight.Main z of the resolved iron record. Project at the weapon's iron render FOV (vertical) from the blueprint's Class_8cdc5b63 render record: screen px = (H/2) / tan(fov/2) x size / distance.",
+ "ironTest": {
+  "note": "Steps 4-5: file-derived eye rules vs the screenshot measurement (iron-calibration.json), with leave-one-out.\nTest set: measurements of good fit quality (confidence high/medium, no edge hit, no visual objection), chosen\nwithout looking at the MD eye. Error = rule eye / measured eye - 1 (the opening px error is the same, inverted).",
+  "testSet": 46,
+  "rules": [
+   {
+    "rule": "MD.Sight.Main z (no fitted parameter: leave-one-out = in-sample)",
+    "n": 46,
+    "medianPct": 0.8,
+    "p90Pct": 2.4,
+    "worstPct": 4.2,
+    "worst": "p18",
+    "within5": 46,
+    "within10": 46
+   },
+   {
+    "rule": "constant distance, LOO median of the others",
+    "n": 46,
+    "medianPct": 15.0,
+    "p90Pct": 45.3,
+    "worstPct": 80.1,
+    "worst": "grtbc",
+    "within5": 7,
+    "within10": 17
+   },
+   {
+    "rule": "class median distance, LOO",
+    "n": 46,
+    "medianPct": 13.5,
+    "p90Pct": 38.9,
+    "worstPct": 89.8,
+    "worst": "grtbc",
+    "within5": 5,
+    "within10": 20
+   },
+   {
+    "rule": "constant eye z (weapon space), LOO",
+    "n": 46,
+    "medianPct": 16.0,
+    "p90Pct": 48.3,
+    "worstPct": 72.2,
+    "worst": "m39emr",
+    "within5": 13,
+    "within10": 20
+   }
+  ],
+  "independentGlobalFit": {
+   "note": "global chamfer fits that never saw the MD eye (shots/fits.json); clean fits only (chamfer < 0.8, eye 95-750 mm). Mk 24, RSPR and ELR-40 were fitted at FOV 55 before the FOV correction",
+   "n": 46,
+   "medianPct": 1.1,
+   "within5": 37,
+   "outliers": {
+    "mk24": 335.9,
+    "ak205": -7.7,
+    "sor300sc": -6.4,
+    "svk86": 323.5,
+    "m45a1": 51.7,
+    "vz61": 120.2,
+    "ks18k": -6.5,
+    "rspr": -25.8,
+    "elr40": 146.7
+   }
+  },
+  "handCheck": {
+   "note": "rear opening widths read by hand from gridded crops (subagents, no predictions shown) for the 15 weapons whose automatic fit failed or was ambiguous, plus NSW4",
+   "weapons": {
+    "mk24": {
+     "handPx": 53,
+     "handConfidence": "good",
+     "predictedMdPx": 54.5,
+     "predictedAltEyePx": 55.0,
+     "altEyeMm": 165.5,
+     "offPct": -2.8,
+     "verdict": "confirmed within 5%"
+    },
+    "ak205": {
+     "handPx": 18,
+     "handConfidence": "good",
+     "predictedMdPx": 17.6,
+     "predictedAltEyePx": 16.1,
+     "altEyeMm": 366.7,
+     "offPct": 2.3,
+     "verdict": "confirmed within 5%"
+    },
+    "m60": {
+     "handPx": 52,
+     "handConfidence": "rough",
+     "predictedMdPx": 51.8,
+     "predictedAltEyePx": 38.9,
+     "altEyeMm": 374.2,
+     "offPct": 0.4,
+     "verdict": "confirmed within 5%"
+    },
+    "m123k": {
+     "handPx": 60,
+     "handConfidence": "good",
+     "predictedMdPx": 61.9,
+     "predictedAltEyePx": 60.4,
+     "altEyeMm": 195.4,
+     "offPct": -3.1,
+     "verdict": "confirmed within 5%"
+    },
+    "m45a1": {
+     "handPx": 20,
+     "handConfidence": "rough",
+     "predictedMdPx": 8.0,
+     "predictedAltEyePx": 5.2,
+     "altEyeMm": 694.4,
+     "offPct": 150.0,
+     "verdict": "off by +150%"
+    },
+    "vz61": {
+     "handPx": 24.5,
+     "handConfidence": "rough",
+     "predictedMdPx": 25.7,
+     "predictedAltEyePx": 21.6,
+     "altEyeMm": 201.7,
+     "offPct": -4.7,
+     "verdict": "confirmed within 5%"
+    },
+    "ks18k": {
+     "handPx": 11.5,
+     "handConfidence": "rough",
+     "predictedMdPx": 12.6,
+     "predictedAltEyePx": 9.9,
+     "altEyeMm": 446.9,
+     "offPct": -8.7,
+     "verdict": "off by -9%"
+    },
+    "umg40:cqb_sights": {
+     "handPx": 39,
+     "handConfidence": "rough",
+     "predictedMdPx": 38.6,
+     "predictedAltEyePx": 26.7,
+     "altEyeMm": 366.1,
+     "offPct": 1.0,
+     "verdict": "confirmed within 5%"
+    },
+    "sg553r": {
+     "handPx": 48,
+     "handConfidence": "good",
+     "predictedMdPx": 51.4,
+     "predictedAltEyePx": 42.6,
+     "altEyeMm": 220.0,
+     "offPct": -6.6,
+     "verdict": "off by -7%"
+    },
+    "sgx": {
+     "handPx": 58.5,
+     "handConfidence": "rough",
+     "predictedMdPx": 66.1,
+     "predictedAltEyePx": 45.8,
+     "altEyeMm": 216.5,
+     "offPct": -11.5,
+     "verdict": "off by -11%"
+    },
+    "umg40": {
+     "handPx": 41,
+     "handConfidence": "rough",
+     "predictedMdPx": 57.4,
+     "predictedAltEyePx": 45.3,
+     "altEyeMm": 311.0,
+     "offPct": -28.6,
+     "verdict": "off by -29%"
+    },
+    "rspr": {
+     "handPx": 22,
+     "handConfidence": "rough",
+     "predictedMdPx": 22.4,
+     "predictedAltEyePx": 22.6,
+     "altEyeMm": 160.0,
+     "offPct": -1.8,
+     "verdict": "confirmed within 5%"
+    },
+    "elr40": {
+     "handPx": 36.5,
+     "handConfidence": "good",
+     "predictedMdPx": 37.3,
+     "predictedAltEyePx": 37.0,
+     "altEyeMm": 279.1,
+     "offPct": -2.1,
+     "verdict": "confirmed within 5%"
+    },
+    "sor300sc": {
+     "handPx": 30,
+     "handConfidence": "rough",
+     "predictedMdPx": 35.5,
+     "predictedAltEyePx": 37.6,
+     "altEyeMm": 155.6,
+     "offPct": -15.5,
+     "verdict": "off by -15%"
+    },
+    "pw7a2:cqb_sights": {
+     "handPx": 22.5,
+     "handConfidence": "good",
+     "predictedMdPx": 20.2,
+     "predictedAltEyePx": 18.2,
+     "altEyeMm": 138.5,
+     "offPct": 11.4,
+     "verdict": "off by +11%"
+    },
+    "nsw4": {
+     "handPx": 40.5,
+     "handConfidence": "rough",
+     "predictedMdPx": 41.1,
+     "predictedAltEyePx": 40.8,
+     "altEyeMm": 136.7,
+     "offPct": -1.5,
+     "verdict": "confirmed within 5%"
+    }
+   }
+  },
+  "gridResolutionPct": 1.2
+ },
+ "renderFovCorrections": {
+  "note": "Five weapons had no iron render FOV in frosty-optic-render-fov-2026-09-16.json (1.4.3.0); 55 had been assumed. The ADS record rule reproduces every value that file has, and gives the values below. Each matches the screenshot opening within 2.5%.",
+  "values": {
+   "mk24": [
+    30.0
+   ],
+   "m123k": [
+    29.0
+   ],
+   "nsw4": [
+    55.0
+   ],
+   "rspr": [
+    43.0
+   ],
+   "elr40": [
+    28.0
+   ],
+   "z84m": [
+    29.0
+   ]
+  }
+ },
+ "yComponent": "Long guns: MD y equals the sight-line eye height within 2 mm on 46 of 64; on 18 it is off by -33.6 mm (VSSM) to +17.0 mm (PP-19); the sight line is lower than MD y on some, higher on others. Pistols (GGH-22, M45A1, P18): MD y 53-59 mm below the sight line, while z still gives the right size. The screenshots register with the eye on the sight line and the camera pitched along it (eyeHeight), so MD y is not needed; the drawings use z only.",
+ "exceptions": {
+  "m45a1": "eye confirmed by the rear block width; the drawn notch is narrower than in game (the mesh's rear notch is 3.5 mm wide and 2 mm deep in its top silhouette); the front blade taken from the slide is correct (3.2 mm wide)",
+  "ggh22": "eye confirmed (+1%); the drawn rear is the sight mesh only (19 mm wide); the wider in-game block is the slide behind it",
+  "m44": "not drawn; no check"
+ },
+ "optics": {
+  "result": "MD.Sight.Main exists on every optic part record. No optic bundle has two values across the MD files of 14 weapons (134 bundles; shared bundles appear on up to 13 weapons). Eye-to-lens = lens-mesh z - MD z.",
+  "recordings": {
+   "ROX 1.50x on M4A1 (1080p, render FOV 40)": {
+    "predictedLensPx": 103.7,
+    "measuredLensPx": 99,
+    "offPct": -4.5
+   },
+   "Mini Flex 1.00x on M433 (1440p, render FOV 40)": {
+    "predictedLensPx": 199.0,
+    "measuredLensPx": 192,
+    "offPct": -3.5
+   }
+  },
+  "landmine": "The landmine screenshots (1250x750) match a 1:1 centre crop of a 1440p frame (H/2 = 720, not 375). With that, 16 of 23 optics agree within 5% and 19 within 10%; outliers 3VZR, R-VPS, R4T -15%, 2Pro -13%. Free-fitted scale 1.877 (1440/750 = 1.92).",
+  "perOptic": {
+   "Mini Flex 1.00x": {
+    "token": "eotecheflx",
+    "bundles": {
+     "dpf_eotecheflx_riser_4l1j0z_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        15.6,
+        -280.0
+       ],
+       "weapons": [
+        "AK205",
+        "BREN3",
+        "DP12",
+        "HK433",
+        "L115A3",
+        "M2010ESR",
+        "M250",
+        "M39EMR",
+        "M4A1",
+        "RPK74M",
+        "SVDM",
+        "UMP40",
+        "Vector"
+       ]
+      }
+     ],
+     "dpf_eotecheflx_riser_wse5702_8wg0o0_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        15.6,
+        -280.0
+       ],
+       "weapons": [
+        "Vector"
+       ]
+      }
+     ],
+     "dpf_eotecheflx_1qf4yab_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        15.6,
+        -350.0
+       ],
+       "weapons": [
+        "M18"
+       ]
+      }
+     ],
+     "dpf_eotecheflx_wse0017_15qfxc_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        15.6,
+        -350.0
+       ],
+       "weapons": [
+        "M18"
+       ]
+      }
+     ]
+    },
+    "lensZ": [
+     10.4,
+     6.4,
+     13.0
+    ],
+    "renderFovParts": {
+     "WPM_SCP_EotechEFLX": 55.0,
+     "WPM_SCP_EotechEFLX_LowRiser": 40.0,
+     "WPM_SCP_EotechEFLX_Riser": 40.0
+    },
+    "landmineEyeToLensMm": 155.1,
+    "fovUsed": 40.0,
+    "predictedEyeToLensMm": [
+     360.4,
+     290.4
+    ]
+   },
+   "R-MR 1.00x": {
+    "token": "rmr",
+    "bundles": {
+     "dpf_rmr_riser_1a04o0r_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        13.6,
+        -280.0
+       ],
+       "weapons": [
+        "AK205",
+        "BREN3",
+        "DP12",
+        "HK433",
+        "M2010ESR",
+        "M250",
+        "M39EMR",
+        "M4A1",
+        "SVDM",
+        "UMP40",
+        "Vector"
+       ]
+      }
+     ],
+     "dpf_rmr_mounted_1nche20_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        13.6,
+        -280.0
+       ],
+       "weapons": [
+        "L115A3",
+        "RPK74M"
+       ]
+      }
+     ],
+     "dpf_rmr_10n8pln_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        13.6,
+        -350.0
+       ],
+       "weapons": [
+        "M18"
+       ]
+      }
+     ]
+    },
+    "lensZ": [
+     8.1,
+     5.6,
+     9.8
+    ],
+    "renderFovParts": {
+     "WPM_SCP_RMR": 55.0,
+     "WPM_SCP_RMR_LowRiser": 40.0,
+     "WPM_SCP_RMR_Mounted": 38.0,
+     "WPM_SCP_RMR_Riser": 40.0
+    },
+    "landmineEyeToLensMm": 155.9,
+    "fovUsed": 40.0,
+    "predictedEyeToLensMm": [
+     358.1,
+     288.1
+    ]
+   },
+   "Osa-7 1.00x": {
+    "token": "opk7",
+    "bundles": {
+     "dpf_reflex_opk7_tall_1fag83q_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        28.2,
+        -260.0
+       ],
+       "weapons": [
+        "AK205",
+        "BREN3",
+        "DP12",
+        "HK433",
+        "L115A3",
+        "M2010ESR",
+        "M250",
+        "M39EMR",
+        "M4A1",
+        "SVDM",
+        "UMP40",
+        "Vector"
+       ]
+      }
+     ],
+     "dpf_reflex_opk7_g630gc_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        18.0,
+        -260.0
+       ],
+       "weapons": [
+        "RPK74M"
+       ]
+      }
+     ],
+     "dpf_opk7_base_wse0211_phzaoa_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        18.0,
+        -260.0
+       ],
+       "weapons": [
+        "RPK74M"
+       ]
+      }
+     ],
+     "dpf_opk7_extended_wse5196_10rzbi0_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        28.2,
+        -260.0
+       ],
+       "weapons": [
+        "DP12"
+       ]
+      }
+     ]
+    },
+    "lensZ": [
+     41.3,
+     41.3,
+     41.3
+    ],
+    "renderFovParts": {
+     "WPM_SCP_OPK7": 38.0
+    },
+    "landmineEyeToLensMm": 152.7,
+    "fovUsed": 38.0,
+    "predictedEyeToLensMm": [
+     301.3
+    ]
+   },
+   "CQ RDS 1.25x": {
+    "token": "cqs",
+    "bundles": {
+     "dpf_cqs_riser_18ypgz7_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        16.1,
+        -250.0
+       ],
+       "weapons": [
+        "AK205",
+        "BREN3",
+        "DP12",
+        "HK433",
+        "M2010ESR",
+        "M250",
+        "M39EMR",
+        "M4A1",
+        "SVDM",
+        "UMP40",
+        "Vector"
+       ]
+      }
+     ],
+     "dpf_cqs_lowriser_ueen53_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        16.1,
+        -250.0
+       ],
+       "weapons": [
+        "L115A3",
+        "RPK74M"
+       ]
+      }
+     ],
+     "dpf_cqs_15tobcj_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        16.1,
+        -220.0
+       ],
+       "weapons": [
+        "M18"
+       ]
+      }
+     ]
+    },
+    "lensZ": [
+     -5.0,
+     -8.6,
+     -2.5
+    ],
+    "renderFovParts": {
+     "WPM_SCP_ShieldCQS": 55.0,
+     "WPM_SCP_ShieldCQS_LowRiser": 44.0,
+     "WPM_SCP_ShieldCQS_Riser": 44.0,
+     "WPM_SCP_ShieldCQS_Short_Mounted": 44.0
+    },
+    "landmineEyeToLensMm": 108.3,
+    "fovUsed": 44.0,
+    "predictedEyeToLensMm": [
+     245.0,
+     215.0
+    ]
+   },
+   "RO-S 1.25x": {
+    "token": "trijiconsro",
+    "bundles": {
+     "dpf_trijiconsro_riser_19poqhn_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        19.2,
+        -280.0
+       ],
+       "weapons": [
+        "AK205",
+        "BREN3",
+        "DP12",
+        "HK433",
+        "M2010ESR",
+        "M250",
+        "M39EMR",
+        "M4A1",
+        "SVDM",
+        "UMP40",
+        "Vector"
+       ]
+      }
+     ],
+     "dpf_trijiconsro_mounted_rl0aug_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        19.2,
+        -280.0
+       ],
+       "weapons": [
+        "L115A3",
+        "RPK74M"
+       ]
+      }
+     ],
+     "dpf_trijiconsro_nimpln_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        19.2,
+        -350.0
+       ],
+       "weapons": [
+        "M18"
+       ]
+      }
+     ]
+    },
+    "lensZ": [
+     7.1,
+     7.1,
+     7.1
+    ],
+    "renderFovParts": {
+     "WPM_SCP_TrijiconSRO": 55.0,
+     "WPM_SCP_TrijiconSRO_LowRiser": 40.0,
+     "WPM_SCP_TrijiconSRO_Mounted": 42.0,
+     "WPM_SCP_TrijiconSRO_Riser": 40.0
+    },
+    "landmineEyeToLensMm": 153.3,
+    "fovUsed": 40.0,
+    "predictedEyeToLensMm": [
+     357.1,
+     287.1
+    ]
+   },
+   "2Pro 1.25x": {
+    "token": "mepro22",
+    "bundles": {
+     "dpf_mepro22_8qxwfn_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        40.9,
+        -260.0
+       ],
+       "weapons": [
+        "AK205",
+        "BREN3",
+        "DP12",
+        "HK433",
+        "L115A3",
+        "M2010ESR",
+        "M250",
+        "M39EMR",
+        "M4A1",
+        "RPK74M",
+        "SVDM",
+        "UMP40",
+        "Vector"
+       ]
+      }
+     ],
+     "dpf_mepro22_wsl0006_1y58y1s_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        40.9,
+        -260.0
+       ],
+       "weapons": [
+        "HK433"
+       ]
+      }
+     ],
+     "dpf_mepro22_wsl0037_f0czs0_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        40.9,
+        -260.0
+       ],
+       "weapons": [
+        "Vector"
+       ]
+      }
+     ],
+     "dpf_mepro22_base_wse5195_1j0lcay_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        40.9,
+        -260.0
+       ],
+       "weapons": [
+        "M250"
+       ]
+      }
+     ],
+     "dpf_mepro22_base_wse0190_1b8wvt6_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        40.9,
+        -260.0
+       ],
+       "weapons": [
+        "DP12"
+       ]
+      }
+     ]
+    },
+    "lensZ": [
+     3.3,
+     2.3,
+     4.3
+    ],
+    "renderFovParts": {
+     "WPM_SCP_Mepro22": 36.0
+    },
+    "landmineEyeToLensMm": 157.6,
+    "fovUsed": 36.0,
+    "predictedEyeToLensMm": [
+     263.3
+    ]
+   },
+   "ROX 1.50x": {
+    "token": "romeox",
+    "bundles": {
+     "dpf_romeox_riser_zjqgyj_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        13.5,
+        -290.0
+       ],
+       "weapons": [
+        "AK205",
+        "BREN3",
+        "DP12",
+        "HK433",
+        "L115A3",
+        "M2010ESR",
+        "M250",
+        "M39EMR",
+        "M4A1",
+        "RPK74M",
+        "SVDM",
+        "UMP40",
+        "Vector"
+       ]
+      }
+     ],
+     "dpf_romeox_base_wse0216_1jr0dbe_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        13.5,
+        -290.0
+       ],
+       "weapons": [
+        "M18"
+       ]
+      }
+     ],
+     "dpf_romeox_jrv2vv_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        14.9,
+        -350.0
+       ],
+       "weapons": [
+        "M18"
+       ]
+      }
+     ]
+    },
+    "lensZ": [
+     7.5,
+     5.5,
+     9.1
+    ],
+    "renderFovParts": {
+     "WPM_SCP_RomeoX": 55.0,
+     "WPM_SCP_RomeoX_LowRiser": 40.0,
+     "WPM_SCP_RomeoX_Riser": 40.0
+    },
+    "landmineEyeToLensMm": 155.3,
+    "fovUsed": 40.0,
+    "predictedEyeToLensMm": [
+     357.5,
+     297.5
+    ]
+   },
+   "SU-123 1.50x": {
+    "token": "eotechxps3",
+    "bundles": {
+     "dpf_eotechxps3_wae0001_19yiqg0_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        -3.3,
+        -300.0
+       ],
+       "weapons": [
+        "BREN3",
+        "HK433",
+        "M4A1",
+        "Vector"
+       ]
+      }
+     ],
+     "dpf_eotechxps3_base_wse0053_5olzje_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        0.4,
+        -300.0
+       ],
+       "weapons": [
+        "M4A1"
+       ]
+      }
+     ],
+     "dpf_eotechxps3_17wy2er_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        0.4,
+        -300.0
+       ],
+       "weapons": [
+        "AK205",
+        "BREN3",
+        "DP12",
+        "HK433",
+        "L115A3",
+        "M2010ESR",
+        "M250",
+        "M39EMR",
+        "M4A1",
+        "RPK74M",
+        "SVDM",
+        "UMP40",
+        "Vector"
+       ]
+      }
+     ],
+     "dpf_eotechxps3_base_wse0007_c7tzje_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        0.4,
+        -300.0
+       ],
+       "weapons": [
+        "HK433"
+       ]
+      }
+     ],
+     "dpf_eotechxps3_base_wse0080_t5kyzu_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        0.4,
+        -300.0
+       ],
+       "weapons": [
+        "HK433"
+       ]
+      }
+     ],
+     "dpf_eotechxps3_base_wse0046_1khbqqy_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        0.4,
+        -300.0
+       ],
+       "weapons": [
+        "Vector"
+       ]
+      }
+     ],
+     "dpf_eotechxps3_wse0091_base_1frbhnu_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        0.4,
+        -300.0
+       ],
+       "weapons": [
+        "Vector"
+       ]
+      }
+     ],
+     "dpf_eotechxps3_base_wsl0012_10mcv56_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        0.4,
+        -300.0
+       ],
+       "weapons": [
+        "DP12"
+       ]
+      }
+     ],
+     "dpf_eotechxps3_lens_wse0054_1uzxigb_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        0.4,
+        -300.0
+       ],
+       "weapons": [
+        "M39EMR"
+       ]
+      }
+     ]
+    },
+    "lensZ": [
+     -11.7,
+     -11.7,
+     -11.7
+    ],
+    "renderFovParts": {
+     "WPM_SCP_EotechXPS3": 32.0
+    },
+    "landmineEyeToLensMm": 146.5,
+    "fovUsed": 32.0,
+    "predictedEyeToLensMm": [
+     288.3
+    ]
+   },
+   "1p87 1.50x": {
+    "token": "pg350",
+    "bundles": {
+     "dpf_pg350_1jaj6gv_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        0.0,
+        -220.0
+       ],
+       "weapons": [
+        "AK205",
+        "BREN3",
+        "DP12",
+        "HK433",
+        "L115A3",
+        "M2010ESR",
+        "M250",
+        "M39EMR",
+        "M4A1",
+        "RPK74M",
+        "SVDM",
+        "UMP40",
+        "Vector"
+       ]
+      }
+     ],
+     "dpf_pg350_base_wse0131_s0747i_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        0.0,
+        -220.0
+       ],
+       "weapons": [
+        "M4A1"
+       ]
+      }
+     ],
+     "dpf_wpm_scp_pg350_wae0001_xipyem_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        -7.8,
+        -220.0
+       ],
+       "weapons": [
+        "DP12"
+       ]
+      }
+     ]
+    },
+    "lensZ": [
+     8.3,
+     6.9,
+     9.7
+    ],
+    "renderFovParts": {
+     "WPM_SCP_PG350": 32.0
+    },
+    "landmineEyeToLensMm": 121.4,
+    "fovUsed": 32.0,
+    "predictedEyeToLensMm": [
+     228.3
+    ]
+   },
+   "A-P2 1.75x": {
+    "token": "acrop2",
+    "bundles": {
+     "dpf_acrop2_riser_rx8ur_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        12.6,
+        -280.0
+       ],
+       "weapons": [
+        "AK205",
+        "BREN3",
+        "DP12",
+        "HK433",
+        "L115A3",
+        "M2010ESR",
+        "M250",
+        "M39EMR",
+        "M4A1",
+        "RPK74M",
+        "SVDM",
+        "UMP40",
+        "Vector"
+       ]
+      }
+     ],
+     "dpf_acrop2_plate_lgz4ww_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        12.6,
+        -300.0
+       ],
+       "weapons": [
+        "M18"
+       ]
+      }
+     ]
+    },
+    "lensZ": [
+     2.9,
+     0.6,
+     4.3
+    ],
+    "renderFovParts": {
+     "WPM_SCP_AcroP2": 55.0,
+     "WPM_SCP_AcroP2_LowRiser": 40.0,
+     "WPM_SCP_AcroP2_Mounted": 42.0,
+     "WPM_SCP_AcroP2_Riser": 40.0
+    },
+    "landmineEyeToLensMm": 134.9,
+    "fovUsed": 40.0,
+    "predictedEyeToLensMm": [
+     302.9,
+     282.9
+    ]
+   },
+   "RO-M 1.75x": {
+    "token": "trijiconmro",
+    "bundles": {
+     "dpf_trijiconmro_tall_wsl0001_1e40f1m_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        39.9,
+        -240.0
+       ],
+       "weapons": [
+        "HK433"
+       ]
+      }
+     ]
+    },
+    "lensZ": [
+     -13.8,
+     -13.8,
+     -13.8
+    ],
+    "renderFovParts": {},
+    "predictedEyeToLensMm": [
+     226.2
+    ]
+   },
+   "3VZR 1.75x": {
+    "token": "vzor3",
+    "bundles": {
+     "dpf_vzor3_tall_1ratw5x_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        41.4,
+        -240.0
+       ],
+       "weapons": [
+        "BREN3",
+        "DP12",
+        "HK433",
+        "M2010ESR",
+        "M4A1",
+        "SVDM",
+        "UMP40",
+        "Vector"
+       ]
+      }
+     ],
+     "dpf_vzor3_tall_wse0023_zpmdny_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        41.4,
+        -240.0
+       ],
+       "weapons": [
+        "M4A1"
+       ]
+      }
+     ],
+     "dpf_vzor3_short_unuhhu_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        33.1,
+        -240.0
+       ],
+       "weapons": [
+        "AK205",
+        "L115A3",
+        "M250",
+        "M39EMR",
+        "RPK74M"
+       ]
+      }
+     ]
+    },
+    "lensZ": [
+     9.3,
+     8.3,
+     9.7
+    ],
+    "renderFovParts": {
+     "WPM_SCP_VZOR3": 28.0,
+     "WPM_SCP_VZOR3_Short": 28.0
+    },
+    "landmineEyeToLensMm": 153.4,
+    "fovUsed": 28.0,
+    "predictedEyeToLensMm": [
+     249.3
+    ]
+   },
+   "CCO 2.00x": {
+    "token": "comp",
+    "bundles": {
+     "dpf_compm5b_base_wsl0021_18j9zre_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        35.5,
+        -260.0
+       ],
+       "weapons": [
+        "M4A1"
+       ]
+      }
+     ],
+     "dpf_comp5mb_nocaps_4den64_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        35.5,
+        -260.0
+       ],
+       "weapons": [
+        "AK205",
+        "DP12",
+        "HK433",
+        "M2010ESR",
+        "M250",
+        "M39EMR",
+        "M4A1",
+        "RPK74M",
+        "SVDM",
+        "UMP40",
+        "Vector"
+       ]
+      }
+     ],
+     "dpf_comp5mb_1jcfak3_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        35.5,
+        -260.0
+       ],
+       "weapons": [
+        "BREN3",
+        "L115A3"
+       ]
+      }
+     ],
+     "dpf_compm5b_wsl0011_base_1sv5psa_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        35.5,
+        -260.0
+       ],
+       "weapons": [
+        "M39EMR"
+       ]
+      }
+     ]
+    },
+    "renderFovParts": {
+     "WPM_SCP_CompM5B": 30.0
+    },
+    "landmineEyeToLensMm": 125.8,
+    "fovUsed": 30.0
+   },
+   "R4T 2.00x": {
+    "token": "romeo4t",
+    "bundles": {
+     "dpf_reflex_romeo4t_nocaps_4u1syj_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        0.0,
+        -280.0
+       ],
+       "weapons": [
+        "AK205",
+        "DP12",
+        "HK433",
+        "M2010ESR",
+        "M250",
+        "M39EMR",
+        "M4A1",
+        "RPK74M",
+        "SVDM",
+        "UMP40",
+        "Vector"
+       ]
+      }
+     ],
+     "dpf_reflex_romeo4t_9kdmdg_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        0.0,
+        -280.0
+       ],
+       "weapons": [
+        "BREN3",
+        "L115A3"
+       ]
+      }
+     ]
+    },
+    "lensZ": [
+     -30.1,
+     -31.6,
+     -29.3
+    ],
+    "renderFovParts": {
+     "WPM_SCP_Romeo4t": 29.0
+    },
+    "landmineEyeToLensMm": 152.6,
+    "fovUsed": 29.0,
+    "predictedEyeToLensMm": [
+     249.9
+    ]
+   },
+   "BF-2M 2.50x": {
+    "token": "po4x17",
+    "bundles": {
+     "dpf_po4x17_xy9y1w_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        33.6,
+        -135.0
+       ],
+       "weapons": [
+        "AK205",
+        "BREN3",
+        "DP12",
+        "HK433",
+        "L115A3",
+        "M2010ESR",
+        "M250",
+        "M39EMR",
+        "M4A1",
+        "RPK74M",
+        "SVDM",
+        "UMP40",
+        "Vector"
+       ]
+      }
+     ],
+     "dpf_po4x17_wse0100_z75drr_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        33.6,
+        -135.0
+       ],
+       "weapons": [
+        "HK433"
+       ]
+      }
+     ],
+     "dpf_po4x17_base_wsl0047_1j52l3x_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        33.6,
+        -135.0
+       ],
+       "weapons": [
+        "UMP40"
+       ]
+      }
+     ],
+     "dpf_po4x17_base_wse0081_16zpq1p_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        33.6,
+        -135.0
+       ],
+       "weapons": [
+        "UMP40"
+       ]
+      }
+     ],
+     "dpf_po4x17_wse0020_1tt2q53_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        33.6,
+        -135.0
+       ],
+       "weapons": [
+        "SVDM"
+       ]
+      }
+     ],
+     "dpf_po4x17_base_wse0195_52gihp_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        33.6,
+        -135.0
+       ],
+       "weapons": [
+        "AK205"
+       ]
+      }
+     ],
+     "dpf_po4x17_wsl0008_z93xbr_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        33.6,
+        -135.0
+       ],
+       "weapons": [
+        "AK205"
+       ]
+      }
+     ]
+    },
+    "lensZ": [
+     12.6,
+     12.6,
+     12.6
+    ],
+    "renderFovParts": {},
+    "predictedEyeToLensMm": [
+     147.6
+    ]
+   },
+   "Baker 3.00x": {
+    "token": "bravo3x",
+    "bundles": {
+     "dpf_bravo3x_1rfcd8k_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        34.6,
+        -150.0
+       ],
+       "weapons": [
+        "AK205",
+        "BREN3",
+        "DP12",
+        "HK433",
+        "L115A3",
+        "M2010ESR",
+        "M250",
+        "M39EMR",
+        "M4A1",
+        "RPK74M",
+        "SVDM",
+        "UMP40",
+        "Vector"
+       ]
+      }
+     ],
+     "dpf_bravo3x_base_wse5793_r6c7x9_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        42.5,
+        -150.0
+       ],
+       "weapons": [
+        "M4A1"
+       ]
+      }
+     ],
+     "dpf_bravo3x_base_wsl0010_1r3wgt9_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        34.6,
+        -150.0
+       ],
+       "weapons": [
+        "M250"
+       ]
+      }
+     ],
+     "dpf_bravo3x_wsl5713_han3tj_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        34.6,
+        -150.0
+       ],
+       "weapons": [
+        "RPK74M"
+       ]
+      }
+     ],
+     "dpf_bravo3x_base_wsl0051_i4wc1p_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        34.6,
+        -150.0
+       ],
+       "weapons": [
+        "AK205"
+       ]
+      }
+     ]
+    },
+    "lensZ": [
+     6.6,
+     5.9,
+     7.3
+    ],
+    "renderFovParts": {},
+    "predictedEyeToLensMm": [
+     156.6
+    ]
+   },
+   "SDO 3.50x": {
+    "token": "trijiconsdo",
+    "bundles": {
+     "dpf_trijiconsdo_1yec9yk_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        30.4,
+        -120.0
+       ],
+       "weapons": [
+        "AK205",
+        "BREN3",
+        "DP12",
+        "HK433",
+        "L115A3",
+        "M2010ESR",
+        "M250",
+        "M39EMR",
+        "M4A1",
+        "RPK74M",
+        "SVDM",
+        "UMP40",
+        "Vector"
+       ]
+      }
+     ],
+     "dpf_trijiconsdo_wse0173_6am4lz_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        30.4,
+        -120.0
+       ],
+       "weapons": [
+        "HK433"
+       ]
+      }
+     ]
+    },
+    "lensZ": [
+     9.5,
+     8.2,
+     10.4
+    ],
+    "renderFovParts": {
+     "WPM_SCP_TrijiconSDO": 34.0
+    },
+    "landmineEyeToLensMm": 70.5,
+    "fovUsed": 34.0,
+    "predictedEyeToLensMm": [
+     129.5
+    ]
+   },
+   "PVQ-31 4.00x": {
+    "token": "trijiconm150rco",
+    "bundles": {
+     "dpf_trijiconm150rco_qbkt6i_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        33.2,
+        -180.0
+       ],
+       "weapons": [
+        "AK205",
+        "BREN3",
+        "DP12",
+        "HK433",
+        "L115A3",
+        "M2010ESR",
+        "M250",
+        "M39EMR",
+        "M4A1",
+        "RPK74M",
+        "SVDM",
+        "UMP40",
+        "Vector"
+       ]
+      }
+     ],
+     "dpf_trijiconm150rco_wae0001_1vdw76x_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        38.6,
+        -180.0
+       ],
+       "weapons": [
+        "AK205",
+        "M250",
+        "M39EMR",
+        "RPK74M",
+        "SVDM",
+        "UMP40"
+       ]
+      }
+     ],
+     "dpf_trijiconm150rco_wse0199_1jq74mh_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        33.2,
+        -180.0
+       ],
+       "weapons": [
+        "UMP40"
+       ]
+      }
+     ],
+     "dpf_trijiconm150rco_wse0060_kfilgp_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        33.2,
+        -180.0
+       ],
+       "weapons": [
+        "SVDM"
+       ]
+      }
+     ],
+     "dpf_trijiconm150rco_wse0184_1u1a6eh_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        33.2,
+        -180.0
+       ],
+       "weapons": [
+        "M39EMR"
+       ]
+      }
+     ]
+    },
+    "lensZ": [
+     -58.1,
+     -58.1,
+     -58.1
+    ],
+    "renderFovParts": {},
+    "predictedEyeToLensMm": [
+     121.9
+    ]
+   },
+   "LDS 4.50x": {
+    "token": "elcan4x",
+    "bundles": {
+     "dpf_elcan4x_3ctl64_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        42.0,
+        -160.0
+       ],
+       "weapons": [
+        "AK205",
+        "BREN3",
+        "DP12",
+        "HK433",
+        "L115A3",
+        "M2010ESR",
+        "M250",
+        "M39EMR",
+        "M4A1",
+        "RPK74M",
+        "SVDM",
+        "UMP40",
+        "Vector"
+       ]
+      }
+     ],
+     "dpf_elcan4x_base_wse0157_roqxq5_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        42.0,
+        -160.0
+       ],
+       "weapons": [
+        "UMP40"
+       ]
+      }
+     ],
+     "dpf_elcan4x_lens_wse0051_1gsu3oc_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        42.0,
+        -160.0
+       ],
+       "weapons": [
+        "M39EMR"
+       ]
+      }
+     ]
+    },
+    "lensZ": [
+     12.4,
+     12.4,
+     12.4
+    ],
+    "renderFovParts": {},
+    "predictedEyeToLensMm": [
+     172.4
+    ]
+   },
+   "ST Prism 5.00x": {
+    "token": "steinert536",
+    "bundles": {
+     "dpf_steinert536_rp5zus_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        33.2,
+        -160.0
+       ],
+       "weapons": [
+        "AK205",
+        "BREN3",
+        "DP12",
+        "HK433",
+        "L115A3",
+        "M2010ESR",
+        "M250",
+        "M39EMR",
+        "M4A1",
+        "RPK74M",
+        "SVDM",
+        "UMP40",
+        "Vector"
+       ]
+      }
+     ],
+     "dpf_steinert536_wse0187_icpdsn_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        33.2,
+        -160.0
+       ],
+       "weapons": [
+        "SVDM"
+       ]
+      }
+     ]
+    },
+    "lensZ": [
+     -16.8,
+     -16.8,
+     -16.8
+    ],
+    "renderFovParts": {
+     "WPM_SCP_steinert536": 38.0
+    },
+    "landmineEyeToLensMm": 74.8,
+    "fovUsed": 38.0,
+    "predictedEyeToLensMm": [
+     143.2
+    ]
+   },
+   "SF-G2 5.00x": {
+    "token": "spitfire5x",
+    "bundles": {
+     "dpf_spitfire5x_1bmchk4_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        32.0,
+        -120.0
+       ],
+       "weapons": [
+        "AK205",
+        "BREN3",
+        "DP12",
+        "HK433",
+        "L115A3",
+        "M2010ESR",
+        "M250",
+        "M39EMR",
+        "M4A1",
+        "RPK74M",
+        "SVDM",
+        "UMP40",
+        "Vector"
+       ]
+      }
+     ]
+    },
+    "lensZ": [
+     3.2,
+     2.6,
+     3.8
+    ],
+    "renderFovParts": {},
+    "predictedEyeToLensMm": [
+     123.2
+    ]
+   },
+   "SU-230 LPVO": {
+    "token": "elcandr",
+    "bundles": {
+     "dpf_elcandr_osmm3w_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        42.3,
+        -120.0
+       ],
+       "weapons": [
+        "AK205",
+        "BREN3",
+        "DP12",
+        "HK433",
+        "L115A3",
+        "M2010ESR",
+        "M250",
+        "M39EMR",
+        "M4A1",
+        "RPK74M",
+        "SVDM",
+        "UMP40",
+        "Vector"
+       ]
+      }
+     ]
+    },
+    "lensZ": [
+     8.2,
+     8.2,
+     8.2
+    ],
+    "renderFovParts": {
+     "WPM_SCP_ElcanDR": 38.0
+    },
+    "landmineEyeToLensMm": 65.1,
+    "fovUsed": 38.0,
+    "predictedEyeToLensMm": [
+     128.2
+    ]
+   },
+   "1P86 LPVO": {
+    "token": "1p86",
+    "bundles": {
+     "dpf_1p86_15yulb8_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        34.6,
+        -176.7
+       ],
+       "weapons": [
+        "AK205",
+        "BREN3",
+        "DP12",
+        "HK433",
+        "L115A3",
+        "M2010ESR",
+        "M250",
+        "M39EMR",
+        "M4A1",
+        "RPK74M",
+        "SVDM",
+        "UMP40",
+        "Vector"
+       ]
+      }
+     ]
+    },
+    "lensZ": [
+     -26.9,
+     -26.9,
+     -26.9
+    ],
+    "renderFovParts": {
+     "WPM_SCP_1P86": 38.0
+    },
+    "landmineEyeToLensMm": 79.8,
+    "fovUsed": 38.0,
+    "predictedEyeToLensMm": [
+     149.8
+    ]
+   },
+   "Mars-F LPVO": {
+    "token": "marchffpshorty",
+    "bundles": {
+     "dpf_marchffpshorty_x9vy5l_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        44.9,
+        -130.0
+       ],
+       "weapons": [
+        "AK205",
+        "BREN3",
+        "DP12",
+        "HK433",
+        "L115A3",
+        "M2010ESR",
+        "M39EMR",
+        "RPK74M",
+        "SVDM",
+        "UMP40",
+        "Vector"
+       ]
+      }
+     ],
+     "dpf_marchffpshorty_wse5802_22zeqa_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        44.9,
+        -130.0
+       ],
+       "weapons": [
+        "M39EMR"
+       ]
+      }
+     ]
+    },
+    "lensZ": [
+     5.6,
+     4.8,
+     6.5
+    ],
+    "renderFovParts": {
+     "WPM_SCP_marchffpshorty": 34.0
+    },
+    "landmineEyeToLensMm": 73.3,
+    "fovUsed": 34.0,
+    "predictedEyeToLensMm": [
+     135.6
+    ]
+   },
+   "GRIM 1.50x": {
+    "token": "trijiconreap",
+    "bundles": {
+     "dpf_trijiconreap_i4f660_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        43.4,
+        -200.0
+       ],
+       "weapons": [
+        "AK205",
+        "BREN3",
+        "DP12",
+        "HK433",
+        "L115A3",
+        "M2010ESR",
+        "M250",
+        "M39EMR",
+        "M4A1",
+        "RPK74M",
+        "SVDM",
+        "UMP40",
+        "Vector"
+       ]
+      }
+     ],
+     "dpf_trijiconreap_base_wse0119_10ql56p_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        43.4,
+        -200.0
+       ],
+       "weapons": [
+        "UMP40"
+       ]
+      }
+     ],
+     "dpf_trijiconreap_wse5446_base_1f9nn35_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        43.4,
+        -200.0
+       ],
+       "weapons": [
+        "M250"
+       ]
+      }
+     ]
+    },
+    "lensZ": [
+     8.6,
+     6.5,
+     11.2
+    ],
+    "renderFovParts": {
+     "WPM_SCP_TrijiconREAPIR": 32.0
+    },
+    "landmineEyeToLensMm": 105.9,
+    "fovUsed": 32.0,
+    "predictedEyeToLensMm": [
+     208.6
+    ]
+   },
+   "PAS-35 3.00x": {
+    "token": "anpas35",
+    "bundles": {
+     "dpf_anpas35_2i2e0o_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        38.8,
+        -160.0
+       ],
+       "weapons": [
+        "AK205",
+        "DP12",
+        "HK433",
+        "M2010ESR",
+        "M250",
+        "M39EMR",
+        "M4A1",
+        "SVDM",
+        "Vector"
+       ]
+      }
+     ],
+     "dpf_anpas35_nopad_gvk2oj_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        38.8,
+        -160.0
+       ],
+       "weapons": [
+        "BREN3",
+        "L115A3",
+        "RPK74M",
+        "UMP40"
+       ]
+      }
+     ],
+     "dpf_anpas35nopad_base_wsl0080_1g51bn9_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        38.8,
+        -160.0
+       ],
+       "weapons": [
+        "RPK74M"
+       ]
+      }
+     ],
+     "dpf_anpas35nopad_wse5292_base_i9b19x_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        38.8,
+        -160.0
+       ],
+       "weapons": [
+        "L115A3"
+       ]
+      }
+     ]
+    },
+    "lensZ": [
+     4.1,
+     4.1,
+     4.1
+    ],
+    "renderFovParts": {
+     "WPM_SCP_ANPAS35_Base": 30.0,
+     "WPM_SCP_ANPAS35_v2": 36.0
+    },
+    "landmineEyeToLensMm": 94.6,
+    "fovUsed": 30.0,
+    "predictedEyeToLensMm": [
+     164.1
+    ]
+   },
+   "TH-RDS 1.00x": {
+    "token": "holosundrs",
+    "bundles": {
+     "dpf_holosundrs_base_15bpxyq_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        39.5,
+        -200.0
+       ],
+       "weapons": [
+        "AK205",
+        "BREN3",
+        "DP12",
+        "HK433",
+        "L115A3",
+        "M2010ESR",
+        "M250",
+        "M39EMR",
+        "M4A1",
+        "RPK74M",
+        "SVDM",
+        "UMP40",
+        "Vector"
+       ]
+      }
+     ]
+    },
+    "lensZ": [
+     12.0,
+     12.0,
+     12.0
+    ],
+    "renderFovParts": {
+     "WPM_SCP_HolosunDRSTH": 32.0
+    },
+    "landmineEyeToLensMm": 110.7,
+    "fovUsed": 32.0,
+    "predictedEyeToLensMm": [
+     212.0
+    ]
+   },
+   "S-VPS 6.00x": {
+    "token": "nx81",
+    "bundles": {
+     "dpf_nx81_base_wsl0046_vcq0kd_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        38.8,
+        -120.0
+       ],
+       "weapons": [
+        "SVDM"
+       ]
+      }
+     ]
+    },
+    "lensZ": [
+     15.7,
+     15.7,
+     15.7
+    ],
+    "renderFovParts": {},
+    "predictedEyeToLensMm": [
+     135.7
+    ]
+   },
+   "SSDS 6.00x": {
+    "token": "sbpmii",
+    "bundles": {},
+    "lensZ": [
+     10.8,
+     8.6,
+     13.9
+    ],
+    "renderFovParts": {
+     "WPM_SCP_SBPMII": 28.0
+    },
+    "landmineEyeToLensMm": 76.9,
+    "fovUsed": 28.0
+   },
+   "NFX 8.00x": {
+    "token": "nx84",
+    "bundles": {},
+    "lensZ": [
+     5.8,
+     5.8,
+     5.8
+    ],
+    "renderFovParts": {}
+   },
+   "LERT 8.00x": {
+    "token": "mark4m5a2",
+    "bundles": {
+     "dpf_mark4m5a2_base_wse0213_1qlcyk8_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        35.4,
+        -120.0
+       ],
+       "weapons": [
+        "L115A3"
+       ]
+      }
+     ],
+     "dpf_mark4m5a2_j74gfd_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        35.4,
+        -120.0
+       ],
+       "weapons": [
+        "L115A3",
+        "M2010ESR",
+        "M39EMR",
+        "SVDM"
+       ]
+      }
+     ],
+     "dpf_mark4m5a2_base_wse0068_1l78kjc_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        35.4,
+        -120.0
+       ],
+       "weapons": [
+        "M2010ESR"
+       ]
+      }
+     ]
+    },
+    "lensZ": [
+     9.4,
+     8.4,
+     10.6
+    ],
+    "renderFovParts": {
+     "WPM_SCP_Mark4M5A2": 20.0
+    },
+    "landmineEyeToLensMm": 72.9,
+    "fovUsed": 20.0,
+    "predictedEyeToLensMm": [
+     129.4
+    ]
+   },
+   "R-VPS 10.00x": {
+    "token": "nfatacr",
+    "bundles": {
+     "dpf_nfatacr_base_wse0180_rvezko_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        44.4,
+        -140.0
+       ],
+       "weapons": [
+        "M2010ESR"
+       ]
+      }
+     ]
+    },
+    "lensZ": [
+     10.8,
+     10.8,
+     10.8
+    ],
+    "renderFovParts": {
+     "WPM_SCP_NF_ATACR": 22.0
+    },
+    "landmineEyeToLensMm": 92.5,
+    "fovUsed": 22.0,
+    "predictedEyeToLensMm": [
+     150.8
+    ]
+   },
+   "1p88 Variable": {
+    "token": "1p885",
+    "bundles": {
+     "dpf_1p885_base_wse0098_1yjsdso_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        49.4,
+        -120.0
+       ],
+       "weapons": [
+        "M2010ESR"
+       ]
+      }
+     ]
+    },
+    "lensZ": [
+     5.7,
+     3.6,
+     7.4
+    ],
+    "renderFovParts": {},
+    "predictedEyeToLensMm": [
+     125.7
+    ]
+   },
+   "MC-CO LPVO": {
+    "token": "trijiconvcog",
+    "bundles": {},
+    "lensZ": [
+     10.4,
+     9.1,
+     11.7
+    ],
+    "renderFovParts": {}
+   },
+   "DVO LPVO": {
+    "token": "tango6t",
+    "bundles": {
+     "dpf_wepatt_zoom_tango6t_f7vxg0_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        33.9,
+        -240.0
+       ],
+       "weapons": [
+        "AK205",
+        "BREN3",
+        "HK433",
+        "L115A3",
+        "M2010ESR",
+        "M250",
+        "M39EMR",
+        "M4A1",
+        "RPK74M",
+        "SVDM",
+        "UMP40",
+        "Vector"
+       ]
+      }
+     ],
+     "dpf_tango6t_base_wse0010_1s8oq7x_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        33.9,
+        -240.0
+       ],
+       "weapons": [
+        "M2010ESR"
+       ]
+      }
+     ]
+    },
+    "lensZ": [
+     -122.2,
+     -125.2,
+     -119.8
+    ],
+    "renderFovParts": {
+     "WPM_SCP_Tango6T": 45.0
+    },
+    "landmineEyeToLensMm": 58.7,
+    "fovUsed": 45.0,
+    "predictedEyeToLensMm": [
+     117.8
+    ]
+   },
+   "SM Rifle Variable": {
+    "token": "steinerm7xi",
+    "bundles": {},
+    "lensZ": [
+     11.4,
+     9.3,
+     14.5
+    ],
+    "renderFovParts": {}
+   },
+   "TS-HD 6.00x": {
+    "token": "hisshd",
+    "bundles": {
+     "dpf_hisshd_l115a3_4ixrd8_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        38.8,
+        -120.0
+       ],
+       "weapons": [
+        "L115A3"
+       ]
+      }
+     ],
+     "dpf_hisshd_base_wse0192_khdnmp_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        38.8,
+        -120.0
+       ],
+       "weapons": [
+        "M2010ESR"
+       ]
+      }
+     ],
+     "dpf_hisshd_m2010_18sv8sp_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        38.8,
+        -120.0
+       ],
+       "weapons": [
+        "M2010ESR"
+       ]
+      }
+     ],
+     "dpf_hisshd_svdm_187ix6z_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        38.8,
+        -120.0
+       ],
+       "weapons": [
+        "SVDM"
+       ]
+      }
+     ],
+     "dpf_hisshd_m39emr_7vyke2_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        38.8,
+        -120.0
+       ],
+       "weapons": [
+        "M39EMR"
+       ]
+      }
+     ]
+    },
+    "renderFovParts": {
+     "WPM_SCP_HISSHD": 22.0
+    },
+    "landmineEyeToLensMm": 53.7,
+    "fovUsed": 22.0
+   },
+   "NGFC LPVO": {
+    "token": "vortexm157",
+    "bundles": {
+     "dpf_vortexm157_og5ckp_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        34.4,
+        -150.0
+       ],
+       "weapons": [
+        "AK205",
+        "BREN3",
+        "HK433",
+        "L115A3",
+        "M2010ESR",
+        "M250",
+        "M39EMR",
+        "M4A1",
+        "RPK74M",
+        "SVDM",
+        "UMP40",
+        "Vector"
+       ]
+      }
+     ],
+     "dpf_vortexm157_wse0223_1us8rte_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        34.4,
+        -150.0
+       ],
+       "weapons": [
+        "M2010ESR"
+       ]
+      }
+     ]
+    },
+    "lensZ": [
+     5.5,
+     4.4,
+     6.8
+    ],
+    "renderFovParts": {},
+    "predictedEyeToLensMm": [
+     155.5
+    ]
+   },
+   "QMK 3.00x": {
+    "token": "qmk171a",
+    "bundles": {
+     "dpf_qmk171a_i14o78_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        45.1,
+        -239.0
+       ],
+       "weapons": [
+        "AK205",
+        "BREN3",
+        "DP12",
+        "HK433",
+        "L115A3",
+        "M2010ESR",
+        "M250",
+        "M39EMR",
+        "M4A1",
+        "RPK74M",
+        "SVDM",
+        "UMP40",
+        "Vector"
+       ]
+      }
+     ]
+    },
+    "lensZ": [
+     -75.6,
+     -75.7,
+     -75.4
+    ],
+    "renderFovParts": {
+     "WPM_SCP_QMK171A": 34.0
+    },
+    "predictedEyeToLensMm": [
+     163.4
+    ]
+   },
+   "MGO 3.50x": {
+    "token": "m145mgo",
+    "bundles": {
+     "dpf_m145mgo_wse5741_y1r3rr_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        44.6,
+        -225.0
+       ],
+       "weapons": [
+        "M4A1"
+       ]
+      }
+     ],
+     "dpf_m145mgo_1crs69w_bundle_1p": [
+      {
+       "mm": [
+        0.0,
+        44.6,
+        -225.0
+       ],
+       "weapons": [
+        "AK205",
+        "BREN3",
+        "DP12",
+        "HK433",
+        "L115A3",
+        "M2010ESR",
+        "M250",
+        "M39EMR",
+        "M4A1",
+        "RPK74M",
+        "SVDM",
+        "UMP40",
+        "Vector"
+       ]
+      }
+     ]
+    },
+    "lensZ": [
+     -73.7,
+     -77.3,
+     -72.8
+    ],
+    "renderFovParts": {
+     "WPM_SCP_M145MGO": 48.0
+    },
+    "predictedEyeToLensMm": [
+     151.3
+    ]
+   }
+  }
+ },
+ "eyeHeight": {
+  "finding": "The ADS camera looks along the sight line (rear opening to front post tip), not along weapon z. Eye at (0, sight-line height at MD.Sight.Main z, MD z) with pitch = atan(tip height above the eye / eye-to-rear distance), so the front tip sits on screen centre, registers the whole picture (rear, front and surrounding parts) on the screenshots checked. MD y is not needed: it equals that height within 2 mm on 46 of 64 long guns, is off by -33.6 to +17.0 mm on 18 (pitch -1.9 to +2.9 deg, VSSM +4.5), and is 53-59 mm low on three pistols (M45A1, P18, GGH-22; likely another frame). The drawings put the eye on the sight line (make_all.align), so they never used MD y.",
+  "method": "proj_all.verify: project the drawing's rear and front from that eye at the iron render FOV over the user's screenshot. Edge-based automatic registration (proj_all.register*) was tried and rejected: hands, rails and blur gave degenerate fits.",
+  "registrationChecked": "rows with registrationChecked = true were looked at on overlays (shots/proj/ver*_, item3_, leftovers-sheet.png); the rest are computed only",
+  "columns": "eyeYmm = sight-line height at the MD z (drawing's eye); mdYmm = MD.Sight.Main y; diffMm = eyeYmm - mdYmm; pitchDeg = camera pitch",
+  "rows": [
+   {
+    "weapon": "m433",
+    "name": "M433",
+    "cls": "Assault Rifle",
+    "eyeYmm": 146.9,
+    "mdYmm": 146.9,
+    "diffMm": 0.0,
+    "pitchDeg": -0.01,
+    "registrationChecked": false
+   },
+   {
+    "weapon": "b36a4",
+    "name": "B36A4",
+    "cls": "Assault Rifle",
+    "eyeYmm": 147.3,
+    "mdYmm": 147.3,
+    "diffMm": 0.0,
+    "pitchDeg": 0.0,
+    "registrationChecked": false
+   },
+   {
+    "weapon": "sor556",
+    "name": "SOR-556 Mk2",
+    "cls": "Assault Rifle",
+    "eyeYmm": 157.1,
+    "mdYmm": 157.1,
+    "diffMm": 0.0,
+    "pitchDeg": -0.01,
+    "registrationChecked": false
+   },
+   {
+    "weapon": "ak4d",
+    "name": "AK4D",
+    "cls": "Assault Rifle",
+    "eyeYmm": 139.0,
+    "mdYmm": 131.6,
+    "diffMm": 7.4,
+    "pitchDeg": -0.54,
+    "registrationChecked": true
+   },
+   {
+    "weapon": "tr7",
+    "name": "TR-7",
+    "cls": "Assault Rifle",
+    "eyeYmm": 148.5,
+    "mdYmm": 148.5,
+    "diffMm": 0.0,
+    "pitchDeg": 0.0,
+    "registrationChecked": false
+   },
+   {
+    "weapon": "kord6p67",
+    "name": "KORD 6P67",
+    "cls": "Assault Rifle",
+    "eyeYmm": 128.1,
+    "mdYmm": 119.6,
+    "diffMm": 8.5,
+    "pitchDeg": -0.65,
+    "registrationChecked": false
+   },
+   {
+    "weapon": "nvo228e",
+    "name": "NVO-228E",
+    "cls": "Assault Rifle",
+    "eyeYmm": 108.6,
+    "mdYmm": 99.3,
+    "diffMm": 9.3,
+    "pitchDeg": -0.92,
+    "registrationChecked": false
+   },
+   {
+    "weapon": "l85a3",
+    "name": "L85A3",
+    "cls": "Assault Rifle",
+    "eyeYmm": 131.7,
+    "mdYmm": 131.6,
+    "diffMm": 0.1,
+    "pitchDeg": -0.01,
+    "registrationChecked": false
+   },
+   {
+    "weapon": "vcr2",
+    "name": "VCR-2",
+    "cls": "Assault Rifle",
+    "eyeYmm": 150.7,
+    "mdYmm": 150.6,
+    "diffMm": 0.1,
+    "pitchDeg": -0.01,
+    "registrationChecked": false
+   },
+   {
+    "weapon": "m16a4",
+    "name": "M16A4",
+    "cls": "Assault Rifle",
+    "eyeYmm": 127.3,
+    "mdYmm": 127.3,
+    "diffMm": 0.0,
+    "pitchDeg": -0.01,
+    "registrationChecked": false
+   },
+   {
+    "weapon": "m4a1",
+    "name": "M4A1",
+    "cls": "Carbine",
+    "eyeYmm": 127.3,
+    "mdYmm": 127.3,
+    "diffMm": 0.0,
+    "pitchDeg": 0.0,
+    "registrationChecked": true
+   },
+   {
+    "weapon": "m277",
+    "name": "M277",
+    "cls": "Carbine",
+    "eyeYmm": 144.9,
+    "mdYmm": 145.0,
+    "diffMm": -0.1,
+    "pitchDeg": 0.02,
+    "registrationChecked": false
+   },
+   {
+    "weapon": "ak205",
+    "name": "AK-205",
+    "cls": "Carbine",
+    "eyeYmm": 106.4,
+    "mdYmm": 93.3,
+    "diffMm": 13.1,
+    "pitchDeg": -1.32,
+    "registrationChecked": true
+   },
+   {
+    "weapon": "m417a2",
+    "name": "M417 A2",
+    "cls": "Carbine",
+    "eyeYmm": 142.8,
+    "mdYmm": 142.8,
+    "diffMm": 0.0,
+    "pitchDeg": -0.01,
+    "registrationChecked": false
+   },
+   {
+    "weapon": "grtbc",
+    "name": "GRT-BC",
+    "cls": "Carbine",
+    "eyeYmm": 151.2,
+    "mdYmm": 150.8,
+    "diffMm": 0.4,
+    "pitchDeg": -0.07,
+    "registrationChecked": false
+   },
+   {
+    "weapon": "qbz192",
+    "name": "QBZ-192",
+    "cls": "Carbine",
+    "eyeYmm": 124.7,
+    "mdYmm": 124.5,
+    "diffMm": 0.2,
+    "pitchDeg": -0.03,
+    "registrationChecked": false
+   },
+   {
+    "weapon": "sg553r",
+    "name": "SG 553R",
+    "cls": "Carbine",
+    "eyeYmm": 122.6,
+    "mdYmm": 123.1,
+    "diffMm": -0.5,
+    "pitchDeg": 0.08,
+    "registrationChecked": false
+   },
+   {
+    "weapon": "sor300sc",
+    "name": "SOR-300SC",
+    "cls": "Carbine",
+    "eyeYmm": 158.5,
+    "mdYmm": 158.8,
+    "diffMm": -0.3,
+    "pitchDeg": 0.0,
+    "registrationChecked": false
+   },
+   {
+    "weapon": "sgx",
+    "name": "SGX",
+    "cls": "SMG",
+    "eyeYmm": 139.3,
+    "mdYmm": 133.4,
+    "diffMm": 5.9,
+    "pitchDeg": -0.89,
+    "registrationChecked": false
+   },
+   {
+    "weapon": "pw5a3",
+    "name": "PW5A3",
+    "cls": "SMG",
+    "eyeYmm": 116.8,
+    "mdYmm": 111.7,
+    "diffMm": 5.1,
+    "pitchDeg": -0.49,
+    "registrationChecked": false
+   },
+   {
+    "weapon": "pw7a2",
+    "name": "PW7A2",
+    "cls": "SMG",
+    "eyeYmm": 119.9,
+    "mdYmm": 119.9,
+    "diffMm": 0.0,
+    "pitchDeg": -0.0,
+    "registrationChecked": false
+   },
+   {
+    "weapon": "umg40",
+    "name": "UMG-40",
+    "cls": "SMG",
+    "eyeYmm": 135.2,
+    "mdYmm": 135.2,
+    "diffMm": 0.0,
+    "pitchDeg": -0.01,
+    "registrationChecked": false
+   },
+   {
+    "weapon": "usg90",
+    "name": "USG-90",
+    "cls": "SMG",
+    "eyeYmm": 171.6,
+    "mdYmm": 171.6,
+    "diffMm": 0.0,
+    "pitchDeg": 0.01,
+    "registrationChecked": false
+   },
+   {
+    "weapon": "kv9",
+    "name": "KV9",
+    "cls": "SMG",
+    "eyeYmm": 101.4,
+    "mdYmm": 93.6,
+    "diffMm": 7.8,
+    "pitchDeg": -0.98,
+    "registrationChecked": false
+   },
+   {
+    "weapon": "scw10",
+    "name": "SCW-10",
+    "cls": "SMG",
+    "eyeYmm": 144.9,
+    "mdYmm": 144.9,
+    "diffMm": 0.0,
+    "pitchDeg": 0.0,
+    "registrationChecked": false
+   },
+   {
+    "weapon": "sl9",
+    "name": "SL9",
+    "cls": "SMG",
+    "eyeYmm": 103.0,
+    "mdYmm": 102.9,
+    "diffMm": 0.1,
+    "pitchDeg": -0.02,
+    "registrationChecked": false
+   },
+   {
+    "weapon": "cz3a1",
+    "name": "CZ3A1",
+    "cls": "SMG",
+    "eyeYmm": 124.7,
+    "mdYmm": 124.6,
+    "diffMm": 0.1,
+    "pitchDeg": -0.01,
+    "registrationChecked": false
+   },
+   {
+    "weapon": "pp19",
+    "name": "PP-19",
+    "cls": "SMG",
+    "eyeYmm": 119.2,
+    "mdYmm": 102.2,
+    "diffMm": 17.0,
+    "pitchDeg": -1.91,
+    "registrationChecked": true
+   },
+   {
+    "weapon": "drsiar",
+    "name": "DRS-IAR",
+    "cls": "LMG",
+    "eyeYmm": 136.1,
+    "mdYmm": 136.2,
+    "diffMm": -0.1,
+    "pitchDeg": 0.02,
+    "registrationChecked": false
+   },
+   {
+    "weapon": "m60",
+    "name": "M/60",
+    "cls": "LMG",
+    "eyeYmm": 173.3,
+    "mdYmm": 159.6,
+    "diffMm": 13.7,
+    "pitchDeg": -1.1,
+    "registrationChecked": false
+   },
+   {
+    "weapon": "rpkm",
+    "name": "RPKM",
+    "cls": "LMG",
+    "eyeYmm": 83.9,
+    "mdYmm": 88.2,
+    "diffMm": -4.3,
+    "pitchDeg": 2.17,
+    "registrationChecked": true
+   },
+   {
+    "weapon": "m123k",
+    "name": "M123K",
+    "cls": "LMG",
+    "eyeYmm": 158.2,
+    "mdYmm": 158.1,
+    "diffMm": 0.1,
+    "pitchDeg": -0.01,
+    "registrationChecked": false
+   },
+   {
+    "weapon": "m250",
+    "name": "M250",
+    "cls": "LMG",
+    "eyeYmm": 192.2,
+    "mdYmm": 192.4,
+    "diffMm": -0.2,
+    "pitchDeg": 0.02,
+    "registrationChecked": false
+   },
+   {
+    "weapon": "kts100",
+    "name": "KTS100 MK8",
+    "cls": "LMG",
+    "eyeYmm": 92.0,
+    "mdYmm": 86.6,
+    "diffMm": 5.4,
+    "pitchDeg": -0.41,
+    "registrationChecked": false
+   },
+   {
+    "weapon": "m240l",
+    "name": "M240L",
+    "cls": "LMG",
+    "eyeYmm": 140.1,
+    "mdYmm": 128.7,
+    "diffMm": 11.4,
+    "pitchDeg": -1.91,
+    "registrationChecked": true
+   },
+   {
+    "weapon": "m121a2",
+    "name": "M121 A2",
+    "cls": "LMG",
+    "eyeYmm": 167.0,
+    "mdYmm": 167.0,
+    "diffMm": 0.0,
+    "pitchDeg": 0.0,
+    "registrationChecked": true
+   },
+   {
+    "weapon": "rpk74m",
+    "name": "RPK-74M",
+    "cls": "LMG",
+    "eyeYmm": 83.9,
+    "mdYmm": 89.6,
+    "diffMm": -5.7,
+    "pitchDeg": 2.17,
+    "registrationChecked": true
+   },
+   {
+    "weapon": "m39emr",
+    "name": "M39 EMR",
+    "cls": "DMR",
+    "eyeYmm": 101.0,
+    "mdYmm": 103.6,
+    "diffMm": -2.6,
+    "pitchDeg": 0.98,
+    "registrationChecked": false
+   },
+   {
+    "weapon": "lmr27",
+    "name": "LMR27",
+    "cls": "DMR",
+    "eyeYmm": 137.0,
+    "mdYmm": 137.0,
+    "diffMm": 0.0,
+    "pitchDeg": -0.0,
+    "registrationChecked": false
+   },
+   {
+    "weapon": "svk86",
+    "name": "SVK-8.6",
+    "cls": "DMR",
+    "eyeYmm": 140.3,
+    "mdYmm": 140.2,
+    "diffMm": 0.1,
+    "pitchDeg": -0.01,
+    "registrationChecked": false
+   },
+   {
+    "weapon": "svdm",
+    "name": "SVDM",
+    "cls": "DMR",
+    "eyeYmm": 97.6,
+    "mdYmm": 91.9,
+    "diffMm": 5.7,
+    "pitchDeg": -0.41,
+    "registrationChecked": false
+   },
+   {
+    "weapon": "grtcps",
+    "name": "GRT-CPS",
+    "cls": "DMR",
+    "eyeYmm": 137.3,
+    "mdYmm": 137.0,
+    "diffMm": 0.3,
+    "pitchDeg": -0.03,
+    "registrationChecked": false
+   },
+   {
+    "weapon": "m2010esr",
+    "name": "M2010 ESR",
+    "cls": "Sniper Rifle",
+    "eyeYmm": 133.3,
+    "mdYmm": 133.3,
+    "diffMm": 0.0,
+    "pitchDeg": -0.0,
+    "registrationChecked": false
+   },
+   {
+    "weapon": "sv98",
+    "name": "SV-98",
+    "cls": "Sniper Rifle",
+    "eyeYmm": 103.1,
+    "mdYmm": 99.8,
+    "diffMm": 3.3,
+    "pitchDeg": -0.19,
+    "registrationChecked": true
+   },
+   {
+    "weapon": "psr",
+    "name": "PSR",
+    "cls": "Sniper Rifle",
+    "eyeYmm": 136.1,
+    "mdYmm": 136.1,
+    "diffMm": 0.0,
+    "pitchDeg": -0.0,
+    "registrationChecked": false
+   },
+   {
+    "weapon": "miniscout",
+    "name": "Mini Scout",
+    "cls": "Sniper Rifle",
+    "eyeYmm": 132.5,
+    "mdYmm": 132.6,
+    "diffMm": -0.1,
+    "pitchDeg": 0.01,
+    "registrationChecked": false
+   },
+   {
+    "weapon": "l115",
+    "name": "L115",
+    "cls": "Sniper Rifle",
+    "eyeYmm": 106.4,
+    "mdYmm": 105.7,
+    "diffMm": 0.7,
+    "pitchDeg": -0.03,
+    "registrationChecked": false
+   },
+   {
+    "weapon": "interdictor",
+    "name": "Interdictor",
+    "cls": "Sniper Rifle",
+    "eyeYmm": 131.3,
+    "mdYmm": 131.2,
+    "diffMm": 0.1,
+    "pitchDeg": -0.0,
+    "registrationChecked": false
+   },
+   {
+    "weapon": "m87a1",
+    "name": "M87A1",
+    "cls": "Shotgun",
+    "eyeYmm": 73.5,
+    "mdYmm": 81.9,
+    "diffMm": -8.4,
+    "pitchDeg": 2.86,
+    "registrationChecked": true
+   },
+   {
+    "weapon": "m1014",
+    "name": "M1014",
+    "cls": "Shotgun",
+    "eyeYmm": 123.0,
+    "mdYmm": 123.0,
+    "diffMm": 0.0,
+    "pitchDeg": -0.01,
+    "registrationChecked": false
+   },
+   {
+    "weapon": "ks18k",
+    "name": "18.5KS-K",
+    "cls": "Shotgun",
+    "eyeYmm": 105.6,
+    "mdYmm": 103.9,
+    "diffMm": 1.7,
+    "pitchDeg": -0.16,
+    "registrationChecked": false
+   },
+   {
+    "weapon": "db12",
+    "name": "DB-12",
+    "cls": "Shotgun",
+    "eyeYmm": 151.1,
+    "mdYmm": 150.1,
+    "diffMm": 1.0,
+    "pitchDeg": 0.0,
+    "registrationChecked": false
+   },
+   {
+    "weapon": "p18",
+    "name": "P18",
+    "cls": "Sidearm",
+    "eyeYmm": 117.0,
+    "mdYmm": 57.9,
+    "diffMm": 59.1,
+    "pitchDeg": 0.0,
+    "registrationChecked": false
+   },
+   {
+    "weapon": "es57",
+    "name": "ES 5.7",
+    "cls": "Sidearm",
+    "eyeYmm": 125.0,
+    "mdYmm": null,
+    "diffMm": null,
+    "pitchDeg": -0.5,
+    "registrationChecked": true
+   },
+   {
+    "weapon": "m45a1",
+    "name": "M45A1",
+    "cls": "Sidearm",
+    "eyeYmm": 105.6,
+    "mdYmm": 52.5,
+    "diffMm": 53.1,
+    "pitchDeg": 0.42,
+    "registrationChecked": true
+   },
+   {
+    "weapon": "m44",
+    "name": "M44",
+    "cls": "Sidearm",
+    "eyeYmm": 85.9,
+    "mdYmm": 88.6,
+    "diffMm": -2.7,
+    "pitchDeg": 0.45,
+    "registrationChecked": true
+   },
+   {
+    "weapon": "ggh22",
+    "name": "GGH-22",
+    "cls": "Sidearm",
+    "eyeYmm": 105.1,
+    "mdYmm": 45.7,
+    "diffMm": 59.4,
+    "pitchDeg": -0.06,
+    "registrationChecked": true
+   },
+   {
+    "weapon": "m357trait",
+    "name": "M357 Trait",
+    "cls": "Sidearm",
+    "eyeYmm": 76.5,
+    "mdYmm": null,
+    "diffMm": null,
+    "pitchDeg": 0.81,
+    "registrationChecked": true
+   },
+   {
+    "weapon": "vz61",
+    "name": "vz. 61",
+    "cls": "Sidearm",
+    "eyeYmm": 84.3,
+    "mdYmm": 78.1,
+    "diffMm": 6.2,
+    "pitchDeg": -1.14,
+    "registrationChecked": false
+   },
+   {
+    "weapon": "brod3",
+    "name": "BROD 3",
+    "cls": "Carbine",
+    "eyeYmm": 146.8,
+    "mdYmm": 147.7,
+    "diffMm": -0.9,
+    "pitchDeg": 0.08,
+    "registrationChecked": false
+   },
+   {
+    "weapon": "ef88",
+    "name": "EF88",
+    "cls": "Assault Rifle",
+    "eyeYmm": 134.0,
+    "mdYmm": 133.9,
+    "diffMm": 0.1,
+    "pitchDeg": 0.0,
+    "registrationChecked": false
+   },
+   {
+    "weapon": "vssm",
+    "name": "VSSM",
+    "cls": "DMR",
+    "eyeYmm": 49.3,
+    "mdYmm": 82.9,
+    "diffMm": -33.6,
+    "pitchDeg": 4.51,
+    "registrationChecked": true
+   },
+   {
+    "weapon": "mk24",
+    "name": "Mk 24",
+    "cls": "Assault Rifle",
+    "eyeYmm": 120.3,
+    "mdYmm": 120.4,
+    "diffMm": -0.1,
+    "pitchDeg": 0.01,
+    "registrationChecked": false
+   },
+   {
+    "weapon": "elr40",
+    "name": "ELR-40",
+    "cls": "Sniper Rifle",
+    "eyeYmm": 156.7,
+    "mdYmm": 156.7,
+    "diffMm": 0.0,
+    "pitchDeg": 0.0,
+    "registrationChecked": false
+   },
+   {
+    "weapon": "z84m",
+    "name": "Z84M",
+    "cls": "LMG",
+    "eyeYmm": 130.6,
+    "mdYmm": 131.0,
+    "diffMm": -0.4,
+    "pitchDeg": 0.56,
+    "registrationChecked": true
+   },
+   {
+    "weapon": "rspr",
+    "name": "RSPR",
+    "cls": "SMG",
+    "eyeYmm": 129.2,
+    "mdYmm": 129.2,
+    "diffMm": 0.0,
+    "pitchDeg": 0.0,
+    "registrationChecked": false
+   },
+   {
+    "weapon": "nsw4",
+    "name": "NSW4",
+    "cls": "Carbine",
+    "eyeYmm": 127.1,
+    "mdYmm": 127.1,
+    "diffMm": 0.0,
+    "pitchDeg": 0.01,
+    "registrationChecked": false
+   },
+   {
+    "weapon": "m16a4:flip_up_irons",
+    "name": "M16A4 \u00b7 Flip-Up Irons",
+    "cls": "Assault Rifle",
+    "eyeYmm": 127.3,
+    "mdYmm": 127.3,
+    "diffMm": 0.0,
+    "pitchDeg": -0.01,
+    "registrationChecked": false
+   },
+   {
+    "weapon": "m4a1:carry_handle_irons",
+    "name": "M4A1 \u00b7 Carry Handle Irons",
+    "cls": "Carbine",
+    "eyeYmm": 127.3,
+    "mdYmm": 127.3,
+    "diffMm": 0.0,
+    "pitchDeg": 0.0,
+    "registrationChecked": false
+   },
+   {
+    "weapon": "pw7a2:cqb_sights",
+    "name": "PW7A2 \u00b7 CQB Sights",
+    "cls": "SMG",
+    "eyeYmm": 99.4,
+    "mdYmm": 99.3,
+    "diffMm": 0.1,
+    "pitchDeg": -0.02,
+    "registrationChecked": false
+   },
+   {
+    "weapon": "umg40:cqb_sights",
+    "name": "UMG-40 \u00b7 CQB Sights",
+    "cls": "SMG",
+    "eyeYmm": 135.6,
+    "mdYmm": 135.2,
+    "diffMm": 0.4,
+    "pitchDeg": -0.05,
+    "registrationChecked": false
+   }
+  ]
+ },
+ "meshSections": "Mesh section lists hold a second copy (A,A / A,B,A,B / A,B,C,A,B,C). Take the first half when the second half repeats it (vertex counts within 5%), else every section. Section 1 often holds the other sight: AK4D rear drum; M240L, RPK-74M, RPKM, Z84M front blocks on the barrel; M121 A2 front post. Reading section 0 only left these weapons undrawn (make_all.tris, sec-cmp.json).",
+ "socketLead": "No: the iron records' Field_20933c0b mesh transforms are identity on every not-drawn weapon (Z84M: z -5 mm only), so they do not place the missing sight parts.",
+ "screenshots": "The user's iron-sight screenshots moved on 2026-11-17 from BF6 Weapon Analyzer/reference-data/Iron Sights/<class>/<name>.png to reference-data/Optics/<class>/, and were renamed '<in-game name>_Iron_Sights.png' (two-sight files '<name>_<sight>.png'); rename-log.csv in that folder maps the original screenshot names to the current ones. iron-calibration.json 'file' fields hold the current names; scripts match names with case, spaces, '-' and '_' ignored (proj_all.shot_path). The screenshots are the user's own, used for measuring only.",
+ "scripts": "builds/2.1.2.0/reports/iron-sights-all-2026-11-17: md_eye.py, md_optics.py, fov_wb.py, build_cal.py, rule_stats.py, optic_eye.py, shots/hand/compare.py, write_provenance.py",
+ "rawFiles": {
+  "Common/Hardware/Weapons/AssaultRifle/HK433/Art/MD_HK433.ebx": "0d995749f0bbe9dc6536c6cbcd43a9fd52353917ccb0c73a554d838055f9261f",
+  "Common/Hardware/Weapons/AssaultRifle/HK433/HK433_WB.ebx": "5f9b08b295d6d142e26af69e2191472925c6651ce5624ddbd446a68caabd48bb",
+  "Common/Hardware/Weapons/AssaultRifle/G36/Art/MD_G36.ebx": "ea51ac6c91c14a4b9624775f7a239a6fe820e4f0398f719a27702eac45d71883",
+  "Common/Hardware/Weapons/AssaultRifle/G36/G36_WB.ebx": "cc7e558480dfc6231a79d2b058a383db46750c1189a5be32f3fbfb7c1f72f1c1",
+  "Common/Hardware/Weapons/AssaultRifle/SCARL/MD_SCARL.ebx": "32a25a199191c6e19f0c1656f41e6dd5b7d1493d1d9960a9a4c645ced2122c40",
+  "Common/Hardware/Weapons/AssaultRifle/SCARL/SCARL_WB.ebx": "6ebd1533bd51f9ddad5e460d1ac6b40661c616c9a37aa007f1bc5c97371ca3cc",
+  "Common/Hardware/Weapons/AssaultRifle/G3A4/MD_G3A4.ebx": "f56d795a2dc7934765a00b47f574396b9dde225eb5a7690ad03455d2acca0cdf",
+  "Common/Hardware/Weapons/AssaultRifle/G3A4/G3A4_WB.ebx": "414433f3d0c60784b7fce6098e18663e553f7aff8c8b6f8139ff94db062231e7",
+  "Common/Hardware/Weapons/AssaultRifle/Tavor7/MD_Tavor7.ebx": "4edb32270dda28c9b734cacc226f5aec3b2dc4a11ad503e3d323eddba62dc31c",
+  "Common/Hardware/Weapons/AssaultRifle/Tavor7/Tavor7_WB.ebx": "19d625be4f3aff07e3ec38e06c4bf0b43e1fa284a9e31290d02da57220a08d27",
+  "Common/Hardware/Weapons/AssaultRifle/6p67/MD_6P67.ebx": "9d4cf66e429859b1270b16185f55c59af680cc8a65ae7d4e9058a4f9608d7197",
+  "Common/Hardware/Weapons/AssaultRifle/6p67/6P67_WB.ebx": "776c75a78c474cb0e9892a226d4d040dc53cac5fbc1abce0885413adb74f4fea",
+  "Common/Hardware/Weapons/AssaultRifle/ACE32/MD_ACE32.ebx": "a8e946e53668ab98e17c7115aabdf3fd1ad78c959a2d3b2dc4654bcf920f2aa5",
+  "Common/Hardware/Weapons/AssaultRifle/ACE32/ACE32_WB.ebx": "59f61e2d87f1cf3934b91ea5dc13ce71a5e146dfbced7383060ce3879b82042b",
+  "Common/Hardware/Weapons/AssaultRifle/L85A3/MD_L85A3.ebx": "0f3bf00fbeed6be5534ab069905a3a18bcbf1e19d05f17897c57e63f1c490aef",
+  "Common/Hardware/Weapons/AssaultRifle/L85A3/L85A3_WB.ebx": "7aaea8840d07a6bde891a6e0f457f15b12da9a3dc45c6c57dea2ad5e582580a7",
+  "Common/Hardware/Weapons/AssaultRifle/VHS2/MD_VHS2.ebx": "1ca0526baac6aa484cf566cbe35d9caa4f90356d132b78e0ad7222bc14bbb924",
+  "Common/Hardware/Weapons/AssaultRifle/VHS2/VHS2_WB.ebx": "0b2598e05ea2b3a1f0430c7ad91dcae74ac365359e4c45da45d2cb7c33f17c80",
+  "Common/Hardware/Weapons/AssaultRifle/M16A3/MD_M16A3.ebx": "31653e669e60dfac61ef4ef813ff694e31887f1e0ddfd34a0c87e480972e8066",
+  "Common/Hardware/Weapons/AssaultRifle/M16A3/M16A3_WB.ebx": "a614af4f423ecaa62cafe9ef291c757317735b06e0e88ee274480f949ff8f858",
+  "Common/Hardware/Weapons/Carbine/M4A1/MD_M4A1.ebx": "fc5bc195e1df4aebf35103df60be44a70371fc936a278756a794fabfd2e554d8",
+  "Common/Hardware/Weapons/Carbine/M4A1/M4A1_WB.ebx": "15248f95294df0232ec61734726e16231c02e9982e3d1ae17e6b64a1330db08f",
+  "Common/Hardware/Weapons/Carbine/XM7/MD_XM7.ebx": "d76720cecb6dd3fde9456d17da8bb39e415583cc098cb383caff48817655af5b",
+  "Common/Hardware/Weapons/Carbine/XM7/XM7_WB.ebx": "e333ae302c4c563ff4c246e6f85ef963e953a046da983eef4f67568b95fc799f",
+  "Common/Hardware/Weapons/Carbine/AK205/Art/MD_AK205.ebx": "fa542d0e8a0fefeed0b0e40c08b5ae849c93ffeb31bf5e88569d1605f3db6a69",
+  "Common/Hardware/Weapons/Carbine/AK205/AK205_WB.ebx": "b7336bd571c0233c188014791ed761aaa668274acaa0128622f7ec93c813eb76",
+  "Common/Hardware/Weapons/Carbine/HK417A2/Art/MD_HK417A2.ebx": "8356a64723c944eea157b81272cd731c074a098f0f561da810d53ae1145a1d2e",
+  "Common/Hardware/Weapons/Carbine/HK417A2/HK417A2_WB.ebx": "27506c3ac47d87141b4dbf5fc6f098af67b4cac4a12a65e061a5000039901867",
+  "Common/Hardware/Weapons/Carbine/MSBSGROTB/MD_MSBSGROTB.ebx": "1a9d6e9cdaa72fbbe29b10d646fc117ab1f3ba3340823e9f7a28ab8af20a7164",
+  "Common/Hardware/Weapons/Carbine/MSBSGROTB/MSBSGROTB_WB.ebx": "8715bc62280ca612a94956cc6d26375712a9cbbda994855f18c8b4f0b5d3425d",
+  "Common/Hardware/Weapons/Carbine/QBZ192/MD_QBZ192.ebx": "fa89368eee041f8a3db2ae6297775917fcd7cc8e21b70e9ecedf29b6a722e52e",
+  "Common/Hardware/Weapons/Carbine/QBZ192/QBZ192_WB.ebx": "e7a425dbf691ddcca57fb3d716324a2b617ebeec124603e77af3f310ea984a37",
+  "Common/Hardware/Weapons/Carbine/SIG553R/MD_SIG553R.ebx": "345694b67b51140611aa1735d958fdc978356e37bf8c2e1a4f598170016f0df0",
+  "Common/Hardware/Weapons/Carbine/SIG553R/SIG553R_WB.ebx": "a20fcd9de66c53c9ce9de7690bba4d97f6a9a5cac6f652298479cb46819abeee",
+  "Common/Hardware/Weapons/Carbine/SCARSC/MD_SCARSC.ebx": "e9565f19687cf9cf6b11486d5eaa1697b2d4f2f1addd63ad576f6d0c09ebacb7",
+  "Common/Hardware/Weapons/Carbine/SCARSC/SCARSC_WB.ebx": "74d46797b14b85bda1c7ef32dbcfba5e43727900013d1994b1da2b22dac8b670",
+  "Common/Hardware/Weapons/SMG/MPX/MD_MPX.ebx": "0dc1b50bf769bb882d4ddad31f0134b06eb7aefab7e6901f8c4345e71cb4b87b",
+  "Common/Hardware/Weapons/SMG/MPX/MPX_WB.ebx": "9859a6a5924b399a7918dcc9152e1202aa9b5fc754cf1fdfad431150bbc48143",
+  "Common/Hardware/Weapons/SMG/MP5MLI/MD_MP5MLI.ebx": "04a47aca7c2555ed40def6fd625e938362e43dd1e54d287a35d409c8dabe9231",
+  "Common/Hardware/Weapons/SMG/MP5MLI/MP5MLI_WB.ebx": "e0707c51e5dedaf5976c252557d0f0fa310842c7ec60bcfe8e3240206a14d656",
+  "Common/Hardware/Weapons/SMG/MP7A2/MD_MP7A2.ebx": "63b55cb8a3f82cb8a4b5515ceddaf7b738fda96453efd111fabbccd89e3fde3e",
+  "Common/Hardware/Weapons/SMG/MP7A2/MP7A2_WB.ebx": "60ffbf2b1318beafc69ad7723c97618a58e1aa9ddb51f98134cc165edde2352c",
+  "Common/Hardware/Weapons/SMG/UMP40/MD_UMP40.ebx": "ba696bd66dea996a01b8b03f694cc3b6fef829992bd4fe74a45891d4f4a105cc",
+  "Common/Hardware/Weapons/SMG/UMP40/UMP40_WB.ebx": "2ba9e92e24c52c53d3f5321045b9646d325ab4974013580753b8826abb324dee",
+  "Common/Hardware/Weapons/SMG/P90/MD_P90.ebx": "cda994b1c8a4fafe59cdbdfded5aaf740d72d28ef6662dc8e22e0bc4478ce37d",
+  "Common/Hardware/Weapons/SMG/P90/P90_WB.ebx": "188ba2dd90593a16e3ab02fea231da5a90214eefa517d96fe402ec22e14fc013",
+  "Common/Hardware/Weapons/SMG/Vector/MD_Vector.ebx": "4122f995bfe88335e1d049de74cda43e08eba0b4772c6155d70d304df8a8799f",
+  "Common/Hardware/Weapons/SMG/Vector/Vector_WB.ebx": "fb0eb8a3d8aff0a87692fb01b0d9381ffa5771f5f719c57971c25472b76eb502",
+  "Common/Hardware/Weapons/SMG/APC10/MD_APC10.ebx": "72cc2d48e9710e158a614ee551495524810ea241ee4f51200b5469174b1ecdbb",
+  "Common/Hardware/Weapons/SMG/APC10/APC10_WB.ebx": "fd21684b406f2f40eee00311022a2d0c35e4e315d611690123219ea48c8bab47",
+  "Common/Hardware/Weapons/SMG/APDW/MD_APDW.ebx": "85b81c1d4d3e6cfe2efe8efb2d6165edca311f028c5af5ba8a9edef6c07b7591",
+  "Common/Hardware/Weapons/SMG/APDW/APDW_WB.ebx": "8d97783577714da73b9b2cb0d0397310b7ef9d025b3d06680916c369fda9edd1",
+  "Common/Hardware/Weapons/SMG/ScorpionEvo3/MD_ScorpionEvo3.ebx": "c27b599298c15567be8e061178e4745d9ec29b1b4ba9813a5eaa356d829d7280",
+  "Common/Hardware/Weapons/SMG/ScorpionEvo3/ScorpionEvo3_WB.ebx": "ffaa55f515a4ac512c6465dee0685e287193f80ba236768ab0708fa2728c2227",
+  "Common/Hardware/Weapons/SMG/PP19/MD_pp19.ebx": "9b72755b5cc3c550b007debae7dd426c36890641fc9f146b4db5cdd8836436f9",
+  "Common/Hardware/Weapons/SMG/PP19/PP19_WB.ebx": "e02d75ae1e1cbbb8629ac146007653772da781c0fcc18f307d2ff00031d1cf13",
+  "Common/Hardware/Weapons/MG/Minimi/MD_Minimi.ebx": "2bc21dce41019432da9ecbe617ec9970810063ee7e4a1bf5653757f7e664d372",
+  "Common/Hardware/Weapons/MG/Minimi/Minimi_WB.ebx": "48b6f6cfc8e5ea2e9b3490f5f55038d982d7c135e652e3c178330beb68e83f85",
+  "Common/Hardware/Weapons/MG/M27IAR/MD_M27IAR.ebx": "dcae3a3520501c8621bc0f5c78ab33ce9c5d7af844fc31655114590be0b754df",
+  "Common/Hardware/Weapons/MG/M27IAR/M27IAR_WB.ebx": "6c14ca16f8998dc59d5f1a66a384ea42b1af84d1e32d990de412a46101c88991",
+  "Common/Hardware/Weapons/MG/M60E6/MD_M60E6.ebx": "cf125b78ca287c0278fe2f90d39eac55eca66282d320560a48283ff774c5ff1d",
+  "Common/Hardware/Weapons/MG/M60E6/M60E6_WB.ebx": "b96ff5bdd656149b019829e1524b02341bbb313e193a4f174dcee9858bd6251a",
+  "Common/Hardware/Weapons/MG/RPKM/MD_RPKM.ebx": "8e711de1881cd017a17658797f2c4f082e7a34396d9dc6d2152f77047d6894de",
+  "Common/Hardware/Weapons/MG/RPKM/RPKM_WB.ebx": "d1e0da0d6238aae4afc4dcc6ba302dc34e578cbd84120433d97b7fea3918a659",
+  "Common/Hardware/Weapons/MG/MG4K/MD_MG4K.ebx": "0b3ad9c16e3598f4f1749fbbca7a53be57fd6c0437a44f310c902734b7202843",
+  "Common/Hardware/Weapons/MG/MG4K/MG4K_WB.ebx": "db263618ed75ea8b0b3b1cca943267b7f687d83d09d779ebb77dc86572ec77fa",
+  "Common/Hardware/Weapons/MG/M250/MD_M250.ebx": "af340b9d62bcf1f6b49b3b72149b904e226ae0563c9c1dcbaa7b8fb07c837b2a",
+  "Common/Hardware/Weapons/MG/M250/M250_WB.ebx": "7dcd584ae7ef80cc60c400711a1861389a9dbd0d49948eff7382c231bdd81167",
+  "Common/Hardware/Weapons/MG/Ultimax/MD_Ultimax.ebx": "d99c18a5aec0a2d1515b12186ad322beebfa37fb12a34e9b39108da458cd418f",
+  "Common/Hardware/Weapons/MG/Ultimax/Ultimax_WB.ebx": "6c1a00a43a659de8d275208ca3220573e66515416e186aa7eca9d4a1b02afd52",
+  "Common/Hardware/Weapons/MG/M240L/Art/MD_M240L.ebx": "43337c271bf7b52d25d4074306b5a2773618b9b157927fbf0940cc9194b68f08",
+  "Common/Hardware/Weapons/MG/M240L/M240L_WB.ebx": "e337c2c47f6aa0b6fd3a7a56f54bdef31340bcd7e0a6c7e4c7010b2fe70f5768",
+  "Common/Hardware/Weapons/MG/MG5/MD_MG5.ebx": "afc04de4cf7a7a14ad9aaef49468dc5fa5e6abf544b6b684fabd2bc84787ff76",
+  "Common/Hardware/Weapons/MG/MG5/MG5_WB.ebx": "5b22cb0821a8f75cf533a8df9b65f1a38e706f143d13c2bc73ed699e56fe7831",
+  "Common/Hardware/Weapons/MG/RPK74M/MD_RPK74M.ebx": "1fc7f87fe376e372c740cd5e56f8c65d0eea5e151ca329b37031a2ef454bbd27",
+  "Common/Hardware/Weapons/MG/RPK74M/RPK74M_WB.ebx": "6010b4ac8101a1e8bb91015e1d4b9946cac34090898ae61a622ff0908cea0906",
+  "Common/Hardware/Weapons/DMR/M39EMR/MD_M39EMR.ebx": "8a46f48acd07e9c836c824d11daa01a31e6dacb8f74299f8ef261abe73bf42d5",
+  "Common/Hardware/Weapons/DMR/M39EMR/M39EMR_WB.ebx": "f65aee1f537c9330b35226f266e17201026a1db2145b62810e20c0bd3cea3107",
+  "Common/Hardware/Weapons/DMR/ARADMR/MD_ARADMR.ebx": "0dbe006951bcba0ea663375906fea29d502018545a4ca5f85f8ef6f16406e18e",
+  "Common/Hardware/Weapons/DMR/ARADMR/ARADMR_WB.ebx": "25ad3992545adbdae34085e618299b401199d8a395c4915ce1ff0d7728f30d2e",
+  "Common/Hardware/Weapons/DMR/SVCh/MD_SVCh.ebx": "66512726940989bb53de9bcebf196e530413c779e368807e96267314f4cb62fc",
+  "Common/Hardware/Weapons/DMR/SVCh/SVCh_WB.ebx": "bea86ec2dab28a2b6736e019ba16ac24ddb52b3255f3807e3a3780f25383597f",
+  "Common/Hardware/Weapons/DMR/SVDM/MD_SVDM.ebx": "9dca86c78de41c78ef96e0d29c580390bce3ff6a6673999af715da222b771488",
+  "Common/Hardware/Weapons/DMR/SVDM/SVDM_WB.ebx": "bb037736f0c706990a1a0a84730f5495f36c103273c19ea4d8798cb26ac405cd",
+  "Common/Hardware/Weapons/DMR/MSBSGROTCPS/MD_MSBSGROTCPS.ebx": "85fb56a375858c9f2ad75491a46488b964657be456a25874fb0d89c2ac9fa8a2",
+  "Common/Hardware/Weapons/DMR/MSBSGROTCPS/MSBSGROTCPS_WB.ebx": "c10dcf828f1bd45ba2a58ec629a8eead19dacc0d529276b21d2c430def7235a5",
+  "Common/Hardware/Weapons/BoltAction/M2010ESR/Art/MD_M2010ESR.ebx": "aea5df28e8c9eb565b71b21663accb2cdb785fae458f1e2c176f437073b24663",
+  "Common/Hardware/Weapons/BoltAction/M2010ESR/M2010ESR_WB.ebx": "9f472e34ea4586372000d03701aafb6da02a4c382177ecf231dde596dace5d07",
+  "Common/Hardware/Weapons/BoltAction/SV98M/MD_SV98M.ebx": "5a0eb24d8e9de2d963991786ed0fea69845db639af0268048a4bb74a0afeeb9a",
+  "Common/Hardware/Weapons/BoltAction/SV98M/SV98M_WB.ebx": "524e866d842ba2921417787e1bd8b0049c652c5dcd447d89665d38a9caa1a491",
+  "Common/Hardware/Weapons/BoltAction/MRAD/MD_MRAD.ebx": "0e52a9b5c1bf0bcc575e9b5e3b0883c607cc9204cc1043f4fb25f310879fc814",
+  "Common/Hardware/Weapons/BoltAction/MRAD/MRAD_WB.ebx": "2527a74d23ba9dd668b20c458e9b6d83760af1484a861fe48b8aec7e80764e91",
+  "Common/Hardware/Weapons/BoltAction/MiniFix/MD_MiniFix.ebx": "4ceb26b27afa3f5889da1b9fa6d9f73611e8bdf57ae428f6ccff85ecaea34ab8",
+  "Common/Hardware/Weapons/BoltAction/MiniFix/MiniFix_WB.ebx": "4bf28d84440ea5a813faad490c4f8cc11548b4fdf0b278177f368c10389846f5",
+  "Common/Hardware/Weapons/BoltAction/DesertTechHTI/MD_DesertTechHTI.ebx": "294120ba50ff59194790ce3bb37235085efa15d08fadcd3368affe2d866ff787",
+  "Common/Hardware/Weapons/BoltAction/DesertTechHTI/DesertTechHTI_WB.ebx": "6d9047d118173476cf31843096308d853745bae0cfb223633f67eb1db1e791e2",
+  "Common/Hardware/Weapons/BoltAction/L115A3/MD_L115A3.ebx": "c1b9bf4be0e6c0188e8e19f7b15c874b2c021eb008f9ae5817f77711bff05976",
+  "Common/Hardware/Weapons/BoltAction/L115A3/L115A3_WB.ebx": "fa926158d507a241ff3d6445b5313bb9ce03e6c6a4fd1070d4698255ca3ac258",
+  "Common/Hardware/Weapons/Shotgun/590A1/MD_590A1.ebx": "1eca9e93928ce59d1bb56496330251b1781322db78ed831a03a8846c1cea7bcb",
+  "Common/Hardware/Weapons/Shotgun/590A1/590A1_WB.ebx": "f2af28b9834e052518596dda92978f9373915b52f4af3ca9f7e3005588400f82",
+  "Common/Hardware/Weapons/Shotgun/M1014/MD_M1014.ebx": "52353e5156de237aab30e0579370fe7ff85dc19b7cf63ae3c466ce48222f0f5f",
+  "Common/Hardware/Weapons/Shotgun/M1014/M1014_WB.ebx": "d360423af505864c6696632a5fc14845b7e8893bd863e854088093783a1cb35c",
+  "Common/Hardware/Weapons/Shotgun/185KSK/MD_185KSK.ebx": "d3242c8e6bf8cf9cdd385682dea2e9ecf44f5ed211de5e54403da0c1afa0f645",
+  "Common/Hardware/Weapons/Shotgun/185KSK/185KSK_WB.ebx": "c409241ab120553a6f104c98032868947f1e12cf022a10136d8c20faf2f73d4a",
+  "Common/Hardware/Weapons/Shotgun/DP12/MD_DP12.ebx": "076ab02403b2b5cc6e00b147471e3fa0f984931fec0939f7037d9c995233433e",
+  "Common/Hardware/Weapons/Shotgun/DP12/DP12_WB.ebx": "ae8d279af54feedebcadbb99d9f67911b4de95568954b850cc5436f2101052bc",
+  "Common/Hardware/Weapons/Secondary/M18/MD_M18.ebx": "cbc01636e6da63e97022059dec54d41cb0b20fe9f3853ce26b903c880e9e999f",
+  "Common/Hardware/Weapons/Secondary/M18/M18_WB.ebx": "0f10f3ad5e3b0685607962c44e32d6e549ce9734e1e39ae9caf5a6b0080422de",
+  "Common/Hardware/Weapons/Secondary/FiveSeven/MD_FiveSeven.ebx": "552431f2ed91cbe7d08c1cb697f8cb3f0ce062c86a9b8e7926547cfd347c4679",
+  "Common/Hardware/Weapons/Secondary/FiveSeven/FiveSeven_WB.ebx": "92dc7b1ceee109943a9bdb0fd4b4502a5e12dabe0cfe2a78b25221960c664e35",
+  "Common/Hardware/Weapons/Secondary/M45A1/MD_M45A1.ebx": "d1b49b1912eee4466655cda9844eacc31f0c9071a8db29e367f96b91311442ca",
+  "Common/Hardware/Weapons/Secondary/M45A1/M45A1_WB.ebx": "8abd7cc29b21e1f9c7f7f40960392e98f19d067c4a63684db2a08dbc8d39c2e1",
+  "Common/Hardware/Weapons/Secondary/G22/MD_G22.ebx": "88a99552318d2528d95af34d389bdf0ab1b873575c10de42a4804d70c7dcc2fd",
+  "Common/Hardware/Weapons/Secondary/G22/G22_WB.ebx": "6d54c71263b6d52ee7c55df459f68b91df2f2245a242d9e00322d0f6bc1adf7d",
+  "Common/Hardware/Weapons/Secondary/RagingHunter/MD_RagingHunter.ebx": "44889a46cd06477c506f4fb03c584ac287d589154725f7aeae600b4be7ee9a71",
+  "Common/Hardware/Weapons/Secondary/RagingHunter/RagingHunter_WB.ebx": "c3ce305fe419f4481ea5f89abb42df1bc69d056ebb1967dec092c9262dd71fce",
+  "Common/Hardware/Weapons/Secondary/TRR8/MD_TRR8.ebx": "a02c50d34afc9dcba85406320e3c4eb3feaaec4278ada7cd3c4f71f646e34937",
+  "Common/Hardware/Weapons/Secondary/TRR8/TRR8_WB.ebx": "157903ee98faa2ff87cbf3bdd218626cdb7df855593ed17ae2aa7778412751e9",
+  "Common/Hardware/Weapons/Secondary/Skorpion/MD_Skorpion.ebx": "d95a4fee3df302a888252567e18aa84226d9dad130c27a01757d9d287425fb38",
+  "Common/Hardware/Weapons/Secondary/Skorpion/Skorpion_WB.ebx": "dfd789bce66f72a87b5006f1db5a579345c9f732002eb5ebfd338d8dff7b950f",
+  "Common/Hardware/Weapons/Carbine/BREN3/MD_BREN3.ebx": "55335f5ec5571488582c0c99a4363d7dd95054cfeb29236ddc2501895f75c72e",
+  "Common/Hardware/Weapons/Carbine/BREN3/BREN3_WB.ebx": "a8acfe0d71117bedf3abaabb2df21f602e5eba286a4bd11fe9ee13e7ab766082",
+  "Common/Hardware/Weapons/AssaultRifle/EF88/MD_EF88.ebx": "0d16daa7257ca8af6adf33805f1e02057fc36e7c63f7b43ff7bfe37918bd793d",
+  "Common/Hardware/Weapons/AssaultRifle/EF88/EF88_WB.ebx": "259b308794c8633990d2d2b5f80459dd79c0116cae9e14d9a64a5edf39fc1e96",
+  "Common/Hardware/Weapons/DMR/VSSM/MD_VSSM.ebx": "2fc4f6672b56fd44fdfdb4475b23a32ae258503909a54af1b49ac4ca955cf577",
+  "Common/Hardware/Weapons/DMR/VSSM/VSSM_WB.ebx": "74f6e9dc9efbc14349be970cf66042286aa4a2b39f19bd6db102da2cd5abe178",
+  "Common/Hardware/Weapons/AssaultRifle/MRGGA/MD_MRGGA.ebx": "60562e8111bce034f31ae4520102a5de4bd02e21ae854f1563e2d01e187fcc65",
+  "Common/Hardware/Weapons/AssaultRifle/MRGGA/MRGGA_WB.ebx": "2e4e377f9ae1e0f0c58ea4c219a87d9fbb59909ffd936e9d615c8e9d95c5c6b9",
+  "Common/Hardware/Weapons/BoltAction/CDX40/MD_CDX40.ebx": "d1157e2e8e5b102656e0641b442883d80b42c889a01792eba4ff0671793889fb",
+  "Common/Hardware/Weapons/BoltAction/CDX40/CDX40_WB.ebx": "d27a230dd0c65d047b65e9149762c4be9f50de043ce75615644f1682d73cf845",
+  "Common/Hardware/Weapons/MG/PKM/MD_PKM.ebx": "293e4a10828115c8b936a12bb695e78c24384aeed876093d01bf0366ce17cb55",
+  "Common/Hardware/Weapons/MG/PKM/PKM_WB.ebx": "6a2ec0c027fa00694039237239d6c58baf8819379b19e026fd108145cb44ad8f",
+  "Common/Hardware/Weapons/SMG/RSAR999/MD_RSAR999.ebx": "dfa772bb0152ccec62a2197e22a2074a82c7e16849ce1330edc059ab58b7d00c",
+  "Common/Hardware/Weapons/SMG/RSAR999/RSAR999_WB.ebx": "d93fd15b8e555580879f0c3ba9b0c98bb6f60da2110e1c242877a407e87562d5",
+  "Common/Hardware/Weapons/Carbine/DEVGRU/MD_Devgru.ebx": "7f4c855cf6df7e9e2c5e0168e050d7934de5396ca52cc0a90738d6494702665b",
+  "Common/Hardware/Weapons/Carbine/DEVGRU/Devgru_WB.ebx": "d1cd649be886a88f0df484529bf62920119160e071af9d2119122c6661be565c"
+ },
+ "weapons": {
+  "ak4d": {
+   "inGameName": "AK4D",
+   "ironBundle": "dpf_g3a4_ironsights_1lhhtuv_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    131.6,
+    -225.0
+   ],
+   "renderFov": 30.0,
+   "adsRenderFovFromBlueprint": [
+    30.0
+   ],
+   "eyeToRearOpeningMm": null,
+   "screenshotEyeMm": null,
+   "agreementPct": null,
+   "predictedOpeningPx": null,
+   "measuredOpeningPx": null,
+   "confidence": "none",
+   "inTestSet": false,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": [
+    "not drawn: rear drum missing"
+   ]
+  },
+  "b36a4": {
+   "inGameName": "B36A4",
+   "ironBundle": "dpf_g36_sight_1qynq4u_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    147.3,
+    -240.0
+   ],
+   "renderFov": 20.0,
+   "adsRenderFovFromBlueprint": [
+    37.0,
+    20.0,
+    37.0,
+    37.0,
+    37.0,
+    32.0
+   ],
+   "eyeToRearOpeningMm": 212.9,
+   "screenshotEyeMm": 214.6,
+   "agreementPct": 0.8,
+   "predictedOpeningPx": 77.2,
+   "measuredOpeningPx": 76.6,
+   "confidence": "medium",
+   "inTestSet": true,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": []
+  },
+  "ef88": {
+   "inGameName": "EF88",
+   "ironBundle": "dpf_ef88_ironsights_aadycn_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    133.9,
+    -280.0
+   ],
+   "renderFov": 40.0,
+   "adsRenderFovFromBlueprint": [
+    40.0
+   ],
+   "eyeToRearOpeningMm": 158.1,
+   "screenshotEyeMm": 159.4,
+   "agreementPct": 0.8,
+   "predictedOpeningPx": 45.0,
+   "measuredOpeningPx": 44.7,
+   "confidence": "high",
+   "inTestSet": true,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": []
+  },
+  "kord6p67": {
+   "inGameName": "KORD 6P67",
+   "ironBundle": "dpf_6p67_sights_wa2ted_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    119.6,
+    -190.0
+   ],
+   "renderFov": 29.0,
+   "adsRenderFovFromBlueprint": [
+    29.0
+   ],
+   "eyeToRearOpeningMm": 186.2,
+   "screenshotEyeMm": 194.0,
+   "agreementPct": 4.2,
+   "predictedOpeningPx": 46.3,
+   "measuredOpeningPx": 44.4,
+   "confidence": "medium",
+   "inTestSet": true,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": []
+  },
+  "l85a3": {
+   "inGameName": "L85A3",
+   "ironBundle": "dpf_l85a3_sights_16qinz1_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    131.6,
+    -320.0
+   ],
+   "renderFov": 24.0,
+   "adsRenderFovFromBlueprint": [
+    24.0
+   ],
+   "eyeToRearOpeningMm": 188.0,
+   "screenshotEyeMm": 189.5,
+   "agreementPct": 0.8,
+   "predictedOpeningPx": 82.6,
+   "measuredOpeningPx": 82.0,
+   "confidence": "medium",
+   "inTestSet": true,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": []
+  },
+  "m16a4": {
+   "inGameName": "M16A4",
+   "ironBundle": "dpf_m16a3_ironsights_ewyufb_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    127.3,
+    -170.0
+   ],
+   "renderFov": 38.0,
+   "adsRenderFovFromBlueprint": [
+    38.0
+   ],
+   "eyeToRearOpeningMm": 191.5,
+   "screenshotEyeMm": 189.9,
+   "agreementPct": -0.8,
+   "predictedOpeningPx": 42.5,
+   "measuredOpeningPx": 42.9,
+   "confidence": "medium",
+   "inTestSet": true,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": []
+  },
+  "m16a4:flip_up_irons": {
+   "inGameName": "M16A4 (flip up irons)",
+   "ironBundle": "dpf_m16a3_usgisight_fuxgg6_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    127.3,
+    -190.0
+   ],
+   "renderFov": 38.0,
+   "adsRenderFovFromBlueprint": [
+    38.0
+   ],
+   "eyeToRearOpeningMm": 201.3,
+   "screenshotEyeMm": 199.7,
+   "agreementPct": -0.8,
+   "predictedOpeningPx": 42.7,
+   "measuredOpeningPx": 43.0,
+   "confidence": "high",
+   "inTestSet": true,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": []
+  },
+  "m433": {
+   "inGameName": "M433",
+   "ironBundle": "dpf_hk433_ironsights_1voyyh3_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    146.9,
+    -190.0
+   ],
+   "renderFov": 35.0,
+   "adsRenderFovFromBlueprint": [
+    35.0
+   ],
+   "eyeToRearOpeningMm": 173.5,
+   "screenshotEyeMm": 174.9,
+   "agreementPct": 0.8,
+   "predictedOpeningPx": 60.4,
+   "measuredOpeningPx": 59.9,
+   "confidence": "high",
+   "inTestSet": true,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": []
+  },
+  "mk24": {
+   "inGameName": "Mk 24",
+   "ironBundle": "dpf_mrgga_ironsight_2adfis_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    120.4,
+    -190.0
+   ],
+   "renderFov": 30.0,
+   "adsRenderFovFromBlueprint": [
+    30.0
+   ],
+   "eyeToRearOpeningMm": 166.9,
+   "screenshotEyeMm": 165.5,
+   "agreementPct": -0.8,
+   "predictedOpeningPx": 54.5,
+   "measuredOpeningPx": 55.0,
+   "confidence": "high",
+   "inTestSet": true,
+   "visualCheck": null,
+   "handCheck": {
+    "rearOpeningPx": 53,
+    "confidence": "good",
+    "offPct": -2.8,
+    "source": "shots/hand/set1-3.md (subagents reading gridded crops)"
+   },
+   "flags": [
+    "render FOV 30 from the current blueprint (fov-wb.json); not in the 2026-09-16 file"
+   ]
+  },
+  "nvo228e": {
+   "inGameName": "NVO-228E",
+   "ironBundle": "dpf_ace32_sight_td38y6_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    99.3,
+    -180.0
+   ],
+   "renderFov": 40.0,
+   "adsRenderFovFromBlueprint": [
+    40.0
+   ],
+   "eyeToRearOpeningMm": 176.0,
+   "screenshotEyeMm": 177.4,
+   "agreementPct": 0.8,
+   "predictedOpeningPx": 51.0,
+   "measuredOpeningPx": 50.5,
+   "confidence": "high",
+   "inTestSet": true,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": []
+  },
+  "sor556": {
+   "inGameName": "SOR-556 Mk2",
+   "ironBundle": "dpf_scarl_sight_cwtnmu_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    157.1,
+    -210.0
+   ],
+   "renderFov": 32.0,
+   "adsRenderFovFromBlueprint": [
+    32.0
+   ],
+   "eyeToRearOpeningMm": 178.2,
+   "screenshotEyeMm": 179.7,
+   "agreementPct": 0.8,
+   "predictedOpeningPx": 31.6,
+   "measuredOpeningPx": 31.3,
+   "confidence": "high",
+   "inTestSet": true,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": []
+  },
+  "tr7": {
+   "inGameName": "TR-7",
+   "ironBundle": "dpf_tavor7_sight_j5htwu_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    148.5,
+    -250.0
+   ],
+   "renderFov": 32.0,
+   "adsRenderFovFromBlueprint": [
+    32.0
+   ],
+   "eyeToRearOpeningMm": 129.3,
+   "screenshotEyeMm": 130.4,
+   "agreementPct": 0.8,
+   "predictedOpeningPx": 54.4,
+   "measuredOpeningPx": 53.9,
+   "confidence": "high",
+   "inTestSet": true,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": []
+  },
+  "vcr2": {
+   "inGameName": "VCR-2",
+   "ironBundle": "dpf_vhs2_ironsight_sh0n18_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    150.6,
+    -300.0
+   ],
+   "renderFov": 40.0,
+   "adsRenderFovFromBlueprint": [
+    40.0
+   ],
+   "eyeToRearOpeningMm": 167.2,
+   "screenshotEyeMm": 168.6,
+   "agreementPct": 0.8,
+   "predictedOpeningPx": 39.8,
+   "measuredOpeningPx": 39.4,
+   "confidence": "high",
+   "inTestSet": true,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": []
+  },
+  "ak205": {
+   "inGameName": "AK-205",
+   "ironBundle": "dpf_ak205_ironsights_1ntajdy_bundle_1p",
+   "mdSightMainMm": [
+    0.1,
+    93.3,
+    -135.0
+   ],
+   "renderFov": 35.0,
+   "adsRenderFovFromBlueprint": [
+    35.0
+   ],
+   "eyeToRearOpeningMm": 335.2,
+   "screenshotEyeMm": 366.7,
+   "agreementPct": 9.4,
+   "predictedOpeningPx": 17.6,
+   "measuredOpeningPx": 16.1,
+   "confidence": "high",
+   "inTestSet": false,
+   "visualCheck": "MD eye matches the screenshot better; the free fit locked onto other edges",
+   "handCheck": {
+    "rearOpeningPx": 18,
+    "confidence": "good",
+    "offPct": 2.1,
+    "source": "shots/hand/set1-3.md (subagents reading gridded crops)"
+   },
+   "flags": []
+  },
+  "brod3": {
+   "inGameName": "BROD 3",
+   "ironBundle": "dpf_bren3_ironsightsext_1h5iefb_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    147.7,
+    -325.7
+   ],
+   "renderFov": 29.0,
+   "adsRenderFovFromBlueprint": [
+    29.0
+   ],
+   "eyeToRearOpeningMm": 305.6,
+   "screenshotEyeMm": 308.1,
+   "agreementPct": 0.8,
+   "predictedOpeningPx": 33.5,
+   "measuredOpeningPx": 33.3,
+   "confidence": "high",
+   "inTestSet": true,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": []
+  },
+  "grtbc": {
+   "inGameName": "GRT-BC",
+   "ironBundle": "dpf_msbsgrotb_sight_xih4fb_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    150.8,
+    -210.0
+   ],
+   "renderFov": 45.0,
+   "adsRenderFovFromBlueprint": [
+    45.0
+   ],
+   "eyeToRearOpeningMm": 104.3,
+   "screenshotEyeMm": 105.2,
+   "agreementPct": 0.8,
+   "predictedOpeningPx": 50.2,
+   "measuredOpeningPx": 49.8,
+   "confidence": "high",
+   "inTestSet": true,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": []
+  },
+  "m277": {
+   "inGameName": "M277",
+   "ironBundle": "dpf_xm7_sight_sq7d7r_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    145.0,
+    -220.0
+   ],
+   "renderFov": 30.0,
+   "adsRenderFovFromBlueprint": [
+    30.0
+   ],
+   "eyeToRearOpeningMm": 202.6,
+   "screenshotEyeMm": 204.3,
+   "agreementPct": 0.8,
+   "predictedOpeningPx": 44.9,
+   "measuredOpeningPx": 44.6,
+   "confidence": "medium",
+   "inTestSet": true,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": []
+  },
+  "m417a2": {
+   "inGameName": "M417 A2",
+   "ironBundle": "dpf_hk417a2_sight_1fuy5rb_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    142.8,
+    -180.0
+   ],
+   "renderFov": 35.0,
+   "adsRenderFovFromBlueprint": [
+    35.0
+   ],
+   "eyeToRearOpeningMm": 186.8,
+   "screenshotEyeMm": 188.3,
+   "agreementPct": 0.8,
+   "predictedOpeningPx": 54.1,
+   "measuredOpeningPx": 53.7,
+   "confidence": "high",
+   "inTestSet": true,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": []
+  },
+  "m4a1:carry_handle_irons": {
+   "inGameName": "M4A1 (carry handle irons)",
+   "ironBundle": "dpf_m4a1_sightcarryhandle_3u6kwm_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    127.3,
+    -190.0
+   ],
+   "renderFov": 35.0,
+   "adsRenderFovFromBlueprint": [
+    35.0
+   ],
+   "eyeToRearOpeningMm": 210.9,
+   "screenshotEyeMm": 209.2,
+   "agreementPct": -0.8,
+   "predictedOpeningPx": 41.9,
+   "measuredOpeningPx": 42.2,
+   "confidence": "high",
+   "inTestSet": true,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": []
+  },
+  "m4a1": {
+   "inGameName": "M4A1",
+   "ironBundle": "dpf_m4a1_sight_wz2l3b_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    127.3,
+    -190.0
+   ],
+   "renderFov": 35.0,
+   "adsRenderFovFromBlueprint": [
+    35.0
+   ],
+   "eyeToRearOpeningMm": 201.3,
+   "screenshotEyeMm": 199.7,
+   "agreementPct": -0.8,
+   "predictedOpeningPx": 46.6,
+   "measuredOpeningPx": 47.0,
+   "confidence": "medium",
+   "inTestSet": true,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": []
+  },
+  "nsw4": {
+   "inGameName": "NSW4",
+   "ironBundle": "dpf_devgru_ironsights_kf3x3a_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    127.1,
+    -124.3
+   ],
+   "renderFov": 55.0,
+   "adsRenderFovFromBlueprint": [
+    55.0
+   ],
+   "eyeToRearOpeningMm": 135.6,
+   "screenshotEyeMm": 136.7,
+   "agreementPct": 0.8,
+   "predictedOpeningPx": 41.1,
+   "measuredOpeningPx": 40.7,
+   "confidence": "high",
+   "inTestSet": true,
+   "visualCheck": null,
+   "handCheck": {
+    "rearOpeningPx": 40.5,
+    "confidence": "rough",
+    "offPct": -1.4,
+    "source": "shots/hand/set1-3.md (subagents reading gridded crops)"
+   },
+   "flags": [
+    "render FOV 55 from the current blueprint (fov-wb.json); not in the 2026-09-16 file"
+   ]
+  },
+  "qbz192": {
+   "inGameName": "QBZ-192",
+   "ironBundle": "dpf_qbz192_sight_1h11w1z_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    124.5,
+    -165.0
+   ],
+   "renderFov": 30.0,
+   "adsRenderFovFromBlueprint": [
+    30.0
+   ],
+   "eyeToRearOpeningMm": 157.3,
+   "screenshotEyeMm": 158.6,
+   "agreementPct": 0.8,
+   "predictedOpeningPx": 53.8,
+   "measuredOpeningPx": 53.3,
+   "confidence": "high",
+   "inTestSet": true,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": []
+  },
+  "sg553r": {
+   "inGameName": "SG 553R",
+   "ironBundle": "dpf_sig553r_sight_279e07_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    123.1,
+    -180.0
+   ],
+   "renderFov": 35.0,
+   "adsRenderFovFromBlueprint": [
+    35.0
+   ],
+   "eyeToRearOpeningMm": 182.3,
+   "screenshotEyeMm": 220.0,
+   "agreementPct": 20.7,
+   "predictedOpeningPx": 51.4,
+   "measuredOpeningPx": 42.6,
+   "confidence": "high",
+   "inTestSet": false,
+   "visualCheck": "ambiguous: the MD eye and the measured eye both look plausible",
+   "handCheck": {
+    "rearOpeningPx": 48,
+    "confidence": "good",
+    "offPct": -6.7,
+    "source": "shots/hand/set1-3.md (subagents reading gridded crops)"
+   },
+   "flags": []
+  },
+  "sor300sc": {
+   "inGameName": "SOR-300SC",
+   "ironBundle": "dpf_scarsc_sight_1e7z98n_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    158.8,
+    -180.0
+   ],
+   "renderFov": 38.0,
+   "adsRenderFovFromBlueprint": [
+    38.0
+   ],
+   "eyeToRearOpeningMm": 164.8,
+   "screenshotEyeMm": 155.6,
+   "agreementPct": -5.6,
+   "predictedOpeningPx": 35.5,
+   "measuredOpeningPx": 37.6,
+   "confidence": "high",
+   "inTestSet": false,
+   "visualCheck": "ambiguous: the MD eye and the measured eye both look plausible",
+   "handCheck": {
+    "rearOpeningPx": 30,
+    "confidence": "rough",
+    "offPct": -15.6,
+    "source": "shots/hand/set1-3.md (subagents reading gridded crops)"
+   },
+   "flags": []
+  },
+  "grtcps": {
+   "inGameName": "GRT-CPS",
+   "ironBundle": "dpf_msbsgrotcps_ironsight_1n9dyda_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    137.0,
+    -190.0
+   ],
+   "renderFov": 40.0,
+   "adsRenderFovFromBlueprint": [
+    40.0
+   ],
+   "eyeToRearOpeningMm": 169.5,
+   "screenshotEyeMm": 170.9,
+   "agreementPct": 0.8,
+   "predictedOpeningPx": 35.2,
+   "measuredOpeningPx": 34.9,
+   "confidence": "high",
+   "inTestSet": true,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": []
+  },
+  "lmr27": {
+   "inGameName": "LMR27",
+   "ironBundle": "dpf_aradmr_sight_kpvjyc_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    137.0,
+    -180.0
+   ],
+   "renderFov": 45.0,
+   "adsRenderFovFromBlueprint": [
+    45.0
+   ],
+   "eyeToRearOpeningMm": 136.4,
+   "screenshotEyeMm": 135.3,
+   "agreementPct": -0.8,
+   "predictedOpeningPx": 36.4,
+   "measuredOpeningPx": 36.7,
+   "confidence": "high",
+   "inTestSet": true,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": []
+  },
+  "m39emr": {
+   "inGameName": "M39 EMR",
+   "ironBundle": "dpf_m39emr_ironsights_17gux3h_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    103.6,
+    -85.0
+   ],
+   "renderFov": 39.0,
+   "adsRenderFovFromBlueprint": [
+    39.0
+   ],
+   "eyeToRearOpeningMm": 150.2,
+   "screenshotEyeMm": 149.0,
+   "agreementPct": -0.8,
+   "predictedOpeningPx": 68.2,
+   "measuredOpeningPx": 68.8,
+   "confidence": "medium",
+   "inTestSet": true,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": []
+  },
+  "svdm": {
+   "inGameName": "SVDM",
+   "ironBundle": "dpf_svdm_ironsights_jjcwcl_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    91.9,
+    -170.0
+   ],
+   "renderFov": 20.0,
+   "adsRenderFovFromBlueprint": [
+    20.0
+   ],
+   "eyeToRearOpeningMm": 431.0,
+   "screenshotEyeMm": 441.7,
+   "agreementPct": 2.5,
+   "predictedOpeningPx": 27.8,
+   "measuredOpeningPx": 27.1,
+   "confidence": "high",
+   "inTestSet": true,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": []
+  },
+  "svk86": {
+   "inGameName": "SVK-8.6",
+   "ironBundle": "dpf_svch_sights_ugsp27_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    140.2,
+    -185.0
+   ],
+   "renderFov": 30.0,
+   "adsRenderFovFromBlueprint": [
+    30.0
+   ],
+   "eyeToRearOpeningMm": 171.8,
+   "screenshotEyeMm": 173.2,
+   "agreementPct": 0.8,
+   "predictedOpeningPx": 53.0,
+   "measuredOpeningPx": 52.5,
+   "confidence": "medium",
+   "inTestSet": true,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": []
+  },
+  "vssm": {
+   "inGameName": "VSSM",
+   "ironBundle": "dpf_vssm_ironsights_4d69ph_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    82.9,
+    -160.0
+   ],
+   "renderFov": 34.0,
+   "adsRenderFovFromBlueprint": [
+    34.0
+   ],
+   "eyeToRearOpeningMm": null,
+   "screenshotEyeMm": null,
+   "agreementPct": null,
+   "predictedOpeningPx": null,
+   "measuredOpeningPx": null,
+   "confidence": "none",
+   "inTestSet": false,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": [
+    "not drawn: one sight only in meshes"
+   ]
+  },
+  "drsiar": {
+   "inGameName": "DRS-IAR",
+   "ironBundle": "dpf_m27iar_sight_2b0el9_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    136.2,
+    -175.0
+   ],
+   "renderFov": 29.0,
+   "adsRenderFovFromBlueprint": [
+    29.0
+   ],
+   "eyeToRearOpeningMm": 184.8,
+   "screenshotEyeMm": 183.3,
+   "agreementPct": -0.8,
+   "predictedOpeningPx": 51.0,
+   "measuredOpeningPx": 51.4,
+   "confidence": "high",
+   "inTestSet": true,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": []
+  },
+  "kts100": {
+   "inGameName": "KTS100 MK8",
+   "ironBundle": "dpf_ultimax_sight_e9oss5_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    86.6,
+    -360.0
+   ],
+   "renderFov": 18.0,
+   "adsRenderFovFromBlueprint": [
+    18.0
+   ],
+   "eyeToRearOpeningMm": 237.5,
+   "screenshotEyeMm": 235.6,
+   "agreementPct": -0.8,
+   "predictedOpeningPx": 58.7,
+   "measuredOpeningPx": 59.2,
+   "confidence": "high",
+   "inTestSet": true,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": []
+  },
+  "l110": {
+   "inGameName": "L110",
+   "ironBundle": "dpf_minimi_sight_n63bbp_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    137.8,
+    -270.0
+   ],
+   "renderFov": 26.0,
+   "adsRenderFovFromBlueprint": [
+    26.0
+   ],
+   "eyeToRearOpeningMm": null,
+   "screenshotEyeMm": null,
+   "agreementPct": null,
+   "predictedOpeningPx": null,
+   "measuredOpeningPx": null,
+   "confidence": "none",
+   "inTestSet": false,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": [
+    "not drawn: large rear aperture and hooded front missing"
+   ]
+  },
+  "m60": {
+   "inGameName": "M/60",
+   "ironBundle": "dpf_m60e6_ironsights_afkkac_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    159.6,
+    -170.0
+   ],
+   "renderFov": 28.0,
+   "adsRenderFovFromBlueprint": [
+    28.0
+   ],
+   "eyeToRearOpeningMm": 281.1,
+   "screenshotEyeMm": 374.2,
+   "agreementPct": 33.1,
+   "predictedOpeningPx": 51.8,
+   "measuredOpeningPx": 38.9,
+   "confidence": "low",
+   "inTestSet": false,
+   "visualCheck": "MD eye matches the screenshot better; the free fit locked onto other edges",
+   "handCheck": {
+    "rearOpeningPx": 52,
+    "confidence": "rough",
+    "offPct": 0.4,
+    "source": "shots/hand/set1-3.md (subagents reading gridded crops)"
+   },
+   "flags": []
+  },
+  "m121a2": {
+   "inGameName": "M121 A2",
+   "ironBundle": "dpf_mg5_sight_184knrx_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    167.0,
+    -200.0
+   ],
+   "renderFov": 32.0,
+   "adsRenderFovFromBlueprint": [
+    32.0
+   ],
+   "eyeToRearOpeningMm": null,
+   "screenshotEyeMm": null,
+   "agreementPct": null,
+   "predictedOpeningPx": null,
+   "measuredOpeningPx": null,
+   "confidence": "none",
+   "inTestSet": false,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": [
+    "not drawn: V-eared leaf notch missing"
+   ]
+  },
+  "m123k": {
+   "inGameName": "M123K",
+   "ironBundle": "dpf_mg4k_sights_1auezja_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    158.1,
+    -220.0
+   ],
+   "renderFov": 29.0,
+   "adsRenderFovFromBlueprint": [
+    29.0
+   ],
+   "eyeToRearOpeningMm": 190.7,
+   "screenshotEyeMm": 195.4,
+   "agreementPct": 2.5,
+   "predictedOpeningPx": 61.9,
+   "measuredOpeningPx": 60.4,
+   "confidence": "medium",
+   "inTestSet": true,
+   "visualCheck": null,
+   "handCheck": {
+    "rearOpeningPx": 60,
+    "confidence": "good",
+    "offPct": -3.1,
+    "source": "shots/hand/set1-3.md (subagents reading gridded crops)"
+   },
+   "flags": [
+    "render FOV 29 from the current blueprint (fov-wb.json); not in the 2026-09-16 file"
+   ]
+  },
+  "m240l": {
+   "inGameName": "M240L",
+   "ironBundle": "dpf_m240l_sights_1l4gkdq_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    128.7,
+    -200.0
+   ],
+   "renderFov": 38.0,
+   "adsRenderFovFromBlueprint": [
+    38.0
+   ],
+   "eyeToRearOpeningMm": null,
+   "screenshotEyeMm": null,
+   "agreementPct": null,
+   "predictedOpeningPx": null,
+   "measuredOpeningPx": null,
+   "confidence": "none",
+   "inTestSet": false,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": [
+    "not drawn: front missing"
+   ]
+  },
+  "m250": {
+   "inGameName": "M250",
+   "ironBundle": "dpf_m250_ironsights_1dmlfto_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    192.4,
+    -232.2
+   ],
+   "renderFov": 45.0,
+   "adsRenderFovFromBlueprint": [
+    45.0
+   ],
+   "eyeToRearOpeningMm": 170.4,
+   "screenshotEyeMm": 174.6,
+   "agreementPct": 2.5,
+   "predictedOpeningPx": 34.5,
+   "measuredOpeningPx": 33.7,
+   "confidence": "high",
+   "inTestSet": true,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": []
+  },
+  "rpk74m": {
+   "inGameName": "RPK-74M",
+   "ironBundle": "dpf_rpk74m_ironsights_short_1um4lfd_bundle_1p",
+   "mdSightMainMm": [
+    0.1,
+    89.6,
+    -230.0
+   ],
+   "renderFov": 23.0,
+   "adsRenderFovFromBlueprint": [
+    23.0
+   ],
+   "eyeToRearOpeningMm": null,
+   "screenshotEyeMm": null,
+   "agreementPct": null,
+   "predictedOpeningPx": null,
+   "measuredOpeningPx": null,
+   "confidence": "none",
+   "inTestSet": false,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": [
+    "not drawn: front post missing"
+   ]
+  },
+  "rpkm": {
+   "inGameName": "RPKM",
+   "ironBundle": "dpf_rpkm_sight_v3sjxx_bundle_1p",
+   "mdSightMainMm": [
+    0.1,
+    88.2,
+    -230.0
+   ],
+   "renderFov": 22.0,
+   "adsRenderFovFromBlueprint": [
+    22.0
+   ],
+   "eyeToRearOpeningMm": null,
+   "screenshotEyeMm": null,
+   "agreementPct": null,
+   "predictedOpeningPx": null,
+   "measuredOpeningPx": null,
+   "confidence": "none",
+   "inTestSet": false,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": [
+    "not drawn: front post missing"
+   ]
+  },
+  "z84m": {
+   "inGameName": "Z84M",
+   "ironBundle": "dpf_pkm_ironsight_1m6l7xr_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    131.0,
+    -232.2
+   ],
+   "renderFov": 29.0,
+   "adsRenderFovFromBlueprint": [
+    29.0
+   ],
+   "eyeToRearOpeningMm": null,
+   "screenshotEyeMm": null,
+   "agreementPct": null,
+   "predictedOpeningPx": null,
+   "measuredOpeningPx": null,
+   "confidence": "none",
+   "inTestSet": false,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": [
+    "render FOV 29 from the current blueprint (fov-wb.json); not in the 2026-09-16 file",
+    "not drawn: front missing"
+   ]
+  },
+  "es57": {
+   "inGameName": "ES 5.7",
+   "ironBundle": "dpf_fiveseven_sightcover_gt2pb4_bundle_1p",
+   "mdSightMainMm": null,
+   "renderFov": 55.0,
+   "adsRenderFovFromBlueprint": [
+    55.0
+   ],
+   "eyeToRearOpeningMm": null,
+   "screenshotEyeMm": null,
+   "agreementPct": null,
+   "predictedOpeningPx": null,
+   "measuredOpeningPx": null,
+   "confidence": "none",
+   "inTestSet": false,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": [
+    "screenshot shows the 3-dot notch and post (the 'ironsights' record), not the sightcover; meshes hold one sight only"
+   ]
+  },
+  "ggh22": {
+   "inGameName": "GGH-22",
+   "ironBundle": "dpf_g22_ironsights_114mm_1til9ov_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    45.7,
+    -360.0
+   ],
+   "renderFov": 55.0,
+   "adsRenderFovFromBlueprint": [
+    55.0
+   ],
+   "eyeToRearOpeningMm": 413.4,
+   "screenshotEyeMm": 416.8,
+   "agreementPct": 0.8,
+   "predictedOpeningPx": 8.0,
+   "measuredOpeningPx": 8.0,
+   "confidence": "high",
+   "inTestSet": false,
+   "visualCheck": "MD eye matches the opening; the drawn rear block is narrower than the in-game rear sight",
+   "handCheck": null,
+   "flags": [
+    "pistol: MD.Sight.Main y 46 mm is far below the sight line y 105 mm (size check only)"
+   ]
+  },
+  "m357trait": {
+   "inGameName": "M357 Trait",
+   "ironBundle": null,
+   "mdSightMainMm": null,
+   "renderFov": 55.0,
+   "adsRenderFovFromBlueprint": [
+    55.0
+   ],
+   "eyeToRearOpeningMm": null,
+   "screenshotEyeMm": null,
+   "agreementPct": null,
+   "predictedOpeningPx": null,
+   "measuredOpeningPx": null,
+   "confidence": "none",
+   "inTestSet": false,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": [
+    "not drawn: frame notch and blade not found in the sight meshes; no MD.Sight.Main on its records"
+   ]
+  },
+  "m44": {
+   "inGameName": "M44",
+   "ironBundle": "dpf_raginghunter_ironsights_bogiqs_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    88.6,
+    -350.0
+   ],
+   "renderFov": 48.0,
+   "adsRenderFovFromBlueprint": [
+    48.0
+   ],
+   "eyeToRearOpeningMm": 362.4,
+   "screenshotEyeMm": 568.1,
+   "agreementPct": 56.8,
+   "predictedOpeningPx": 7.9,
+   "measuredOpeningPx": 5.0,
+   "confidence": "low",
+   "inTestSet": false,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": [
+    "not drawn: frame notch and blade missing from the sight meshes",
+    "best fit at the edge of the search window",
+    "pistol: MD.Sight.Main y 89 mm is far below the sight line y -103 mm (size check only)"
+   ]
+  },
+  "m45a1": {
+   "inGameName": "M45A1",
+   "ironBundle": "dpf_m45a1_ironsights_acrn64_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    52.5,
+    -350.0
+   ],
+   "renderFov": 45.0,
+   "adsRenderFovFromBlueprint": [
+    45.0
+   ],
+   "eyeToRearOpeningMm": 450.3,
+   "screenshotEyeMm": 694.4,
+   "agreementPct": 54.2,
+   "predictedOpeningPx": 8.0,
+   "measuredOpeningPx": 5.2,
+   "confidence": "high",
+   "inTestSet": false,
+   "visualCheck": "rear block width matches at the MD eye; the drawn notch is narrower than in game (mesh notch 3.5 mm wide, 2 mm deep)",
+   "handCheck": {
+    "rearOpeningPx": 20,
+    "confidence": "rough",
+    "offPct": 149.1,
+    "source": "shots/hand/set1-3.md (subagents reading gridded crops)"
+   },
+   "flags": [
+    "pistol: MD.Sight.Main y 52 mm is far below the sight line y 106 mm (size check only)"
+   ]
+  },
+  "p18": {
+   "inGameName": "P18",
+   "ironBundle": "dpf_m18_ironsights_skacjw_bundle_1p",
+   "mdSightMainMm": [
+    0.1,
+    57.9,
+    -350.0
+   ],
+   "renderFov": 55.0,
+   "adsRenderFovFromBlueprint": [
+    55.0
+   ],
+   "eyeToRearOpeningMm": 439.4,
+   "screenshotEyeMm": 421.8,
+   "agreementPct": -4.0,
+   "predictedOpeningPx": 11.9,
+   "measuredOpeningPx": 12.4,
+   "confidence": "high",
+   "inTestSet": true,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": [
+    "pistol: MD.Sight.Main y 58 mm is far below the sight line y 117 mm (size check only)"
+   ]
+  },
+  "vz61": {
+   "inGameName": "vz. 61",
+   "ironBundle": "dpf_skorpion_ironsights_u1z3os_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    78.1,
+    -150.0
+   ],
+   "renderFov": 50.0,
+   "adsRenderFovFromBlueprint": [
+    50.0
+   ],
+   "eyeToRearOpeningMm": 169.9,
+   "screenshotEyeMm": 201.7,
+   "agreementPct": 18.7,
+   "predictedOpeningPx": 25.7,
+   "measuredOpeningPx": 21.6,
+   "confidence": "low",
+   "inTestSet": false,
+   "visualCheck": "MD eye matches the screenshot better; the free fit locked onto other edges",
+   "handCheck": {
+    "rearOpeningPx": 24.5,
+    "confidence": "rough",
+    "offPct": -4.6,
+    "source": "shots/hand/set1-3.md (subagents reading gridded crops)"
+   },
+   "flags": [
+    "best fit at the edge of the search window"
+   ]
+  },
+  "ks18k": {
+   "inGameName": "18.5KS-K",
+   "ironBundle": "dpf_185ksk_ironsights_1mk7cga_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    103.9,
+    -160.0
+   ],
+   "renderFov": 30.0,
+   "adsRenderFovFromBlueprint": [
+    30.0
+   ],
+   "eyeToRearOpeningMm": 352.6,
+   "screenshotEyeMm": 446.9,
+   "agreementPct": 26.7,
+   "predictedOpeningPx": 12.6,
+   "measuredOpeningPx": 9.9,
+   "confidence": "high",
+   "inTestSet": false,
+   "visualCheck": "MD eye matches the screenshot better; the free fit locked onto other edges",
+   "handCheck": {
+    "rearOpeningPx": 11.5,
+    "confidence": "rough",
+    "offPct": -8.7,
+    "source": "shots/hand/set1-3.md (subagents reading gridded crops)"
+   },
+   "flags": []
+  },
+  "db12": {
+   "inGameName": "DB-12",
+   "ironBundle": "dpf_dp12_sights_12rhw40_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    150.1,
+    -180.0
+   ],
+   "renderFov": 32.0,
+   "adsRenderFovFromBlueprint": [
+    32.0
+   ],
+   "eyeToRearOpeningMm": 227.0,
+   "screenshotEyeMm": 228.9,
+   "agreementPct": 0.8,
+   "predictedOpeningPx": 34.5,
+   "measuredOpeningPx": 34.2,
+   "confidence": "high",
+   "inTestSet": true,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": []
+  },
+  "m1014": {
+   "inGameName": "M1014",
+   "ironBundle": "dpf_m1014_sight_8x87fv_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    123.0,
+    -140.0
+   ],
+   "renderFov": 25.0,
+   "adsRenderFovFromBlueprint": [
+    25.0
+   ],
+   "eyeToRearOpeningMm": 179.8,
+   "screenshotEyeMm": 178.3,
+   "agreementPct": -0.8,
+   "predictedOpeningPx": 60.7,
+   "measuredOpeningPx": 61.2,
+   "confidence": "high",
+   "inTestSet": true,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": []
+  },
+  "m87a1": {
+   "inGameName": "M87A1",
+   "ironBundle": "dpf_590a1_ironsight_wn9hy1_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    81.9,
+    -60.0
+   ],
+   "renderFov": 40.0,
+   "adsRenderFovFromBlueprint": [
+    40.0
+   ],
+   "eyeToRearOpeningMm": null,
+   "screenshotEyeMm": null,
+   "agreementPct": null,
+   "predictedOpeningPx": null,
+   "measuredOpeningPx": null,
+   "confidence": "none",
+   "inTestSet": false,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": [
+    "not drawn: ghost-ring rear and post missing"
+   ]
+  },
+  "cz3a1": {
+   "inGameName": "CZ3A1",
+   "ironBundle": "dpf_scorpionevo3_ironsights_h5gtyn_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    124.6,
+    -150.0
+   ],
+   "renderFov": 48.0,
+   "adsRenderFovFromBlueprint": [
+    48.0
+   ],
+   "eyeToRearOpeningMm": 124.9,
+   "screenshotEyeMm": 123.9,
+   "agreementPct": -0.8,
+   "predictedOpeningPx": 40.1,
+   "measuredOpeningPx": 40.4,
+   "confidence": "high",
+   "inTestSet": true,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": []
+  },
+  "kv9": {
+   "inGameName": "KV9",
+   "ironBundle": "dpf_vector_sight_1fnjra_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    93.6,
+    -190.0
+   ],
+   "renderFov": 42.0,
+   "adsRenderFovFromBlueprint": [
+    42.0
+   ],
+   "eyeToRearOpeningMm": 190.6,
+   "screenshotEyeMm": 192.2,
+   "agreementPct": 0.8,
+   "predictedOpeningPx": 35.4,
+   "measuredOpeningPx": 35.1,
+   "confidence": "high",
+   "inTestSet": true,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": []
+  },
+  "pp19": {
+   "inGameName": "PP-19",
+   "ironBundle": "dpf_pp19_ironsights_yvxzpj_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    102.2,
+    -150.0
+   ],
+   "renderFov": 44.21893,
+   "adsRenderFovFromBlueprint": [
+    44.218929
+   ],
+   "eyeToRearOpeningMm": null,
+   "screenshotEyeMm": null,
+   "agreementPct": null,
+   "predictedOpeningPx": null,
+   "measuredOpeningPx": null,
+   "confidence": "none",
+   "inTestSet": false,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": [
+    "not drawn: parts missing"
+   ]
+  },
+  "pw5a3": {
+   "inGameName": "PW5A3",
+   "ironBundle": "dpf_mp5mli_ironsight_1ocy07o_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    111.7,
+    -250.0
+   ],
+   "renderFov": 32.0,
+   "adsRenderFovFromBlueprint": [
+    32.0
+   ],
+   "eyeToRearOpeningMm": 231.5,
+   "screenshotEyeMm": 229.6,
+   "agreementPct": -0.8,
+   "predictedOpeningPx": 68.3,
+   "measuredOpeningPx": 68.8,
+   "confidence": "high",
+   "inTestSet": true,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": []
+  },
+  "pw7a2": {
+   "inGameName": "PW7A2",
+   "ironBundle": "dpf_mp7a2_sight_m00lnq_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    119.9,
+    -230.0
+   ],
+   "renderFov": 50.0,
+   "adsRenderFovFromBlueprint": [
+    50.0
+   ],
+   "eyeToRearOpeningMm": 138.3,
+   "screenshotEyeMm": 137.2,
+   "agreementPct": -0.8,
+   "predictedOpeningPx": 52.7,
+   "measuredOpeningPx": 53.1,
+   "confidence": "high",
+   "inTestSet": true,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": []
+  },
+  "pw7a2:cqb_sights": {
+   "inGameName": "PW7A2 (cqb sights)",
+   "ironBundle": "dpf_mp7a2_sightscqb_1bzygud_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    99.3,
+    -230.0
+   ],
+   "renderFov": 50.0,
+   "adsRenderFovFromBlueprint": [
+    50.0
+   ],
+   "eyeToRearOpeningMm": 124.5,
+   "screenshotEyeMm": 138.5,
+   "agreementPct": 11.2,
+   "predictedOpeningPx": 20.2,
+   "measuredOpeningPx": 18.1,
+   "confidence": "high",
+   "inTestSet": false,
+   "visualCheck": "ambiguous: the MD eye and the measured eye both look plausible",
+   "handCheck": {
+    "rearOpeningPx": 22.5,
+    "confidence": "good",
+    "offPct": 11.5,
+    "source": "shots/hand/set1-3.md (subagents reading gridded crops)"
+   },
+   "flags": []
+  },
+  "rspr": {
+   "inGameName": "RSPR",
+   "ironBundle": "dpf_rsar999_sight_1np5pse_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    129.2,
+    -145.0
+   ],
+   "renderFov": 43.0,
+   "adsRenderFovFromBlueprint": [
+    43.0
+   ],
+   "eyeToRearOpeningMm": 161.3,
+   "screenshotEyeMm": 160.0,
+   "agreementPct": -0.8,
+   "predictedOpeningPx": 22.4,
+   "measuredOpeningPx": 22.5,
+   "confidence": "high",
+   "inTestSet": true,
+   "visualCheck": null,
+   "handCheck": {
+    "rearOpeningPx": 22,
+    "confidence": "rough",
+    "offPct": -1.6,
+    "source": "shots/hand/set1-3.md (subagents reading gridded crops)"
+   },
+   "flags": [
+    "render FOV 43 from the current blueprint (fov-wb.json); not in the 2026-09-16 file"
+   ]
+  },
+  "scw10": {
+   "inGameName": "SCW-10",
+   "ironBundle": "dpf_apc10_sight_1sajjf2_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    144.9,
+    -247.9
+   ],
+   "renderFov": 45.0,
+   "adsRenderFovFromBlueprint": [
+    45.0
+   ],
+   "eyeToRearOpeningMm": 222.5,
+   "screenshotEyeMm": 224.3,
+   "agreementPct": 0.8,
+   "predictedOpeningPx": 27.3,
+   "measuredOpeningPx": 27.1,
+   "confidence": "medium",
+   "inTestSet": true,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": []
+  },
+  "sgx": {
+   "inGameName": "SGX",
+   "ironBundle": "dpf_mpx_sight_zld2zq_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    133.4,
+    -160.0
+   ],
+   "renderFov": 42.0,
+   "adsRenderFovFromBlueprint": [
+    42.0
+   ],
+   "eyeToRearOpeningMm": 149.9,
+   "screenshotEyeMm": 216.5,
+   "agreementPct": 44.5,
+   "predictedOpeningPx": 66.1,
+   "measuredOpeningPx": 45.7,
+   "confidence": "medium",
+   "inTestSet": false,
+   "visualCheck": "the free fit locked onto the front crescent; the drawn front matches it at the MD eye (shots/qz_0.png)",
+   "handCheck": {
+    "rearOpeningPx": 58.5,
+    "confidence": "rough",
+    "offPct": -11.5,
+    "source": "shots/hand/set1-3.md (subagents reading gridded crops)"
+   },
+   "flags": []
+  },
+  "sl9": {
+   "inGameName": "SL9",
+   "ironBundle": "dpf_apdw_sights_1hqegkd_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    102.9,
+    -180.0
+   ],
+   "renderFov": 55.0,
+   "adsRenderFovFromBlueprint": [
+    55.0
+   ],
+   "eyeToRearOpeningMm": 130.4,
+   "screenshotEyeMm": 129.3,
+   "agreementPct": -0.8,
+   "predictedOpeningPx": 43.3,
+   "measuredOpeningPx": 43.6,
+   "confidence": "high",
+   "inTestSet": true,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": []
+  },
+  "umg40": {
+   "inGameName": "UMG-40",
+   "ironBundle": "dpf_ump40_sight_1542tou_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    135.2,
+    -260.0
+   ],
+   "renderFov": 28.0,
+   "adsRenderFovFromBlueprint": [
+    28.0
+   ],
+   "eyeToRearOpeningMm": 245.4,
+   "screenshotEyeMm": 311.0,
+   "agreementPct": 26.7,
+   "predictedOpeningPx": 57.4,
+   "measuredOpeningPx": 45.3,
+   "confidence": "medium",
+   "inTestSet": false,
+   "visualCheck": "the drawn rear ring and front ring both sit on the screenshot rings at the MD eye (shots/qz_0.png)",
+   "handCheck": {
+    "rearOpeningPx": 41,
+    "confidence": "rough",
+    "offPct": -28.6,
+    "source": "shots/hand/set1-3.md (subagents reading gridded crops)"
+   },
+   "flags": []
+  },
+  "umg40:cqb_sights": {
+   "inGameName": "UMG-40 (cqb sights)",
+   "ironBundle": "dpf_ump40_cqcsights_192t1os_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    135.2,
+    -260.0
+   ],
+   "renderFov": 28.0,
+   "adsRenderFovFromBlueprint": [
+    28.0
+   ],
+   "eyeToRearOpeningMm": 253.4,
+   "screenshotEyeMm": 366.1,
+   "agreementPct": 44.5,
+   "predictedOpeningPx": 38.6,
+   "measuredOpeningPx": 26.7,
+   "confidence": "medium",
+   "inTestSet": false,
+   "visualCheck": "MD eye matches the screenshot better; the free fit locked onto other edges",
+   "handCheck": {
+    "rearOpeningPx": 39,
+    "confidence": "rough",
+    "offPct": 1.1,
+    "source": "shots/hand/set1-3.md (subagents reading gridded crops)"
+   },
+   "flags": []
+  },
+  "usg90": {
+   "inGameName": "USG-90",
+   "ironBundle": "dpf_p90_sight_wq3n6u_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    171.6,
+    -160.0
+   ],
+   "renderFov": 50.0,
+   "adsRenderFovFromBlueprint": [
+    50.0
+   ],
+   "eyeToRearOpeningMm": 135.8,
+   "screenshotEyeMm": 136.9,
+   "agreementPct": 0.8,
+   "predictedOpeningPx": 40.9,
+   "measuredOpeningPx": 40.6,
+   "confidence": "medium",
+   "inTestSet": true,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": []
+  },
+  "elr40": {
+   "inGameName": "ELR-40",
+   "ironBundle": "dpf_cdx40_ironsight_nnkbk6_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    156.7,
+    -175.0
+   ],
+   "renderFov": 28.0,
+   "adsRenderFovFromBlueprint": [
+    28.0
+   ],
+   "eyeToRearOpeningMm": 276.8,
+   "screenshotEyeMm": 279.1,
+   "agreementPct": 0.8,
+   "predictedOpeningPx": 37.3,
+   "measuredOpeningPx": 37.0,
+   "confidence": "medium",
+   "inTestSet": true,
+   "visualCheck": null,
+   "handCheck": {
+    "rearOpeningPx": 36.5,
+    "confidence": "good",
+    "offPct": -2.1,
+    "source": "shots/hand/set1-3.md (subagents reading gridded crops)"
+   },
+   "flags": [
+    "render FOV 28 from the current blueprint (fov-wb.json); not in the 2026-09-16 file"
+   ]
+  },
+  "interdictor": {
+   "inGameName": "Interdictor",
+   "ironBundle": "dpf_deserttechhti_ironsights_z89399_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    131.2,
+    -280.0
+   ],
+   "renderFov": 32.0,
+   "adsRenderFovFromBlueprint": [
+    32.0
+   ],
+   "eyeToRearOpeningMm": 220.8,
+   "screenshotEyeMm": 222.6,
+   "agreementPct": 0.8,
+   "predictedOpeningPx": 31.8,
+   "measuredOpeningPx": 31.6,
+   "confidence": "medium",
+   "inTestSet": true,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": []
+  },
+  "l115": {
+   "inGameName": "L115",
+   "ironBundle": "dpf_l115a3_ironsight27in_hg69ac_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    105.7,
+    -203.8
+   ],
+   "renderFov": 34.0,
+   "adsRenderFovFromBlueprint": [
+    34.0
+   ],
+   "eyeToRearOpeningMm": 291.8,
+   "screenshotEyeMm": 284.7,
+   "agreementPct": -2.4,
+   "predictedOpeningPx": 23.7,
+   "measuredOpeningPx": 24.3,
+   "confidence": "high",
+   "inTestSet": true,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": []
+  },
+  "m2010esr": {
+   "inGameName": "M2010 ESR",
+   "ironBundle": "dpf_m2010esr_sight_p43xjw_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    133.3,
+    -150.0
+   ],
+   "renderFov": 28.0,
+   "adsRenderFovFromBlueprint": [
+    28.0,
+    59.0,
+    55.0
+   ],
+   "eyeToRearOpeningMm": 213.7,
+   "screenshotEyeMm": 212.0,
+   "agreementPct": -0.8,
+   "predictedOpeningPx": 56.2,
+   "measuredOpeningPx": 56.7,
+   "confidence": "medium",
+   "inTestSet": true,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": []
+  },
+  "miniscout": {
+   "inGameName": "Mini Scout",
+   "ironBundle": "dpf_minifix_sightextended_1ympchn_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    132.6,
+    -175.0
+   ],
+   "renderFov": 28.0,
+   "adsRenderFovFromBlueprint": [
+    28.0
+   ],
+   "eyeToRearOpeningMm": 223.7,
+   "screenshotEyeMm": 225.5,
+   "agreementPct": 0.8,
+   "predictedOpeningPx": 46.5,
+   "measuredOpeningPx": 46.1,
+   "confidence": "high",
+   "inTestSet": true,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": []
+  },
+  "psr": {
+   "inGameName": "PSR",
+   "ironBundle": "dpf_mrad_sight_znapss_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    136.1,
+    -200.0
+   ],
+   "renderFov": 28.0,
+   "adsRenderFovFromBlueprint": [
+    28.0
+   ],
+   "eyeToRearOpeningMm": 212.6,
+   "screenshotEyeMm": 210.9,
+   "agreementPct": -0.8,
+   "predictedOpeningPx": 56.5,
+   "measuredOpeningPx": 57.0,
+   "confidence": "medium",
+   "inTestSet": true,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": []
+  },
+  "sv98": {
+   "inGameName": "SV-98",
+   "ironBundle": "dpf_sv98m_sights650mm_mxmkvw_bundle_1p",
+   "mdSightMainMm": [
+    0.0,
+    99.8,
+    -140.0
+   ],
+   "renderFov": 36.0,
+   "adsRenderFovFromBlueprint": [
+    36.0
+   ],
+   "eyeToRearOpeningMm": null,
+   "screenshotEyeMm": null,
+   "agreementPct": null,
+   "predictedOpeningPx": null,
+   "measuredOpeningPx": null,
+   "confidence": "none",
+   "inTestSet": false,
+   "visualCheck": null,
+   "handCheck": null,
+   "flags": [
+    "not drawn: rear notch block missing"
+   ]
+  }
+ }
+}
