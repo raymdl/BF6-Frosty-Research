@@ -1295,6 +1295,57 @@ badge; no numeric change is supported without a typed field or consumer.
 
 [Receipt](../../reference-data/provenance/frosty-2026-10-30-L4073-match-trigger-2110-and-capture-brief.json). The site applies the Match Trigger only in semi-automatic fire since site commit `81371d5` (24 October): `data/attachments.json` ERGOS `match_trigger.semiAuto` holds ADS and hip recoil tier +3, recovery factor x1.728 and spread increase x0, and `sim/applyAttachments.js` gates it to the selected single mode with a semi mechanism. Those values equal the 2.1.1.0 source: `GRM_MatchTrigger_ERG_P15` raw-checks +3 (offsets 1144 and 616) and 1.7280000448 (924 and 396) with the same hash as 1.4.3.0 and 1.4.3.5, `GBM_NoIncrease_ERG_P00` is byte-identical with x0 at 912, 644, 376 and 108, and the gate flag `Field_9ca063e9` is true at offset 84 in both (253 raw reads). 28 weapons have a Match Trigger attachment file (26 on the site: the 24 of L24 plus Mk 24 and RSPR; M44 and Devgru are not site weapons); all 28 GS files bind the same GRM and GBM, and 26 WB files keep the local mask-1 selector chain. The M433 (`HK433_WB`) no longer holds the local chain: it imports `WPM_ERG_MatchTrigger_W15` (482 bytes), which holds only selector GUID `3eaeac2e` with an empty effect list, so the package replaces the local selector object and adds nothing; identifier `15cff9ff` is the object GUID of `U_WPM_ERG_MatchTriggerActive`, present only in the hotfix captures. The semi gate (mask 1, header flag) is still an inference and activation is unproven. Predictions for the capture (M433, ADS, 10 m, hole 2 above hole 1, bare against Match Trigger): 150 ms 7.54 against 4.45 cm, 200 ms 4.97 against 1.92 cm, 300 ms 0.97 against 0.00 cm; at 200 ms hole 5 sits 8.87 cm above hole 1 bare against 2.61 cm; auto shows no difference. The final brief (200 ms pairs, semi then auto, an AK4D control because the M433 chain differs) is `L4073/capture-brief.md` in the 30 October run folder and waits for the operator.
 
+**19 November 2026 (2.1.2.0 raw capture and recordings).** A byte search of the 2.1.2.0 raw files
+finds the import GUIDs of `GRM_MatchTrigger_ERG_P15` (`9e4de4fd`) and `GBM_NoIncrease_ERG_P00`
+(`cccd28b8`) once each, and identifier `15cff9ff` twice, in all 27 GS files of weapons with a
+standard Match Trigger, `GS_Devgru` (NSW4) included; both modifier files have the 2.1.1.0 hashes.
+The identifier is in 26 of the 27 WB files and absent from `HK433_WB` only. A further 24 GS files
+of weapons with no Match Trigger attachment (SMGs, belt LMGs, DMRs, shotguns) hold the identifier
+once and import the GRM but not the GBM; 19 GS files hold neither. Traced the same day (decoded 2.1.2.0 `M4A1_WB`, `HK433_WB`, `WPM_ERG_MatchTrigger_W15`; byte search of
+all 42,073 captured EBX files): the identifier occurs only in those 51 GS files and 26 WB files, so
+nothing else in the capture defines or sets it. In `M4A1_WB` the chain is selector `3eaeac2e`
+(`Class_897c99a7`, object 49) -> effect `Class_10713bed` (object 32) -> group `Class_1e5eeaaa`
+(object 56) -> record `Class_9dfbb158` (object 35: identifier `15cff9ff`, mask 1) plus three other
+conditions. `HK433_WB` has no object naming the selector, no `Class_10713bed` and no
+`Class_9dfbb158`; it imports `WPM_ERG_MatchTrigger_W15` (file GUID `36d9d2e2`), whose
+`Class_897c99a7` object holds the selector with an empty effect list, and it is the only WB that
+imports that package. By raw bytes `HK433_WB` held the local chain in 1.4.2.5, 1.4.3.0 and one
+1.4.3.5 copy, and the package import from another 1.4.3.5 copy onward (2.1.1.0, 2.1.2.0). So on the
+M433 the Match Trigger selector has no effect and the GS bindings are keyed on an identifier the
+weapon never defines; the 24 weapons without a Match Trigger are in the same state (GS binding
+left over, no WB record). The M433 recordings above agree. Control pairs recorded the same way on weapons that hold the WB
+chain show the recoil effects active: NSW4 28 and 29 shots, mean view kick 51.9 against 66.0 px
+(ratio 0.79), time to recover 80% of the kick 188 against 248 ms; B36A4 30 and 29 shots, 44.7
+against 54.4 px (0.82), 189 against 236 ms. Predicted kick ratio 0.844. This closes the L17 capture
+for activation: the recoil tier and recovery effects are live in semi on weapons with the chain and
+absent on the M433.
+
+**Binding-key scan (19 November 2026, 2.1.2.0).** To look for other bindings like the M433's, every
+keyed entry in all 70 GS files was listed (9,228 bindings, 259 keys) and each key searched for in
+the 42,073 captured files. 253 keys are unlock-asset GUIDs and six are embedded identifiers: the
+Match Trigger and semi-auto ones above, two single-player ones (`GS_SV98M`, defined; `GS_SVCh`,
+defined nowhere), an LPVO camera-recoil binding on `GS_KSG` keyed on nothing, and a PP-19 compact
+magazine key (`f7e5a764`) held only by package `WPM_MAG_020Cpt2_PP19_W05`, which no unlock asset or
+ability entry reaches. No second case affects a site weapon's multiplayer values. 76 asset keys are
+bound in GS files of weapons whose own files never name them, read as template leftovers and not
+checked one by one. The reverse check (site effect with nothing stored) used the 2.1.2.0 description-scan
+extract and the 24 October site mapping: ten site choices have no stored effect (nine Underslung Mounts and
+the M433 Match Trigger) and the site changes nothing for them; no weapon-side-only choice was judged a
+mismatch. It does not cover the NSW4 or effect sizes. [Receipt](../../reference-data/provenance/frosty-2026-11-19-gs-binding-key-scan.json). `Devgru_WB` no longer
+has the direct `U_WPM_ERG_MatchTriggerActive` binding of 2.1.1.0, so the 2.1.2.0
+description-versus-effect flag on the NSW4 ("claims recoil, none stored") is a scan artifact.
+Operator recordings (Analyzer `reference-data/Recordings/11192026/Semi Auto Spread/`; hashes, measurements
+and stills in Analyzer `reference-data/provenance/semi-auto-match-trigger-2026-11-19.md`; standing ADS,
+4.50x optic) give: spread activation observed in semi on the Mk 24 and NSW4 (bare blooms per shot,
+Match Trigger does not); and on the M433 at about 0.9 s spacing, 59 bare and 60 Match Trigger
+shots, no recoil or recovery change (mean view kick 65.0 against 63.9 px, ratio 0.98; time to
+recover 80% of the kick 236 ms in both; predicted 0.84 and a 1.728 times faster recovery). Method:
+frame-to-frame phase correlation of the unmagnified ceiling band. Limits: the four clip means
+range 60 to 68 px with 2 px scatter inside each clip, cause unknown, and no weapon with the WB
+chain has been recorded the same way, so this does not yet separate an M433-only gap from a
+recoil effect that is inactive everywhere. The operator states Match Trigger has no effect in
+automatic fire; an early EF88 and BROD 3 bug that applied it there has been fixed.
+
 ### Match Trigger indirect effects (L17, 24 September 2026)
 
 The [raw HK433 trace](../../reference-data/provenance/frosty-2026-09-24-L17-match-trigger-indirect-effects.json)

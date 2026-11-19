@@ -1,0 +1,1995 @@
+{
+ "date": "2026-11-19",
+ "build": "2.1.2.0 raw capture (42,073 EBX files)",
+ "question": "Does any gun-sway (GS) effect binding other than the M433 Match Trigger depend on a key that the weapon never defines?",
+ "method": "Decoded all 70 GS files with scripts/frosty-ebx-decode.py and took every entry holding Field_6d011165 (9,228 bindings, 259 distinct keys). Byte-searched every captured file for each key. A key is an asset key when it is the object GUID at offset 32 of a captured file (253 keys: attachment and trait unlock assets), otherwise an embedded identifier (6 keys). For asset keys, counted the weapons whose own folder holds no non-GS file containing the key.",
+ "embeddedIdentifiers": [
+  {
+   "key": "15cff9ff-aab0-4230-9a53-5a2bb1606587",
+   "gsFiles": 51,
+   "effects": "GRM_MatchTrigger_ERG_P15 (51), GBM_NoIncrease_ERG_P00 (27)",
+   "definedIn": "26 WB files (Class_9dfbb158 record)",
+   "result": "Known. Undefined on the M433 (bug) and on 24 weapons with no Match Trigger attachment (inert leftover)."
+  },
+  {
+   "key": "ba7bb6a2-22ed-462f-b701-badece5a4a6c",
+   "gsFiles": 42,
+   "effects": "GBM_NoIncrease_Semi_P00",
+   "definedIn": "CMU_SemiAuto",
+   "result": "Known global semi-auto condition; missing on EF88, BROD 3, Mk 24, NSW4 (Analyzer bug entry 26)."
+  },
+  {
+   "key": "10d6d9eb-7d47-46ff-b48f-a71dcbe6d1f2",
+   "gsFiles": 1,
+   "effects": "GDM_SP_Enemy_Recon_SV98m",
+   "definedIn": "SV98M_WB",
+   "result": "Single-player effect; defined."
+  },
+  {
+   "key": "a7d5526e-6474-4c3c-b54f-fdf97b5b14ac",
+   "gsFiles": 1,
+   "effects": "GDM_SP_Marksman_SVCh, GRM_SVCh_Marksman_SP",
+   "definedIn": "no captured file",
+   "result": "Single-player effects on GS_SVCh keyed on an identifier nothing defines; not traced further."
+  },
+  {
+   "key": "7b95563d-9804-4101-a191-349344bea9d2",
+   "gsFiles": 1,
+   "effects": "GCR_LPVO_4x00-4W_P00",
+   "definedIn": "no captured file",
+   "result": "Camera-recoil binding on GS_KSG (not a site weapon) keyed on an identifier nothing defines."
+  },
+  {
+   "key": "f7e5a764-22c3-4620-b97a-2b6c142f7005",
+   "gsFiles": 1,
+   "effects": "GDM_Array_ADSMoveDispersion_MAG_P10",
+   "definedIn": "WPM_MAG_020Cpt2_PP19_W05 (selector key, 8 effects)",
+   "result": "PP19_WB imports the package, but no unlock asset has this GUID and PP19_Ability does not list it (it lists 020Cpt3 and 025Cpt1). Reads as an unreachable leftover magazine variant."
+  }
+ ],
+ "assetKeysWithWeaponsLackingAReference": {
+  "count": 76,
+  "of": 253,
+  "reading": "Bindings for attachments or traits the weapon's own files never name, consistent with GS files built from a shared template. Not verified key by key.",
+  "rows": [
+   {
+    "key": "b9e5e8e5-1d51-45ec-99d2-2b77b0144dfc",
+    "asset": "U_Ability_MountedPlus.ebx",
+    "weaponsWithoutReference": 70,
+    "weaponsWithReference": 0,
+    "topEffects": [
+     "GRM_MountedPlusHorizontal",
+     "GRM_MountedPlusVertical"
+    ],
+    "weapons": [
+     "185KSK",
+     "590A1",
+     "6P67",
+     "ACE32",
+     "AK205",
+     "APC10",
+     "APDW",
+     "ARADMR",
+     "BREN3",
+     "CDX40",
+     "DEVGRU",
+     "DP12",
+     "DesertTechHTI",
+     "EF88",
+     "FiveSeven",
+     "G22",
+     "G36",
+     "G3A4",
+     "HK417A2",
+     "HK433",
+     "KSG",
+     "L115A3",
+     "L85A3",
+     "M1014",
+     "M16A3",
+     "M18",
+     "M2010ESR",
+     "M240L",
+     "M250",
+     "M27IAR",
+     "M39EMR",
+     "M45A1",
+     "M4A1",
+     "M60E6",
+     "MG4K",
+     "MG5",
+     "MP5MLI",
+     "MP7A2",
+     "MPX",
+     "MRAD",
+     "MRGGA",
+     "MRGGS",
+     "MSBSGROTB",
+     "MSBSGROTCPS",
+     "MiniFix",
+     "Minimi",
+     "P90",
+     "PKM",
+     "PP19",
+     "QBZ192",
+     "RPK74M",
+     "RPKM",
+     "RSAR999",
+     "RagingHunter",
+     "SCARL",
+     "SCARSC",
+     "SIG553R",
+     "SV98M",
+     "SVCh",
+     "SVDM",
+     "ScorpionEvo3",
+     "Skorpion",
+     "TAVOR7",
+     "TRR8",
+     "UMP40",
+     "Ultimax",
+     "VHS2",
+     "VSSM",
+     "Vector",
+     "XM7"
+    ]
+   },
+   {
+    "key": "c2bc18e2-04e3-4cb6-ae79-d641d4cdb7e5",
+    "asset": "U_WPM_SCP_HISSHD.ebx",
+    "weaponsWithoutReference": 50,
+    "weaponsWithReference": 14,
+    "topEffects": [
+     "GCR_06x00_P00"
+    ],
+    "weapons": [
+     "185KSK",
+     "590A1",
+     "6P67",
+     "ACE32",
+     "AK205",
+     "APC10",
+     "APDW",
+     "BREN3",
+     "DP12",
+     "EF88",
+     "FiveSeven",
+     "G22",
+     "G36",
+     "G3A4",
+     "HK417A2",
+     "HK433",
+     "KSG",
+     "L85A3",
+     "M1014",
+     "M16A3",
+     "M18",
+     "M240L",
+     "M250",
+     "M45A1",
+     "M4A1",
+     "M60E6",
+     "MG4K",
+     "MG5",
+     "MP5MLI",
+     "MP7A2",
+     "MPX",
+     "MSBSGROTB",
+     "Minimi",
+     "P90",
+     "PP19",
+     "QBZ192",
+     "RPKM",
+     "RagingHunter",
+     "SCARL",
+     "SCARSC",
+     "SIG553R",
+     "ScorpionEvo3",
+     "TAVOR7",
+     "TRR8",
+     "UMP40",
+     "Ultimax",
+     "VHS2",
+     "VSSM",
+     "Vector",
+     "XM7"
+    ]
+   },
+   {
+    "key": "78bcf770-19bd-45d6-af75-9a067e00c783",
+    "asset": "U_WPM_SCA_Variable_4x.ebx",
+    "weaponsWithoutReference": 50,
+    "weaponsWithReference": 14,
+    "topEffects": [
+     "GCR_Variable_4x00_P00"
+    ],
+    "weapons": [
+     "185KSK",
+     "590A1",
+     "6P67",
+     "ACE32",
+     "AK205",
+     "APC10",
+     "APDW",
+     "BREN3",
+     "DP12",
+     "EF88",
+     "FiveSeven",
+     "G22",
+     "G36",
+     "G3A4",
+     "HK417A2",
+     "HK433",
+     "KSG",
+     "L85A3",
+     "M1014",
+     "M16A3",
+     "M18",
+     "M240L",
+     "M250",
+     "M27IAR",
+     "M45A1",
+     "M4A1",
+     "M60E6",
+     "MG4K",
+     "MG5",
+     "MP5MLI",
+     "MP7A2",
+     "MPX",
+     "MSBSGROTB",
+     "Minimi",
+     "P90",
+     "PP19",
+     "QBZ192",
+     "RPKM",
+     "RagingHunter",
+     "SCARL",
+     "SCARSC",
+     "SIG553R",
+     "ScorpionEvo3",
+     "TAVOR7",
+     "TRR8",
+     "UMP40",
+     "Ultimax",
+     "VHS2",
+     "Vector",
+     "XM7"
+    ]
+   },
+   {
+    "key": "1f984f9a-70a5-4776-80d9-60761244b635",
+    "asset": "U_WPM_SCA_Variable_2x.ebx",
+    "weaponsWithoutReference": 50,
+    "weaponsWithReference": 14,
+    "topEffects": [
+     "GCR_Variable_2x00_P00"
+    ],
+    "weapons": [
+     "185KSK",
+     "590A1",
+     "6P67",
+     "ACE32",
+     "AK205",
+     "APC10",
+     "APDW",
+     "BREN3",
+     "DP12",
+     "EF88",
+     "FiveSeven",
+     "G22",
+     "G36",
+     "G3A4",
+     "HK417A2",
+     "HK433",
+     "KSG",
+     "L85A3",
+     "M1014",
+     "M16A3",
+     "M18",
+     "M240L",
+     "M250",
+     "M27IAR",
+     "M45A1",
+     "M4A1",
+     "M60E6",
+     "MG4K",
+     "MG5",
+     "MP5MLI",
+     "MP7A2",
+     "MPX",
+     "MSBSGROTB",
+     "Minimi",
+     "P90",
+     "PP19",
+     "QBZ192",
+     "RPKM",
+     "RagingHunter",
+     "SCARL",
+     "SCARSC",
+     "SIG553R",
+     "ScorpionEvo3",
+     "TAVOR7",
+     "TRR8",
+     "UMP40",
+     "Ultimax",
+     "VHS2",
+     "Vector",
+     "XM7"
+    ]
+   },
+   {
+    "key": "e2c25355-a944-4763-9598-d3ab5523dfce",
+    "asset": "U_WPM_SCP_SBPMII.ebx",
+    "weaponsWithoutReference": 49,
+    "weaponsWithReference": 15,
+    "topEffects": [
+     "GCR_06x00_P00"
+    ],
+    "weapons": [
+     "185KSK",
+     "590A1",
+     "6P67",
+     "ACE32",
+     "AK205",
+     "APC10",
+     "APDW",
+     "BREN3",
+     "DP12",
+     "EF88",
+     "FiveSeven",
+     "G22",
+     "G36",
+     "G3A4",
+     "HK417A2",
+     "HK433",
+     "KSG",
+     "L85A3",
+     "M1014",
+     "M16A3",
+     "M18",
+     "M240L",
+     "M250",
+     "M45A1",
+     "M4A1",
+     "M60E6",
+     "MG4K",
+     "MG5",
+     "MP5MLI",
+     "MP7A2",
+     "MPX",
+     "MSBSGROTB",
+     "Minimi",
+     "P90",
+     "PP19",
+     "QBZ192",
+     "RPKM",
+     "RagingHunter",
+     "SCARL",
+     "SCARSC",
+     "SIG553R",
+     "ScorpionEvo3",
+     "TAVOR7",
+     "TRR8",
+     "UMP40",
+     "Ultimax",
+     "VHS2",
+     "Vector",
+     "XM7"
+    ]
+   },
+   {
+    "key": "d244711f-d412-4b0d-b1c2-520bf20305b9",
+    "asset": "U_WPM_SCP_Mark4M5A2.ebx",
+    "weaponsWithoutReference": 49,
+    "weaponsWithReference": 15,
+    "topEffects": [
+     "GCR_08x00_P00"
+    ],
+    "weapons": [
+     "185KSK",
+     "590A1",
+     "6P67",
+     "ACE32",
+     "AK205",
+     "APC10",
+     "APDW",
+     "BREN3",
+     "DP12",
+     "EF88",
+     "FiveSeven",
+     "G22",
+     "G36",
+     "G3A4",
+     "HK417A2",
+     "HK433",
+     "KSG",
+     "L85A3",
+     "M1014",
+     "M16A3",
+     "M18",
+     "M240L",
+     "M250",
+     "M45A1",
+     "M4A1",
+     "M60E6",
+     "MG4K",
+     "MG5",
+     "MP5MLI",
+     "MP7A2",
+     "MPX",
+     "MSBSGROTB",
+     "Minimi",
+     "P90",
+     "PP19",
+     "QBZ192",
+     "RPKM",
+     "RagingHunter",
+     "SCARL",
+     "SCARSC",
+     "SIG553R",
+     "ScorpionEvo3",
+     "TAVOR7",
+     "TRR8",
+     "UMP40",
+     "Ultimax",
+     "VHS2",
+     "Vector",
+     "XM7"
+    ]
+   },
+   {
+    "key": "b45f8837-3ecf-401b-a1bf-ad701fd5568c",
+    "asset": "U_WPM_SCP_m7xi20x50.ebx",
+    "weaponsWithoutReference": 49,
+    "weaponsWithReference": 15,
+    "topEffects": [
+     "GCR_SVO_02x00-08x00-4W_P00",
+     "GCR_SVO_2x00-8x00_P00"
+    ],
+    "weapons": [
+     "185KSK",
+     "590A1",
+     "6P67",
+     "ACE32",
+     "AK205",
+     "APC10",
+     "APDW",
+     "BREN3",
+     "DP12",
+     "EF88",
+     "FiveSeven",
+     "G22",
+     "G36",
+     "G3A4",
+     "HK417A2",
+     "HK433",
+     "KSG",
+     "L85A3",
+     "M1014",
+     "M16A3",
+     "M18",
+     "M240L",
+     "M250",
+     "M45A1",
+     "M4A1",
+     "M60E6",
+     "MG4K",
+     "MG5",
+     "MP5MLI",
+     "MP7A2",
+     "MPX",
+     "MSBSGROTB",
+     "Minimi",
+     "P90",
+     "PP19",
+     "QBZ192",
+     "RPKM",
+     "RagingHunter",
+     "SCARL",
+     "SCARSC",
+     "SIG553R",
+     "ScorpionEvo3",
+     "TAVOR7",
+     "TRR8",
+     "UMP40",
+     "Ultimax",
+     "VHS2",
+     "Vector",
+     "XM7"
+    ]
+   },
+   {
+    "key": "6b2866e9-ba27-4087-b40f-e1f72345cc7e",
+    "asset": "U_WPM_SCP_1P885.ebx",
+    "weaponsWithoutReference": 49,
+    "weaponsWithReference": 15,
+    "topEffects": [
+     "GCR_SVO_03x00-10x00-6W_P00",
+     "GCR_SVO_2x00-8x00_P00"
+    ],
+    "weapons": [
+     "185KSK",
+     "590A1",
+     "6P67",
+     "ACE32",
+     "AK205",
+     "APC10",
+     "APDW",
+     "BREN3",
+     "DP12",
+     "EF88",
+     "FiveSeven",
+     "G22",
+     "G36",
+     "G3A4",
+     "HK417A2",
+     "HK433",
+     "KSG",
+     "L85A3",
+     "M1014",
+     "M16A3",
+     "M18",
+     "M240L",
+     "M250",
+     "M45A1",
+     "M4A1",
+     "M60E6",
+     "MG4K",
+     "MG5",
+     "MP5MLI",
+     "MP7A2",
+     "MPX",
+     "MSBSGROTB",
+     "Minimi",
+     "P90",
+     "PP19",
+     "QBZ192",
+     "RPKM",
+     "RagingHunter",
+     "SCARL",
+     "SCARSC",
+     "SIG553R",
+     "ScorpionEvo3",
+     "TAVOR7",
+     "TRR8",
+     "UMP40",
+     "Ultimax",
+     "VHS2",
+     "Vector",
+     "XM7"
+    ]
+   },
+   {
+    "key": "12fb66aa-5b2f-40bf-9401-973635ab20b0",
+    "asset": "U_WPM_SCP_NF_ATACR.ebx",
+    "weaponsWithoutReference": 49,
+    "weaponsWithReference": 15,
+    "topEffects": [
+     "GCR_10x00_P00"
+    ],
+    "weapons": [
+     "185KSK",
+     "590A1",
+     "6P67",
+     "ACE32",
+     "AK205",
+     "APC10",
+     "APDW",
+     "BREN3",
+     "DP12",
+     "EF88",
+     "FiveSeven",
+     "G22",
+     "G36",
+     "G3A4",
+     "HK417A2",
+     "HK433",
+     "KSG",
+     "L85A3",
+     "M1014",
+     "M16A3",
+     "M18",
+     "M240L",
+     "M250",
+     "M45A1",
+     "M4A1",
+     "M60E6",
+     "MG4K",
+     "MG5",
+     "MP5MLI",
+     "MP7A2",
+     "MPX",
+     "MSBSGROTB",
+     "Minimi",
+     "P90",
+     "PP19",
+     "QBZ192",
+     "RPKM",
+     "RagingHunter",
+     "SCARL",
+     "SCARSC",
+     "SIG553R",
+     "ScorpionEvo3",
+     "TAVOR7",
+     "TRR8",
+     "UMP40",
+     "Ultimax",
+     "VHS2",
+     "Vector",
+     "XM7"
+    ]
+   },
+   {
+    "key": "57f83336-57a1-46a2-9791-d7a2272fb65a",
+    "asset": "U_WPM_SCP_NX8_4.ebx",
+    "weaponsWithoutReference": 48,
+    "weaponsWithReference": 16,
+    "topEffects": [
+     "GCR_08x00_P00"
+    ],
+    "weapons": [
+     "185KSK",
+     "590A1",
+     "6P67",
+     "ACE32",
+     "AK205",
+     "APC10",
+     "APDW",
+     "BREN3",
+     "DP12",
+     "EF88",
+     "FiveSeven",
+     "G22",
+     "G36",
+     "G3A4",
+     "HK417A2",
+     "HK433",
+     "KSG",
+     "L85A3",
+     "M1014",
+     "M16A3",
+     "M18",
+     "M240L",
+     "M250",
+     "M45A1",
+     "M4A1",
+     "M60E6",
+     "MG4K",
+     "MG5",
+     "MP5MLI",
+     "MP7A2",
+     "MPX",
+     "MSBSGROTB",
+     "Minimi",
+     "P90",
+     "PP19",
+     "QBZ192",
+     "RPKM",
+     "SCARL",
+     "SCARSC",
+     "SIG553R",
+     "ScorpionEvo3",
+     "TAVOR7",
+     "TRR8",
+     "UMP40",
+     "Ultimax",
+     "VHS2",
+     "Vector",
+     "XM7"
+    ]
+   },
+   {
+    "key": "626c71f1-bffa-479a-abf4-f71478bee06b",
+    "asset": "U_WPM_SCP_NX8-1.ebx",
+    "weaponsWithoutReference": 43,
+    "weaponsWithReference": 21,
+    "topEffects": [
+     "GCR_06x00_P00"
+    ],
+    "weapons": [
+     "185KSK",
+     "590A1",
+     "6P67",
+     "ACE32",
+     "AK205",
+     "APC10",
+     "APDW",
+     "BREN3",
+     "DP12",
+     "EF88",
+     "FiveSeven",
+     "G22",
+     "G3A4",
+     "HK433",
+     "KSG",
+     "L85A3",
+     "M1014",
+     "M16A3",
+     "M18",
+     "M240L",
+     "M250",
+     "M45A1",
+     "M60E6",
+     "MG4K",
+     "MG5",
+     "MP5MLI",
+     "MP7A2",
+     "MPX",
+     "MSBSGROTB",
+     "P90",
+     "PP19",
+     "QBZ192",
+     "RPKM",
+     "SCARL",
+     "SCARSC",
+     "SIG553R",
+     "ScorpionEvo3",
+     "TAVOR7",
+     "TRR8",
+     "UMP40",
+     "VHS2",
+     "Vector",
+     "XM7"
+    ]
+   },
+   {
+    "key": "ba7bb6a2-22ed-462f-b701-badece5a4a6c",
+    "asset": "(embedded identifier)",
+    "weaponsWithoutReference": 42,
+    "weaponsWithReference": 0,
+    "topEffects": [
+     "GBM_NoIncrease_Semi_P00"
+    ],
+    "weapons": [
+     "6P67",
+     "ACE32",
+     "AK205",
+     "APC10",
+     "APDW",
+     "G36",
+     "G3A4",
+     "HK417A2",
+     "HK433",
+     "L85A3",
+     "M16A3",
+     "M240L",
+     "M250",
+     "M27IAR",
+     "M4A1",
+     "M60E6",
+     "MG4K",
+     "MG5",
+     "MP5MLI",
+     "MP7A2",
+     "MPX",
+     "MSBSGROTB",
+     "Minimi",
+     "P90",
+     "PKM",
+     "PP19",
+     "QBZ192",
+     "RPK74M",
+     "RPKM",
+     "RSAR999",
+     "SCARL",
+     "SCARSC",
+     "SIG553R",
+     "ScorpionEvo3",
+     "Skorpion",
+     "TAVOR7",
+     "UMP40",
+     "Ultimax",
+     "VHS2",
+     "VSSM",
+     "Vector",
+     "XM7"
+    ]
+   },
+   {
+    "key": "15cff9ff-aab0-4230-9a53-5a2bb1606587",
+    "asset": "(embedded identifier)",
+    "weaponsWithoutReference": 25,
+    "weaponsWithReference": 26,
+    "topEffects": [
+     "GRM_MatchTrigger_ERG_P15",
+     "GBM_NoIncrease_ERG_P00"
+    ],
+    "weapons": [
+     "185KSK",
+     "590A1",
+     "APC10",
+     "APDW",
+     "ARADMR",
+     "DP12",
+     "HK433",
+     "M1014",
+     "M240L",
+     "M250",
+     "M39EMR",
+     "M60E6",
+     "MG4K",
+     "MG5",
+     "MP5MLI",
+     "MP7A2",
+     "MPX",
+     "MSBSGROTCPS",
+     "Minimi",
+     "P90",
+     "SVCh",
+     "SVDM",
+     "ScorpionEvo3",
+     "UMP40",
+     "Vector"
+    ]
+   },
+   {
+    "key": "a0a1386e-af98-4f3b-befe-ced48c5e8484",
+    "asset": "U_WPM_SCP_MRO_Tall.ebx",
+    "weaponsWithoutReference": 24,
+    "weaponsWithReference": 37,
+    "topEffects": [
+     "GCR_01x75_P00"
+    ],
+    "weapons": [
+     "6P67",
+     "BREN3",
+     "DesertTechHTI",
+     "EF88",
+     "FiveSeven",
+     "G22",
+     "G36",
+     "HK417A2",
+     "HK433",
+     "M16A3",
+     "M18",
+     "M250",
+     "M45A1",
+     "M4A1",
+     "MG5",
+     "MP5MLI",
+     "MSBSGROTCPS",
+     "Minimi",
+     "PP19",
+     "RPK74M",
+     "RagingHunter",
+     "ScorpionEvo3",
+     "TRR8",
+     "VHS2"
+    ]
+   },
+   {
+    "key": "449b9b15-ea80-4a9d-8b83-00381ede5ec0",
+    "asset": "U_WPM_MZL_Brake1_W05.ebx",
+    "weaponsWithoutReference": 23,
+    "weaponsWithReference": 42,
+    "topEffects": [
+     "GRM_Recoil_MZL_P10",
+     "GRM_Recoil_MZL_Bolt_P10"
+    ],
+    "weapons": [
+     "185KSK",
+     "590A1",
+     "AK205",
+     "APC10",
+     "CDX40",
+     "DP12",
+     "FiveSeven",
+     "G22",
+     "G36",
+     "G3A4",
+     "HK417A2",
+     "HK433",
+     "M1014",
+     "M18",
+     "M240L",
+     "M45A1",
+     "MG4K",
+     "MG5",
+     "MP5MLI",
+     "QBZ192",
+     "RagingHunter",
+     "TRR8",
+     "UMP40"
+    ]
+   },
+   {
+    "key": "91d746ab-7de6-4c08-a7e7-df8911e03f95",
+    "asset": "U_WPM_BRL_Short_W15.ebx",
+    "weaponsWithoutReference": 21,
+    "weaponsWithReference": 37,
+    "topEffects": [
+     "GDM_Array_HipDispersion_BRL_P10",
+     "GID_ADSTime_BRL_P10"
+    ],
+    "weapons": [
+     "185KSK",
+     "590A1",
+     "6P67",
+     "APDW",
+     "ARADMR",
+     "DP12",
+     "M1014",
+     "M2010ESR",
+     "M240L",
+     "M60E6",
+     "MP5MLI",
+     "MP7A2",
+     "MRAD",
+     "MSBSGROTB",
+     "P90",
+     "PP19",
+     "QBZ192",
+     "SIG553R",
+     "ScorpionEvo3",
+     "UMP40",
+     "Vector"
+    ]
+   },
+   {
+    "key": "a5578cf4-546c-44ef-9a79-b84021406c17",
+    "asset": "U_WPM_BTM_Bipod01_W10.ebx",
+    "weaponsWithoutReference": 15,
+    "weaponsWithReference": 44,
+    "topEffects": [
+     "GRM_BipodDeployed_BTM_P50",
+     "GDM_Array_HipDispersion_BTM_P20",
+     "GBM_Increase_ADS_40_BTM_Bipod"
+    ],
+    "weapons": [
+     "185KSK",
+     "AK205",
+     "APC10",
+     "APDW",
+     "BREN3",
+     "M1014",
+     "MP5MLI",
+     "MP7A2",
+     "MPX",
+     "MSBSGROTB",
+     "QBZ192",
+     "SIG553R",
+     "ScorpionEvo3",
+     "UMP40",
+     "Vector"
+    ]
+   },
+   {
+    "key": "eb5b8519-a150-4b88-b85c-5de6f8bec73c",
+    "asset": "U_WPM_BRL_Fluted_W20.ebx",
+    "weaponsWithoutReference": 14,
+    "weaponsWithReference": 52,
+    "topEffects": [
+     "GDM_Array_ADSMoveDispersion_BRL_P10",
+     "GID_ADSTime_BRL_P10",
+     "GDM_Array_HipDispersion_BRL_P10"
+    ],
+    "weapons": [
+     "185KSK",
+     "590A1",
+     "DP12",
+     "G3A4",
+     "M1014",
+     "M39EMR",
+     "MG4K",
+     "MG5",
+     "MRAD",
+     "RPKM",
+     "RagingHunter",
+     "SVCh",
+     "TRR8",
+     "Ultimax"
+    ]
+   },
+   {
+    "key": "d1c1db85-899f-4e2f-931c-144f7c8528c6",
+    "asset": "U_WPM_SCA_Variable_3x.ebx",
+    "weaponsWithoutReference": 14,
+    "weaponsWithReference": 50,
+    "topEffects": [
+     "GCR_Variable_3x00_P00"
+    ],
+    "weapons": [
+     "BREN3",
+     "EF88",
+     "FiveSeven",
+     "G22",
+     "M16A3",
+     "M18",
+     "M45A1",
+     "M4A1",
+     "MG5",
+     "PP19",
+     "RagingHunter",
+     "ScorpionEvo3",
+     "TRR8",
+     "VHS2"
+    ]
+   },
+   {
+    "key": "0bfe307e-5c03-471b-8244-9a0df48552ee",
+    "asset": "U_WPM_SCP_M157.ebx",
+    "weaponsWithoutReference": 13,
+    "weaponsWithReference": 52,
+    "topEffects": [
+     "GCR_LPVO_5x00-5W_P00",
+     "GCR_LPVO_4x00-4W_P00"
+    ],
+    "weapons": [
+     "DP12",
+     "EF88",
+     "FiveSeven",
+     "G22",
+     "KSG",
+     "M1014",
+     "M18",
+     "M45A1",
+     "MG5",
+     "PP19",
+     "ScorpionEvo3",
+     "TRR8",
+     "VHS2"
+    ]
+   },
+   {
+    "key": "3eda1130-c3d9-4df5-8d83-65ca7dd381f6",
+    "asset": "U_WPM_MZL_Suppressor02_W25.ebx",
+    "weaponsWithoutReference": 12,
+    "weaponsWithReference": 54,
+    "topEffects": [
+     "GDM_Array_HipDispersion_MZL_M10",
+     "GRM_SmoothRecoil_P10",
+     "GRM_SmoothRecoilBolt_P10"
+    ],
+    "weapons": [
+     "185KSK",
+     "590A1",
+     "DP12",
+     "FiveSeven",
+     "G22",
+     "M1014",
+     "M18",
+     "M45A1",
+     "QBZ192",
+     "RagingHunter",
+     "SV98M",
+     "TRR8"
+    ]
+   },
+   {
+    "key": "2e239842-967c-432d-a0d7-bd066acb7946",
+    "asset": "U_WPM_SCP_marchshorty.ebx",
+    "weaponsWithoutReference": 12,
+    "weaponsWithReference": 54,
+    "topEffects": [
+     "GCR_LPVO_5x00-5W_P00",
+     "GCR_LPVO_4x00-4W_P00"
+    ],
+    "weapons": [
+     "FiveSeven",
+     "G22",
+     "HK417A2",
+     "KSG",
+     "M16A3",
+     "M18",
+     "M240L",
+     "M250",
+     "M45A1",
+     "M4A1",
+     "TRR8",
+     "XM7"
+    ]
+   },
+   {
+    "key": "2aee835d-7c6d-4194-a250-fa87dfe205b8",
+    "asset": "U_WPM_MZL_Brake3_W20.ebx",
+    "weaponsWithoutReference": 12,
+    "weaponsWithReference": 54,
+    "topEffects": [
+     "GRM_Recoil_MZL_P10",
+     "GRM_SmoothRecoil_P10",
+     "GRM_Recoil_MZL_Bolt_P10"
+    ],
+    "weapons": [
+     "185KSK",
+     "590A1",
+     "CDX40",
+     "DP12",
+     "FiveSeven",
+     "G22",
+     "M1014",
+     "M18",
+     "M45A1",
+     "QBZ192",
+     "RagingHunter",
+     "TRR8"
+    ]
+   },
+   {
+    "key": "d821968e-4846-44f7-abcc-0e4183fe7a27",
+    "asset": "U_Ability_EngineerTrait.ebx",
+    "weaponsWithoutReference": 11,
+    "weaponsWithReference": 0,
+    "topEffects": [
+     "GDM_Array_HipDispersion_TRAIT"
+    ],
+    "weapons": [
+     "APC10",
+     "APDW",
+     "MP5MLI",
+     "MP7A2",
+     "MPX",
+     "P90",
+     "PP19",
+     "RSAR999",
+     "ScorpionEvo3",
+     "UMP40",
+     "Vector"
+    ]
+   },
+   {
+    "key": "c933ce9f-19bb-4cde-850e-5789c4034d92",
+    "asset": "U_WPM_BTM_GripPod01_W20.ebx",
+    "weaponsWithoutReference": 11,
+    "weaponsWithReference": 41,
+    "topEffects": [
+     "GDM_Array_ADSMoveDispersion_BTM_M10",
+     "GRM_Recoil_BTM_P20",
+     "GRM_GrippodDeployed_BTM_P30"
+    ],
+    "weapons": [
+     "185KSK",
+     "590A1",
+     "APC10",
+     "APDW",
+     "M1014",
+     "MP5MLI",
+     "MP7A2",
+     "MPX",
+     "ScorpionEvo3",
+     "UMP40",
+     "Vector"
+    ]
+   },
+   {
+    "key": "bb26754b-fb9d-467b-96ac-ecd132bc3f95",
+    "asset": "U_WPM_MZL_ImprvdSuppressor02_W30.ebx",
+    "weaponsWithoutReference": 11,
+    "weaponsWithReference": 56,
+    "topEffects": [
+     "GDM_Array_HipDispersion_MZL_M10",
+     "GRM_SmoothRecoil_P10",
+     "GRM_SmoothRecoilBolt_P10"
+    ],
+    "weapons": [
+     "DP12",
+     "FiveSeven",
+     "G22",
+     "M18",
+     "M45A1",
+     "PP19",
+     "QBZ192",
+     "RagingHunter",
+     "SV98M",
+     "TRR8",
+     "VSSM"
+    ]
+   },
+   {
+    "key": "99615ebe-fbe7-4497-94a9-890c182036bf",
+    "asset": "U_WPM_BTM_GripPod02_W30.ebx",
+    "weaponsWithoutReference": 11,
+    "weaponsWithReference": 41,
+    "topEffects": [
+     "GRM_GrippodDeployed_BTM_P30",
+     "GRM_Recoil_BTM_P20",
+     "GDM_Array_HipDispersion_BTM_P20"
+    ],
+    "weapons": [
+     "185KSK",
+     "590A1",
+     "APC10",
+     "APDW",
+     "M1014",
+     "MP5MLI",
+     "MP7A2",
+     "MPX",
+     "ScorpionEvo3",
+     "UMP40",
+     "Vector"
+    ]
+   },
+   {
+    "key": "8430ed47-bd90-4c7f-9e3a-b2ba4697cd9b",
+    "asset": "U_Ability_SupportTrait.ebx",
+    "weaponsWithoutReference": 11,
+    "weaponsWithReference": 0,
+    "topEffects": [
+     "GID_ADSTime_Trait_P10"
+    ],
+    "weapons": [
+     "M240L",
+     "M250",
+     "M27IAR",
+     "M60E6",
+     "MG4K",
+     "MG5",
+     "Minimi",
+     "PKM",
+     "RPK74M",
+     "RPKM",
+     "Ultimax"
+    ]
+   },
+   {
+    "key": "592e539a-71ab-474b-8a9c-87ce7c64292c",
+    "asset": "U_WPM_BTM_GripPod03_W30.ebx",
+    "weaponsWithoutReference": 11,
+    "weaponsWithReference": 41,
+    "topEffects": [
+     "GDM_Array_ADSMoveDispersion_BTM_M10",
+     "GID_ADSTime_BTM_P10",
+     "GRM_Recoil_BTM_P20"
+    ],
+    "weapons": [
+     "185KSK",
+     "590A1",
+     "APC10",
+     "APDW",
+     "M1014",
+     "MP5MLI",
+     "MP7A2",
+     "MPX",
+     "ScorpionEvo3",
+     "UMP40",
+     "Vector"
+    ]
+   },
+   {
+    "key": "5ff7894f-c05f-4695-ad1e-e6aac670501e",
+    "asset": "U_WPM_SCP_TrijiconSCO.ebx",
+    "weaponsWithoutReference": 10,
+    "weaponsWithReference": 57,
+    "topEffects": [
+     "GCR_LPVO_6x00-8W_P00",
+     "GCR_LPVO_4x00-4W_P00"
+    ],
+    "weapons": [
+     "BREN3",
+     "DP12",
+     "FiveSeven",
+     "G22",
+     "KSG",
+     "M1014",
+     "M18",
+     "M45A1",
+     "PP19",
+     "TRR8"
+    ]
+   },
+   {
+    "key": "16a53347-b933-4477-b59f-cab04b32f001",
+    "asset": "U_WPM_BTM_Fast02_W25.ebx",
+    "weaponsWithoutReference": 9,
+    "weaponsWithReference": 45,
+    "topEffects": [
+     "GID_ADSTime_BTM_P10",
+     "GRM_Recoil_BTM_P10",
+     "GDM_Array_ADSMoveDispersion_BTM_M10"
+    ],
+    "weapons": [
+     "APC10",
+     "APDW",
+     "MP5MLI",
+     "MP7A2",
+     "MPX",
+     "PP19",
+     "ScorpionEvo3",
+     "UMP40",
+     "Vector"
+    ]
+   },
+   {
+    "key": "04ae3cf5-4d43-427a-b384-8031a499ea0e",
+    "asset": "U_WPM_BTM_Fast03_W30.ebx",
+    "weaponsWithoutReference": 8,
+    "weaponsWithReference": 46,
+    "topEffects": [
+     "GDM_Array_ADSMoveDispersion_BTM_M10",
+     "GID_ADSTime_BTM_P10",
+     "GRM_Recoil_BTM_P20"
+    ],
+    "weapons": [
+     "APC10",
+     "APDW",
+     "MP5MLI",
+     "MPX",
+     "PP19",
+     "ScorpionEvo3",
+     "UMP40",
+     "Vector"
+    ]
+   },
+   {
+    "key": "f7b59868-d8c2-489e-927b-6f5bb375245f",
+    "asset": "U_WPM_BRL_Basic_W10.ebx",
+    "weaponsWithoutReference": 7,
+    "weaponsWithReference": 60,
+    "topEffects": [
+     "GID_ADSTime_BRL_P10",
+     "GDM_Array_HipDispersion_BRL_P10"
+    ],
+    "weapons": [
+     "M240L",
+     "M250",
+     "M60E6",
+     "MG4K",
+     "MG5",
+     "Minimi",
+     "Ultimax"
+    ]
+   },
+   {
+    "key": "d9ec647d-6762-412b-9bf6-0267ec189923",
+    "asset": "U_WPM_SCP_Tango6T.ebx",
+    "weaponsWithoutReference": 7,
+    "weaponsWithReference": 61,
+    "topEffects": [
+     "GCR_LPVO_6x00-4W_P00",
+     "GCR_LPVO_4x00-4W_P00"
+    ],
+    "weapons": [
+     "DP12",
+     "FiveSeven",
+     "G22",
+     "M18",
+     "M45A1",
+     "PP19",
+     "TRR8"
+    ]
+   },
+   {
+    "key": "daee4672-0414-42ad-89d5-6f63b7ded9a7",
+    "asset": "U_WPM_SCA_CantedIronSights.ebx",
+    "weaponsWithoutReference": 6,
+    "weaponsWithReference": 63,
+    "topEffects": [
+     "GCR_Variable_1x50_P00"
+    ],
+    "weapons": [
+     "FiveSeven",
+     "G22",
+     "M18",
+     "M45A1",
+     "RagingHunter",
+     "TRR8"
+    ]
+   },
+   {
+    "key": "ca0705e2-c529-4d1e-a8bd-66517a9cca02",
+    "asset": "U_WPM_RGT_TaclightHIP_W15.ebx",
+    "weaponsWithoutReference": 6,
+    "weaponsWithReference": 63,
+    "topEffects": [
+     "GBM_Increase_Hip_A40_RGT_P10",
+     "GBM_Increase_Hip_A45_RGT_P10",
+     "GBM_Increase_Hip_A35_RGT_P10"
+    ],
+    "weapons": [
+     "FiveSeven",
+     "G22",
+     "M18",
+     "M45A1",
+     "RagingHunter",
+     "TRR8"
+    ]
+   },
+   {
+    "key": "9dd7c50c-784c-4f26-b3b5-54414fc762ca",
+    "asset": "U_WPM_SCP_TrijiconREAP.ebx",
+    "weaponsWithoutReference": 6,
+    "weaponsWithReference": 63,
+    "topEffects": [
+     "GCR_01x50_P00"
+    ],
+    "weapons": [
+     "FiveSeven",
+     "G22",
+     "KSG",
+     "M18",
+     "M45A1",
+     "TRR8"
+    ]
+   },
+   {
+    "key": "8755f011-6d67-4fa9-8a5c-0125344f9ff7",
+    "asset": "U_WPM_SCP_ANPAS35_Base.ebx",
+    "weaponsWithoutReference": 6,
+    "weaponsWithReference": 63,
+    "topEffects": [
+     "GCR_03x00_P00"
+    ],
+    "weapons": [
+     "FiveSeven",
+     "G22",
+     "KSG",
+     "M18",
+     "M45A1",
+     "TRR8"
+    ]
+   },
+   {
+    "key": "67a15160-099a-409f-ba6f-f35045d5c54a",
+    "asset": "U_WPM_MZL_Brake2_W10.ebx",
+    "weaponsWithoutReference": 6,
+    "weaponsWithReference": 61,
+    "topEffects": [
+     "GRM_Recoil_MZL_P10",
+     "GRM_Recoil_MZL_Bolt_P10"
+    ],
+    "weapons": [
+     "590A1",
+     "DP12",
+     "M1014",
+     "QBZ192",
+     "RagingHunter",
+     "TRR8"
+    ]
+   },
+   {
+    "key": "3885f47d-990b-40db-b9e0-339dda276d87",
+    "asset": "U_WPM_SCA_OffsetRedDot.ebx",
+    "weaponsWithoutReference": 6,
+    "weaponsWithReference": 63,
+    "topEffects": [
+     "GCR_Variable_1x00_P00"
+    ],
+    "weapons": [
+     "FiveSeven",
+     "G22",
+     "M18",
+     "M45A1",
+     "RagingHunter",
+     "TRR8"
+    ]
+   },
+   {
+    "key": "276be3b0-2455-46b7-a85e-52c37aa5b3b8",
+    "asset": "U_WPM_MZL_Suppressor01_W20.ebx",
+    "weaponsWithoutReference": 6,
+    "weaponsWithReference": 59,
+    "topEffects": [
+     "GDM_Array_HipDispersion_MZL_M10"
+    ],
+    "weapons": [
+     "185KSK",
+     "590A1",
+     "DP12",
+     "M1014",
+     "RagingHunter",
+     "TRR8"
+    ]
+   },
+   {
+    "key": "10f9a5ee-1cfd-4fba-9e0b-bad5009100f8",
+    "asset": "U_WPM_SCA_CantedRedDot.ebx",
+    "weaponsWithoutReference": 6,
+    "weaponsWithReference": 63,
+    "topEffects": [
+     "GCR_Variable_1x00_P00",
+     "GCR_01x00_P00"
+    ],
+    "weapons": [
+     "FiveSeven",
+     "G22",
+     "M18",
+     "M45A1",
+     "RagingHunter",
+     "TRR8"
+    ]
+   },
+   {
+    "key": "f66c9ab7-bb18-4d2d-8133-6d90b19f0e84",
+    "asset": "U_WPM_SCP_ElcanDR.ebx",
+    "weaponsWithoutReference": 5,
+    "weaponsWithReference": 63,
+    "topEffects": [
+     "GCR_LPVO_4x00_1x00_P00"
+    ],
+    "weapons": [
+     "FiveSeven",
+     "G22",
+     "M18",
+     "M45A1",
+     "TRR8"
+    ]
+   },
+   {
+    "key": "a186fbf7-b0eb-4e8a-8c03-6693a717c726",
+    "asset": "U_WPM_SCP_Mepro22.ebx",
+    "weaponsWithoutReference": 5,
+    "weaponsWithReference": 64,
+    "topEffects": [
+     "GCR_01x25_P00"
+    ],
+    "weapons": [
+     "FiveSeven",
+     "G22",
+     "KSG",
+     "M18",
+     "M45A1"
+    ]
+   },
+   {
+    "key": "fb310929-7a1c-4ff9-a690-e0ccbfd77e42",
+    "asset": "U_WPM_SCP_PO4x17.ebx",
+    "weaponsWithoutReference": 4,
+    "weaponsWithReference": 65,
+    "topEffects": [
+     "GCR_02x50_P00"
+    ],
+    "weapons": [
+     "FiveSeven",
+     "G22",
+     "M18",
+     "M45A1"
+    ]
+   },
+   {
+    "key": "e9f35b17-8e18-4ae2-afb8-57995f6d813f",
+    "asset": "U_WPM_SCP_Bravo3x.ebx",
+    "weaponsWithoutReference": 4,
+    "weaponsWithReference": 65,
+    "topEffects": [
+     "GCR_03x00_P00"
+    ],
+    "weapons": [
+     "FiveSeven",
+     "G22",
+     "M18",
+     "M45A1"
+    ]
+   },
+   {
+    "key": "e9ecc947-be17-49cd-b78a-3ffac8027a9c",
+    "asset": "U_WPM_SCP_OPK7.ebx",
+    "weaponsWithoutReference": 4,
+    "weaponsWithReference": 65,
+    "topEffects": [
+     "GCR_01x00_P00"
+    ],
+    "weapons": [
+     "FiveSeven",
+     "G22",
+     "M18",
+     "M45A1"
+    ]
+   },
+   {
+    "key": "e6008d17-ad02-45c2-b9da-e166834b7c8f",
+    "asset": "U_WPM_SCP_Spitfire5x.ebx",
+    "weaponsWithoutReference": 4,
+    "weaponsWithReference": 65,
+    "topEffects": [
+     "GCR_05x00_P00"
+    ],
+    "weapons": [
+     "FiveSeven",
+     "G22",
+     "M18",
+     "M45A1"
+    ]
+   },
+   {
+    "key": "c2e1e941-3649-41c9-9554-e0f899947366",
+    "asset": "U_WPM_SCP_TrijiconM150.ebx",
+    "weaponsWithoutReference": 4,
+    "weaponsWithReference": 65,
+    "topEffects": [
+     "GCR_04x00_P00"
+    ],
+    "weapons": [
+     "FiveSeven",
+     "G22",
+     "M18",
+     "M45A1"
+    ]
+   },
+   {
+    "key": "b9708344-05f4-4ebc-b020-c8fbd5267598",
+    "asset": "U_WPM_MZL_LinearComp_W10.ebx",
+    "weaponsWithoutReference": 4,
+    "weaponsWithReference": 50,
+    "topEffects": [
+     "GRM_RecoilConversion_MZL_P10"
+    ],
+    "weapons": [
+     "185KSK",
+     "590A1",
+     "DP12",
+     "M1014"
+    ]
+   },
+   {
+    "key": "a22e3717-ceb2-4b9e-b3f3-5c21adc3637f",
+    "asset": "U_WPM_SCP_Elcan4x.ebx",
+    "weaponsWithoutReference": 4,
+    "weaponsWithReference": 65,
+    "topEffects": [
+     "GCR_04x50_P00"
+    ],
+    "weapons": [
+     "FiveSeven",
+     "G22",
+     "M18",
+     "M45A1"
+    ]
+   },
+   {
+    "key": "88cfb761-448e-48f7-8ab4-35a4147babee",
+    "asset": "U_WPM_SCP_EotechXPS3.ebx",
+    "weaponsWithoutReference": 4,
+    "weaponsWithReference": 65,
+    "topEffects": [
+     "GCR_01x50_P00"
+    ],
+    "weapons": [
+     "FiveSeven",
+     "G22",
+     "M18",
+     "M45A1"
+    ]
+   },
+   {
+    "key": "4e7217f3-c6c6-4a22-a363-9344a309f120",
+    "asset": "U_WPM_SCP_SteinerT536.ebx",
+    "weaponsWithoutReference": 4,
+    "weaponsWithReference": 65,
+    "topEffects": [
+     "GCR_05x00_P00"
+    ],
+    "weapons": [
+     "FiveSeven",
+     "G22",
+     "M18",
+     "M45A1"
+    ]
+   },
+   {
+    "key": "47b2243c-3c30-442f-8556-9dd483793655",
+    "asset": "U_WPM_SCP_Romeo4t.ebx",
+    "weaponsWithoutReference": 4,
+    "weaponsWithReference": 65,
+    "topEffects": [
+     "GCR_02x00_P00"
+    ],
+    "weapons": [
+     "FiveSeven",
+     "G22",
+     "M18",
+     "M45A1"
+    ]
+   },
+   {
+    "key": "42e87768-9444-4fd8-bb69-7f9a351c235a",
+    "asset": "U_WPM_SCP_CompM5b.ebx",
+    "weaponsWithoutReference": 4,
+    "weaponsWithReference": 65,
+    "topEffects": [
+     "GCR_02x00_P00"
+    ],
+    "weapons": [
+     "FiveSeven",
+     "G22",
+     "M18",
+     "M45A1"
+    ]
+   },
+   {
+    "key": "245a48b5-fd9e-4711-b990-3a1688e50a55",
+    "asset": "U_WPM_SCP_TrijiconSDO.ebx",
+    "weaponsWithoutReference": 4,
+    "weaponsWithReference": 65,
+    "topEffects": [
+     "GCR_03x50_P00"
+    ],
+    "weapons": [
+     "FiveSeven",
+     "G22",
+     "M18",
+     "M45A1"
+    ]
+   },
+   {
+    "key": "16ae3ab6-2a53-4060-a0f8-502e4d6bdf6f",
+    "asset": "U_WPM_SCP_PG350.ebx",
+    "weaponsWithoutReference": 4,
+    "weaponsWithReference": 65,
+    "topEffects": [
+     "GCR_01x50_P00"
+    ],
+    "weapons": [
+     "FiveSeven",
+     "G22",
+     "M18",
+     "M45A1"
+    ]
+   },
+   {
+    "key": "0c271f66-aebe-408b-8e07-4b1240ae072a",
+    "asset": "U_WPM_SCP_MRO.ebx",
+    "weaponsWithoutReference": 4,
+    "weaponsWithReference": 64,
+    "topEffects": [
+     "GCR_01x75_P00"
+    ],
+    "weapons": [
+     "FiveSeven",
+     "G22",
+     "M18",
+     "M45A1"
+    ]
+   },
+   {
+    "key": "07245d77-d19b-4d55-b8a1-4525fcd3b0e3",
+    "asset": "U_WPM_BTM_FastPDW_W20.ebx",
+    "weaponsWithoutReference": 4,
+    "weaponsWithReference": 10,
+    "topEffects": [
+     "GRM_Recoil_BTM_P10",
+     "GID_ADSTime_BTM_P10"
+    ],
+    "weapons": [
+     "BREN3",
+     "EF88",
+     "KSG",
+     "VSSM"
+    ]
+   },
+   {
+    "key": "02376e8b-268d-4283-a410-dea4aaeab895",
+    "asset": "U_WPM_SCP_VZOR3.ebx",
+    "weaponsWithoutReference": 4,
+    "weaponsWithReference": 65,
+    "topEffects": [
+     "GCR_01x75_P00"
+    ],
+    "weapons": [
+     "FiveSeven",
+     "G22",
+     "M18",
+     "M45A1"
+    ]
+   },
+   {
+    "key": "1381a5e5-f73e-4607-bc01-d66303d29d49",
+    "asset": "U_WPM_MAG_030Ext2_M18_W40.ebx",
+    "weaponsWithoutReference": 3,
+    "weaponsWithReference": 1,
+    "topEffects": [
+     "GID_ADSTime_MAG_M10"
+    ],
+    "weapons": [
+     "FiveSeven",
+     "M45A1",
+     "RagingHunter"
+    ]
+   },
+   {
+    "key": "fcfd6142-2b2d-47d9-9a79-66a0b092651d",
+    "asset": "U_WPM_BTM_Fast01_W25.ebx",
+    "weaponsWithoutReference": 2,
+    "weaponsWithReference": 43,
+    "topEffects": [
+     "GID_ADSTime_BTM_P10",
+     "GDM_Array_ADSMoveDispersion_BTM_M10",
+     "GRM_Recoil_BTM_P10"
+    ],
+    "weapons": [
+     "KSG",
+     "MG5"
+    ]
+   },
+   {
+    "key": "f7996b55-b276-4cf1-acf5-37a0d08628d9",
+    "asset": "U_WPM_MZL_FlashCompensator_W15.ebx",
+    "weaponsWithoutReference": 2,
+    "weaponsWithReference": 44,
+    "topEffects": [
+     "GRM_SmoothRecoil_P10"
+    ],
+    "weapons": [
+     "SV98M",
+     "ScorpionEvo3"
+    ]
+   },
+   {
+    "key": "c361d847-af1d-42b0-905d-021acc2131fc",
+    "asset": "U_WPM_RGT_LaserLight01_W20.ebx",
+    "weaponsWithoutReference": 2,
+    "weaponsWithReference": 10,
+    "topEffects": [
+     "GDM_Array_HipDispersion_TOP_P10",
+     "GBM_Increase_Hip_A45_RGT_P10",
+     "GBM_Increase_Hip_A40_RGT_P10"
+    ],
+    "weapons": [
+     "6P67",
+     "RPK74M"
+    ]
+   },
+   {
+    "key": "2d081e92-5aa0-46ed-92dd-c73d194dff3e",
+    "asset": "U_WPM_BRL_Heavy_W10.ebx",
+    "weaponsWithoutReference": 2,
+    "weaponsWithReference": 24,
+    "topEffects": [
+     "GBM_Increase_ADS_40_BRL_P10",
+     "GBM_Increase_ADS_30_BRL_P10",
+     "GBM_Increase_ADS_50_BRL_P10"
+    ],
+    "weapons": [
+     "TAVOR7",
+     "VHS2"
+    ]
+   },
+   {
+    "key": "1280c64a-6377-403b-8c0e-382c07651088",
+    "asset": "U_WPM_BRL_HeavyExtended_W10.ebx",
+    "weaponsWithoutReference": 2,
+    "weaponsWithReference": 23,
+    "topEffects": [
+     "GBM_Increase_ADS_40_BRL_P10",
+     "GBM_Increase_ADS_30_BRL_P10",
+     "GBM_Increase_ADS_50_BRL_P10"
+    ],
+    "weapons": [
+     "TAVOR7",
+     "VHS2"
+    ]
+   },
+   {
+    "key": "f7e5a764-22c3-4620-b97a-2b6c142f7005",
+    "asset": "(embedded identifier)",
+    "weaponsWithoutReference": 1,
+    "weaponsWithReference": 0,
+    "topEffects": [
+     "GDM_Array_ADSMoveDispersion_MAG_P10"
+    ],
+    "weapons": [
+     "PP19"
+    ]
+   },
+   {
+    "key": "df048f47-ae85-436b-aa34-066830b4c86d",
+    "asset": "U_WPM_SCP_1x50_MagnifierCompatible.ebx",
+    "weaponsWithoutReference": 1,
+    "weaponsWithReference": 60,
+    "topEffects": [
+     "GCR_Magnifier_01x50_P00"
+    ],
+    "weapons": [
+     "PP19"
+    ]
+   },
+   {
+    "key": "a85cae68-24f3-469f-92a7-1720ef7a4747",
+    "asset": "U_WPM_SCP_1x00_MagnifierCompatible.ebx",
+    "weaponsWithoutReference": 1,
+    "weaponsWithReference": 60,
+    "topEffects": [
+     "GCR_Magnifier_01x00_P00"
+    ],
+    "weapons": [
+     "PP19"
+    ]
+   },
+   {
+    "key": "a7d5526e-6474-4c3c-b54f-fdf97b5b14ac",
+    "asset": "(embedded identifier)",
+    "weaponsWithoutReference": 1,
+    "weaponsWithReference": 0,
+    "topEffects": [
+     "GDM_SP_Marksman_SVCh",
+     "GRM_SVCh_Marksman_SP"
+    ],
+    "weapons": [
+     "SVCh"
+    ]
+   },
+   {
+    "key": "8288f62d-e79b-4f66-a95b-07b7c75eaa35",
+    "asset": "U_WPM_RGT_LaserLight02_W30.ebx",
+    "weaponsWithoutReference": 1,
+    "weaponsWithReference": 11,
+    "topEffects": [
+     "GDM_Array_HipDispersion_TOP_P20",
+     "GBM_Increase_Hip_A45_RGT_P10",
+     "GBM_Increase_Hip_A40_RGT_P10"
+    ],
+    "weapons": [
+     "RPK74M"
+    ]
+   },
+   {
+    "key": "7b95563d-9804-4101-a191-349344bea9d2",
+    "asset": "(embedded identifier)",
+    "weaponsWithoutReference": 1,
+    "weaponsWithReference": 0,
+    "topEffects": [
+     "GCR_LPVO_4x00-4W_P00"
+    ],
+    "weapons": [
+     "KSG"
+    ]
+   },
+   {
+    "key": "5b23c232-a2b5-4da1-8fcf-25c465398253",
+    "asset": "U_WPM_SCP_1x25_MagnifierCompatible.ebx",
+    "weaponsWithoutReference": 1,
+    "weaponsWithReference": 60,
+    "topEffects": [
+     "GCR_Magnifier_01x25_P00"
+    ],
+    "weapons": [
+     "PP19"
+    ]
+   },
+   {
+    "key": "1ec56070-958d-4aee-ba5e-425a70af6b71",
+    "asset": "U_WPM_SCP_2x00_MagnifierCompatible.ebx",
+    "weaponsWithoutReference": 1,
+    "weaponsWithReference": 60,
+    "topEffects": [
+     "GCR_Magnifier_02x00_P00"
+    ],
+    "weapons": [
+     "PP19"
+    ]
+   },
+   {
+    "key": "17092ec3-67c2-4f62-8549-80f45793e3fd",
+    "asset": "U_WPM_SCP_1x75_MagnifierCompatible.ebx",
+    "weaponsWithoutReference": 1,
+    "weaponsWithReference": 60,
+    "topEffects": [
+     "GCR_Magnifier_01x75_P00"
+    ],
+    "weapons": [
+     "PP19"
+    ]
+   },
+   {
+    "key": "1103e853-0d81-4e4f-a7bd-6d40e53a9033",
+    "asset": "U_WPM_SCP_RomeoX.ebx",
+    "weaponsWithoutReference": 1,
+    "weaponsWithReference": 69,
+    "topEffects": [
+     "GCR_01x50_P00"
+    ],
+    "weapons": [
+     "KSG"
+    ]
+   }
+  ]
+ },
+ "limits": [
+  "Covers GS bindings only. The reverse case (an offered attachment with no binding) is the description-versus-effect scan's job, with its stated blind spots.",
+  "Weapon-side effect objects other than selectors were not classified.",
+  "Native evaluation is not observed.",
+  "PP19_Ability also lists U_WPM_MAG_025Cpt1_UMP40_W05; not traced."
+ ],
+ "reverseCheck": {
+  "question": "Does the site apply recoil, spread or sway effects to an attachment for which the files store nothing?",
+  "method": "From the 2.1.2.0 description-versus-effect extract (6,322 attachments, 69 weapons): 296 attachments have no stored effect on either side and 1,064 have weapon-side effects only. Mapped to site choices with frosty-site-attachment-mapping-2026-10-24.json (921 choices) and compared the site build with and without each choice.",
+  "result": [
+   "No stored effect: 10 site choices (nine Underslung Mounts and the M433 Match Trigger); the site changes no stat for any of them.",
+   "Weapon-side effects only, where the site changes recoil, spread or sway: Actuated Module and two magazines (sway), Aftermarket Buffer (visual recoil), Burst Training and Burst Mode (BurstFireActive packages, known), VSSM Long-Range and Frangible ammunition (recoil). Each has a weapon-side effect class; none was judged a mismatch.",
+   "Eleven attachments have no wiring at all (AK4D Light Barrel, SOR-556 M4QD Flash Hider, M/60 Improved Mag Catch, seven DB-12 bottom-rail lasers and lights, one default muzzle); the site lists none of them."
+  ],
+  "limits": [
+   "The mapping predates 2.1.2.0: the NSW4 and choices changed in 2.1.2.0 are not covered (the SV-98 Flash Comp appeared as a false hit for that reason; the site already lists it as a Flash Hider).",
+   "Presence only: the size of each effect was not compared.",
+   "Optic rows were not examined."
+  ]
+ }
+}

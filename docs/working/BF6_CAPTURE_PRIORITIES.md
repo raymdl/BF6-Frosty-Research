@@ -17,7 +17,7 @@ outcome. Otherwise record the limit as unresolved; do not add a capture.
 
 | # | Capture | Why | People / format |
 |---|---|---|---|
-| 1 | Match Trigger semi vs auto (M433; L17) | Site shows no effect; source binds about 16% less recoil and faster recovery on 24 weapons, probably semi-only | Solo; video, repeated groups |
+| 1 | **Done 19 Nov.** Match Trigger semi vs auto (M433; L17) | Site shows no effect; source binds about 16% less recoil and faster recovery on 24 weapons, probably semi-only | Solo; video, repeated groups |
 | 2 | Optional: hit-capsule boundary (M433; L99) | Target-view chest/abdomen split; M433 chest aim 4 → 5 hits if the source capsules hold. Target view is already labelled approximate | Enemy helper standing still; damage numbers **Done 10 Oct (L4010): chest zone confirmed as the site draws it; no further capture needed.** |
 
 ## Record once per session
@@ -40,6 +40,8 @@ outcome. Otherwise record the limit as unresolved; do not add a capture.
   Record failed or ambiguous trials as well as successful ones.
 
 ## 1. Match Trigger in semi-auto and automatic modes (L17)
+
+**Done 19 November 2026.** Operator recordings (M433, Mk 24, NSW4, B36A4) show the spread, recoil and recovery effects active in semi-auto on weapons that hold the weapon-file chain and absent on the M433, whose chain points to an empty package (Analyzer bug entry 29; [ATTACHMENTS.md](../frosty/ATTACHMENTS.md), Match Trigger). The operator confirms no effect in automatic fire. No further capture is needed; the text below is kept as the record of the request.
 
 **Status 30 October 2026 (L4073).** The site applies the block in semi-automatic fire since
 site commit `81371d5` (24 Oct); this capture now validates that choice. The final brief

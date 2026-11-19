@@ -1,0 +1,245 @@
+{
+ "date": "2026-11-19",
+ "status": "finding; candidate not applied",
+ "build": "site data 2.1.2.0; offline refit of the 14 to 16 October bullet-hole observations (L4040 to L4047), game not launched",
+ "question": "Is RecoilDecreaseOffset 0 with a refitted factor scale a better recovery law than the applied x0.8 on the 56 hole observations, and does it hold on weapons left out of the fit?",
+ "method": "fit-offset.mjs: the scoring, seeds and observations of fit-stretch.mjs (L4049) unchanged; offset swept from 0 to the stored 0.06 with C refitted by golden-section search (200 seeds, final score 500 seeds); leave-one-weapon-out with C fitted on three weapons and scored on the fourth. climb-tables.mjs for the site climb.",
+ "control": {
+  "description": "stored law 1099.5 and applied x0.8 359.2, equal to L4049",
+  "passed": true
+ },
+ "sweep": [
+  {
+   "offset": 0,
+   "C": 0.865,
+   "chi": 270.6,
+   "chiPairs": 208.9,
+   "chiBursts": 61.7,
+   "perWeapon": {
+    "ak205": 51.3,
+    "lmr27": 47.1,
+    "tr7": 147.4,
+    "m433": 24.9
+   }
+  },
+  {
+   "offset": 0.005,
+   "C": 0.859,
+   "chi": 273.8,
+   "chiPairs": 214.6,
+   "chiBursts": 59.2,
+   "perWeapon": {
+    "ak205": 52.5,
+    "lmr27": 46.7,
+    "tr7": 150,
+    "m433": 24.6
+   }
+  },
+  {
+   "offset": 0.01,
+   "C": 0.854,
+   "chi": 276.6,
+   "chiPairs": 218.9,
+   "chiBursts": 57.8,
+   "perWeapon": {
+    "ak205": 55.1,
+    "lmr27": 46.1,
+    "tr7": 151.1,
+    "m433": 24.3
+   }
+  },
+  {
+   "offset": 0.02,
+   "C": 0.845,
+   "chi": 286,
+   "chiPairs": 229.9,
+   "chiBursts": 56.1,
+   "perWeapon": {
+    "ak205": 62.4,
+    "lmr27": 45.5,
+    "tr7": 154.1,
+    "m433": 24
+   }
+  },
+  {
+   "offset": 0.03,
+   "C": 0.835,
+   "chi": 299.8,
+   "chiPairs": 244.7,
+   "chiBursts": 55.1,
+   "perWeapon": {
+    "ak205": 70.4,
+    "lmr27": 46.7,
+    "tr7": 158.4,
+    "m433": 24.4
+   }
+  },
+  {
+   "offset": 0.045,
+   "C": 0.822,
+   "chi": 328.2,
+   "chiPairs": 272.1,
+   "chiBursts": 56,
+   "perWeapon": {
+    "ak205": 86,
+    "lmr27": 50.2,
+    "tr7": 166.4,
+    "m433": 25.5
+   }
+  },
+  {
+   "offset": 0.06,
+   "C": 0.808,
+   "chi": 358.9,
+   "chiPairs": 299.5,
+   "chiBursts": 59.4,
+   "perWeapon": {
+    "ak205": 97.7,
+    "lmr27": 56.5,
+    "tr7": 176.7,
+    "m433": 28
+   }
+  }
+ ],
+ "leaveOneOut": [
+  {
+   "offset": 0.06,
+   "held": "ak205",
+   "C": 0.831,
+   "heldChi": 119.5
+  },
+  {
+   "offset": 0.06,
+   "held": "lmr27",
+   "C": 0.809,
+   "heldChi": 56.5
+  },
+  {
+   "offset": 0.06,
+   "held": "tr7",
+   "C": 0.799,
+   "heldChi": 180.3
+  },
+  {
+   "offset": 0.06,
+   "held": "m433",
+   "C": 0.803,
+   "heldChi": 28.9
+  },
+  {
+   "offset": 0,
+   "held": "ak205",
+   "C": 0.901,
+   "heldChi": 95.9
+  },
+  {
+   "offset": 0,
+   "held": "lmr27",
+   "C": 0.848,
+   "heldChi": 57.2
+  },
+  {
+   "offset": 0,
+   "held": "tr7",
+   "C": 0.862,
+   "heldChi": 147.5
+  },
+  {
+   "offset": 0,
+   "held": "m433",
+   "C": 0.86,
+   "heldChi": 25.8
+  }
+ ],
+ "siteClimb": {
+  "ak205": {
+   "stored law": {
+    "aimAt5": 1.168,
+    "aimAt10": 1.716,
+    "aimAt15": 1.897
+   },
+   "applied x0.8": {
+    "aimAt5": 1.297,
+    "aimAt10": 2.036,
+    "aimAt15": 2.34
+   },
+   "offset 0 x0.865": {
+    "aimAt5": 1.285,
+    "aimAt10": 1.973,
+    "aimAt15": 2.237
+   }
+  },
+  "lmr27": {
+   "stored law": {
+    "aimAt5": 1.472,
+    "aimAt10": 1.818,
+    "aimAt15": 1.869
+   },
+   "applied x0.8": {
+    "aimAt5": 1.736,
+    "aimAt10": 2.301,
+    "aimAt15": 2.423
+   },
+   "offset 0 x0.865": {
+    "aimAt5": 1.689,
+    "aimAt10": 2.183,
+    "aimAt15": 2.277
+   }
+  },
+  "tr7": {
+   "stored law": {
+    "aimAt5": 3.164,
+    "aimAt10": 5.789,
+    "aimAt15": 7.403
+   },
+   "applied x0.8": {
+    "aimAt5": 3.313,
+    "aimAt10": 6.297,
+    "aimAt15": 8.32
+   },
+   "offset 0 x0.865": {
+    "aimAt5": 3.28,
+    "aimAt10": 6.157,
+    "aimAt15": 8.046
+   }
+  },
+  "m433": {
+   "stored law": {
+    "aimAt5": 2.095,
+    "aimAt10": 3.764,
+    "aimAt15": 4.775
+   },
+   "applied x0.8": {
+    "aimAt5": 2.201,
+    "aimAt10": 4.119,
+    "aimAt15": 5.404
+   },
+   "offset 0 x0.865": {
+    "aimAt5": 2.184,
+    "aimAt10": 4.032,
+    "aimAt15": 5.23
+   }
+  }
+ },
+ "points": [
+  "The score falls monotonically as the offset falls; the best value is the boundary 0 (C 0.865, 270.6 against 358.9 at 0.06 with C free).",
+  "The gain is in the pair bands (299.5 to 208.9), mostly the AK-205 and TR-7 from 290 to 350 ms; burst extents are unchanged (59.4 to 61.7).",
+  "Held-out weapons: offset 0 scores 95.9 / 57.2 / 147.5 / 25.8 (AK-205 / LMR27 / TR-7 / M433) against 119.5 / 56.5 / 180.3 / 28.9 at the stored offset; sum 326.4 against 385.2.",
+  "Both laws still miss the 290 to 350 ms bands by half or more (AK-205 Standard 292 ms: observed 0.101, x0.8 0.021, offset 0 0.061) and score about 5 per observation.",
+  "Site effect: mean aim before shot 15 falls 3.2 to 6.0 percent on the four weapons."
+ ],
+ "limits": [
+  "Offset 0 contradicts the stored 0.06 on every measured weapon; no source mechanism is known.",
+  "Four recovery profiles, all with RecoilDecreaseExponent 1; bolt-actions and shotguns (0.6) are untested.",
+  "A boundary optimum can mean a missing term rather than a true zero."
+ ],
+ "artifacts": {
+  "folder": "Analyzer outputs/offset-free-eval-2026-11-19 (local)",
+  "files": {
+   "fit-offset.mjs": "692c3fc2c6a0cc5e1a208d67b2b3a8da12363e247d4d24beae3d1a0f5465f295",
+   "fit-offset.json": "430bc9f6137925acef835c52561293162e53c640ef4549d49c523ece3bdd9396",
+   "fit-offset.log": "e3110d7db63c4791b5f817e8568e903de5f113fe4e4781c867124754110c0901",
+   "climb-tables.json": "9caf08809f3fd749ddc731d9963ae6ac5efd4e98d1c8539251ac4e1c2a6d170d"
+  }
+ }
+}
