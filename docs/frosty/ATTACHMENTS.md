@@ -832,9 +832,10 @@ render record) and [tools](TOOLS.md#frostycmd) (`export-meshes`, `export-texture
 - The opening rule fails on three kinds of optic: the scope vignette above, the CQ RDS
   (window wider than its glass mesh) and the TS-HD (the visible circle is the eyepiece
   ring).
-- Iron sights whose rear the files hold out of its aiming pose cannot be placed from
-  the files. The Z84M and L110 rears were placed from their screenshots. A rear lying
-  more than 5 mm below the sight line is drawn as folded (front post only): the M121 A2.
+- Parts stored away from their place on the gun (rear leaves of the M121 A2, Z84M and
+  L110, barrels of the VSSM, M87A1, RPKM, RPK-74M and M240L, revolver cylinders, pistol
+  slides) are placed from the files since 18 November 2026: see "Part placement" below.
+  The site's iron-sight drawings were regenerated this way on 19 November 2026.
 - Three iron sights are drawn from an ambiguous variant (M16A4, M16A4 Flip-Up Irons,
   ES 5.7). The M45A1 notch is about 25% narrower in the mesh than in game and is drawn
   as the mesh has it.
@@ -862,8 +863,8 @@ point-cost mapping row and identity row):
    existing weapons keep their scale through `FIX_SCALE=iron-geometry-v10.json`; a new
    weapon has no row there and is scaled by the fit rule.
 6. Check the result against one aimed screenshot with `proj_all.py` when the operator
-   has one. A screenshot is required only when the rear does not land on the sight line
-   (step 5 of the rule in the status report, I1).
+   has one. A rear that does not land on the sight line is placed with the weapon's pose
+   ("Part placement" below), not from a screenshot.
 
 *A new optic* (it must already be in the site's `SIGHTS`):
 
@@ -885,6 +886,73 @@ point-cost mapping row and identity row):
 
 Then copy the drawings into the site (Analyzer `MAINTENANCE.md`, "Regenerate sight
 drawings").
+
+### Part placement (2.1.2.0, 18 November 2026)
+
+1P weapon meshes are not stored assembled. Every vertex is bound to one bone of a single
+skeleton shared by all weapons (`Common/Characters/_Soldier/_WeaponSkeleton`, 66 bones),
+and the mesh is stored at that skeleton's generic bind positions. Each weapon has a pose
+resource (`P_WepAtt_<W>_01`; `P_1P_<W>_Stand_Idle_01` where there is none, with the same
+weapon values) that says where its bones sit. A part's place is
+pose(bone) × inverse bind(bone) × stored vertex, relative to `Wep_Align`. Layouts are in
+the [field map](FIELD_MAP.md); evidence and limits in the
+[provenance file](../../reference-data/provenance/frosty-weapon-part-placement-2026-11-18.json).
+
+Checked against offsets measured earlier from screenshots or from MD.Sight.Main:
+
+| Weapon | Bone | From the files (mm) | Measured before |
+|---|---|---|---|
+| VSSM | `Wep_Barrel_ATT` | y −21.5, z +48.4 | y −21.4 |
+| M87A1 | `Wep_Barrel_ATT` | y −21.3 | y −21.3 |
+| RPK-74M / RPKM | `Wep_Barrel_ATT` | y −20.9 | y −20.9 / −22.3 |
+| M240L | `Wep_Barrel_ATT` | y +12.1 | y +12.5 |
+| M39 EMR | `Wep_Barrel_ATT` | y +5.5 | y +5.7 |
+| M121 A2 rear leaf | `Wep_MagRelease` | +16.5, +98.5, +106.7 | +16.45, +97.2, +100.6 |
+| Z84M rear leaf | `Wep_MagRelease` | +16.5, +53.3, +172.1 | +16.7, +53.6, +186 |
+| L110 rear sight | `Wep_MagRelease` | 90° about x, then +16.5, +38.9, +193.4 | −90° about x, +16.5, +38.9, +198.1 |
+
+Bone names do not say what a part is: rear leaves ride `Wep_MagRelease`, bolt handles
+`Wep_Bolt1`, revolver cylinders the magazine bones. With the pose applied the front post
+tip sits at the MD.FrontSight.Main height on every weapon tried, pistols included, so
+MD.Sight.Main y can be used as the sight-line height. Not read: 6 of 134 pose resources
+in another layout (USG-90 and BRoD-3 have no readable pose). Script:
+`builds\2.1.2.0\reports\wepatt-poses-2026-11-18\wep_pose.py <pose name ...>` prints
+each bone's move and turn.
+
+### Iron-sight drawings, second version (2.1.2.0, 19 November 2026)
+
+All 72 iron-sight drawings were redrawn so that they compare 1:1 with the 1.00x–2.00x
+optics: every one is at 0.48 × its on-screen size at 2560×1440 (before, each was fitted
+to the box, at 0.45 to 6.7 × that). The script is
+`builds\2.1.2.0\reports\iron-body-all-2026-11-18\all72.py`; it runs a patched in-memory
+copy of `iron-sights-all-2026-11-17\make_all.py` and needs that folder and
+`wepatt-poses-2026-11-18`. Rules, all applied to every sight:
+
+| Rule | What it does |
+|---|---|
+| Scale | `pxPerMm × 0.48 / (pxPerMm × eyeMm × tan(ADS render FOV / 2) / 720)` px per mm; never reduced to fit, cut by the box instead; front post at least 3 px wide |
+| Part placement | Every mesh is posed with the weapon's pose file ("Part placement" above); selection windows stay in stored coordinates |
+| Gun body | Default-loadout body meshes (`loadout-body.json`) within 20 mm in front of and behind the rear sight, same tone as the sight. Left out: the IronSight slot's own default record (folded sights: KTS100 drew a second ring), charm holders, magazines other than through the pose, and any mesh island with a point more than 1 mm above the eye-to-front-tip line within 2 mm of the centre line (hidden optic mounts) |
+| Front sight | Kept whole where it reaches the frame around the rear opening (RPKM ears); pieces showing beside the rear housing more than 5 units from the aim point are dropped (front sight base wings: M433, L85A3) |
+| Notch bar | If a rear part's top edge sits at the MD.Sight.Main height, spans the centre line, and the solved eye is more than 5 mm away from that height, the eye is put at the MD height (M60 only on 2.1.2.0: the frame window had been taken for the opening) |
+| Tidy | Only the piece nearest the aim point is kept (gaps under 1.5 units do not separate); an outline ending within 5 units of the box bottom is carried down to it |
+| Inner lines | A line where the surface turns more than 25° between neighbouring pixels, where depth jumps more than 2 mm, or where the sight meets the body; closed outlines stay closed; at most 18 lines, none shorter than 2.5 units or within 25 px of the silhouette edge. Replaces the dominant-axis face classes, which drew triangle diagonals on slanted faces |
+
+Per-sight values that are not from the files, kept in `final_page.py` and `all72.py`:
+
+- Body depth: 20 mm is used for 57 sights. Reviewer models picked another depth against
+  the screenshots for 15: sight only (AK4D, M4A1, PW7A2 CQB Sights), 60 mm (B36A4,
+  M240L, KS18K), and the body from 60 mm ahead of the eye to the rear sight (AK-205,
+  PP-19, RPKM, M250, M121 A2, M39 EMR, SVDM, VSSM, vz. 61). A new weapon starts at 20 mm.
+- Size corrections from screenshot overlays: ES 5.7 ×1.44, M357 Trait ×1.17, M45A1 ×1.23.
+  Not retested with poses applied.
+- USG-90 and BRoD-3 have no readable pose file and are drawn as stored.
+
+Checks: reviewer models rated the outlines against 72 aimed screenshots 56 good, 16 fair,
+0 poor (before the line and tidy rules were added); `review-pose.json`, `picks.json` and
+the review page `iron-all-048-body.html` are in the same folder. For a new weapon: run
+the 17 November steps 1–4 for its meshes, export its body meshes and pose file, then
+`python all72.py <weapon id>` and copy `all72-pad20\<weapon id>.svg` into `svg\`.
 
 ### Zoom levels
 

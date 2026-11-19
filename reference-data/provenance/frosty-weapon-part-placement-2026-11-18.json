@@ -1,0 +1,193 @@
+{
+ "title": "Weapon part placement: shared weapon skeleton, vertex bone binding and per-weapon pose resources",
+ "date": "2026-11-18",
+ "build": "2.1.2.0",
+ "question": "Some 1P weapon mesh parts are stored away from where they sit on the gun (barrels of VSSM, M87A1, RPKM, RPK-74M, M240L; rear sights of M121 A2, Z84M, L110; revolver cylinders; pistol slides). Where do the files record the placement?",
+ "answer": "Every 1P weapon mesh vertex is bound to one bone of Common/Characters/_Soldier/_WeaponSkeleton (66 bones, one skeleton for all weapons, generic bind positions). Meshes are stored at the bind positions. Each weapon has a pose resource (P_WepAtt_<W>_01, or P_1P_<W>_Stand_Idle_01 where there is none) holding the weapon's own bone transforms. Placement = pose(bone) x inverse bind(bone) x stored vertex, relative to Wep_Align.",
+ "sources": {
+  "skeleton": "capture/collection/raw/Common/Characters/_Soldier/_WeaponSkeleton.ebx",
+  "poseEbx": "reports/wepatt-poses-2026-11-18/raw (74 routes)",
+  "poseResources": "reports/wepatt-poses-2026-11-18/res (70, export-res needle p_wepatt_) and res-idle (64, P_1P_<W>_Stand_Idle_01)",
+  "dofSets": "reports/wepatt-dofs-2026-11-18 and reports/wepatt-dofsets-2026-11-18 (Soldier.Fullbody.WepParts.DSL and its 25 DofSets)",
+  "script": "reports/wepatt-poses-2026-11-18/wep_pose.py (prints the transform per bone: python wep_pose.py <pose name ...>)"
+ },
+ "layout": "See docs/frosty/FIELD_MAP.md, rows for the weapon skeleton, MeshSet bone elements and resType 4088bf7e.",
+ "checks": [
+  {
+   "weapon": "VSSM",
+   "poseResource": "p_wepatt_vssm_01.4088bf7e.res",
+   "sha256": "1a1cd829dc8cd425188bee6c323fbd077c30c9de5869285ab298f828b62e530d",
+   "bone": "Wep_Barrel_ATT",
+   "fromFilesMoveMm": [
+    0.0,
+    -21.5,
+    48.4
+   ],
+   "fromFilesTurnDeg": 0.0,
+   "rotationRows": null,
+   "measuredBefore": "barrel y -21.4 (front post tip against MD.Sight.Main y)"
+  },
+  {
+   "weapon": "M87A1",
+   "poseResource": "p_wepatt_590a1_01.4088bf7e.res",
+   "sha256": "18a18d8408baf30c39253f89e17c0c928199d8e78def357341960d768cabf598",
+   "bone": "Wep_Barrel_ATT",
+   "fromFilesMoveMm": [
+    -0.0,
+    -21.3,
+    185.6
+   ],
+   "fromFilesTurnDeg": 0.0,
+   "rotationRows": null,
+   "measuredBefore": "barrel y -21.3"
+  },
+  {
+   "weapon": "RPKM",
+   "poseResource": "p_wepatt_rpkm_01.4088bf7e.res",
+   "sha256": "e42f89dd476d9bf8b1a99449b4e0bfb40b1e46a28c0a00783bc4c1b1856eafd7",
+   "bone": "Wep_Barrel_ATT",
+   "fromFilesMoveMm": [
+    0.0,
+    -20.9,
+    163.9
+   ],
+   "fromFilesTurnDeg": 0.0,
+   "rotationRows": null,
+   "measuredBefore": "barrel y -22.3"
+  },
+  {
+   "weapon": "RPK-74M",
+   "poseResource": "p_wepatt_rpk74m_01.4088bf7e.res",
+   "sha256": "7f7d2ea77f18404a65580fca14334e6d514451de1c702d03907523db9a01108c",
+   "bone": "Wep_Barrel_ATT",
+   "fromFilesMoveMm": [
+    0.0,
+    -20.9,
+    163.9
+   ],
+   "fromFilesTurnDeg": 0.0,
+   "rotationRows": null,
+   "measuredBefore": "barrel y -20.9"
+  },
+  {
+   "weapon": "M240L",
+   "poseResource": "p_wepatt_m240l_01.4088bf7e.res",
+   "sha256": "c998248273cc024a402dcdfdd121a6a298b7fe099d21cb6d101966c5361cdc93",
+   "bone": "Wep_Barrel_ATT",
+   "fromFilesMoveMm": [
+    -0.0,
+    12.1,
+    162.9
+   ],
+   "fromFilesTurnDeg": 0.0,
+   "rotationRows": null,
+   "measuredBefore": "barrel y +12.5"
+  },
+  {
+   "weapon": "M39 EMR",
+   "poseResource": "p_wepatt_m39emr_01.4088bf7e.res",
+   "sha256": "ad170085ac0f33e3c35d3ada3631e073de251e28f39598a743bf56daddbbda21",
+   "bone": "Wep_Barrel_ATT",
+   "fromFilesMoveMm": [
+    -0.0,
+    5.5,
+    283.9
+   ],
+   "fromFilesTurnDeg": 0.0,
+   "rotationRows": null,
+   "measuredBefore": "barrel y +5.7"
+  },
+  {
+   "weapon": "Z84M",
+   "poseResource": "p_wepatt_pkm_01.4088bf7e.res",
+   "sha256": "948cc3536ce63383b3d63659eb5bbe1a2b6764830176816b6869df79ea9ba5dc",
+   "bone": "Wep_Barrel_ATT",
+   "fromFilesMoveMm": [
+    0.0,
+    -9.2,
+    182.6
+   ],
+   "fromFilesTurnDeg": 0.0,
+   "rotationRows": null,
+   "measuredBefore": "barrel y -7.2"
+  },
+  {
+   "weapon": "M121 A2",
+   "poseResource": "p_wepatt_mg5_01.4088bf7e.res",
+   "sha256": "58a9acfa3adfdd1c9ece20375865af9c8671c615d7db34b033e7c4a330e7ddde",
+   "bone": "Wep_MagRelease",
+   "fromFilesMoveMm": [
+    16.5,
+    98.5,
+    106.7
+   ],
+   "fromFilesTurnDeg": 0.0,
+   "rotationRows": null,
+   "measuredBefore": "rear leaf +16.45, +97.2, +100.6 (screenshot fit)"
+  },
+  {
+   "weapon": "Z84M",
+   "poseResource": "p_wepatt_pkm_01.4088bf7e.res",
+   "sha256": "948cc3536ce63383b3d63659eb5bbe1a2b6764830176816b6869df79ea9ba5dc",
+   "bone": "Wep_MagRelease",
+   "fromFilesMoveMm": [
+    16.5,
+    53.3,
+    172.1
+   ],
+   "fromFilesTurnDeg": 0.0,
+   "rotationRows": null,
+   "measuredBefore": "rear leaf +16.7, +53.6, +186 (screenshot fit)"
+  },
+  {
+   "weapon": "L110",
+   "poseResource": "p_wepatt_minimi_01.4088bf7e.res",
+   "sha256": "180475d1c9bb8ae095a9f9d0f546633d62e6c2fbaea412247dbb23112098aa86",
+   "bone": "Wep_MagRelease",
+   "fromFilesMoveMm": [
+    16.5,
+    38.9,
+    193.4
+   ],
+   "fromFilesTurnDeg": 90.0,
+   "rotationRows": [
+    [
+     1.0,
+     0.0,
+     0.0
+    ],
+    [
+     0.0,
+     0.0,
+     1.0
+    ],
+    [
+     0.0,
+     -1.0,
+     0.0
+    ]
+   ],
+   "measuredBefore": "rear sight turned -90 deg about x, then +16.5, +38.9, +198.1 (screenshot fit)"
+  }
+ ],
+ "otherChecks": [
+  "Wep_Charm.t on MG5 holds the skeleton bind value (25.1, 67.9, 162.5 mm).",
+  "Wep2_IK_RightHand repeats Wep_IK_RightHand in both blocks.",
+  "MG5, VSSM and PKM: weapon channels of the idle pose equal those of the attachment pose.",
+  "590A1: the 245-channel idle pose matches its 247-channel attachment pose at quaternion offset 0 and translation offset -1.",
+  "With the pose applied, the front post tip height equals MD.Sight.Main / MD.FrontSight.Main y within 0.5 mm on the weapons that were off before (RPK-74M 89.6 / 89.6, M240L 128.3 / 128.7, M45A1 52.5 / 52.5); this also accounts for the 53 to 59 mm pistol offset noted on 17 November.",
+  "Rotation convention: standard quaternion-to-matrix for column vectors; the transposed form puts the L110 rear sight 60 mm under the sight line."
+ ],
+ "limits": [
+  "Channel names are assigned by position from the end of each block, not by the channel hash list (ToolChannelToDofAssetData Field_6eaf60bd, 247 hashes; the hash of a dof name was not found). Only the weapon channels were checked.",
+  "6 of 134 pose resources use another layout (first u32 26 or 2, or 242 / 243 / 2258 / 6690 channels) and are not read: USG-90 and BRoD-3 have no readable pose and are drawn as stored.",
+  "Animated channels are read at frame 0.",
+  "Bones that a gamestate drives at run time (MD.AttachOffset.*, MD.AttachPoint.*) are not added; they apply to attachments, not to the gun's own parts."
+ ],
+ "ruledOut": [
+  "MD_<W> part records: 43 MD.* gamestates, none places a barrel or a sight leaf.",
+  "Mesh EBX: references only its LOD group.",
+  "Mesh .res: no bone-name hashes, no per-part transforms; only the per-vertex bone index.",
+  "No per-weapon skeleton asset exists in the catalog."
+ ]
+}
