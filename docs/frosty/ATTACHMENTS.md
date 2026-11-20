@@ -1346,6 +1346,73 @@ chain has been recorded the same way, so this does not yet separate an M433-only
 recoil effect that is inactive everywhere. The operator states Match Trigger has no effect in
 automatic fire; an early EF88 and BROD 3 bug that applied it there has been fixed.
 
+**Follow-up checks (19 November 2026, 2.1.2.0).** The 76 keys were checked one by one: they expand to
+1,035 weapon/key pairs, of which 723 are leftovers (the weapon offers nothing of that kind), 143 duplicate
+an offered same-slot attachment that carries the same effects, 92 are class abilities and 69 the embedded
+identifiers above. Six are mismatches, all camera recoil (`GCR_*`), which the site does not model: the HTI
+(not a site weapon) binds its MRO effect to `U_WPM_SCP_MRO_Tall` while offering `U_WPM_SCP_MRO`, and
+`GS_PP19` binds five `GCR_Magnifier_*` effects to magnifier-compatibility keys that none of its eight
+scopes list. Two stay open: the P18 SRD9 Suppressor selects `U_WPM_MZL_ImprvdSuppressor01_W30`, bound on
+no weapon, while `GS_M18` binds hip dispersion and `GRM_SmoothRecoil_P10` to `Suppressor02_W25`, the key
+the same-named suppressor uses on four SMGs (the site applies no effect, as stored); and `MPX_WB` (SGX)
+no longer imports `CMU_SemiAuto` (L4054), so the files cannot show whether its semi mode still reaches
+the no-increase binding. The PP-19 leftover package `WPM_MAG_020Cpt2_PP19_W05` holds the x1.13 reload
+effect missing from the offered 20 Rnd fast magazine (Analyzer bug entry 4); the UMP-40 key on its
+25-round entry is inert. `Equipment_PP19` lists a 25-round Compact1 magazine the site does not offer.
+The site-to-game mapping was regenerated as `frosty-site-attachment-mapping-2026-11-19.json` (3,396
+non-optic choices, 68 weapons, NSW4 included; new identity rows in
+`frosty-attachment-identity-followup-2026-11-19.json`; generated with `--keep-going`; descriptions from the new 2.1.2.0 file `frosty-attachment-descriptions-2026-11-19.json`, six magazine rows confirmed from stored capacity; first run used text
+from the 13 October descriptions). The reverse check on it gives 11 site choices with nothing stored: ten
+Underslung Mounts (NSW4 added) and the M433 Match Trigger. 38 attachment records with a live branch are
+stored on site weapons but not offered by the site; their equipment lists were not checked. The bug-list
+rules are now scripted (`scripts/frosty-bug-rules.py`); its 2.1.2.0 result
+(`reference-data/provenance/frosty-2026-11-19-bug-rules-2.1.2.0.json`) found Analyzer entry 24 resolved
+(the ELR-40 Single Shot text now says 30m and 80m) and flagged extra entry 23 scope pairs for review.
+
+**Operator in-game checks (19 November 2026, 2.1.2.0).** The SGX blooms per shot in manually selected
+semi-auto, so the lost `CMU_SemiAuto` import does disable its no-increase binding (Analyzer bug entry 26,
+site flag set to false). Five more scope and weapon pairs remove the Optic Accessory slot as the files
+say (entry 23). None of the 38 live-branch records the site does not offer appears in the game's menus
+(Ballistic Tip ammo on seven weapons, the SOR-300SC and DB-12 bottom-rail items, Fast magazines and the
+rest), so a live branch with the kill switch off does not mean an attachment is offered; the equipment
+lists decide. `AD_Ammo_BallisticTip` carries the in-game label "Synthetic" and the text "Ammunition
+with greatly improved headshot damage." The P18 SRD9 is the CQB Suppressor: its description states no
+hip-fire penalty and its `ImprvdSuppressor01_W30` selector is the one 61 weapons use, so the unused
+`Suppressor02_W25` bindings in `GS_M18` are leftovers and the case is closed.
+
+**What hides a live attachment (19 November 2026, 2.1.2.0).** The menu offers an attachment only if its
+ability branch is live and the record is listed in the weapon's `Equipment_<Weapon>` file (lists
+`6d390b97`, `844f8184`, `e70ce6be` and the default and pre-attached lists). The kill switch and the
+equipment list are independent gates. Of the 38 live records the site does not offer, 32 are campaign-only
+(in no multiplayer bundle, `reports/campaign-only-2026-11-10/campaign-only.txt`) and unlisted; 5 sit in
+multiplayer bundles but are unlisted (DRS-IAR Synthetic and the Interdictor `ERG_DLCBolt`, both listed in
+2.1.1.0 and removed in 2.1.2.0; ELR-40 Match, VSSM FMJ and the M45A1 blacklight, never listed); the last,
+`Attachment_VSSM_ERG_None`, is listed and live and is the "None" Ergo entry the operator sees. Tested both
+ways on non-sight choices: 0 of 3,396 site choices lack an equipment entry and no listed, live,
+non-placeholder record is missing from the site. Progression assets, categorization tags and unlock
+registries do not separate hidden from offered records. Sights were not tested.
+
+**Camera recoil bindings on the Interdictor and PP-19 (19 November 2026).** The Interdictor's RO-M 1.75x
+(`Attachment_DesertTechHTI_SCP_TrijiconMRO`, selector `U_WPM_SCP_MRO`) has no primary `GCR_01x75_P00`:
+`GS_DesertTechHTI` binds it to `U_WPM_SCP_MRO_Tall`, which no Interdictor sight selects. Its PA-SL 2.50x
+has no `GCR_*` binding at all; the other 40 sights are bound. On the PP-19 the five `GCR_Magnifier_*`
+bindings are keyed on magnifier-compatibility keys none of its sights carry. Operator recordings (one
+full-auto magazine per condition, CCO 2.00x with no magnifier, magnifier down, magnifier up, and a PVQ-31
+4.00x, PP-19 against the PW5A3; Analyzer `reference-data/provenance/magnifier-view-kick-2026-11-19.json`)
+do not settle the view-kick question: zoom-corrected vertical shake with the magnifier up is 1.66 times the
+no-magnifier value on the PP-19 and 1.15 times on the PW5A3, while the magnifier-down to no-magnifier
+ratio, which should be 1.0, reads 0.67 and 0.70, so take-to-take noise is as large as the difference. The
+clips do show one clear difference: with the magnifier up the world view is about 2.0 times the CCO view on
+the PW5A3 (same as the PVQ-31) but only 1.5 times on the PP-19, by template match and by the climb to
+plateau (256 against 132 px, and 178 against 123 px). The files explain it: `WPM_SCA_Magnifier_1x00` to
+`_2x00` (`_Attachments/Magnifier/`) each set a zoom of twice the base sight (`Zoom_02x00_PiP` to
+`Zoom_04x00_PiP`, priority 9001) and are selected by the G43 key together with the sight's
+`*_MagnifierCompatible` key; the default `WPM_G43Magnifier` needs only the G43 key and sets
+`Zoom_03x00_PiP` (priority 123). With no compatibility key in `PP19_Ability`, the PP-19 gets 3.00x on all
+eight sights (1.5 times further on a 2.00x sight), and also lacks `WME_HighZoom_Magnifier_P00`. It is the
+only weapon offering the G43 without the keys, unchanged from 1.4.2.5 to 2.1.2.0 (Analyzer bug entry 30).
+That the higher-priority package wins is inferred, not read from engine code.
+
 ### Match Trigger indirect effects (L17, 24 September 2026)
 
 The [raw HK433 trace](../../reference-data/provenance/frosty-2026-09-24-L17-match-trigger-indirect-effects.json)

@@ -85,12 +85,49 @@ process.stdout.write(JSON.stringify(choices));
         ["node", "--input-type=module", "-e", script], cwd=REPO, text=True))
 
 
+# With --keep-going a reviewed UI or panel row that no longer matches the build is skipped and listed
+# in the report ("reviewDrift") instead of stopping the run; the identity rows are unaffected.
+KEEP_GOING = False
+REVIEW_DRIFT = []
+
+
+def review_drift(message):
+    if not KEEP_GOING:
+        raise ValueError(message)
+    REVIEW_DRIFT.append(message)
+
+
+LATE_FOLLOWUP = "frosty-attachment-identity-followup-2026-11-19.json"
+
+
+def late_followup():
+    """Identities added after the 25 October follow-up (new weapon, new or renamed choices); {} when absent."""
+    path = local_file(Path("reference-data/provenance") / LATE_FOLLOWUP)
+    return read_json(path) if path.exists() else {}
+
+
+class FoldedGraph(dict):
+    """Source graph looked up by path ignoring letter case: the raw capture and the multiplayer
+    copies spell some weapon folders differently (TAVOR7, Tavor7)."""
+
+    def __init__(self, rows):
+        super().__init__(rows)
+        self._folded = {key.lower(): key for key in rows}
+
+    def __contains__(self, key):
+        return key.lower() in self._folded
+
+    def __getitem__(self, key):
+        return super().__getitem__(self._folded[key.lower()])
+
+
 def source_graph(export, include_optics=False):
     base = export.root
     spec = importlib.util.spec_from_file_location("frosty_configuration", REPO / "scripts/frosty-configuration.py")
     cfg = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(cfg)
     identities = read_json(local_file("reference-data/provenance/frosty-weapon-identities.json"))["weapons"]
+    identities = identities + late_followup().get("weaponIdentities", [])
     gs_files = {p.stem[3:].lower(): p for p in (base / "Common/Hardware/Weapons").rglob("GS_*.xml")}
     weapons = []
     for identity in identities:
@@ -111,7 +148,7 @@ def source_graph(export, include_optics=False):
         if "abilityProgression" in row:
             progressions[row["internalId"]].append(row["abilityProgression"])
     rows, issues = cfg.attachment_graph(base, weapons, read_xml, ability_progressions=progressions, include_optics=include_optics)
-    return {row.get("sourceKey") or row["attachmentXml"]: row for row in rows}, hashes, issues
+    return FoldedGraph({row.get("sourceKey") or row["attachmentXml"]: row for row in rows}), hashes, issues
 
 
 def reviewed_identities(audit_file="frosty-attachment-full-pass-2026-09-06.json",
@@ -164,6 +201,12 @@ def reviewed_identities(audit_file="frosty-attachment-full-pass-2026-09-06.json"
     replace([((r["weapon"], r["slot"], r["attachment"]), r["attachmentXml"])
              for r in identities["rows"]],
             "frosty-attachment-identity-followup-2026-10-25.json")
+    late = late_followup()
+    if late:
+        path = local_file(Path("reference-data/provenance") / LATE_FOLLOWUP)
+        reviews[path.name] = hashlib.sha256(path.read_bytes()).hexdigest()
+        replace([((r["weapon"], r["slot"], r["attachment"]), r["attachmentXml"])
+                 for r in late["rows"] if r.get("attachmentXml")], LATE_FOLLOWUP)
     return sources, reviews
 
 
@@ -281,12 +324,15 @@ def audit(choices, graph, sources, indexes, descriptors, ui_reviews=()):
             name = source_name(graph[path])
             link = weapon_ui(name, slot, indexes, slots_by_name)
             review = reviewed_links.get((path, slot))
+            if review and sorted(link["assets"] if link else []) != sorted(review["candidateAssets"]):
+                review_drift(f"Reviewed UI candidates changed: {path}")
+                review = None
             if review:
-                if sorted(link["assets"] if link else []) != sorted(review["candidateAssets"]):
-                    raise ValueError(f"Reviewed UI candidates changed: {path}")
                 asset = review["descriptionAsset"]
-                if (link and asset not in link["assets"]) or descriptors[asset]["description"].get("text") != review.get("sourceDescription", review["observedDescription"]):
-                    raise ValueError(f"Reviewed UI text changed: {path}")
+                if (link and asset not in link["assets"]) or descriptors.get(asset, {}).get("description", {}).get("text") != review.get("sourceDescription", review["observedDescription"]):
+                    review_drift(f"Reviewed UI text changed: {path}")
+                    review = None
+            if review:
                 method = "reviewed-source-alias-with-text-difference" if review.get("descriptionMismatch") else (
                     "screenshot-reviewed-ui-candidate" if link else "screenshot-reviewed-source-description")
                 link = {"method": method,
@@ -378,18 +424,22 @@ def apply_screenshot_tooltips(records, by_weapon, reviews):
     descriptions = {}
     for review in reviews:
         key = review["weapon"], review["slot"], review["attachment"]
-        record = choices[key]
+        record = choices.get(key)
+        if record is None:
+            review_drift(f"Panel review targets a choice the site no longer has: {key}")
+            continue
         # A linked English string can still differ from the live panel (stale or
         # wrong pointer text). Only an explicit review flag may replace it.
         allowed = {"english-description-missing-or-conflicting"}
         if review.get("status") == "linked-text-differs-from-panel":
             allowed.add("linked")
-        if record["identityStatus"] != "source-linked" or record["descriptionStatus"] not in allowed:
-            raise ValueError(f"Screenshot tooltip no longer targets an unresolved description: {key}")
-        if len(record["sources"]) != 1 or record["sources"][0]["source"] != review["source"]:
-            raise ValueError(f"Screenshot tooltip source changed: {key}")
-        if record["sources"][0]["uiLink"] != review["originalUiLink"]:
-            raise ValueError(f"Screenshot tooltip UI link changed: {key}")
+        problem = (
+            "no longer targets an unresolved description" if record["identityStatus"] != "source-linked" or record["descriptionStatus"] not in allowed else
+            "source changed" if len(record["sources"]) != 1 or record["sources"][0]["source"] != review["source"] else
+            "UI link changed" if record["sources"][0]["uiLink"] != review["originalUiLink"] else None)
+        if problem:
+            review_drift(f"Screenshot tooltip {problem}: {key}")
+            continue
         if "screenshot" in review:
             if hashlib.sha256(local_file(review["screenshot"]).read_bytes()).hexdigest() != review["screenshotSha256"]:
                 raise ValueError(f"Screenshot tooltip image changed: {key}")
@@ -592,7 +642,11 @@ def main():
                         help="Reviewed barrel identity rows")
     parser.add_argument("--descriptions", type=Path, default=local_file(provenance / "frosty-attachment-descriptions-2026-09-13.json"),
                         help="Attachment UI labels and descriptions written by frosty-descriptions.py")
+    parser.add_argument("--keep-going", action="store_true",
+                        help="Skip reviewed UI or panel rows that no longer match the build and list them as reviewDrift")
     args = parser.parse_args()
+    global KEEP_GOING
+    KEEP_GOING = args.keep_going
     export = raw_tree.open_input(parser, args, args.frosty_root)
     if args.raw:
         aam_root, load_aam = export.root / args.aam_xml_root, export.load
@@ -628,6 +682,9 @@ def main():
             raise ValueError(f"Reviewed screenshot changed: {review['screenshot']}")
     records, by_weapon, used_ids = audit(choices, graph, sources, indexes, descriptors, ui_reviews)
     panel_review = followup.get("panelLinkageInvestigation", {})
+    retired = {(r["weapon"], r["slot"], r["attachment"]) for r in late_followup().get("retiredPanelReviews", [])}
+    panel_review = {**panel_review, "rows": [r for r in panel_review.get("rows", [])
+                                             if (r["weapon"], r["slot"], r["attachment"]) not in retired]}
     screenshot_descriptions = apply_screenshot_tooltips(
         records, by_weapon, panel_review.get("rows", []) if panel_review.get("applyAsTooltips") is True else [])
     screenshot_descriptions.update(apply_string_id_tooltips(records, by_weapon, descriptors, screenshot_descriptions))
@@ -681,6 +738,8 @@ def main():
             "aamHashes": indexes[-1], "graphSourceHashes": graph_hashes,
             "graphIssues": graph_issues,
         }
+        if REVIEW_DRIFT:
+            report["reviewDrift"] = REVIEW_DRIFT
         args.mapping_json.parent.mkdir(parents=True, exist_ok=True)
         args.mapping_json.write_text(json.dumps(export.mark(report), ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(coverage, indent=2))

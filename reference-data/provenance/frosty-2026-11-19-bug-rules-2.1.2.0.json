@@ -1,0 +1,1143 @@
+{
+ "date": "2026-11-19",
+ "build": "2.1.2.0",
+ "rawFolder": "C:\\Users\\royal\\Documents\\BF6 Datamining\\builds\\2.1.2.0\\capture\\collection\\raw",
+ "weaponsRead": 69,
+ "weapons": [
+  "KORD 6P67",
+  "NVO-228E",
+  "EF88",
+  "B36A4",
+  "AK4D",
+  "M433",
+  "L85A3",
+  "M16A4",
+  "Mk 24",
+  "SOR-556 Mk2",
+  "TR-7",
+  "VCR-2",
+  "ELR-40",
+  "Interdictor",
+  "L115",
+  "M2010 ESR",
+  "Mini Scout",
+  "PSR",
+  "SV-98",
+  "AK-205",
+  "BROD 3",
+  "NSW4",
+  "M417 A2",
+  "M4A1",
+  "GRT-BC",
+  "QBZ-192",
+  "SOR-300SC",
+  "SG 553R",
+  "M277",
+  "LMR27",
+  "M39 EMR",
+  "Mk 1 Mod 0",
+  "GRT-CPS",
+  "SVK-8.6",
+  "SVDM",
+  "VSSM",
+  "M240L",
+  "M250",
+  "DRS-IAR",
+  "M/60",
+  "M123K",
+  "M121 A2",
+  "L110",
+  "Z84M",
+  "RPK-74M",
+  "RPKM",
+  "KTS100 MK8",
+  "ES 5.7",
+  "GGH-22",
+  "P18",
+  "M45A1",
+  "M44",
+  "vz. 61",
+  "M357 Trait",
+  "18.5KS-K",
+  "M87A1",
+  "DB-12",
+  "M1014",
+  "SCW-10",
+  "SL9",
+  "PW5A3",
+  "PW7A2",
+  "SGX",
+  "USG-90",
+  "PP-19",
+  "RSPR",
+  "CZ3A1",
+  "UMG-40",
+  "KV9"
+ ],
+ "entries": {
+  "1": {
+   "entry": 1,
+   "title": "Slim Angled unstated moving-ADS penalty",
+   "status": "resolved-regression",
+   "rule": "Regression check of a resolved entry: a bolt-action bottom-rail action selects more than one package.",
+   "listed": [],
+   "now": [],
+   "newlyAffected": [],
+   "noLongerAffected": [],
+   "alsoNamedInEntryText": [],
+   "evidence": {}
+  },
+  "2": {
+   "entry": 2,
+   "title": "Special ammo keeps the FMJ package",
+   "status": "scripted",
+   "rule": "An ammunition attachment's ability branch selects U_WPM_AMO_FMJ* in addition to its own ammo package.",
+   "listed": [
+    "M45A1"
+   ],
+   "now": [
+    "M45A1"
+   ],
+   "newlyAffected": [],
+   "noLongerAffected": [],
+   "alsoNamedInEntryText": [],
+   "evidence": {
+    "M45A1": [
+     "M45A1_Ability.ebx: ability branch (Field_7e54e22c) of Attachment_M45A1_AMO_Frangible lists ['U_WPM_AMO_Frangible_W20', 'U_WPM_AMO_FMJ_W05']",
+     "M45A1_Ability.ebx: ability branch (Field_7e54e22c) of Attachment_M45A1_AMO_HollowPoint lists ['U_WPM_AMO_JHP_W10', 'U_WPM_AMO_FMJ_W05']",
+     "M45A1_Ability.ebx: ability branch (Field_7e54e22c) of Attachment_M45A1_AMO_Tungsten lists ['U_WPM_AMO_TungstenCore_W05', 'U_WPM_AMO_FMJ_W05']"
+    ]
+   }
+  },
+  "3": {
+   "entry": 3,
+   "status": "manual",
+   "why": "resolved (description corrected, 10 Nov 2026); description-only entry, not re-run."
+  },
+  "4": {
+   "entry": 4,
+   "title": "Fast magazine without reload bonus",
+   "status": "scripted",
+   "rule": "A live magazine whose description says 'faster reloads' has no reload-speed effect (Class_9705264b) or reload-phase package (Class_7d916d6b) behind its selector.",
+   "listed": [
+    "PP-19"
+   ],
+   "now": [
+    "PP-19"
+   ],
+   "newlyAffected": [],
+   "noLongerAffected": [],
+   "alsoNamedInEntryText": [],
+   "evidence": {
+    "PP-19": [
+     "Attachment_PP19_MAG_Compact2 (20rnd Fast Mag): description \"Compact magazine with mag pull for faster reloads. Improves handling at the cost of capacity.\"; selectors ['U_WPM_MAG_020Cpt3_PP19_W05'] carry no reload-speed effect (Class_9705264b) or reload-phase package (Class_7d916d6b); effects ['GDM_Array_ADSMoveDispersion_MAG_P20', 'WME_ADSMoveSpeed_P15', 'WME_CSway_P05', 'WME_DynamicPivot_P10', 'WME_WSway_P05', 'WPM_MAG_020Cpt3_PP19_W05']"
+    ]
+   },
+   "notes": [
+    "Skipped, no selector resolved from the ability branch (cannot be decided): ['Mk 1 Mod 0 (not on site) Attachment_MRGGS_MAG_Compact2', 'Mk 1 Mod 0 (not on site) Attachment_MRGGS_MAG_Compact3', 'Mk 1 Mod 0 (not on site) Attachment_MRGGS_MAG_Extended1Fast']"
+   ]
+  },
+  "5": {
+   "entry": 5,
+   "status": "manual",
+   "why": "removed 14 Oct 2026 (not a bug); nothing to run."
+  },
+  "6": {
+   "entry": 6,
+   "title": "Flash Comp without recoil smoothing",
+   "status": "scripted",
+   "rule": "For a muzzle selector that at least 80% of weapons bind to GRM_SmoothRecoil*, the weapon's GS file has no such binding.",
+   "listed": [
+    "PP-19"
+   ],
+   "now": [
+    "PP-19"
+   ],
+   "newlyAffected": [],
+   "noLongerAffected": [],
+   "alsoNamedInEntryText": [],
+   "evidence": {
+    "PP-19": [
+     "GS_PP19.ebx: no binding (Field_2f0e5b83/Field_6d011165) to selector f7996b55 of U_WPM_MZL_FlashCompensator_W15 (Attachment_PP19_MZL_VityazFlashComp) for GRM_SmoothRecoil*"
+    ]
+   },
+   "notes": [
+    "U_WPM_MZL_FlashCompensator_W15: smoothing bound on 43 of 44 weapons"
+   ]
+  },
+  "7": {
+   "entry": 7,
+   "status": "manual",
+   "why": "resolved (belt-box text corrected, 10 Nov 2026); description-only entry, not re-run."
+  },
+  "8": {
+   "entry": 8,
+   "status": "manual",
+   "why": "resolved (description corrected, 10 Nov 2026); covered by entry 4's check if the 'faster reloads' claim returns without a reload effect."
+  },
+  "9": {
+   "entry": 9,
+   "status": "manual",
+   "why": "resolved (SGX Extended Barrel text corrected, 10 Nov 2026); description-only entry, not re-run."
+  },
+  "10": {
+   "entry": 10,
+   "title": "50 Rnd 'improved handling' text",
+   "status": "scripted",
+   "rule": "A live magazine described as 'improved handling' gains none of draw, sprint recovery, ADS time or ADS move speed against the weapon's default (Std) magazine, from the WME_*_P/M tier in the effect names.",
+   "listed": [
+    "KTS100 MK8"
+   ],
+   "now": [
+    "KTS100 MK8"
+   ],
+   "newlyAffected": [],
+   "noLongerAffected": [],
+   "alsoNamedInEntryText": [],
+   "evidence": {
+    "KTS100 MK8": [
+     "Attachment_Ultimax_MAG_Compact2 (50rnd Magazine) vs default Attachment_Ultimax_MAG_Regular: {'sway': 2, 'moving-ADS accuracy': 2}"
+    ]
+   },
+   "notes": [
+    "Under the broader reading of the method doc (any of sprint, draw, ADS, ADS move, sway, moving-ADS accuracy, reload improved) only these remain: []"
+   ],
+   "manual": "Whether 'improved handling' is wrong needs the in-game panel (2.1.2.0 recheck: entry 10 'Re-judge in game')."
+  },
+  "11": {
+   "entry": 11,
+   "title": "Optics use the default render FOV",
+   "status": "scripted",
+   "rule": "An optic's WB package has a render FOV (Field_7768ebf2) different from the one most weapons use for the same optic selector.",
+   "listed": [
+    "RPK-74M",
+    "L115"
+   ],
+   "now": [
+    "ES 5.7",
+    "GGH-22",
+    "L115",
+    "M45A1",
+    "Mk 1 Mod 0 (not on site)",
+    "P18",
+    "RPK-74M"
+   ],
+   "newlyAffected": [
+    "Mk 1 Mod 0 (not on site)"
+   ],
+   "noLongerAffected": [],
+   "alsoNamedInEntryText": [
+    "ES 5.7",
+    "GGH-22",
+    "M45A1",
+    "P18"
+   ],
+   "evidence": {
+    "ES 5.7": [
+     "FiveSeven_WB.ebx: Attachment_FiveSeven_SCP_ACRO_P2 (U_WPM_SCP_AcroP2) uses package WPM_SCP_AcroP2, render FOV Field_7768ebf2 = 55; 62 of 69 weapons use 40",
+     "FiveSeven_WB.ebx: Attachment_FiveSeven_SCP_EFLXMini (U_WPM_SCP_EotechEFLX) uses package WPM_SCP_EotechEFLX, render FOV Field_7768ebf2 = 55; 62 of 69 weapons use 40",
+     "FiveSeven_WB.ebx: Attachment_FiveSeven_SCP_RMR (U_WPM_SCP_RMR) uses package WPM_SCP_RMR, render FOV Field_7768ebf2 = 55; 62 of 69 weapons use 40",
+     "FiveSeven_WB.ebx: Attachment_FiveSeven_SCP_RomeoX (U_WPM_SCP_RomeoX) uses package WPM_SCP_RomeoX, render FOV Field_7768ebf2 = 55; 62 of 69 weapons use 40",
+     "FiveSeven_WB.ebx: Attachment_FiveSeven_SCP_Shield_CQS (U_WPM_SCP_ShieldCQS) uses package WPM_SCP_ShieldCQS, render FOV Field_7768ebf2 = 55; 62 of 69 weapons use 44",
+     "FiveSeven_WB.ebx: Attachment_FiveSeven_SCP_TrijiconSRO (U_WPM_SCP_TrijiconSRO) uses package WPM_SCP_TrijiconSRO, render FOV Field_7768ebf2 = 55; 62 of 68 weapons use 40"
+    ],
+    "GGH-22": [
+     "G22_WB.ebx: Attachment_G22_SCP_ACRO_P2 (U_WPM_SCP_AcroP2) uses package WPM_SCP_AcroP2, render FOV Field_7768ebf2 = 55; 62 of 69 weapons use 40",
+     "G22_WB.ebx: Attachment_G22_SCP_EFLXMini (U_WPM_SCP_EotechEFLX) uses package WPM_SCP_EotechEFLX, render FOV Field_7768ebf2 = 55; 62 of 69 weapons use 40",
+     "G22_WB.ebx: Attachment_G22_SCP_RMR (U_WPM_SCP_RMR) uses package WPM_SCP_RMR, render FOV Field_7768ebf2 = 55; 62 of 69 weapons use 40",
+     "G22_WB.ebx: Attachment_G22_SCP_RomeoX (U_WPM_SCP_RomeoX) uses package WPM_SCP_RomeoX, render FOV Field_7768ebf2 = 55; 62 of 69 weapons use 40",
+     "G22_WB.ebx: Attachment_G22_SCP_Shield_CQS (U_WPM_SCP_ShieldCQS) uses package WPM_SCP_ShieldCQS, render FOV Field_7768ebf2 = 55; 62 of 69 weapons use 44",
+     "G22_WB.ebx: Attachment_G22_SCP_TrijiconSRO (U_WPM_SCP_TrijiconSRO) uses package WPM_SCP_TrijiconSRO, render FOV Field_7768ebf2 = 55; 62 of 68 weapons use 40"
+    ],
+    "L115": [
+     "L115A3_WB.ebx: Attachment_L115A3_SCP_ACROP2 (U_WPM_SCP_AcroP2) uses package WPM_SCP_AcroP2, render FOV Field_7768ebf2 = 55; 62 of 69 weapons use 40",
+     "L115A3_WB.ebx: Attachment_L115A3_SCP_EFLXMini (U_WPM_SCP_EotechEFLX) uses package WPM_SCP_EotechEFLX, render FOV Field_7768ebf2 = 55; 62 of 69 weapons use 40",
+     "L115A3_WB.ebx: Attachment_L115A3_SCP_RMR (U_WPM_SCP_RMR) uses package WPM_SCP_RMR, render FOV Field_7768ebf2 = 55; 62 of 69 weapons use 40",
+     "L115A3_WB.ebx: Attachment_L115A3_SCP_RomeoX (U_WPM_SCP_RomeoX) uses package WPM_SCP_RomeoX, render FOV Field_7768ebf2 = 55; 62 of 69 weapons use 40",
+     "L115A3_WB.ebx: Attachment_L115A3_SCP_ShieldCQS (U_WPM_SCP_ShieldCQS) uses package WPM_SCP_ShieldCQS, render FOV Field_7768ebf2 = 55; 62 of 69 weapons use 44",
+     "L115A3_WB.ebx: Attachment_L115A3_SCP_TrijiconSRO (U_WPM_SCP_TrijiconSRO) uses package WPM_SCP_TrijiconSRO, render FOV Field_7768ebf2 = 55; 62 of 68 weapons use 40"
+    ],
+    "M45A1": [
+     "M45A1_WB.ebx: Attachment_M45A1_SCP_ACRO_P2 (U_WPM_SCP_AcroP2) uses package WPM_SCP_AcroP2, render FOV Field_7768ebf2 = 55; 62 of 69 weapons use 40",
+     "M45A1_WB.ebx: Attachment_M45A1_SCP_EFLXMini (U_WPM_SCP_EotechEFLX) uses package WPM_SCP_EotechEFLX, render FOV Field_7768ebf2 = 55; 62 of 69 weapons use 40",
+     "M45A1_WB.ebx: Attachment_M45A1_SCP_RMR (U_WPM_SCP_RMR) uses package WPM_SCP_RMR, render FOV Field_7768ebf2 = 55; 62 of 69 weapons use 40",
+     "M45A1_WB.ebx: Attachment_M45A1_SCP_RomeoX (U_WPM_SCP_RomeoX) uses package WPM_SCP_RomeoX, render FOV Field_7768ebf2 = 55; 62 of 69 weapons use 40",
+     "M45A1_WB.ebx: Attachment_M45A1_SCP_Shield_CQS (U_WPM_SCP_ShieldCQS) uses package WPM_SCP_ShieldCQS, render FOV Field_7768ebf2 = 55; 62 of 69 weapons use 44",
+     "M45A1_WB.ebx: Attachment_M45A1_SCP_TrijiconSRO (U_WPM_SCP_TrijiconSRO) uses package WPM_SCP_TrijiconSRO, render FOV Field_7768ebf2 = 55; 62 of 68 weapons use 40"
+    ],
+    "Mk 1 Mod 0 (not on site)": [
+     "MRGGS_WB.ebx: Attachment_MRGGS_SCP_ACROP2 (U_WPM_SCP_AcroP2) uses package WPM_SCP_AcroP2, render FOV Field_7768ebf2 = 55; 62 of 69 weapons use 40",
+     "MRGGS_WB.ebx: Attachment_MRGGS_SCP_EFLXMini (U_WPM_SCP_EotechEFLX) uses package WPM_SCP_EotechEFLX, render FOV Field_7768ebf2 = 55; 62 of 69 weapons use 40",
+     "MRGGS_WB.ebx: Attachment_MRGGS_SCP_RMR (U_WPM_SCP_RMR) uses package WPM_SCP_RMR_Mounted, render FOV Field_7768ebf2 = 38; 62 of 69 weapons use 40",
+     "MRGGS_WB.ebx: Attachment_MRGGS_SCP_RomeoX (U_WPM_SCP_RomeoX) uses package WPM_SCP_RomeoX, render FOV Field_7768ebf2 = 55; 62 of 69 weapons use 40",
+     "MRGGS_WB.ebx: Attachment_MRGGS_SCP_ShieldCQS (U_WPM_SCP_ShieldCQS) uses package WPM_SCP_ShieldCQS, render FOV Field_7768ebf2 = 55; 62 of 69 weapons use 44"
+    ],
+    "P18": [
+     "M18_WB.ebx: Attachment_M18_SCP_ACRO_P2 (U_WPM_SCP_AcroP2) uses package WPM_SCP_AcroP2, render FOV Field_7768ebf2 = 55; 62 of 69 weapons use 40",
+     "M18_WB.ebx: Attachment_M18_SCP_EFLXMini (U_WPM_SCP_EotechEFLX) uses package WPM_SCP_EotechEFLX, render FOV Field_7768ebf2 = 55; 62 of 69 weapons use 40",
+     "M18_WB.ebx: Attachment_M18_SCP_RMR (U_WPM_SCP_RMR) uses package WPM_SCP_RMR, render FOV Field_7768ebf2 = 55; 62 of 69 weapons use 40",
+     "M18_WB.ebx: Attachment_M18_SCP_RomeoX (U_WPM_SCP_RomeoX) uses package WPM_SCP_RomeoX, render FOV Field_7768ebf2 = 55; 62 of 69 weapons use 40",
+     "M18_WB.ebx: Attachment_M18_SCP_Shield_CQS (U_WPM_SCP_ShieldCQS) uses package WPM_SCP_ShieldCQS, render FOV Field_7768ebf2 = 55; 62 of 69 weapons use 44",
+     "M18_WB.ebx: Attachment_M18_SCP_TrijiconSRO (U_WPM_SCP_TrijiconSRO) uses package WPM_SCP_TrijiconSRO, render FOV Field_7768ebf2 = 55; 62 of 68 weapons use 40"
+    ],
+    "RPK-74M": [
+     "RPK74M_WB.ebx: Attachment_RPK74M_SCP_ACROP2 (U_WPM_SCP_AcroP2) uses package WPM_SCP_AcroP2, render FOV Field_7768ebf2 = 55; 62 of 69 weapons use 40",
+     "RPK74M_WB.ebx: Attachment_RPK74M_SCP_EFLXMini (U_WPM_SCP_EotechEFLX) uses package WPM_SCP_EotechEFLX, render FOV Field_7768ebf2 = 55; 62 of 69 weapons use 40",
+     "RPK74M_WB.ebx: Attachment_RPK74M_SCP_RMR (U_WPM_SCP_RMR) uses package WPM_SCP_RMR, render FOV Field_7768ebf2 = 55; 62 of 69 weapons use 40",
+     "RPK74M_WB.ebx: Attachment_RPK74M_SCP_RomeoX (U_WPM_SCP_RomeoX) uses package WPM_SCP_RomeoX, render FOV Field_7768ebf2 = 55; 62 of 69 weapons use 40",
+     "RPK74M_WB.ebx: Attachment_RPK74M_SCP_ShieldCQS (U_WPM_SCP_ShieldCQS) uses package WPM_SCP_ShieldCQS, render FOV Field_7768ebf2 = 55; 62 of 69 weapons use 44",
+     "RPK74M_WB.ebx: Attachment_RPK74M_SCP_TrijiconSRO (U_WPM_SCP_TrijiconSRO) uses package WPM_SCP_TrijiconSRO, render FOV Field_7768ebf2 = 55; 62 of 68 weapons use 40"
+    ]
+   },
+   "manual": "The visual effect (stretched arm, small optic) is in game only."
+  },
+  "12": {
+   "entry": 12,
+   "status": "manual",
+   "why": "resolved (L115 binds hip dispersion for the Standard Suppressor, 10 Nov 2026); not re-run."
+  },
+  "13": {
+   "entry": 13,
+   "title": "Tungsten Core recoil penalties inconsistent",
+   "status": "scripted",
+   "rule": "On a bolt-action weapon the Tungsten Core selector does not bind exactly one GRM_Recoil_AMO_Bolt_M10.",
+   "listed": [
+    "Mini Scout"
+   ],
+   "now": [
+    "Mini Scout"
+   ],
+   "newlyAffected": [],
+   "noLongerAffected": [],
+   "alsoNamedInEntryText": [],
+   "evidence": {
+    "Mini Scout": [
+     "GS_MiniFix.ebx: Tungsten selector U_WPM_AMO_TungstenCore_W05 binds ['GRM_Recoil_AMO_Bolt_M10', 'GRM_Recoil_AMO_M10'] (bolt-action rule: one GRM_Recoil_AMO_Bolt_M10)"
+    ]
+   },
+   "notes": [
+    "Tungsten recoil bindings by class: {'AssaultRifle': {'GRM_Recoil_AMO_M10': 12}, 'BoltAction': {'GRM_Recoil_AMO_Bolt_M10': 6, 'GRM_Recoil_AMO_Bolt_M10,GRM_Recoil_AMO_M10': 1}, 'Carbine': {'GRM_Recoil_AMO_M10': 10}, 'DMR': {'GRM_Recoil_AMO_M10': 7}, 'MG': {'GRM_Recoil_AMO_M10': 11}, 'Secondary': {'GRM_Recoil_AMO_M10': 7}, 'SMG': {'GRM_Recoil_AMO_M10': 11}}"
+   ]
+  },
+  "14": {
+   "entry": 14,
+   "title": "Burst attachments bound to the runtime token",
+   "status": "scripted",
+   "rule": "A weapon with a Burst Mode/Training selector has GRM_* recoil effects bound in its GS file under the U_WPM_ERG_BurstFireActive key, which the attachment selector lacks.",
+   "listed": [
+    "GRT-BC",
+    "SL9",
+    "KORD 6P67",
+    "SG 553R",
+    "PW5A3",
+    "KV9",
+    "CZ3A1",
+    "UMG-40"
+   ],
+   "now": [
+    "CZ3A1",
+    "GRT-BC",
+    "KORD 6P67",
+    "KV9",
+    "PW5A3",
+    "SG 553R",
+    "SL9",
+    "UMG-40"
+   ],
+   "newlyAffected": [],
+   "noLongerAffected": [],
+   "alsoNamedInEntryText": [],
+   "evidence": {
+    "CZ3A1": [
+     "GS_ScorpionEvo3.ebx binds ['GRM_AutoIdentifier_P00', 'GRM_RecoilConversion_ERG_P10', 'GRM_Recoil_ERG_P10'] under key 588728fd (U_WPM_ERG_BurstFireActive); the attachment selector U_WPM_ERG_BurstFireEnabled_W10 does not carry that key"
+    ],
+    "GRT-BC": [
+     "GS_MSBSGROTB.ebx binds ['GRM_AutoIdentifier_P00', 'GRM_RecoilConversion_ERG_P10', 'GRM_Recoil_ERG_P20'] under key 588728fd (U_WPM_ERG_BurstFireActive); the attachment selector U_WPM_ERG_BurstFireReplace_W10 does not carry that key"
+    ],
+    "KORD 6P67": [
+     "GS_6P67.ebx binds ['GRM_RecoilConversion_ERG_P10', 'GRM_Recoil_ERG_P10'] under key 588728fd (U_WPM_ERG_BurstFireActive); the attachment selector U_WPM_ERG_BurstFireEnabled_W10 does not carry that key"
+    ],
+    "KV9": [
+     "GS_Vector.ebx binds ['GRM_RecoilConversion_ERG_P10', 'GRM_Recoil_ERG_P10'] under key 588728fd (U_WPM_ERG_BurstFireActive); the attachment selector U_WPM_ERG_BurstFireEnabled_W10 does not carry that key"
+    ],
+    "PW5A3": [
+     "GS_MP5MLI.ebx binds ['GRM_AutoIdentifier_P00', 'GRM_RecoilConversion_ERG_P10', 'GRM_Recoil_ERG_P10'] under key 588728fd (U_WPM_ERG_BurstFireActive); the attachment selector U_WPM_ERG_BurstFireEnabled_W10 does not carry that key"
+    ],
+    "SG 553R": [
+     "GS_SIG553R.ebx binds ['GRM_AutoIdentifier_P00', 'GRM_RecoilConversion_ERG_P10', 'GRM_Recoil_ERG_P10'] under key 588728fd (U_WPM_ERG_BurstFireActive); the attachment selector U_WPM_ERG_BurstFireEnabled_W10 does not carry that key"
+    ],
+    "SL9": [
+     "GS_APDW.ebx binds ['GRM_AutoIdentifier_P00', 'GRM_RecoilConversion_ERG_P10', 'GRM_Recoil_ERG_P10'] under key 588728fd (U_WPM_ERG_BurstFireActive); the attachment selector U_WPM_ERG_BurstFireReplace_W10 does not carry that key"
+    ],
+    "UMG-40": [
+     "GS_UMP40.ebx binds ['GRM_RecoilConversion_ERG_P10', 'GRM_Recoil_ERG_P10'] under key 588728fd (U_WPM_ERG_BurstFireActive); the attachment selector U_WPM_ERG_BurstFireEnabled_W10 does not carry that key"
+    ]
+   },
+   "manual": "14b (whether the burst modifiers apply while firing) is an open in-game question; this rule decides only the menu-side binding (14a)."
+  },
+  "15": {
+   "entry": 15,
+   "title": "Empty reload ReloadTime mismatch",
+   "status": "scripted",
+   "rule": "A base ReloadInfoArray entry has ReloadTime (Field_85ff24a0) different from ReloadTimeBulletsLeft (Field_fc66e75e) while that value and the end of the phase list (Field_dc244b57) agree.",
+   "listed": [
+    "SOR-300SC",
+    "GRT-CPS"
+   ],
+   "now": [
+    "GRT-CPS",
+    "SOR-300SC"
+   ],
+   "newlyAffected": [],
+   "noLongerAffected": [],
+   "alsoNamedInEntryText": [],
+   "evidence": {
+    "GRT-CPS": [
+     "MSBSGROTCPS_WB.ebx ReloadInfoArray[1]: ReloadTime 3.284, ReloadTimeBulletsLeft 3.034, last phase time 3.034"
+    ],
+    "SOR-300SC": [
+     "SCARSC_WB.ebx ReloadInfoArray[1]: ReloadTime 3.284, ReloadTimeBulletsLeft 3.200, last phase time 3.200"
+    ]
+   },
+   "notes": [
+    "CZ3A1 ReloadInfoArray[1]: ReloadTime = BulletsLeft = 2.950 but last phase time 2.500 (not the entry's pattern)"
+   ],
+   "manual": "Which value the game uses is decided by timed captures, not by the files."
+  },
+  "16": {
+   "entry": 16,
+   "title": "Iron sights without sway reduction",
+   "status": "scripted",
+   "rule": "The iron-sight selector (U_WPM_IronSights) lists no WME_WSway_P05; bolt-action rifles are reported separately as by design (entry text).",
+   "listed": [
+    "BROD 3",
+    "NSW4"
+   ],
+   "now": [
+    "BROD 3",
+    "NSW4"
+   ],
+   "newlyAffected": [],
+   "noLongerAffected": [],
+   "alsoNamedInEntryText": [],
+   "evidence": {
+    "BROD 3": [
+     "BREN3_WB.ebx: iron-sight selector U_WPM_IronSights (Attachment_BREN3_SCP_IronSights) lists no WME_WSway_P05 / WME_CSway_P05 (effects: ['GCR_01x50_P00', 'WB'])"
+    ],
+    "NSW4": [
+     "Devgru_WB.ebx: iron-sight selector U_WPM_IronSights (Attachment_DEVGRU_SCP_IronSights) lists no WME_WSway_P05 / WME_CSway_P05 (effects: ['GCR_01x50_P00', 'WB'])"
+    ]
+   },
+   "byDesign": {
+    "ELR-40": [
+     "CDX40_WB.ebx: iron-sight selector U_WPM_IronSights (Attachment_CDX40_SCP_IronSights) lists no WME_WSway_P05 / WME_CSway_P05 (effects: ['GCR_01x50_P00', 'WB', 'WPM_NoScopeGlint'])"
+    ],
+    "Interdictor": [
+     "DesertTechHTI_WB.ebx: iron-sight selector U_WPM_IronSights (Attachment_DesertTechHTI_SCP_IronSights) lists no WME_WSway_P05 / WME_CSway_P05 (effects: ['GCR_01x50_P00', 'WB', 'WPM_NoScopeGlint'])"
+    ],
+    "L115": [
+     "L115A3_WB.ebx: iron-sight selector U_WPM_IronSights (Attachment_L115A3_SCP_IronSights) lists no WME_WSway_P05 / WME_CSway_P05 (effects: ['GCR_01x50_P00', 'WB', 'WPM_NoScopeGlint'])"
+    ],
+    "M2010 ESR": [
+     "M2010ESR_WB.ebx: iron-sight selector U_WPM_IronSights (Attachment_M2010ESR_SCP_Iron_Sights) lists no WME_WSway_P05 / WME_CSway_P05 (effects: ['GCR_01x50_P00', 'WB', 'WPM_NoScopeGlint'])"
+    ],
+    "Mini Scout": [
+     "MiniFix_WB.ebx: iron-sight selector U_WPM_IronSights (Attachment_MiniFix_SCP_IronSights) lists no WME_WSway_P05 / WME_CSway_P05 (effects: ['GCR_01x50_P00', 'WB', 'WPM_NoScopeGlint'])"
+    ],
+    "PSR": [
+     "MRAD_WB.ebx: iron-sight selector U_WPM_IronSights (Attachment_MRAD_SCP_Iron_Sights) lists no WME_WSway_P05 / WME_CSway_P05 (effects: ['GCR_01x50_P00', 'WB', 'WPM_NoScopeGlint'])"
+    ],
+    "SV-98": [
+     "SV98M_WB.ebx: iron-sight selector U_WPM_IronSights (Attachment_SV98M_SCP_IronSights) lists no WME_WSway_P05 / WME_CSway_P05 (effects: ['GCR_01x50_P00', 'WB', 'WPM_NoScopeGlint'])"
+    ]
+   },
+   "byDesignReason": "Operator: bolt-action rifles lack the iron-sight sway package by design (entry 16, 25 September)."
+  },
+  "17": {
+   "entry": 17,
+   "title": "Spot-on-fire range 75 m",
+   "status": "scripted",
+   "rule": "The in-world spot-on-fire base in the WB root (Field_5ebda408/Field_9918e670) is 75 (the usual value is 54).",
+   "listed": [
+    "M433",
+    "SGX",
+    "L110",
+    "P18"
+   ],
+   "now": [
+    "L110",
+    "M433",
+    "P18",
+    "SGX"
+   ],
+   "newlyAffected": [],
+   "noLongerAffected": [],
+   "alsoNamedInEntryText": [],
+   "evidence": {
+    "L110": [
+     "Minimi_WB.ebx: Class_542ac52c Field_5ebda408/Field_9918e670 = 75 (minimap Field_31022dc5 = 150); 54 on most weapons"
+    ],
+    "M433": [
+     "HK433_WB.ebx: Class_542ac52c Field_5ebda408/Field_9918e670 = 75 (minimap Field_31022dc5 = 150); 54 on most weapons"
+    ],
+    "P18": [
+     "M18_WB.ebx: Class_542ac52c Field_5ebda408/Field_9918e670 = 75 (minimap Field_31022dc5 = 150); 54 on most weapons"
+    ],
+    "SGX": [
+     "MPX_WB.ebx: Class_542ac52c Field_5ebda408/Field_9918e670 = 75 (minimap Field_31022dc5 = 150); 54 on most weapons"
+    ]
+   },
+   "notes": [
+    "Most common value: 54 m. Weapons at other values than 75 are listed in alsoDiffers; they do not match the entry's 75 m pattern."
+   ],
+   "manual": "The in-game panel reading (75 m) is manual. Registry (GRX_Weapons) overrides of the field were not read.",
+   "alsoDiffers": {
+    "NSW4": "Devgru_WB.ebx: Class_542ac52c Field_5ebda408/Field_9918e670 = 27 (minimap Field_31022dc5 = 64.2857); 54 on most weapons",
+    "Mk 1 Mod 0 (not on site)": "MRGGS_WB.ebx: Class_542ac52c Field_5ebda408/Field_9918e670 = 100 (minimap Field_31022dc5 = 100); 54 on most weapons",
+    "M45A1": "M45A1_WB.ebx: Class_542ac52c Field_5ebda408/Field_9918e670 = 27 (minimap Field_31022dc5 = 64.2857); 54 on most weapons",
+    "vz. 61": "Skorpion_WB.ebx: Class_542ac52c Field_5ebda408/Field_9918e670 = 27 (minimap Field_31022dc5 = 64.2857); 54 on most weapons"
+   }
+  },
+  "18": {
+   "entry": 18,
+   "title": "Hollow Point costs as much as Standard",
+   "status": "scripted",
+   "rule": "The Hollow Point attachment costs no more than the weapon's FMJ ammunition.",
+   "listed": [
+    "Mk 24"
+   ],
+   "now": [
+    "Mk 24"
+   ],
+   "newlyAffected": [],
+   "noLongerAffected": [],
+   "alsoNamedInEntryText": [],
+   "evidence": {
+    "Mk 24": [
+     "Attachment_MRGGA_AMO_HollowPoint.ebx: point cost Field_6ee865a5 = 5, AMO_FMJ = 5; other weapons' Hollow Point costs [15, 20]"
+    ]
+   }
+  },
+  "19": {
+   "entry": 19,
+   "status": "manual",
+   "why": "resolved (RSPR brake has one recoil step, 10 Nov 2026); not re-run."
+  },
+  "20": {
+   "entry": 20,
+   "title": "Collateral row passes the table",
+   "status": "scripted",
+   "rule": "For a live ammunition x magazine pair, base penetration index + ammo steps + magazine steps passes the 10-row collateral table.",
+   "listed": [
+    "ELR-40"
+   ],
+   "now": [
+    "ELR-40"
+   ],
+   "newlyAffected": [],
+   "noLongerAffected": [],
+   "alsoNamedInEntryText": [],
+   "evidence": {
+    "ELR-40": [
+     "AMO_FMJ + MAG_Compact1: base index 6 (registry) + ammo steps 1 + magazine steps 3 = row 10, table rows 0..9",
+     "AMO_Match + MAG_Compact1: base index 6 (registry) + ammo steps 1 + magazine steps 3 = row 10, table rows 0..9",
+     "AMO_Tungsten + MAG_Compact1: base index 6 (registry) + ammo steps 3 + magazine steps 3 = row 12, table rows 0..9"
+    ]
+   },
+   "notes": [
+    "Collateral table size (10 rows) is taken from the 2.1.2.0 material-grid check (checklist Stage 6), not re-read by this script."
+   ],
+   "manual": "The x0.00 panel display and the firing-range damage are in game only."
+  },
+  "21": {
+   "entry": 21,
+   "title": "Grips reduce recoil one step more",
+   "status": "scripted",
+   "rule": "A grip selector's GRM_Recoil_BTM_* step differs from the one that at least 60% of weapons bind to the same selector.",
+   "listed": [
+    "Mk 24 / Adjustable Angled",
+    "Z84M / Adjustable Angled",
+    "Mk 24 / Full Angled",
+    "Z84M / Full Angled",
+    "Mk 24 / QD Grip Pod",
+    "Z84M / QD Grip Pod",
+    "EF88 / QD Grip Pod",
+    "M16A4 / QD Grip Pod",
+    "NSW4 / QD Grip Pod",
+    "BROD 3 / QD Grip Pod",
+    "RPK-74M / QD Grip Pod",
+    "VSSM / QD Grip Pod"
+   ],
+   "now": [
+    "BROD 3 / QD Grip Pod",
+    "EF88 / QD Grip Pod",
+    "M16A4 / QD Grip Pod",
+    "Mk 1 Mod 0 (not on site) / Adjustable Angled",
+    "Mk 1 Mod 0 (not on site) / Full Angled",
+    "Mk 1 Mod 0 (not on site) / QD Grip Pod",
+    "Mk 24 / Adjustable Angled",
+    "Mk 24 / Full Angled",
+    "Mk 24 / QD Grip Pod",
+    "NSW4 / QD Grip Pod",
+    "RPK-74M / QD Grip Pod",
+    "VSSM / QD Grip Pod",
+    "Z84M / Adjustable Angled",
+    "Z84M / Full Angled",
+    "Z84M / QD Grip Pod"
+   ],
+   "newlyAffected": [
+    "Mk 1 Mod 0 (not on site) / Adjustable Angled",
+    "Mk 1 Mod 0 (not on site) / Full Angled",
+    "Mk 1 Mod 0 (not on site) / QD Grip Pod"
+   ],
+   "noLongerAffected": [],
+   "alsoNamedInEntryText": [],
+   "evidence": {
+    "BROD 3 / QD Grip Pod": [
+     "GS_BREN3.ebx binds ['GRM_Recoil_BTM_P30'] to selector U_WPM_BTM_GripPod02_W30 (Attachment_BREN3_BTM_BTGrippodQD); 27 of 36 weapons bind ['GRM_Recoil_BTM_P20']"
+    ],
+    "EF88 / QD Grip Pod": [
+     "GS_EF88.ebx binds ['GRM_Recoil_BTM_P30'] to selector U_WPM_BTM_GripPod02_W30 (Attachment_EF88_BTM_BTGrippodQD); 27 of 36 weapons bind ['GRM_Recoil_BTM_P20']"
+    ],
+    "M16A4 / QD Grip Pod": [
+     "GS_M16A3.ebx binds ['GRM_Recoil_BTM_P30'] to selector U_WPM_BTM_GripPod02_W30 (Attachment_M16A3_BTM_BTGrippodQD); 27 of 36 weapons bind ['GRM_Recoil_BTM_P20']"
+    ],
+    "Mk 1 Mod 0 (not on site) / Adjustable Angled": [
+     "GS_MRGGS.ebx binds ['GRM_Recoil_BTM_P20'] to selector U_WPM_BTM_Fast01_W25 (Attachment_MRGGS_BTM_HFGA); 24 of 27 weapons bind ['GRM_Recoil_BTM_P10']"
+    ],
+    "Mk 1 Mod 0 (not on site) / Full Angled": [
+     "GS_MRGGS.ebx binds ['GRM_Recoil_BTM_P30'] to selector U_WPM_BTM_Fast03_W30 (Attachment_MRGGS_BTM_MagpulAFG2); 38 of 41 weapons bind ['GRM_Recoil_BTM_P20']"
+    ],
+    "Mk 1 Mod 0 (not on site) / QD Grip Pod": [
+     "GS_MRGGS.ebx binds ['GRM_Recoil_BTM_P30'] to selector U_WPM_BTM_GripPod02_W30 (Attachment_MRGGS_BTM_BTGrippodQD); 27 of 36 weapons bind ['GRM_Recoil_BTM_P20']"
+    ],
+    "Mk 24 / Adjustable Angled": [
+     "GS_MRGGA.ebx binds ['GRM_Recoil_BTM_P20'] to selector U_WPM_BTM_Fast01_W25 (Attachment_MRGGA_BTM_HFGA); 24 of 27 weapons bind ['GRM_Recoil_BTM_P10']"
+    ],
+    "Mk 24 / Full Angled": [
+     "GS_MRGGA.ebx binds ['GRM_Recoil_BTM_P30'] to selector U_WPM_BTM_Fast03_W30 (Attachment_MRGGA_BTM_MagpulAFG2); 38 of 41 weapons bind ['GRM_Recoil_BTM_P20']"
+    ],
+    "Mk 24 / QD Grip Pod": [
+     "GS_MRGGA.ebx binds ['GRM_Recoil_BTM_P30'] to selector U_WPM_BTM_GripPod02_W30 (Attachment_MRGGA_BTM_BTGrippodQD); 27 of 36 weapons bind ['GRM_Recoil_BTM_P20']"
+    ],
+    "NSW4 / QD Grip Pod": [
+     "GS_Devgru.ebx binds ['GRM_Recoil_BTM_P30'] to selector U_WPM_BTM_GripPod02_W30 (Attachment_DEVGRU_BTM_BTGrippodQD); 27 of 36 weapons bind ['GRM_Recoil_BTM_P20']"
+    ],
+    "RPK-74M / QD Grip Pod": [
+     "GS_RPK74M.ebx binds ['GRM_Recoil_BTM_P30'] to selector U_WPM_BTM_GripPod02_W30 (Attachment_RPK74M_BTM_BTGrippodQD); 27 of 36 weapons bind ['GRM_Recoil_BTM_P20']"
+    ],
+    "VSSM / QD Grip Pod": [
+     "GS_VSSM.ebx binds ['GRM_Recoil_BTM_P30'] to selector U_WPM_BTM_GripPod02_W30 (Attachment_VSSM_BTM_BTGrippodQD); 27 of 36 weapons bind ['GRM_Recoil_BTM_P20']"
+    ],
+    "Z84M / Adjustable Angled": [
+     "GS_PKM.ebx binds ['GRM_Recoil_BTM_P20'] to selector U_WPM_BTM_Fast01_W25 (Attachment_PKM_BTM_HFGA); 24 of 27 weapons bind ['GRM_Recoil_BTM_P10']"
+    ],
+    "Z84M / Full Angled": [
+     "GS_PKM.ebx binds ['GRM_Recoil_BTM_P30'] to selector U_WPM_BTM_Fast03_W30 (Attachment_PKM_BTM_MagpulAFG2); 38 of 41 weapons bind ['GRM_Recoil_BTM_P20']"
+    ],
+    "Z84M / QD Grip Pod": [
+     "GS_PKM.ebx binds ['GRM_Recoil_BTM_P30'] to selector U_WPM_BTM_GripPod02_W30 (Attachment_PKM_BTM_BTGrippodQD); 27 of 36 weapons bind ['GRM_Recoil_BTM_P20']"
+    ]
+   }
+  },
+  "22": {
+   "entry": 22,
+   "title": "Bolt-action Precision fallback row",
+   "status": "scripted",
+   "rule": "A bolt-action weapon's Precision table (settings, matched by velocity, tactical reload and magazine) has a fallback row other than 100.",
+   "listed": [
+    "Interdictor"
+   ],
+   "now": [
+    "Interdictor"
+   ],
+   "newlyAffected": [],
+   "noLongerAffected": [],
+   "alsoNamedInEntryText": [],
+   "evidence": {
+    "Interdictor": [
+     "settings.ebx Class_fe5894b1 Field_d0874615 table matched by muzzle velocity 732.739, tactical reload 3.500, magazine 6: fallback row Field_aee62a28 = [0.5] (keyed rows [100.0])"
+    ]
+   },
+   "manual": "The panel reading of 1 (the 0.5 fallback shown as 1) is in game only; the keyed-row-ignored explanation is an inference."
+  },
+  "23": {
+   "entry": 23,
+   "title": "Scope removes the Optic Accessory slot",
+   "status": "scripted",
+   "rule": "A scope that most weapons list in an optic accessory's compatible list (Equipment_*, Field_f4142987) is listed in none on this weapon, which otherwise lists most scopes.",
+   "listed": [
+    "Interdictor / MGO 3.50x",
+    "M16A4 / QMK 3.00x"
+   ],
+   "now": [
+    "Interdictor / MGO 3.50x",
+    "M16A4 / A-P2 1.75x",
+    "M16A4 / CQ RDS 1.25x",
+    "M16A4 / Mini Flex 1.00x",
+    "M16A4 / QMK 3.00x",
+    "M16A4 / R-MR 1.00x",
+    "M16A4 / RO-S 1.25x",
+    "M16A4 / ROX 1.50x",
+    "M87A1 / 1p87 1.50x",
+    "Mk 24 / MGO 3.50x",
+    "Mk 24 / QMK 3.00x",
+    "SGX / PA-SL 2.50x",
+    "UMG-40 / LDS 4.50x"
+   ],
+   "newlyAffected": [
+    "M16A4 / A-P2 1.75x",
+    "M16A4 / CQ RDS 1.25x",
+    "M16A4 / Mini Flex 1.00x",
+    "M16A4 / R-MR 1.00x",
+    "M16A4 / RO-S 1.25x",
+    "M16A4 / ROX 1.50x",
+    "M87A1 / 1p87 1.50x",
+    "Mk 24 / MGO 3.50x",
+    "Mk 24 / QMK 3.00x",
+    "SGX / PA-SL 2.50x",
+    "UMG-40 / LDS 4.50x"
+   ],
+   "noLongerAffected": [],
+   "alsoNamedInEntryText": [],
+   "evidence": {
+    "Interdictor / MGO 3.50x": [
+     "Equipment_DesertTechHTI.ebx: no optic-accessory entry (Field_f4142987) lists Attachment_DesertTechHTI_SCP_M145MGO (id 1399369323); listed on 60 of 64 weapons"
+    ],
+    "M16A4 / A-P2 1.75x": [
+     "Equipment_M16A3.ebx: no optic-accessory entry (Field_f4142987) lists Attachment_M16A3_SCP_ACROP2 (id 1205543607); listed on 61 of 63 weapons"
+    ],
+    "M16A4 / CQ RDS 1.25x": [
+     "Equipment_M16A3.ebx: no optic-accessory entry (Field_f4142987) lists Attachment_M16A3_SCP_ShieldCQS (id 508556408); listed on 61 of 63 weapons"
+    ],
+    "M16A4 / Mini Flex 1.00x": [
+     "Equipment_M16A3.ebx: no optic-accessory entry (Field_f4142987) lists Attachment_M16A3_SCP_EFLXMini (id 4203254882); listed on 61 of 69 weapons"
+    ],
+    "M16A4 / QMK 3.00x": [
+     "Equipment_M16A3.ebx: no optic-accessory entry (Field_f4142987) lists Attachment_M16A3_SCP_QMK171A (id 1252128727); listed on 60 of 64 weapons"
+    ],
+    "M16A4 / R-MR 1.00x": [
+     "Equipment_M16A3.ebx: no optic-accessory entry (Field_f4142987) lists Attachment_M16A3_SCP_RMR (id 1775860660); listed on 61 of 69 weapons"
+    ],
+    "M16A4 / RO-S 1.25x": [
+     "Equipment_M16A3.ebx: no optic-accessory entry (Field_f4142987) lists Attachment_M16A3_SCP_TrijiconSRO (id 1718043871); listed on 60 of 68 weapons"
+    ],
+    "M16A4 / ROX 1.50x": [
+     "Equipment_M16A3.ebx: no optic-accessory entry (Field_f4142987) lists Attachment_M16A3_SCP_RomeoX (id 166166266); listed on 61 of 69 weapons"
+    ],
+    "M87A1 / 1p87 1.50x": [
+     "Equipment_590A1.ebx: no optic-accessory entry (Field_f4142987) lists Attachment_590A1_SCP_PG350 (id 2946605889); listed on 61 of 64 weapons"
+    ],
+    "Mk 24 / MGO 3.50x": [
+     "Equipment_MRGGA.ebx: no optic-accessory entry (Field_f4142987) lists Attachment_MRGGA_SCP_M145MGO (id 779550406); listed on 60 of 64 weapons"
+    ],
+    "Mk 24 / QMK 3.00x": [
+     "Equipment_MRGGA.ebx: no optic-accessory entry (Field_f4142987) lists Attachment_MRGGA_SCP_QMK171A (id 2215718267); listed on 60 of 64 weapons"
+    ],
+    "SGX / PA-SL 2.50x": [
+     "Equipment_MPX.ebx: no optic-accessory entry (Field_f4142987) lists Attachment_MPX_SCP_PAC25 (id 2060956401); listed on 61 of 64 weapons"
+    ],
+    "UMG-40 / LDS 4.50x": [
+     "Equipment_UMP40.ebx: no optic-accessory entry (Field_f4142987) lists Attachment_UMP40_SCP_ELCANLDS (id 1426346758); listed on 61 of 64 weapons"
+    ]
+   },
+   "manual": "The missing slot in the menu is in game only."
+  },
+  "24": {
+   "entry": 24,
+   "title": "Single Shot sweet spot wider than text",
+   "status": "scripted",
+   "rule": "A magazine/ammo description 'between Xm and Ym' differs from the span where the swapped-in bullet's damage curve is at least 100 (registry curve applied).",
+   "listed": [
+    "ELR-40"
+   ],
+   "now": [],
+   "newlyAffected": [],
+   "noLongerAffected": [
+    "ELR-40"
+   ],
+   "alsoNamedInEntryText": [],
+   "evidence": {},
+   "notes": [
+    "Text matches curve: ELR-40: Attachment_CDX40_MAG_Compact1 (Single Shot) text \"between 30m and 80m\"; bullet PD_.375EnABELR_API curve [[0.0, 90.0], [24.0, 90.0], [42.0, 120.0], [68.0, 120.0], [80.0, 100.0], [140.0, 80.0]] gives damage >= 100 from 30.0 to 80.0 m; ELR-40: Attachment_CDX40_MAG_Compact1 (Single Shot) text \"between 30m and 80m\"; bullet PD_.375EnABELR_API curve [[0.0, 90.0], [24.0, 90.0], [42.0, 120.0], [68.0, 120.0], [80.0, 100.0], [140.0, 80.0]] gives damage >= 100 from 30.0 to 80.0 m; ELR-40: Attachment_CDX40_MAG_Compact1 (Single Shot) text \"between 30m and 80m\"; bullet PD_.375EnABELR_API curve [[0.0, 90.0], [24.0, 90.0], [42.0, 120.0], [68.0, 120.0], [80.0, 100.0], [140.0, 80.0]] gives damage >= 100 from 30.0 to 80.0 m; ELR-40: Attachment_CDX40_MAG_Compact1 (Single Shot) text \"between 30m and 80m\"; bullet PD_.375EnABELR_API curve [[0.0, 90.0], [24.0, 90.0], [42.0, 120.0], [68.0, 120.0], [80.0, 100.0], [140.0, 80.0]] gives damage >= 100 from 30.0 to 80.0 m; ELR-40: Attachment_CDX40_MAG_Compact1 (Single Shot) text \"between 30m and 80m\"; bullet PD_.375EnABELR_API curve [[0.0, 90.0], [24.0, 90.0], [42.0, 120.0], [68.0, 120.0], [80.0, 100.0], [140.0, 80.0]] gives damage >= 100 from 30.0 to 80.0 m; ELR-40: Attachment_CDX40_MAG_Compact1 (Single Shot) text \"between 30m and 80m\"; bullet PD_.375EnABELR_API curve [[0.0, 90.0], [24.0, 90.0], [42.0, 120.0], [68.0, 120.0], [80.0, 100.0], [140.0, 80.0]] gives damage >= 100 from 30.0 to 80.0 m; ELR-40: Attachment_CDX40_MAG_Compact1 (Single Shot) text \"between 30m and 80m\"; bullet PD_.375EnABELR_API curve [[0.0, 90.0], [24.0, 90.0], [42.0, 120.0], [68.0, 120.0], [80.0, 100.0], [140.0, 80.0]] gives damage >= 100 from 30.0 to 80.0 m"
+   ],
+   "manual": "In-game one-shot range tests; the base weapon's 'Most effective between' text (weapon UI metadata) is not compared."
+  },
+  "25": {
+   "entry": 25,
+   "title": "Deployed bipod/pods without spread binding",
+   "status": "scripted",
+   "rule": "Bipod: the selector binds neither GDM_Array_HipDispersion_BTM_* nor GBM_Increase_ADS_*_BTM_Bipod. Grip pods: an automatic-capable weapon binds no GBM_Increase_ADS_*_BTM_Bipod under the pod selector.",
+   "listed": [
+    "Mk 24 / bipod",
+    "EF88 / bipod",
+    "VSSM / bipod",
+    "Z84M / bipod",
+    "Mk 24 / grip pods",
+    "EF88 / grip pods",
+    "Z84M / grip pods",
+    "VSSM / grip pods",
+    "BROD 3 / grip pods",
+    "NSW4 / grip pods"
+   ],
+   "now": [
+    "BROD 3 / grip pods",
+    "EF88 / bipod",
+    "EF88 / grip pods",
+    "Mk 1 Mod 0 (not on site) / bipod",
+    "Mk 24 / bipod",
+    "Mk 24 / grip pods",
+    "NSW4 / grip pods",
+    "VSSM / bipod",
+    "VSSM / grip pods",
+    "Z84M / bipod",
+    "Z84M / grip pods"
+   ],
+   "newlyAffected": [
+    "Mk 1 Mod 0 (not on site) / bipod"
+   ],
+   "noLongerAffected": [],
+   "alsoNamedInEntryText": [],
+   "evidence": {
+    "BROD 3 / grip pods": [
+     "GS_BREN3.ebx under selector U_WPM_BTM_GripPod02_W30 (Attachment_BREN3_BTM_BTGrippodQD) binds the hip array and recoil package but no GBM_Increase_ADS_*_BTM_Bipod (weapon reaches automatic fire)",
+     "GS_BREN3.ebx under selector U_WPM_BTM_GripPod03_W30 (Attachment_BREN3_BTM_GPS2) binds the hip array and recoil package but no GBM_Increase_ADS_*_BTM_Bipod (weapon reaches automatic fire)",
+     "GS_BREN3.ebx under selector U_WPM_BTM_GripPod01_W20 (Attachment_BREN3_BTM_QBZGrippod) binds the hip array and recoil package but no GBM_Increase_ADS_*_BTM_Bipod (weapon reaches automatic fire)"
+    ],
+    "EF88 / bipod": [
+     "GS_EF88.ebx under selector U_WPM_BTM_Bipod01_W10 (Attachment_EF88_BTM_AtlasV8) binds ['GRM_BipodDeployed_BTM_P50'] only: no GDM_Array_HipDispersion_BTM_* and no GBM_Increase_ADS_*_BTM_Bipod"
+    ],
+    "EF88 / grip pods": [
+     "GS_EF88.ebx under selector U_WPM_BTM_GripPod02_W30 (Attachment_EF88_BTM_BTGrippodQD) binds the hip array and recoil package but no GBM_Increase_ADS_*_BTM_Bipod (weapon reaches automatic fire)",
+     "GS_EF88.ebx under selector U_WPM_BTM_GripPod03_W30 (Attachment_EF88_BTM_GPS2) binds the hip array and recoil package but no GBM_Increase_ADS_*_BTM_Bipod (weapon reaches automatic fire)",
+     "GS_EF88.ebx under selector U_WPM_BTM_GripPod01_W20 (Attachment_EF88_BTM_QBZGrippod) binds the hip array and recoil package but no GBM_Increase_ADS_*_BTM_Bipod (weapon reaches automatic fire)"
+    ],
+    "Mk 1 Mod 0 (not on site) / bipod": [
+     "GS_MRGGS.ebx under selector U_WPM_BTM_Bipod01_W10 (Attachment_MRGGS_BTM_LT706QDHarrisBipod) binds ['GRM_BipodDeployed_BTM_P50'] only: no GDM_Array_HipDispersion_BTM_* and no GBM_Increase_ADS_*_BTM_Bipod"
+    ],
+    "Mk 24 / bipod": [
+     "GS_MRGGA.ebx under selector U_WPM_BTM_Bipod01_W10 (Attachment_MRGGA_BTM_LT706QDHarrisBipod) binds ['GRM_BipodDeployed_BTM_P50'] only: no GDM_Array_HipDispersion_BTM_* and no GBM_Increase_ADS_*_BTM_Bipod"
+    ],
+    "Mk 24 / grip pods": [
+     "GS_MRGGA.ebx under selector U_WPM_BTM_GripPod02_W30 (Attachment_MRGGA_BTM_BTGrippodQD) binds the hip array and recoil package but no GBM_Increase_ADS_*_BTM_Bipod (weapon reaches automatic fire)",
+     "GS_MRGGA.ebx under selector U_WPM_BTM_GripPod03_W30 (Attachment_MRGGA_BTM_GPS2) binds the hip array and recoil package but no GBM_Increase_ADS_*_BTM_Bipod (weapon reaches automatic fire)",
+     "GS_MRGGA.ebx under selector U_WPM_BTM_GripPod01_W20 (Attachment_MRGGA_BTM_QBZGrippod) binds the hip array and recoil package but no GBM_Increase_ADS_*_BTM_Bipod (weapon reaches automatic fire)"
+    ],
+    "NSW4 / grip pods": [
+     "GS_Devgru.ebx under selector U_WPM_BTM_GripPod02_W30 (Attachment_DEVGRU_BTM_BTGrippodQD) binds the hip array and recoil package but no GBM_Increase_ADS_*_BTM_Bipod (weapon reaches automatic fire)",
+     "GS_Devgru.ebx under selector U_WPM_BTM_GripPod03_W30 (Attachment_DEVGRU_BTM_GPS2) binds the hip array and recoil package but no GBM_Increase_ADS_*_BTM_Bipod (weapon reaches automatic fire)",
+     "GS_Devgru.ebx under selector U_WPM_BTM_GripPod01_W20 (Attachment_DEVGRU_BTM_QBZGrippod) binds the hip array and recoil package but no GBM_Increase_ADS_*_BTM_Bipod (weapon reaches automatic fire)"
+    ],
+    "VSSM / bipod": [
+     "GS_VSSM.ebx under selector U_WPM_BTM_Bipod01_W10 (Attachment_VSSM_BTM_AtlasV8) binds ['GRM_BipodDeployed_BTM_P50'] only: no GDM_Array_HipDispersion_BTM_* and no GBM_Increase_ADS_*_BTM_Bipod"
+    ],
+    "VSSM / grip pods": [
+     "GS_VSSM.ebx under selector U_WPM_BTM_GripPod02_W30 (Attachment_VSSM_BTM_BTGrippodQD) binds the hip array and recoil package but no GBM_Increase_ADS_*_BTM_Bipod (weapon reaches automatic fire)",
+     "GS_VSSM.ebx under selector U_WPM_BTM_GripPod03_W30 (Attachment_VSSM_BTM_GPS2) binds the hip array and recoil package but no GBM_Increase_ADS_*_BTM_Bipod (weapon reaches automatic fire)",
+     "GS_VSSM.ebx under selector U_WPM_BTM_GripPod01_W20 (Attachment_VSSM_BTM_QBZGrippod) binds the hip array and recoil package but no GBM_Increase_ADS_*_BTM_Bipod (weapon reaches automatic fire)"
+    ],
+    "Z84M / bipod": [
+     "GS_PKM.ebx under selector U_WPM_BTM_Bipod01_W10 (Attachment_PKM_BTM_M84Bipod) binds ['GRM_BipodDeployed_BTM_P50'] only: no GDM_Array_HipDispersion_BTM_* and no GBM_Increase_ADS_*_BTM_Bipod"
+    ],
+    "Z84M / grip pods": [
+     "GS_PKM.ebx under selector U_WPM_BTM_GripPod02_W30 (Attachment_PKM_BTM_BTGrippodQD) binds the hip array and recoil package but no GBM_Increase_ADS_*_BTM_Bipod (weapon reaches automatic fire)",
+     "GS_PKM.ebx under selector U_WPM_BTM_GripPod03_W30 (Attachment_PKM_BTM_GPS2) binds the hip array and recoil package but no GBM_Increase_ADS_*_BTM_Bipod (weapon reaches automatic fire)",
+     "GS_PKM.ebx under selector U_WPM_BTM_GripPod01_W20 (Attachment_PKM_BTM_QBZGrippod) binds the hip array and recoil package but no GBM_Increase_ADS_*_BTM_Bipod (weapon reaches automatic fire)"
+    ]
+   },
+   "manual": "The deployed-spread recordings and the Z84M in-game check are manual."
+  },
+  "26": {
+   "entry": 26,
+   "title": "No semi-auto bloom removal",
+   "status": "scripted",
+   "rule": "A weapon offering single and auto/burst has no GS binding to GBM_NoIncrease_Semi_P00.",
+   "listed": [
+    "EF88",
+    "BROD 3",
+    "Mk 24",
+    "NSW4"
+   ],
+   "now": [
+    "BROD 3",
+    "EF88",
+    "Mk 24",
+    "NSW4"
+   ],
+   "newlyAffected": [],
+   "noLongerAffected": [],
+   "alsoNamedInEntryText": [],
+   "evidence": {
+    "BROD 3": [
+     "GS_BREN3.ebx: no binding (Field_2f0e5b83) to GBM_NoIncrease_Semi_P00; BREN3_WB.ebx Field_16e6fa59/Field_9b956c3d modes ['auto', 'single']"
+    ],
+    "EF88": [
+     "GS_EF88.ebx: no binding (Field_2f0e5b83) to GBM_NoIncrease_Semi_P00; EF88_WB.ebx Field_16e6fa59/Field_9b956c3d modes ['auto', 'single']"
+    ],
+    "Mk 24": [
+     "GS_MRGGA.ebx: no binding (Field_2f0e5b83) to GBM_NoIncrease_Semi_P00; MRGGA_WB.ebx Field_16e6fa59/Field_9b956c3d modes ['auto', 'single']"
+    ],
+    "NSW4": [
+     "GS_Devgru.ebx: no binding (Field_2f0e5b83) to GBM_NoIncrease_Semi_P00; Devgru_WB.ebx Field_16e6fa59/Field_9b956c3d modes ['auto', 'single']"
+    ]
+   },
+   "notes": [
+    "35 weapons offering single and auto/burst bind it."
+   ],
+   "manual": "The per-shot bloom in semi is an in-game recording."
+  },
+  "27": {
+   "entry": 27,
+   "title": "Suppressor bound to another selector",
+   "status": "scripted",
+   "rule": "Suppressors with the same in-game name use different U_WPM_MZL_* selectors across weapons; the weapon differs from the majority.",
+   "listed": [
+    "ELR-40"
+   ],
+   "now": [
+    "ELR-40",
+    "Mk 1 Mod 0 (not on site)"
+   ],
+   "newlyAffected": [
+    "Mk 1 Mod 0 (not on site)"
+   ],
+   "noLongerAffected": [],
+   "alsoNamedInEntryText": [],
+   "evidence": {
+    "ELR-40": [
+     "Attachment_CDX40_MZL_CDX-40CDX64Suppressor is named \"CQB Suppressor\" but selects ['U_WPM_MZL_ImprvdSuppressor02_W30']; 61 of 62 weapons with that name select ['U_WPM_MZL_ImprvdSuppressor01_W30']"
+    ],
+    "Mk 1 Mod 0 (not on site)": [
+     "Attachment_MRGGS_MZL_AACSDN6Suppressor is named \"Lightened Suppressor\" but selects ['U_WPM_MZL_Suppressor02_W25']; 53 of 54 weapons with that name select ['U_WPM_MZL_ImprvdSuppressor02_W30']"
+    ]
+   },
+   "manual": "That the in-game name and text are the CQB Suppressor's is a UI fact; the recoil package effect is in game only."
+  },
+  "28": {
+   "entry": 28,
+   "title": "Burst Training reverses the fire-mode cycle",
+   "status": "scripted",
+   "rule": "A fire-mode replacement attachment keeps the base weapon's mode set but changes the cycle order (Field_7313f5d3/Field_2a5a28ee).",
+   "listed": [
+    "KORD 6P67",
+    "SG 553R",
+    "PW5A3",
+    "UMG-40",
+    "KV9",
+    "CZ3A1"
+   ],
+   "now": [
+    "CZ3A1",
+    "KORD 6P67",
+    "KV9",
+    "PW5A3",
+    "SG 553R",
+    "UMG-40"
+   ],
+   "newlyAffected": [],
+   "noLongerAffected": [],
+   "alsoNamedInEntryText": [],
+   "evidence": {
+    "CZ3A1": [
+     "WPM_ERG_BurstFireEnabled_W10 replaces base modes ['auto', 'burst', 'single'] (ScorpionEvo3_WB.ebx Field_16e6fa59/Field_9b956c3d) with ['burst', 'auto', 'single'] (Field_7313f5d3/Field_2a5a28ee): same modes, other order"
+    ],
+    "KORD 6P67": [
+     "WPM_ERG_BurstFireEnabled_W10 replaces base modes ['auto', 'burst', 'single'] (6P67_WB.ebx Field_16e6fa59/Field_9b956c3d) with ['burst', 'auto', 'single'] (Field_7313f5d3/Field_2a5a28ee): same modes, other order"
+    ],
+    "KV9": [
+     "WPM_ERG_BurstFireEnabled_W10 replaces base modes ['auto', 'burst', 'single'] (Vector_WB.ebx Field_16e6fa59/Field_9b956c3d) with ['burst', 'auto', 'single'] (Field_7313f5d3/Field_2a5a28ee): same modes, other order"
+    ],
+    "PW5A3": [
+     "WPM_ERG_BurstFireEnabled_W10 replaces base modes ['auto', 'burst', 'single'] (MP5MLI_WB.ebx Field_16e6fa59/Field_9b956c3d) with ['burst', 'auto', 'single'] (Field_7313f5d3/Field_2a5a28ee): same modes, other order"
+    ],
+    "SG 553R": [
+     "WPM_ERG_BurstFireEnabled_W10 replaces base modes ['auto', 'burst', 'single'] (SIG553R_WB.ebx Field_16e6fa59/Field_9b956c3d) with ['burst', 'auto', 'single'] (Field_7313f5d3/Field_2a5a28ee): same modes, other order"
+    ],
+    "UMG-40": [
+     "WPM_ERG_BurstFireEnabled_W10 replaces base modes ['auto', 'burst', 'single'] (UMP40_WB.ebx Field_16e6fa59/Field_9b956c3d) with ['burst', 'auto', 'single'] (Field_7313f5d3/Field_2a5a28ee): same modes, other order"
+    ]
+   },
+   "manual": "The in-game cycle direction was confirmed by the operator; the files give only the stored order."
+  },
+  "29": {
+   "entry": 29,
+   "title": "Match Trigger has no effect",
+   "status": "scripted",
+   "rule": "A weapon's Match Trigger selector U_WPM_ERG_MatchTrigger_W15 resolves to no effect.",
+   "listed": [
+    "M433"
+   ],
+   "now": [
+    "M433"
+   ],
+   "newlyAffected": [],
+   "noLongerAffected": [],
+   "alsoNamedInEntryText": [],
+   "evidence": {
+    "M433": [
+     "HK433_WB.ebx: Match Trigger selector U_WPM_ERG_MatchTrigger_W15 resolves to no WB effect and no GS binding (the other weapons hold a local effect chain)"
+    ]
+   },
+   "manual": "The recordings (kick ratio, 80% recovery) are manual."
+  }
+ },
+ "offerChecks": {
+  "mapping": "frosty-site-attachment-mapping-2026-11-19.json",
+  "opticsFile": "frosty-individual-optics-2026-11-10.json",
+  "rule": "Offered in game = listed in the weapon's Equipment_<W> lists and live (ability branch kill switch default off). Campaign-only routes are not held and so are unlisted.",
+  "nonSight": {
+   "choices": 3396,
+   "a_noListedSource": [],
+   "b_noListedAndLiveSource": [],
+   "c_listedLiveNotOffered": [],
+   "explained": [
+    {
+     "weapon": "drsiar",
+     "choice": "laser/5mw_green",
+     "why": "merged choice: one source record is unlisted or not live, another is listed and live",
+     "unlisted": [
+      "common/hardware/weapons/mg/m27iar/attachment_m27iar_top_la-23irsp"
+     ]
+    },
+    {
+     "weapon": "drsiar",
+     "choice": "grip/alloy_vert",
+     "why": "merged choice: one source record is unlisted or not live, another is listed and live",
+     "unlisted": [
+      "common/hardware/weapons/mg/m27iar/attachment_m27iar_btm_zenitcork2"
+     ]
+    },
+    {
+     "weapon": "kts100",
+     "choice": "barrel/short",
+     "why": "merged choice: one source record is unlisted or not live, another is listed and live",
+     "unlisted": [
+      "common/hardware/weapons/mg/ultimax/attachment_ultimax_brl_short"
+     ]
+    },
+    {
+     "weapon": "brod3",
+     "choice": "grip/alloy_vert",
+     "why": "merged choice: one source record is unlisted or not live, another is listed and live",
+     "unlisted": [
+      "common/hardware/weapons/carbine/bren3/attachment_bren3_btm_zenitcork2"
+     ]
+    },
+    {
+     "weapon": "nsw4",
+     "choice": "grip/alloy_vert",
+     "why": "merged choice: one source record is unlisted or not live, another is listed and live",
+     "unlisted": [
+      "common/hardware/weapons/carbine/devgru/attachment_devgru_btm_zenitcork2"
+     ]
+    },
+    {
+     "weapon": "vssm",
+     "record": "Attachment_VSSM_ERG_None",
+     "category": "MagazineWell",
+     "points": 0,
+     "why": "zero-point placeholder with no effect: listed and live, no site choice"
+    }
+   ]
+  },
+  "sights": {
+   "choices": 2098,
+   "a_noListedSource": [],
+   "b_noListedAndLiveSource": [],
+   "c_listedLiveNotOffered": [],
+   "explained": [],
+   "notJoined": [
+    "m433/iron",
+    "b36a4/iron",
+    "sor556/iron",
+    "ak4d/iron",
+    "tr7/iron",
+    "kord6p67/iron",
+    "nvo228e/iron",
+    "l85a3/iron",
+    "vcr2/iron",
+    "m16a4/iron",
+    "m16a4/flip_up_irons",
+    "m4a1/iron",
+    "m4a1/carry_handle_irons",
+    "m277/iron",
+    "ak205/iron",
+    "m417a2/iron",
+    "grtbc/iron",
+    "qbz192/iron",
+    "sg553r/iron",
+    "sor300sc/iron",
+    "sgx/iron",
+    "pw5a3/iron",
+    "pw7a2/iron",
+    "pw7a2/cqb_sights",
+    "umg40/iron",
+    "umg40/cqb_sights",
+    "usg90/iron",
+    "kv9/iron",
+    "scw10/iron",
+    "sl9/iron",
+    "cz3a1/iron",
+    "pp19/iron",
+    "l110/iron",
+    "drsiar/iron",
+    "m60/iron",
+    "rpkm/iron",
+    "m123k/iron",
+    "m250/iron",
+    "kts100/iron",
+    "m240l/iron",
+    "m121a2/iron",
+    "rpk74m/iron",
+    "m39emr/iron",
+    "lmr27/iron",
+    "svk86/iron",
+    "svdm/iron",
+    "grtcps/iron",
+    "m2010esr/iron",
+    "sv98/iron",
+    "psr/iron",
+    "miniscout/iron",
+    "interdictor/iron",
+    "l115/iron",
+    "m87a1/iron",
+    "m1014/iron",
+    "ks18k/iron",
+    "db12/iron",
+    "p18/iron",
+    "es57/iron",
+    "m45a1/iron",
+    "ggh22/iron",
+    "m44/iron",
+    "m357trait/iron",
+    "vz61/iron",
+    "brod3/iron",
+    "ef88/iron",
+    "vssm/iron",
+    "mk24/iron",
+    "elr40/iron",
+    "z84m/iron",
+    "rspr/iron",
+    "nsw4/iron"
+   ]
+  },
+  "noEquipmentFile": [],
+  "counts": {
+   "nonSight": {
+    "choices": 3396,
+    "a_noListedSource": 0,
+    "b_noListedAndLiveSource": 0,
+    "c_listedLiveNotOffered": 0,
+    "explained": 6
+   },
+   "sights": {
+    "choices": 2098,
+    "a_noListedSource": 0,
+    "b_noListedAndLiveSource": 0,
+    "c_listedLiveNotOffered": 0,
+    "explained": 0,
+    "notJoined": 72
+   }
+  }
+ }
+}
