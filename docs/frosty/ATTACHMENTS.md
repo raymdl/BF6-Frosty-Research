@@ -1387,10 +1387,27 @@ equipment list are independent gates. Of the 38 live records the site does not o
 (in no multiplayer bundle, `reports/campaign-only-2026-11-10/campaign-only.txt`) and unlisted; 5 sit in
 multiplayer bundles but are unlisted (DRS-IAR Synthetic and the Interdictor `ERG_DLCBolt`, both listed in
 2.1.1.0 and removed in 2.1.2.0; ELR-40 Match, VSSM FMJ and the M45A1 blacklight, never listed); the last,
-`Attachment_VSSM_ERG_None`, is listed and live and is the "None" Ergo entry the operator sees. Tested both
+`Attachment_VSSM_ERG_None`, is listed and live and is the 0-point Ergo tile the operator sees, labelled "Full Auto" (next paragraph). Tested both
 ways on non-sight choices: 0 of 3,396 site choices lack an equipment entry and no listed, live,
 non-placeholder record is missing from the site. Progression assets, categorization tags and unlock
 registries do not separate hidden from offered records. Sights were not tested.
+
+**VSSM second "Full Auto" Ergo tile (20 November 2026, 2.1.2.0).** In game `Attachment_VSSM_ERG_None` is not
+labelled "None": it is the 0-point "Full Auto" tile next to the 40-point one, titled "Folding Stock" with
+the Full Auto description (operator screenshot). Its descriptor `AD_VSSM_ERG_None` matches
+`AD_VSSM_ERG_FullAuto` in every field except the asset name: name `737CF0F0`, description `D4A9BAC0`, tile
+icon `MagazineWell_IconAtlas` 19. Its `AAM_VSSM` entry ("VSSM - None", object 25) has the same "Folding Stock"
+title as the Full Auto entry. The record, its descriptor and AAM entry are new in 2.1.2.0. In 2.1.1.0
+`Equipment_VSSM` listed Full Auto only. `U_PRG_VSSM_ERG_None` and its ability branch existed before. It is the VSSM's default Ergo unlock
+(`VSSM_Ability` object 0 `Field_c4cea7e8`, with the default magazine, barrel, sight and ammo). Effects:
+the None branch (`VSSM_Ability` object 242) grants only the stock part `U_ATT_VSSM_Stock`, which only
+`MD_VSSM` references, so it has no stat effect: single fire at the WB's 449.999 RPM (`Field_be31b12d`).
+The Full Auto branch (object 139) grants `U_WPM_ERG_FullAutoReplaceVSSM_W50` and `U_ATT_VSSM_BaseASVAL`.
+The WPM sets auto primary and single alternate (`Class_032c7d25` 2 / [0]) and single 399.999 RPM
+(`Class_582cbe36/Field_be31b12d`). The auto rate is the WB's 799.999 (`Field_14c4a054`), and the WB,
+WPM and GS bind the same selector key for the L41 recoil and spread overrides. The extra tile is therefore
+a mislabelled default-stock entry, with correct stats, not a working second Full Auto. The site matches
+the files and offers no separate None choice. [Receipt](../../reference-data/provenance/frosty-2026-11-20-vssm-erg-none-full-auto-label.json).
 
 **Camera recoil bindings on the Interdictor and PP-19 (19 November 2026).** The Interdictor's RO-M 1.75x
 (`Attachment_DesertTechHTI_SCP_TrijiconMRO`, selector `U_WPM_SCP_MRO`) has no primary `GCR_01x75_P00`:
