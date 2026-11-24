@@ -1,0 +1,185 @@
+{
+ "lead": "L4086",
+ "status": "exhausted",
+ "build": {
+  "current": "2.1.2.0",
+  "head": 5926293,
+  "descriptorSha256": "7e8c1b4564a36bb810be23a31e189cee84790bc1c477785405685dac62937524",
+  "capture": "builds\\2.1.2.0\\capture\\collection",
+  "note": "Rows also read from the 2.1.1.0 capture (descriptor c477622c...): same eight row names and values. Executable strings and constants are from the 2.1.2.0 client. No new capture."
+ },
+ "question": "Do the tweakable registries or the executable hold any further global rule for recoil compensation (a cap, a scale, a per-aim-state or per-input-device switch) beside the two consumes-aim rows?",
+ "trigger": "The operator saw the effect in game on 23 November 2026 while testing the site's Firing Range: a string fired while pulling down does not dip below the aim point afterwards. That is the in-game observation L4039 named as its reopen condition; no recording was made.",
+ "sourceFacts": {
+  "points": [
+   "GRX_WeaponsAndGadgets has eight rows on 2.1.1.0 and 2.1.2.0: DisablePersistentAmmo false, DisableExplosionPackCharacterFiltering false, DisableExplosionPackAttachedMoving false, LatencyTestWeapon_Ability false, RecoilCompensationConsumesAimPitch true, RecoilCompensationConsumesAimYaw true, DisableProjectileVsPlayerArmorFix false, ProjectileIntersectionMethod 5. No other row concerns recoil or aim.",
+   "Across the 144 registry files of the 2.1.2.0 capture, no other row name contains Compensat or Consume in a recoil sense, and no row links aim assist to recoil.",
+   "Across all 42,327 captured files the two row names or GUIDs occur only in the registry file, in TweakablesConfig (a 695-entry key-to-row list that binds the rows to native keys) and in the name of one animation state (FB.Wep.RecoilCompensationVelocity.Vec3). No serialized logic graph or asset reads the rows, so the consumer is native code.",
+   "The executable has 140 TweakableRefType_GS_* names; the only recoil or aim ones are RecoilConsumesAimPitch and RecoilConsumesAimYaw. Their name strings sit between the strings AimEntity / AimingShared and the controller gyro and flick-look enumerations, i.e. in the shared aiming module, not the weapon module.",
+   "The two TweakablesConfig keys are present as adjacent .rdata constants (RVA 0x856cc08 yaw, 0x856cc10 pitch). The reading code was not followed.",
+   "The animation state folder declares FB.Wep.CompensatedRecoilDelta.Pitch / .Yaw, FB.Wep.RecoilCompensationVelocity, FB.Wep.RecoilVelocity.Pitch / .Yaw and FB.Wep.AimVelocity.Pitch / .Yaw: the game publishes a compensated recoil amount per axis to the weapon animation. Names only."
+  ],
+  "detail": {
+   "collectionScan": {
+    "build": "2.1.2.0",
+    "filesScanned": 42327,
+    "needles": [
+     "ConsumesAim",
+     "RecoilCompensation",
+     "row GUID b4cdcf54-c904-4b40-9205-ba2d18a42fed (both byte orders)",
+     "row GUID b595bc62-2af2-4b4e-9afe-bab301dae21d (both byte orders)"
+    ],
+    "hits": [
+     "Common/GameSetup/Tweakables/GameRemixer/GRX_WeaponsAndGadgets (names and GUIDs)",
+     "Common/GameSetup/Tweakables/TweakablesConfig (GUIDs)",
+     "Animations/Glacier/Global/Gamestates/FB.Wep.RecoilCompensationVelocity.Vec3 (name)",
+     "asset-catalog.json, raw-status.jsonl, routes.txt (route listings only)"
+    ]
+   },
+   "registryNameScan": {
+    "files": 144,
+    "scope": "every .ebx under a Tweakables folder plus GRX_*, MUT_*, MutatorDatabase*",
+    "pattern": "Recoil|AimAssist|AimInput|Compensat|Consume",
+    "result": "Compensation or consumption row names occur only in GRX_WeaponsAndGadgets (the two rows). GRX_Weapons and GRX_Gadgets_Glacier hold the per-weapon recoil field names; GRX_Vehicles five JetAimAssist rows; MutatorDatabase_CH1 AimAssistSlowdownEnabled, AimAssistSnapCapsuleRadiusMultiplier, AimAssistSnapZoomEnabled; GameRemixerDatabase_Options six OptionAimAssist*_Reset rows. None links aim assist to recoil."
+   },
+   "tweakablesConfig": {
+    "sha256": "724fab3dd033c3d14ccef70fc9e46dd40350510a792fc356f6b7b435709cc39b",
+    "keyedList": "Class_9ea846a3.Field_f534fe9a, 695 entries of key (Field_e8f07eb6) to row import",
+    "entries": {
+     "570": {
+      "key": 1675867189,
+      "row": "RecoilCompensationConsumesAimYaw"
+     },
+     "571": {
+      "key": -331206820,
+      "row": "RecoilCompensationConsumesAimPitch"
+     },
+     "573": {
+      "key": 549544113,
+      "row": "DisableProjectileVsPlayerArmorFix"
+     }
+    }
+   },
+   "executable": {
+    "path": "bf6.exe (2.1.2.0)",
+    "sha256": "1265c319cc8d990e0220e1635b48721a80d91e9a87687c7b5ff5d458e84cdb33",
+    "method": "read-only byte and string search of the file on disk; nothing executed",
+    "tweakableRefTypeGS": {
+     "count": 140,
+     "recoilOrAim": [
+      "TweakableRefType_GS_RecoilConsumesAimPitch",
+      "TweakableRefType_GS_RecoilConsumesAimYaw"
+     ]
+    },
+    "neighbouringStrings": [
+     "AimingShared",
+     "AimEntity",
+     "AimEntityCameraController",
+     "AimEntityInputCameraController",
+     "ClientAimEntity",
+     "ClientAuthoritativeAimInputEntity",
+     "ServerAuthoritativeAimInputEntity",
+     "ClientSoldierAimingSimulation::updateZoom",
+     "AimOverrideMode_Disabled/Instant/Velocity/Factor",
+     "ControllerGyroMode_*",
+     "FlickLookMode_*",
+     "PlatformAimAssistGameType_*"
+    ],
+    "configKeys": {
+     "yaw 0x63e3b435": ".rdata RVA 0x856cc08",
+     "pitch 0xec422f5c": ".rdata RVA 0x856cc10"
+    },
+    "notFound": [
+     "absolute pointers to either name string",
+     "row hashes Field_e73c7944 / Field_c124c7d8 as code immediates"
+    ],
+    "limit": "The code that reads the two keys was not followed: no disassembler in the toolchain, and the image carries .vm_sec and .vlizer sections."
+   },
+   "animationStateNames": {
+    "folder": "Animations/Glacier/Global/Gamestates (216 files)",
+    "names": [
+     "FB.Wep.RecoilCompensationVelocity.Vec3",
+     "FB.Wep.CompensatedRecoilDelta.Pitch.Float",
+     "FB.Wep.CompensatedRecoilDelta.Yaw.Float",
+     "FB.Wep.RecoilVelocity.Pitch.Float",
+     "FB.Wep.RecoilVelocity.Yaw.Float",
+     "FB.Wep.AimVelocity.Pitch.Float",
+     "FB.Wep.AimVelocity.Yaw.Float"
+    ],
+    "note": "File names only; declarations, not equations (see FROSTY_LIVE_REVIEW_2026-09-06)."
+   }
+  }
+ },
+ "inference": [
+  "Consumption is all or nothing per axis as far as serialized data shows: there is no stored cap, scale, aim-state or device switch. Any such rule would be fixed in native code.",
+  "The switches living in the shared aiming module is consistent with consumption acting on the aim rotation whatever produced it (mouse, stick, gyro). It does not show whether aim-assist rotation is counted.",
+  "The CompensatedRecoilDelta animation states suggest the first-person weapon animation is told how much recoil the player countered, so the visual layer may respond to compensation. Unverified."
+ ],
+ "unresolved": [
+  "The arithmetic of consumption (over-pull, input along the recoil, a kick still being delivered): carried by L4087 with an operator check.",
+  "Whether aim-assist rotation consumes recoil; which animation consumer reads CompensatedRecoilDelta."
+ ],
+ "siteImpact": "None. The Firing Range's consumption rule (sim/live-fire.js counterAim) stays an assumption with no stored value to read.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-11-23-recoil-consumption",
+  "artifacts": [
+   {
+    "file": "L4086/rows.json",
+    "sha256": "4cbc96f5ef837b36f61111ff7a515b6805ef76b40d267f81d4d52999765b560d"
+   },
+   {
+    "file": "L4086/scan-summary.json",
+    "sha256": "8daab6b8e8616ad1e7c51911408439062f6061c279536b3618f63044bb53ef08"
+   },
+   {
+    "file": "L4086/GRX_WeaponsAndGadgets.json",
+    "sha256": "1eae47149a3c9586469ccc603fe6573b1fb255b17777862f41c3e56c0f25bd75"
+   },
+   {
+    "file": "L4086/GRX_WeaponsAndGadgets-2110.json",
+    "sha256": "5c31e1f7b06c03f0e4d65e837f2571b75dba7f5d67ab3d6a75e3eafab0132e07"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-11-23",
+  "build": "mixed",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L4086",
+    "title": "Neighbouring rows of the consumes-aim switches: no further recoil-compensation rule in the registries or executable names",
+    "status": "exhausted",
+    "summary": "GRX_WeaponsAndGadgets has eight rows and only the two consumes-aim rows concern recoil; no registry row or TweakableRefType_GS name adds a cap, scale, aim-state or device switch; the rows are read only by native code (TweakablesConfig keys, shared aiming module), and the animation states declare CompensatedRecoilDelta pitch and yaw.",
+    "reopenWhen": "A registry gains a recoil-compensation row, or a disassembler reading of the code at the two TweakablesConfig keys (.rdata RVA 0x856cc08 / 0x856cc10 on 2.1.2.0) becomes available.",
+    "searched": [
+     "all eight rows of GRX_WeaponsAndGadgets on 2.1.1.0 and 2.1.2.0",
+     "row names in 144 registry files (Tweakables folders, GRX_*, MUT_*, MutatorDatabase*) for Recoil, AimAssist, AimInput, Compensat, Consume",
+     "42,327 captured 2.1.2.0 files for the two row names and row GUIDs",
+     "bf6.exe 2.1.2.0 strings for TweakableRefType_GS_*, ConsumesAim, RecoilCompensation and the strings around them",
+     "bf6.exe for the row hashes, TweakablesConfig keys and pointers to the name strings"
+    ]
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/GameSetup/Tweakables/GameRemixer/GRX_WeaponsAndGadgets",
+    "format": "raw-ebx",
+    "sha256": "6f2b70dd63316dfcbbc91a7bc60709525e13c173174e87e84722568d621d84b6",
+    "question": "Does the table hold any recoil or aim rule beside the two consumes-aim rows?",
+    "result": "useful",
+    "conclusion": "Eight rows; only RecoilCompensationConsumesAimPitch and Yaw (both true) concern recoil."
+   },
+   {
+    "path": "Common/GameSetup/Tweakables/TweakablesConfig",
+    "format": "raw-ebx",
+    "sha256": "724fab3dd033c3d14ccef70fc9e46dd40350510a792fc356f6b7b435709cc39b",
+    "question": "What does the config attach to the two rows?",
+    "result": "useful",
+    "conclusion": "A key-to-row entry each (keys 1675867189 yaw, -331206820 pitch) in a 695-entry list and membership of the all-rows list; no value, cap or condition."
+   }
+  ]
+ }
+}

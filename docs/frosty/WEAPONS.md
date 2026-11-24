@@ -1174,7 +1174,18 @@ spread before selecting a different model.
   ([L4039](../../reference-data/provenance/frosty-2026-10-14-L4039-recoil-strings-and-consumes-aim-tweakables.json), raw-checked in `GRX_WeaponsAndGadgets`; executable tweakables
   `TweakableRefType_GS_RecoilConsumesAimPitch/Yaw`). Counter-aim input is subtracted from the
   recoil state, so compensating also reduces the later recovery; the site's recoil-control
-  slider does the same to the delivered vector. The executable also names
+  slider does the same to the delivered vector. The operator saw this in game on 23 November 2026
+  (a string pulled down against does not dip below the aim point afterwards). No stored value
+  shapes it ([L4086](../../reference-data/provenance/frosty-2026-11-23-L4086-consumes-aim-registry-scope.json)):
+  the table has eight rows and no cap, scale, aim-state or input-device row exists in any registry;
+  the two switches are read by native code in the shared aiming module (beside `AimEntity`), and
+  the animation states declare `FB.Wep.CompensatedRecoilDelta.Pitch` / `.Yaw` (names only). The
+  arithmetic (over-pull, input along the recoil, a kick still arriving) is undecoded; the site's
+  Firing Range assumes opposing input is consumed up to the delivered recoil and the rest turns
+  the aim (L4087); the operator's over-pull check of 23 November agrees (the view stays low after
+  a burst pulled down too hard, with no rise back). Cancelling the recoil does not stop the
+  visual weapon motion: in an operator QBZ clip of the same day the sight housing still moves with
+  each shot while the view is held (rough; one free-hand clip). The executable also names
   `WeaponComponent_RecoilForceTicksBits` (recoil force replicated as a tick count),
   `WeaponAttribute_RecoilSmoothness` and `_RecoilDecayMultiplier` (the two Smooth operands),
   and the `DispersionAsRecoil_*` enumeration; none has a decoded consumer.
