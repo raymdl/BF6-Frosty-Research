@@ -162,7 +162,7 @@ removed, guid_same_path_changed. In summary.txt give the count for each combinat
 every route where the signals disagree. Do not judge which signal is right.
 ```
 
-### D. Diff triage (Stage 5; Sonnet, split the changed list into batches of about 40 files)
+### D. Diff triage (Stage 7, by the guide's diffing rules; Sonnet, split the changed list into batches of about 40 files)
 
 ```text
 TASK - diff triage for batch <n>. Inputs: <RUN>/batch-<n>.tsv with route, old raw path, new
@@ -255,7 +255,7 @@ does that. In summary.txt list every item that lacks one of the columns.
 ```text
 TASK - site data for the new weapons, part <A weapon records | B ammunition and ballistics |
 C attachments>. Read "Adding a new weapon" in
-C:/Users/royal/Documents/BF6 Weapon Analyzer/docs/GAME_UPDATE_GUIDE.md.
+C:/Users/royal/Documents/BF6 Weapon Analyzer/docs/GAME_UPDATE_NEW_CONTENT.md.
 Site fields in this part: <list of data files and keys>.
 STEP 1 (required before step 2): write an extractor that reads these fields from the new
 build's raw files, run it for every existing site weapon, and write validation.json: per

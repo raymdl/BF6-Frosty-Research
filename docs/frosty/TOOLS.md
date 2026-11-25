@@ -145,6 +145,11 @@ Build only FrostyCmd, so the existing FrostySdk and FrostyHash builds stay uncha
 1. **Build check.** Run `frosty-build.py guard <open build> --game "<game>"`. If it
    stops after a game update, follow the [game update guide](https://github.com/raymdl/BF6-Weapon-Analyzer/blob/main/docs/GAME_UPDATE_GUIDE.md#stage-1--identify-the-new-build)
    (`client-check`, then either add the hotfix client or seal and create a new build).
+   `scripts/frosty-update-run.py` runs the guide's Stage 0 (`stage0`: checks whether a new
+   pre-update baseline is needed, then captures it) and Stage 1 steps 1 to 5 (`stage1`:
+   cache rename, capture, `client-check`, comparison, watched values, hotfix check, and a
+   `stage1-summary.md`; it stops before the decision). `--dry-run` prints every command and
+   changes nothing. Written 25 November 2026 and checked by dry run only.
 2. **Cache.** After an update, rename `Caches\bf6.cache` (for example
    `bf6-1.4.2.5.cache`) before the first export. Frosty only patches a cache whose head
    number differs, and that path is not tested for BF6. The first export then builds a
