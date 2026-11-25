@@ -1,0 +1,423 @@
+{
+ "lead": "L4087",
+ "status": "site-supported",
+ "build": {
+  "current": "2.1.2.0",
+  "note": "Operator recordings on the 2.1.2.0 client (Portal test range), 23 to 24 November 2026. The source side of this lead is the L4086 receipt (2.1.1.0 and 2.1.2.0 files)."
+ },
+ "question": "Does the game's recoil consumption follow the rule the site's Firing Range assumes: input against the delivered recoil is consumed up to that recoil, and any other input turns the aim?",
+ "capture": {
+  "weapon": "AK-205, FMJ, 314mm Factory barrel, 50 round magazine, Mini Flex 1.00x, nothing else fitted (loadout panel visible in every clip)",
+  "setup": "Standing, aimed, at a plain wall panel; three bursts of about 10 to 14 rounds per clip, with a sidestep between bursts; 2560x1440 at 120 fps.",
+  "clips": [
+   {
+    "file": "no recoil control.mp4",
+    "sha256": "4b628580b3c1f54b100a01b6cbad34609372092d5e28512a3162524af0babc1f"
+   },
+   {
+    "file": "controlled recoil 1.mp4",
+    "sha256": "c246fd437e4c4e7d09f7e54f14b0e7c5056c10d9bc7328ff99f6dc79e28e4e02"
+   },
+   {
+    "file": "controlled recoil 2.mp4",
+    "sha256": "fb3da9ffc0dc2a9d1a8d31d6cbcecd52eca099951a8e1cec6142f30045ed9e73"
+   },
+   {
+    "file": "recoil up.mp4",
+    "sha256": "5885ff82850010282eade2e13bf04a2c79adae6bd28377da65db991384c4c208"
+   }
+  ],
+  "conditions": {
+   "no recoil control.mp4": "mouse held still",
+   "controlled recoil 1.mp4 / controlled recoil 2.mp4": "pulling down to hold the aim point",
+   "recoil up.mp4": "pulling up, with the recoil"
+  },
+  "earlier": "A free-hand QBZ clip of 23 November (L4087/qbz-clip/clip-receipt.json) and the operator's no-recording over-pull check of 23 November (the view stays low, no rise back)."
+ },
+ "method": "track.py finds the shots from ammo-counter changes. bursts.py measures, for every frame from 15 frames before a burst to 200 after it, the vertical shift of two world patches (the concrete pillars either side of the wall panel) against the rest frame before the burst, by normalised template match with a sub-pixel peak. Frames where the two patches disagree by 4 px or more, or match below 0.5 (muzzle flash, smoke), are dropped. summary.py reduces each burst. Pixels are at 2560x1440 in the aimed view; no angle conversion was made.",
+ "results": {
+  "perBurst": {
+   "no_recoil_control": [
+    {
+     "shots": 12,
+     "frames": [
+      391,
+      521
+     ],
+     "goodFrac": 0.85,
+     "duringMedian": 35.5,
+     "duringMin": 12.6,
+     "duringMax": 45.1,
+     "peak": 45.8,
+     "afterLastShot": 42.8,
+     "settled": 3.7,
+     "dropAfterStop": 42.0,
+     "halfDropFrames": 17,
+     "xSettled": 0.4,
+     "sightMean": 16.7,
+     "sightStd": 9.2,
+     "sightN": 33
+    },
+    {
+     "shots": 11,
+     "frames": [
+      959,
+      1089
+     ],
+     "goodFrac": 0.78,
+     "duringMedian": 35.6,
+     "duringMin": 12.6,
+     "duringMax": 45.0,
+     "peak": 46.3,
+     "afterLastShot": 43.7,
+     "settled": 3.2,
+     "dropAfterStop": 43.1,
+     "halfDropFrames": 17,
+     "xSettled": 0.8,
+     "sightMean": 10.2,
+     "sightStd": 6.6,
+     "sightN": 13
+    },
+    {
+     "shots": 13,
+     "frames": [
+      1667,
+      1807
+     ],
+     "goodFrac": 0.48,
+     "duringMedian": 22.3,
+     "duringMin": 17.5,
+     "duringMax": 31.3,
+     "peak": 31.3,
+     "afterLastShot": null,
+     "settled": -1.1,
+     "dropAfterStop": null,
+     "halfDropFrames": null,
+     "xSettled": -0.9,
+     "sightMean": 16.5,
+     "sightStd": 8.5,
+     "sightN": 32
+    }
+   ],
+   "controlled_recoil_1": [
+    {
+     "shots": 10,
+     "frames": [
+      583,
+      693
+     ],
+     "goodFrac": 0.91,
+     "duringMedian": -1.3,
+     "duringMin": -7.5,
+     "duringMax": 9.7,
+     "peak": 13.4,
+     "afterLastShot": 10.7,
+     "settled": -3.2,
+     "dropAfterStop": 16.6,
+     "halfDropFrames": 15,
+     "xSettled": -6.2,
+     "sightMean": 12.0,
+     "sightStd": 4.8,
+     "sightN": 95
+    },
+    {
+     "shots": 11,
+     "frames": [
+      983,
+      1103
+     ],
+     "goodFrac": 0.86,
+     "duringMedian": 7.3,
+     "duringMin": -4.1,
+     "duringMax": 15.0,
+     "peak": 15.4,
+     "afterLastShot": 13.4,
+     "settled": 1.3,
+     "dropAfterStop": 14.1,
+     "halfDropFrames": 14,
+     "xSettled": 0.2,
+     "sightMean": 11.1,
+     "sightStd": 6.3,
+     "sightN": 35
+    },
+    {
+     "shots": 10,
+     "frames": [
+      1407,
+      1517
+     ],
+     "goodFrac": 0.61,
+     "duringMedian": 2.0,
+     "duringMin": -8.8,
+     "duringMax": 8.3,
+     "peak": 8.3,
+     "afterLastShot": 3.1,
+     "settled": -4.6,
+     "dropAfterStop": 12.9,
+     "halfDropFrames": null,
+     "xSettled": 7.5,
+     "sightMean": 12.4,
+     "sightStd": 5.6,
+     "sightN": 91
+    }
+   ],
+   "controlled_recoil_2": [
+    {
+     "shots": 11,
+     "frames": [
+      232,
+      352
+     ],
+     "goodFrac": 0.89,
+     "duringMedian": -3.0,
+     "duringMin": -8.3,
+     "duringMax": 7.3,
+     "peak": 7.3,
+     "afterLastShot": 2.8,
+     "settled": -6.1,
+     "dropAfterStop": 13.4,
+     "halfDropFrames": 7,
+     "xSettled": 10.7,
+     "sightMean": 9.2,
+     "sightStd": 6.2,
+     "sightN": 80
+    },
+    {
+     "shots": 10,
+     "frames": [
+      684,
+      794
+     ],
+     "goodFrac": 0.87,
+     "duringMedian": 5.0,
+     "duringMin": 0.2,
+     "duringMax": 11.3,
+     "peak": 12.7,
+     "afterLastShot": 5.5,
+     "settled": 2.1,
+     "dropAfterStop": 10.6,
+     "halfDropFrames": null,
+     "xSettled": 11.3,
+     "sightMean": 12.1,
+     "sightStd": 6.6,
+     "sightN": 60
+    },
+    {
+     "shots": 13,
+     "frames": [
+      1119,
+      1269
+     ],
+     "goodFrac": 0.73,
+     "duringMedian": 0.3,
+     "duringMin": -12.1,
+     "duringMax": 7.2,
+     "peak": 13.7,
+     "afterLastShot": 7.5,
+     "settled": -8.6,
+     "dropAfterStop": 22.3,
+     "halfDropFrames": 17,
+     "xSettled": 12.1,
+     "sightMean": 11.2,
+     "sightStd": 5.6,
+     "sightN": 82
+    }
+   ],
+   "recoil_up": [
+    {
+     "shots": 9,
+     "frames": [
+      270,
+      371
+     ],
+     "goodFrac": 0.91,
+     "duringMedian": 74.5,
+     "duringMin": 20.9,
+     "duringMax": 126.3,
+     "peak": 136.7,
+     "afterLastShot": 132.1,
+     "settled": 94.2,
+     "dropAfterStop": 42.5,
+     "halfDropFrames": 18,
+     "xSettled": -20.7,
+     "sightMean": 18.8,
+     "sightStd": 10.5,
+     "sightN": 36
+    },
+    {
+     "shots": 12,
+     "frames": [
+      747,
+      876
+     ],
+     "goodFrac": 0.77,
+     "duringMedian": 72.1,
+     "duringMin": 22.4,
+     "duringMax": 129.4,
+     "peak": 133.3,
+     "afterLastShot": 133.0,
+     "settled": 85.3,
+     "dropAfterStop": 48.0,
+     "halfDropFrames": 31,
+     "xSettled": -2.4,
+     "sightMean": 7.8,
+     "sightStd": 5.7,
+     "sightN": 11
+    },
+    {
+     "shots": 14,
+     "frames": [
+      1252,
+      1412
+     ],
+     "goodFrac": 0.05,
+     "duringMedian": null,
+     "duringMin": null,
+     "duringMax": null,
+     "peak": 10.6,
+     "afterLastShot": null,
+     "settled": null,
+     "dropAfterStop": null,
+     "halfDropFrames": null,
+     "xSettled": null,
+     "sightMean": 22.3,
+     "sightStd": 10.6,
+     "sightN": 55
+    }
+   ]
+  },
+  "points": [
+   "Mouse still (2 clean bursts, a third partly hidden by smoke with the same shape): the view climbs to about 45 px, then drops 42 to 43 px after the last shot and settles within 4 px of where it started.",
+   "Pulling down (6 bursts): the view stays between about -12 and +15 px of the start during fire. After the last shot only the 3 to 13 px still uncountered recovers, and the view settles between -9 and +2 px of the start. Had the pull moved the aim instead of consuming recoil, the view would have ended at least 45 px low.",
+   "Pulling up with the recoil (2 clean bursts): the view climbs to 133 to 137 px, drops 42.5 and 48 px after the last shot and settles 94 and 85 px above the start. The drop equals the mouse-still drop within hand noise, and the extra height is kept. The third burst (14 rounds) fails the two-patch agreement filter on nearly every frame, so its perBurst row is empty; unfiltered it reads a peak near 140 px settling near 90 px, the same shape.",
+   "Time for the post-burst drop to fall halfway: 17 frames mouse still, 14 to 17 pulling down (where measurable), 18 in the cleanest pull-up burst.",
+   "The sight housing sits about 9 to 19 px off its rest position during fire in every condition, with a frame-to-frame spread of 5 to 10 px: the visual weapon motion continues under compensation. The housing match is too sparse in the mouse-still clip to compare its size between conditions."
+  ]
+ },
+ "reading": [
+  "Counter-aim is consumed: a compensated burst leaves nothing to recover beyond what the player did not counter, so the view settles on the aim point instead of below it.",
+  "Input along the recoil does not add to the recoil state: the same amount recovers whether the mouse is still or pulled up, and the pulled height stays.",
+  "With the operator's over-pull check (excess pull stays as aim), all three rules of the site's counterAim are observed in game."
+ ],
+ "limits": [
+  "Hand input: the pull is not known frame by frame, so the test is of end states and of the size of the recovery, not of the consumption arithmetic within a shot.",
+  "Whether a kick still being delivered (25 ms) can be consumed in advance is not separable at this precision and changes no end state.",
+  "One weapon, aimed, mouse only. Controller and aim-assist rotation are untested (no capture requested).",
+  "No pixel-to-degree conversion; results are comparisons between conditions in the same view."
+ ],
+ "siteImpact": "None. sim/live-fire.js counterAim already implements the observed rule.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-11-23-recoil-consumption",
+  "artifacts": [
+   {
+    "file": "L4087/ak205-wall-clips/bursts.py",
+    "sha256": "5b9ac009b3035a7002332211406e6524c63870c82ec7b1f8227fe8c62068fe82"
+   },
+   {
+    "file": "L4087/ak205-wall-clips/chart.py",
+    "sha256": "4dcc72d80143b67391c946e6bf35dbeddf41b36fdf7a668c5f7cfaacd4d516ec"
+   },
+   {
+    "file": "L4087/ak205-wall-clips/controlled_recoil_1.bursts.json",
+    "sha256": "af6a7cac0a6bcacf8985a297bf6d9555075ea05798330edd6a9455f21526f02d"
+   },
+   {
+    "file": "L4087/ak205-wall-clips/controlled_recoil_1.csv",
+    "sha256": "6fbab476f3937d8c47f7cf0c488010a59d3b7cc7c5db332b0ccb964b40bbcccc"
+   },
+   {
+    "file": "L4087/ak205-wall-clips/controlled_recoil_2.bursts.json",
+    "sha256": "8ac6fa4cdb7f73097b1f75a5758ff18f0024c39d4eef825622f5ef37a6b5ce0e"
+   },
+   {
+    "file": "L4087/ak205-wall-clips/controlled_recoil_2.csv",
+    "sha256": "2eea109eba40ff394231ad17f962b8b835f4d28c94755ec8f85114e9c6dd3f27"
+   },
+   {
+    "file": "L4087/ak205-wall-clips/no_recoil_control.bursts.json",
+    "sha256": "595e4f2b0d001a665f9f752b432c69e015d8e170375254c8d616b0cc6246a140"
+   },
+   {
+    "file": "L4087/ak205-wall-clips/no_recoil_control.csv",
+    "sha256": "960b59f830a611dfe5028971d352070adc2122e3eb6a23a1f96ff1a54fcdebc4"
+   },
+   {
+    "file": "L4087/ak205-wall-clips/operator-wall-screenshot-1.webp",
+    "sha256": "b2259ed29d6858b641b063dec628946d5c125a3287cd8b45edfff308da610a67"
+   },
+   {
+    "file": "L4087/ak205-wall-clips/operator-wall-screenshot-2.webp",
+    "sha256": "ad07baa9cb36cc67a03a811fa80cc5d41cd9d88247502908c0d79fc04d67d241"
+   },
+   {
+    "file": "L4087/ak205-wall-clips/operator-wall-screenshot-3.webp",
+    "sha256": "12050eadcb92ddbc918057e09afcf0b47b8ddea643f14bb321b908128d34f69e"
+   },
+   {
+    "file": "L4087/ak205-wall-clips/operator-wall-screenshot-4.webp",
+    "sha256": "0912e30163e8c60027bac4c1ca396c137d4f760aa62bde355c60a639ad7f89bc"
+   },
+   {
+    "file": "L4087/ak205-wall-clips/overview_controlled_recoil_1.jpg",
+    "sha256": "84b14a6cdd4588b56b8cb458fb82950b87f3dde921300f02483f862f044e9e4f"
+   },
+   {
+    "file": "L4087/ak205-wall-clips/overview_controlled_recoil_2.jpg",
+    "sha256": "97f93971fa1dbdc5133aa5c37ba9fdc03657f5678327cf8d6c6506a60849d52c"
+   },
+   {
+    "file": "L4087/ak205-wall-clips/overview_no_recoil_control.jpg",
+    "sha256": "01f02f928a74b86725e64c462051ad3f0bbc3834083269af7dce57cf97bd7f33"
+   },
+   {
+    "file": "L4087/ak205-wall-clips/overview_recoil_up.jpg",
+    "sha256": "d28b0333f2cc245cc3380daeac243e79a97a1f21e9214b4cedf9f95376f124bc"
+   },
+   {
+    "file": "L4087/ak205-wall-clips/recoil_up.bursts.json",
+    "sha256": "55fb673daab431549e0fb68c075fc6e8450425f3fc765ce1d7cbf49e7a911d5b"
+   },
+   {
+    "file": "L4087/ak205-wall-clips/recoil_up.csv",
+    "sha256": "a4156c00aa32301941630a843c702e7fff06044fd565b99d58a9bdea1658aaa4"
+   },
+   {
+    "file": "L4087/ak205-wall-clips/rest_s.jpg",
+    "sha256": "1fd1adf0f0ca5edaf9a368b02b6bb3260348c82cc87c2a251a10db4c05ceba6d"
+   },
+   {
+    "file": "L4087/ak205-wall-clips/summary.json",
+    "sha256": "15b11ac5b51bd5fba85968076f748e12a33bb4151d6b3420a9a6ef64c39c1d2f"
+   },
+   {
+    "file": "L4087/ak205-wall-clips/summary.py",
+    "sha256": "7922927607a9d466cd7525bafb09a65e47f4dd5cecc46520e3d911010b319a54"
+   },
+   {
+    "file": "L4087/ak205-wall-clips/track.py",
+    "sha256": "794a16b90463236e5afa07d25e6b49e4fbd3b5023c7684562ceb738f3ae975ea"
+   },
+   {
+    "file": "L4087/ak205-wall-clips/view-tracks.png",
+    "sha256": "97d0d6c955b3cce4b4e285dbbb85f8580e47170bbb14f4387411479b54d04f41"
+   }
+  ],
+  "clipRetention": "The chart, stills, per-frame tracks and summary carry the result; the clips can be deleted by the operator."
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-11-24",
+  "build": "mixed",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L4087",
+    "title": "Edge rules of recoil consumption: the Firing Range rule matches the game on AK-205 wall clips",
+    "status": "site-supported",
+    "summary": "On AK-205 wall bursts at 120 fps, a pulled-down burst settles within 9 px of its start against a 45 px uncontrolled climb, a pulled-up burst drops by 42 to 48 px, as an uncontrolled one does (42 to 43 px), and keeps its extra 85 to 94 px, and an over-pulled burst stays low: opposing input is consumed up to the delivered recoil and all other input turns the aim, as sim/live-fire.js counterAim assumes; the sight keeps moving per shot under compensation.",
+    "reopenWhen": "A controller or aim-assist capture is wanted, the code at the two TweakablesConfig keys becomes readable (L4086), or an in-game case contradicts the rule."
+   }
+  ]
+ }
+}

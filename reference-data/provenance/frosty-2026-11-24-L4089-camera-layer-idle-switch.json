@@ -1,0 +1,254 @@
+{
+ "lead": "L4089",
+ "status": "finding",
+ "build": {
+  "current": "2.1.2.0",
+  "note": "Stored values from GRX_Weapons on 1.4.2.5, 1.4.3.5, 2.1.1.0 and 2.1.2.0; camera tracks from the October 2026 pair recordings (1.4.3.5 and 2.1.1.0 clients, L4048)."
+ },
+ "question": "What do the camera layer's idle-spring switch times do, and do the October camera tracks show them?",
+ "sourceFacts": {
+  "stored": [
+   "Each GS root stores a firing spring (SpringConstant 1500 on 68 of 70, zoomed damping 0.5) and an idle spring (IdleSpringConstant 200 on 53, 2000 on 15), each idle value with a switch time; the constant, damping and exponent switch times of a root are equal.",
+   "The switch time equals the shot interval rounded up to whole 60 Hz frames, plus one frame, on 41 of 45 automatic and burst site weapons (switch-time-check.json). Off by one frame: VZ61, MK24, NSW4 (one less) and Z84M (one more); the last three are on roots added after 1.4.3.5.",
+   "No root's switch time changed between 1.4.2.5 and 2.1.2.0 (roots with a changed value: none)."
+  ],
+  "cameraTracks": {
+   "method": "camera-switch-test.py: pairs from the 16 October pair camera tracks whose second shot comes at least 48 frames (0.4 s) after the first, aligned on the first kick onset and averaged; 120 fps, degrees. Frame numbers count from the onset, which is detected to about one frame.",
+   "perWeapon": {
+    "ak205 Standard": {
+     "pairs": 10,
+     "peakDeg": 0.502,
+     "storedSwitchFrames": 12,
+     "pitchByFrame": {
+      "9": 0.466,
+      "10": 0.467,
+      "11": 0.464,
+      "12": 0.47,
+      "13": 0.487,
+      "14": 0.449,
+      "15": 0.36,
+      "16": 0.328,
+      "17": 0.34,
+      "18": 0.34,
+      "19": 0.328,
+      "20": 0.314,
+      "21": 0.3,
+      "22": 0.29
+     },
+     "steepestFallFrames": [
+      13,
+      14,
+      15
+     ],
+     "levelBefore": 0.487,
+     "levelAtFrame21": 0.3,
+     "stepFractionOfPeak": 0.37
+    },
+    "ak205 Lightened": {
+     "pairs": 9,
+     "peakDeg": 0.456,
+     "storedSwitchFrames": 12,
+     "pitchByFrame": {
+      "9": 0.443,
+      "10": 0.444,
+      "11": 0.456,
+      "12": 0.456,
+      "13": 0.39,
+      "14": 0.333,
+      "15": 0.274,
+      "16": 0.326,
+      "17": 0.321,
+      "18": 0.304,
+      "19": 0.294,
+      "20": 0.28,
+      "21": 0.269,
+      "22": 0.255
+     },
+     "steepestFallFrames": [
+      12,
+      13,
+      14
+     ],
+     "levelBefore": 0.456,
+     "levelAtFrame21": 0.269,
+     "stepFractionOfPeak": 0.41
+    },
+    "tr7 Standard": {
+     "pairs": 20,
+     "peakDeg": 1.038,
+     "storedSwitchFrames": 12,
+     "pitchByFrame": {
+      "9": 0.971,
+      "10": 0.978,
+      "11": 0.991,
+      "12": 1.027,
+      "13": 1.038,
+      "14": 0.908,
+      "15": 0.8,
+      "16": 0.807,
+      "17": 0.834,
+      "18": 0.823,
+      "19": 0.805,
+      "20": 0.782,
+      "21": 0.761,
+      "22": 0.746
+     },
+     "steepestFallFrames": [
+      13,
+      14,
+      24
+     ],
+     "levelBefore": 1.038,
+     "levelAtFrame21": 0.761,
+     "stepFractionOfPeak": 0.27
+    },
+    "tr7 Lightened": {
+     "pairs": 20,
+     "peakDeg": 1.088,
+     "storedSwitchFrames": 12,
+     "pitchByFrame": {
+      "9": 1.0,
+      "10": 1.011,
+      "11": 1.036,
+      "12": 1.087,
+      "13": 1.066,
+      "14": 0.918,
+      "15": 0.836,
+      "16": 0.871,
+      "17": 0.887,
+      "18": 0.869,
+      "19": 0.847,
+      "20": 0.823,
+      "21": 0.801,
+      "22": 0.783
+     },
+     "steepestFallFrames": [
+      13,
+      14,
+      23
+     ],
+     "levelBefore": 1.087,
+     "levelAtFrame21": 0.801,
+     "stepFractionOfPeak": 0.26
+    },
+    "lmr27 Standard": {
+     "pairs": 20,
+     "peakDeg": 0.874,
+     "storedSwitchFrames": 18,
+     "pitchByFrame": {
+      "9": 0.808,
+      "10": 0.826,
+      "11": 0.854,
+      "12": 0.874,
+      "13": 0.872,
+      "14": 0.855,
+      "15": 0.807,
+      "16": 0.721,
+      "17": 0.662,
+      "18": 0.588,
+      "19": 0.533,
+      "20": 0.494,
+      "21": 0.476,
+      "22": 0.471
+     },
+     "steepestFallFrames": [
+      15,
+      16,
+      17
+     ],
+     "levelBefore": 0.874,
+     "levelAtFrame21": 0.476,
+     "stepFractionOfPeak": 0.46
+    },
+    "lmr27 Lightened": {
+     "pairs": 20,
+     "peakDeg": 0.847,
+     "storedSwitchFrames": 18,
+     "pitchByFrame": {
+      "9": 0.763,
+      "10": 0.79,
+      "11": 0.822,
+      "12": 0.843,
+      "13": 0.847,
+      "14": 0.827,
+      "15": 0.781,
+      "16": 0.71,
+      "17": 0.633,
+      "18": 0.559,
+      "19": 0.492,
+      "20": 0.454,
+      "21": 0.43,
+      "22": 0.426
+     },
+     "steepestFallFrames": [
+      15,
+      16,
+      17
+     ],
+     "levelBefore": 0.847,
+     "levelAtFrame21": 0.43,
+     "stepFractionOfPeak": 0.49
+    }
+   }
+  },
+  "points": [
+   "AK-205 and TR-7 (stored 0.1 s = 12 frames): after one shot the camera holds at its peak level, creeping up slightly, until frame 12 to 13, then steps down over about two frames (TR-7 1.04 to 0.80 degrees, AK-205 Standard 0.49 to 0.36) and descends slowly from there. The step begins within a frame of the stored switch time.",
+   "LMR27 (stored 0.15 s = 18 frames): the camera holds until frame 13 to 14 and falls over frames 14 to 20, settling at frame 21. The stored time lies inside the fall; it is later and longer than on the two rifles but does not begin at frame 18.",
+   "The step is about a quarter of the peak on the TR-7 (0.26 to 0.27), larger on the AK-205 (0.37 to 0.41) and the LMR27 (0.46 to 0.49), where some aim recovery falls inside the same frames."
+  ]
+ },
+ "inference": [
+  "The camera layer adds a kick-proportional offset that it holds while its firing spring is active and releases when it switches to the idle spring, one frame after the next shot was due. In automatic fire the next shot arrives before the switch, so the offset is never released: this is the camera sitting above the bullet holes during bursts (L4045) and the 'slow kick-proportional camera offset' left open by L4048 (0.23 to 0.29 of the kick on the TR-7).",
+  "The effect is in the view only. The recovery scale of 0.8 was fitted on bullet holes and is unaffected."
+ ],
+ "unresolved": [
+  "The spring equation (the stored exponents are 30 and 50) and so the size of the offset from stored values; why the LMR27 release starts before its stored time; the role of the separate 0.0333 s amount switch time."
+ ],
+ "siteImpact": "None. The site does not model the camera layer.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-11-23-recoil-consumption",
+  "artifacts": [
+   {
+    "file": "recoil-survey/camera-switch-test.py",
+    "sha256": "7468152bbe0f1c24a51492cbcddc892f79c2af5812c360895c9782466d77a391"
+   },
+   {
+    "file": "recoil-survey/camera-switch-test.json",
+    "sha256": "a365b6f06b3e3c39a86329f15244e74df9bbb5c9c139d3ae092a8e2f030b1154"
+   },
+   {
+    "file": "recoil-survey/switch-time-check.py",
+    "sha256": "63b507d2f5c3dcbfe4d7af6b8de61c74b2625610d96079cc2384bc6e1730df9c"
+   },
+   {
+    "file": "recoil-survey/switch-time-check.json",
+    "sha256": "158ba9335f37689e210924fcc8f3add8e55af70ff6dc38ec8194347620c8194e"
+   },
+   {
+    "file": "recoil-survey/switch-time-history.py",
+    "sha256": "4f9bc7ae756f293328bcb13158cc513294e3ef9efe380abc4d74ece4bc3546c0"
+   },
+   {
+    "file": "recoil-survey/switch-time-history.json",
+    "sha256": "575d5075ae61436e547db8055132c867e25fdae0b7db1c22b5ee75480c2fbccb"
+   }
+  ],
+  "source": "reports\\weapon-analyzer-research\\2026-10-16-pair-camera-track\\camera-track-*.json"
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-11-24",
+  "build": "mixed",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L4089",
+    "title": "Camera layer: firing and idle springs, with an idle switch time set from the fire rate and visible in the October camera tracks",
+    "status": "finding",
+    "summary": "The camera idle-spring switch time is the shot interval in 60 Hz frames plus one on 41 of 45 automatic weapons, and the October single-shot camera tracks step down at that time on the AK-205 and TR-7 (frame 12 to 13 of a stored 12), releasing about a quarter of the kick; in automatic fire the release never comes, which is the camera sitting above the holes.",
+    "reopenWhen": "The camera spring equation is identified, or a camera-view number is wanted on the site."
+   }
+  ]
+ }
+}

@@ -1,0 +1,81 @@
+{
+ "lead": "L4088",
+ "status": "finding",
+ "build": {
+  "current": "2.1.2.0",
+  "capture": "builds\\2.1.2.0\\capture\\collection",
+  "note": "No new capture."
+ },
+ "question": "What do the visual-animation selector values mean, which of a weapon's settings sets applies when, and how do the multipliers combine?",
+ "sourceFacts": {
+  "selector": [
+   "Field_c4814c93 is the zoom-level index. Each optic installs an aiming controller (Common/Gameplay/AimingControllers/WeaponsGadgets/Aim_*) whose zoom-level list uses the same member hash (Field_d96e9943) as the blueprint's list of settings objects. Entry 0 is always _ZoomLevels/DefaultBase (not aimed); entries 1 to N are the optic's Zoom_* levels.",
+   "Verified lists: {\"Aim_Variable_4x00_1x00\": [\"DefaultBase\", \"Zoom_04x00_PiP\", \"Zoom_01x00_PiP\"], \"Aim_LPVO_4_6x00\": [\"DefaultBase\", \"Zoom_01x75_PiP\", \"Zoom_03x00_PiP\", \"Zoom_06x00_PiP\", \"Zoom_01x00_PiP\"], \"Aim_SVO_4_8x00\": [\"DefaultBase\", \"Zoom_04x00_PiP\", \"Zoom_06x00_PiP\", \"Zoom_08x00_PiP\", \"Zoom_02x00_PiP\"]}. The optic files' multiplier selectors are exactly those indices: {\"WPM_SCP_ElcanDR\": [1, 2], \"WPM_SCP_Tango6T\": [1, 2, 3, 4]}.",
+   "From the trace only: counts match on 11 of 11 multi-level optics; -1 is used by state modifiers (mounted, bipod, buffer, global) and means any level, though whether it reaches level 0 is not established."
+  ],
+  "sets": [
+   "Blueprint list entry 0 is the level-0 (hip) set and entry 1 the level-1 (aimed) set used with any optic.",
+   "The third set is installed by a replace-modifier on level 1 keyed to the iron-sights unlock (trace: 67 blueprints, registry label 'IRON SIGHTS ... WZL1'), so it applies when aiming with iron sights only. Replace-modifier selectors across the 70 blueprints: {\"1\": 72, \"3\": 1, \"4\": 1, \"2\": 1, \"0\": 2}."
+  ],
+  "stacking": [
+   "No combine-mode field exists. The multiplier base class holds a priority, two booleans and registry links; every multiplier defaults to 1. The registry names the class '...CombinableModifierBase'.",
+   "WPM_Procedural_GlobalScaling_Primary is imported by 63 of 70 blueprints (not the sidearms).",
+   "Against plain multiplication (trace): identical values are restated where they would double-apply, for example the CDX40's inline 'Tango6T 60% Push/Kick on bolts' set beside the imported Tango6T file's own 0.6 on the same levels."
+  ]
+ },
+ "inference": [
+  "Under multiplication of every active modifier, an aimed AK-205 or QBZ with the Mini Flex would run at 0.88 x 1.25 = 1.10 of its level-1 push and kick; if a level-specific entry replaces the generic one, 1.25. The 1.25 assumes the Mini Flex is the EotechEFLX riser variant, which was not confirmed.",
+  "A rifle with the SU-230 would run at 0.484 (multiplied) or 0.55 (replaced) on both of its levels."
+ ],
+ "unresolved": [
+  "The combination rule (multiply all, or level-specific and higher-priority entries replace generic ones).",
+  "Whether selector -1 applies to level 0; the fallback set for levels 2 and above.",
+  "Field_7768ebf2 on the settings objects (59 / 55 / 28 to 35): not the gameplay field of view."
+ ],
+ "siteImpact": "None.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-11-23-recoil-consumption",
+  "artifacts": [
+   {
+    "file": "visual-firing-animation/states-and-stacking/verify.py",
+    "sha256": "22e9992138f04d6e300c61eec3d55f7035953d08497365623080e2b25a3f3053"
+   },
+   {
+    "file": "visual-firing-animation/states-and-stacking/verify.json",
+    "sha256": "6a1192e6cee1960ea3cf7d67617d0d08a3e6db3011b1bb197805eeead6c4cf0a"
+   },
+   {
+    "file": "visual-firing-animation/states-and-stacking/aim_zoomlevel_lists.json",
+    "sha256": "a6e1277434f08632f612149e93ccc6cc7ba45b664bc971bcd59fe074826d0616"
+   },
+   {
+    "file": "visual-firing-animation/states-and-stacking/zoomlevel_importers.json",
+    "sha256": "29d248820c81914ec465f0d290cdec4d501423504cdc91df5fdf1ec8297ce0f7"
+   },
+   {
+    "file": "visual-firing-animation/states-and-stacking/q19.out",
+    "sha256": "eb38366fbad5e5dfc37a4faced1ccbe8f3e0d5c678f9767077d938ac8f9b374e"
+   }
+  ],
+  "trace": "Subagent trace of 24 November 2026 (scripts q1 to q19), spot-checked by verify.py."
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-11-24",
+  "build": "mixed",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L4088",
+    "title": "Visual firing animation: per-weapon push, kick, roll and settle values, optic multipliers and zoom-level selectors",
+    "status": "finding",
+    "summary": "Each weapon blueprint stores a 59-member per-shot animation struct per zoom level (hip, aimed, and an iron-sights aimed set), and Class_bfd4f199 modifiers scale its push and kick per zoom-level index of the fitted optic (Tango6T 0.6 on all four levels, SU-230 0.55 on both since 2.1.1.0, global primary scale 0.88 / 0.6); how multipliers combine is not established.",
+    "reopenWhen": "The combination rule is settled (the animation graph is read, or a recording compares sight motion with and without one multiplier), or a visual-recoil number is wanted on the site."
+   }
+  ],
+  "supersedes": [
+   "frosty-2026-11-24-L4088-visual-firing-animation-values.json"
+  ]
+ }
+}

@@ -1,0 +1,641 @@
+{
+ "lead": "L4088",
+ "status": "finding",
+ "build": {
+  "current": "2.1.2.0",
+  "capture": "builds\\2.1.2.0\\capture\\collection",
+  "note": "WPM_SCP_ElcanDR also read on 1.4.3.5 and 2.1.1.0. No new capture."
+ },
+ "question": "Where does the game store the per-shot visual animation of the weapon model (the motion that continues while recoil is compensated, L4087), and what do optics and other parts do to it?",
+ "sourceFacts": {
+  "where": [
+   "Each weapon blueprint (<Weapon>_WB) holds Class_76a3b0eb objects (three on 68 of 70 blueprints) whose member Field_f2d603de is a 59-member struct of per-shot animation settings. The blueprint entity lists two of them; a local replace-modifier (Class_8cdc5b63) installs the third.",
+   "Member names come from Common/Gameplay/Soldier/Glacier_Soldier, object 52, member Field_60359d62: a binding struct with the same member hashes, each importing a named animation state (a732ab97 FB.Wep.Kickback.Amount, 1982d3c1 Kickback.Time, 2abd11c6 Pushback.Amount, 65f78a49 PitchKick.Amount, 0e7b114c RecoilSettle.Amplitude, f00a5d84 FB.CameraShake.Amplitude, 9aab20d7 Roll.Amplitude, 9923928e Yaw.Amplitude). 54 of 59 members are named this way; five are unbound.",
+   "Multipliers sit in Class_bfd4f199 objects (215 across blueprints and part files; the registry's 'Proc Firing' annotations attach to this class only). Field_149939ab and Field_e9129d03 are the push and kick multipliers by annotation-value match ('60% Push/Kick' = 0.6 / 0.6); they are equal in all 215 objects, so which is which is not separable. Field_c4814c93 is a state selector (-1, 0 to 8) whose index meanings are not established."
+  ],
+  "baseValues": {
+   "AK205_WB": {
+    "Pushback.Amount": [
+     1.75,
+     1.75,
+     1.75
+    ],
+    "Kickback.Amount": [
+     2.200000047683716,
+     2.200000047683716,
+     2.200000047683716
+    ],
+    "Kickback.Time": [
+     0.08333399891853333,
+     0.08333399891853333,
+     0.08333399891853333
+    ],
+    "Kickback.Settle.Cycles": [
+     3.0,
+     3.0,
+     3.0
+    ],
+    "PitchKick.Amount": [
+     0.20000000298023224,
+     0.0,
+     0.0
+    ],
+    "Roll.Amplitude": [
+     0.4000000059604645,
+     0.5199999809265137,
+     0.5199999809265137
+    ],
+    "Yaw.Amplitude": [
+     0.20000000298023224,
+     0.02500000037252903,
+     0.02500000037252903
+    ],
+    "RecoilSettle.Amplitude": [
+     {
+      "Field_3901db14": 3.5999999046325684,
+      "Field_42fc0f5e": 0.7200000286102295,
+      "Field_32a99b9c": 0.36000001430511475
+     },
+     {
+      "Field_3901db14": 0.07199999690055847,
+      "Field_42fc0f5e": 0.07199999690055847,
+      "Field_32a99b9c": 0.36000001430511475
+     },
+     {
+      "Field_3901db14": 0.07199999690055847,
+      "Field_42fc0f5e": 0.07199999690055847,
+      "Field_32a99b9c": 0.36000001430511475
+     }
+    ],
+    "CameraShake.Amplitude": [
+     {
+      "Field_3901db14": 0.11999999731779099,
+      "Field_42fc0f5e": 0.05999999865889549,
+      "Field_32a99b9c": 0.4000000059604645
+     },
+     {
+      "Field_3901db14": 0.11999999731779099,
+      "Field_42fc0f5e": 0.05999999865889549,
+      "Field_32a99b9c": 0.4000000059604645
+     },
+     {
+      "Field_3901db14": 0.11999999731779099,
+      "Field_42fc0f5e": 0.05999999865889549,
+      "Field_32a99b9c": 0.4000000059604645
+     }
+    ]
+   },
+   "QBZ192_WB": {
+    "Pushback.Amount": [
+     1.899999976158142,
+     1.899999976158142,
+     1.649999976158142
+    ],
+    "Kickback.Amount": [
+     2.75,
+     2.75,
+     2.4000000953674316
+    ],
+    "Kickback.Time": [
+     0.08333399891853333,
+     0.08333399891853333,
+     0.08333399891853333
+    ],
+    "Kickback.Settle.Cycles": [
+     3.0,
+     3.0,
+     3.0
+    ],
+    "PitchKick.Amount": [
+     0.4000000059604645,
+     0.0,
+     0.0
+    ],
+    "Roll.Amplitude": [
+     0.699999988079071,
+     0.7200000286102295,
+     0.7200000286102295
+    ],
+    "Yaw.Amplitude": [
+     0.3499999940395355,
+     0.03200000151991844,
+     0.03200000151991844
+    ],
+    "RecoilSettle.Amplitude": [
+     {
+      "Field_3901db14": 4.199999809265137,
+      "Field_42fc0f5e": 0.8399999737739563,
+      "Field_32a99b9c": 0.41999998688697815
+     },
+     {
+      "Field_3901db14": 0.08399999886751175,
+      "Field_42fc0f5e": 0.08399999886751175,
+      "Field_32a99b9c": 0.41999998688697815
+     },
+     {
+      "Field_3901db14": 0.08399999886751175,
+      "Field_42fc0f5e": 0.08399999886751175,
+      "Field_32a99b9c": 0.41999998688697815
+     }
+    ],
+    "CameraShake.Amplitude": [
+     {
+      "Field_3901db14": 0.14000000059604645,
+      "Field_42fc0f5e": 0.07000000029802322,
+      "Field_32a99b9c": 0.46666666865348816
+     },
+     {
+      "Field_3901db14": 0.14000000059604645,
+      "Field_42fc0f5e": 0.07000000029802322,
+      "Field_32a99b9c": 0.46666666865348816
+     },
+     {
+      "Field_3901db14": 0.14000000059604645,
+      "Field_42fc0f5e": 0.07000000029802322,
+      "Field_32a99b9c": 0.46666666865348816
+     }
+    ]
+   },
+   "Tavor7_WB": {
+    "Pushback.Amount": [
+     2.6500000953674316,
+     2.0999999046325684,
+     2.6500000953674316
+    ],
+    "Kickback.Amount": [
+     4.900000095367432,
+     3.950000047683716,
+     4.900000095367432
+    ],
+    "Kickback.Time": [
+     0.08333329856395721,
+     0.08333329856395721,
+     0.08333329856395721
+    ],
+    "Kickback.Settle.Cycles": [
+     2.5,
+     2.5,
+     2.5
+    ],
+    "PitchKick.Amount": [
+     0.0,
+     0.0,
+     0.8999999761581421
+    ],
+    "Roll.Amplitude": [
+     0.9800000190734863,
+     0.9800000190734863,
+     0.800000011920929
+    ],
+    "Yaw.Amplitude": [
+     0.04100000113248825,
+     0.04100000113248825,
+     0.4000000059604645
+    ],
+    "RecoilSettle.Amplitude": [
+     {
+      "Field_3901db14": 0.13500000536441803,
+      "Field_42fc0f5e": 0.13500000536441803,
+      "Field_32a99b9c": 0.675000011920929
+     },
+     {
+      "Field_3901db14": 0.13500000536441803,
+      "Field_42fc0f5e": 0.13500000536441803,
+      "Field_32a99b9c": 0.675000011920929
+     },
+     {
+      "Field_3901db14": 6.75,
+      "Field_42fc0f5e": 0.13500000536441803,
+      "Field_32a99b9c": 0.675000011920929
+     }
+    ],
+    "CameraShake.Amplitude": [
+     {
+      "Field_3901db14": 0.22499999403953552,
+      "Field_42fc0f5e": 0.11249999701976776,
+      "Field_32a99b9c": 0.75
+     },
+     {
+      "Field_3901db14": 0.22499999403953552,
+      "Field_42fc0f5e": 0.11249999701976776,
+      "Field_32a99b9c": 0.75
+     },
+     {
+      "Field_3901db14": 0.22499999403953552,
+      "Field_42fc0f5e": 0.11249999701976776,
+      "Field_32a99b9c": 0.75
+     }
+    ]
+   },
+   "M18_WB": {
+    "Pushback.Amount": [
+     1.600000023841858,
+     1.600000023841858,
+     1.600000023841858
+    ],
+    "Kickback.Amount": [
+     0.7570000290870667,
+     0.7570000290870667,
+     0.7570000290870667
+    ],
+    "Kickback.Time": [
+     0.15000000596046448,
+     0.15000000596046448,
+     0.15000000596046448
+    ],
+    "Kickback.Settle.Cycles": [
+     4.0,
+     4.0,
+     4.0
+    ],
+    "PitchKick.Amount": [
+     8.0,
+     2.0,
+     8.0
+    ],
+    "Roll.Amplitude": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Yaw.Amplitude": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "RecoilSettle.Amplitude": [
+     {
+      "Field_3901db14": 8.0,
+      "Field_42fc0f5e": 2.240000009536743,
+      "Field_32a99b9c": 3.0
+     },
+     {
+      "Field_3901db14": 0.05000000074505806,
+      "Field_42fc0f5e": 0.05000000074505806,
+      "Field_32a99b9c": 0.30000001192092896
+     },
+     {
+      "Field_3901db14": 2.240000009536743,
+      "Field_42fc0f5e": 2.240000009536743,
+      "Field_32a99b9c": 0.30000001192092896
+     }
+    ],
+    "CameraShake.Amplitude": [
+     {
+      "Field_3901db14": 0.14933332800865173,
+      "Field_42fc0f5e": 0.07466666400432587,
+      "Field_32a99b9c": 0.4977777898311615
+     },
+     {
+      "Field_3901db14": 0.14933332800865173,
+      "Field_42fc0f5e": 0.07466666400432587,
+      "Field_32a99b9c": 0.4977777898311615
+     },
+     {
+      "Field_3901db14": 0.14933332800865173,
+      "Field_42fc0f5e": 0.07466666400432587,
+      "Field_32a99b9c": 0.4977777898311615
+     }
+    ]
+   },
+   "CDX40_WB": {
+    "Pushback.Amount": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Kickback.Amount": [
+     10.0,
+     18.0,
+     10.0
+    ],
+    "Kickback.Time": [
+     0.6333333849906921,
+     0.3333333134651184,
+     0.6333333849906921
+    ],
+    "Kickback.Settle.Cycles": [
+     1.0,
+     1.2000000476837158,
+     1.0
+    ],
+    "PitchKick.Amount": [
+     2.0,
+     10.0,
+     2.0
+    ],
+    "Roll.Amplitude": [
+     0.0,
+     3.0,
+     0.0
+    ],
+    "Yaw.Amplitude": [
+     0.0,
+     -2.0,
+     0.0
+    ],
+    "RecoilSettle.Amplitude": [
+     {
+      "Field_3901db14": -0.20000000298023224,
+      "Field_42fc0f5e": -0.20000000298023224,
+      "Field_32a99b9c": -0.5
+     },
+     {
+      "Field_3901db14": -2.0,
+      "Field_42fc0f5e": 1.0,
+      "Field_32a99b9c": 4.0
+     },
+     {
+      "Field_3901db14": -0.20000000298023224,
+      "Field_42fc0f5e": -0.20000000298023224,
+      "Field_32a99b9c": -0.5
+     }
+    ],
+    "CameraShake.Amplitude": [
+     {
+      "Field_3901db14": 0.6000000238418579,
+      "Field_42fc0f5e": 0.6000000238418579,
+      "Field_32a99b9c": 2.0
+     },
+     {
+      "Field_3901db14": 1.0,
+      "Field_42fc0f5e": 1.0,
+      "Field_32a99b9c": 1.0
+     },
+     {
+      "Field_3901db14": 0.6000000238418579,
+      "Field_42fc0f5e": 0.6000000238418579,
+      "Field_32a99b9c": 2.0
+     }
+    ]
+   }
+  },
+  "baseValuesNote": "Three values per field, in file object order. Which object is the hip, aimed or modifier-installed set is not established for every weapon.",
+  "multipliers": {
+   "WPM_SCP_Tango6T": [
+    {
+     "selector": 2,
+     "pushKick": [
+      0.6000000238418579,
+      0.6000000238418579
+     ]
+    },
+    {
+     "selector": 1,
+     "pushKick": [
+      0.6000000238418579,
+      0.6000000238418579
+     ]
+    },
+    {
+     "selector": 4,
+     "pushKick": [
+      0.6000000238418579,
+      0.6000000238418579
+     ]
+    },
+    {
+     "selector": 3,
+     "pushKick": [
+      0.6000000238418579,
+      0.6000000238418579
+     ]
+    }
+   ],
+   "WPM_SCP_ElcanDR": [
+    {
+     "selector": 2,
+     "pushKick": [
+      0.550000011920929,
+      0.550000011920929
+     ]
+    },
+    {
+     "selector": 1,
+     "pushKick": [
+      0.550000011920929,
+      0.550000011920929
+     ]
+    }
+   ],
+   "WPM_Procedural_GlobalScaling_Primary": [
+    {
+     "selector": -1,
+     "pushKick": [
+      0.8799999952316284,
+      0.8799999952316284
+     ]
+    },
+    {
+     "selector": 0,
+     "pushKick": [
+      0.6000000238418579,
+      0.6000000238418579
+     ]
+    }
+   ],
+   "WPM_BipodActive": [
+    {
+     "selector": -1,
+     "pushKick": [
+      0.4000000059604645,
+      0.4000000059604645
+     ]
+    },
+    {
+     "selector": 0,
+     "pushKick": [
+      0.4000000059604645,
+      0.4000000059604645
+     ]
+    }
+   ],
+   "WPM_ERG_Buffer_W05": [
+    {
+     "selector": -1,
+     "pushKick": [
+      0.7250000238418579,
+      0.7250000238418579
+     ]
+    },
+    {
+     "selector": 0,
+     "pushKick": [
+      0.7250000238418579,
+      0.7250000238418579
+     ]
+    }
+   ]
+  },
+  "otherMultipliers": "From the trace (findings.md, s14.py output; not re-read by the main session): Canted red dot with NX8-1 0.9 and with NX8-4 0.7, risers 1.2 to 1.4, sniper scopes 0.37 to 0.8, WM_Mounted* 0.525.",
+  "su230History": {
+   "1.4.3.5": {
+    "sha256": "124ed886b33d9d8a5ec7ae3584640ed50a3ac396592230fe23811332a929e1fd",
+    "pushKick": [
+     1.0005
+    ]
+   },
+   "2.1.1.0": {
+    "sha256": "e0443542dc7179c475a64a21bd2ffa9f416bc16184d91f49e8f7c8d0e54f53cb",
+    "pushKick": [
+     0.55
+    ]
+   },
+   "2.1.2.0": {
+    "sha256": "e0443542dc7179c475a64a21bd2ffa9f416bc16184d91f49e8f7c8d0e54f53cb",
+    "pushKick": [
+     0.55
+    ]
+   }
+  }
+ },
+ "verification": "verify.py (main session) re-read the decoded files independently: 68 of 70 blueprints hold three settings objects (one holds 5, one 8); the AK205, QBZ192, Tavor7, M18 and CDX40 values match the trace; seven member hashes resolve through the Glacier_Soldier binding to the named animation states; 215 Class_bfd4f199 objects, none with unequal push and kick.",
+ "inference": [
+  "The weapon model's push, kick, pitch kick, roll, yaw, settle and a camera shake are a separate, per-weapon animation layer with its own optic multipliers. It is the layer seen moving under compensation in the L4087 clips.",
+  "WPM_Procedural_GlobalScaling_Primary (0.88 on selector -1, 0.6 on selector 0) is imported by every primary blueprint checked, so a global visual-kick scale applies before any optic.",
+  "The SU-230 (WPM_SCP_ElcanDR) push/kick multiplier went from 1.0005 on 1.4.3.5 to 0.55 on 2.1.1.0, the update whose notes say the scope 'no longer incorrectly reduces visual recoil'. The earlier L4071 reading tied that note to the camera-recoil override file; this multiplier changed in the same update."
+ ],
+ "unresolved": [
+  "Which of the two multiplier fields is push and which is kick; whether they scale the Amount or the Influence members.",
+  "How multipliers combine (multiply or priority override) and what each selector index means.",
+  "Eight further multiplier scalars and five unbound base members.",
+  "The animation equations: values are inputs to an animation graph that was not read, so no on-screen pixel prediction exists yet."
+ ],
+ "siteImpact": "None. The site does not model the visual weapon animation.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-11-23-recoil-consumption",
+  "artifacts": [
+   {
+    "file": "visual-firing-animation/findings.md",
+    "sha256": "c2f308df4fd606365019e318ee99302d571c4f76a003cd2149b6dec041e67f12"
+   },
+   {
+    "file": "visual-firing-animation/table_key.md",
+    "sha256": "277944ad7adcadb7ff22fd0ebc2a60fa9344d4a967bae0e44f027f7a1942d10c"
+   },
+   {
+    "file": "visual-firing-animation/table_base.md",
+    "sha256": "7b4bad57b5676277f9334c081b61fc42bd431bab640eee1f8a5a70792341e65e"
+   },
+   {
+    "file": "visual-firing-animation/base_field_names.json",
+    "sha256": "ea62eb1c0e09313a4ad378992b488aaca6ca051717f4dc3ac00428e973a4436c"
+   },
+   {
+    "file": "visual-firing-animation/modifier_field_order.json",
+    "sha256": "8088414c5dc40ddda8cd3133e51e2e62fe186ce2c0aedc93bd38d53c76dc1ff3"
+   },
+   {
+    "file": "visual-firing-animation/verify.py",
+    "sha256": "0ec29cf052219152484550e5dbc7dba0ed7acdd48afbff390070f2d30d129647"
+   }
+  ],
+  "trace": "Subagent trace of 24 November 2026 (findings.md, scripts s1 to s16), spot-checked by verify.py."
+ },
+ "record": {
+  "v": 1,
+  "kind": "lead",
+  "date": "2026-11-24",
+  "build": "mixed",
+  "binding": "research",
+  "leads": [
+   {
+    "id": "L4088",
+    "title": "Visual firing animation: per-weapon push, kick, roll and settle values and optic multipliers located",
+    "status": "finding",
+    "summary": "Each weapon blueprint stores a 59-member per-shot animation struct (Class_76a3b0eb / Field_f2d603de; 54 members named through the Glacier_Soldier animation-state binding), and Class_bfd4f199 modifiers scale its push and kick (Tango6T 0.6, SU-230 0.55 since 2.1.1.0, global primary scale 0.88 / 0.6, bipod 0.4, Recoil Buffer 0.725).",
+    "reopenWhen": "The animation graph that consumes these values is read, a selector index is identified, or a visual-recoil number is wanted on the site."
+   }
+  ],
+  "assets": [
+   {
+    "path": "Common/Hardware/Weapons/Carbine/AK205/AK205_WB",
+    "format": "raw-ebx",
+    "sha256": "b7336bd571c0233c188014791ed761aaa668274acaa0128622f7ec93c813eb76",
+    "question": "Where are this weapon's per-shot animation settings?",
+    "result": "useful",
+    "conclusion": "3 Class_76a3b0eb objects, each with the 59-member struct Field_f2d603de."
+   },
+   {
+    "path": "Common/Hardware/Weapons/Carbine/QBZ192/QBZ192_WB",
+    "format": "raw-ebx",
+    "sha256": "e7a425dbf691ddcca57fb3d716324a2b617ebeec124603e77af3f310ea984a37",
+    "question": "Where are this weapon's per-shot animation settings?",
+    "result": "useful",
+    "conclusion": "3 Class_76a3b0eb objects, each with the 59-member struct Field_f2d603de."
+   },
+   {
+    "path": "Common/Hardware/Weapons/AssaultRifle/TAVOR7/Tavor7_WB",
+    "format": "raw-ebx",
+    "sha256": "19d625be4f3aff07e3ec38e06c4bf0b43e1fa284a9e31290d02da57220a08d27",
+    "question": "Where are this weapon's per-shot animation settings?",
+    "result": "useful",
+    "conclusion": "3 Class_76a3b0eb objects, each with the 59-member struct Field_f2d603de."
+   },
+   {
+    "path": "Common/Hardware/Weapons/Secondary/M18/M18_WB",
+    "format": "raw-ebx",
+    "sha256": "0f10f3ad5e3b0685607962c44e32d6e549ce9734e1e39ae9caf5a6b0080422de",
+    "question": "Where are this weapon's per-shot animation settings?",
+    "result": "useful",
+    "conclusion": "3 Class_76a3b0eb objects, each with the 59-member struct Field_f2d603de."
+   },
+   {
+    "path": "Common/Hardware/Weapons/BoltAction/CDX40/CDX40_WB",
+    "format": "raw-ebx",
+    "sha256": "d27a230dd0c65d047b65e9149762c4be9f50de043ce75615644f1682d73cf845",
+    "question": "Where are this weapon's per-shot animation settings?",
+    "result": "useful",
+    "conclusion": "3 Class_76a3b0eb objects, each with the 59-member struct Field_f2d603de."
+   },
+   {
+    "path": "Common/Hardware/Weapons/_Attachments/MidZoom/Tango6T/WPM_SCP_Tango6T",
+    "format": "raw-ebx",
+    "sha256": "31665ec27019a90e1d21d9afb545c5477193f24c030d4c0e6cda310227d06840",
+    "question": "What does this modifier do to the firing animation?",
+    "result": "useful",
+    "conclusion": "Push/kick multiplier pairs: [{\"selector\": 2, \"pushKick\": [0.6000000238418579, 0.6000000238418579]}, {\"selector\": 1, \"pushKick\": [0.6000000238418579, 0.6000000238418579]}, {\"selector\": 4, \"pushKick\": [0.6000000238418579, 0.6000000238418579]}, {\"selector\": 3, \"pushKick\": [0.6000000238418579, 0.6000000238418579]}]"
+   },
+   {
+    "path": "Common/Hardware/Weapons/_Attachments/MidZoom/ElcanDR/WPM_SCP_ElcanDR",
+    "format": "raw-ebx",
+    "sha256": "e0443542dc7179c475a64a21bd2ffa9f416bc16184d91f49e8f7c8d0e54f53cb",
+    "question": "What does this modifier do to the firing animation?",
+    "result": "useful",
+    "conclusion": "Push/kick multiplier pairs: [{\"selector\": 2, \"pushKick\": [0.550000011920929, 0.550000011920929]}, {\"selector\": 1, \"pushKick\": [0.550000011920929, 0.550000011920929]}]"
+   },
+   {
+    "path": "Common/Hardware/Weapons/_WeaponModifiers/WPM_Procedural_GlobalScaling_Primary",
+    "format": "raw-ebx",
+    "sha256": "637c2190dc21cadc368bce826a8b9a2b2a48b7b4cb018f0f8120bbb11a9eb058",
+    "question": "What does this modifier do to the firing animation?",
+    "result": "useful",
+    "conclusion": "Push/kick multiplier pairs: [{\"selector\": -1, \"pushKick\": [0.8799999952316284, 0.8799999952316284]}, {\"selector\": 0, \"pushKick\": [0.6000000238418579, 0.6000000238418579]}]"
+   },
+   {
+    "path": "Common/Hardware/Weapons/_WeaponModifiers/_BottomRail/Bipod/WPM_BipodActive",
+    "format": "raw-ebx",
+    "sha256": "9303dff481c93a813af1ea684283bc941d2367be170ef20aeab901e59d9700e0",
+    "question": "What does this modifier do to the firing animation?",
+    "result": "useful",
+    "conclusion": "Push/kick multiplier pairs: [{\"selector\": -1, \"pushKick\": [0.4000000059604645, 0.4000000059604645]}, {\"selector\": 0, \"pushKick\": [0.4000000059604645, 0.4000000059604645]}]"
+   },
+   {
+    "path": "Common/Hardware/Weapons/_WeaponModifiers/_Ergo/RecoilBuffer/WPM_ERG_Buffer_W05",
+    "format": "raw-ebx",
+    "sha256": "0b843f5744351c166b3f1e56b12688c07ee73c68d61a3700c423915ab353ef80",
+    "question": "What does this modifier do to the firing animation?",
+    "result": "useful",
+    "conclusion": "Push/kick multiplier pairs: [{\"selector\": -1, \"pushKick\": [0.7250000238418579, 0.7250000238418579]}, {\"selector\": 0, \"pushKick\": [0.7250000238418579, 0.7250000238418579]}]"
+   },
+   {
+    "path": "Common/Gameplay/Soldier/Glacier_Soldier",
+    "format": "raw-ebx",
+    "sha256": "bf65acfd7acfade310415f9411fd9c2c08eebbc215ac5ca446ed3663d260d11a",
+    "question": "Which names do the animation-settings member hashes carry?",
+    "result": "useful",
+    "conclusion": "Object 52 binds 54 of the 59 settings members to named animation states."
+   }
+  ]
+ }
+}

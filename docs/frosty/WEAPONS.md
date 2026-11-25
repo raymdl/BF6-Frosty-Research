@@ -1169,6 +1169,22 @@ the current recovery law with explicitly conditional spring and seed models.
 The next recording must separate aim displacement, camera motion and projectile
 spread before selecting a different model.
 
+- Registry survey, 24 November 2026 (2.1.2.0, [receipt](../../reference-data/provenance/frosty-2026-11-24-recoil-registry-survey.json)):
+  the per-shot-order lists `VerticalRecoilMultiplierByOrder` / `HorizontalRecoilMultiplierByOrder` are
+  empty on every root, so with the neutral seed, pattern, fade-out and first-shot values above no weapon
+  stores a fixed pattern or shot-order ramp. `CameraRecoilAmount` / `CameraRecoilWhenZoomedAmount` are
+  -1.4 / -0.625 on 64 of 71 roots; the four semi-automatic pistols store -0.25, the two revolvers +0.25
+  and the Railgun 0 (the Railgun is also the only non-polar root; it is a battle pickup, not a
+  primary weapon). The camera layer has a firing spring and an idle spring: the idle-spring switch
+  time equals the shot interval rounded up to 60 Hz frames plus one frame on 41 of 45 automatic and
+  burst site weapons (720 rpm 0.1 s, 900 rpm 0.0833 s), so the camera goes idle one frame after the
+  next shot was due. The separate 0.0333 s amount switch time is a camera value common to 70 roots;
+  it is not the aim-recovery pause (a 33 ms dead time was already rejected on the AK-205 bullet
+  holes, L4040: chi-square 208 against 48 for the 0.8 scale). Designer annotations name visual firing-animation modifiers ("Tango6T 60% Push/Kick on
+  bolts", "Less kick/push for Canted RDS with NX8", "Procedural Firing 6.0x"); with the executable's
+  `ProcVerticalRecoilKick` / `ProcRecoilSettle*` names and the `FB.Wep.Kickback.*` / `RecoilSettle.*`
+  animation states they describe the procedural weapon motion that continues under compensation
+  (L4087). Its values are not located.
 - Recoil amount `Field_22810b21`, direction variation `Field_865174fa`.
 - Compensation: the registry rows `RecoilCompensationConsumesAimPitch` and `...Yaw` are true
   ([L4039](../../reference-data/provenance/frosty-2026-10-14-L4039-recoil-strings-and-consumes-aim-tweakables.json), raw-checked in `GRX_WeaponsAndGadgets`; executable tweakables
@@ -1180,12 +1196,14 @@ spread before selecting a different model.
   the table has eight rows and no cap, scale, aim-state or input-device row exists in any registry;
   the two switches are read by native code in the shared aiming module (beside `AimEntity`), and
   the animation states declare `FB.Wep.CompensatedRecoilDelta.Pitch` / `.Yaw` (names only). The
-  arithmetic (over-pull, input along the recoil, a kick still arriving) is undecoded; the site's
-  Firing Range assumes opposing input is consumed up to the delivered recoil and the rest turns
-  the aim (L4087); the operator's over-pull check of 23 November agrees (the view stays low after
-  a burst pulled down too hard, with no rise back). Cancelling the recoil does not stop the
-  visual weapon motion: in an operator QBZ clip of the same day the sight housing still moves with
-  each shot while the view is held (rough; one free-hand clip). The executable also names
+  arithmetic is undecoded, but the rule the site's Firing Range uses is observed in game
+  ([L4087](../../reference-data/provenance/frosty-2026-11-24-L4087-recoil-consumption-wall-clips.json),
+  AK-205 wall bursts at 120 fps, 24 November 2026): opposing input is consumed up to the delivered
+  recoil and all other input turns the aim. A burst pulled down against settles within 9 px of its
+  start where an uncontrolled one climbs 45 px and recovers all of it; a burst pulled up with the
+  recoil drops by the same 42 to 48 px afterwards and keeps its extra 85 to 94 px; an over-pulled
+  burst stays low. The sight housing keeps moving with each shot under compensation, so the visual
+  weapon motion is a separate layer. Controller and aim-assist input are untested. The executable also names
   `WeaponComponent_RecoilForceTicksBits` (recoil force replicated as a tick count),
   `WeaponAttribute_RecoilSmoothness` and `_RecoilDecayMultiplier` (the two Smooth operands),
   and the `DispersionAsRecoil_*` enumeration; none has a decoded consumer.
@@ -1239,6 +1257,70 @@ site number is the pump shotguns (70 / 0.6 / 4: M87A1, DB-12): a 633 ms pump pai
 degrees of separation at x0.8 against 1.21 at x1.0. The smallest capture is in the run folder's
 `L4062/capture-brief.md` and waits for the operator; until then the global 0.8 stands.
 [Receipt](../../reference-data/provenance/frosty-2026-10-30-L4062-recovery-scale-by-class.json).
+
+### Visual firing animation (L4088, 24 November 2026, 2.1.2.0)
+
+The weapon model's per-shot motion is a separate layer from the aim recoil, with its own values
+([receipt](../../reference-data/provenance/frosty-2026-11-24-L4088-visual-firing-animation-values.json)).
+It is the motion that continues while recoil is compensated (L4087). The site does not model it.
+
+- **Where.** Each `<Weapon>_WB` holds `Class_76a3b0eb` objects (three on 68 of 70 blueprints) whose member
+  `Field_f2d603de` is a 59-member struct. `Common/Gameplay/Soldier/Glacier_Soldier` object 52 binds 54 of
+  those member hashes to named animation states, which names them: `a732ab97` Kickback.Amount, `1982d3c1`
+  Kickback.Time, `fa6b2996` Kickback.Settle.Cycles, `2abd11c6` Pushback.Amount, `65f78a49` PitchKick.Amount,
+  `9aab20d7` Roll.Amplitude, `9923928e` Yaw.Amplitude, `0e7b114c` RecoilSettle.Amplitude, `f00a5d84`
+  CameraShake.Amplitude. The full map is in the run folder (`visual-firing-animation/base_field_names.json`).
+- **Values differ by weapon.** Kickback.Amount: AK-205 2.2, QBZ 2.75 (2.4 on one set), TR-7 4.9 (3.95 on
+  one set), M18 0.757, CDX40 18 and 10. Kickback.Time is 0.0833 s on the three rifles, 0.15 s on the M18 and
+  0.33 / 0.63 s on the CDX40. Which of a blueprint's settings objects is the hip, aimed or
+  modifier-installed set is not established for every weapon.
+- **Multipliers.** `Class_bfd4f199` objects (215) scale push and kick through `Field_149939ab` and
+  `Field_e9129d03`, identified by the designer annotation "60% Push/Kick" matching 0.6 / 0.6; the two are
+  equal in every object. `WPM_Procedural_GlobalScaling_Primary` stores 0.88 (selector -1) and 0.6
+  (selector 0); Tango6T 0.6; Recoil Buffer 0.725; active bipod 0.4; and, from the trace only, mounted 0.525,
+  risers 1.2 to 1.4, sniper scopes 0.37 to 0.8.
+- **SU-230.** `WPM_SCP_ElcanDR` stored 1.0005 on 1.4.3.5 and 0.55 from 2.1.1.0, the update whose notes
+  say the scope "no longer incorrectly reduces visual recoil" (see also the camera-recoil override under
+  L4071 below).
+- **Zoom levels.** The selector `Field_c4814c93` is the zoom-level index
+  ([receipt](../../reference-data/provenance/frosty-2026-11-24-L4088-visual-animation-zoom-levels.json)):
+  0 is not aimed, 1 to N are the levels of the fitted optic's aiming controller (SU-230: 4x, 1x; Tango6T:
+  1.75x, 3x, 6x, 1x), and -1 is any level. A blueprint's first settings set is the hip set, its second
+  the aimed set used with any optic, and the third replaces the aimed set with iron sights only.
+- **Open.** Which field is push and which is kick; how multipliers combine (no combine-mode field
+  exists: multiplying everything gives an aimed AK-205 with the Mini Flex 0.88 x 1.25 = 1.10, a
+  level-specific entry replacing the generic one gives 1.25); whether -1 reaches level 0; and the
+  animation graph that turns these inputs into motion. No on-screen prediction exists yet.
+- **Where not to look for the graph (25 November 2026).** Of 42,073 captured 2.1.2.0 files only the
+  game-state declaration, `Glacier_Soldier` and `Glacier_Target` refer to `FB.Wep.Kickback.Amount`, so no
+  captured asset consumes it. The `Animations/Glacier/Controllers` and `Global/Expressions` entries are
+  stubs of about 500 bytes that point into the compiled animation package, which is not an EBX asset, is
+  not captured by the raw or resource-body routes and has no reader here. The readable expression graphs
+  do not hold it: the October corpus lists no firing-animation graph, and `PresEx_AnimationMaster` handles
+  slope adjustment only. Reading the graph would need the animation package located, exported and its
+  format reverse-engineered; a recording is the cheaper route to the stacking rule.
+
+### Camera layer: firing and idle springs (L4089, 24 November 2026)
+
+The view carries a camera layer on top of the aim, with a firing spring and an idle spring per weapon
+([receipt](../../reference-data/provenance/frosty-2026-11-24-L4089-camera-layer-idle-switch.json)). The
+site does not model it, and the bullet-hole measurements (and so the 0.8 recovery scale) bypass it.
+
+- **Stored.** Firing spring constant 1500 on 68 of 70 roots; idle spring constant 200 on 53 and 2000 on
+  15. The idle switch time is the shot interval rounded up to 60 Hz frames plus one frame on 41 of 45
+  automatic and burst site weapons; VZ61, MK24 and NSW4 store one frame less and the Z84M one more. No
+  switch time changed between 1.4.2.5 and 2.1.2.0.
+- **Seen in the camera tracks.** In the October single-shot tracks (pairs at least 0.4 s apart, 120 fps)
+  the camera holds at its peak until frame 12 to 13 on the AK-205 and TR-7 (stored 0.1 s = 12 frames),
+  then steps down over two frames (TR-7 1.04 to 0.80 degrees) and descends slowly. On the LMR27 (stored
+  0.15 s) the fall runs over frames 14 to 20: later and longer, but it does not begin at frame 18.
+- **Reading.** The camera adds a kick-proportional offset that it holds in the firing state and releases
+  on the switch to idle, one frame after the next shot was due. In automatic fire the next shot arrives
+  first, so the offset stays: this is the camera sitting above the holes in bursts (L4045) and the slow
+  kick-proportional offset L4048 left open (0.23 to 0.29 of the kick on the TR-7; the step here is 0.26
+  to 0.27).
+- **Open.** The spring equation (stored exponents 30 and 50), the early LMR27 release, and the separate
+  0.0333 s amount switch time.
 
 ### Anonymous WB recoil candidates
 

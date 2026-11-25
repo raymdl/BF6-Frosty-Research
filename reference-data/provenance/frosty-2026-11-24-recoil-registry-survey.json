@@ -1,0 +1,60 @@
+{
+ "status": "audit",
+ "build": {
+  "current": "2.1.2.0",
+  "capture": "builds\\2.1.2.0\\capture\\collection"
+ },
+ "question": "Which recoil-named values in the weapon registry and related files are not yet described in the Frosty docs, whether or not the site models them?",
+ "method": "Decoded GRX_Weapons on 2.1.2.0, tallied every GS_* row whose leaf name contains Recoil or ByOrder by value, and compared the leaf names with the text of docs/frosty, docs/working and the Analyzer docs. Row values are registry values; no GS file was re-read for this survey.",
+ "points": [
+  "VerticalRecoilMultiplierByOrder and HorizontalRecoilMultiplierByOrder (per-shot-order multiplier lists) exist for both aim states of every GS root and are empty on all 142 rows each. With RecoilPatternSeed 0, RecoilPatternMultiplierPitch / Yaw 0, RecoilFadeOutStart / End -1, RecoilFadeOutFactor 1 and FirstShotMultiplierVerticalRecoil 1 on all 142 rows, no weapon stores a fixed recoil pattern, a shot-order ramp, a fade-out or a first-shot multiplier.",
+  "CameraRecoilAmount / CameraRecoilWhenZoomedAmount are -1.4 / -0.625 on 64 of 71 GS roots. The four semi-automatic pistols (FiveSeven, G22, M18, M45A1) store -0.25 / -0.25, the two revolvers (RagingHunter, TRR8) +0.25 / +0.25 (opposite sign), and the Railgun 0 / 0. IdleCameraRecoilWhenZoomedAmount follows the zoomed value except on the Railgun (-1.0).",
+  "IdleCameraRecoilWhenZoomedAmountSwitchTime is 0.0333333 s (two 60 Hz frames) on 70 roots and 0 on the Railgun; CameraRecoilUseTimeSinceLastShot is true on 70 and false on the Railgun.",
+  "UsePolarRecoil is false only on the Railgun (both aim states). The Railgun is a battle pickup, not a primary weapon (operator, 24 November), so its different values do not bear on the site roster.",
+  "CameraRecoil.IdleSpringConstantSwitchTime (and the Damping / Exponent switch times, which share its value) tracks the fire rate: on 41 of 45 automatic and burst site weapons it equals the shot interval rounded up to whole 60 Hz frames, plus one frame (720 rpm: 5 + 1 frames = 0.1 s; 900 rpm: 0.0833 s; 600 rpm: 0.1167 s; 514 rpm: 0.1333 s). VZ61, MK24 and NSW4 store one frame less and the Z84M one frame more. Semi-automatic, bolt and pump weapons store values unrelated to their rate cap (bolt rifles 0.2 s, pistols 0.1 s, revolvers 0.3667 s). Reading: the camera layer uses its firing spring while shots keep arriving and switches to the idle spring one frame after the next shot was due (recoil-survey/switch-time-check.json).",
+  "The 0.0333 s amount switch time against the 33 ms recovery pause: the pause was a one-parameter diagnostic fitted on the September camera-method recordings. The 14 October AK-205 bullet-hole capture already tested it (L4040 fitChi2): fixed dead time 33 ms 208, factor scale 0.8 48, stored law 580; it fits bursts only. Bullet holes bypass the camera layer and the stored 0.0333 s is a camera-layer value that is the same on 70 roots whatever their fire rate, so it does not describe the aim recovery. Whether it produced the apparent pause in the camera-based September readings is untested (it would need the camera spring equation).",
+  "Row names carry designer annotations for visual firing-animation modifiers that the docs do not describe: 'Tango6T 60% Push/Kick on bolts', 'Less kick/push for Canted RDS with NX8-4' / 'NX8-1', 'Procedural Firing 6.0x', and 'Proc Firing: Secondary Optic-specific Proc firing anim settings'. They attach to WeaponAnimationSettingsCombinableModifierBase records; the registry names no leaf value under them.",
+  "Related names seen on 23 November (L4086 receipt): the executable strings ProcVerticalRecoilKick, ProcHorizontalRecoilKick, ProcRecoilSettleAmount, ProcRecoilSettleTime, ProcRollRecoilKick, ProcRollRecoilKickSight and ProcRecoilPivotOffsetZ, and the animation states FB.Wep.Kickback.*, FB.Wep.PitchKick.*, FB.Wep.RecoilSettle.* and FB.Wep.RecoilDirection*."
+ ],
+ "inference": [
+  "The visual weapon motion seen under compensation in the L4087 clips is a procedural firing animation with its own kick, settle and roll parameters, adjusted per optic by weapon-animation modifiers. Its values are not located."
+ ],
+ "unresolved": [
+  "Where the procedural firing values are stored and which hashed fields they are; whether the camera-recoil amounts explain the size of the camera layer measured in L4045 / L4048."
+ ],
+ "siteImpact": "None.",
+ "evidence": {
+  "runRoot": "C:\\Users\\royal\\Documents\\BF6 Datamining\\reports\\weapon-analyzer-research\\2026-11-23-recoil-consumption",
+  "artifacts": [
+   {
+    "file": "recoil-survey/survey.json",
+    "sha256": "f4d118cd8d7fce1ba7f1674356702922839337de9784d15c8c08a778bf2bafeb"
+   },
+   {
+    "file": "recoil-survey/switch-time-check.json",
+    "sha256": "158ba9335f37689e210924fcc8f3add8e55af70ff6dc38ec8194347620c8194e"
+   },
+   {
+    "file": "recoil-survey/switch-time-check.py",
+    "sha256": "63b507d2f5c3dcbfe4d7af6b8de61c74b2625610d96079cc2384bc6e1730df9c"
+   }
+  ]
+ },
+ "record": {
+  "v": 1,
+  "kind": "audit",
+  "date": "2026-11-24",
+  "build": "mixed",
+  "binding": "research",
+  "assets": [
+   {
+    "path": "Common/GameSetup/Tweakables/GameRemixer/GRX_Weapons",
+    "format": "raw-ebx",
+    "sha256": "dd152efa9a84864db41f4fd867bb7139170ef4bd6ef73b79382691c1606c488c",
+    "question": "Which recoil-named GS rows are undocumented, and what do they hold?",
+    "result": "useful",
+    "conclusion": "Shot-order multiplier lists are empty on every weapon; camera-recoil amounts are uniform except pistols, revolvers and the Railgun; designer annotations name visual firing-animation modifiers."
+   }
+  ]
+ }
+}
