@@ -5,7 +5,7 @@ that matter, what changed since October, what is not known, and what could be sh
 not a record. The records are [GADGETS.md](../frosty/GADGETS.md) and the technical
 [gadget guide](GADGET_RESEARCH_GUIDE.html); check a number there before using it.
 
-Written 27 November 2026 against game version 2.1.2.5.
+Written 26 November 2026 against game version 2.1.2.5.
 
 ## How far to trust it
 
@@ -71,11 +71,11 @@ not matter. Three are worth a look in game because they are easy to see:
 
 | Gadget | Settings list | Own file | Quick check in game |
 |---|---|---|---|
-| C4 | 4 carried | 3 carried | Spawn with C4 and count the charges |
+| C4 | 4 carried | 3 carried | **Done, 26 November 2026: 4 charges in game. The settings list is right.** |
 | IGLA | Lock time 1.0, range 700 (840 painted), minimum 50 | Lock time 1.8 and 1.2, range 600 and 800, minimum 39 | Time the lock tone on a hovering helicopter |
 | AT Mine | Blast damage 195 | 300 | One mine under a full-health tank, read the damage |
 
-If C4 shows 4 charges, IGLA locks in about 1 second and the mine does 195, the rule holds for gadgets too and the
+C4 has now been checked and matches the settings list. If the IGLA also locks in about 1 second and the mine does 195, the rule holds for gadgets too and the
 cards' settings-list numbers can be used. One clear result the other way would mean each gadget has to be checked
 on its own.
 
@@ -215,7 +215,7 @@ differences are layout, artwork and sound.
 - Healing uses the same effect as the pouch: 0 instant, 20 over time, an unnamed 2.5 (unit not stated).
 - Carries 1 magazine, refill delay 15; opening takes 0.4 (units not stated).
 - The rule's name says "granite", so it may not be the standard multiplayer rule (unconfirmed).
-**Changed since October:** Nothing in the named settings. Inside its own files (re-checked 27 November 2026): Its deploy time went from 0.68 to 0.65, and one unnamed number in its projectile file from 2 to 1.
+**Changed since October:** Nothing in the named settings. Inside its own files (re-checked 26 November 2026): Its deploy time went from 0.68 to 0.65, and one unnamed number in its projectile file from 2 to 1.
 **Not known yet:**
 - Zone radius and ammo amount per pulse.
 - Whether healing works under fire (a setting called Ignore_Damage is only a configuration token).
@@ -390,7 +390,7 @@ differences are layout, artwork and sound.
 - Every 1.0 (unit not stated) a rule gives nearby soldiers two helper effects, one for explosive damage (stored 0.5, explosive flag set) and one for suppression (stored -100). It does this only for soldiers who pass an upgrade test (guessed to mean the cover upgrade). Both 0.5 and -100 are unconfirmed as to what they do (the -100 was never read by any rule).
 - Gadget stock: 1 charge, 1 spare, refills after 30 (unit not stated). Active time 1, recharge 0.
 - Another vehicle, the CB90, has a health setting with the same hidden name as one cover field; that CB90 name must not be copied onto the cover.
-**Changed since October:** Nothing in the named settings. Inside its own files (re-checked 27 November 2026): The ammunition numbers in its own file went from capacity 30 with 6 magazines to capacity 1 with 1 magazine.
+**Changed since October:** Nothing in the named settings. Inside its own files (re-checked 26 November 2026): The ammunition numbers in its own file went from capacity 30 with 6 magazines to capacity 1 with 1 magazine.
 **Not known yet:**
 - How the four 200 parts turn into total health and how much damage they resist.
 - Radius and who receives the 1.0 pulse.
@@ -479,7 +479,7 @@ differences are layout, artwork and sound.
 - Armor effects store 40, 80, 121 and 242 with a factor of 0.5. What these numbers mean is not confirmed.
 - The Claymore damage rule multiplies by 0.67 if the target has armor (above 0). Finishing a revive can add ceramic armor (parameter 0.1).
 - The newer notes say no standard multiplayer armor mechanic was established.
-**Changed since October:** Nothing in the named settings. Inside its own files (re-checked 27 November 2026): Ceramic Armor spawn delay went from 2.0 to 1.725.
+**Changed since October:** Nothing in the named settings. Inside its own files (re-checked 26 November 2026): Ceramic Armor spawn delay went from 2.0 to 1.725.
 **Not known yet:**
 - Whether these two gadgets exist in standard multiplayer.
 - How much armor adds in health.
@@ -530,7 +530,7 @@ differences are layout, artwork and sound.
 - The upgrade rule adds two spotting effects with values 0.5 and 1.5; their meaning and direction are guessed from names (unconfirmed).
 - A "NumJams" output exists, but it is not shown to be a limit.
 - The projectile's 30 / 50 / 15 settings are shared with mines and the proximity grenade. They are not jammer numbers.
-**Changed since October:** Nothing in the named settings. The newer notes say the in-game name changed to "Gadget Jammer". Inside its own files (re-checked 27 November 2026): Its weapon file changed in eleven places: two numbers went from about 0.467 to 1.0, one unnamed delay from 1.0 to 1.5, and eight on-off flags flipped. None of these are named.
+**Changed since October:** Nothing in the named settings. The newer notes say the in-game name changed to "Gadget Jammer". Inside its own files (re-checked 26 November 2026): Its weapon file changed in eleven places: two numbers went from about 0.467 to 1.0, one unnamed delay from 1.0 to 1.5, and eight on-off flags flipped. None of these are named.
 **Not known yet:**
 - What the jam does in detail.
 - How long it lasts in game.
@@ -563,7 +563,7 @@ differences are layout, artwork and sound.
 - EA 1.3.1.0 added a 20% lock-range benefit. The registry's air-vehicle lock ranges 650 and 780 are in a 1.2 ratio, which matches (not proof). For launchers the designated range is 1.2 times for the IGLA and Glaive but 1.25 times for the SLM-93A.
 - With the owner upgrade (test guessed), spot time, range and angle are boosted. The mark effect also holds an unnamed 1.34.
 - Stock: handheld 1 charge, 1 spare, 1 starting round, refills after 15; the controlled vehicle-weapon part has 0 spares and delay 5 (units not stated).
-**Changed since October:** Inside its own files (re-checked 27 November 2026): A value named Duration went from 9 to 2 in both of its files. The separate settings-table entry for maximum painting time (9) did not change, and it is not established that the two are the same thing.
+**Changed since October:** Inside its own files (re-checked 26 November 2026): A value named Duration went from 9 to 2 in both of its files. The separate settings-table entry for maximum painting time (9) did not change, and it is not established that the two are the same thing.
 - Locking settings with "PLD" in the name: PLD_SecondaryLockingController lock time 1.5 -> 1.2. The second copy of this setting (1.2) was removed, so this is probably a duplicate-name shuffle and not a real change (the ledger says to treat these as uncertain).
 - Removed: the "PLD_PrimaryLockingController" copy with lock time 1.5, min range 0.0, ray length 750.0, release-on-new-target 1.5, release 1.0, unlock -1.0; and the "PLD_SecondaryLockingController" copy with lock time 1.2, min range 0.0, ray length 750.0, release-on-new-target 1.5, release 1.0, unlock -1.0. Again likely duplicate-name collapse.
 - Removed: PLD_Handheld Spotting Max Distance 500.0 (not used in the card above, but it was in the newer notes).
@@ -648,7 +648,7 @@ differences are layout, artwork and sound.
 - A yes/no switch stored as false has unknown meaning (true or false could mean on or off).
 - Newer than the guide: the Signal Jammer (added in 2.1.2.0) is read by the beacon's file, but what that check does has not been traced.
 - The 60 time-to-live seen on the beacon's projectile is a shared template value, not a proven beacon lifetime (unit not stated).
-**Changed since October:** Nothing in the named settings. Inside its own files (re-checked 27 November 2026): A position offset and one on-off flag changed in its two files; no timing or count changed.
+**Changed since October:** Nothing in the named settings. Inside its own files (re-checked 26 November 2026): A position offset and one on-off flag changed in its two files; no timing or count changed.
 **Not known yet:**
 - How long deploying takes.
 - Whether placing a second beacon replaces the first or is blocked.
@@ -884,7 +884,7 @@ differences are layout, artwork and sound.
 - Reload 3.4. Default list: capacity 1, 3 magazines, refill delay 18.
 - Explosion: blast radius 4, inner radius 1, shockwave radius 6.5, read as metres (unconfirmed). No falloff curve.
 - Newer project notes also store an unlock time of -1 and a release time of 5 for the October read.
-**Changed since October:** Nothing found. The lock settings in this launcher's own file are identical on 1.4.3.5 and 2.1.2.5 (checked 27 November 2026). Several lock entries in the game's settings table share one name and sit in a different order on the two builds, which reads as change but is not shown to be one. The open point is older: the launcher's own file and the settings table hold different lock numbers, and which one the game uses is not settled.
+**Changed since October:** Nothing found. The lock settings in this launcher's own file are identical on 1.4.3.5 and 2.1.2.5 (checked 26 November 2026). Several lock entries in the game's settings table share one name and sit in a different order on the two builds, which reads as change but is not shown to be one. The open point is older: the launcher's own file and the settings table hold different lock numbers, and which one the game uses is not settled.
 **Not known yet:**
 - Effective damage, flight path and activation.
 - Current lock time and range.
@@ -900,7 +900,7 @@ differences are layout, artwork and sound.
 - Reload is -1 in the file and the default list, so no timed reload is stored.
 - Default list: capacity 1, 3 magazines, refill delay 30. Fire rate 300, launch speed z 10 (units not stated).
 - The blast falloff curve exists in the project notes: full damage to 12.5% of the radius, then steps down to 67% and 33% (a curve file named for the Javelin). The guide does not mention it.
-**Changed since October:** Nothing found. The lock settings in this launcher's own file are identical on 1.4.3.5 and 2.1.2.5 (checked 27 November 2026). Several lock entries in the game's settings table share one name and sit in a different order on the two builds, which reads as change but is not shown to be one. The open point is older: the launcher's own file and the settings table hold different lock numbers, and which one the game uses is not settled.
+**Changed since October:** Nothing found. The lock settings in this launcher's own file are identical on 1.4.3.5 and 2.1.2.5 (checked 26 November 2026). Several lock entries in the game's settings table share one name and sit in a different order on the two builds, which reads as change but is not shown to be one. The open point is older: the launcher's own file and the settings table hold different lock numbers, and which one the game uses is not settled.
 **Not known yet:**
 - Effective lock benefit and flight.
 - Which lock range applies to a painted target.
@@ -948,7 +948,7 @@ differences are layout, artwork and sound.
 - October lock numbers in the weapon file: lock time 1.5 and lock ranges 550 and 687.5 (ratio 1.25). EA's base range is 650 to 550. Units not stated. The project notes have a different October read (lock range 650 and 750); both are unconfirmed.
 - Reload 3.4, with 3.66 in its rounds-left entry. Default list: capacity 1, 3 magazines, refill delay 18.
 - Explosion: blast radius 5, inner radius 1, shockwave radius 7.5, read as metres (unconfirmed). No falloff curve.
-**Changed since October:** Nothing found. The lock settings in this launcher's own file are identical on 1.4.3.5 and 2.1.2.5 (checked 27 November 2026). Several lock entries in the game's settings table share one name and sit in a different order on the two builds, which reads as change but is not shown to be one. The open point is older: the launcher's own file and the settings table hold different lock numbers, and which one the game uses is not settled.
+**Changed since October:** Nothing found. The lock settings in this launcher's own file are identical on 1.4.3.5 and 2.1.2.5 (checked 26 November 2026). Several lock entries in the game's settings table share one name and sit in a different order on the two builds, which reads as change but is not shown to be one. The open point is older: the launcher's own file and the settings table hold different lock numbers, and which one the game uses is not settled.
 **Not known yet:**
 - Missile speed in play.
 - Which reload entry applies.
@@ -965,7 +965,7 @@ differences are layout, artwork and sound.
 - Explosion: blast damage 100, radius 5, inner radius 1, shockwave damage 1, shockwave radius 7.5.
 - Weapon lock settings now named for the IGLA: laser-painted lock time 1.0, range 840, minimum range 50, release 0.5, unlock 0.5. Normal (secondary) lock time 1.0, range 700, minimum range 50, release 0.5, unlock 0.5. Units not stated. The 840 to 700 ratio is 1.2, which matches EA's "20%" designator bonus.
 - Ammo: capacity 1, 3 magazines, refill delay 18, fire rate 300, forward shot speed z 50, a muzzle blast of 120 damage with radius 1. Reload 3.4 (a 2.33 entry also exists; which applies is unknown).
-**Changed since October:** The IGLA's own file is unchanged (lock times 1.8 and 1.2, ranges 600 and 800, minimum range 39, checked 27 November 2026). The game's settings table holds different numbers, listed above, and now names them as IGLA rows:
+**Changed since October:** The IGLA's own file is unchanged (lock times 1.8 and 1.2, ranges 600 and 800, minimum range 39, checked 26 November 2026). The game's settings table holds different numbers, listed above, and now names them as IGLA rows:
 - The missile max speed is 480 and engine strength 100. The guide said 640 and 65, so those are out of date. The new values match EA's 1.3.1.0 new speed (480) and the top of its acceleration range (100).
 - The guide's damage 100, initial speed 500, time to live 40, and blast 5 / 1 / 7.5 still match the now-named rows.
 - The lock times, ranges (840, 700) and ammo layout (3 magazines, refill 18, reload 3.4) match what the guide gave for October.
@@ -1097,8 +1097,8 @@ differences are layout, artwork and sound.
 - Blast damage 100, blast radius 3, inner radius 1, shockwave radius 5 (units not stated). An old row saying 180 is tied to no saved file, so 100 stands.
 - EA's patch notes give 350 against tanks. This is a separate dated statement, not the 100.
 - Falloff curve: full damage to 60% of the radius, then 80%, 40% and 20% at the edge. Steps assume straight lines (unconfirmed).
-- Carry numbers: capacity 1, 4 magazines, refill delay 30 (units unconfirmed). Arm delay 0.5.
-**Changed since October:** Setting removed: "C4_Arm Delay" (was 0.5), so the arm delay above is out of date. The old unattached damage rows for C4 (180 and related) were also removed, which fits the guide's finding that they were never used. GADGETS.md still lists arm delay 0.5 without a build note. Inside its own files (re-checked 27 November 2026): Two unnamed counts in its weapon file went from 2 to 1, and one point of its blast curve from 0.99579 to 1.0.
+- Carry numbers: capacity 1, 4 magazines, refill delay 30 (units unconfirmed). The 4 was confirmed in game on 26 November 2026. Arm delay 0.5.
+**Changed since October:** Setting removed: "C4_Arm Delay" (was 0.5), so the arm delay above is out of date. The old unattached damage rows for C4 (180 and related) were also removed, which fits the guide's finding that they were never used. GADGETS.md still lists arm delay 0.5 without a build note. Inside its own files (re-checked 26 November 2026): Two unnamed counts in its weapon file went from 2 to 1, and one point of its blast curve from 0.99579 to 1.0.
 **Not known yet:**
 - Whether a C-4 does 350 to a full-health tank in play (630 would mean the unused row is in use).
 - Damage to a teammate at 2.5 and at 3.5.
@@ -1125,7 +1125,7 @@ differences are layout, artwork and sound.
 - Blast damage 300, blast radius 2 (older source table; units not stated). No stored falloff curve.
 - The three values 30, 50, 15 shared with seven other gadgets are not its damage.
 - Carry numbers: capacity 1, 3 magazines, refill delay 10 (units unconfirmed). Ability active time 1.8 (unit not stated).
-**Changed since October:** Setting added: "ATMine_TransportDetectionInterval" = 2. It looks like a check interval for something carried or transported, but the name is all the source gives. Inside its own files (re-checked 27 November 2026): One unnamed number in its file went from 0 to 0.1.
+**Changed since October:** Setting added: "ATMine_TransportDetectionInterval" = 2. It looks like a check interval for something carried or transported, but the name is all the source gives. Inside its own files (re-checked 26 November 2026): One unnamed number in its file went from 0 to 0.1.
 **Not known yet:**
 - What the new setting does.
 - Trigger rules and in-play damage.
@@ -1137,7 +1137,7 @@ differences are layout, artwork and sound.
 - Explosion object: radius 4, inner radius 3.99, shockwave radius 8 (units not stated). An inner radius almost equal to the radius suggests full damage across it (unconfirmed).
 - Only vehicles moving faster than a set speed and between a minimum and maximum range trigger it. Scan period 0.1. The speed and range values are not in the graph.
 - Carry numbers: capacity 1, 1 magazine, refill delay 21 (units unconfirmed).
-**Changed since October:** Settings added: civilian vehicle dispersion min 4 and max 12, and civilian vehicle velocity min 10 and max 30 (units not stated). These did not exist in October. Inside its own files (re-checked 27 November 2026): The blast damage in its projectile file went from 160 to 142.
+**Changed since October:** Settings added: civilian vehicle dispersion min 4 and max 12, and civilian vehicle velocity min 10 and max 30 (units not stated). These did not exist in October. Inside its own files (re-checked 26 November 2026): The blast damage in its projectile file went from 160 to 142.
 **Not known yet:**
 - Trigger radius, timing and damage.
 - What the civilian vehicle settings do in play.

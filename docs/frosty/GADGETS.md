@@ -327,7 +327,7 @@ Stored on 2.1.2.5 (one worker read; values that confirm an earlier lead say so):
 - Open: whether the 0.1 registry value is the whole throw-to-fire delay at run time, and what the
   three zeroed object-8 fields are. A timing from throw to the next shot would settle both.
 
-The three zeroed fields, follow-up (27 November 2026; census script and outputs in the session
+The three zeroed fields, follow-up (26 November 2026; census script and outputs in the session
 scratchpad, not kept: `frosty-ebx-decode.py` over every `*_WB`, `WB_*`, `VB_*` and
 `* Weapon Blueprint` file of `builds\2.1.2.5\capture\collection`, 143 objects of
 `Class_01419c76` in 139 files):
@@ -390,7 +390,7 @@ and the Portal "20 health per second" fit the healing effect's 0 / 20 / 2.5; the
 quantities fit the five REDSEC ammunition effects on the supply sphere. No note names the
 2.1.1.0 change that raised the throw delay from 0 to 1, which 2.1.2.5 then cut to 0.1.
 
-File history of the pouch's own folder (`Common/Hardware/Gadgets/Supply/SupplyPouch`, 27 November
+File history of the pouch's own folder (`Common/Hardware/Gadgets/Supply/SupplyPouch`, 26 November
 2026; every `.ebx` there decoded on 1.4.3.5, 2.1.1.0, 2.1.2.0 and 2.1.2.5 with each build's
 descriptors, 21 / 21 / 27 / 27 files, no decode failures; numbers compared per class and field
 with object order, references and offsets ignored; scripts in the session scratchpad, not kept):
@@ -418,7 +418,7 @@ What this adds:
   names are candidates only. Pickup radius is still not identified.
 - Lock-on and priority: see the next section.
 
-Who the pouch picks and what it applies (27 November 2026; compiled graph of
+Who the pouch picks and what it applies (26 November 2026; compiled graph of
 `SimEx_SupplyPouch_NEW`, resource `41cb0320b8778b5b`, 6,144 bytes, captured on 2.1.2.5 in
 `builds\2.1.2.5\reports\supply-pouch-graphs-2026-11-27` with the three other pouch graph bodies;
 listed with `exgraph.py` pointed at the 2.1.2.5 descriptors and catalog; listing and wrapper in
@@ -1109,7 +1109,7 @@ Not established:
 - Any duration, lifetime or placed-count limit: none found. The 60.0 time to live on the spawner projectile is a Spawn Beacon template value and is not the jammer's lifetime.
 - Effects on drones, guided missiles or lock-on: none found. Its graph does not import the lock-jam or projectile-jam effects the Mobile Jammer's graph uses (L4026).
 
-## Named settings 1.4.3.5 to 2.1.2.5, and lock controllers re-read (27 November 2026)
+## Named settings 1.4.3.5 to 2.1.2.5, and lock controllers re-read (26 November 2026)
 
 Run folder `reports\weapon-analyzer-research\2026-11-27-gadget-pass` (datamining folder): the full
 registry diff (`reg-1435-2125.tsv`, `frosty-registry-diff.py` over the two collections, each with its
@@ -1145,7 +1145,7 @@ reader's summary per gadget is in [the mechanics overview](../guides/GADGET_MECH
   1,573 added and 302 removed to 2.1.2.0 (the capture's route list also grew); 2 changed to 2.1.2.5.
   Only the Supply Pouch folder was diffed value by value.
 
-### Value-level recheck of every changed gadget file (27 November 2026)
+### Value-level recheck of every changed gadget file (26 November 2026)
 
 `recheck.py` in the same run folder (`reports\weapon-analyzer-research\2026-11-27-gadget-pass`): of 1,949
 gadget files present on both 1.4.3.5 and 2.1.2.5, 829 differ by raw SHA-256; all 829 decoded on both builds with
@@ -1178,7 +1178,7 @@ The registry row `Vehicle_HUD_Locking_PainterPainterMaxDuration` 9 (L3308) is no
 unchanged; whether the files' `Duration` (9, now 2) is the same quantity is not established. No like-for-like change in the gameplay files of the grenades,
 Claymore, M4 SLAM, launchers, Defibrillator, Repair Tool, MP-APS, EIDOS or T-UGS.
 
-### Registry default against own value, both builds; new folders; card check (27 November 2026)
+### Registry default against own value, both builds; new folders; card check (26 November 2026)
 
 Same run folder. `rva.py`: for the 22 gadget weapon files whose name equals a registry owner on both builds, the
 eight named values of the primary-fire block (MagazineCapacity, NumberOfMagazines, InitialAmmo, AutoReplenishDelay,
@@ -1193,7 +1193,8 @@ the object `WeaponFiring.PrimaryFire` points at) and from `GRX_Gadgets_Glacier` 
   (`SniperDecoy_WB`); `WB_C4` `NumberOfMagazines` 4 / 3; the Supply Pouch row above.
 - Limit: 13 registry owners (names with spaces, such as `PLD_Handheld_Weapon Blueprint`) were not matched to a
   file; first-occurrence reading can pick a modifier's block where a file holds several.
-- In-game checks this suggests (none run): C4 carried count 4 or 3; IGLA lock time about 1.0 or 1.8; AT mine 195
+- In-game checks this suggests: C4 carried count 4 or 3 (operator reading in game, 26 November 2026, 2.1.2.5:
+  4, the registry value; the file's 3 is not used); IGLA lock time about 1.0 or 1.8; AT mine 195
   or 300 (the L3314 test).
 
 Gadget folders by full asset catalog (`cat.py`): 130 on 1.4.3.5, 132 on 2.1.1.0 (`BattlePickups/DSPulse`,
