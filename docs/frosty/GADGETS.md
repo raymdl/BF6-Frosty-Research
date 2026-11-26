@@ -90,7 +90,7 @@ No operation control (add, replace or multiply) exists for any of these. Equal n
 
 | Item | Class | Statement |
 |---|---|---|
-| Supply Pouch | Attributed UI statement | UI `CF806780`: single-use pouch that replenishes ammo and medical supplies for the owner or teammates; fully restocks primary and secondary ammo capacity and restores a portion of health. |
+| Supply Pouch | Attributed UI statement | UI `CF806780`: single-use pouch that replenishes ammo and medical supplies for the owner or teammates; fully restores health and a portion of ammo capacity for primary and secondary weapons (corrected 26 November 2026: this row had the two halves reversed; the text is unchanged in 2.1.2.0 and 2.1.2.5). |
 | Supply Pouch | Stored source value | Provider selects five effect entries (auto-replenish, GasMask and NVG resupply, three ammo rows to PrimaryWeapon and Sidearm). Unnamed lifetime candidate 60 and UI-only 30 / 15 classified. Resource and mode applicability of the GasMask and NVG effects is unproved. |
 | Supply Crate / Supply Bag | Stored source value | Pickup reaches enable and callback graphs (RIDs `4416c7136c35d68f`, `0ec7446691fdd4a3`); the callback binds the self-speedup affector. AmmoCrate selects PrimaryWeapon and Sidearm. Crate parents select the MedicCrate healing affector: two null-reference f32 wrappers with literals 0 and 20, a direct 2.5, three false flags; its selector selects the Ignore_Damage token, a configuration token and not damage immunity. |
 | ActiveMedic (Restock Allies) | Attributed UI statement | UI `B29284A3`: "Resupply and heal nearby friendly forces for 10 seconds. Reviving teammates takes only 1.7 seconds." Both Support paths select ActiveMedic (slot 3); Support path 2 selects CrateResupplyPlus (slot 0). KST children store Boolean false with unknown polarity. |
@@ -292,6 +292,40 @@ Pouch values above and the frag bounce delay below) and leaves four off: Supply 
 `ReloadTime` 0 to 1 and the second `AutoReplenishRounds` field (`Field_c06d0cbb`) -1 to 0,
 `AssaultLadderConfig.RampAngle` 52 to 45, and a bare `Range` row 3 to 15 whose owner the row
 name does not give (`builds\2.1.1.0\reports\registry-diff-2026-10-14\registry-diff.tsv`).
+
+### Supply Pouch in 2.1.2.5 (26 November 2026)
+
+Patch note: "Reduced the delay before firing a weapon after throwing a Supply Pouch." Traced on
+2.1.2.0 against 2.1.2.5, each build decoded with its own descriptors (run folder
+`reports\weapon-analyzer-research\2026-11-26-update-2125\SP-supply-pouch`; controls: the change
+below found, and byte-identical `SmokeGrenade_WB` gives no rows).
+
+| Where | Field | 2.1.2.0 | 2.1.2.5 | Status |
+|---|---|---|---|---|
+| `GRX_Gadgets_Glacier` row `SupplyPouch_WB…PrimaryFire.FireLogic.ReloadInfoArray[0].ReloadTime` | `Field_42c8b257` | 1.0 | 0.1 | Named by the row; the registry overrides the file. Found by the hotfix check and the registry diff |
+| `SupplyPouch_WB` own `ReloadTime` | `Field_85ff24a0` | 1.0 | 1.0 | Unchanged; overridden by the row above |
+| `SupplyPouch_WB` object 8 (`Class_01419c76`) | `Field_279679c7`, `Field_2e9bf47e`, `Field_31b5942c` | 0.1, 0.2, 0.2 | 0, 0, 0 | Unnamed. Decoded diff and raw bytes agree (offsets 0xD5C to 0xD6C). Frag, smoke, flashbang, Mini V40, anti-tank grenade and throwing knife store 0 / 0 / 0 there |
+
+History of the registry row: 0 before 2.1.1.0, 1 from 2.1.1.0, 0.1 from 2.1.2.5. Every other
+thrown gadget's row and file hold 0.1 (the M26 Mass 3.53), so the pouch now matches the
+grenades. Nothing else about the pouch changed: carried count, replenish, ammunition and healing
+effects, throw speed and the UI text are equal on both builds.
+
+Stored on 2.1.2.5 (one worker read; values that confirm an earlier lead say so):
+
+- Magazine 1, magazines 3, initial ammo -1; auto-replenish on, rounds -1, delay 39 (named
+  registry rows; confirms L217). Granite (REDSEC) replenish modifiers 1.5 and 0.3333 (pairing
+  with the pouch a candidate).
+- Thrown at `InitialSpeed` z 20 (grenades 25, Supply Crate 6.5); thrown pouch and supply sphere
+  `Field_5ef7b9a1` 60 (the hash is TimeToLive elsewhere; here a candidate).
+- Ammunition entries 0, 1, 2: `Field_5b881d59` 2, 3, 4 (unnamed; confirms L3315; which weapon
+  class takes which entry is not stored in a read field). Healing 0 / 20 / 2.5 (confirms L3315).
+- The supply sphere lists ten effects, not five: healing, ammunition, auto-replenish, gas mask,
+  NVG resupply and five REDSEC ammunition pouches (1.0 each).
+- Not found: cooldown, pickup radius, gravity, gas mask and NVG amounts. The "health regeneration
+  25 for 4" in the Supply row below was not found in the gadget registry on 2.1.2.5; open.
+- Open: whether the 0.1 registry value is the whole throw-to-fire delay at run time, and what the
+  three zeroed object-8 fields are. A timing from throw to the next shot would settle both.
 
 Ability rows: `Ability_AdrenalineShot` active 1, recharge 0; `DeployableCover_Ability` active 1, recharge 0; `DeployableMortar_Ability` active 1, recharge 0; `Gadget_ATMine_Ability` active 1.8, recharge 0; `Gadget_SupplyCrate_Ability` active 1, recharge 0; `MPAPS_Ability` active 0, recharge 20.
 

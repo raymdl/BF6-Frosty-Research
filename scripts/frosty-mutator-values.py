@@ -23,10 +23,10 @@ def value(text):
     return str(int(text, 16)) if text and text.lower().startswith("0x") else (text or "?")
 
 
-def read(collection, descriptors):
+def read(collection, descriptors, first_catalogs=()):
     collection = Path(collection)
     export = rt.RawExport([collection / "raw/Common/GameSetup/Tweakables/Mutators"], descriptors,
-                          collection / "asset-catalog.json")
+                          [*first_catalogs, collection / "asset-catalog.json"])
     tree, _ = export.read("MutatorDatabase_CH1.xml")
     root = tree.getroot() if hasattr(tree, "getroot") else tree
     found = {}
@@ -42,11 +42,15 @@ def main():
     parser.add_argument("collections", nargs="+", help="Collection folders (with raw\\ and asset-catalog.json)")
     parser.add_argument("--descriptors", nargs="+", required=True,
                         help="SharedTypeDescriptors.ebx per collection, in the same order (or one for all)")
+    parser.add_argument("--catalog", nargs="+", default=[],
+                        help="asset-catalog.json files read before each collection's own. Give the baseline's "
+                             "loaded-cache catalog when a collection was captured on a rebuilt cache: that "
+                             "catalog can give one file GUID to two assets, and the read stops on it")
     args = parser.parse_args()
     descriptors = args.descriptors * len(args.collections) if len(args.descriptors) == 1 else args.descriptors
     if len(descriptors) != len(args.collections):
         parser.error("give one descriptors file, or one per collection")
-    columns = [read(c, d) for c, d in zip(args.collections, descriptors)]
+    columns = [read(c, d, args.catalog) for c, d in zip(args.collections, descriptors)]
     print("| Setting | " + " | ".join("/".join(Path(c).parts[-3:-1]) for c in args.collections) + " |")
     print("|---" * (len(columns) + 1) + "|")
     for name in WATCHED:

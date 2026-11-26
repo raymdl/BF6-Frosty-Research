@@ -15,6 +15,7 @@ watchlist), and add the change rows from the scripted change lists after the cap
 
 | Update | Checklist | Result | Run folders |
 |---|---|---|---|
+| 2.1.2.5, 26 November 2026 | [2.1.2.5-checklist.md](2.1.2.5-checklist.md) | New build (type layouts differ; archive Head went down, 5926293 to 1089922). One gameplay change, the Supply Pouch throw-to-fire delay (registry 1.0 to 0.1); no site value changed; SGX deviation row added and labels stamped; site check 5 of 5 ([2.1.2.5-site-checks.json](2.1.2.5-site-checks.json)) | `builds\2.1.2.0\reports\client-new-check-2026-11-26\`, `2026-11-26-update-2125` |
 | 2.1.2.0 (Casino Heist), 10 November 2026 | [2.1.2.0-checklist.md](2.1.2.0-checklist.md) | New build; site updated 10 November (NSW4 Carbine, balance, new attachments); site check 220 of 220 ([2.1.2.0-site-checks.json](2.1.2.0-site-checks.json)) | `builds\2.1.1.0\capture\pre-update-5383516-2026-11-09\`, `2026-11-10-update-2120-post` |
 | Hotfix, 22 October 2026 (archive head 5383516) | None | Hotfix, same build: type layouts identical; 6 catalog record changes (four single-player face BindAssets, `SimEx_BR_ApplyProgressionWeapon`, DataVersion); raw 4 changed, no stored values | `builds\2.1.1.0\reports\client-new-check-2026-10-22\` |
 | Hotfix, 15 October 2026 (archive head 5383474) | None | Hotfix, same build: type layouts identical; 19 catalog record changes (13 non-English string tables, four single-player face BindAssets, sound MasterPatch, DataVersion); raw 3 changed | `builds\2.1.1.0\reports\client-new-check-2026-10-15\` |

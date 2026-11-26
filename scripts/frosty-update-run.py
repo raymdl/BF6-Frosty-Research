@@ -618,8 +618,12 @@ def stage1(a):
             save=check / "comparison-fresh-cache.txt", expected=(0, 1), marker="Written:")
 
     say("\n== 5b. Watched mutator values ==")
+    # The new collection's catalog comes from a rebuilt cache and can give one file GUID to two
+    # assets; the baseline's loaded-cache catalog, read first, decides those (2.1.2.5: MUT_CHIITest
+    # and MUT_PVE).
     run("watched values", py("frosty-mutator-values.py", collection, new, "--descriptors", descriptors,
-                             runtime_descriptors), save=check / "watched-values.md")
+                             runtime_descriptors, "--catalog", collection / "asset-catalog.json"),
+        save=check / "watched-values.md")
 
     say("\n== 5c. Hotfix check ==")
     cmd = py("frosty-hotfix-check.py", collection, new, "--out-dir", check / "hotfix-check",
