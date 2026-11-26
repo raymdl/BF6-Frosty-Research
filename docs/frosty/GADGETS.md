@@ -390,6 +390,73 @@ and the Portal "20 health per second" fit the healing effect's 0 / 20 / 2.5; the
 quantities fit the five REDSEC ammunition effects on the supply sphere. No note names the
 2.1.1.0 change that raised the throw delay from 0 to 1, which 2.1.2.5 then cut to 0.1.
 
+File history of the pouch's own folder (`Common/Hardware/Gadgets/Supply/SupplyPouch`, 27 November
+2026; every `.ebx` there decoded on 1.4.3.5, 2.1.1.0, 2.1.2.0 and 2.1.2.5 with each build's
+descriptors, 21 / 21 / 27 / 27 files, no decode failures; numbers compared per class and field
+with object order, references and offsets ignored; scripts in the session scratchpad, not kept):
+
+| Step | What changed in the files |
+|---|---|
+| 1.4.3.5 to 2.1.1.0 | `SupplyPouch_WB` gained six entries of `Class_ab79af5f`: five with `Field_2b213f7d` 0.5, 0.6, 0.7, 0.8, 0.9 and `Field_3f680d24` 11 to 15, and one with 1.5 and `Field_99ef031e` 0.3333 (the two Granite replenish modifiers already noted). The two carried-count numbers swapped in `SupplyPouch_Ability` (`Field_710f4e55` 1 to 3, `Field_8483f840` 3 to 1), and the blueprint gained a `Class_e7d2410a` object holding the same pair as 1 and 3 (`Field_4614adfe`, `Field_7f22bfb4`). Healing, ammunition, sphere and projectile numbers: none changed; their classes were only re-laid-out |
+| 2.1.1.0 to 2.1.2.0 | The five 0.5 to 0.9 entries were removed again; the 1.5 / 0.3333 one stays. The carried-count numbers swapped back in both files, to their 1.4.3.5 values in `SupplyPouch_Ability`; the registry rows in the table above kept their 2.1.1.0 values. Which of the two the game uses is not known. Five `Affector_Ammunition_AmmoPouch_BR_*` files joined the folder. The sphere's `Class_9966532d` gained two fields at 1.0. Ammunition and healing numbers: none changed |
+| 2.1.2.0 to 2.1.2.5 | Only the three `WeaponFiring` values above |
+
+What this adds:
+
+- The healing (0 / 20 / 2.5) and ammunition (2 / 3 / 4) numbers have not moved since 1.4.3.5.
+  Every pouch change in these four builds is to how many are carried, how they come back, and
+  the throw delay.
+- The five 0.5 to 0.9 entries existed for one build only. They share the class and the field of
+  the 1.5 replenish-delay multiplier, so they read as five more replenish-delay steps (ids 11 to
+  15); what selected them is not stored in the pouch folder. Candidate, not proved.
+- 2.1.2.0's note about the pouch's ammunition count going wrong after a Supply Crate resupply
+  lines up with the carried-count numbers being swapped back in the files in that build.
+- Supply sphere (`PBNS_SupplyPouch_SupplySphere`) object 1 holds `TimeToLive` 60 and
+  `Field_ee5ca261` 20.0, equal to the throw speed row; its other set numbers (0.2, 0.75, 5, 3, 45,
+  0.23, 10, 0.7) are unnamed. Object 9 holds two fields FIELD_MAP names on other classes
+  (`InnerBlastRadius` 1.0, `ShockwaveRadius` 1.1) beside 35.0 and 0.25; the class differs, so the
+  names are candidates only. Pickup radius is still not identified.
+- Lock-on and priority: see the next section.
+
+Who the pouch picks and what it applies (27 November 2026; compiled graph of
+`SimEx_SupplyPouch_NEW`, resource `41cb0320b8778b5b`, 6,144 bytes, captured on 2.1.2.5 in
+`builds\2.1.2.5\reports\supply-pouch-graphs-2026-11-27` with the three other pouch graph bodies;
+listed with `exgraph.py` pointed at the 2.1.2.5 descriptors and catalog; listing and wrapper in
+`reports\weapon-analyzer-research\2026-11-26-update-2125\SP-supply-pouch\graphs`). Function
+roles marked "inferred" are read from how the graph uses them, not from a name.
+
+- `PRJ_SimEx_SupplyPouch` (resource `4365d3e2a8c738a9`) is an empty graph, 128 bytes, the same
+  resource id as on 1.4.3.0. The projectile runs no graph logic of its own.
+- The graph has one input, `IsSharedAmmoExperience`, and one output, `AffectorApplied`.
+- Picking a recipient. The graph stores the time of its first run, fetches a list of candidates
+  (inferred: the soldiers the supply sphere touches) and takes the first one that passes two
+  affector queries: one against the pair `Affector_AutoReplenish_AmmoCrate` and
+  `Affector_Ammunition_SupplyPouch`, and one against `Affector_Healing_MedicCrate`. The test is
+  "first query returns 1, and the second returns 1 or a further handle is not set". What result 1
+  means (needs it, or can take it) is not stored. This test is the stored form of the 1.1.3.0
+  note about favouring players who are low or have asked.
+- A one-second rule. Until the pouch is more than 1 second old (stored constant 1.0 added to the
+  stored start time), a passing candidate goes through one more check that takes the candidate
+  and the thrower; after 1 second the candidate is taken directly. Reading: for the first second
+  the thrower is treated differently from everyone else (candidate: the thrower cannot take
+  their own pouch at once). Not proved.
+- What is applied to the recipient, always these three, with the thrower as instigator:
+  `Affector_AutoReplenish_AmmoCrate`, `Affector_Ammunition_SupplyPouch` and
+  `Affector_Healing_SupplyPouch`. The healing and auto-replenish calls take a parameter that is
+  10.1, or 15.1 when the thrower has upgrade id `0x0fd703d0` (name not resolved); the ammunition
+  call takes 1. What the parameter scales (amount, duration or range) is not stored in the graph.
+- Shared-ammunition mode only (`IsSharedAmmoExperience`, the REDSEC case): for the recipient's
+  primary and then secondary weapon the graph reads the weapon's category tag and applies one
+  Supply Crate ammunition affector, each with parameter 4.95: `Rifle` for assault rifle and
+  carbine; `PDWPistol` for SMG-PDW, pistol and revolver; `Shotgun` for shotgun; `BoltDMR` for DMR
+  and bolt-action; `MG` for LMG (read from the tag test's nine outputs and the branches on them).
+  These are the Supply Crate's affectors, not the five `AmmoPouch_BR` files in the
+  pouch folder; the graph calls `SimEx_SharedAmmoSupply` by name for the rest.
+- Not in this graph: any steering of the thrown pouch toward a player. The 2.1.2.0 "did not lock
+  onto friendly players" fix has no counterpart here, so the flight behaviour is in engine code
+  or in the unnamed sphere and projectile numbers. The presentation graph (`PresEx_SupplyPouch`,
+  45,696 bytes) reads player id, health and transforms only; it was not read line by line.
+
 Ability rows: `Ability_AdrenalineShot` active 1, recharge 0; `DeployableCover_Ability` active 1, recharge 0; `DeployableMortar_Ability` active 1, recharge 0; `Gadget_ATMine_Ability` active 1.8, recharge 0; `Gadget_SupplyCrate_Ability` active 1, recharge 0; `MPAPS_Ability` active 0, recharge 20.
 
 Effect rules (flat rows):
