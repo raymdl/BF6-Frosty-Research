@@ -1108,3 +1108,72 @@ Not established:
 - The squad-spawn block: the switch and the marker check sit in the soldier file, but the wiring between them is not traced.
 - Any duration, lifetime or placed-count limit: none found. The 60.0 time to live on the spawner projectile is a Spawn Beacon template value and is not the jammer's lifetime.
 - Effects on drones, guided missiles or lock-on: none found. Its graph does not import the lock-jam or projectile-jam effects the Mobile Jammer's graph uses (L4026).
+
+## Named settings 1.4.3.5 to 2.1.2.5, and lock controllers re-read (27 November 2026)
+
+Run folder `reports\weapon-analyzer-research\2026-11-27-gadget-pass` (datamining folder): the full
+registry diff (`reg-1435-2125.tsv`, `frosty-registry-diff.py` over the two collections, each with its
+own descriptors), the gadget rows as a list (`ledger-1435-to-2125.txt`), and the scripts. A plain
+reader's summary per gadget is in [the mechanics overview](../guides/GADGET_MECHANICS_OVERVIEW.md).
+
+- `GRX_Gadgets_Glacier` rows: 47 changed, 186 added, 222 removed. Most of the count is layout: the
+  `GS_DrillGL` dispersion block (94 removed, 9 changed), duplicate `GS_M4SLAM` `#2` rows, and
+  duplicate-named locking-controller rows whose order differs between the builds.
+- Changed scalars with a named owner: `FragGrenade_Detonation Delay After Bounce` 1.4 to 1.1;
+  `AssaultLadderConfig.RampAngle` 52 to 45; Supply Pouch `ReloadTime` 0 to 0.1 (1 in between); bare
+  `Range` 3 to 15 (owner not given).
+- Removed rows (their values are no longer named): `C4_Arm Delay` 0.5 and the unbound `PB_C4` rows;
+  `EODBot_Max Detection Distance` 40, `EODBot_Time To Full Track` 0.5, `EODBot_Tracking Max Angle`
+  12.5, `EODBot_Should Detonate Explosives`; `PLD_World Lock On Time` 1, `PLD_World Locking Cooldown`
+  0.5, `PLD_World Locking Max Angle Deviance` 20, `PLD_Handheld Spotting Max Distance` 500;
+  `M320_LVG_BlastRadius` 3.5; four `Thermobaric …` rows (fire damage duration 4); `AirburstIncendiary_
+  SmokeBlockingRadius` 2.5; `Drone_Destroy Gadget Cooldown` 5; `VSC_Total Ammo Supplies` 15 and
+  `VSC_Resupply Neutral Vehicles Max Time` 15; `AdrenalineShot_Rank` 5; `SupplyPouch_
+  HealthRegenerationRate` 25 and `SupplyPouch_RegenerationDuration` 4 (this closes the open item
+  above: the "25 for 4" rows were removed, not missed); `PB_M320Smoke` and `PB_M320StickyLauncher`.
+- Added rows: full `WB_IGLA` and `PB_NS_IGLA` sets; `WB_UAVJammer` and `VEH_UAVJammer` (Signal
+  Jammer); `BR_*_AmmoProvided` 60, 5, 50, 60, 10; `ATMine_TransportDetectionInterval` 2; four
+  `PTKM1R_CivilianVehicle…` rows (dispersion 4 to 12, velocity 10 to 30).
+- Lock controllers (`Class_9a3efaa2`, the six fields named in L3308) read from every gadget weapon
+  file on both builds (`locks.py`, 189 and 200 files, 11 with controllers): identical on 1.4.3.5 and
+  2.1.2.5 for `WB_Stinger`, `WB_IGLA`, `WB_Javelin`, `WB_MBTLAW`, `WB_PLD`, `WB_AT4`, `WB_RPG7V2`,
+  `LTLMII_WB`, `KineticStrike_WB` and the two shared controllers. The registry's lock-row "changes"
+  are therefore not shown to be real; they sit on duplicate names.
+- The IGLA's own file (1.8 and 1.2, ray 600 and 800, minimum range 39) and its registry rows (1.0,
+  ray 700 and 840 painted, minimum range 50) disagree. Which applies is the standing L3308 question.
+- Gadget files by raw hash (`gad_a.py`): 540 of 2,251 changed from 1.4.3.5 to 2.1.1.0; 714 changed,
+  1,573 added and 302 removed to 2.1.2.0 (the capture's route list also grew); 2 changed to 2.1.2.5.
+  Only the Supply Pouch folder was diffed value by value.
+
+### Value-level recheck of every changed gadget file (27 November 2026)
+
+`recheck.py` in the same run folder (`reports\weapon-analyzer-research\2026-11-27-gadget-pass`): of 1,949
+gadget files present on both 1.4.3.5 and 2.1.2.5, 829 differ by raw SHA-256; all 829 decoded on both builds with
+each build's descriptors, no failures. Scalars are keyed by their last field hash, so object order, class
+renames and re-nesting do not count. Result: 220 files have no scalar difference, 179 differ only in which fields
+exist, 430 hold some value-level difference; after dropping known layout fields and files that are artwork,
+sound, UI, prefabs or graph sources by name, about 35 gameplay files hold a like-for-like change
+(`recheck_report.txt`). Limits: a change inside a field whose entry count also changed is not paired (a second
+pass over FIELD_MAP-named fields found five such files, all ammunition blocks added or removed); graph bodies
+are not read.
+
+| File | Field | 1.4.3.5 | 2.1.2.5 |
+|---|---|---|---|
+| `Mines/PTKM1R/PB_PRJ_PTKM1R_EFP` | `Field_19861d8c` (BlastDamage) | 160 | 142 |
+| `Mines/ATMine/PBNS_ATMine` | `Field_09f31feb` | 0 | 0.1 |
+| `Misc/CeramicArmor/CeramicArmor_WB` | `Field_8dcef541` (SpawnDelay) | 2.0 | 1.725 |
+| `Misc/PLD/WB_PLD`, `VEH_GAD_PLD` | `Field_ed10e827` (Duration) | 9 | 2 |
+| `Misc/MobileJammer/MobileJammer_WB` | `Field_151d848e`, `Field_e70158eb` | 0.4674, 0.4675 | 1.0, 1.0 |
+| same | `Field_2e9bf47e` (WeaponFiring, unnamed) | 1.0 | 1.5 |
+| same | `Field_16e6fa59`, `Field_1180f1ee`, eight flags | 4, 2 | 0, 1 |
+| `Throwables/SupplyCrate/Gadget_SupplyCrate_WB_TempWeaponDeployTimeArray0` | `Field_ada3e7d9` | 0.68 | 0.65 |
+| `Throwables/SupplyCrate/PB_SupplyCrate`, `PB_SupplyCrate_FireSupport` | `Field_242ccf78` | 2 | 1 |
+| `Tools/DeployableCover/DeployableCover_WB` | MagazineCapacity, NumberOfMagazines, InitialAmmo | 30, 6, -1 | 1, 1, 0 |
+| `Throwables/C4/WB_C4` | `Field_825a1c00`, `Field_33ebe359` | 2, 2 | 1, 1 |
+| `Throwables/C4/BlastCurve_C4` | one point | 0.99579 | 1.0 |
+| `Tools/SniperDecoy/PB_SniperDecoy` | `Field_825a1c00`, `Field_33ebe359` | 10, 9 | 8, 7 |
+| `Tools/SpawnBeacon/VEH_SpawnBeacon` (and `_SpawnAdrenaline`) | vector 0, 0.2, 0 and a flag | | 0.11, 0.65, -0.21 |
+
+The registry row `Vehicle_HUD_Locking_PainterPainterMaxDuration` 9 (L3308) is not in the registry diff, so it is
+unchanged; whether the files' `Duration` (9, now 2) is the same quantity is not established. No like-for-like change in the gameplay files of the grenades,
+Claymore, M4 SLAM, launchers, Defibrillator, Repair Tool, MP-APS, EIDOS or T-UGS.
