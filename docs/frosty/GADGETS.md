@@ -1177,3 +1177,32 @@ are not read.
 The registry row `Vehicle_HUD_Locking_PainterPainterMaxDuration` 9 (L3308) is not in the registry diff, so it is
 unchanged; whether the files' `Duration` (9, now 2) is the same quantity is not established. No like-for-like change in the gameplay files of the grenades,
 Claymore, M4 SLAM, launchers, Defibrillator, Repair Tool, MP-APS, EIDOS or T-UGS.
+
+### Registry default against own value, both builds; new folders; card check (27 November 2026)
+
+Same run folder. `rva.py`: for the 22 gadget weapon files whose name equals a registry owner on both builds, the
+eight named values of the primary-fire block (MagazineCapacity, NumberOfMagazines, InitialAmmo, AutoReplenishDelay,
+AutoReplenishMagazine, AutoReplenishRounds, ReloadTime, RateOfFire) were read from the file (first occurrence under
+the object `WeaponFiring.PrimaryFire` points at) and from `GRX_Gadgets_Glacier` on 1.4.3.5 and 2.1.2.5.
+
+- 153 pairs agree on both builds; 14 differ on both; none converged or diverged. The only moved value among the 14
+  is the Supply Pouch registry `ReloadTime` (0 to 0.1; file 1.0).
+- The 14: `ReloadTime` registry 0.5 against file 0 for `DeployableCover_WB`, `DeployableMortar_WB`,
+  `Gadget_ATMine_WB`, `M18Claymore_WB`, `MPAPS_WB`, `PTKM1R_WB`, `SniperDecoy_WB`, `WB_VehicleSupplyCrate`, and 0.5
+  against 0.75 for `M4SLAM_WB`; `RateOfFire` 200 / 85 (`Gadget_ATMine_WB`), 300 / 60 (`M18Claymore_WB`), 550 / 60
+  (`SniperDecoy_WB`); `WB_C4` `NumberOfMagazines` 4 / 3; the Supply Pouch row above.
+- Limit: 13 registry owners (names with spaces, such as `PLD_Handheld_Weapon Blueprint`) were not matched to a
+  file; first-occurrence reading can pick a modifier's block where a file holds several.
+- In-game checks this suggests (none run): C4 carried count 4 or 3; IGLA lock time about 1.0 or 1.8; AT mine 195
+  or 300 (the L3314 test).
+
+Gadget folders by full asset catalog (`cat.py`): 130 on 1.4.3.5, 132 on 2.1.1.0 (`BattlePickups/DSPulse`,
+`Launchers/M320AT` added), 134 on 2.1.2.0 and 2.1.2.5 (`Misc/UAVJammer`, `Tools/UAVJammer` added). The other
+folders first seen in the 2.1.2.0 capture were in the October catalog and only not captured. DS Pulse named rows
+are in `GRX_Weapons` (`DSPulse_WB…`: capacity 160, 1 magazine, rate of fire 479.999, reload 6.7 and 5.83,
+`InitialSpeed.z` 300, replenish delay 5); `MutatorDatabase_Loot` has `BP_PulseRifle_Disabled` true; the kill-switch
+file has `DSPulse_Ability` and four `…M320AT…` rows, all false. `M320AT` has no weapon file in its folder.
+
+Card check for the mechanics overview: four Haiku 5.5 readers compared each card's numbers with the guide text
+(about 720 numbers, 25 flagged); every flag was traced by hand: 24 are values from this page that the readers did
+not have, one a miscount (22 `GS_M4SLAM` rows, not "about 25"), corrected.

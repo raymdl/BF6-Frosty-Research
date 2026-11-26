@@ -1,6 +1,6 @@
 # Gadget mechanics overview
 
-A plain-English reader aid: one card per gadget, 69 cards, saying what the gadget does, the stored numbers
+A plain-English reader aid: one card per gadget, 71 cards, saying what the gadget does, the stored numbers
 that matter, what changed since October, what is not known, and what could be shown on a site. It is a summary,
 not a record. The records are [GADGETS.md](../frosty/GADGETS.md) and the technical
 [gadget guide](GADGET_RESEARCH_GUIDE.html); check a number there before using it.
@@ -10,8 +10,10 @@ Written 27 November 2026 against game version 2.1.2.5.
 ## How far to trust it
 
 - **Where the cards come from.** Four worker models wrote them from the technical guide (last updated 10 October
-  2026, read on game version 1.4.3.5) and GADGETS.md. They were told to add nothing from memory. The cards were not
-  re-read line by line against the game files.
+  2026, read on game version 1.4.3.5) and GADGETS.md. They were told to add nothing from memory.
+- **Card check.** A second set of workers then compared every number on every card with the guide: about 720
+  numbers, 25 flagged. All 25 were traced: 24 come from GADGETS.md, which the checkers did not have, and one was a
+  miscount that is now fixed. A check by a small model can miss things, so GADGETS.md stays the record.
 - **What was re-checked on 2.1.2.5.** Two things only: every named gadget setting in the game's gadget settings
   table (compared between 1.4.3.5 and 2.1.2.5; the result is each card's "Changed since October" line), and the lock
   settings inside each lock-on launcher's own file (identical on both builds).
@@ -21,7 +23,7 @@ Written 27 November 2026 against game version 2.1.2.5.
   are re-saved layout, artwork, sound, icons and logic-graph bookkeeping. Limits: the comparison pairs values by
   field, so it can miss a change hidden among entries that were added or removed in the same field, and it does not
   read the logic graphs themselves.
-- **Not covered.** Gadgets added since October other than the Signal Jammer have no card (see the list below).
+- **Not covered.** Mission, loot and battle royale items have no card.
 - **Units.** The game files rarely state a unit. A bare number in a card has no confirmed unit.
 - **Two sources for one number.** Many gadgets hold a value in their own file and another in the settings table.
   Earlier research found EA's stated numbers follow the settings table where the two disagree. The cards say which
@@ -43,6 +45,97 @@ Written 27 November 2026 against game version 2.1.2.5.
   the same lock settings in their own files on both builds.
 - **Least understood.** Field upgrades, call-in strikes, Sabotage, Precision Strike, the payload and UAV drones,
   night vision, armor, Active Resupply, Ammo Bag and Medic Crate have little or nothing safe to show.
+
+## Which number does the game use?
+
+Many gadgets hold a value twice: once in the gadget's own file and once in the game's central settings list. Where
+the two disagree, the game files do not say which one is used. The project's working rule since October is that
+the settings list wins. The evidence all points that way, and today's checks add to it, but only one gadget value
+has been read in a match.
+
+What supports the rule:
+
+- **A balance change made in the settings list only.** In 2.1.2.5 EA's notes say the Supply Pouch throw delay was
+  reduced. The settings list went from 1.0 to 0.1; the pouch's own file still says 1.0. (Three other unnamed values
+  in the file changed in the same patch, so this is not a clean case.)
+- **An earlier case of the same kind.** A scout helicopter minigun heat value changed in the settings list alone
+  between two builds (recorded in October).
+- **EA's stated numbers.** Where EA has published a number for a disputed value, it has matched the settings list.
+- **One in-game reading.** In October an RPG hit on a tank's rear dealt 500, the settings-list prediction.
+- **No convergence since October.** For 22 gadget weapon files and 8 named values each (capacity, magazines, reload
+  time, fire rate and the replenish settings), 153 pairs agree on both builds and 14 disagree on both. None of the
+  disagreements was resolved in either direction between October and now.
+
+The 14 standing disagreements are mostly reload time (settings list 0.5, file 0) on placed gadgets, where it may
+not matter. Three are worth a look in game because they are easy to see:
+
+| Gadget | Settings list | Own file | Quick check in game |
+|---|---|---|---|
+| C4 | 4 carried | 3 carried | Spawn with C4 and count the charges |
+| IGLA | Lock time 1.0, range 700 (840 painted), minimum 50 | Lock time 1.8 and 1.2, range 600 and 800, minimum 39 | Time the lock tone on a hovering helicopter |
+| AT Mine | Blast damage 195 | 300 | One mine under a full-health tank, read the damage |
+
+If C4 shows 4 charges, IGLA locks in about 1 second and the mine does 195, the rule holds for gadgets too and the
+cards' settings-list numbers can be used. One clear result the other way would mean each gadget has to be checked
+on its own.
+
+## In-game names
+
+The cards use the names in the game files. The game shows different names for many of them. From the game's own
+menu data (read at 2.1.1.0; not re-read since):
+
+| Name in the files and on the cards | Name shown in game | Short name |
+|---|---|---|
+| AT Mine | Anti-Vehicle Mine | AV Mine |
+| AT4 | Aim-Guided Launcher | M136 AT |
+| Adrenaline Shot | Adrenaline Injector | Adrenaline  Injector |
+| Airburst Incendiary Launcher | Incendiary Airburst Launcher | Sich G1 WP |
+| Ammo Bag | Supply Bag | Supply Bag |
+| AntiTank Grenade | Anti-Vehicle Grenade | AV Grenade |
+| Assault Ladder | Assault Ladder | Assault Ladder |
+| C4 | Demolition Charge | C-4 Explosives |
+| Claymore | Anti-Personnel Mine | AP Mine |
+| Concussion Grenade | Stun Grenade | Stun Grenade |
+| Decoy | Sniper Decoy | Sniper Decoy |
+| Defibrilator | Defibrillator | Defibrillator |
+| Deployable Cover | Deployable Cover | Deployable Cover |
+| Deployable Mortar | Portable Mortar | LWCMS |
+| Drill Launcher | Breaching Projectile Launcher | X95 BRE |
+| Drone | Recon Drone | Recon Drone |
+| EIDOS | Grenade Intercept System | GPDIS |
+| EOD ATMine | EOD ATMine | EOD ATMine |
+| EOD Bot | EOD Bot | EOD Bot |
+| EOD Demining Charge | EOD Demining Charge | EOD Demining Charge |
+| Flashbang Grenade | Flash Grenade | Flash Grenade |
+| Frag Grenade | Fragmentation Grenade | Frag Grenade |
+| GasMask | Protective Mask | Protective Mask |
+| Incendiary Grenade | Incendiary Grenade | Incen Grenade |
+| Javelin | Long-Range Launcher | MAS 148 |
+| Lancet | Hardware Suppression System | Suppression |
+| M26 Mass Dragonsbreath | Incendiary-Round Shotgun | SS26 |
+| M26 Mass Slug | Underbarrel Shotgun | Shotgun |
+| M320 HE | High Explosive Launcher | M320A1 HE |
+| M320 Smoke | Smoke Grenade Launcher | M320A1 SMK |
+| M320 Thermobaric | Thermobaric Grenade Launcher | M320A1 THRM |
+| M4 SLAM | Tripwire Sensor AV Mine | M4A1 SLAM |
+| MBT-LAW | Auto-Guided Launcher | MBT-LAW |
+| MPAPS | Missile Intercept System | MP-APS |
+| MiniV40 Grenade | Mini Frag Grenade | Mini Grenade |
+| MobileJammer | Handheld Jammer | Jammer |
+| PLD | Laser Designator | Laser Designator |
+| PTKM-1R | Acoustic Sensor AV Mine | PTKM-1R |
+| Proximity Grenade | Throwable Proximity Detector | Proximity Detector |
+| RPG7v2 | Unguided Rocket Launcher | RPG-7V2 |
+| Repair Tool | Repair Tool | Repair Tool |
+| SA18 IGLA | Active Locking Air-Defense Launcher | Igla |
+| Smoke Grenade | Smoke Grenade | Smoke Grenade |
+| Spawn Beacon | Deploy Beacon | Deploy Beacon |
+| Stinger | Air-Defense Launcher | SLM-93A |
+| Supply Pouch | Supply Pouch | Supply Pouch |
+| T-UGS | Motion Sensor | Motion Sensor |
+| Throwing Knife | Throwing Knife | Throwing Knife |
+| Tracer Dart Gun | Tracer Dart | Tracer Dart |
+| Vehicle Supply Crate | Vehicle Supply Crate | Supply Crate |
 
 ## Values that changed inside gadget files
 
@@ -69,15 +162,6 @@ incendiary, Mini V40 and anti-tank grenades, the throwing knife, the Claymore, t
 AT4, MBT-LAW, Javelin, Stinger, IGLA, Panzerfaust 3, M320 family, airburst, breaching dart), the Defibrillator,
 Repair Tool, Adrenaline Shot, MP-APS, EIDOS, T-UGS, Tracer Dart, Assault Ladder or the gas mask. Their file
 differences are layout, artwork and sound.
-
-## Gadgets with no card yet
-
-Folders that exist in the 2.1.2.5 capture and not in the October one. Some are new to the game and some were only
-captured later; this list does not tell them apart: DS Pulse (battle pickup), Decoy (throwable), RF Jammer, UAV
-Jammer tool, Demolition Charge, Thermite Charge, Zipline, M224 Mortar, M320 AT, Airburst launcher, Revive Pen,
-Seismic Detector, Switchblade Launcher, Tracking Antenna, Gunsmith Toolkit, Handheld Radio, RF Radio, Bolt Cutters,
-Spray Can, Vest Armor, loot and corpse ammunition, surveillance cameras, and several mission items (data drive,
-keycards, cases, tablets).
 
 ## Healing, supply and revive
 
@@ -1126,6 +1210,116 @@ keycards, cases, tablets).
 - Whether it exists in standard multiplayer (the graph is Granite-named).
 - Real in-play duration.
 **Could go on the site now:** Nothing yet. Availability is unknown.
+
+## New since October
+
+Compared against the game's full file listing on each build, only three gadget folders are new since October: the
+DS Pulse and the M320 AT (both added in 2.1.1.0) and the Signal Jammer (2.1.2.0, card above). The other folders that
+first appear in the current capture already existed in October and were simply not captured then; they are mission,
+loot and battle royale items (zipline, thermite and demolition charges, revive pen, keycards, cameras and so on) and
+have no card.
+
+### DS Pulse
+**What the game says it does:** In-game text not looked up.
+**How it works (from the game files):**
+- A battle pickup that behaves like a firearm. Named settings: magazine 160, 1 magazine, fire rate 480 (unit not
+  stated, read as rounds per minute on other weapons), projectile speed 300.
+- Reload 6.7, or 5.83 with rounds left. Replenish delay 5, with automatic magazine replenish off.
+- It appears in the battle royale loot tables as "Pulse Rifle", with a setting that disables it there set to true.
+**Changed since October:** New in 2.1.1.0.
+**Not known yet:**
+- Damage, range and where it spawns in standard multiplayer.
+- Whether it is currently enabled anywhere.
+**Could go on the site now:** Nothing until its damage and availability are traced.
+
+### M320 AT
+**What the game says it does:** In-game text not looked up.
+**How it works (from the game files):**
+- An underbarrel M320 variant. Its folder holds four files (an ability, an unlock, a customisation entry and
+  model data) and no weapon file of its own, so its firing values are not in its folder.
+- The settings list has on-off switches for it under two weapon-skin names, all set to false.
+**Changed since October:** New in 2.1.1.0.
+**Not known yet:**
+- Which weapon file and projectile it uses, and every number.
+- Whether it is available to players.
+**Could go on the site now:** Nothing.
+
+## Site-ready stats at a glance
+
+Each card's own verdict, gathered in one place. "Now" means stored, named and not disputed; it still waits on the
+question above wherever the gadget holds a second, different value.
+
+| Gadget | Could show now, and what needs a check first |
+|---|---|
+| Defibrillator | Solid: full charge 1.0 and stored minimum 0.3 (show as stored defaults; mention EA's 0.35 note), 3 magazines, friendly range 2.0 and enemy range 1.5 (units need an in-game check). Needs an in-game check first: health restored per charge level, damage to enemies. |
+| Supply Pouch | Solid: heal over time 20 with no instant heal (unit needs an in-game check), the 0.1 post-throw delay (stored; whole delay unconfirmed), refill delay 39 (unit not stated). Needs a check: ammo per pickup, carried count, lifetime. |
+| Supply Crate / Supply Bag | Solid: open time 0.4 and refill delay 15 (units unconfirmed); 5.0 pulse interval (shape inferred, so mark it). Needs an in-game check: ammo per pulse, heal rate, radius. |
+| Medic Crate | Nothing yet. Its identity is unproved. |
+| Ammo Bag | Nothing. |
+| Vehicle Supply Crate | Only build time 0.6 and interval 5.0 from the file values, with units unchecked. Do not show "15 supplies": its setting was removed. |
+| Adrenaline Shot | Solid: duration 8 (unit unchecked), 0.8 explosive multiplier (name-read, so label as unconfirmed). Needs a check: heal amount, sprint boost size. Do not show rank 5. |
+| Repair Tool | Stored and named: repair 40 and anti-repair 30 per second (standard), 60 / 45 (active repair), range 2, interval 0.1. All need an in-game unit check first. |
+| Restock Allies / ActiveMedic | Only the in-game text values (10 s, 1.7 s), labelled "stated by the game, not found in the files". Radius 7 needs a unit check. The 1.7 s needs an in-game timing. |
+| Active Resupply | Nothing. |
+| Hemostatic smoke upgrade | 12.5 and 2.5 match both the screen text and the stored values, so they are the best candidates. Units still need an in-game check. |
+| Squad revive | Solid: total 4.72 and Support 2.2 (named, re-read; unit not stated in the files). Needs a check: health given on revive (the operator describes half health on a tap, not measured), the 1.7 case, whether the buffer is inside the 4.72. |
+| MP-APS | Solid enough to show: default lifetime 5 and 3 interceptions (named, stored, not disputed; say "default, may be changed by the game remotely"). Upgrade bonuses (+3 and +2) are stored too but the upgrade link is guessed. Needs an in-game check: range, real lifetime in seconds, how many shots it really stops. |
+| EIDOS / GPDIS | Solid: default lifetime 5, default interceptions 3, stored intercept range 5 (all named and stored; show without a unit). Needs an in-game check: real range, whether jamming really turns it off. |
+| Deployable Cover | Little is solid. The four stored 200.0 part values and the 30 refill delay are stored and named, but showing "800 health" is not allowed. Needs an in-game check: total health, resistances, pulse radius. |
+| Smoke Grenade | Only the stock (1 charge, 2 spares, 18 refill) is solid. Cloud radius and duration need an in-game check. |
+| M320 Smoke | Nothing solid. The guide holds no numbers for it, and the removed settings need re-finding under a new name before any figure is shown. |
+| Flashbang Grenade | Solid: the six blind-time numbers, close range 6, max range 12, angle limits 60 and 90, and the stock (all named and stored). Needs an in-game check: the +0.2, real blind effect, whether the numbers match what the player sees. |
+| Concussion Grenade | Solid: the three ring sizes and times, the fuse numbers and the stock (stored and named, though possibly overridden by the game). Needs an in-game check: units, how strong each ring is, whether ADS and sprint block both last the full time. |
+| Gas Mask | Not yet. The numbers are stored, but it is not established that standard multiplayer uses this default set. Needs an in-game check first. |
+| Soft Armor and Ceramic Armor | Nothing. The guide says these labels must not become a generic armor layer. Needs an in-game check that armor exists in standard multiplayer. |
+| T-UGS | Solid: radius 15, duration 2, pulse delay 1.5, upgrade multiplier 1.5 (stored and named; show with "default"). Needs an in-game check: real units, crouch and prone avoidance, device limit. |
+| Proximity Grenade / MTN-55 | Solid: radius 7, duration 2, delay 1, upgrade multiplier 1.5 (stored and named). Needs an in-game check: real range, whether vehicles are marked, how it treats crouching. |
+| Mobile Jammer | Solid: radius 10, refill delay 45, upgrade radius multiplier 2.0. Needs an in-game check: what the jam disables and for how long. |
+| Drone electronics disruption | Nothing solid. The cooldown of 5 is gone from the named list. Everything else needs an in-game check. |
+| Laser Designator / PLD | Solid enough: the three spot durations 5 / 30 / 20 and MarkTarget 15 (stored; EA's 9 must stay separate). Needs an in-game check: the true range by zoom level, the designation timer, the 20% benefit, and the removed world-lock rows. |
+| Tracer Dart Gun | Solid: stock 1 / 3, refill delay 9, reload 3.38. Needs an in-game check: mark duration, how much the 11 changes lock range, whether it works through countermeasures. |
+| Hardware Suppression System / Lancet | Solid: the three detection distances 30 / 60 / 80, tracking times 0.25 / 0.025, reload 3.233 (stored and named). Needs an in-game check: units, the "three combined" count, which targets are actually stopped. |
+| UAV drone | Nothing. There is no stored number to show. |
+| Signal Jammer | Solid enough: radius 21 (standard multiplayer), health 25, regeneration delay 5, refill delay 30, 1 charge (stored and cross-checked against the update's setting list). Needs an in-game check: what the jam does, the radius unit, whether the squad-spawn block is on, and the unlock. |
+| Spawn Beacon | Nothing numeric is solid. The in-game description (single use, one spawn per squad member) could be shown as text. The refill delay 30 needs an in-game timing check first. |
+| Assault Ladder | Nothing. The ramp angle 45 is a stored name and value but its unit is unstated, so check in game before showing it. |
+| EOD Bot | Repair 40 and anti-repair 30 (stored, named, same as the repair tool pattern) are the best candidates. The mine blast damage 150 and radius 2 are stored but the damage reading needs an in-game check. Lifetime 120 needs a timing check, because the countdown condition is undecoded. |
+| Payload drone | Nothing. |
+| Recon drone | Spotting distances 60 and 160 and the 40 gadget radius are stored and named, but units are not stated, so check in game first. Lifetime 80 needs a flight timing. |
+| Night vision / NVG | Nothing. The card text is just "NVGs". |
+| Deployable Mortar | HE blast damage 60 with radius 7.622 and the 50 health look solid (stored, named). The reload 2.65 needs the Supply Crate timing test first. |
+| Precision Strike | Nothing. |
+| M320 HE | Blast damage 120, blast radius 5 and inner radius 1 are stored and named. Radius units and the soldier-versus-vehicle results need an in-game check. |
+| M320 LVG | Nothing. The 3.5 radius is out of date. |
+| M320 Flash | The blind durations could be shown as "stored default", but units are unconfirmed, so one in-game timing is needed first. |
+| M320 Thermobaric | Nothing solid. Blast radius 3 and inner 2 are stored but the 50 versus 30 damage question (test: one grenade at a soldier's feet) and the removed duration make it unsafe. |
+| M26 MASS | Capacity 5 and 2 magazines are stored and named. Reload needs an in-game timing. Damage cannot be shown. |
+| M26 MASS Dragonsbreath | Nothing. |
+| RPG-7V2 | Reload 3.4 and capacity 1 with 3 magazines. Damage needs an in-game test, because the stored 135 and the default 125 disagree. |
+| AT4 / M136 | Capacity 1 with 2 magazines, reload 3.66 and refill delay 30 are stored with no dispute. Radius needs an in-game check, since the unit and the field names are inferred. |
+| MBT-LAW | Max speed 300, reload 3.4 and capacity 1 with 3 magazines are stored and match EA's upper range. Lock numbers wait on which source the game uses. |
+| Javelin | Max speed 60 and capacity 1 with 3 magazines. Lock numbers wait on which source the game uses. Reload cannot be shown. |
+| Panzerfaust 3 | Reload 4.96 and fire rate are stored. The damage results should wait for the tank-side hit test. |
+| Railgun | Stored damage 150, speed 1029, 11 magazines and reload 4.266 are stored and named. Damage on vehicles needs the tank-rear hit test. |
+| Stinger | Capacity 1 with 3 magazines and refill delay 18 are stored. Lock numbers wait on which source the game uses, and missile speed needs a timing test. |
+| IGLA | Max speed 480, blast damage 100 with radius 5, lock ranges 840 and 700, lock time 1.0, capacity 1 with 3 magazines. All are stored and named now. Check lock ranges in game, since units are not stated and the range owner is not settled. |
+| Drill Launcher / Breaching Dart | Reload 2.53 is stored and unchallenged. Everything else needs an in-game check. |
+| Airburst Incendiary Launcher | Capacity 1 with 3 magazines, refill delay 30 and reload 2.53. The burn numbers need the health-lost-per-second test. |
+| Frag Grenade | Blast damage 100, blast radius 5 and the 0 against tanks look solid (stored, named, not disputed). The bounce delay (1.1 now) is stored and confirmed by the ledger. Falloff steps and real damage at range need an in-game check first. |
+| Mini V40 | Capacity 1 and 2 magazines are stored and named. The 40 damage and 5 radius need re-checking on the current build before showing. |
+| Anti-Tank Grenade | Damage 50 and radius 1.5 are stored and named. The per-target numbers (150 on tanks and so on) are calculated from stored numbers and need one in-game check. |
+| Incendiary Grenade | Initial blast 0 with radius 4, and the 10 lifetime of the projectile. Burn damage needs an in-game check first (health lost in the first and eighth second). |
+| Throwing Knife | Capacity 1, 5 magazines and refill delay 15. Damage 50 needs an in-game check because the sources do not agree on owner and date. |
+| Decoy | Capacity and magazine counts only. Radius and timings need an in-game check. |
+| C4 | Blast damage 100, radius 3, and EA's 350 against tanks (labelled as an EA statement). Arm delay should wait for a check, since its setting was removed. |
+| Claymore | Only the carry numbers and the shape of the formula. Damage numbers need an in-game check. |
+| AT Mine | Capacity 1 and 3 magazines. Damage 300 and radius 2 come from an older table and need a recheck before showing. |
+| PTKM-1R | Capacity and refill delay. Everything about damage and trigger needs an in-game check. |
+| M4 SLAM | Capacity, magazines and refill delay. Damage and trigger range need an in-game check. |
+| Field upgrades | Nothing safely. The numbers are stored, but their roles are guessed from names. Each would need an in-game check. |
+| Mortar call-in | Nothing yet; the unit and availability questions are open. |
+| Call-in strike munitions | Nothing yet. Even the stored figures are not linked to a named call-in. An in-game test (a tank hit by one JAGM) would come first. |
+| Sabotage | Nothing yet. Availability is unknown. |
 
 ## Settings changes that no card could claim
 
