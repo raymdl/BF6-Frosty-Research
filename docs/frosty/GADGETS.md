@@ -327,6 +327,69 @@ Stored on 2.1.2.5 (one worker read; values that confirm an earlier lead say so):
 - Open: whether the 0.1 registry value is the whole throw-to-fire delay at run time, and what the
   three zeroed object-8 fields are. A timing from throw to the next shot would settle both.
 
+The three zeroed fields, follow-up (27 November 2026; census script and outputs in the session
+scratchpad, not kept: `frosty-ebx-decode.py` over every `*_WB`, `WB_*`, `VB_*` and
+`* Weapon Blueprint` file of `builds\2.1.2.5\capture\collection`, 143 objects of
+`Class_01419c76` in 139 files):
+
+- Object 8 is the pouch's `WeaponEntityData.WeaponFiring` block. The registry row names give
+  the path (`SupplyPouch_WB.WeaponEntityData.WeaponFiring.PrimaryFire…`), and object 8's
+  `Field_e29fe7dd` points at object 1, which holds `ReloadInfoArray`. So `Class_01419c76` is the
+  weapon-firing class, the same one that carries the deploy index (`Field_2c3e0fbf`) and the
+  deploy-time array import on every weapon.
+- After the change the pouch's block equals the frag grenade's in every stored number and
+  flag. The change made the pouch a standard thrown gadget; it did not give it new values.
+- The old values 0.1 / 0.2 / 0.2 were the same on 1.4.3.0, 1.4.3.5, 2.1.1.0 and 2.1.2.0 (each
+  build decoded with its own descriptors). They were not part of the 2.1.1.0 change that set the
+  registry delay to 1, and no other blueprint on 2.1.2.5 holds that combination.
+- Values by kind of item, in the order `Field_279679c7`, `Field_2e9bf47e`, `Field_31b5942c`:
+
+  | Items | Values |
+  |---|---|
+  | 69: all 63 primary weapons, plus battle pickups, two launchers and an underbarrel | 0, -1, -1 |
+  | 38: six sidearms and most gadgets (launchers, tools, mines) | -1, 0, -1 |
+  | 20: aircraft and drone weapons, call-ins, other gadgets, one sidearm | -1, -1, -1 |
+  | Frag, smoke, flashbang, Mini V40, anti-tank grenade, throwing knife, and now the pouch | 0, 0, 0 |
+  | Concussion, incendiary, proximity | 0, 0.3, 0 |
+  | Defibrillator (equipped) | -1, 0.05, -1 |
+  | Mobile Jammer | -1, 1.5, -1 |
+  | Decoy | 0.1, -1, -1 |
+  | NVG | 0.1, -1, 1.0 |
+  | UAV Overwatch | 0, -1, 0 |
+  | Adrenaline Shot | -1, -1, 0 |
+
+  -1 reads as "not set". The set values are short times (0.05 to 1.5), which fits delays in the
+  firing block, but nothing stored says which delay each one is.
+- Names: not recoverable from the files. No registry (`GRX_*`) has a named row for a direct
+  member of `WeaponFiring` other than `PrimaryFire` (3,292 name hits in `GRX_Weapons`, all
+  `WeaponFiring.PrimaryFire`). The field hashes are not plain djb2 or FNV of a name (`ReloadTime`
+  does not hash to `85ff24a0` under either).
+- Still open: which delay each field is. A throw-to-fire timing on 2.1.2.5 cannot separate them
+  from the registry change, because both shipped together.
+
+EA patch notes that name the pouch (all 26 update pages from 1.0.1.0 to 2.1.2.5 read on 27
+November 2026; own-words summaries; "Supply Bag" is EA's other name for it):
+
+| Update | What the notes say |
+|---|---|
+| 1.0.1.0 | Cannot be picked up once deployed; no longer heals vehicles; no longer pushes players into geometry; pings like a repair station; resupplies as intended and gives one extra C4 |
+| 1.1.1.0 | Fix: sometimes did not resupply |
+| 1.1.2.0 | Fix: interaction logic (with the Assault Ladder) |
+| 1.1.3.0 | Initial heal on deployment removed, heals over time only; ammunition setup corrected; a thrown pouch now favours players who are low or have asked for health or ammunition |
+| 1.2.1.0 | Fix: the player did not return to the previous weapon after a throw and kept throwing pouches |
+| 1.3.1.0 | Portal: the Supply Bag resupply type gave nothing; now two magazines for primary and secondary and 20 health per second |
+| 1.3.3.0 | Fix: Goliath pouches absorbed by nearby friendlies |
+| 1.4.2.0 | Fix: now breaks glass when thrown through it |
+| 1.4.3.0 | Fix: Saboteur accolade awarded for destroying your own Supply Bag |
+| 2.1.1.0 | Description corrected to full health and partial ammunition. REDSEC: Support's first gadget; can drop as ambulance loot; ammunition per use 10 shotgun, 5 sniper or DMR, 50 LMG, 60 AR or carbine, 60 pistol or SMG |
+| 2.1.2.0 | Fixes: thrown pouches did not lock onto friendlies; helicopters flipped or launched when a pouch was thrown from or hit them; ammunition count inconsistent after a Supply Crate resupply |
+| 2.1.2.5 | Throw-to-fire delay reduced; REDSEC in-world icon fixed |
+
+No mention in the other 14 updates. Matches with stored values: the 1.1.3.0 "no initial heal"
+and the Portal "20 health per second" fit the healing effect's 0 / 20 / 2.5; the five REDSEC
+quantities fit the five REDSEC ammunition effects on the supply sphere. No note names the
+2.1.1.0 change that raised the throw delay from 0 to 1, which 2.1.2.5 then cut to 0.1.
+
 Ability rows: `Ability_AdrenalineShot` active 1, recharge 0; `DeployableCover_Ability` active 1, recharge 0; `DeployableMortar_Ability` active 1, recharge 0; `Gadget_ATMine_Ability` active 1.8, recharge 0; `Gadget_SupplyCrate_Ability` active 1, recharge 0; `MPAPS_Ability` active 0, recharge 20.
 
 Effect rules (flat rows):
